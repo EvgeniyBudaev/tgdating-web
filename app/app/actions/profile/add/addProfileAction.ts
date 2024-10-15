@@ -163,13 +163,10 @@ export async function addProfileAction(prevState: any, formData: FormData) {
     const response = await addProfile(
       profileFormData as unknown as TAddProfileParams,
     );
-    console.log("RRRRRRRRRRRRR response: ", response);
-
-    // const path = createPath({
-    //   route: ERoutes.Session,
-    //   params: { sessionId: sessionId },
-    // });
-    // revalidatePath(path);
+    const path = createPath({
+      route: ERoutes.Root,
+    });
+    revalidatePath(path);
     return {
       data: response,
       error: undefined,

@@ -58,8 +58,20 @@ async function loader(params: TLoader) {
         profileList: profileListResponse,
       };
     }
-    return { profileFilter: undefined, profileList: undefined };
+    return {
+      profileFilter: undefined,
+      profileList: undefined,
+      isNotFound: false,
+    };
   } catch (error) {
+    //@ts-ignore
+    if (error?.status === 404) {
+      return {
+        profileFilter: undefined,
+        profileList: undefined,
+        isNotFound: true,
+      };
+    }
     throw new Error("errorBoundary.common.unexpectedError");
   }
 }
@@ -80,6 +92,7 @@ export default async function MainRoute(props: TProps) {
 
   return (
     <SessionPage
+      isNotFound={data.isNotFound}
       lng={language}
       profileFilter={data?.profileFilter}
       profileList={data?.profileList}

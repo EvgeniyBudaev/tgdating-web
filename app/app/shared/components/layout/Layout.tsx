@@ -18,18 +18,15 @@ export const Layout: FC<TProps> = ({ children, lng }) => {
     route: ERoutes.ProfileAdd,
     lng: lng,
   });
-  console.log("LLLLLLLLLLLLLLL pathname: ", pathname);
-  console.log("LLLLLLLLLLLLLLL path: ", path);
 
   const isFooter = useMemo(() => {
     return pathname !== `/${lng}${path}`;
   }, [pathname]);
-  console.log("isFooter: ", isFooter);
 
   return (
     <div className="Layout">
       <div className="Layout-Content">{children}</div>
-      {/*{isFooter && <Footer lng={lng} />}*/}
+      {isFooter && <Footer lng={lng} />}
     </div>
   );
 };

@@ -32,8 +32,8 @@ export async function addBlockAction(prevState: any, formData: FormData) {
   try {
     const response = await addBlock(formattedParams);
     const path = createPath({
-      route: ERoutes.Profile,
-      params: { viewedSessionId: resolver.data.blockedUserSessionId },
+      route: ERoutes.Session,
+      params: { sessionId: resolver.data.sessionId },
     });
     revalidatePath(path);
     return {

@@ -18,7 +18,6 @@ type TProps = {
 };
 
 export const Slider: FC<TProps> = ({ images, sessionId }) => {
-  console.log("images: ", images);
   return !isNil(images) && !isEmpty(images) ? (
     <Swiper
       className="Slider"

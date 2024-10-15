@@ -3,7 +3,8 @@
 import isEmpty from "lodash/isEmpty";
 import Image from "next/image";
 import Link from "next/link";
-import { type FC } from "react";
+import { redirect } from "next/navigation";
+import { type FC, useEffect } from "react";
 import type { TProfileList } from "@/app/api/profile/list";
 import { useTranslation } from "@/app/i18n/client";
 import type { TFilter } from "@/app/api/profile/filter";
@@ -17,19 +18,31 @@ import { Typography } from "@/app/uikit/components/typography";
 import "./SessionPage.scss";
 
 type TProps = {
+  isNotFound: boolean;
   lng: ELanguage;
   profileFilter?: TFilter;
   profileList?: TProfileList;
 };
 
 export const SessionPage: FC<TProps> = ({
+  isNotFound,
   lng,
   profileFilter,
   profileList,
 }) => {
   const navigator = useNavigator({ lng });
-  const { user } = useTelegram();
+  const { isSession, user } = useTelegram();
   const { t } = useTranslation("index");
+
+  useEffect(() => {
+    if (isSession && isNotFound) {
+      return redirect(
+        createPath({
+          route: ERoutes.ProfileAdd,
+        }),
+      );
+    }
+  }, [isNotFound]);
 
   return (
     <div className="SessionPage">

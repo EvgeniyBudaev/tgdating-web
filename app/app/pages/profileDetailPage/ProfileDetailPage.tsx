@@ -52,7 +52,7 @@ export const ProfileDetailPage: FC<TProps> = ({
   viewedSessionId,
 }) => {
   const { dayjs } = useDayjs();
-  const { user } = useTelegram();
+  const { isSession, user } = useTelegram();
   const { t } = useTranslation("index");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
@@ -65,7 +65,7 @@ export const ProfileDetailPage: FC<TProps> = ({
   const [isShowTooltipHeart, setIsShowTooltipHeart] = useState(false);
 
   useEffect(() => {
-    if (isNotFound) {
+    if (isSession && isNotFound) {
       return redirect(
         createPath({
           route: ERoutes.ProfileAdd,
@@ -278,34 +278,44 @@ export const ProfileDetailPage: FC<TProps> = ({
                 </div>
               </Field>
             )}
-            <div className="ProfileDetailPage-Box">
-              {profile?.location && (
-                <Field>
-                  <div className="ProfileDetailPage-Row">
-                    <Icon className="ProfileDetailPage-Icon" type="Location" />
-                    <Typography>{profile?.location}</Typography>
-                  </div>
-                </Field>
-              )}
-              {((!isNil(profile?.height) && profile?.height !== 0) ||
-                (!isNil(profile?.weight) && profile?.weight !== 0)) && (
-                <Field>
-                  <div className="ProfileDetailPage-Row">
-                    <Icon className="ProfileDetailPage-Icon" type="Person" />
-                    {!isNil(profile?.height) && (
-                      <Typography>
-                        {profile?.height} {t("common.reductions.cm")}&nbsp;
-                      </Typography>
-                    )}
-                    {!isNil(profile?.weight) && (
-                      <Typography>
-                        {profile?.weight} {t("common.reductions.kg")}&nbsp;
-                      </Typography>
-                    )}
-                  </div>
-                </Field>
-              )}
-            </div>
+            {profile?.location ||
+              (!isNil(profile?.height) && profile?.height !== 0) ||
+              (!isNil(profile?.weight) && profile?.weight !== 0 && (
+                <div className="ProfileDetailPage-Box">
+                  {profile?.location && (
+                    <Field>
+                      <div className="ProfileDetailPage-Row">
+                        <Icon
+                          className="ProfileDetailPage-Icon"
+                          type="Location"
+                        />
+                        <Typography>{profile?.location}</Typography>
+                      </div>
+                    </Field>
+                  )}
+                  {((!isNil(profile?.height) && profile?.height !== 0) ||
+                    (!isNil(profile?.weight) && profile?.weight !== 0)) && (
+                    <Field>
+                      <div className="ProfileDetailPage-Row">
+                        <Icon
+                          className="ProfileDetailPage-Icon"
+                          type="Person"
+                        />
+                        {!isNil(profile?.height) && (
+                          <Typography>
+                            {profile?.height} {t("common.reductions.cm")}&nbsp;
+                          </Typography>
+                        )}
+                        {!isNil(profile?.weight) && (
+                          <Typography>
+                            {profile?.weight} {t("common.reductions.kg")}&nbsp;
+                          </Typography>
+                        )}
+                      </div>
+                    </Field>
+                  )}
+                </div>
+              ))}
           </Container>
         </div>
         <form action={handleSubmit} className="ProfileDetailPage-Form">

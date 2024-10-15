@@ -144,8 +144,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
     }
     if (!isEdit && !isNil(state?.data) && state.success && !state?.error) {
       const path = createPath({
-        route: ERoutes.Session,
-        params: { sessionId: state.data.sessionId },
+        route: ERoutes.Root,
         lng: lng,
       });
       redirect(path);

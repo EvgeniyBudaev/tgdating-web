@@ -45,7 +45,6 @@ export function createPath(
   if (props?.lng) {
     path = `/${props.lng}${path}`;
   }
-  console.log("QQQQQQQQQQQQ path_4: ", path);
 
   return path;
 }

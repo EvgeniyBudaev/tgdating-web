@@ -9,8 +9,9 @@ import { useTranslation } from "@/app/i18n/client";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import { EBlockFormFields } from "@/app/pages/profileDetailPage/block/enums";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useQueryURL, useTelegram } from "@/app/shared/hooks";
+import { useTelegram } from "@/app/shared/hooks";
 import { Typography } from "@/app/uikit/components/typography";
+import { createPath } from "@/app/shared/utils";
 
 type TProps = {
   blockedUserSessionId: string;
@@ -22,14 +23,16 @@ export const Block: FC<TProps> = ({ blockedUserSessionId, lng }) => {
   const { t } = useTranslation("index");
   const [state, formAction] = useFormState(addBlockAction, INITIAL_FORM_STATE);
   const buttonSubmitRef = useRef<HTMLInputElement | null>(null);
-  const { queryURL } = useQueryURL({ lng });
 
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
-      const rootUrl = `${ERoutes.Root}${lng}${queryURL}`;
-      redirect(rootUrl);
+      const path = createPath({
+        route: ERoutes.Root,
+        lng: lng,
+      });
+      redirect(path);
     }
-  }, [lng, queryURL, state?.data, state?.error, state.success]);
+  }, [lng, state?.data, state?.error, state.success]);
 
   const handleBlock = () => {
     // @ts-ignore
