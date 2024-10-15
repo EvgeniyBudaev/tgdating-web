@@ -31,11 +31,11 @@ export async function addLikeAction(prevState: any, formData: FormData) {
   };
   try {
     const response = await addLike(formattedParams);
-    const path = createPath({
-      route: ERoutes.Profile,
-      params: { id: resolver?.data?.likedUserId ?? "" },
-    });
-    revalidatePath(path);
+    // const path = createPath({
+    //   route: ERoutes.ProfileDetail,
+    //   params: { id: resolver?.data?.likedUserId ?? "" },
+    // });
+    // revalidatePath(path);
     return {
       data: response,
       error: undefined,

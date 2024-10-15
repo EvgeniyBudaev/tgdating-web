@@ -23,8 +23,8 @@ type TProps = {
   [EProfileEditFormFields.TelegramAllowsWriteToPm]: string;
   [EProfileEditFormFields.TelegramQueryId]: string;
   [EProfileEditFormFields.TelegramChatId]: string;
-  [EProfileEditFormFields.Latitude]: string | null | undefined;
-  [EProfileEditFormFields.Longitude]: string | null | undefined;
+  [EProfileEditFormFields.Latitude]?: string | null | undefined;
+  [EProfileEditFormFields.Longitude]?: string | null | undefined;
   [EProfileEditFormFields.AgeFrom]: string;
   [EProfileEditFormFields.AgeTo]: string;
   [EProfileEditFormFields.Distance]: string;

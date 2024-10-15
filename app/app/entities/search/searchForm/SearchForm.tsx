@@ -115,7 +115,7 @@ export const SearchForm: FC<TProps> = ({ lng, profileFilter }) => {
       SEARCH_GENDER,
       (searchGenderState?.value ?? "").toString() ?? DEFAULT_SEARCH_GENDER,
     );
-    formDataDto.append(SESSION_ID, profileFilter?.sessionId);
+    formDataDto.append(SESSION_ID, profileFilter?.sessionId ?? "");
     // @ts-ignore
     formAction(formDataDto);
     handleCloseSidebar();

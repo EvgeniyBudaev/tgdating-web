@@ -39,11 +39,11 @@ export async function updateLikeAction(prevState: any, formData: FormData) {
     const response = isCancel
       ? await cancelLike(paramsDto)
       : await updateLike(paramsDto);
-    const path = createPath({
-      route: ERoutes.Profile,
-      params: { id: resolver?.data?.likedUserId ?? "" },
-    });
-    revalidatePath(path);
+    // const path = createPath({
+    //   route: ERoutes.ProfileDetail,
+    //   params: { id: resolver?.data?.likedUserId ?? "" },
+    // });
+    // revalidatePath(path);
     return {
       data: response.data,
       error: undefined,

@@ -35,8 +35,8 @@ export async function addComplaintAction(prevState: any, formData: FormData) {
   try {
     const response = await addComplaint(formattedParams);
     const path = createPath({
-      route: ERoutes.Profile,
-      params: { sessionId: resolver?.data.criminalSessionId ?? "" },
+      route: ERoutes.Session,
+      params: { sessionId: resolver.data.sessionId },
     });
     revalidatePath(path);
     return {

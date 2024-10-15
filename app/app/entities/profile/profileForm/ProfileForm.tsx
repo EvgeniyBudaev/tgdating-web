@@ -124,9 +124,11 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
     }
     if (isEdit && !isNil(state?.data) && state.success && !state?.error) {
       const query = {
-        ...(navigator?.latitudeGPS ? { latitude: navigator?.latitudeGPS } : {}),
+        ...(navigator?.latitudeGPS
+          ? { latitude: navigator?.latitudeGPS.toString() }
+          : {}),
         ...(navigator?.longitudeGPS
-          ? { longitude: navigator?.longitudeGPS }
+          ? { longitude: navigator?.longitudeGPS.toString() }
           : {}),
       };
       const path = createPath(

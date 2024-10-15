@@ -18,7 +18,7 @@ import { Typography } from "@/app/uikit/components/typography";
 import "./SessionPage.scss";
 
 type TProps = {
-  isNotFound: boolean;
+  isNotFound?: boolean;
   lng: ELanguage;
   profileFilter?: TFilter;
   profileList?: TProfileList;

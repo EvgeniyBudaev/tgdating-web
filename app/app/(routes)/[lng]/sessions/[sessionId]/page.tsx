@@ -92,7 +92,7 @@ export default async function MainRoute(props: TProps) {
 
   return (
     <SessionPage
-      isNotFound={data.isNotFound}
+      isNotFound={data?.isNotFound}
       lng={language}
       profileFilter={data?.profileFilter}
       profileList={data?.profileList}
