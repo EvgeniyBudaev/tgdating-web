@@ -1,29 +1,29 @@
 import { getProfileDetail } from "@/app/api/profile/detail";
 import { ProfileDeleted } from "@/app/entities/profile/profileDeleted";
 import { ProfileBlocked } from "@/app/entities/profile/profileBlocked";
-import { ProfilePage } from "@/app/pages/profilePage";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { createPath } from "@/app/shared/utils";
 import { redirect } from "next/navigation";
+import { ProfileDetailPage } from "@/app/pages/profileDetailPage";
 
 export const dynamic = "force-dynamic";
 
 type TSearchParams = {
   latitude?: string;
   longitude?: string;
-  sessionId?: string;
 };
 
 type TLoader = {
+  sessionId: string;
   viewedSessionId: string;
   searchParams: TSearchParams;
 };
 
 async function loader(params: TLoader) {
-  const { viewedSessionId, searchParams } = params;
+  const { sessionId, viewedSessionId, searchParams } = params;
   try {
     const profileDetailResponse = await getProfileDetail({
-      sessionId: searchParams?.sessionId ?? "",
+      sessionId: sessionId,
       viewedSessionId: viewedSessionId,
       latitude: searchParams?.latitude ?? "",
       longitude: searchParams?.longitude ?? "",
@@ -39,15 +39,16 @@ async function loader(params: TLoader) {
 }
 
 type TProps = {
-  params: { lng: string; viewedSessionId: string };
+  params: { lng: string; sessionId: string; viewedSessionId: string };
   searchParams?: TSearchParams;
 };
 
 export default async function ProfileDetailRoute(props: TProps) {
   const { params } = props;
-  const { lng, viewedSessionId } = params;
+  const { lng, sessionId, viewedSessionId } = params;
   const language = lng as ELanguage;
   const data = await loader({
+    sessionId,
     viewedSessionId,
     searchParams: props?.searchParams ?? {},
   });
@@ -61,19 +62,15 @@ export default async function ProfileDetailRoute(props: TProps) {
   }
 
   if (data?.profile?.block?.isBlocked) {
-    const path = createPath(
-      {
-        route: ERoutes.Root,
-      },
-      {
-        sessionId: props?.searchParams?.sessionId ?? "",
-      },
-    );
+    const path = createPath({
+      route: ERoutes.Session,
+      params: { sessionId: sessionId },
+    });
     redirect(path);
   }
 
   return (
-    <ProfilePage
+    <ProfileDetailPage
       isNotFound={data.isNotFound}
       lng={language}
       profile={data?.profile}
