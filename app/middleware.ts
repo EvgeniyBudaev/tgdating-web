@@ -58,6 +58,12 @@ export const getContentSecurityPolicy = (nonce?: string): string => {
       ? "'self' ws:"
       : "'self' ws://localhost:*";
 
+  // Add CORS headers
+  const cors_headers =
+    process.env.NEXT_PUBLIC_NODE_ENV !== "development"
+      ? "'https://api.ipify.org'"
+      : "'self'";
+
   return (
     "default-src 'self'; " +
     `script-src https://telegram.org https://api-maps.yandex.ru https://suggest-maps.yandex.ru http://*.maps.yandex.net https://yandex.ru https://yastatic.net ${script_src}; ` +
@@ -77,7 +83,8 @@ export const getContentSecurityPolicy = (nonce?: string): string => {
     // "prefetch-src 'self'; " +
     "script-src-attr 'none';" +
     "worker-src 'self' blob:; " +
-    "upgrade-insecure-requests"
+    "upgrade-insecure-requests" +
+    `access-control-allow-origin ${cors_headers};`
   );
 };
 

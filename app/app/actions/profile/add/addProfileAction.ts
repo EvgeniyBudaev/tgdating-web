@@ -19,6 +19,7 @@ export async function addProfileAction(prevState: any, formData: FormData) {
   const resolver = addProfileFormSchema.safeParse(
     Object.fromEntries(formData.entries()),
   );
+  console.log("resolver.success: ", resolver.success);
   if (!resolver.success) {
     const errors = getErrorsResolver(resolver);
     return {
@@ -36,10 +37,8 @@ export async function addProfileAction(prevState: any, formData: FormData) {
     const mapperParams = mapSignupToDto(formattedParams);
 
     const profileFormData = new FormData();
-    profileFormData.append(
-      "sessionId",
-      mapperParams.profileForm.telegramUserId,
-    );
+    const sessionId = mapperParams.profileForm.telegramUserId;
+    profileFormData.append("sessionId", sessionId);
     profileFormData.append(
       EProfileAddFormFields.DisplayName,
       mapperParams.profileForm.displayName,
@@ -164,11 +163,13 @@ export async function addProfileAction(prevState: any, formData: FormData) {
     const response = await addProfile(
       profileFormData as unknown as TAddProfileParams,
     );
+    console.log("RRRRRRRRRRRRR response: ", response);
 
-    const path = createPath({
-      route: ERoutes.Root,
-    });
-    revalidatePath(path);
+    // const path = createPath({
+    //   route: ERoutes.Session,
+    //   params: { sessionId: sessionId },
+    // });
+    // revalidatePath(path);
     return {
       data: response,
       error: undefined,
@@ -180,7 +181,7 @@ export async function addProfileAction(prevState: any, formData: FormData) {
     const responseData: TCommonResponseError = await errorResponse.json();
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};
-
+    console.log("EEEEEEEEEEEEe errorResponse: ", errorResponse);
     return {
       data: undefined,
       error: formError,

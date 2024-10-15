@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { zfd } from "zod-form-data";
-import { EComplaintFormFields } from "@/app/pages/profilePage/complaint/enums";
+import { EComplaintFormFields } from "@/app/pages/profileDetailPage/complaint/enums";
 import { EMPTY_FIELD_ERROR_MESSAGE } from "@/app/shared/validation";
 
 export const addComplaintFormSchema = zfd.formData({

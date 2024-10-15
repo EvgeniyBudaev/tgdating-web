@@ -115,30 +115,28 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
   });
 
   useEffect(() => {
-    console.log("UUUUUUUUUUUU isEdit: ", isEdit);
-    console.log("UUUUUUUUUUUU !isNil(state?.data): ", !isNil(state?.data));
-    console.log("UUUUUUUUUUUU state.success: ", state.success);
-    console.log("UUUUUUUUUUUU !state?.error: ", !state?.error);
-    console.log("UUUUUUUUUUUU state: ", state);
     if (isEdit && profile && profile.sessionId !== user?.id.toString()) {
       const path = createPath({
         route: ERoutes.PermissionDenied,
+        lng: lng,
       });
       redirect(path);
     }
     if (isEdit && !isNil(state?.data) && state.success && !state?.error) {
       const query = {
-        sessionId: state.data.sessionId,
         ...(navigator?.latitudeGPS ? { latitude: navigator?.latitudeGPS } : {}),
         ...(navigator?.longitudeGPS
           ? { longitude: navigator?.longitudeGPS }
           : {}),
       };
-      console.log("QQQQQQQQQQQQQQQQ: ", query);
       const path = createPath(
         {
-          route: ERoutes.Profile,
-          params: { viewedSessionId: state.data.sessionId },
+          route: ERoutes.ProfileDetail,
+          params: {
+            sessionId: user?.id ?? "",
+            viewedSessionId: state.data.sessionId,
+          },
+          lng: lng,
         },
         query,
       );
@@ -146,7 +144,9 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
     }
     if (!isEdit && !isNil(state?.data) && state.success && !state?.error) {
       const path = createPath({
-        route: ERoutes.Root,
+        route: ERoutes.Session,
+        params: { sessionId: state.data.sessionId },
+        lng: lng,
       });
       redirect(path);
     }
@@ -161,6 +161,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
   };
 
   const handleClickSave = () => {
+    // @ts-ignore
     buttonSubmitRef.current && buttonSubmitRef.current.click();
   };
 

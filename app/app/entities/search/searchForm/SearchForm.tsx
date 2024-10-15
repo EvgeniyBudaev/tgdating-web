@@ -16,18 +16,11 @@ import {
   DEFAULT_AGE_FROM,
   DEFAULT_AGE_TO,
   DEFAULT_SEARCH_GENDER,
-  DISTANCE,
-  LATITUDE,
-  LONGITUDE,
-  LOOKING_FOR,
-  PAGE,
   SEARCH_GENDER,
   SESSION_ID,
-  SIZE,
 } from "@/app/shared/constants";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import { ELanguage } from "@/app/shared/enums";
-import { useQueryURL } from "@/app/shared/hooks";
 import {
   SEARCH_BAR_SEARCH_GENDER_MAPPING,
   SEARCH_GENDER_MAPPING,
@@ -37,8 +30,8 @@ import { Icon } from "@/app/uikit/components/icon";
 import { RangeSlider } from "@/app/uikit/components/rangeSlider";
 import { Select, type TSelectOption } from "@/app/uikit/components/select";
 import { Sidebar } from "@/app/uikit/components/sidebar";
-import "./SearchForm.scss";
 import { Typography } from "@/app/uikit/components/typography";
+import "./SearchForm.scss";
 
 type TProps = {
   lng: ELanguage;
@@ -49,7 +42,6 @@ export const SearchForm: FC<TProps> = ({ lng, profileFilter }) => {
   const { t } = useTranslation("index");
   const searchParams = useSearchParams();
   const sidebarRef = useRef(null);
-  const { onGetQueryURL, onUpdateQueryURL } = useQueryURL({ lng });
   const [isSidebarOpen, setIsSidebarOpen] = useState({
     isGeneralFilters: false,
     isSearchGender: false,
@@ -116,24 +108,14 @@ export const SearchForm: FC<TProps> = ({ lng, profileFilter }) => {
   const handleSubmit = () => {
     const ageRangeValueFrom = Array.isArray(ageRange) ? ageRange[0] : ageRange;
     const ageRangeValueTo = Array.isArray(ageRange) ? ageRange[1] : ageRange;
-    onUpdateQueryURL?.({
-      ageFrom: ageRangeValueFrom.toString(),
-      ageTo: ageRangeValueTo.toString(),
-      searchGender:
-        (searchGenderState?.value ?? "").toString() ?? DEFAULT_SEARCH_GENDER,
-    });
-    const queryURL = onGetQueryURL?.();
     const formDataDto = new FormData();
-    formDataDto.append(PAGE, queryURL?.page ?? "");
-    formDataDto.append(SIZE, queryURL?.size ?? "");
-    formDataDto.append(AGE_FROM, queryURL?.ageFrom ?? "");
-    formDataDto.append(AGE_TO, queryURL?.ageTo ?? "");
-    formDataDto.append(SEARCH_GENDER, queryURL?.searchGender ?? "");
-    formDataDto.append(LOOKING_FOR, queryURL?.lookingFor ?? "");
-    formDataDto.append(SESSION_ID, queryURL?.sessionId ?? "");
-    formDataDto.append(DISTANCE, queryURL?.distance ?? "");
-    formDataDto.append(LATITUDE, queryURL?.latitude ?? "");
-    formDataDto.append(LONGITUDE, queryURL?.longitude ?? "");
+    formDataDto.append(AGE_FROM, ageRangeValueFrom.toString());
+    formDataDto.append(AGE_TO, ageRangeValueTo.toString());
+    formDataDto.append(
+      SEARCH_GENDER,
+      (searchGenderState?.value ?? "").toString() ?? DEFAULT_SEARCH_GENDER,
+    );
+    formDataDto.append(SESSION_ID, profileFilter?.sessionId);
     // @ts-ignore
     formAction(formDataDto);
     handleCloseSidebar();

@@ -5,7 +5,7 @@ import { useFormState } from "react-dom";
 import { deleteProfileAction } from "@/app/actions/profile/delete/deleteProfileAction";
 import type { TProfileDetail } from "@/app/api/profile/detail";
 import { useTranslation } from "@/app/i18n/client";
-import { EFormFields } from "@/app/pages/profilePage/enums";
+import { EFormFields } from "@/app/pages/profileDetailPage/enums";
 import { Header } from "@/app/shared/components/header";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import { Icon } from "@/app/uikit/components/icon";

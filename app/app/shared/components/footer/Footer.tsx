@@ -28,18 +28,34 @@ export const Footer: FC<TProps> = ({ lng }) => {
   const pathname = usePathname();
   const { isSession, user } = useTelegram();
   const { t } = useTranslation("index");
-  const { queryURL } = useQueryURL({ lng });
-  const rootUrl = `/${lng}${queryURL}`;
   const { isNotFound, profileShortInfo: profile } = useProfileShortInfo({
     lng,
   });
+  const sessionPath = createPath(
+    {
+      route: ERoutes.Session,
+      params: { sessionId: (user?.id ?? "").toString() },
+      lng,
+    },
+    {
+      ...(navigator?.latitudeGPS
+        ? { latitude: navigator?.latitudeGPS.toString() }
+        : {}),
+      ...(navigator?.longitudeGPS
+        ? { longitude: navigator?.longitudeGPS.toString() }
+        : {}),
+    },
+  );
   const isPermissions = !profile?.isBlocked && !profile?.isDeleted;
 
   const isProfileDetailPage = useMemo(() => {
     if (!profile?.sessionId) return false;
     const path = createPath({
-      route: ERoutes.Profile,
-      params: { sessionId: profile.sessionId },
+      route: ERoutes.ProfileDetail,
+      params: {
+        sessionId: profile.sessionId,
+        viewedSessionId: profile.sessionId,
+      },
     });
     return pathname === `/${lng}${path}`;
   }, [lng, pathname, profile?.sessionId]);
@@ -47,10 +63,12 @@ export const Footer: FC<TProps> = ({ lng }) => {
   useEffect(() => {
     const pathAdd = createPath({
       route: ERoutes.ProfileAdd,
+      lng: lng,
     });
     const pathEdit = createPath({
       route: ERoutes.ProfileEdit,
       params: { sessionId: user.id },
+      lng: lng,
     });
     if (
       isNotFound &&
@@ -66,7 +84,7 @@ export const Footer: FC<TProps> = ({ lng }) => {
       {isSession && isPermissions && !isNotFound && (
         <>
           <div className="Footer-Item">
-            <NavLink activeClassName="Footer-Link__isActive" href={rootUrl}>
+            <NavLink activeClassName="Footer-Link__isActive" href={sessionPath}>
               <Icon type="Search" />
             </NavLink>
           </div>
@@ -81,22 +99,28 @@ export const Footer: FC<TProps> = ({ lng }) => {
               </DropDown.Button>
               <DropDown.Panel>
                 <>
-                  <div className="DropDown-Menu">
-                    {!isProfileDetailPage && (
+                  {!isProfileDetailPage && (
+                    <div className="DropDown-Menu">
                       <Link
                         className="DropDown-MenuItem"
                         href={{
                           pathname: createPath({
-                            route: ERoutes.Profile,
-                            params: { viewedSessionId: user?.id ?? "" },
+                            route: ERoutes.ProfileDetail,
+                            params: {
+                              sessionId: (user?.id ?? "").toString(),
+                              viewedSessionId: (user?.id ?? "").toString(),
+                            },
                             lng: lng,
                           }),
                           query: {
-                            latitude: (navigator?.latitudeGPS ?? "").toString(),
-                            longitude: (
-                              navigator?.longitudeGPS ?? ""
-                            ).toString(),
-                            sessionId: user?.id,
+                            ...(navigator?.latitudeGPS
+                              ? { latitude: navigator?.latitudeGPS.toString() }
+                              : {}),
+                            ...(navigator?.longitudeGPS
+                              ? {
+                                  longitude: navigator?.longitudeGPS.toString(),
+                                }
+                              : {}),
                           },
                         }}
                       >
@@ -104,8 +128,8 @@ export const Footer: FC<TProps> = ({ lng }) => {
                           {t("common.actions.profileDetail")}
                         </Typography>
                       </Link>
-                    )}
-                  </div>
+                    </div>
+                  )}
                   <div className="DropDown-Menu">
                     <div className="DropDown-MenuItem DropDown-MenuItem-Cancel">
                       <Typography>{t("common.actions.cancel")}</Typography>

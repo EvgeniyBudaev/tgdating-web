@@ -20,6 +20,7 @@ export const ImageList: FC<TProps> = ({ defaultImages, lng }) => {
   const handleDeleteImage = async (image: TImage) => {
     const formDataDto = new FormData();
     formDataDto.append(EFormFields.Id, image.id.toString());
+    // @ts-ignore
     await deleteImageAction({}, formDataDto);
   };
 
@@ -34,9 +35,9 @@ export const ImageList: FC<TProps> = ({ defaultImages, lng }) => {
                   <Image
                     alt={image.name}
                     className="Previews-Thumb-Image"
-                    fill={true}
                     priority={true}
-                    sizes="100vw"
+                    height={120}
+                    width={120}
                     src={image.url}
                     quality={100}
                   />

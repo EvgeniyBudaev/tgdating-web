@@ -52,7 +52,7 @@ export const useTelegram = () => {
     query_id: "SkeH",
   };
 
-  const initDataUnsafeMockData = mockData1;
+  const initDataUnsafeMockData = mockData2;
 
   return {
     tg,

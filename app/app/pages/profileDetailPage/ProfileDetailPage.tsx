@@ -11,15 +11,14 @@ import { updateLikeAction } from "@/app/actions/like/update/updateLikeAction";
 import type { TProfileDetail } from "@/app/api/profile/detail";
 import { ProfileSidebar } from "@/app/entities/profile/profileSidebar";
 import { useTranslation } from "@/app/i18n/client";
-import { Block } from "@/app/pages/profilePage/block";
-import { Complaint } from "@/app/pages/profilePage/complaint";
+import { Block } from "@/app/pages/profileDetailPage/block";
+import { Complaint } from "@/app/pages/profileDetailPage/complaint";
 import {
   EAddLikeFormFields,
   ECancelLikeFormFields,
   EUpdateLikeFormFields,
-} from "@/app/pages/profilePage/enums";
-import { useProfileDetail } from "@/app/pages/profilePage/hooks";
-import { getDistance } from "@/app/pages/profilePage/utils";
+} from "@/app/pages/profileDetailPage/enums";
+import { getDistance } from "@/app/pages/profileDetailPage/utils";
 import { Container } from "@/app/shared/components/container";
 import { Field } from "@/app/shared/components/form/field";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
@@ -37,7 +36,7 @@ import { Online } from "@/app/uikit/components/online";
 import { Slider } from "@/app/uikit/components/slider";
 import { Typography } from "@/app/uikit/components/typography";
 import { getFullYear } from "@/app/uikit/utils/date";
-import "./ProfilePage.scss";
+import "./ProfileDetailPage.scss";
 
 type TProps = {
   isNotFound: boolean;
@@ -46,15 +45,13 @@ type TProps = {
   viewedSessionId: string;
 };
 
-export const ProfilePage: FC<TProps> = ({
+export const ProfileDetailPage: FC<TProps> = ({
   isNotFound,
   lng,
   profile,
   viewedSessionId,
 }) => {
-  useFilter({ lng });
   const { dayjs } = useDayjs();
-  // const {profileDetail: profile} = useProfileDetail({lng, viewedSessionId});
   const { user } = useTelegram();
   const { t } = useTranslation("index");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -224,25 +221,25 @@ export const ProfilePage: FC<TProps> = ({
           profile={profile}
           ref={sidebarRef}
         />
-        <div className="ProfilePage">
-          <div className="ProfilePage-Slider">
+        <div className="ProfileDetailPage">
+          <div className="ProfileDetailPage-Slider">
             <Slider
               images={profile?.images}
               sessionId={profile?.sessionId ?? ""}
             />
           </div>
           <Container>
-            <div className="ProfilePage-User">
-              <div className="ProfilePage-Box">
-                <div className="ProfilePage-Inner">
-                  <div className="ProfilePage-Inner-Left">
-                    <div className="ProfilePage-Label">
+            <div className="ProfileDetailPage-User">
+              <div className="ProfileDetailPage-Box">
+                <div className="ProfileDetailPage-Inner">
+                  <div className="ProfileDetailPage-Inner-Left">
+                    <div className="ProfileDetailPage-Label">
                       <Typography>
                         {profile?.displayName}, {fullYear}
                       </Typography>
                     </div>
                     {profile?.isOnline && (
-                      <div className="ProfilePage-Online">
+                      <div className="ProfileDetailPage-Online">
                         <Online
                           isOnline={profile?.isOnline}
                           message={
@@ -257,7 +254,7 @@ export const ProfilePage: FC<TProps> = ({
                       <Typography>{distance}</Typography>
                     )}
                   </div>
-                  <div className="ProfilePage-Inner-Right">
+                  <div className="ProfileDetailPage-Inner-Right">
                     {!isSessionUser && (
                       <Heart
                         // isLiked={isLiked}
@@ -276,16 +273,16 @@ export const ProfilePage: FC<TProps> = ({
             </div>
             {profile?.description && (
               <Field>
-                <div className="ProfilePage-Inner">
+                <div className="ProfileDetailPage-Inner">
                   <Typography>{profile?.description}</Typography>
                 </div>
               </Field>
             )}
-            <div className="ProfilePage-Box">
+            <div className="ProfileDetailPage-Box">
               {profile?.location && (
                 <Field>
-                  <div className="ProfilePage-Row">
-                    <Icon className="ProfilePage-Icon" type="Location" />
+                  <div className="ProfileDetailPage-Row">
+                    <Icon className="ProfileDetailPage-Icon" type="Location" />
                     <Typography>{profile?.location}</Typography>
                   </div>
                 </Field>
@@ -293,8 +290,8 @@ export const ProfilePage: FC<TProps> = ({
               {((!isNil(profile?.height) && profile?.height !== 0) ||
                 (!isNil(profile?.weight) && profile?.weight !== 0)) && (
                 <Field>
-                  <div className="ProfilePage-Row">
-                    <Icon className="ProfilePage-Icon" type="Person" />
+                  <div className="ProfileDetailPage-Row">
+                    <Icon className="ProfileDetailPage-Icon" type="Person" />
                     {!isNil(profile?.height) && (
                       <Typography>
                         {profile?.height} {t("common.reductions.cm")}&nbsp;
@@ -311,7 +308,7 @@ export const ProfilePage: FC<TProps> = ({
             </div>
           </Container>
         </div>
-        <form action={handleSubmit} className="ProfilePage-Form">
+        <form action={handleSubmit} className="ProfileDetailPage-Form">
           <input hidden={true} ref={buttonSubmitRef} type="submit" />
         </form>
       </>

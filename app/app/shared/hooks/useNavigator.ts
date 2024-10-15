@@ -92,6 +92,21 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
 
   const getLocationFromIp = useCallback(async () => {
     try {
+      // const getLocalIP = () => { window.RTCPeerConnection = window.RTCPeerConnection || window.webkitRTCPeerConnection || window.mozRTCPeerConnection; if (window.RTCPeerConnection) { const pc = new RTCPeerConnection(); pc.createDataChannel(''); pc.createOffer().then(pc.setLocalDescription.bind(pc)); pc.onicecandidate = (ice) => { if (!ice || !ice.candidate || !ice.candidate.candidate) return; const myIP = /([0-9]{1,3}(.[0-9]{1,3}){3})/.exec(ice.candidate.candidate)[1]; console.log('Your local IP address is:', myIP); pc.onicecandidate = () => {}; }; } }; getLocalIP();
+      //
+      // const ip = await new Promise((resolve, reject) => {
+      //   const conn = new RTCPeerConnection()
+      //   conn.createDataChannel('')
+      //   conn.createOffer(offer => conn.setLocalDescription(offer), reject)
+      //   conn.onicecandidate = ice => {
+      //     if (ice && ice.candidate && ice.candidate.candidate) {
+      //       resolve(ice.candidate.candidate.split(' ')[4])
+      //       conn.close()
+      //     }
+      //   }
+      // })
+      // console.log("IP: " + ip);
+
       const ipResponse = await fetch("https://api.ipify.org?format=json");
       const ipData = await ipResponse.json();
       const ipAddress = ipData.ip;

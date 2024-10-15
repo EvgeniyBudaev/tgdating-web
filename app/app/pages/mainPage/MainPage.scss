@@ -1,33 +1,4 @@
 @import "@/app/styles";
 
 .MainPage {
-  &-IsEmpty {
-    width: 100%;
-  }
-
-  &-List {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 1px;
-    justify-content: center;
-    align-content: center;
-  }
-
-  &-WrapperImage {
-    position: relative;
-    height: 120px;
-    width: 100%;
-  }
-
-  &-Image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
-  }
-
-  &-Online {
-    top: 4px;
-    left: 4px;
-  }
 }

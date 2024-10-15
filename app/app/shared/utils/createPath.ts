@@ -2,12 +2,14 @@ import { ERoutes } from "@/app/shared/enums";
 
 type TRoutes =
   | ERoutes.Root
-  | ERoutes.Register
   | ERoutes.Unauthorized
   | ERoutes.PermissionDenied
   | ERoutes.ProfileAdd;
 
-type TRoutesWithParams = ERoutes.Profile | ERoutes.ProfileEdit;
+type TRoutesWithParams =
+  | ERoutes.Session
+  | ERoutes.ProfileDetail
+  | ERoutes.ProfileEdit;
 
 type TCreatePathProps =
   | { route: TRoutes; lng?: string }
@@ -34,21 +36,16 @@ export function createPath(
         previousValue.replace(`:${param}`, String(value)),
       path,
     );
-    if (props?.lng) {
-      path = `/${props.lng}${path}`;
-    }
   }
-  console.log("path_0: ", path);
 
-  console.log("11111111111111 query: ", query);
-  console.log(
-    "11111111111111 Object.keys(query): ",
-    query && Object.keys(query),
-  );
   if (query && Object.keys(query).length) {
-    const path2 = `/${props?.lng ?? ""}${path}${path.includes("?") ? "&" : "?"}${new URLSearchParams(query)}`;
-    console.log("11111111111111 path_1: ", path2);
+    path = `${path}${path.includes("?") ? "&" : "?"}${new URLSearchParams(query)}`;
   }
+
+  if (props?.lng) {
+    path = `/${props.lng}${path}`;
+  }
+  console.log("QQQQQQQQQQQQ path_4: ", path);
 
   return path;
 }

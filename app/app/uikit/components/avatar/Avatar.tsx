@@ -82,11 +82,11 @@ const AvatarComponent: FC<TProps> = ({
         <Image
           alt={altImage}
           className="Avatar-Face"
-          height={sizeInner}
+          height={32}
+          width={32}
           priority={true}
           src={image}
           quality={100}
-          width={sizeInner}
         />
       );
     } else {

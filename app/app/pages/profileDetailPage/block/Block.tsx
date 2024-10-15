@@ -4,27 +4,24 @@ import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
 import { type FC, useEffect, useRef } from "react";
 import { useFormState } from "react-dom";
-import { addComplaintAction } from "@/app/actions/complaint/add/addComplaintAction";
+import { addBlockAction } from "@/app/actions/block/add/addBlockAction";
 import { useTranslation } from "@/app/i18n/client";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
-import { EComplaintFormFields } from "@/app/pages/profilePage/complaint/enums";
+import { EBlockFormFields } from "@/app/pages/profileDetailPage/block/enums";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useQueryURL, useTelegram } from "@/app/shared/hooks";
 import { Typography } from "@/app/uikit/components/typography";
 
 type TProps = {
-  criminalSessionId: string;
+  blockedUserSessionId: string;
   lng: ELanguage;
 };
 
-export const Complaint: FC<TProps> = ({ criminalSessionId, lng }) => {
-  const { isSession } = useTelegram();
+export const Block: FC<TProps> = ({ blockedUserSessionId, lng }) => {
+  const { isSession, user } = useTelegram();
   const { t } = useTranslation("index");
-  const [state, formAction] = useFormState(
-    addComplaintAction,
-    INITIAL_FORM_STATE,
-  );
-  const buttonSubmitRef = useRef<HTMLInputElement>(null);
+  const [state, formAction] = useFormState(addBlockAction, INITIAL_FORM_STATE);
+  const buttonSubmitRef = useRef<HTMLInputElement | null>(null);
   const { queryURL } = useQueryURL({ lng });
 
   useEffect(() => {
@@ -35,25 +32,23 @@ export const Complaint: FC<TProps> = ({ criminalSessionId, lng }) => {
   }, [lng, queryURL, state?.data, state?.error, state.success]);
 
   const handleBlock = () => {
-    buttonSubmitRef.current && buttonSubmitRef.current.click();
+    // @ts-ignore
+    if ("click" in buttonSubmitRef.current) {
+      buttonSubmitRef.current && buttonSubmitRef.current.click();
+    }
   };
 
   const handleSubmit = (formData: FormData) => {
-    // if (isSession && criminalSessionId) {
-    //   const formDataDto = new FormData();
-    //   const keycloakSession = session as TSession;
-    //   formDataDto.append(
-    //     EComplaintFormFields.SessionId,
-    //     keycloakSession?.user.id,
-    //   );
-    //   formDataDto.append(
-    //     EComplaintFormFields.CriminalSessionId,
-    //     criminalSessionId.toString(),
-    //   );
-    //   formDataDto.append(EComplaintFormFields.Reason, "");
-    //   // @ts-ignore
-    //   formAction(formDataDto);
-    // }
+    if (isSession && blockedUserSessionId) {
+      const formDataDto = new FormData();
+      formDataDto.append(EBlockFormFields.SessionId, user?.id.toString());
+      formDataDto.append(
+        EBlockFormFields.BlockedUserSessionId,
+        blockedUserSessionId.toString(),
+      );
+      // @ts-ignore
+      formAction(formDataDto);
+    }
   };
 
   return (
@@ -62,9 +57,9 @@ export const Complaint: FC<TProps> = ({ criminalSessionId, lng }) => {
         className="DropDown-MenuItem DropDown-MenuItem-Warning"
         onClick={handleBlock}
       >
-        <Typography>{t("common.actions.complaint")}</Typography>
+        <Typography>{t("common.actions.block")}</Typography>
       </div>
-      <form action={handleSubmit} className="Complaint-Form">
+      <form action={handleSubmit} className="Block-Form">
         <input hidden={true} ref={buttonSubmitRef} type="submit" />
       </form>
     </>

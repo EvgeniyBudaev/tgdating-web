@@ -16,7 +16,6 @@ export const getProfileListApi: TApiFunction<
   };
   // @ts-ignore
   const url = `/gateway/api/v1/profiles/list?${new URLSearchParams(queryParams)}`;
-  console.log("getProfileListApi url: ", url);
 
   return fetchApi<TProfileList>(url, {
     method: EFormMethods.Get,

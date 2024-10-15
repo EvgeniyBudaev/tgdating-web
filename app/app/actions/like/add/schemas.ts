@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { zfd } from "zod-form-data";
-import { EAddLikeFormFields } from "@/app/pages/profilePage/enums";
+import { EAddLikeFormFields } from "@/app/pages/profileDetailPage/enums";
 import { EMPTY_FIELD_ERROR_MESSAGE } from "@/app/shared/validation";
 
 export const addLikeFormSchema = zfd.formData({
