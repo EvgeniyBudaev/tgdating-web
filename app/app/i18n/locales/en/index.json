@@ -1,0 +1,76 @@
+{
+  "errorBoundary": {
+    "common": {
+      "unauthorized": "Not authorized via Telegram app",
+      "forbidden": "No access to the report",
+      "geoPositionError": "Error determining geoposition. Check your Internet connection and your equipment settings. Try refreshing the page",
+      "unexpectedError": "Unexpected error"
+    }
+  },
+  "common": {
+    "titles": {
+      "accountBlocked": "Account blocked",
+      "accountDeleted": "Account deleted",
+      "publicPhotos": "Public photos",
+      "required": "required",
+      "moreDetails": "More details",
+      "hidden": "hidden from users",
+      "properties": "Properties",
+      "autocomplete": "autocomplete",
+      "filtersGeneral": "General filters",
+      "age": "Age",
+      "isEmptyList": "No people found. Try changing your search settings.",
+      "online": "Online"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "save": "Save",
+      "settings": "Settings",
+      "filterSetup": "Set up a filter",
+      "block": "Block",
+      "complaint": "Complain and block",
+      "edit": "Edit",
+      "profileDetail": "Go to profile",
+      "delete": "Delete"
+    },
+    "form": {
+      "field": {
+        "displayName": "Display name",
+        "birthday": "Birthday",
+        "date": {
+          "placeholder": "Select date"
+        },
+        "description": "Description",
+        "gender": "Gender",
+        "searchGender": "Gender search",
+        "location": "Location",
+        "height": "Height",
+        "weight": "Weight"
+      }
+    },
+    "reductions": {
+      "cm": "cm",
+      "kg": "kg",
+      "km": "km",
+      "m": "m"
+    },
+    "validation": {
+      "email": "Invalid email",
+      "cyrillicEmail": "Only Latin characters",
+      "empty": "Field cannot be empty",
+      "onlyLetters": "Allowed characters: letters only",
+      "passwordNotMatch": "Password mismatch",
+      "wrongCharacter": "Allowed characters: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
+      "file": {
+        "expectedFile": "You can only attach a file",
+        "maxSize": "Maximum size 200mb",
+        "maxAmount": "Maximum number of files 50"
+      }
+    }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "Re-like will be available tomorrow"
+    }
+  }
+}

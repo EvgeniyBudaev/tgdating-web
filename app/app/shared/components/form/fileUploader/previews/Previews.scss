@@ -1,0 +1,33 @@
+@import "@/app/styles";
+
+$imageSize: 120px;
+
+.Previews {
+  //display: flex;
+  //flex-wrap: wrap;
+  //gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($imageSize, 1fr));
+  gap: 8px;
+
+  &-Thumb {
+    &-Inner {
+      position: relative;
+      height: $imageSize;
+      width: 100%;
+    }
+
+    &-WrapperImage {
+      position: relative;
+      height: $imageSize;
+      width: 100%;
+    }
+
+    &-Image {
+      object-fit: cover;
+      object-position: top;
+      border: 1px solid transparent;
+      border-radius: $border-radius;
+    }
+  }
+}

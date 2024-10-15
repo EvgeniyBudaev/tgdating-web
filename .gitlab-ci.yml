@@ -1,0 +1,19 @@
+include:
+  - project: 'evgeniybudaev/ci-cd'
+    ref: main
+    file: '.gitlab-ci/.gitlab-ci-main.yml'
+
+build_docker_compose_web:
+  extends: '.build_docker_compose'
+  before_script:
+    - docker-compose stop web
+    - docker-compose rm -f web
+    - docker ps -a
+    - echo $ENV_FILE
+    - cp $ENV_FILE ./app/.env
+
+deploy_docker_compose_web:
+  extends:  '.deploy_docker_compose'
+  before_script:
+    - echo $ENV_FILE
+    - cp $ENV_FILE ./app/.env

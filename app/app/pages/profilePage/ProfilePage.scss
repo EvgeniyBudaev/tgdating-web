@@ -1,0 +1,67 @@
+@import "@/app/styles";
+
+.ProfilePage {
+  position: relative;
+
+  & .swiper {
+    height: 100%;
+  }
+
+  &-Slider {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  &-User {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  &-Box {
+    padding: 8px;
+    background-color: $secondary_bg_color;
+    border-radius: $border-radius-lg;
+    width: 100%;
+  }
+
+  &-Inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-Row {
+    display: flex;
+    align-items: center;
+  }
+
+  &-Label {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  &-Icon {
+    margin-right: 8px;
+  }
+
+  &-Online {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 18px;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  &-Form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+}

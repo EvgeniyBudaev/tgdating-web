@@ -1,0 +1,14 @@
+@import "@/app/styles";
+
+.ProfileForm {
+  &-Header-Cancel,
+  &-Header-Save {
+    color: $link_color;
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+      opacity: $opacity;
+    }
+  }
+}
