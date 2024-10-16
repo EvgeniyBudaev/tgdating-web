@@ -44,7 +44,10 @@ export const Block: FC<TProps> = ({ blockedUserSessionId, lng }) => {
   const handleSubmit = (formData: FormData) => {
     if (isSession && blockedUserSessionId) {
       const formDataDto = new FormData();
-      formDataDto.append(EBlockFormFields.SessionId, user?.id.toString());
+      formDataDto.append(
+        EBlockFormFields.SessionId,
+        (user?.id ?? "").toString(),
+      );
       formDataDto.append(
         EBlockFormFields.BlockedUserSessionId,
         blockedUserSessionId.toString(),

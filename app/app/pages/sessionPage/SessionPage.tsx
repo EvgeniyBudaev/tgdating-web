@@ -42,7 +42,7 @@ export const SessionPage: FC<TProps> = ({
         }),
       );
     }
-  }, [isNotFound]);
+  }, [isSession, isNotFound]);
 
   return (
     <div className="SessionPage">

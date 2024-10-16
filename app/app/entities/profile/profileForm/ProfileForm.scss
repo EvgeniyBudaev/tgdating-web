@@ -3,6 +3,9 @@
 .ProfileForm {
   &-Header-Cancel,
   &-Header-Save {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: $link_color;
     cursor: pointer;
 

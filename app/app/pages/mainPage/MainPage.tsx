@@ -25,5 +25,5 @@ export const MainPage: FC<TProps> = ({ lng }) => {
     }
   }, [user?.id]);
 
-  return null;
+  return <></>;
 };

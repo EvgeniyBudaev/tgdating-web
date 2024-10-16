@@ -37,21 +37,19 @@ export const SidebarContent: FC<TProps> = ({
   );
   const { t } = useTranslation("index");
 
+  const handleBack = () => {
+    onSave?.(checkedItem);
+    onCloseSidebar?.();
+  };
+
   return (
     <>
       <Header className="SidebarContent-Header">
         <Icon
           className="SidebarContent-Header-Cancel"
-          onClick={onCloseSidebar}
+          onClick={handleBack}
           type="ArrowBack"
         />
-        <Typography>{title}</Typography>
-        <div
-          className="SidebarContent-Header-Save"
-          onClick={() => onSave?.(checkedItem)}
-        >
-          <Typography>{t("common.actions.save")}</Typography>
-        </div>
       </Header>
       {options && (
         <div className="SidebarContent-List">

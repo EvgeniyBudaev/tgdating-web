@@ -16,6 +16,7 @@ import {
   MoreHorizIcon,
   NoImageIcon,
   PersonIcon,
+  SaveIcon,
   SearchIcon,
   SpinnerIcon,
   TrashIcon,
@@ -40,6 +41,7 @@ export type IconType =
   | "MoreHoriz"
   | "NoImage"
   | "Person"
+  | "Save"
   | "Search"
   | "Spinner"
   | "Trash"
@@ -63,6 +65,7 @@ export const iconTypes = new Map([
   ["MoreHoriz", <MoreHorizIcon key="MoreHorizIcon" />],
   ["NoImage", <NoImageIcon key="NoImageIcon" />],
   ["Person", <PersonIcon key="PersonIcon" />],
+  ["Save", <SaveIcon key="SaveIcon" />],
   ["Search", <SearchIcon key="SearchIcon" />],
   ["Spinner", <SpinnerIcon key="SpinnerIcon" />],
   ["Trash", <TrashIcon key="TrashIcon" />],

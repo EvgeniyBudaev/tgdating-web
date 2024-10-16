@@ -15,6 +15,7 @@ import { LocationIcon } from "./locationIcon";
 import { MoreHorizIcon } from "./moreHorizIcon";
 import { NoImageIcon } from "./noImageIcon";
 import { PersonIcon } from "./personIcon";
+import { SaveIcon } from "./saveIcon";
 import { SearchIcon } from "./searchIcon";
 import { SpinnerIcon } from "./spinnerIcon";
 import { TrashIcon } from "./trashIcon";
@@ -38,6 +39,7 @@ export {
   MoreHorizIcon,
   NoImageIcon,
   PersonIcon,
+  SaveIcon,
   SearchIcon,
   SpinnerIcon,
   TrashIcon,

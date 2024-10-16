@@ -63,4 +63,13 @@ export const useTelegram = () => {
       ? Boolean(tg?.initDataUnsafe?.user?.id)
       : Boolean(initDataUnsafeMockData.user.id),
   };
+  // return {
+  //   tg,
+  //   chatId: tg?.initDataUnsafe?.chat?.id,
+  //   user: tg?.initDataUnsafe?.user,
+  //   queryId: tg?.initDataUnsafe?.query_id,
+  //   isSession: tg?.initDataUnsafe?.user?.id
+  //     ? Boolean(tg?.initDataUnsafe?.user?.id)
+  //     : false,
+  // };
 };

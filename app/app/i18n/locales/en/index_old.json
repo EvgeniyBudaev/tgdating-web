@@ -115,11 +115,11 @@
       "create": "Создать",
       "update": "Update",
       "apply": "Apply",
-      "search": "Search",
       "like": "There is mutual sympathy! Start communicating with",
       "add": "Add",
       "exit": "Exit",
-      "deleteAccount": "Delete account"
+      "deleteAccount": "Delete account",
+      "filterSetup": "Set up a filter"
     },
     "previews": {
       "defaultImage": "Default image",

@@ -3,7 +3,7 @@
     "common": {
       "unauthorized": "Not authorized via Telegram app",
       "forbidden": "No access to the report",
-      "geoPositionError": "Error determining geoposition. Check your Internet connection and your equipment settings. Try refreshing the page",
+      "geoPositionError": "Error determining geoposition. Check your Internet connection and your equipment filters. Try refreshing the page",
       "unexpectedError": "Unexpected error"
     }
   },
@@ -16,20 +16,22 @@
       "moreDetails": "More details",
       "hidden": "hidden from users",
       "properties": "Properties",
-      "autocomplete": "autocomplete",
+      "autocomplete": "auto detection",
       "filtersGeneral": "General filters",
       "age": "Age",
-      "isEmptyList": "No people found. Try changing your search settings.",
-      "online": "Online"
+      "online": "Online",
+      "isEmptyList": "No people found. Try changing your search settings."
     },
     "actions": {
-      "cancel": "Cancel",
       "save": "Save",
       "settings": "Settings",
-      "filterSetup": "Set up a filter",
+      "filter": "Filter",
       "block": "Block",
       "complaint": "Complain and block",
       "edit": "Edit",
+      "cancel": "Cancel",
+      "search": "Search",
+      "profile": "Profile",
       "profileDetail": "Go to profile",
       "delete": "Delete"
     },

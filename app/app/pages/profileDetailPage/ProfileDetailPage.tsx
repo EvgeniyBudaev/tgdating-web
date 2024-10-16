@@ -72,7 +72,7 @@ export const ProfileDetailPage: FC<TProps> = ({
         }),
       );
     }
-  }, [isNotFound]);
+  }, [isSession, isNotFound]);
 
   // const canAddLike = useMemo(() => {
   //   return !isSessionUser && isNil(profile?.like?.id);
@@ -199,12 +199,6 @@ export const ProfileDetailPage: FC<TProps> = ({
                   >
                     <Typography>{t("common.actions.edit")}</Typography>
                   </Link>
-                  <div
-                    className="DropDown-MenuItem"
-                    onClick={handleOpenSidebar}
-                  >
-                    <Typography>{t("common.actions.settings")}</Typography>
-                  </div>
                 </>
               )}
             </div>

@@ -36,6 +36,7 @@ import type { TFile } from "@/app/shared/types/file";
 import { createPath } from "@/app/shared/utils";
 import { formattedDate } from "@/app/shared/utils/date";
 import { Error } from "@/app/uikit/components/error";
+import { Icon } from "@/app/uikit/components/icon";
 import { Input } from "@/app/uikit/components/input";
 import { InputDateField } from "@/app/uikit/components/inputDateField";
 import { Select, type TSelectOption } from "@/app/uikit/components/select";
@@ -107,6 +108,11 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
     : DEFAULT_DISTANCE.toString();
   const latitude = navigator?.latitude?.toString() ?? "";
   const longitude = navigator?.longitude?.toString() ?? "";
+  const fio =
+    user?.first_name && user?.last_name
+      ? `${user?.first_name} ${user?.last_name}`
+      : user?.first_name;
+  const displayName = isEdit ? profile?.displayName : fio;
 
   const { onAddFiles, onDeleteFile } = useFiles({
     fieldName: EProfileAddFormFields.Image,
@@ -114,13 +120,16 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
     setValue: (_fieldName: string, files: TFile[]) => setFiles(files),
   });
 
+  // Profile Edit
   useEffect(() => {
-    if (isEdit && profile && profile.sessionId !== user?.id.toString()) {
-      const path = createPath({
-        route: ERoutes.PermissionDenied,
-        lng: lng,
-      });
-      redirect(path);
+    if (isEdit && profile && user) {
+      if (profile.sessionId !== user?.id.toString()) {
+        // const path = createPath({
+        //   route: ERoutes.PermissionDenied,
+        //   lng: lng,
+        // });
+        // redirect(path);
+      }
     }
     if (isEdit && !isNil(state?.data) && state.success && !state?.error) {
       const query = {
@@ -135,7 +144,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
         {
           route: ERoutes.ProfileDetail,
           params: {
-            sessionId: user?.id ?? "",
+            sessionId: user?.id.toString() ?? "",
             viewedSessionId: state.data.sessionId,
           },
           lng: lng,
@@ -144,6 +153,11 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
       );
       redirect(path);
     }
+  }, [isEdit, user?.id, profile, state]);
+
+  // Profile Add
+  useEffect(() => {
+    console.log("State: ", state);
     if (!isEdit && !isNil(state?.data) && state.success && !state?.error) {
       const path = createPath({
         route: ERoutes.Root,
@@ -151,7 +165,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
       });
       redirect(path);
     }
-  }, [isEdit, user?.id, profile, state]);
+  }, [isEdit, state]);
 
   const handleDeleteFile = (file: TFile, files: TFile[]) => {
     onDeleteFile?.(file, files);
@@ -291,9 +305,10 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
     <form action={handleSubmit} className="ProfileForm-Form">
       <Header>
         <div className="ProfileForm-Header-Cancel">
-          <Typography>{t("common.actions.cancel")}</Typography>
+          {/*<Typography>{t("common.actions.cancel")}</Typography>*/}
         </div>
         <div className="ProfileForm-Header-Save" onClick={handleClickSave}>
+          <Icon type="Save" />
           <Typography>{t("common.actions.save")}</Typography>
         </div>
       </Header>
@@ -334,12 +349,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
       <Section title={t("common.titles.moreDetails")}>
         <Field>
           <Input
-            defaultValue={
-              isEdit
-                ? profile?.displayName
-                : (user?.first_name +
-                    (user?.last_name && " " + user?.last_name) ?? undefined)
-            }
+            defaultValue={displayName}
             errors={state?.errors?.displayName}
             label={
               `${t("common.form.field.displayName")} (${t("common.titles.required")})` ??

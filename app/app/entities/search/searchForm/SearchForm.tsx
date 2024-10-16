@@ -1,7 +1,6 @@
 "use client";
 
 import isNil from "lodash/isNil";
-import { useSearchParams } from "next/navigation";
 import { type FC, useMemo, useRef, useState } from "react";
 import { useFormState } from "react-dom";
 import { updateFilterAction } from "@/app/actions/filter/update/updateFilterAction";
@@ -25,7 +24,6 @@ import {
   SEARCH_BAR_SEARCH_GENDER_MAPPING,
   SEARCH_GENDER_MAPPING,
 } from "@/app/shared/mapping/searchGender";
-import { DropDown } from "@/app/uikit/components/dropDown";
 import { Icon } from "@/app/uikit/components/icon";
 import { RangeSlider } from "@/app/uikit/components/rangeSlider";
 import { Select, type TSelectOption } from "@/app/uikit/components/select";
@@ -40,18 +38,14 @@ type TProps = {
 
 export const SearchForm: FC<TProps> = ({ lng, profileFilter }) => {
   const { t } = useTranslation("index");
-  const searchParams = useSearchParams();
   const sidebarRef = useRef(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState({
     isGeneralFilters: false,
     isSearchGender: false,
   });
-  const defaultAgeRangeFrom = searchParams.get(AGE_FROM)
-    ? Number(searchParams.get(AGE_FROM))
-    : DEFAULT_AGE_FROM;
-  const defaultAgeRangeTo = searchParams.get(AGE_TO)
-    ? Number(searchParams.get(AGE_TO))
-    : DEFAULT_AGE_TO;
+  const defaultAgeRangeFrom = profileFilter?.ageFrom ?? DEFAULT_AGE_FROM;
+  const defaultAgeRangeTo = profileFilter?.ageTo ?? DEFAULT_AGE_TO;
+
   const [ageRange, setAgeRange] = useState<any>([
     defaultAgeRangeFrom,
     defaultAgeRangeTo,
@@ -121,51 +115,33 @@ export const SearchForm: FC<TProps> = ({ lng, profileFilter }) => {
     handleCloseSidebar();
   };
 
+  const handleBack = () => {
+    handleCloseSidebar();
+    handleSubmit();
+  };
+
   return (
     <div className="SearchForm">
-      <Header className="SearchForm-Header">
-        <DropDown>
-          <DropDown.Button>
-            <div className="SearchForm-HeaderInner">
-              <SearchBar title={searchBarTitle} />
-              <div className="SearchForm-WrapperIcon">
-                <Icon className="SearchForm-Icon" type="Filter" />
-              </div>
-            </div>
-          </DropDown.Button>
-          <DropDown.Panel>
-            <>
-              <div className="DropDown-Menu">
-                <div className="DropDown-MenuItem" onClick={handleOpenSidebar}>
-                  <Typography>{t("common.actions.filterSetup")}</Typography>
-                </div>
-              </div>
-              <div className="DropDown-Menu">
-                <div className="DropDown-MenuItem DropDown-MenuItem-Cancel">
-                  <Typography>{t("common.actions.cancel")}</Typography>
-                </div>
-              </div>
-            </>
-          </DropDown.Panel>
-        </DropDown>
+      <Header>
+        <SearchBar title={searchBarTitle} />
+        <div className="SearchForm-WrapperIcon" onClick={handleOpenSidebar}>
+          <Icon className="SearchForm-Icon" type="Filter" />
+          <Typography>{t("common.actions.filter")}</Typography>
+        </div>
       </Header>
       <Sidebar
         isActive={isSidebarOpen.isGeneralFilters}
-        onClose={handleCloseSidebar}
+        onClose={handleBack}
         ref={sidebarRef}
       >
         <Header className="SidebarContent-Header">
-          <Icon
-            className="SidebarContent-Header-Cancel"
-            onClick={handleCloseSidebar}
-            type="ArrowBack"
-          />
-          <Typography>{t("common.titles.filtersGeneral")}</Typography>
-          <form action={handleSubmit}>
+          <form action={handleBack}>
             <button className="SidebarContent-Header-Save" type="submit">
-              <Typography>{t("common.actions.save")}</Typography>
+              <Icon className="SidebarContent-Header-Cancel" type="ArrowBack" />
             </button>
           </form>
+          <Typography>{t("common.titles.filtersGeneral")}</Typography>
+          <div />
         </Header>
         <div className="SidebarContent-List">
           <div className="SidebarContent-List-Item">

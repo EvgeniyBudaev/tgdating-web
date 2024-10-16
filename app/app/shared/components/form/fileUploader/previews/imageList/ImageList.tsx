@@ -35,9 +35,9 @@ export const ImageList: FC<TProps> = ({ defaultImages, lng }) => {
                   <Image
                     alt={image.name}
                     className="Previews-Thumb-Image"
+                    fill={true}
                     priority={true}
-                    height={120}
-                    width={120}
+                    sizes="100vw"
                     src={image.url}
                     quality={100}
                   />

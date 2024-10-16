@@ -43,16 +43,21 @@
       border-bottom: 1px solid $secondary_bg_color;
       cursor: pointer;
       width: 100%;
+      opacity: $opacity;
+
+      &__isChecked {
+        opacity: 1;
+      }
+
+      &__isChecked .Icon {
+        height: 16px;
+        width: 16px;
+        margin-right: 16px;
+      }
 
       &:last-child {
         border-bottom: none;
       }
-    }
-
-    & .Icon {
-      height: 16px;
-      width: 16px;
-      margin-right: 16px;
     }
 
     &-Delete {

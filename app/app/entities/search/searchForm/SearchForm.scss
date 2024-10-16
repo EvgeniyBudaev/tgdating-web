@@ -4,25 +4,20 @@
   position: relative;
   padding: 16px;
 
-  &-Header {
-    position: relative;
-
-    &Inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-  }
-
   &-WrapperIcon {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    color: $link_color;
+    cursor: pointer;
     height: 34px;
     width: 34px;
-    background-color: $secondary_bg_color;
-    border-radius: 50%;
     margin-left: 8px;
+
+    &:hover,
+    &:active {
+      opacity: $opacity;
+    }
   }
 
   &-Icon {
@@ -33,6 +28,7 @@
     width: 24px;
 
     & svg {
+      fill: $link_color;
       height: 24px;
       width: 24px;
     }
