@@ -6,8 +6,13 @@ import { imageFileSchema } from "@/app/api/upload";
 import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
 import { EGender, ELookingFor, ESearchGender } from "@/app/shared/enums/form";
 import { EMPTY_FIELD_ERROR_MESSAGE } from "@/app/shared/validation";
+import { EProfileEditFormFields } from "@/app/actions/profile/edit/enums";
 
 export const addProfileFormSchema = zfd.formData({
+  [EProfileEditFormFields.SessionId]: z
+    .string()
+    .trim()
+    .min(1, EMPTY_FIELD_ERROR_MESSAGE),
   [EProfileAddFormFields.DisplayName]: z
     .string()
     .trim()
@@ -49,7 +54,8 @@ export const addProfileFormSchema = zfd.formData({
     ELookingFor.All,
     "",
   ]),
-  [EProfileAddFormFields.Image]: imageFileSchema,
+  // [EProfileAddFormFields.Image]: imageFileSchema,
+  [EProfileAddFormFields.Image]: z.any(),
   [EProfileAddFormFields.TelegramUserID]: z
     .string()
     .trim()

@@ -8,7 +8,7 @@ type TResolverError = {
   };
 };
 
-type TErrorsResolverResponse = {
+export type TErrorsResolverResponse = {
   [field: string]: string[];
 };
 

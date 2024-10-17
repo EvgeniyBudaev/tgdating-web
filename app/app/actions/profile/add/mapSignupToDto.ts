@@ -3,6 +3,7 @@ import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
 import { TFile } from "@/app/shared/types/file";
 
 type TProps = {
+  [EProfileAddFormFields.SessionId]: string;
   [EProfileAddFormFields.DisplayName]: string;
   [EProfileAddFormFields.Birthday]: string;
   [EProfileAddFormFields.Gender]: string;
@@ -31,6 +32,7 @@ type TProps = {
 };
 
 type TProfileForm = {
+  [EProfileAddFormFields.SessionId]: string;
   [EProfileAddFormFields.DisplayName]: string;
   [EProfileAddFormFields.Birthday]: string;
   [EProfileAddFormFields.Gender]: string;
@@ -67,6 +69,7 @@ type TMapSignupToDto = (props: TProps) => TResponse;
 export const mapSignupToDto: TMapSignupToDto = (props) => {
   return {
     profileForm: {
+      [EProfileAddFormFields.SessionId]: props.sessionId,
       [EProfileAddFormFields.DisplayName]: props.displayName,
       [EProfileAddFormFields.Birthday]: props.birthday,
       [EProfileAddFormFields.Gender]: props.gender,

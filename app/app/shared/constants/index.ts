@@ -3,7 +3,7 @@ export const AGE_TO = "ageTo";
 
 export const DEFAULT_AGE_FROM = 18;
 export const DEFAULT_AGE_TO = 100;
-export const DEFAULT_DISTANCE = 30;
+export const DEFAULT_DISTANCE = 1000;
 export const DEFAULT_LANGUAGE = "ru";
 export const DEFAULT_LOOKING_FOR = "all";
 export const DEFAULT_PAGE = 1;

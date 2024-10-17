@@ -16,6 +16,7 @@ import {
 } from "@/app/shared/utils";
 
 export async function addProfileAction(prevState: any, formData: FormData) {
+  console.log("resolver: ", Object.fromEntries(formData.entries()));
   const resolver = addProfileFormSchema.safeParse(
     Object.fromEntries(formData.entries()),
   );
@@ -34,7 +35,9 @@ export async function addProfileAction(prevState: any, formData: FormData) {
     const formattedParams = {
       ...resolver.data,
     };
+    // @ts-ignore
     const mapperParams = mapSignupToDto(formattedParams);
+    console.log("mapperParams: ", mapperParams);
 
     const profileFormData = new FormData();
     const sessionId = mapperParams.profileForm.telegramUserId;
@@ -160,15 +163,16 @@ export async function addProfileAction(prevState: any, formData: FormData) {
       mapperParams.profileForm.size,
     );
 
-    const response = await addProfile(
-      profileFormData as unknown as TAddProfileParams,
-    );
-    const path = createPath({
-      route: ERoutes.Root,
-    });
-    revalidatePath(path);
+    // const response = await addProfile(
+    //   profileFormData as unknown as TAddProfileParams,
+    // );
+    // const path = createPath({
+    //   route: ERoutes.Root,
+    // });
+    // revalidatePath(path);
     return {
-      data: response,
+      // data: response,
+      data: undefined,
       error: undefined,
       errors: undefined,
       success: true,

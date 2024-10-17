@@ -25,8 +25,6 @@ export const NavLink: FC<TProps> = ({
   };
 
   const cleanHref = removeQueryParams(href);
-  console.log("pathname", pathname);
-  console.log("href", cleanHref);
 
   return (
     <Link
