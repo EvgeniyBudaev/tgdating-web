@@ -119,7 +119,9 @@
       "add": "Добавить",
       "exit": "Выйти",
       "deleteAccount": "Удалить аккаунт",
-      "filterSetup": "Настройте фильтр"
+      "filterSetup": "Настройте фильтр",
+      "profileDetail": "Перейти в профиль",
+      "lodaing": "Добавь сюда перевод!!!"
     },
     "previews": {
       "defaultImage": "Изображение по умолчанию",
@@ -170,6 +172,9 @@
     },
     "title": {
       "comments": "Отзывы"
+    },
+    "validation": {
+      "maxCharacters": "Должно быть не менее {{max}} символов"
     }
   },
   "form": {

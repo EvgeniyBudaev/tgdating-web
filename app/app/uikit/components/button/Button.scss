@@ -24,9 +24,14 @@
   }
 
   &:hover {
-    background-color: $link_color;
+    background-color: $link_active_color;
     color: $text_color;
     z-index: 2;
+  }
+
+  &.Button__loading {
+    cursor: not-allowed;
+    background-color: $link_active_color;
   }
 
   &.Button__disabled {

@@ -119,7 +119,9 @@
       "add": "Add",
       "exit": "Exit",
       "deleteAccount": "Delete account",
-      "filterSetup": "Set up a filter"
+      "filterSetup": "Set up a filter",
+      "profileDetail": "Go to profile",
+      "lodaing": "Добавь сюда перевод!!!"
     },
     "previews": {
       "defaultImage": "Default image",
@@ -170,6 +172,9 @@
     },
     "title": {
       "comments": "Добавь сюда перевод!!!"
+    },
+    "validation": {
+      "maxCharacters": "Добавь сюда перевод!!!"
     }
   },
   "form": {

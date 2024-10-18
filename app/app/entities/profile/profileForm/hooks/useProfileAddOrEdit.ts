@@ -1,10 +1,11 @@
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
-import { useRef, useState } from "react";
+import { redirect } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { addProfileAction } from "@/app/actions/profile/add/addProfileAction";
 import { editProfileAction } from "@/app/actions/profile/edit/editProfileAction";
-import type {TEditProfile} from "@/app/api/profile/edit";
+import type { TEditProfile } from "@/app/api/profile/edit";
 import type { TProfile } from "@/app/api/profile/get";
 import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
 import { EProfileEditFormFields } from "@/app/actions/profile/edit/enums";
@@ -16,15 +17,23 @@ import {
   DEFAULT_PAGE_SIZE,
 } from "@/app/shared/constants";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
-import { ELanguage } from "@/app/shared/enums";
+import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { EGender, ELookingFor, ESearchGender } from "@/app/shared/enums/form";
-import { useFiles, useNavigator, useTelegram } from "@/app/shared/hooks";
-import type {TUseNavigatorResponse} from "@/app/shared/hooks/useNavigator";
+import {
+  useFiles,
+  useFormErrors,
+  useNavigator,
+  useTelegram,
+  useTranslatedData,
+} from "@/app/shared/hooks";
+import type { TUseNavigatorResponse } from "@/app/shared/hooks/useNavigator";
 import { GENDER_MAPPING } from "@/app/shared/mapping/gender";
 import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
+import type { TDomainErrors } from "@/app/shared/types/error";
 import type { TFile } from "@/app/shared/types/file";
+import { createPath } from "@/app/shared/utils";
 import { formattedDate } from "@/app/shared/utils/date";
-import type {TErrorsResolverResponse} from "@/app/shared/utils/getErrorsResolver";
+import type { TErrorsResolverResponse } from "@/app/shared/utils/getErrorsResolver";
 import type { TSelectOption } from "@/app/uikit/components/select";
 
 type TProps = {
@@ -36,10 +45,18 @@ type TProps = {
 type TUseProfileEditResponse = {
   displayName: string | undefined;
   files: TFile[] | null;
+  formErrors: Record<string, string> | undefined;
   gender: TSelectOption | undefined;
+  isLoading: boolean;
   isSidebarOpen: { isSearchGender: boolean; isGender: boolean };
-  setIsSidebarOpen: (value: (((prevState: {isSearchGender: boolean; isGender: boolean }) => {
-    isSearchGender: boolean; isGender: boolean }) | {isSearchGender: boolean;   isGender: boolean; })) => void;
+  setIsSidebarOpen: (
+    value:
+      | ((prevState: { isSearchGender: boolean; isGender: boolean }) => {
+          isSearchGender: boolean;
+          isGender: boolean;
+        })
+      | { isSearchGender: boolean; isGender: boolean },
+  ) => void;
   language: ELanguage;
   location: string | undefined;
   navigator: TUseNavigatorResponse;
@@ -51,30 +68,33 @@ type TUseProfileEditResponse = {
   onDeleteFile(file: TFile, files: TFile[]): void;
   onSubmit(formData: FormData): void;
   searchGender: TSelectOption | undefined;
-  state: any;
-  // state: {
-  //   data: undefined;
-  //   success: boolean;
-  //   error: string | undefined;
-  //   errors: TErrorsResolverResponse } | {
-  //   data: TEditProfile;
-  //   success: boolean;
-  //   error: undefined;
-  //   errors: undefined;}
+  state: {
+    data?: TEditProfile;
+    success: boolean;
+    error?: string;
+    errors?: TErrorsResolverResponse | TDomainErrors;
+  };
   valueInputDateField: Date | null;
-  setValueInputDateField: (value: (((prevState: (Date | null)) => (Date | null)) | Date | null)) => void;
+  setValueInputDateField: (
+    value: ((prevState: Date | null) => Date | null) | Date | null,
+  ) => void;
 };
 
 type TUseProfileEdit = (props: TProps) => TUseProfileEditResponse;
 
-export const useProfileAddOrEdit: TUseProfileEdit = ({ isEdit, lng, profile }) => {
+export const useProfileAddOrEdit: TUseProfileEdit = ({
+  isEdit,
+  lng,
+  profile,
+}) => {
   const [state, formAction] = useFormState(
     // @ts-ignore
     isEdit ? editProfileAction : addProfileAction,
     INITIAL_FORM_STATE,
   );
+  const formErrors = useFormErrors({ errors: state.errors });
+  console.log("formErrors", formErrors);
   const { pending } = useFormStatus();
-  const buttonSubmitRef = useRef<HTMLInputElement | null>(null);
   const navigator = useNavigator({ lng });
   const { chatId, isSession, queryId, user } = useTelegram();
   const language = lng as ELanguage;
@@ -83,16 +103,16 @@ export const useProfileAddOrEdit: TUseProfileEdit = ({ isEdit, lng, profile }) =
     : (navigator?.location ?? undefined);
   const genderDefault = isEdit
     ? (
-      GENDER_MAPPING[language] as Array<{ label: string; value: EGender }>
-    ).find((item) => item.value === profile?.gender)
+        GENDER_MAPPING[language] as Array<{ label: string; value: EGender }>
+      ).find((item) => item.value === profile?.gender)
     : undefined;
   const searchGenderDefault = isEdit
     ? (
-      SEARCH_GENDER_MAPPING[language] as Array<{
-        label: string;
-        value: ESearchGender;
-      }>
-    ).find((item) => item.value === profile?.filter?.searchGender)
+        SEARCH_GENDER_MAPPING[language] as Array<{
+          label: string;
+          value: ESearchGender;
+        }>
+      ).find((item) => item.value === profile?.filter?.searchGender)
     : undefined;
   const [gender, setGender] = useState<TSelectOption | undefined>(
     genderDefault,
@@ -138,51 +158,50 @@ export const useProfileAddOrEdit: TUseProfileEdit = ({ isEdit, lng, profile }) =
   });
 
   // Profile Edit
-  // useEffect(() => {
-  //   if (isEdit && profile && user) {
-  //     if (profile.sessionId !== user?.id.toString()) {
-  //       // const path = createPath({
-  //       //   route: ERoutes.PermissionDenied,
-  //       //   lng: lng,
-  //       // });
-  //       // redirect(path);
-  //     }
-  //   }
-  //   if (isEdit && !isNil(state?.data) && state.success && !state?.error) {
-  //     const query = {
-  //       ...(navigator?.latitudeGPS
-  //         ? { latitude: navigator?.latitudeGPS.toString() }
-  //         : {}),
-  //       ...(navigator?.longitudeGPS
-  //         ? { longitude: navigator?.longitudeGPS.toString() }
-  //         : {}),
-  //     };
-  //     const path = createPath(
-  //       {
-  //         route: ERoutes.ProfileDetail,
-  //         params: {
-  //           sessionId: user?.id.toString() ?? "",
-  //           viewedSessionId: state.data.sessionId,
-  //         },
-  //         lng: lng,
-  //       },
-  //       query,
-  //     );
-  //     redirect(path);
-  //   }
-  // }, [isEdit, user?.id, profile, state]);
+  useEffect(() => {
+    if (isEdit && profile && user) {
+      if (profile.sessionId !== user?.id.toString()) {
+        // const path = createPath({
+        //   route: ERoutes.PermissionDenied,
+        //   lng: lng,
+        // });
+        // redirect(path);
+      }
+    }
+    if (isEdit && !isNil(state?.data) && state.success && !state?.error) {
+      const query = {
+        ...(navigator?.latitudeGPS
+          ? { latitude: navigator?.latitudeGPS.toString() }
+          : {}),
+        ...(navigator?.longitudeGPS
+          ? { longitude: navigator?.longitudeGPS.toString() }
+          : {}),
+      };
+      const path = createPath(
+        {
+          route: ERoutes.ProfileDetail,
+          params: {
+            sessionId: user?.id.toString() ?? "",
+            viewedSessionId: state.data.sessionId,
+          },
+          lng: lng,
+        },
+        query,
+      );
+      redirect(path);
+    }
+  }, [isEdit, user?.id, profile, state]);
 
   // Profile Add
-  // useEffect(() => {
-  //   console.log("State: ", state);
-  //   if (!isEdit && !isNil(state?.data) && state.success && !state?.error) {
-  //     const path = createPath({
-  //       route: ERoutes.Root,
-  //       lng: lng,
-  //     });
-  //     redirect(path);
-  //   }
-  // }, [isEdit, state]);
+  useEffect(() => {
+    if (!isEdit && !isNil(state?.data) && state.success && !state?.error) {
+      const path = createPath({
+        route: ERoutes.Root,
+        lng: lng,
+      });
+      redirect(path);
+    }
+  }, [isEdit, state]);
 
   const handleDeleteFile = (file: TFile, files: TFile[]) => {
     onDeleteFile?.(file, files);
@@ -332,15 +351,20 @@ export const useProfileAddOrEdit: TUseProfileEdit = ({ isEdit, lng, profile }) =
       }
     }
     // @ts-ignore
-    // formAction(formDataDto);
+    formAction(formDataDto);
     // @ts-ignore
-    fetchProfile(formDataDto);
+    // fetchProfile(formDataDto);
   };
+
+  console.log("pending: ", pending);
+  console.log("state?.errors: ", state?.errors);
 
   return {
     displayName,
     files,
+    formErrors,
     gender,
+    isLoading: pending,
     isSidebarOpen,
     setIsSidebarOpen,
     language,
@@ -349,7 +373,7 @@ export const useProfileAddOrEdit: TUseProfileEdit = ({ isEdit, lng, profile }) =
     onAddFiles,
     onChangeGender: handleChangeGender,
     onChangeSearchGender: handleChangeSearchGender,
-    onCloseSidebar:handleCloseSidebar,
+    onCloseSidebar: handleCloseSidebar,
     onDateChange: handleDateChange,
     onDeleteFile: handleDeleteFile,
     onSubmit: handleSubmit,

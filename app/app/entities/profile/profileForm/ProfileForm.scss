@@ -1,6 +1,8 @@
 @import "@/app/styles";
 
 .ProfileForm {
+  $this: &;
+
   &-Save {
     position: fixed;
     left: 0;
@@ -14,9 +16,14 @@
   &-Button.Button {
     width: 100%;
 
-    &:hover,
-    &:active {
-      opacity: $opacity;
+    #{$this}-Button-Loading {
+      display: flex;
+      align-items: center;
+    }
+
+    #{$this}-Button-Loading-Icon {
+      height: 24px;
+      width: 24px;
     }
   }
 }

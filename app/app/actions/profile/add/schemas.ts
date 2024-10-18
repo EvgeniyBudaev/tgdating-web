@@ -4,19 +4,21 @@ import { z } from "zod";
 import { zfd } from "zod-form-data";
 import { imageFileSchema } from "@/app/api/upload";
 import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
+import { EProfileEditFormFields } from "@/app/actions/profile/edit/enums";
 import { EGender, ELookingFor, ESearchGender } from "@/app/shared/enums/form";
 import { EMPTY_FIELD_ERROR_MESSAGE } from "@/app/shared/validation";
-import { EProfileEditFormFields } from "@/app/actions/profile/edit/enums";
+import {
+  numberNonNegativeWithMaxHeightOptionalSchema,
+  numberNonNegativeWithMaxWeightOptionalSchema,
+  symbolsMaxDisplayNameSchema,
+} from "@/app/shared/validation/schemas";
 
 export const addProfileFormSchema = zfd.formData({
   [EProfileEditFormFields.SessionId]: z
     .string()
     .trim()
     .min(1, EMPTY_FIELD_ERROR_MESSAGE),
-  [EProfileAddFormFields.DisplayName]: z
-    .string()
-    .trim()
-    .min(1, EMPTY_FIELD_ERROR_MESSAGE),
+  [EProfileAddFormFields.DisplayName]: symbolsMaxDisplayNameSchema,
   [EProfileAddFormFields.Birthday]: z
     .string()
     .trim()
@@ -42,8 +44,8 @@ export const addProfileFormSchema = zfd.formData({
   ]),
   [EProfileAddFormFields.Location]: z.string().trim(),
   [EProfileAddFormFields.Description]: z.string().trim(),
-  [EProfileAddFormFields.Height]: z.string().trim(),
-  [EProfileAddFormFields.Weight]: z.string().trim(),
+  [EProfileAddFormFields.Height]: numberNonNegativeWithMaxHeightOptionalSchema,
+  [EProfileAddFormFields.Weight]: numberNonNegativeWithMaxWeightOptionalSchema,
   [EProfileAddFormFields.LookingFor]: z.enum([
     ELookingFor.Chat,
     ELookingFor.Dates,
@@ -54,8 +56,7 @@ export const addProfileFormSchema = zfd.formData({
     ELookingFor.All,
     "",
   ]),
-  // [EProfileAddFormFields.Image]: imageFileSchema,
-  [EProfileAddFormFields.Image]: z.any(),
+  [EProfileAddFormFields.Image]: imageFileSchema,
   [EProfileAddFormFields.TelegramUserID]: z
     .string()
     .trim()
@@ -79,14 +80,8 @@ export const addProfileFormSchema = zfd.formData({
     .string()
     .trim()
     .min(1, EMPTY_FIELD_ERROR_MESSAGE),
-  [EProfileAddFormFields.Latitude]: z
-    .string()
-    .trim()
-    .min(1, EMPTY_FIELD_ERROR_MESSAGE),
-  [EProfileAddFormFields.Longitude]: z
-    .string()
-    .trim()
-    .min(1, EMPTY_FIELD_ERROR_MESSAGE),
+  [EProfileAddFormFields.Latitude]: z.string().nullish(),
+  [EProfileAddFormFields.Longitude]: z.string().nullish(),
   [EProfileAddFormFields.AgeFrom]: z
     .string()
     .trim()

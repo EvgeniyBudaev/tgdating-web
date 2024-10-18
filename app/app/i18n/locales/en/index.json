@@ -8,6 +8,23 @@
     }
   },
   "common": {
+    "validation": {
+      "maxSymbols": "Must be no more than {{max}} symbols",
+      "email": "Invalid email",
+      "cyrillicEmail": "Only Latin characters",
+      "empty": "Field cannot be empty",
+      "onlyLetters": "Allowed characters: letters only",
+      "passwordNotMatch": "Password mismatch",
+      "wrongCharacter": "Allowed characters: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
+      "file": {
+        "expectedFile": "You can only attach a file",
+        "maxSize": "Maximum size 200mb",
+        "maxAmount": "Maximum number of files 50"
+      },
+      "invalidTypeNumber": "Must be a number",
+      "nonNegativeNumber": "Must be a positive number",
+      "lessOrEqualMaxNumber": "Must be less or equal to {{max}}"
+    },
     "titles": {
       "accountBlocked": "Account blocked",
       "accountDeleted": "Account deleted",
@@ -21,19 +38,6 @@
       "age": "Age",
       "online": "Online",
       "isEmptyList": "No people found. Try changing your search settings."
-    },
-    "actions": {
-      "save": "Save",
-      "settings": "Settings",
-      "filter": "Filter",
-      "block": "Block",
-      "complaint": "Complain and block",
-      "edit": "Edit",
-      "cancel": "Cancel",
-      "search": "Search",
-      "profile": "Profile",
-      "profileDetail": "Go to profile",
-      "delete": "Delete"
     },
     "form": {
       "field": {
@@ -50,24 +54,24 @@
         "weight": "Weight"
       }
     },
+    "actions": {
+      "loading": "Loading",
+      "save": "Save",
+      "settings": "Settings",
+      "filter": "Filter",
+      "block": "Block",
+      "complaint": "Complain and block",
+      "edit": "Edit",
+      "cancel": "Cancel",
+      "search": "Search",
+      "profile": "Profile",
+      "delete": "Delete"
+    },
     "reductions": {
       "cm": "cm",
       "kg": "kg",
       "km": "km",
       "m": "m"
-    },
-    "validation": {
-      "email": "Invalid email",
-      "cyrillicEmail": "Only Latin characters",
-      "empty": "Field cannot be empty",
-      "onlyLetters": "Allowed characters: letters only",
-      "passwordNotMatch": "Password mismatch",
-      "wrongCharacter": "Allowed characters: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
-      "file": {
-        "expectedFile": "You can only attach a file",
-        "maxSize": "Maximum size 200mb",
-        "maxAmount": "Maximum number of files 50"
-      }
     }
   },
   "pages": {

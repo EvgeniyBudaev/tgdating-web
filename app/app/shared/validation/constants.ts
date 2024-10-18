@@ -1,7 +1,4 @@
-// TODO: функцию t заменить на t из i18next
-const t = (value: string) => {
-  return value;
-};
+import { t } from "@/app/shared/i18next";
 
 export const LETTERS_EN = "a-zA-Z";
 export const LETTERS_RU = "а-яА-ЯёЁ";
@@ -21,11 +18,13 @@ export const NAME_ERROR_MESSAGE = t("common.validation.onlyLetters");
 
 export const PASSWORD_ERROR_MESSAGE = t("common.validation.passwordNotMatch");
 
-// export const PHONE_REGEXP = /^[-+\d() ]*$/;
 export const PHONE_REGEXP = /\+7\s?\(?\d\d\d\)?\s?\d\d\d\s?\d\d\s?\d\d/;
-// export const PHONE_REGEXP = /(\+7)(\d{3})(\d{3})(\d{2})(\d{2})/g;
 export const PHONE_ERROR_MESSAGE = t("common.validation.wrongCharacter");
 
 export const FILE_TYPE_MESSAGE = t("common.validation.file.expectedFile");
 export const FILE_MAX_SIZE_MESSAGE = t("common.validation.file.maxSize");
 export const FILE_MAX_AMOUNT_MESSAGE = t("common.validation.file.maxAmount");
+
+export const NUMBER_TYPE_ERROR = {
+  invalid_type_error: t("common.validation.invalidTypeNumber"),
+};

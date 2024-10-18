@@ -13,5 +13,12 @@ export function getOptions(lng = fallbackLng, ns = defaultNS) {
     fallbackNS: defaultNS,
     defaultNS,
     ns,
+    react: { useSuspense: false },
+    i18nFormat: {
+      memoize: true,
+      memoizeFallback: false,
+      bindI18n: "",
+      bindI18nStore: "",
+    },
   };
 }

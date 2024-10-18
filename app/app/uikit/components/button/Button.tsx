@@ -8,6 +8,7 @@ export interface IButtonProps extends DOMAttributes<HTMLButtonElement> {
   className?: string;
   dataTestId?: string;
   isDisabled?: boolean;
+  isLoading?: boolean;
   type?: "submit" | "reset" | "button";
 }
 
@@ -16,6 +17,7 @@ const ButtonComponent: FC<IButtonProps> = ({
   children,
   dataTestId = "uikit__button",
   isDisabled = false,
+  isLoading = false,
   type,
   ...rest
 }) => {
@@ -23,6 +25,7 @@ const ButtonComponent: FC<IButtonProps> = ({
     <button
       className={clsx("Button", className, {
         Button__disabled: isDisabled,
+        Button__loading: isLoading,
       })}
       data-testid={dataTestId}
       disabled={isDisabled}

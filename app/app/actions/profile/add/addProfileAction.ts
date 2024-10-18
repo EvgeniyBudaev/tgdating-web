@@ -172,7 +172,6 @@ export async function addProfileAction(prevState: any, formData: FormData) {
     // revalidatePath(path);
     return {
       // data: response,
-      data: undefined,
       error: undefined,
       errors: undefined,
       success: true,

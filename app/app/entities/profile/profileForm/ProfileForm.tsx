@@ -2,9 +2,8 @@
 
 import isNil from "lodash/isNil";
 import { type FC } from "react";
-import { useFormStatus } from "react-dom";
 import type { TProfile } from "@/app/api/profile/get";
-import { useTranslation } from "@/app/i18n/client";
+import { useTranslation } from "react-i18next";
 import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
 import { useProfileAddOrEdit } from "@/app/entities/profile/profileForm/hooks";
 import { Container } from "@/app/shared/components/container";
@@ -19,6 +18,7 @@ import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
 import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
 import { Button } from "@/app/uikit/components/button";
 import { Error } from "@/app/uikit/components/error";
+import { Icon } from "@/app/uikit/components/icon";
 import { Input } from "@/app/uikit/components/input";
 import { InputDateField } from "@/app/uikit/components/inputDateField";
 import { Select } from "@/app/uikit/components/select";
@@ -33,12 +33,13 @@ type TProps = {
 };
 
 export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
-  const { pending } = useFormStatus();
   const { i18n, t } = useTranslation("index");
   const {
     displayName,
     files,
+    formErrors,
     gender,
+    isLoading,
     isSidebarOpen,
     setIsSidebarOpen,
     language,
@@ -68,7 +69,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
   }
 
   return (
-    <form action={onSubmit} className="ProfileForm-Form" encType="multipart/form-data">
+    <form action={onSubmit} className="ProfileForm-Form">
       <Section
         title={t("common.titles.publicPhotos")}
         subTitle={t("common.titles.required")}
@@ -94,10 +95,10 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
             onDeleteFile={onDeleteFile}
             type="file"
           />
-          {state?.errors?.image && (
+          {formErrors?.image && (
             <Container>
               <div className="InputField-ErrorField">
-                <Error errors={state?.errors?.image} />
+                <Error errors={formErrors?.image} />
               </div>
             </Container>
           )}
@@ -107,7 +108,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
         <Field>
           <Input
             defaultValue={displayName}
-            errors={state?.errors?.displayName}
+            errors={formErrors?.displayName}
             label={
               `${t("common.form.field.displayName")} (${t("common.titles.required")})` ??
               "Display name"
@@ -122,7 +123,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
             {t("common.titles.required")},&nbsp;{t("common.titles.hidden")})
           </Typography>
           <InputDateField
-            errors={state?.errors?.birthday}
+            errors={formErrors?.birthday}
             locale={LANGUAGE_MAPPING[language]}
             onChange={onDateChange}
             onFieldClear={() => setValueInputDateField(null)}
@@ -135,7 +136,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
             defaultValue={
               isEdit ? (profile?.description ?? undefined) : undefined
             }
-            errors={state?.errors?.description}
+            errors={formErrors?.description}
             isShowMaxLength={true}
             label={t("common.form.field.description") ?? "Description"}
             maxLength={1000}
@@ -147,7 +148,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
       <Section title={t("common.titles.properties")}>
         <Field>
           <Select
-            errors={state?.errors?.gender}
+            errors={formErrors?.gender}
             isSidebarOpen={isSidebarOpen.isGender}
             label={`${t("common.form.field.gender")} (${t("common.titles.required")})`}
             headerTitle={!isNil(gender) ? gender?.label : "--"}
@@ -167,7 +168,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
         </Field>
         <Field>
           <Select
-            errors={state?.errors?.searchGender}
+            errors={formErrors?.searchGender}
             isSidebarOpen={isSidebarOpen.isSearchGender}
             label={t("common.form.field.searchGender")}
             headerTitle={!isNil(searchGender) ? searchGender?.label : "--"}
@@ -188,7 +189,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
         <Field>
           <Input
             defaultValue={location}
-            errors={state?.errors?.location}
+            errors={formErrors?.location}
             isReadOnly={true}
             label={
               `${t("common.form.field.location")} (${t("common.titles.autocomplete")})` ??
@@ -205,7 +206,8 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
                 ? (profile?.height ?? undefined)
                 : undefined
             }
-            errors={state?.errors?.height}
+            errors={formErrors?.height}
+            // errors={t(`common.validation.lessOrEqualMaxNumber, {"max": 1}`)}
             label={t("common.form.field.height") ?? "Height"}
             name={EProfileAddFormFields.Height}
             type="text"
@@ -218,7 +220,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
                 ? (profile?.weight ?? undefined)
                 : undefined
             }
-            errors={state?.errors?.weight}
+            errors={formErrors?.weight}
             label={t("common.form.field.weight") ?? "Weight"}
             name={EProfileAddFormFields.Weight}
             type="text"
@@ -227,8 +229,21 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
       </Section>
       <Container>
         <div className="ProfileForm-Save">
-          <Button className="ProfileForm-Button" type="submit">
-            <Typography>{t("common.actions.save")}</Typography>
+          <Button
+            className="ProfileForm-Button"
+            isLoading={isLoading}
+            type="submit"
+          >
+            {isLoading && (
+              <span className="ProfileForm-Button-Loading">
+                <Typography>{t("common.actions.loading")}</Typography>
+                <Icon
+                  className="ProfileForm-Button-Loading-Icon"
+                  type="Spinner"
+                />
+              </span>
+            )}
+            {!isLoading && <Typography>{t("common.actions.save")}</Typography>}
           </Button>
         </div>
       </Container>
