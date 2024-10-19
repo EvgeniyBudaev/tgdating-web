@@ -12,18 +12,4 @@
     justify-content: center;
     width: 100%;
   }
-
-  &-Button.Button {
-    width: 100%;
-
-    #{$this}-Button-Loading {
-      display: flex;
-      align-items: center;
-    }
-
-    #{$this}-Button-Loading-Icon {
-      height: 24px;
-      width: 24px;
-    }
-  }
 }

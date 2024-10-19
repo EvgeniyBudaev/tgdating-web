@@ -11,7 +11,7 @@
 
       &:hover,
       &:active {
-        opacity: $opacity;
+        color: $link_active_color;
       }
     }
 

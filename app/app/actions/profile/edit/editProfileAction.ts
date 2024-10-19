@@ -34,6 +34,7 @@ export async function editProfileAction(prevState: any, formData: FormData) {
     const formattedParams = {
       ...resolver.data,
     };
+    // @ts-ignore
     const mapperParams = mapUpdateToDto(formattedParams);
 
     const profileFormData = new FormData();

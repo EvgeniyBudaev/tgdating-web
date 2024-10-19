@@ -1,5 +1,3 @@
-import isEmpty from "lodash/isEmpty";
-import isNil from "lodash/isNil";
 import { EProfileEditFormFields } from "@/app/actions/profile/edit/enums";
 import { TFile } from "@/app/shared/types/file";
 
@@ -9,10 +7,10 @@ type TProps = {
   [EProfileEditFormFields.Birthday]: string;
   [EProfileEditFormFields.Gender]: string;
   [EProfileEditFormFields.SearchGender]: string;
-  [EProfileEditFormFields.Location]: string;
-  [EProfileEditFormFields.Description]: string;
-  [EProfileEditFormFields.Height]: string;
-  [EProfileEditFormFields.Weight]: string;
+  [EProfileEditFormFields.Location]?: string | null | undefined;
+  [EProfileEditFormFields.Description]?: string | null | undefined;
+  [EProfileEditFormFields.Height]?: string | null | undefined;
+  [EProfileEditFormFields.Weight]?: string | null | undefined;
   [EProfileEditFormFields.LookingFor]: string;
   [EProfileEditFormFields.Image]: TFile | TFile[] | null | undefined;
   [EProfileEditFormFields.TelegramUserID]: string;
@@ -75,45 +73,25 @@ export const mapUpdateToDto: TMapUpdateToDto = (props) => {
       [EProfileEditFormFields.Birthday]: props.birthday,
       [EProfileEditFormFields.Gender]: props.gender,
       [EProfileEditFormFields.SearchGender]: props.searchGender,
-      [EProfileEditFormFields.Location]: !isEmpty(props?.location)
-        ? props.location
-        : null,
-      [EProfileEditFormFields.Description]: !isEmpty(props?.description)
-        ? props.description
-        : null,
-      [EProfileEditFormFields.Height]: !isEmpty(props?.height)
-        ? props.height
-        : null,
-      [EProfileEditFormFields.Weight]: !isEmpty(props?.weight)
-        ? props.weight
-        : null,
+      [EProfileEditFormFields.Location]: props?.location ?? null,
+      [EProfileEditFormFields.Description]: props?.description ?? null,
+      [EProfileEditFormFields.Height]: props?.height ?? null,
+      [EProfileEditFormFields.Weight]: props?.weight ?? null,
       [EProfileEditFormFields.LookingFor]: props.lookingFor,
       [EProfileEditFormFields.Image]: props?.image ?? null,
       [EProfileEditFormFields.TelegramUserID]: props.telegramUserId,
       [EProfileEditFormFields.TelegramUsername]: props.telegramUsername,
-      [EProfileEditFormFields.TelegramFirstName]: !isEmpty(
-        props.telegramFirstName,
-      )
-        ? props.telegramFirstName
-        : null,
-      [EProfileEditFormFields.TelegramLastName]: !isEmpty(
-        props.telegramLastName,
-      )
-        ? props.telegramLastName
-        : null,
+      [EProfileEditFormFields.TelegramFirstName]:
+        props?.telegramFirstName ?? null,
+      [EProfileEditFormFields.TelegramLastName]:
+        props?.telegramLastName ?? null,
       [EProfileEditFormFields.TelegramLanguageCode]: props.telegramLanguageCode,
       [EProfileEditFormFields.TelegramAllowsWriteToPm]:
         props.telegramAllowsWriteToPm,
       [EProfileEditFormFields.TelegramQueryId]: props.telegramQueryId,
       [EProfileEditFormFields.TelegramChatId]: props.telegramChatId,
-      [EProfileEditFormFields.Latitude]:
-        !isEmpty(props.latitude) && !isNil(props.latitude)
-          ? props.latitude
-          : null,
-      [EProfileEditFormFields.Longitude]:
-        !isEmpty(props.longitude) && !isNil(props.longitude)
-          ? props.longitude
-          : null,
+      [EProfileEditFormFields.Latitude]: props?.latitude ?? null,
+      [EProfileEditFormFields.Longitude]: props?.longitude ?? null,
       [EProfileEditFormFields.AgeFrom]: props.ageFrom,
       [EProfileEditFormFields.AgeTo]: props.ageTo,
       [EProfileEditFormFields.Distance]: props.distance,

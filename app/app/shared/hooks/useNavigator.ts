@@ -105,7 +105,7 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [positionIP.isCoords]);
+  }, []);
 
   const handlePositionChange = useCallback((position: GeolocationPosition) => {
     if (
@@ -137,9 +137,10 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
   }, [positionIP.isCoords, positionIP?.location]);
 
   useEffect(() => {
-    if (positionGPS.isCoords) return;
-    getLocationFromIp().then((r) => {});
-  }, [getLocationFromIp, positionGPS.isCoords]);
+    if (!positionGPS?.isCoords && !positionIP?.isCoords) {
+      getLocationFromIp().then((r) => {});
+    }
+  }, [positionGPS?.isCoords, positionIP?.isCoords]);
 
   useEffect(() => {
     navigator?.geolocation?.watchPosition(handlePositionChange, handleError, {

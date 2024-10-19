@@ -17,7 +17,8 @@
 
   & span {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     z-index: 2;
     height: max-content;
     transition: all $transition;

@@ -1,4 +1,6 @@
-import { z } from "zod";
+import isEmpty from "lodash/isEmpty";
+import isNil from "lodash/isNil";
+import { RefinementCtx, z } from "zod";
 import { zfd } from "zod-form-data";
 import { t } from "@/app/shared/i18next";
 import {
@@ -8,22 +10,50 @@ import {
 import type { TRawCreateParams } from "@/app/shared/validation/types";
 import { parseFloatNumber } from "@/app/shared/utils";
 
-const numberPreprocess = (
-  value?: string | number,
-): number | string | undefined => {
-  if (!value) return undefined;
-  const number = parseFloatNumber(value);
-  if (!Number.isNaN(number) && number == value.toString().replace(",", ".")) {
-    return number;
-  }
-  return value;
+const stringPreprocess = (arg: unknown, ctx: RefinementCtx): unknown => {
+  if (!arg || isEmpty(arg) || isNil(arg)) return null;
+  return arg;
 };
+
+const textOptionalSchema = (params?: TRawCreateParams) =>
+  z.preprocess(
+    stringPreprocess,
+    z
+      .string({ ...params })
+      .trim()
+      .nullish(),
+  );
 
 export const numberOptionalSchema = zfd.numeric(
   z
     .number({ invalid_type_error: t("common.validation.invalidTypeNumber") })
     .optional(),
 );
+
+const numberPreprocess = (arg: unknown, ctx: RefinementCtx): unknown => {
+  if (
+    !arg ||
+    (typeof arg === "string" && (arg === "undefined" || arg === "null"))
+  )
+    return undefined;
+  const number = parseFloatNumber(arg as number | string);
+  if (
+    !Number.isNaN(number) &&
+    number.toString() == arg.toString().replace(",", ".")
+  ) {
+    return number;
+  }
+  return arg;
+};
+
+const numberNotNegativeOptionalSchema = (params?: TRawCreateParams) =>
+  z.preprocess(
+    numberPreprocess,
+    z
+      .number({ ...NUMBER_TYPE_ERROR, ...params })
+      .nonnegative({ message: t("common.validation.nonNegativeNumber") })
+      .optional(),
+  );
 
 const numberNonNegativeWithMaxOptionalSchema = (
   max: number,
@@ -50,3 +80,6 @@ export const numberNonNegativeWithMaxHeightOptionalSchema =
 export const numberNonNegativeWithMaxWeightOptionalSchema =
   numberNonNegativeWithMaxOptionalSchema(650);
 export const symbolsMaxDisplayNameSchema = symbolsMaxSchema(64);
+export const numberNonNegativeOptionalSchema =
+  numberNotNegativeOptionalSchema();
+export const stringOptionalSchema = textOptionalSchema();

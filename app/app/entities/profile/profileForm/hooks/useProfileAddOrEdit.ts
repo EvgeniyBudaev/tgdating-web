@@ -2,10 +2,9 @@ import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useFormState, useFormStatus } from "react-dom";
+import { useFormState } from "react-dom";
 import { addProfileAction } from "@/app/actions/profile/add/addProfileAction";
 import { editProfileAction } from "@/app/actions/profile/edit/editProfileAction";
-import type { TEditProfile } from "@/app/api/profile/edit";
 import type { TProfile } from "@/app/api/profile/get";
 import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
 import { EProfileEditFormFields } from "@/app/actions/profile/edit/enums";
@@ -24,16 +23,13 @@ import {
   useFormErrors,
   useNavigator,
   useTelegram,
-  useTranslatedData,
 } from "@/app/shared/hooks";
 import type { TUseNavigatorResponse } from "@/app/shared/hooks/useNavigator";
 import { GENDER_MAPPING } from "@/app/shared/mapping/gender";
 import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
-import type { TDomainErrors } from "@/app/shared/types/error";
 import type { TFile } from "@/app/shared/types/file";
 import { createPath } from "@/app/shared/utils";
 import { formattedDate } from "@/app/shared/utils/date";
-import type { TErrorsResolverResponse } from "@/app/shared/utils/getErrorsResolver";
 import type { TSelectOption } from "@/app/uikit/components/select";
 
 type TProps = {
@@ -47,7 +43,6 @@ type TUseProfileEditResponse = {
   files: TFile[] | null;
   formErrors: Record<string, string> | undefined;
   gender: TSelectOption | undefined;
-  isLoading: boolean;
   isSidebarOpen: { isSearchGender: boolean; isGender: boolean };
   setIsSidebarOpen: (
     value:
@@ -68,21 +63,15 @@ type TUseProfileEditResponse = {
   onDeleteFile(file: TFile, files: TFile[]): void;
   onSubmit(formData: FormData): void;
   searchGender: TSelectOption | undefined;
-  state: {
-    data?: TEditProfile;
-    success: boolean;
-    error?: string;
-    errors?: TErrorsResolverResponse | TDomainErrors;
-  };
   valueInputDateField: Date | null;
   setValueInputDateField: (
     value: ((prevState: Date | null) => Date | null) | Date | null,
   ) => void;
 };
 
-type TUseProfileEdit = (props: TProps) => TUseProfileEditResponse;
+type TUseProfileAddOrEdit = (props: TProps) => TUseProfileEditResponse;
 
-export const useProfileAddOrEdit: TUseProfileEdit = ({
+export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   isEdit,
   lng,
   profile,
@@ -93,8 +82,6 @@ export const useProfileAddOrEdit: TUseProfileEdit = ({
     INITIAL_FORM_STATE,
   );
   const formErrors = useFormErrors({ errors: state.errors });
-  console.log("formErrors", formErrors);
-  const { pending } = useFormStatus();
   const navigator = useNavigator({ lng });
   const { chatId, isSession, queryId, user } = useTelegram();
   const language = lng as ELanguage;
@@ -356,15 +343,11 @@ export const useProfileAddOrEdit: TUseProfileEdit = ({
     // fetchProfile(formDataDto);
   };
 
-  console.log("pending: ", pending);
-  console.log("state?.errors: ", state?.errors);
-
   return {
     displayName,
     files,
     formErrors,
     gender,
-    isLoading: pending,
     isSidebarOpen,
     setIsSidebarOpen,
     language,
@@ -378,7 +361,6 @@ export const useProfileAddOrEdit: TUseProfileEdit = ({
     onDeleteFile: handleDeleteFile,
     onSubmit: handleSubmit,
     searchGender,
-    state,
     setValueInputDateField,
     valueInputDateField,
   };

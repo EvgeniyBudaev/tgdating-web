@@ -125,8 +125,8 @@ export async function addProfileAction(prevState: any, formData: FormData) {
       mapperParams.profileForm.telegramChatId,
     );
     if (
-      !isNil(mapperParams.profileForm.latitude) &&
-      !isEmpty(mapperParams.profileForm.latitude)
+      !isNil(mapperParams.profileForm?.latitude) &&
+      !isEmpty(mapperParams.profileForm?.latitude)
     ) {
       profileFormData.append(
         EProfileAddFormFields.Latitude,
@@ -134,8 +134,8 @@ export async function addProfileAction(prevState: any, formData: FormData) {
       );
     }
     if (
-      !isNil(mapperParams.profileForm.longitude) &&
-      !isEmpty(mapperParams.profileForm.longitude)
+      !isNil(mapperParams.profileForm?.longitude) &&
+      !isEmpty(mapperParams.profileForm?.longitude)
     ) {
       profileFormData.append(
         EProfileAddFormFields.Longitude,
@@ -163,15 +163,15 @@ export async function addProfileAction(prevState: any, formData: FormData) {
       mapperParams.profileForm.size,
     );
 
-    // const response = await addProfile(
-    //   profileFormData as unknown as TAddProfileParams,
-    // );
-    // const path = createPath({
-    //   route: ERoutes.Root,
-    // });
-    // revalidatePath(path);
+    const response = await addProfile(
+      profileFormData as unknown as TAddProfileParams,
+    );
+    const path = createPath({
+      route: ERoutes.Root,
+    });
+    revalidatePath(path);
     return {
-      // data: response,
+      data: response,
       error: undefined,
       errors: undefined,
       success: true,
@@ -181,7 +181,7 @@ export async function addProfileAction(prevState: any, formData: FormData) {
     const responseData: TCommonResponseError = await errorResponse.json();
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};
-    console.log("EEEEEEEEEEEEe errorResponse: ", errorResponse);
+    console.log("addProfileAction errorResponse: ", errorResponse);
     return {
       data: undefined,
       error: formError,

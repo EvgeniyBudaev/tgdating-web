@@ -14,13 +14,13 @@ type TProps = {
 
 export const Layout: FC<TProps> = ({ children, lng }) => {
   const pathname = usePathname();
-  const path = createPath({
-    route: ERoutes.ProfileAdd,
-    lng: lng,
-  });
 
   const isFooter = useMemo(() => {
-    return pathname !== `/${lng}${path}`;
+    const path = createPath({
+      route: ERoutes.ProfileAdd,
+      lng,
+    });
+    return pathname !== path;
   }, [pathname]);
 
   return (

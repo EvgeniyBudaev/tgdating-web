@@ -1,7 +1,8 @@
 "use client";
 
 import clsx from "clsx";
-import { forwardRef, memo, useState } from "react";
+import isNaN from "lodash/isNaN";
+import { ChangeEvent, forwardRef, memo, useState } from "react";
 import type {
   DetailedHTMLProps,
   ForwardedRef,
@@ -19,15 +20,18 @@ export interface IInputProps
   > {
   autoComplete?: string;
   className?: string;
+  defaultValue?: string | number;
   dataTestId?: string;
   errors?: string | string[];
   hidden?: boolean;
   isDisabled?: boolean;
   isFocused?: boolean;
   isHiddenViewing?: boolean;
+  isNumeric?: boolean;
   isReadOnly?: boolean;
   isRequired?: boolean;
   label?: string;
+  maxLength?: number;
   name?: string;
   type?: string;
   value?: string;
@@ -44,8 +48,10 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
       hidden,
       isDisabled = false,
       isFocused: isInputFocused,
+      isNumeric = false,
       isReadOnly,
       label,
+      maxLength,
       name,
       type,
       onBlur,
@@ -55,6 +61,12 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
     }: IInputProps,
     ref: ForwardedRef<HTMLInputElement>,
   ): JSX.Element => {
+    const [currentLength, setCurrentLength] = useState(
+      (defaultValue ?? "").toString().length ?? 0,
+    );
+    const [currentInputValue, setCurrentInputValue] = useState(
+      defaultValue ?? "",
+    );
     const [isFocused, setIsFocused] = useState<boolean | undefined>(
       isInputFocused || !!defaultValue,
     );
@@ -77,6 +89,21 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
       if (onFocus) {
         onFocus(event);
       }
+    };
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+      const value = event.target.value;
+      setCurrentLength(value.length);
+      if (isNumeric && !isNaN(Number(value))) {
+        const valueNumeric = value.replace(",", ".");
+        const roundedValue = Math.floor(Number(valueNumeric));
+        setCurrentInputValue(roundedValue);
+      } else if (isNumeric && isNaN(Number(value))) {
+        return;
+      } else {
+        setCurrentInputValue(value);
+      }
+      onChange?.(event);
     };
 
     return (
@@ -109,18 +136,25 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
                 Input__active: isFocused && !isReadOnly && !isDisabled,
                 Input__error: errors,
               })}
-              defaultValue={defaultValue}
+              // defaultValue={currentInputValue}
               disabled={isDisabled}
               hidden={hidden}
+              maxLength={maxLength}
               name={name}
               onBlur={onBlurCallback}
-              onChange={onChange}
+              onChange={handleChange}
               onFocus={onFocusCallback}
               readOnly={isReadOnly}
               ref={ref}
               type={type}
+              value={currentInputValue}
             />
           </div>
+          {maxLength && (
+            <div className="Textarea-MaxLength">
+              {currentLength}/{maxLength}
+            </div>
+          )}
           {errors && (
             <div className="InputField-ErrorField">
               <Error errors={errors} />

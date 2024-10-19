@@ -16,6 +16,7 @@ type TProps = {
 };
 
 export const Footer: FC<TProps> = ({ lng }) => {
+  console.log("Footer");
   const navigator = useNavigator({ lng });
   const params = useParams();
   const pathname = usePathname();
@@ -57,17 +58,17 @@ export const Footer: FC<TProps> = ({ lng }) => {
     },
   );
 
-  const isProfileAddPage = useMemo(() => {
+  const isFooter = useMemo(() => {
     const path = createPath({
       route: ERoutes.ProfileAdd,
       lng,
     });
-    return pathname === path;
+    return pathname !== path;
   }, [pathname]);
 
   return (
     <div className="Footer">
-      {isSession && !isProfileAddPage && (
+      {isSession && isFooter && (
         <>
           <NavLink
             className="Footer-Item"

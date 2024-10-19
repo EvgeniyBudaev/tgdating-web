@@ -9,6 +9,13 @@ import {
   EMPTY_FIELD_ERROR_MESSAGE,
   FILE_MAX_SIZE_MESSAGE,
 } from "@/app/shared/validation";
+import {
+  numberNonNegativeOptionalSchema,
+  numberNonNegativeWithMaxHeightOptionalSchema,
+  numberNonNegativeWithMaxWeightOptionalSchema,
+  stringOptionalSchema,
+  symbolsMaxDisplayNameSchema,
+} from "@/app/shared/validation/schemas";
 
 export const editProfileFormSchema = zfd
   .formData({
@@ -16,10 +23,7 @@ export const editProfileFormSchema = zfd
       .string()
       .trim()
       .min(1, EMPTY_FIELD_ERROR_MESSAGE),
-    [EProfileEditFormFields.DisplayName]: z
-      .string()
-      .trim()
-      .min(1, EMPTY_FIELD_ERROR_MESSAGE),
+    [EProfileEditFormFields.DisplayName]: symbolsMaxDisplayNameSchema,
     [EProfileEditFormFields.Birthday]: z
       .string()
       .trim()
@@ -43,10 +47,12 @@ export const editProfileFormSchema = zfd
       ESearchGender.All,
       "",
     ]),
-    [EProfileEditFormFields.Location]: z.string().trim(),
-    [EProfileEditFormFields.Description]: z.string().trim(),
-    [EProfileEditFormFields.Height]: z.string().trim(),
-    [EProfileEditFormFields.Weight]: z.string().trim(),
+    [EProfileEditFormFields.Location]: stringOptionalSchema,
+    [EProfileEditFormFields.Description]: stringOptionalSchema,
+    [EProfileEditFormFields.Height]:
+      numberNonNegativeWithMaxHeightOptionalSchema,
+    [EProfileEditFormFields.Weight]:
+      numberNonNegativeWithMaxWeightOptionalSchema,
     [EProfileEditFormFields.LookingFor]: z.enum([
       ELookingFor.Chat,
       ELookingFor.Dates,
@@ -69,8 +75,8 @@ export const editProfileFormSchema = zfd
       .string()
       .trim()
       .min(1, EMPTY_FIELD_ERROR_MESSAGE),
-    [EProfileEditFormFields.TelegramFirstName]: z.string().trim(),
-    [EProfileEditFormFields.TelegramLastName]: z.string().trim(),
+    [EProfileEditFormFields.TelegramFirstName]: stringOptionalSchema,
+    [EProfileEditFormFields.TelegramLastName]: stringOptionalSchema,
     [EProfileEditFormFields.TelegramLanguageCode]: z
       .string()
       .trim()
@@ -87,8 +93,8 @@ export const editProfileFormSchema = zfd
       .string()
       .trim()
       .min(1, EMPTY_FIELD_ERROR_MESSAGE),
-    [EProfileEditFormFields.Latitude]: z.string().trim().nullish(),
-    [EProfileEditFormFields.Longitude]: z.string().trim().nullish(),
+    [EProfileEditFormFields.Latitude]: numberNonNegativeOptionalSchema,
+    [EProfileEditFormFields.Longitude]: numberNonNegativeOptionalSchema,
     [EProfileEditFormFields.AgeFrom]: z
       .string()
       .trim()

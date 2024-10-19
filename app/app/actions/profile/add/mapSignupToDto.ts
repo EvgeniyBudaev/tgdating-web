@@ -1,4 +1,3 @@
-import isEmpty from "lodash/isEmpty";
 import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
 import { TFile } from "@/app/shared/types/file";
 
@@ -8,16 +7,16 @@ type TProps = {
   [EProfileAddFormFields.Birthday]: string;
   [EProfileAddFormFields.Gender]: string;
   [EProfileAddFormFields.SearchGender]: string;
-  [EProfileAddFormFields.Location]: string;
-  [EProfileAddFormFields.Description]: string;
-  [EProfileAddFormFields.Height]: string;
-  [EProfileAddFormFields.Weight]: string;
+  [EProfileAddFormFields.Location]?: string | null | undefined;
+  [EProfileAddFormFields.Description]?: string | null | undefined;
+  [EProfileAddFormFields.Height]?: string | null | undefined;
+  [EProfileAddFormFields.Weight]?: string | null | undefined;
   [EProfileAddFormFields.LookingFor]: string;
   [EProfileAddFormFields.Image]: TFile | TFile[];
   [EProfileAddFormFields.TelegramUserID]: string;
   [EProfileAddFormFields.TelegramUsername]: string;
-  [EProfileAddFormFields.TelegramFirstName]: string;
-  [EProfileAddFormFields.TelegramLastName]: string;
+  [EProfileAddFormFields.TelegramFirstName]?: string | null | undefined;
+  [EProfileAddFormFields.TelegramLastName]?: string | null | undefined;
   [EProfileAddFormFields.TelegramLanguageCode]: string;
   [EProfileAddFormFields.TelegramAllowsWriteToPm]: string;
   [EProfileAddFormFields.TelegramQueryId]: string;
@@ -61,7 +60,8 @@ type TProfileForm = {
 };
 
 type TResponse = {
-  profileForm: TProfileForm;
+  // profileForm: TProfileForm;
+  profileForm: any;
 };
 
 type TMapSignupToDto = (props: TProps) => TResponse;
@@ -74,41 +74,24 @@ export const mapSignupToDto: TMapSignupToDto = (props) => {
       [EProfileAddFormFields.Birthday]: props.birthday,
       [EProfileAddFormFields.Gender]: props.gender,
       [EProfileAddFormFields.SearchGender]: props.searchGender,
-      [EProfileAddFormFields.Location]: !isEmpty(props?.location)
-        ? props.location
-        : null,
-      [EProfileAddFormFields.Description]: !isEmpty(props?.description)
-        ? props.description
-        : null,
-      [EProfileAddFormFields.Height]: !isEmpty(props?.height)
-        ? props.height
-        : null,
-      [EProfileAddFormFields.Weight]: !isEmpty(props?.weight)
-        ? props.weight
-        : null,
+      [EProfileAddFormFields.Location]: props?.location ?? null,
+      [EProfileAddFormFields.Description]: props?.description ?? null,
+      [EProfileAddFormFields.Height]: props?.height ?? null,
+      [EProfileAddFormFields.Weight]: props?.weight ?? null,
       [EProfileAddFormFields.LookingFor]: props.lookingFor,
       [EProfileAddFormFields.Image]: props.image,
       [EProfileAddFormFields.TelegramUserID]: props.telegramUserId,
       [EProfileAddFormFields.TelegramUsername]: props.telegramUsername,
-      [EProfileAddFormFields.TelegramFirstName]: !isEmpty(
-        props.telegramFirstName,
-      )
-        ? props.telegramFirstName
-        : null,
-      [EProfileAddFormFields.TelegramLastName]: !isEmpty(props.telegramLastName)
-        ? props.telegramLastName
-        : null,
+      [EProfileAddFormFields.TelegramFirstName]:
+        props?.telegramFirstName ?? null,
+      [EProfileAddFormFields.TelegramLastName]: props?.telegramLastName ?? null,
       [EProfileAddFormFields.TelegramLanguageCode]: props.telegramLanguageCode,
       [EProfileAddFormFields.TelegramAllowsWriteToPm]:
         props.telegramAllowsWriteToPm,
       [EProfileAddFormFields.TelegramQueryId]: props.telegramQueryId,
       [EProfileAddFormFields.TelegramChatId]: props.telegramChatId,
-      [EProfileAddFormFields.Latitude]: !isEmpty(props.latitude)
-        ? (props?.latitude ?? null)
-        : null,
-      [EProfileAddFormFields.Longitude]: !isEmpty(props.longitude)
-        ? (props.longitude ?? null)
-        : null,
+      [EProfileAddFormFields.Latitude]: props?.latitude ?? null,
+      [EProfileAddFormFields.Longitude]: props?.longitude ?? null,
       [EProfileAddFormFields.AgeFrom]: props.ageFrom,
       [EProfileAddFormFields.AgeTo]: props.ageTo,
       [EProfileAddFormFields.Distance]: props.distance,

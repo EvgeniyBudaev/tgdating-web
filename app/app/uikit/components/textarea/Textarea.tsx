@@ -26,12 +26,12 @@ export interface ITextareaProps
   classes?: TClasses;
   className?: string;
   dataTestId?: string;
+  defaultValue?: string;
   errors?: string | string[];
   hidden?: boolean;
   isFocused?: boolean;
   isReadOnly?: boolean;
   isRequired?: boolean;
-  isShowMaxLength?: boolean;
   label?: string;
   name?: string;
   maxLength?: number;
@@ -52,7 +52,6 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, ITextareaProps>(
       isFocused: isInputFocused,
       isReadOnly,
       isRequired,
-      isShowMaxLength,
       label,
       name,
       maxLength,
@@ -64,7 +63,9 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, ITextareaProps>(
     }: ITextareaProps,
     ref: ForwardedRef<HTMLTextAreaElement>,
   ): JSX.Element => {
-    const [currentLength, setCurrentLength] = useState(0);
+    const [currentLength, setCurrentLength] = useState(
+      defaultValue?.length ?? 0,
+    );
     const [isFocused, setIsFocused] = useState<boolean | undefined>(
       isInputFocused || !!defaultValue,
     );
@@ -118,8 +119,8 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, ITextareaProps>(
         <div className="InputField-Wrapper">
           <div
             className={clsx("InputField-Inner Textarea", {
-              "InputField-Inner__active": isFocused,
-              "InputField-Inner__error": errors,
+              ["InputField-Inner__active"]: isFocused,
+              ["InputField-Inner__error"]: errors,
             })}
           >
             <textarea
@@ -138,7 +139,7 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, ITextareaProps>(
               ref={ref}
             />
           </div>
-          {isShowMaxLength && maxLength && (
+          {maxLength && (
             <div className="Textarea-MaxLength">
               {currentLength}/{maxLength}
             </div>

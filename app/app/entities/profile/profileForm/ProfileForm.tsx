@@ -10,15 +10,14 @@ import { Container } from "@/app/shared/components/container";
 import { ErrorBoundary } from "@/app/shared/components/errorBoundary";
 import { Field } from "@/app/shared/components/form/field";
 import { FileUploader } from "@/app/shared/components/form/fileUploader";
+import { SubmitButton } from "@/app/shared/components/form/submitButton";
 import { Section } from "@/app/shared/components/section";
 import { SidebarContent } from "@/app/shared/components/sidebarContent";
 import { ELanguage } from "@/app/shared/enums";
 import { GENDER_MAPPING } from "@/app/shared/mapping/gender";
 import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
 import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
-import { Button } from "@/app/uikit/components/button";
 import { Error } from "@/app/uikit/components/error";
-import { Icon } from "@/app/uikit/components/icon";
 import { Input } from "@/app/uikit/components/input";
 import { InputDateField } from "@/app/uikit/components/inputDateField";
 import { Select } from "@/app/uikit/components/select";
@@ -39,7 +38,6 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
     files,
     formErrors,
     gender,
-    isLoading,
     isSidebarOpen,
     setIsSidebarOpen,
     language,
@@ -53,7 +51,6 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
     onDeleteFile,
     onSubmit,
     searchGender,
-    state,
     setValueInputDateField,
     valueInputDateField,
   } = useProfileAddOrEdit({ isEdit, lng, profile });
@@ -137,7 +134,6 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
               isEdit ? (profile?.description ?? undefined) : undefined
             }
             errors={formErrors?.description}
-            isShowMaxLength={true}
             label={t("common.form.field.description") ?? "Description"}
             maxLength={1000}
             name={EProfileAddFormFields.Description}
@@ -207,7 +203,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
                 : undefined
             }
             errors={formErrors?.height}
-            // errors={t(`common.validation.lessOrEqualMaxNumber, {"max": 1}`)}
+            isNumeric={true}
             label={t("common.form.field.height") ?? "Height"}
             name={EProfileAddFormFields.Height}
             type="text"
@@ -221,6 +217,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
                 : undefined
             }
             errors={formErrors?.weight}
+            isNumeric={true}
             label={t("common.form.field.weight") ?? "Weight"}
             name={EProfileAddFormFields.Weight}
             type="text"
@@ -229,22 +226,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
       </Section>
       <Container>
         <div className="ProfileForm-Save">
-          <Button
-            className="ProfileForm-Button"
-            isLoading={isLoading}
-            type="submit"
-          >
-            {isLoading && (
-              <span className="ProfileForm-Button-Loading">
-                <Typography>{t("common.actions.loading")}</Typography>
-                <Icon
-                  className="ProfileForm-Button-Loading-Icon"
-                  type="Spinner"
-                />
-              </span>
-            )}
-            {!isLoading && <Typography>{t("common.actions.save")}</Typography>}
-          </Button>
+          <SubmitButton />
         </div>
       </Container>
     </form>
