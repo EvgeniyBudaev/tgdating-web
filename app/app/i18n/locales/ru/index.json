@@ -48,7 +48,7 @@
         },
         "description": "Описание",
         "gender": "Пол",
-        "searchGender": "Ищу",
+        "searchGender": "Интересны",
         "location": "Местоположение",
         "height": "Рост",
         "weight": "Вес"

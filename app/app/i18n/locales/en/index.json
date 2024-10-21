@@ -48,7 +48,7 @@
         },
         "description": "Description",
         "gender": "Gender",
-        "searchGender": "Gender search",
+        "searchGender": "Interest",
         "location": "Location",
         "height": "Height",
         "weight": "Weight"

@@ -1,22 +1,16 @@
 "use client";
 
-// import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import WebAppSDK from "@twa-dev/sdk";
 import { WebApp as WebAppTypes } from "@twa-dev/types";
 
 export const useTelegram = () => {
   const [tg, setTg] = useState<WebAppTypes | undefined>();
-  // const router = useRouter();
 
   const telegram = typeof window !== "undefined" ? WebAppSDK : undefined;
 
   useEffect(() => {
-    // const fetchRouter = async () => {
-    //   await router.push(router.pathname, router.asPath, { locale: "en" });
-    // }
     setTg(telegram);
-    // fetchRouter();
   }, [telegram]);
 
   const mockData1 = {
@@ -25,7 +19,7 @@ export const useTelegram = () => {
       first_name: "Евгений",
       last_name: "(◕ᆺ◕)",
       username: "golang_js",
-      language_code: "ru",
+      language_code: "en",
       is_premium: true,
       allows_write_to_pm: true,
     },
