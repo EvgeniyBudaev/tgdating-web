@@ -26,7 +26,6 @@ const ErrorComponent: FC<TProps> = ({ errors }) => {
         (errors ?? []).map((error, index) => (
           <li className="Error-ListItem" key={`error-item-${index}`}>
             <FadeIn>
-              {/*<Typography value={t(errorUI)} variant={ETypographyVariant.TextB3Regular} />*/}
               <Typography>{t(error)}</Typography>
             </FadeIn>
           </li>

@@ -2,6 +2,7 @@ import { useFieldError } from "./useFieldError";
 import { useFiles } from "./useFiles";
 import { useFilter } from "./useFilter";
 import { useFormErrors } from "./useFormErrors";
+import { useLanguage } from "./useLanguage";
 import { useNavigator } from "./useNavigator";
 import { useInitDayjs } from "./useInitDayjs";
 import { useProfileDetail } from "./useProfileDetail";
@@ -17,6 +18,7 @@ export {
   useFiles,
   useFilter,
   useFormErrors,
+  useLanguage,
   useNavigator,
   useInitDayjs,
   useProfileDetail,

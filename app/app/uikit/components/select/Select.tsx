@@ -4,7 +4,10 @@ import { FC, type ReactNode, useRef } from "react";
 import { Error } from "@/app/uikit/components/error";
 import { Icon } from "@/app/uikit/components/icon";
 import { Sidebar } from "@/app/uikit/components/sidebar";
-import { Typography } from "@/app/uikit/components/typography";
+import {
+  ETypographyVariant,
+  Typography,
+} from "@/app/uikit/components/typography";
 import "./Select.scss";
 
 type TClasses = {
@@ -21,6 +24,7 @@ type TProps = {
   label?: string | ReactNode;
   onHeaderClick?: () => void;
   onSidebarClose?: () => void;
+  subLabel?: string;
 };
 
 export const Select: FC<TProps> = ({
@@ -33,6 +37,7 @@ export const Select: FC<TProps> = ({
   label,
   onHeaderClick,
   onSidebarClose,
+  subLabel,
 }) => {
   const sidebarRef = useRef(null);
 
@@ -41,6 +46,11 @@ export const Select: FC<TProps> = ({
       <div className="Select-Header" onClick={onHeaderClick}>
         <div className="Select-Header-Label">
           <Typography>{label}</Typography>
+          {subLabel && (
+            <Typography variant={ETypographyVariant.TextB4Regular}>
+              &nbsp;({subLabel})
+            </Typography>
+          )}
           {isRequired && (
             <span className="Select-Header-LabelRequired"> *</span>
           )}

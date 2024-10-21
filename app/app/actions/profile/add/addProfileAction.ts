@@ -22,6 +22,7 @@ export async function addProfileAction(prevState: any, formData: FormData) {
   );
   console.log("resolver.success: ", resolver.success);
   if (!resolver.success) {
+    // @ts-ignore
     const errors = getErrorsResolver(resolver);
     return {
       data: undefined,
@@ -181,7 +182,7 @@ export async function addProfileAction(prevState: any, formData: FormData) {
     const responseData: TCommonResponseError = await errorResponse.json();
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};
-    console.log("addProfileAction errorResponse: ", errorResponse);
+    console.log("addProfileAction responseData: ", responseData);
     return {
       data: undefined,
       error: formError,

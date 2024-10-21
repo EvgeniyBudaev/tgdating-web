@@ -44,6 +44,9 @@ export const imageFileSchema = z
           files.every((file: TFile) => file.size > MAX_FILE_SIZE)
         );
       }
+      if (files && !Array.isArray(files)) {
+        return files?.size < MAX_FILE_SIZE;
+      }
       return true;
     },
     {

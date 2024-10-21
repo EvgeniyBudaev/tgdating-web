@@ -41,7 +41,7 @@ type TProps = {
 type TUseProfileEditResponse = {
   displayName: string | undefined;
   files: TFile[] | null;
-  formErrors: Record<string, string> | undefined;
+  formErrors: Record<string, string[]> | undefined;
   gender: TSelectOption | undefined;
   isSidebarOpen: { isSearchGender: boolean; isGender: boolean };
   setIsSidebarOpen: (
@@ -82,6 +82,8 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     INITIAL_FORM_STATE,
   );
   const formErrors = useFormErrors({ errors: state.errors });
+  console.log("state.errors: ", state.errors);
+  console.log("formErrors: ", formErrors);
   const navigator = useNavigator({ lng });
   const { chatId, isSession, queryId, user } = useTelegram();
   const language = lng as ELanguage;
@@ -219,40 +221,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     }
   };
 
-  const fetchProfile = async (formData: FormData) => {
-    try {
-      const contentType: { "Content-Type"?: string } = {
-        "Content-Type": "multipart/form-data",
-      };
-      const requestOptions = {
-        method: "POST",
-        // headers: {
-        //   ...contentType,
-        // },
-        body: formData,
-      };
-      // const latitudeGPS = navigator?.latitudeGPS;
-      // const longitudeGPS = navigator?.longitudeGPS;
-      // const queryParams = {
-      //   ...(latitudeGPS && { latitude: latitudeGPS.toString() }),
-      //   ...(longitudeGPS && { longitude: longitudeGPS.toString() }),
-      // };
-      const url = `/${lng}/resources/profiles/add`;
-      const response = await fetch(url, requestOptions);
-      // if (!response.ok && response.status === 404) {
-      //   setIsEdit(false);
-      //   return setStatus(404);
-      // }
-      const data = await response.json();
-      console.log("fetchProfile data: ", data);
-      // setIsEdit(true);
-      // setProfile(data);
-    } catch (error) {
-      console.log("fetchProfile error: ", error);
-      console.error(error);
-    }
-  };
-
   const handleSubmit = (formData: FormData) => {
     const formDataDto = new FormData();
     const displayName = formData.get(EProfileAddFormFields.DisplayName);
@@ -339,8 +307,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     }
     // @ts-ignore
     formAction(formDataDto);
-    // @ts-ignore
-    // fetchProfile(formDataDto);
   };
 
   return {

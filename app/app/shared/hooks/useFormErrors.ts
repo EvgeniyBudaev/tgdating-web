@@ -5,7 +5,7 @@ import { translateRawData } from "@/app/shared/utils/i18next";
 
 type TUseFormErrors = (args: {
   errors?: Record<string, string[] | string | undefined>;
-}) => Record<string, string> | undefined;
+}) => Record<string, string[]> | undefined;
 
 export const useFormErrors: TUseFormErrors = ({ errors }) => {
   const { t } = useTranslation();
@@ -15,11 +15,16 @@ export const useFormErrors: TUseFormErrors = ({ errors }) => {
       return undefined;
     }
 
-    const translatedErrors: Record<string, string> = {};
+    const translatedErrors: Record<string, string[]> = {};
 
     Object.entries(errors).forEach(([key, value]) => {
       if (Array.isArray(value) && value.length > 0) {
-        translatedErrors[key] = translateRawData(t, value[0]);
+        const listErrors = [];
+        value.forEach((v) => {
+          const rawData = translateRawData(t, v);
+          listErrors.push(rawData);
+        });
+        translatedErrors[key] = listErrors;
       }
     });
 

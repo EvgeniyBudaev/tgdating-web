@@ -9,7 +9,7 @@
   },
   "common": {
     "validation": {
-      "maxSymbols": "Must be no more than {{max}} symbols",
+      "maxSymbols": "Must be no more than {{max}} characters",
       "email": "Invalid email",
       "cyrillicEmail": "Only Latin characters",
       "empty": "Field cannot be empty",
@@ -18,8 +18,8 @@
       "wrongCharacter": "Allowed characters: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
       "file": {
         "expectedFile": "You can only attach a file",
-        "maxSize": "Maximum size 200mb",
-        "maxAmount": "Maximum number of files 50"
+        "maxSize": "Maximum file size 10mb",
+        "maxAmount": "Maximum number of files 3"
       },
       "invalidTypeNumber": "Must be a number",
       "nonNegativeNumber": "Must be a positive number",

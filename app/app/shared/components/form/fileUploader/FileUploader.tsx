@@ -1,7 +1,7 @@
 "use client";
 
-import { useCallback, useState } from "react";
-import type { FC, ReactElement } from "react";
+import { useCallback, useState, type FC, type ReactElement } from "react";
+import { useFormStatus } from "react-dom";
 import type { DropEvent, FileRejection } from "react-dropzone";
 import type { TImage } from "@/app/api/profile/image";
 import { Previews } from "@/app/shared/components/form/fileUploader/previews";
@@ -11,7 +11,6 @@ import {
 } from "@/app/shared/components/form/fileUploader/utils";
 import type { TFile } from "@/app/shared/types/file";
 import { type TDropzoneProps } from "@/app/uikit/components/dropzone/Dropzone";
-// import {ETypographyVariant, Typography} from "@/app/uikit/components/typography";
 import "./FileUploader.scss";
 
 export type TFileUploaderProps = {
@@ -40,6 +39,7 @@ export const FileUploader: FC<TFileUploaderProps> = ({
   onDeleteFile,
   ...rest
 }) => {
+  const { pending } = useFormStatus();
   // const {t} = useTranslation("index");
   const types = getTypes(accept);
   const [countFiles, setCountFiles] = useState(1);
@@ -87,7 +87,7 @@ export const FileUploader: FC<TFileUploaderProps> = ({
         className="FileUploader-Previews"
         defaultImages={defaultImages}
         files={files}
-        isLoading={isLoading}
+        isLoading={isLoading ?? pending}
         lng={lng}
         maxFiles={maxFiles}
         onAddFile={onAddFile}

@@ -1,5 +1,8 @@
 import type { FC, ReactNode } from "react";
-import { Typography } from "@/app/uikit/components/typography";
+import {
+  ETypographyVariant,
+  Typography,
+} from "@/app/uikit/components/typography";
 import "./Section.scss";
 
 type TProps = {
@@ -17,9 +20,12 @@ export const Section: FC<TProps> = ({ children, title, subTitle }) => {
             <Typography>{title}</Typography>
           </span>
           {subTitle && (
-            <span className="Section-SubTitle">
-              &nbsp;<Typography>({subTitle})</Typography>
-            </span>
+            <>
+              &nbsp;
+              <Typography variant={ETypographyVariant.TextB4Regular}>
+                ({subTitle})
+              </Typography>
+            </>
           )}
         </span>
       </div>

@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import isNaN from "lodash/isNaN";
-import { ChangeEvent, forwardRef, memo, useState } from "react";
+import { ChangeEvent, forwardRef, memo, useEffect, useState } from "react";
 import type {
   DetailedHTMLProps,
   ForwardedRef,
@@ -10,7 +10,10 @@ import type {
   FocusEvent,
 } from "react";
 import { Error } from "@/app/uikit/components/error";
-import { Typography } from "@/app/uikit/components/typography";
+import {
+  ETypographyVariant,
+  Typography,
+} from "@/app/uikit/components/typography";
 import "./Input.scss";
 
 export interface IInputProps
@@ -33,6 +36,7 @@ export interface IInputProps
   label?: string;
   maxLength?: number;
   name?: string;
+  subLabel?: string;
   type?: string;
   value?: string;
 }
@@ -53,6 +57,7 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
       label,
       maxLength,
       name,
+      subLabel,
       type,
       onBlur,
       onChange,
@@ -70,6 +75,14 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
     const [isFocused, setIsFocused] = useState<boolean | undefined>(
       isInputFocused || !!defaultValue,
     );
+
+    useEffect(() => {
+      if (defaultValue) {
+        setCurrentLength((defaultValue ?? "").toString().length ?? 0);
+        setCurrentInputValue(defaultValue);
+        setIsFocused(isInputFocused || !!defaultValue);
+      }
+    }, [defaultValue, isInputFocused]);
 
     const onBlurCallback = (event: FocusEvent<HTMLInputElement>) => {
       if (event.target.value !== "") {
@@ -116,7 +129,14 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
       >
         {label && (
           <label className="InputField-Label" htmlFor={name}>
-            <Typography>{label}</Typography>
+            <Typography>
+              {label}
+              {subLabel && (
+                <Typography variant={ETypographyVariant.TextB4Regular}>
+                  &nbsp;({subLabel})
+                </Typography>
+              )}
+            </Typography>
           </label>
         )}
         <div className="InputField-Wrapper">
@@ -136,7 +156,6 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
                 Input__active: isFocused && !isReadOnly && !isDisabled,
                 Input__error: errors,
               })}
-              // defaultValue={currentInputValue}
               disabled={isDisabled}
               hidden={hidden}
               maxLength={maxLength}

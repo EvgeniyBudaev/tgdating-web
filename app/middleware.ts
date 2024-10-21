@@ -107,7 +107,6 @@ const policies = [
   helmet.xssFilter(),
 ];
 
-middleware;
 export async function middleware(request: NextRequest) {
   let lng;
   if (request.cookies.has(cookieName))

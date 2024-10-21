@@ -104,23 +104,3 @@ export const addProfileFormSchema = zfd.formData({
     .trim()
     .min(1, EMPTY_FIELD_ERROR_MESSAGE),
 });
-// .superRefine(({ image }, ctx) => {
-//   if (isNil(image)) {
-//     ctx.addIssue({
-//       code: z.ZodIssueCode.custom,
-//       path: [EProfileEditFormFields.Image],
-//       message: EMPTY_FIELD_ERROR_MESSAGE,
-//     });
-//   }
-//   if (
-//     !isNil(image) &&
-//     !Array.isArray(image) &&
-//     image.size > MAX_FILE_SIZE
-//   ) {
-//     ctx.addIssue({
-//       code: z.ZodIssueCode.custom,
-//       path: [EProfileEditFormFields.Image],
-//       message: FILE_MAX_SIZE_MESSAGE,
-//     });
-//   }
-// });
