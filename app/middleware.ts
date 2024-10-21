@@ -1,7 +1,7 @@
 import acceptLanguage from "accept-language";
 import helmet from "helmet";
-import { NextRequest, NextResponse } from "next/server";
 import { IncomingMessage, ServerResponse } from "http";
+import { NextRequest, NextResponse } from "next/server";
 import { fallbackLng, languages, cookieName } from "./app/i18n/settings";
 
 acceptLanguage.languages(languages);

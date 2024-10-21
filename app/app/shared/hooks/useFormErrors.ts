@@ -19,7 +19,7 @@ export const useFormErrors: TUseFormErrors = ({ errors }) => {
 
     Object.entries(errors).forEach(([key, value]) => {
       if (Array.isArray(value) && value.length > 0) {
-        const listErrors = [];
+        const listErrors: string[] = [];
         value.forEach((v) => {
           const rawData = translateRawData(t, v);
           listErrors.push(rawData);

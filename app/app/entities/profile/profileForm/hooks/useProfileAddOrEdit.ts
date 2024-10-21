@@ -82,8 +82,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     INITIAL_FORM_STATE,
   );
   const formErrors = useFormErrors({ errors: state.errors });
-  console.log("state.errors: ", state.errors);
-  console.log("formErrors: ", formErrors);
   const navigator = useNavigator({ lng });
   const { chatId, isSession, queryId, user } = useTelegram();
   const language = lng as ELanguage;
