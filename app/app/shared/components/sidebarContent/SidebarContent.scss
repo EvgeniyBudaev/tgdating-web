@@ -8,10 +8,13 @@
     &-Cancel {
       color: $link_color;
       cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
 
       &:hover,
       &:active {
         color: $link_active_color;
+        background-color: $color-gray;
+        border-radius: $border-radius;
       }
     }
 
@@ -24,7 +27,9 @@
 
       &:hover,
       &:active {
-        opacity: $opacity;
+        color: $link_active_color;
+        background-color: $color-gray;
+        border-radius: $border-radius;
       }
     }
   }
@@ -42,11 +47,15 @@
       padding: 8px 16px;
       border-bottom: 1px solid $secondary_bg_color;
       cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
       width: 100%;
-      opacity: $opacity;
+      color: $text_color_not_active;
+      //opacity: $opacity;
 
       &__isChecked {
         opacity: 1;
+        color: $text_color;
+        background-color: $color-gray;
       }
 
       &__isChecked .Icon {
@@ -57,6 +66,12 @@
 
       &:last-child {
         border-bottom: none;
+      }
+
+      &:hover,
+      &:active {
+        color: $text_color;
+        background-color: $color-gray;
       }
     }
 

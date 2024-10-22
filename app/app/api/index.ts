@@ -1,5 +1,5 @@
-import { fetchApi, getApiLanguage, setApiLanguage } from "./http";
+import { fetchApi } from "./http";
 import { TApiFunction } from "./types";
 
-export { fetchApi, getApiLanguage, setApiLanguage };
+export { fetchApi };
 export type { TApiFunction };

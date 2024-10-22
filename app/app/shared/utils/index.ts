@@ -1,4 +1,3 @@
-import { createApi } from "./createApi";
 import { createPath } from "./createPath";
 import { formatResponseFieldErrors } from "./formatResponseFieldErrors";
 import { gatewayTimeout } from "./gatewayTimeout";
@@ -11,7 +10,6 @@ import { processSuccessResponse } from "./processSuccessResponse";
 import { setResponseTimeout } from "./setResponseTimeout";
 
 export {
-  createApi,
   createPath,
   formatResponseFieldErrors,
   gatewayTimeout,

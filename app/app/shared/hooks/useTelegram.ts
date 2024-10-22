@@ -19,7 +19,7 @@ export const useTelegram = () => {
       first_name: "Евгений",
       last_name: "(◕ᆺ◕)",
       username: "golang_js",
-      language_code: "en",
+      language_code: "ru",
       is_premium: true,
       allows_write_to_pm: true,
     },
