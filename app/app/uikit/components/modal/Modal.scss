@@ -1,0 +1,60 @@
+@import "@/app/styles";
+
+.Modal {
+  &Content {
+    background-color: $color-black;
+  }
+
+  &Footer {
+  }
+
+  &Default {
+    &__medium {
+      min-width: 120px;
+      max-width: 760px;
+      width: 100%;
+    }
+
+    &CloseButton {
+      width: 20px;
+      height: 20px;
+
+      svg {
+        //fill: $color-dark-gray;
+        transition: all $transition;
+      }
+
+      &:hover {
+        svg {
+          //fill: $color-suit-gray;
+        }
+      }
+    }
+  }
+}
+
+/* ----- Модальное окно по центру адаптировано ----- */
+.react-responsive-modal-root .react-responsive-modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ----- Fixed Screen Glitch When Close Modal ----- */
+.react-responsive-modal-overlay,
+.react-responsive-modal-container,
+.react-responsive-modal-modal {
+  animation-fill-mode: forwards !important;
+}
+
+.react-responsive-modal-overlay {
+  background: $color-black;
+}
+
+.react-responsive-modal-modal {
+  padding: 0;
+  box-shadow: none;
+  border: none;
+  background-color: $color-black;
+  overflow: visible;
+}

@@ -1,0 +1,11 @@
+@import "@/app/styles";
+
+.ImageCropper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-Error {
+    color: $color-red;
+  }
+}

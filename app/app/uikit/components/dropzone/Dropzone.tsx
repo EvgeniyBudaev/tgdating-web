@@ -11,6 +11,7 @@ export type TDropzoneProps = {
   className?: string;
   dataTestId?: string;
   name: string;
+  multiple: boolean;
 } & DropzoneOptions;
 
 export const Dropzone: FC<TDropzoneProps> = ({
@@ -18,11 +19,13 @@ export const Dropzone: FC<TDropzoneProps> = ({
   className,
   dataTestId = "uikit__dropzone",
   name,
+  multiple,
   onDrop,
   ...rest
 }) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
+    multiple,
     ...rest,
   });
 

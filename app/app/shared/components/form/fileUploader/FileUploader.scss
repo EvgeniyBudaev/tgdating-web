@@ -1,9 +1,9 @@
 @import "@/app/styles";
 
 .FileUploader {
-  //display: flex;
-  //flex-wrap: wrap;
-  //align-items: center;
-  //gap: 8px;
-  //width: 100%;
+  &-ImageCropper-Error {
+    display: flex;
+    justify-content: center;
+    color: $color-red;
+  }
 }

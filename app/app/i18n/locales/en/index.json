@@ -8,23 +8,6 @@
     }
   },
   "common": {
-    "validation": {
-      "maxSymbols": "Must be no more than {{max}} characters",
-      "email": "Invalid email",
-      "cyrillicEmail": "Only Latin characters",
-      "empty": "Field cannot be empty",
-      "onlyLetters": "Allowed characters: letters only",
-      "passwordNotMatch": "Password mismatch",
-      "wrongCharacter": "Allowed characters: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
-      "file": {
-        "expectedFile": "You can only attach a file",
-        "maxSize": "Maximum file size 10mb",
-        "maxAmount": "Maximum number of files 3"
-      },
-      "invalidTypeNumber": "Must be a number",
-      "nonNegativeNumber": "Must be a positive number",
-      "lessOrEqualMaxNumber": "Must be less or equal to {{max}}"
-    },
     "titles": {
       "accountBlocked": "Account blocked",
       "accountDeleted": "Account deleted",
@@ -55,8 +38,6 @@
       }
     },
     "actions": {
-      "loading": "Loading",
-      "save": "Save",
       "settings": "Settings",
       "filter": "Filter",
       "block": "Block",
@@ -65,13 +46,33 @@
       "cancel": "Cancel",
       "search": "Search",
       "profile": "Profile",
-      "delete": "Delete"
+      "delete": "Delete",
+      "loading": "Loading",
+      "save": "Save"
     },
     "reductions": {
       "cm": "cm",
       "kg": "kg",
       "km": "km",
       "m": "m"
+    },
+    "validation": {
+      "smallImage": "Image must be at least 150 x 150 pixels",
+      "email": "Invalid email",
+      "cyrillicEmail": "Only Latin characters",
+      "empty": "Field cannot be empty",
+      "onlyLetters": "Allowed characters: letters only",
+      "passwordNotMatch": "Password mismatch",
+      "wrongCharacter": "Allowed characters: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
+      "file": {
+        "expectedFile": "You can only attach a file",
+        "maxSize": "Maximum file size 10mb",
+        "maxAmount": "Maximum number of files 3"
+      },
+      "invalidTypeNumber": "Must be a number",
+      "nonNegativeNumber": "Must be a positive number",
+      "lessOrEqualMaxNumber": "Must be less or equal to {{max}}",
+      "maxSymbols": "Must be no more than {{max}} characters"
     }
   },
   "pages": {

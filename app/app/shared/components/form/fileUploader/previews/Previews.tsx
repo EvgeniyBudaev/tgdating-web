@@ -24,6 +24,7 @@ type TProps = {
   isLoading?: boolean;
   lng: string;
   maxFiles?: number;
+  multiple: boolean;
   onAddFile?: (file: TFile) => void;
   onDeleteFile?: (file: TFile) => void;
   onDrop?: (
@@ -42,6 +43,7 @@ export const Previews: FC<TProps> = ({
   isLoading,
   lng,
   maxFiles,
+  multiple,
   onAddFile,
   onDeleteFile,
   onDrop,
@@ -114,6 +116,7 @@ export const Previews: FC<TProps> = ({
           className={clsx("FileUploader-Dropzone", {
             ["FileUploader-Dropzone__isLoading"]: isLoading,
           })}
+          multiple={multiple}
           {...rest}
         >
           <Icon type="AddCircleOutline" />
