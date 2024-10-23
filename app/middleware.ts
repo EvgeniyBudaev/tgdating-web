@@ -56,7 +56,7 @@ export const getContentSecurityPolicy = (nonce?: string): string => {
   const connect_src =
     process.env.NEXT_PUBLIC_NODE_ENV !== "development"
       ? "'self' ws:"
-      : "'self' ws://localhost:*";
+      : "'unsafe-inline' ws://localhost:*";
 
   // Add CORS headers
   const cors_headers =
@@ -64,28 +64,27 @@ export const getContentSecurityPolicy = (nonce?: string): string => {
       ? "'https://api.ipify.org'"
       : "'self'";
 
-  return (
-    "default-src 'self'; " +
-    `script-src https://telegram.org https://api-maps.yandex.ru https://suggest-maps.yandex.ru http://*.maps.yandex.net https://yandex.ru https://yastatic.net ${script_src}; ` +
-    `script-src-elem https://telegram.org https://api-maps.yandex.ru https://suggest-maps.yandex.ru http://*.maps.yandex.net https://yandex.ru https://yastatic.net ${script_src_elem};` +
-    `style-src 'self' https: 'unsafe-inline'; ` +
-    "base-uri 'self'; " +
-    "child-src https://api-maps.yandex.ru 'self'; " +
-    `connect-src https://geocode-maps.yandex.ru https://api.ipify.org https://api-maps.yandex.ru https://suggest-maps.yandex.ru https://*.maps.yandex.net https://yandex.ru https://*.taxi.yandex.net ${connect_src}; ` +
-    "img-src 'self' blob: data: https://*.maps.yandex.net https://api-maps.yandex.ru https://yandex.ru;" +
-    "font-src 'self' https: data:; " +
-    "form-action 'self'; " +
-    "frame-ancestors 'self'; " +
-    "frame-src https://api-maps.yandex.ru 'self'; " +
-    "manifest-src 'self'; " +
-    "media-src 'self'; " +
-    "object-src 'none'; " +
-    // "prefetch-src 'self'; " +
-    "script-src-attr 'none';" +
-    "worker-src 'self' blob:; " +
-    "upgrade-insecure-requests" +
-    `access-control-allow-origin ${cors_headers};`
-  );
+  return "";
+  // "default-src 'unsafe-inline' data:; " +
+  // `script-src https://telegram.org https://api-maps.yandex.ru https://suggest-maps.yandex.ru http://*.maps.yandex.net https://yandex.ru https://yastatic.net ${script_src}; ` +
+  // `script-src-elem https://telegram.org https://api-maps.yandex.ru https://suggest-maps.yandex.ru http://*.maps.yandex.net https://yandex.ru https://yastatic.net ${script_src_elem};` +
+  // `style-src 'self' https: 'unsafe-inline'; ` +
+  // "base-uri 'self'; " +
+  // "child-src https://api-maps.yandex.ru 'self'; " +
+  // `connect-src https://geocode-maps.yandex.ru https://api.ipify.org https://api-maps.yandex.ru https://suggest-maps.yandex.ru https://*.maps.yandex.net https://yandex.ru https://*.taxi.yandex.net ${connect_src}; ` +
+  // "img-src 'unsafe-inline' blob: data: https://*.maps.yandex.net https://api-maps.yandex.ru https://yandex.ru;" +
+  // "font-src 'self' https: data:; " +
+  // "form-action 'self'; " +
+  // "frame-ancestors 'self'; " +
+  // "frame-src https://api-maps.yandex.ru 'self'; " +
+  // "manifest-src 'self'; " +
+  // "media-src 'self'; " +
+  // "object-src 'none'; " +
+  // // "prefetch-src 'self'; " +
+  // "script-src-attr 'none';" +
+  // "worker-src 'self' blob:; " +
+  // "upgrade-insecure-requests" +
+  // `access-control-allow-origin ${cors_headers};`
 };
 
 const policies = [

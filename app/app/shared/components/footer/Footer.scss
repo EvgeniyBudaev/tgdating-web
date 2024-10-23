@@ -18,21 +18,22 @@
     align-items: center;
     margin-left: 16px;
     width: 46px;
-    color: $link_color;
+    color: $link_active_color;
     cursor: pointer;
-    opacity: $opacity;
 
     & svg {
-      fill: $link_color;
+      fill: $link_active_color;
     }
 
     &__isActive {
-      opacity: 1;
+      color: $link_color;
+      fill: $link_color;
     }
 
     &:hover,
     &:active {
-      opacity: 1;
+      color: $link_color;
+      fill: $link_color;
     }
 
     &:first-child {

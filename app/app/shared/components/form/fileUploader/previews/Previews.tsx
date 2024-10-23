@@ -109,18 +109,22 @@ export const Previews: FC<TProps> = ({
       {renderDefaultImages}
       {renderThumbs}
       {isCheckedByMaxFiles && (
-        <Dropzone
-          onDrop={onDrop}
-          accept={accept}
-          disabled={isLoading}
-          className={clsx("FileUploader-Dropzone", {
-            ["FileUploader-Dropzone__isLoading"]: isLoading,
-          })}
-          multiple={multiple}
-          {...rest}
-        >
-          <Icon type="AddCircleOutline" />
-        </Dropzone>
+        <div className="Previews-Thumb">
+          <div className="Previews-Thumb-Inner">
+            <Dropzone
+              onDrop={onDrop}
+              accept={accept}
+              disabled={isLoading}
+              className={clsx("FileUploader-Dropzone", {
+                ["FileUploader-Dropzone__isLoading"]: isLoading,
+              })}
+              multiple={multiple}
+              {...rest}
+            >
+              <Icon type="AddCircleOutline" />
+            </Dropzone>
+          </div>
+        </div>
       )}
     </aside>
   );

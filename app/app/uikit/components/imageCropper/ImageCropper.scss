@@ -5,6 +5,51 @@
   flex-direction: column;
   align-items: center;
 
+  &-Controls {
+    position: fixed;
+    bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  &-Control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 16px;
+    padding: 4px;
+    border-radius: $border-radius;
+    width: max-content;
+    color: $link_color;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    & svg {
+      fill: $link_color;
+    }
+
+    &:hover,
+    &:active {
+      color: $link_color;
+      fill: $link_color;
+      background-color: $color-gray;
+    }
+  }
+
+  //&-Cancel {
+  //  right: 0;
+  //}
+
+  &-Save {
+    right: 0;
+  }
+
   &-Error {
     color: $color-red;
   }

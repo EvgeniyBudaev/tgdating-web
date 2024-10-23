@@ -57,7 +57,7 @@
       "m": "m"
     },
     "validation": {
-      "smallImage": "Image must be at least 150 x 150 pixels",
+      "smallImage": "Image must be at least 100 x 100 pixels",
       "email": "Invalid email",
       "cyrillicEmail": "Only Latin characters",
       "empty": "Field cannot be empty",

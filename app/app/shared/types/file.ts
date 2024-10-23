@@ -1,1 +1,1 @@
-export type TFile = { preview?: string } & File;
+export type TFile = { path?: string; preview?: string } & File;
