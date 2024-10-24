@@ -1,12 +1,13 @@
 "use client";
 
 import { useParams, usePathname } from "next/navigation";
-import { type FC, useMemo } from "react";
+import { type FC, memo, useMemo } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { NavLink } from "@/app/shared/components/navLink";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useNavigator, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
+import { useHydrated } from "@/app/uikit/hooks";
 import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
 import "./Footer.scss";
@@ -15,19 +16,19 @@ type TProps = {
   lng: ELanguage;
 };
 
-export const Footer: FC<TProps> = ({ lng }) => {
-  console.log("Footer");
+const FooterComponent: FC<TProps> = ({ lng }) => {
   const navigator = useNavigator({ lng });
   const params = useParams();
   const pathname = usePathname();
   const { isSession, user } = useTelegram();
   const { t } = useTranslation("index");
+  const isHydrated = useHydrated();
 
   const sessionPath = createPath(
     {
       route: ERoutes.Session,
       params: { sessionId: (user?.id ?? "").toString() },
-      lng,
+      lng: lng,
     },
     {
       ...(navigator?.latitudeGPS
@@ -64,7 +65,9 @@ export const Footer: FC<TProps> = ({ lng }) => {
       lng,
     });
     return pathname !== path;
-  }, [pathname]);
+  }, [lng, pathname]);
+
+  if (!isHydrated) return null;
 
   return (
     <div className="Footer">
@@ -91,3 +94,7 @@ export const Footer: FC<TProps> = ({ lng }) => {
     </div>
   );
 };
+
+FooterComponent.displayName = "Footer";
+
+export const Footer = memo(FooterComponent);

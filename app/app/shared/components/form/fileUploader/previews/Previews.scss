@@ -26,7 +26,7 @@ $imageSize: 120px;
 
     &-Image {
       object-fit: contain;
-      object-position: top;
+      object-position: center;
       border: 1px solid transparent;
       border-radius: $border-radius;
     }

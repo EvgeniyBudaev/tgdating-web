@@ -36,7 +36,7 @@ export const useProfileDetail: TUseProfileDetail = ({
       });
       redirect(path);
     }
-  }, [status]);
+  }, [lng, status]);
 
   useEffect(() => {
     if (isSession) {
@@ -73,7 +73,15 @@ export const useProfileDetail: TUseProfileDetail = ({
         fetchProfileDetail();
       }
     }
-  }, [isSession]);
+  }, [
+    isSession,
+    lng,
+    navigator?.latitudeGPS,
+    navigator?.longitudeGPS,
+    profileDetail,
+    user?.id,
+    viewedSessionId,
+  ]);
 
   return {
     profileDetail,

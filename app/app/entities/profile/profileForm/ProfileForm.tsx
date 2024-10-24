@@ -6,6 +6,7 @@ import type { TProfile } from "@/app/api/profile/get";
 import { useTranslation } from "react-i18next";
 import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
 import { useProfileAddOrEdit } from "@/app/entities/profile/profileForm/hooks";
+// import {ProfileSkeletonForm} from "@/app/entities/profile/profileForm/profileSkeletonForm";
 import { Container } from "@/app/shared/components/container";
 import { ErrorBoundary } from "@/app/shared/components/errorBoundary";
 import { Field } from "@/app/shared/components/form/field";
@@ -60,12 +61,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
 
   // if (isEdit && !navigator.isCoords) return <ProfileSkeletonForm />;
   if (isEdit && navigator?.errorPosition) {
-    return (
-      <ErrorBoundary
-        i18n={i18n}
-        message={t("errorBoundary.common.geoPositionError")}
-      />
-    );
+    return <ErrorBoundary message={"errorBoundary.common.geoPositionError"} />;
   }
 
   return (

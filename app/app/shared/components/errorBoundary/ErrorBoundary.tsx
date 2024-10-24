@@ -4,7 +4,6 @@ import { ErrorUI } from "@/app/shared/components/errorUI";
 
 type TProps = {
   error?: Error;
-  i18n: i18n;
   message?: string;
 };
 

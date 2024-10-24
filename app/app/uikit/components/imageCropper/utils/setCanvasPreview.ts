@@ -19,11 +19,6 @@ export const setCanvasPreview = (
   const height = Math.floor(crop.height * scaleY * pixelRatio);
   canvas.width = width;
   canvas.height = height;
-  console.log("image.naturalWidth: ", image.naturalWidth);
-  console.log("image.width: ", image.width);
-  console.log("canvas.width: ", canvas.width);
-  console.log("crop.width: ", crop.width);
-  console.log("width: ", width);
 
   ctx.scale(pixelRatio, pixelRatio);
   ctx.imageSmoothingQuality = "high";

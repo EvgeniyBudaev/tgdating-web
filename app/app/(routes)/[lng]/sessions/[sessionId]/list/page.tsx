@@ -12,6 +12,8 @@ import {
 } from "@/app/shared/constants";
 import { ELanguage } from "@/app/shared/enums";
 
+export const dynamic = "force-dynamic";
+
 type TSearchParams = {
   page?: string;
   size?: string;

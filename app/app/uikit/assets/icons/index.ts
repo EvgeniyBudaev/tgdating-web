@@ -5,6 +5,7 @@ import { ArrowRightIcon } from "./arrowRightIcon";
 import { AttentionIcon } from "./attentionIcon";
 import { CalendarIcon } from "./calendarIcon";
 import { CheckboxIcon } from "./checkboxIcon";
+import { CloseIcon } from "./closeIcon";
 import { EditIcon } from "./editIcon";
 import { ExitIcon } from "./exitIcon";
 import { FilterIcon } from "./filterIcon";
@@ -29,6 +30,7 @@ export {
   AttentionIcon,
   CalendarIcon,
   CheckboxIcon,
+  CloseIcon,
   EditIcon,
   ExitIcon,
   FilterIcon,

@@ -32,7 +32,7 @@ export const useProfileList: TUseProfileList = ({ lng }) => {
       });
       redirect(path);
     }
-  }, [status]);
+  }, [lng, status]);
 
   useEffect(() => {
     if (isSession) {
@@ -62,7 +62,7 @@ export const useProfileList: TUseProfileList = ({ lng }) => {
         fetchProfileList();
       }
     }
-  }, [isSession]);
+  }, [isSession, lng, profileList, queryURL]);
 
   return {
     profileList,

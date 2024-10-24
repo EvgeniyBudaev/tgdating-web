@@ -69,8 +69,12 @@ export const SessionPage: FC<TProps> = ({
                     lng: lng,
                   }),
                   query: {
-                    latitude: (navigator?.latitudeGPS ?? "").toString(),
-                    longitude: (navigator?.longitudeGPS ?? "").toString(),
+                    ...(navigator?.latitudeGPS
+                      ? { latitude: navigator?.latitudeGPS.toString() }
+                      : {}),
+                    ...(navigator?.longitudeGPS
+                      ? { longitude: navigator?.longitudeGPS.toString() }
+                      : {}),
                   },
                 }}
                 key={item.sessionId}

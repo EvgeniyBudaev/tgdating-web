@@ -16,10 +16,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 16px;
-    width: 46px;
+    margin-left: 8px;
+    padding: 4px;
+    border-radius: $border-radius;
+    max-width: 80px;
+    width: 100%;
     color: $link_active_color;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 
     & svg {
       fill: $link_active_color;
@@ -27,13 +31,22 @@
 
     &__isActive {
       color: $link_color;
-      fill: $link_color;
+      cursor: default;
+
+      & svg {
+        fill: $link_color;
+      }
     }
 
     &:hover,
     &:active {
       color: $link_color;
       fill: $link_color;
+      background-color: $color-gray;
+
+      & svg {
+        fill: $link_color;
+      }
     }
 
     &:first-child {

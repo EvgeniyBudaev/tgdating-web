@@ -33,6 +33,7 @@ export const editProfileParamsSchema = zfd.formData({
   distance: zfd.text(),
   page: zfd.text(),
   size: zfd.text(),
+  isImages: zfd.text(),
 });
 
 export const editProfileSchema = z.object({

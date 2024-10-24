@@ -1,4 +1,7 @@
+"use client";
+
 import type { FC } from "react";
+import { useTranslation } from "react-i18next";
 import { i18n } from "i18next";
 import { Icon } from "@/app/uikit/components/icon";
 import {
@@ -9,15 +12,16 @@ import "./ErrorUI.scss";
 
 type TProps = {
   error?: Error;
-  i18n?: i18n;
   message?: string;
 };
 
-export const ErrorUI: FC<TProps> = ({ error, i18n, message }) => {
+export const ErrorUI: FC<TProps> = ({ error, message }) => {
+  const { t } = useTranslation("index");
+
   const errorMessage =
-    message ||
+    (message && t(message)) ||
     error?.message ||
-    i18n?.t("errorBoundary.common.unexpectedError");
+    t("errorBoundary.common.unexpectedError");
 
   return (
     <section className="ErrorUI">

@@ -7,7 +7,6 @@ import {
   type FC,
   type ReactElement,
   useEffect,
-  useRef,
 } from "react";
 import { useFormStatus } from "react-dom";
 import { useTranslation } from "react-i18next";
@@ -78,6 +77,7 @@ export const FileUploader: FC<TFileUploaderProps> = ({
       setNewFiles((prev) => [...prev, cropFile]);
       setCropFile(undefined);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cropFile, acceptedFiles, newFiles]);
 
   const onDrop = useCallback(
@@ -87,6 +87,7 @@ export const FileUploader: FC<TFileUploaderProps> = ({
       setAcceptedFiles(acceptedFiles);
       openModal();
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [countFiles, files, maxFiles, onAddFiles],
   );
 
@@ -119,7 +120,6 @@ export const FileUploader: FC<TFileUploaderProps> = ({
     setCropFile(file);
     closeModal();
   };
-  console.log("error: ", errorImageCropper);
 
   return (
     <div className="FileUploader">

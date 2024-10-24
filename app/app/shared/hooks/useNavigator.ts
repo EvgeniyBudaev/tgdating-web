@@ -36,6 +36,8 @@ type TProps = {
 type TUseNavigator = (props: TProps) => TUseNavigatorResponse;
 
 export const useNavigator: TUseNavigator = ({ lng }) => {
+  const DEFAULT_LONGITUDE = 37.618879;
+  const DEFAULT_LATITUDE = 55.751426;
   const [positionGPS, setPositionGPS] = useState<TPositionGPS>({
     errorPosition: undefined,
     isCoords: false,
@@ -46,8 +48,8 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
   const [positionIP, setPositionIP] = useState<TPositionIP>({
     isCoords: false,
     location: undefined,
-    longitude: undefined,
-    latitude: undefined,
+    longitude: DEFAULT_LONGITUDE,
+    latitude: DEFAULT_LATITUDE,
   });
 
   const fetchNavigatorCoords = async () => {
@@ -84,8 +86,8 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
       setPositionIP({
         isCoords: false,
         location: undefined,
-        longitude: undefined,
-        latitude: undefined,
+        longitude: DEFAULT_LONGITUDE,
+        latitude: DEFAULT_LATITUDE,
       });
     }
   };
@@ -100,8 +102,8 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
     } catch (error) {
       setPositionIP({
         isCoords: false,
-        longitude: undefined,
-        latitude: undefined,
+        longitude: DEFAULT_LONGITUDE,
+        latitude: DEFAULT_LATITUDE,
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -134,12 +136,14 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
     if (positionIP.isCoords && !positionIP?.location) {
       fetchIPInfo().then((r) => {});
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [positionIP.isCoords, positionIP?.location]);
 
   useEffect(() => {
     if (!positionGPS?.isCoords && !positionIP?.isCoords) {
       getLocationFromIp().then((r) => {});
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [positionGPS?.isCoords, positionIP?.isCoords]);
 
   useEffect(() => {

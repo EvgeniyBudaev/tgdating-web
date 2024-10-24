@@ -155,6 +155,10 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
         // redirect(path);
       }
     }
+    console.log("isData: ", !isNil(state?.data));
+    console.log("success: ", state.success);
+    console.log("isNotError: ", !state?.error);
+    console.log("data: ", state?.data);
     if (isEdit && !isNil(state?.data) && state.success && !state?.error) {
       const query = {
         ...(navigator?.latitudeGPS
@@ -177,7 +181,15 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       );
       redirect(path);
     }
-  }, [isEdit, user?.id, profile, state]);
+  }, [
+    isEdit,
+    lng,
+    navigator?.latitudeGPS,
+    navigator?.longitudeGPS,
+    user,
+    profile,
+    state,
+  ]);
 
   // Profile Add
   useEffect(() => {
@@ -188,7 +200,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       });
       redirect(path);
     }
-  }, [isEdit, state]);
+  }, [isEdit, lng, state]);
 
   const handleDeleteFile = (file: TFile, files: TFile[]) => {
     onDeleteFile?.(file, files);

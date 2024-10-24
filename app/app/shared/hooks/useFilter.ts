@@ -62,7 +62,8 @@ export const useFilter: TUseProfileList = ({ lng }) => {
         fetchProfileFilter();
       }
     }
-  }, [isSession]);
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSession, lng, profileFilter, queryURL, user?.id]);
 
   return {
     isNotFound,

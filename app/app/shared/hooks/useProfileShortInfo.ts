@@ -51,7 +51,7 @@ export const useProfileShortInfo: TUseProfileShortInfo = ({ lng }) => {
         fetchProfileShortInfo();
       }
     }
-  }, [isSession]);
+  }, [isSession, lng, profileShortInfo, user?.id]);
 
   return {
     isNotFound,

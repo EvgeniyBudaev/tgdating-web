@@ -162,15 +162,23 @@ export async function editProfileAction(prevState: any, formData: FormData) {
       EProfileEditFormFields.Size,
       mapperParams.profileForm.size,
     );
+    profileFormData.append(
+      EProfileEditFormFields.IsImages,
+      mapperParams.profileForm.isImages,
+    );
 
     const response = await editProfile(
       profileFormData as unknown as TEditProfileParams,
     );
-    const path = createPath({
-      route: ERoutes.ProfileEdit,
-      params: { sessionId: mapperParams.profileForm.sessionId },
-    });
-    revalidatePath(path);
+    // const path = createPath({
+    //   route: ERoutes.ProfileDetail,
+    //   params: { sessionId: mapperParams.profileForm.sessionId, viewedSessionId: mapperParams.profileForm.sessionId },
+    // });
+    // const path = createPath({
+    //   route: ERoutes.ProfileEdit,
+    //   params: { sessionId: mapperParams.profileForm.sessionId },
+    // });
+    // revalidatePath(path);
 
     return {
       data: response,

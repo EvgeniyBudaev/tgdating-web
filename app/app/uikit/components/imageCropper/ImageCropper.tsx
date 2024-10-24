@@ -1,5 +1,7 @@
 "use client";
 
+// @ts-ignore
+import imageResize from "image-resize";
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
 import {
@@ -38,9 +40,10 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
     ref: ForwardedRef<HTMLDivElement>,
   ): JSX.Element => {
     const ASPECT_RATIO = 1;
-    const MIN_DIMENSION = 1000;
+    const MIN_DIMENSION = 100;
     const [crop, setCrop] = useState<Crop>();
     const [imageSrc, setImageSrc] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
     const previewCanvasRef = useRef<HTMLCanvasElement | null>(null);
     const imageRef = useRef<HTMLImageElement | null>(null);
     const { t } = useTranslation("index");
@@ -48,8 +51,9 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
     useEffect(() => {
       if (!isEmpty(file) && !isNil(file)) {
         handleImageCrop(file);
-        console.log("File before Мб:", file.size / 1024 / 1024);
+        // console.log("File before Мб:", file.size / 1024 / 1024);
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [file]);
 
     const handleImageCrop = (file: File) => {
@@ -60,7 +64,8 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
         imageElement.src = imageUrl;
         imageElement.addEventListener("load", (event) => {
           if (error) onError?.("");
-          const { naturalHeight, naturalWidth } = event.currentTarget;
+          const { naturalHeight, naturalWidth } =
+            event.currentTarget as HTMLImageElement;
           if (naturalWidth < MIN_DIMENSION || naturalHeight < MIN_DIMENSION) {
             const errorMessage = t("common.validation.smallImage");
             onError?.(errorMessage);
@@ -104,26 +109,47 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
             imageRef?.current?.height,
           ),
         );
+        const canvas = previewCanvasRef.current;
+        if (canvas) {
+          setIsLoading(true);
+          const newCanvas = (await imageResize(canvas, {
+            format: "jpg",
+            outputType: "canvas",
+            width: 640,
+          })) as HTMLCanvasElement;
+          setIsLoading(false);
+          const parentElement = canvas?.parentElement;
+          if (parentElement && newCanvas) {
+            parentElement.replaceChild(newCanvas, canvas); // Заменяем старый canvas на новый
+            previewCanvasRef.current = newCanvas; // Обновляем ссылку на canvas
+          } else {
+            console.error("Не удалось найти родительский элемент для canvas");
+          }
+        }
         // const cropImageSrc = previewCanvasRef.current?.toDataURL();
         const blob = await toBlob(
           previewCanvasRef.current as HTMLCanvasElement,
+          file?.type ?? "image/jpeg",
         );
         if (!isNil(blob) && !isNil(file)) {
           const newFile: TFile = new File([blob], file.name, {
-            type: "image/jpg",
+            type: file.type,
           });
           const imageUrl = URL.createObjectURL(blob);
           newFile.path = file.name;
           newFile.preview = imageUrl;
-          console.log("newFile after Мб:", newFile.size / 1024 / 1024);
+          // console.log("File after Мб:", newFile.size / 1024 / 1024);
           onCropFile?.(newFile);
         }
       }
     };
 
-    function toBlob(canvas: HTMLCanvasElement): Promise<Blob | null> {
+    function toBlob(
+      canvas: HTMLCanvasElement,
+      fileType: string,
+    ): Promise<Blob | null> {
       return new Promise((resolve) => {
-        canvas.toBlob(resolve, "image/jpeg", 0.8);
+        canvas.toBlob(resolve, fileType, 0.8);
       });
     }
 
@@ -138,6 +164,7 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
             minWidth={MIN_DIMENSION}
             onChange={(pixelCrop, percentCrop) => setCrop(percentCrop)}
           >
+            {/* eslint-disable-next-line*/}
             <img
               ref={imageRef}
               src={imageSrc}
@@ -159,8 +186,18 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
             className="ImageCropper-Control ImageCropper-Save"
             onClick={handleCanvasPreview}
           >
-            <Icon type="Save" />
-            <Typography>{t("common.actions.save")}</Typography>
+            {!isLoading && (
+              <>
+                <Icon type="Save" />
+                <Typography>{t("common.actions.save")}</Typography>
+              </>
+            )}
+            {isLoading && (
+              <>
+                <Icon className="ImageCropper-Loading-Icon" type="Spinner" />
+                <Typography>{t("common.actions.loading")}</Typography>
+              </>
+            )}
           </div>
         </div>
         {crop && (

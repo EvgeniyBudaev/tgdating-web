@@ -1,8 +1,9 @@
 import { getProfile } from "@/app/api/profile/get";
 import { ProfileEditPage } from "@/app/pages/profileEditPage";
 import { ELanguage } from "@/app/shared/enums";
-import { useTranslation } from "@/app/i18n";
 import { ErrorBoundary } from "@/app/shared/components/errorBoundary";
+
+export const dynamic = "force-dynamic";
 
 type TLoader = {
   sessionId: string;
@@ -34,13 +35,12 @@ export default async function ProfileEditRoute(props: TProps) {
   const { params } = props;
   const { lng, sessionId } = params;
   const language = lng as ELanguage;
-  const { i18n, t } = await useTranslation(lng, "index");
 
   try {
     const data = await loader({ sessionId });
     return <ProfileEditPage lng={language} profile={data?.profile} />;
   } catch (error) {
     const err = error as Error;
-    return <ErrorBoundary i18n={i18n} message={t(err.message as any)} />;
+    return <ErrorBoundary message={err.message} />;
   }
 }

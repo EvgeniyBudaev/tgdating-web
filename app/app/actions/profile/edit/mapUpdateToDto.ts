@@ -28,6 +28,7 @@ type TProps = {
   [EProfileEditFormFields.Distance]: string;
   [EProfileEditFormFields.Page]: string;
   [EProfileEditFormFields.Size]: string;
+  [EProfileEditFormFields.IsImages]: string;
 };
 
 type TProfileForm = {
@@ -57,6 +58,7 @@ type TProfileForm = {
   [EProfileEditFormFields.Distance]: string;
   [EProfileEditFormFields.Page]: string;
   [EProfileEditFormFields.Size]: string;
+  [EProfileEditFormFields.IsImages]: string;
 };
 
 type TResponse = {
@@ -97,6 +99,7 @@ export const mapUpdateToDto: TMapUpdateToDto = (props) => {
       [EProfileEditFormFields.Distance]: props.distance,
       [EProfileEditFormFields.Page]: props.page,
       [EProfileEditFormFields.Size]: props.size,
+      [EProfileEditFormFields.IsImages]: props.isImages,
     },
   };
 };

@@ -1,10 +1,10 @@
 "use client";
 
-import {usePathname, useRouter, useSearchParams} from "next/navigation";
-import {type FC, type ReactNode, useEffect, useMemo} from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { type FC, memo, type ReactNode, useEffect, useMemo } from "react";
 import { Footer } from "@/app/shared/components/footer";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import {useTelegram} from "@/app/shared/hooks";
+import { useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import "./Layout.scss";
 
@@ -13,17 +13,20 @@ type TProps = {
   lng: ELanguage;
 };
 
-export const Layout: FC<TProps> = ({ children, lng }) => {
+const LayoutComponent: FC<TProps> = ({ children, lng }) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
-  const {user} = useTelegram();
+  const { user } = useTelegram();
 
   useEffect(() => {
-    const updatedPathname = pathname.replace(`/${lng}`, `/${user?.language_code}`);
+    const updatedPathname = pathname.replace(
+      `/${lng}`,
+      `/${user?.language_code}`,
+    );
     const url = `${updatedPathname}?${searchParams}`;
     router.push(url);
-  }, []);
+  }, [lng, pathname, router, searchParams, user?.language_code]);
 
   const isFooter = useMemo(() => {
     const path = createPath({
@@ -31,7 +34,7 @@ export const Layout: FC<TProps> = ({ children, lng }) => {
       lng,
     });
     return pathname !== path;
-  }, [pathname]);
+  }, [lng, pathname]);
 
   return (
     <div className="Layout">
@@ -40,3 +43,7 @@ export const Layout: FC<TProps> = ({ children, lng }) => {
     </div>
   );
 };
+
+LayoutComponent.displayName = "Layout";
+
+export const Layout = memo(LayoutComponent);

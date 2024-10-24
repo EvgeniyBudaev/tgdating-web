@@ -23,7 +23,7 @@ export const MainPage: FC<TProps> = ({ lng }) => {
       });
       redirect(path);
     }
-  }, [user?.id]);
+  }, [lng, user?.id]);
 
   return <></>;
 };

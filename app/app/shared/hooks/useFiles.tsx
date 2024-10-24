@@ -73,6 +73,7 @@ export const useFiles: TUseImages = ({ fieldName, files, setValue }) => {
       // Нужно, чтобы поймать только момент, когда пришел ответ от сервера и записать данные в поле
       // eslint-disable-next-line react-hooks/exhaustive-deps
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [
       // fieldName, files, setValue
     ],
