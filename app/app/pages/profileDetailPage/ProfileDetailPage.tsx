@@ -196,6 +196,7 @@ export const ProfileDetailPage: FC<TProps> = ({
                       route: ERoutes.ProfileEdit,
                       params: { sessionId: profile.sessionId },
                     })}
+                    key={profile.sessionId}
                   >
                     <Typography>{t("common.actions.edit")}</Typography>
                   </Link>

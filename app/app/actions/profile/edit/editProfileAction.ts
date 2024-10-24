@@ -7,19 +7,15 @@ import { editProfileFormSchema } from "@/app/actions/profile/edit/schemas";
 import { editProfile, type TEditProfileParams } from "@/app/api/profile/edit";
 import { mapUpdateToDto } from "@/app/api/profile/edit/utils";
 import { EProfileEditFormFields } from "@/app/actions/profile/edit/enums";
-import { ERoutes } from "@/app/shared/enums";
 import type { TCommonResponseError } from "@/app/shared/types/error";
-import {
-  getResponseError,
-  getErrorsResolver,
-  createPath,
-} from "@/app/shared/utils";
+import { getResponseError, getErrorsResolver } from "@/app/shared/utils";
 
 export async function editProfileAction(prevState: any, formData: FormData) {
+  console.log("resolver", Object.fromEntries(formData.entries()));
   const resolver = editProfileFormSchema.safeParse(
     Object.fromEntries(formData.entries()),
   );
-
+  console.log("resolver.success", resolver.success);
   if (!resolver.success) {
     const errors = getErrorsResolver(resolver);
     return {
@@ -170,15 +166,6 @@ export async function editProfileAction(prevState: any, formData: FormData) {
     const response = await editProfile(
       profileFormData as unknown as TEditProfileParams,
     );
-    // const path = createPath({
-    //   route: ERoutes.ProfileDetail,
-    //   params: { sessionId: mapperParams.profileForm.sessionId, viewedSessionId: mapperParams.profileForm.sessionId },
-    // });
-    // const path = createPath({
-    //   route: ERoutes.ProfileEdit,
-    //   params: { sessionId: mapperParams.profileForm.sessionId },
-    // });
-    // revalidatePath(path);
 
     return {
       data: response,

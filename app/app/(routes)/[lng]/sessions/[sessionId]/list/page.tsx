@@ -32,7 +32,7 @@ type TLoader = {
   searchParams: TSearchParams;
 };
 
-async function loader(params: TLoader) {
+async function loaderProfileList(params: TLoader) {
   const { sessionId, searchParams } = params;
   try {
     if (sessionId) {
@@ -87,7 +87,7 @@ export default async function MainRoute(props: TProps) {
   const { params } = props;
   const { lng, sessionId } = params;
   const language = lng as ELanguage;
-  const data = await loader({
+  const data = await loaderProfileList({
     sessionId,
     searchParams: props?.searchParams ?? {},
   });

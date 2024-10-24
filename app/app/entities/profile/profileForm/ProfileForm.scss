@@ -3,14 +3,24 @@
 .ProfileForm {
   $this: &;
 
-  &-Save {
+  &-Controls {
     position: fixed;
     left: 0;
     bottom: 16px;
-    padding: 0 16px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
     z-index: 40;
+  }
+
+  &-Cancel {
+    padding: 0 16px;
+    width: 100%;
+    min-height: 46px;
+  }
+
+  &-Save {
+    padding: 0 16px;
+    width: 100%;
   }
 }

@@ -19,7 +19,7 @@ type TLoader = {
   searchParams: TSearchParams;
 };
 
-async function loader(params: TLoader) {
+async function loaderProfileDetail(params: TLoader) {
   const { sessionId, viewedSessionId, searchParams } = params;
   try {
     const profileDetailResponse = await getProfileDetail({
@@ -47,7 +47,7 @@ export default async function ProfileDetailRoute(props: TProps) {
   const { params } = props;
   const { lng, sessionId, viewedSessionId } = params;
   const language = lng as ELanguage;
-  const data = await loader({
+  const data = await loaderProfileDetail({
     sessionId,
     viewedSessionId,
     searchParams: props?.searchParams ?? {},

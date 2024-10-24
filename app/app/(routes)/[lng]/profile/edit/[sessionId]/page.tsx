@@ -9,7 +9,7 @@ type TLoader = {
   sessionId: string;
 };
 
-async function loader(params: TLoader) {
+async function loaderProfileEdit(params: TLoader) {
   const { sessionId } = params;
   try {
     const profileResponse = await getProfile({
@@ -37,7 +37,7 @@ export default async function ProfileEditRoute(props: TProps) {
   const language = lng as ELanguage;
 
   try {
-    const data = await loader({ sessionId });
+    const data = await loaderProfileEdit({ sessionId });
     return <ProfileEditPage lng={language} profile={data?.profile} />;
   } catch (error) {
     const err = error as Error;

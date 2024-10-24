@@ -9,15 +9,17 @@ import { useProfileAddOrEdit } from "@/app/entities/profile/profileForm/hooks";
 // import {ProfileSkeletonForm} from "@/app/entities/profile/profileForm/profileSkeletonForm";
 import { Container } from "@/app/shared/components/container";
 import { ErrorBoundary } from "@/app/shared/components/errorBoundary";
+import { CancelButton } from "@/app/shared/components/form/cancelButton";
 import { Field } from "@/app/shared/components/form/field";
 import { FileUploader } from "@/app/shared/components/form/fileUploader";
 import { SubmitButton } from "@/app/shared/components/form/submitButton";
 import { Section } from "@/app/shared/components/section";
 import { SidebarContent } from "@/app/shared/components/sidebarContent";
-import { ELanguage } from "@/app/shared/enums";
+import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { GENDER_MAPPING } from "@/app/shared/mapping/gender";
 import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
 import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
+import { createPath } from "@/app/shared/utils";
 import { Error } from "@/app/uikit/components/error";
 import { Input } from "@/app/uikit/components/input";
 import { InputDateField } from "@/app/uikit/components/inputDateField";
@@ -224,8 +226,34 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
           </Field>
         </Section>
         <Container>
-          <div className="ProfileForm-Save">
-            <SubmitButton />
+          <div className="ProfileForm-Controls">
+            {isEdit && (
+              <div className="ProfileForm-Cancel">
+                <CancelButton
+                  href={createPath(
+                    {
+                      route: ERoutes.ProfileDetail,
+                      params: {
+                        sessionId: (profile?.sessionId ?? "").toString(),
+                        viewedSessionId: (profile?.sessionId ?? "").toString(),
+                      },
+                      lng: lng,
+                    },
+                    {
+                      ...(navigator?.latitudeGPS
+                        ? { latitude: navigator?.latitudeGPS.toString() }
+                        : {}),
+                      ...(navigator?.longitudeGPS
+                        ? { longitude: navigator?.longitudeGPS.toString() }
+                        : {}),
+                    },
+                  )}
+                />
+              </div>
+            )}
+            <div className="ProfileForm-Save">
+              <SubmitButton />
+            </div>
           </div>
         </Container>
       </form>

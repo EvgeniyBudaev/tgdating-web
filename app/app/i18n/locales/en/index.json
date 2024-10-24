@@ -1,12 +1,4 @@
 {
-  "errorBoundary": {
-    "common": {
-      "unauthorized": "Not authorized via Telegram app",
-      "forbidden": "No access to the report",
-      "geoPositionError": "Error determining geoposition. Check your Internet connection and your equipment filters. Try refreshing the page",
-      "unexpectedError": "Unexpected error"
-    }
-  },
   "common": {
     "titles": {
       "accountBlocked": "Account blocked",
@@ -46,6 +38,7 @@
       "cancel": "Cancel",
       "search": "Search",
       "profile": "Profile",
+      "back": "Back",
       "delete": "Delete",
       "loading": "Loading",
       "save": "Save"
@@ -57,7 +50,6 @@
       "m": "m"
     },
     "validation": {
-      "smallImage": "Image must be at least 100 x 100 pixels",
       "email": "Invalid email",
       "cyrillicEmail": "Only Latin characters",
       "empty": "Field cannot be empty",
@@ -72,12 +64,18 @@
       "invalidTypeNumber": "Must be a number",
       "nonNegativeNumber": "Must be a positive number",
       "lessOrEqualMaxNumber": "Must be less or equal to {{max}}",
-      "maxSymbols": "Must be no more than {{max}} characters"
+      "maxSymbols": "Must be no more than {{max}} characters",
+      "smallImage": "Image must be at least 100 x 100 pixels"
     }
   },
   "pages": {
     "profile": {
       "doubleLike": "Re-like will be available tomorrow"
+    }
+  },
+  "errorBoundary": {
+    "common": {
+      "unexpectedError": "Unexpected error"
     }
   }
 }

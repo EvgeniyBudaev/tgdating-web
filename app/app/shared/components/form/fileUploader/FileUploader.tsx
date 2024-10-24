@@ -69,6 +69,9 @@ export const FileUploader: FC<TFileUploaderProps> = ({
       const isDuplicatedFile = (newFiles ?? []).some(
         (file) => file.name === cropFile.name,
       );
+      console.log("files: ", files);
+      console.log("newFiles: ", newFiles);
+      console.log("cropFile.name: ", cropFile.name);
       if (isDuplicatedFile) {
         return;
       }
