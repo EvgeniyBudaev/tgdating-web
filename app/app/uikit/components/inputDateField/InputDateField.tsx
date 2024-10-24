@@ -69,6 +69,7 @@ const InputDateFieldComponent: FC<TProps> = (props) => {
   } = usePopover({
     triggerRef,
   });
+  console.log("popoverPosition: ", popoverPosition);
 
   return (
     <div className={clsx("InputDateField", classes?.inputDateField)}>

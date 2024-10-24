@@ -2,18 +2,12 @@
 
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
-import { revalidatePath } from "next/cache";
 import { addProfileFormSchema } from "@/app/actions/profile/add/schemas";
 import { addProfile, type TAddProfileParams } from "@/app/api/profile/add";
 import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
 import { mapSignupToDto } from "@/app/actions/profile/add/mapSignupToDto";
-import { ERoutes } from "@/app/shared/enums";
 import type { TCommonResponseError } from "@/app/shared/types/error";
-import {
-  getResponseError,
-  getErrorsResolver,
-  createPath,
-} from "@/app/shared/utils";
+import { getResponseError, getErrorsResolver } from "@/app/shared/utils";
 
 export async function addProfileAction(prevState: any, formData: FormData) {
   console.log("resolver: ", Object.fromEntries(formData.entries()));
@@ -167,10 +161,10 @@ export async function addProfileAction(prevState: any, formData: FormData) {
     const response = await addProfile(
       profileFormData as unknown as TAddProfileParams,
     );
-    const path = createPath({
-      route: ERoutes.Root,
-    });
-    revalidatePath(path);
+    // const path = createPath({
+    //   route: ERoutes.Root,
+    // });
+    // revalidatePath(path);
     return {
       data: response,
       error: undefined,

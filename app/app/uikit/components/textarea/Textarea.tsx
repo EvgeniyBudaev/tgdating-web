@@ -31,6 +31,7 @@ export interface ITextareaProps
   hidden?: boolean;
   isFocused?: boolean;
   isReadOnly?: boolean;
+  isResize?: boolean;
   isRequired?: boolean;
   label?: string;
   name?: string;
@@ -51,6 +52,7 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, ITextareaProps>(
       hidden,
       isFocused: isInputFocused,
       isReadOnly,
+      isResize,
       isRequired,
       label,
       name,
@@ -128,6 +130,7 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, ITextareaProps>(
               autoComplete={autoComplete}
               className={clsx(className, classes?.textarea, "Input Textarea", {
                 Input__active: isFocused,
+                Textarea__isResize__off: !isResize,
               })}
               defaultValue={defaultValue}
               hidden={hidden}

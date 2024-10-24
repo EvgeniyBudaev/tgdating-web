@@ -47,13 +47,13 @@ const InputDateComponent: FC<TProps> = (props) => {
         )}
         <div
           className={clsx("InputDate-IconWrapper", {
-            "InputDate-IconWrapper__isFocusable": !isDisabled,
+            ["InputDate-IconWrapper__isFocusable"]: !isDisabled,
           })}
         >
           <div
             className={clsx("InputDate-Text", {
-              "InputDate-Text__isFilled": value && !isDisabled,
-              "InputDate-Text__isPlaceholder": !value,
+              ["InputDate-Text__isFilled"]: value && !isDisabled,
+              ["InputDate-Text__isPlaceholder"]: !value,
             })}
           >
             <Typography>{value ?? placeholder}</Typography>

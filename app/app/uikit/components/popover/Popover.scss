@@ -29,6 +29,9 @@
     z-index: 50;
     margin-top: 12px;
     width: 100%;
+    background-color: $secondary_bg_color;
+    border: 1px solid $secondary_bg_color;
+    border-radius: $border-radius;
 
     &__left {
       left: 0;
@@ -46,8 +49,6 @@
 
   &-PanelContent {
     position: relative;
-    border: 1px solid $secondary_bg_color;
-    border-radius: $border-radius;
     width: 100%;
     transition: all $transition;
 

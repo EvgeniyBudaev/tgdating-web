@@ -155,10 +155,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
         // redirect(path);
       }
     }
-    console.log("isData: ", !isNil(state?.data));
-    console.log("success: ", state.success);
-    console.log("isNotError: ", !state?.error);
-    console.log("data: ", state?.data);
     if (isEdit && !isNil(state?.data) && state.success && !state?.error) {
       const query = {
         ...(navigator?.latitudeGPS
@@ -193,6 +189,10 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
 
   // Profile Add
   useEffect(() => {
+    console.log("isData: ", !isNil(state?.data));
+    console.log("success: ", state.success);
+    console.log("isNotError: ", !state?.error);
+    console.log("data: ", state?.data);
     if (!isEdit && !isNil(state?.data) && state.success && !state?.error) {
       const path = createPath({
         route: ERoutes.Root,

@@ -41,7 +41,7 @@ export type TFileUploaderProps = {
 export const FileUploader: FC<TFileUploaderProps> = ({
   accept,
   defaultImages,
-  files,
+  files = [],
   Input,
   isLoading,
   lng,
@@ -61,27 +61,26 @@ export const FileUploader: FC<TFileUploaderProps> = ({
     string | undefined
   >();
   const [acceptedFiles, setAcceptedFiles] = useState<TFile[]>([]);
-  const [newFiles, setNewFiles] = useState<TFile[]>([]);
   const [cropFile, setCropFile] = useState<TFile | undefined>();
 
   useEffect(() => {
     if (cropFile && acceptedFiles.length) {
-      const isDuplicatedFile = (newFiles ?? []).some(
+      const isExistFiles = (files ?? []).some(
         (file) => file.name === cropFile.name,
       );
-      console.log("files: ", files);
-      console.log("newFiles: ", newFiles);
-      console.log("cropFile.name: ", cropFile.name);
+      const isExistImages = (defaultImages ?? []).some(
+        (file) => file.name === cropFile.name,
+      );
+      const isDuplicatedFile = isExistFiles || isExistImages;
       if (isDuplicatedFile) {
         return;
       }
-      onAddFiles?.([cropFile], newFiles);
+      onAddFiles?.([cropFile], files);
       setCountFiles((prevState) => prevState + 1);
-      setNewFiles((prev) => [...prev, cropFile]);
       setCropFile(undefined);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cropFile, acceptedFiles, newFiles]);
+  }, [cropFile, acceptedFiles, files]);
 
   const onDrop = useCallback(
     (addedFiles: File[], fileRejections: FileRejection[], event: DropEvent) => {

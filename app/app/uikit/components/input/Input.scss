@@ -163,4 +163,8 @@ $transition: 150ms;
     justify-content: flex-end;
     margin-top: 8px;
   }
+
+  &__isResize__off {
+    resize: none;
+  }
 }
