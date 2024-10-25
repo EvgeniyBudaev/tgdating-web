@@ -12,6 +12,7 @@ import { FilterIcon } from "./filterIcon";
 import { HeartEmptyIcon } from "./heartEmptyIcon";
 import { HeartIcon } from "./heartIcon";
 import { ImageIcon } from "./imageIcon";
+import { InfoIcon } from "./infoIcon";
 import { LocationIcon } from "./locationIcon";
 import { MoreHorizIcon } from "./moreHorizIcon";
 import { NoImageIcon } from "./noImageIcon";
@@ -37,6 +38,7 @@ export {
   HeartEmptyIcon,
   HeartIcon,
   ImageIcon,
+  InfoIcon,
   LocationIcon,
   MoreHorizIcon,
   NoImageIcon,

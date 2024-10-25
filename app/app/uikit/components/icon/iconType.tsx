@@ -13,6 +13,7 @@ import {
   HeartEmptyIcon,
   HeartIcon,
   ImageIcon,
+  InfoIcon,
   LocationIcon,
   MoreHorizIcon,
   NoImageIcon,
@@ -39,6 +40,7 @@ export type IconType =
   | "HeartEmpty"
   | "Heart"
   | "Image"
+  | "Info"
   | "Location"
   | "MoreHoriz"
   | "NoImage"
@@ -64,6 +66,7 @@ export const iconTypes = new Map([
   ["HeartEmpty", <HeartEmptyIcon key="HeartEmptyIcon" />],
   ["Heart", <HeartIcon key="HeartIcon" />],
   ["Image", <ImageIcon key="ImageIcon" />],
+  ["Info", <InfoIcon key="InfoIcon" />],
   ["Location", <LocationIcon key="LocationIcon" />],
   ["MoreHoriz", <MoreHorizIcon key="MoreHorizIcon" />],
   ["NoImage", <NoImageIcon key="NoImageIcon" />],

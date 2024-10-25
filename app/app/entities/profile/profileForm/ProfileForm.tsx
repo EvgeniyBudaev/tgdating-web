@@ -1,5 +1,6 @@
 "use client";
 
+import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
 import { type FC } from "react";
 import type { TProfile } from "@/app/api/profile/get";
@@ -21,6 +22,7 @@ import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
 import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
 import { createPath } from "@/app/shared/utils";
 import { Error } from "@/app/uikit/components/error";
+import { Info } from "@/app/shared/components/info";
 import { Input } from "@/app/uikit/components/input";
 import { InputDateField } from "@/app/uikit/components/inputDateField";
 import { Select } from "@/app/uikit/components/select";
@@ -38,7 +40,7 @@ type TProps = {
 };
 
 export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
-  const { i18n, t } = useTranslation("index");
+  const { t } = useTranslation("index");
   const {
     displayName,
     files,
@@ -59,12 +61,16 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
     searchGender,
     setValueInputDateField,
     valueInputDateField,
+    username,
   } = useProfileAddOrEdit({ isEdit, lng, profile });
 
   // if (isEdit && !navigator.isCoords) return <ProfileSkeletonForm />;
   if (isEdit && navigator?.errorPosition) {
     return <ErrorBoundary message={"errorBoundary.common.geoPositionError"} />;
   }
+
+  if (!isNil(username) || !isEmpty(username))
+    return <Info message={t("common.titles.isEmptyUsername")} />;
 
   return (
     <section className="ProfileForm">

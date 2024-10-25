@@ -1,0 +1,26 @@
+@import "@/app/styles";
+
+.Info {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &-Inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-IconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  &-Icon {
+    height: 24px;
+    width: 24px;
+    color: $link_color;
+  }
+}

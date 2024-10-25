@@ -67,6 +67,7 @@ type TUseProfileEditResponse = {
   setValueInputDateField: (
     value: ((prevState: Date | null) => Date | null) | Date | null,
   ) => void;
+  username: string | undefined;
 };
 
 type TUseProfileAddOrEdit = (props: TProps) => TUseProfileEditResponse;
@@ -339,5 +340,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     searchGender,
     setValueInputDateField,
     valueInputDateField,
+    username: user?.username,
   };
 };
