@@ -1,7 +1,6 @@
 "use client";
 
-// @ts-ignore
-import imageResize from "image-resize";
+// import imageResize from "image-resize";
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
 import {
@@ -23,7 +22,10 @@ import "react-image-crop/src/ReactCrop.scss";
 import { useTranslation } from "@/app/i18n/client";
 import type { TFile } from "@/app/shared/types/file";
 import { Icon } from "@/app/uikit/components/icon";
-import { setCanvasPreview } from "@/app/uikit/components/imageCropper/utils";
+import {
+  imageResize,
+  setCanvasPreview,
+} from "@/app/uikit/components/imageCropper/utils";
 import { Typography } from "@/app/uikit/components/typography";
 import "./ImageCropper.scss";
 
@@ -51,7 +53,7 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
     useEffect(() => {
       if (!isEmpty(file) && !isNil(file)) {
         handleImageCrop(file);
-        // console.log("File before Мб:", file.size / 1024 / 1024);
+        console.log("File before Мб:", file.size / 1024 / 1024);
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [file]);
@@ -112,19 +114,17 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
         const canvas = previewCanvasRef.current;
         if (canvas) {
           setIsLoading(true);
-          const newCanvas = (await imageResize(canvas, {
-            format: "jpg",
-            outputType: "canvas",
-            width: 640,
-          })) as HTMLCanvasElement;
+          // const canvasResized = (await imageResize(canvas, {
+          //   format: "jpg",
+          //   outputType: "canvas",
+          //   width: 640,
+          // })) as HTMLCanvasElement;
+          const canvasResized = imageResize(canvas, { width: 640 });
+          canvas.width = canvasResized.width;
+          canvas.height = canvasResized.height;
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(canvasResized, 0, 0);
           setIsLoading(false);
-          const parentElement = canvas?.parentElement;
-          if (parentElement && newCanvas) {
-            parentElement.replaceChild(newCanvas, canvas); // Заменяем старый canvas на новый
-            previewCanvasRef.current = newCanvas; // Обновляем ссылку на canvas
-          } else {
-            console.error("Не удалось найти родительский элемент для canvas");
-          }
         }
         // const cropImageSrc = previewCanvasRef.current?.toDataURL();
         const blob = await toBlob(
@@ -138,7 +138,7 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
           const imageUrl = URL.createObjectURL(blob);
           newFile.path = file.name;
           newFile.preview = imageUrl;
-          // console.log("File after Мб:", newFile.size / 1024 / 1024);
+          console.log("File after Мб:", newFile.size / 1024 / 1024);
           onCropFile?.(newFile);
         }
       }

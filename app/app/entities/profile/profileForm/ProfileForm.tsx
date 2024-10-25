@@ -69,7 +69,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
     return <ErrorBoundary message={"errorBoundary.common.geoPositionError"} />;
   }
 
-  if (!isNil(username) || !isEmpty(username))
+  if (isNil(username) || isEmpty(username))
     return <Info message={t("common.titles.isEmptyUsername")} />;
 
   return (

@@ -1,3 +1,4 @@
+import { imageResize } from "./imageResize";
 import { setCanvasPreview } from "./setCanvasPreview";
 
-export { setCanvasPreview };
+export { imageResize, setCanvasPreview };
