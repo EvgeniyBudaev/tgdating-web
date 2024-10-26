@@ -34,7 +34,6 @@ type TLoader = {
 
 async function loaderProfileList(params: TLoader) {
   const { sessionId, searchParams } = params;
-  console.log("LLLLLLLLLLL loaderProfileList sessionId: ", sessionId);
   try {
     if (sessionId) {
       const query = {
@@ -93,7 +92,6 @@ export default async function ProfileListRoute(props: TProps) {
     sessionId,
     searchParams: props?.searchParams ?? {},
   });
-  console.log("LLLLLLLLLLL ProfileListRoute isExistUser:", data.isExistUser);
   return (
     <SessionPage
       isExistUser={data.isExistUser}

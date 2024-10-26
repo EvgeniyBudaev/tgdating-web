@@ -52,7 +52,7 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
     useEffect(() => {
       if (!isEmpty(file) && !isNil(file)) {
         handleImageCrop(file);
-        console.log("File before Мб:", file.size / 1024 / 1024);
+        // console.log("File before Мб:", file.size / 1024 / 1024);
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [file]);
@@ -136,8 +136,7 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
             const imageUrl = URL.createObjectURL(blob);
             newFile.path = newFileName;
             newFile.preview = imageUrl;
-            console.log("File after Мб:", newFile.size / 1024 / 1024);
-            console.log("newFile: ", newFile);
+            // console.log("File after Мб:", newFile.size / 1024 / 1024);
             onCropFile?.(newFile);
           }
         }

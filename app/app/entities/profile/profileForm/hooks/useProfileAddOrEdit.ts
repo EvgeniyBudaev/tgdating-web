@@ -87,7 +87,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   const { chatId, isSession, queryId, user } = useTelegram();
   const language = lng as ELanguage;
   const location = isEdit
-    ? (profile?.location ?? undefined)
+    ? (navigator?.location ?? profile?.location ?? undefined)
     : (navigator?.location ?? undefined);
   const genderDefault = isEdit
     ? (
@@ -131,7 +131,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   const distance = isEdit
     ? (profile?.filter?.distance?.toString() ?? DEFAULT_DISTANCE.toString())
     : DEFAULT_DISTANCE.toString();
-  console.log("ADD navigator?.latitude: ", navigator?.latitude);
   const latitude = navigator?.latitude?.toString() ?? "";
   const longitude = navigator?.longitude?.toString() ?? "";
   const fio =

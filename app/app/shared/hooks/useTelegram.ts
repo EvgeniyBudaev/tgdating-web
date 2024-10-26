@@ -6,7 +6,6 @@ import { WebApp as WebAppTypes } from "@twa-dev/types";
 
 export const useTelegram = () => {
   const [tg, setTg] = useState<WebAppTypes | undefined>();
-
   const telegram = typeof window !== "undefined" ? WebAppSDK : undefined;
 
   useEffect(() => {
@@ -63,6 +62,7 @@ export const useTelegram = () => {
       ? !!tg?.initDataUnsafe?.user?.id
       : !!initDataUnsafeMockData.user.id,
   };
+
   // return {
   //   tg,
   //   chatId: tg?.initDataUnsafe?.chat?.id,
