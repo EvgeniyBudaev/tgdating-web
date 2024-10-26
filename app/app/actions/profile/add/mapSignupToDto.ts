@@ -90,8 +90,12 @@ export const mapSignupToDto: TMapSignupToDto = (props) => {
         props.telegramAllowsWriteToPm,
       [EProfileAddFormFields.TelegramQueryId]: props.telegramQueryId,
       [EProfileAddFormFields.TelegramChatId]: props.telegramChatId,
-      [EProfileAddFormFields.Latitude]: props?.latitude ?? null,
-      [EProfileAddFormFields.Longitude]: props?.longitude ?? null,
+      [EProfileAddFormFields.Latitude]: props?.latitude
+        ? props?.latitude.toString()
+        : null,
+      [EProfileAddFormFields.Longitude]: props?.longitude
+        ? props.longitude.toString()
+        : null,
       [EProfileAddFormFields.AgeFrom]: props.ageFrom,
       [EProfileAddFormFields.AgeTo]: props.ageTo,
       [EProfileAddFormFields.Distance]: props.distance,

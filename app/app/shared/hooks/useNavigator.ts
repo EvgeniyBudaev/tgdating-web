@@ -1,7 +1,7 @@
 "use client";
 
 import isNil from "lodash/isNil";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 type TPositionIP = {
   isCoords: boolean;
@@ -21,12 +21,9 @@ type TPositionGPS = {
 export type TUseNavigatorResponse = {
   errorPosition?: GeolocationPositionError;
   isCoords: boolean;
-  isCoordsGPS: boolean;
   location?: string;
   latitude?: number;
-  latitudeGPS?: number;
   longitude?: number;
-  longitudeGPS?: number;
 };
 
 type TProps = {
@@ -36,8 +33,6 @@ type TProps = {
 type TUseNavigator = (props: TProps) => TUseNavigatorResponse;
 
 export const useNavigator: TUseNavigator = ({ lng }) => {
-  const DEFAULT_LONGITUDE = 37.618879;
-  const DEFAULT_LATITUDE = 55.751426;
   const [positionGPS, setPositionGPS] = useState<TPositionGPS>({
     errorPosition: undefined,
     isCoords: false,
@@ -48,11 +43,16 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
   const [positionIP, setPositionIP] = useState<TPositionIP>({
     isCoords: false,
     location: undefined,
-    longitude: DEFAULT_LONGITUDE,
-    latitude: DEFAULT_LATITUDE,
+    longitude: undefined,
+    latitude: undefined,
   });
 
-  const fetchNavigatorCoords = async () => {
+  useEffect(() => {
+    console.log("GPS.location: ", positionGPS?.location);
+    console.log("IP.location: ", positionIP?.location);
+  }, [positionGPS?.location, positionIP?.location]);
+
+  const getCoords = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       setPositionIP((prevState) => ({
         ...prevState,
@@ -63,9 +63,42 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
     });
   };
 
-  const fetchIPInfo = async () => {
+  const getIp = async () => {
     try {
-      const url = `https://geocode-maps.yandex.ru/1.x/?apikey=${process?.env?.NEXT_PUBLIC_YANDEX_API_KEY}&geocode=${positionIP?.longitude},${positionIP?.latitude}&format=json&lang=${lng}`;
+      const ipResponse = await fetch("https://api.ipify.org?format=json");
+      const ipData = await ipResponse.json();
+      return ipData.ip;
+    } catch (error) {
+      console.error("getIp error: ", error);
+    }
+  };
+
+  const getLocationFromIp = async () => {
+    try {
+      const ipAddress = await getIp();
+      const res = await fetch(`https://api.ip-api.com/json?lang=${lng}`);
+      const data = await res.json();
+      const country = data.country;
+      const city = data.city;
+      console.log("getLocationFromIp data: ", data);
+    } catch (error) {
+      console.error("getLocationFromIp error: ", error);
+    }
+  };
+
+  const getLocationFromCoords = async ({
+    longitude,
+    latitude,
+    isGPS,
+  }: {
+    longitude?: number;
+    latitude?: number;
+    isGPS: boolean;
+  }) => {
+    if (!longitude && !latitude) return undefined;
+    try {
+      await getLocationFromIp();
+      const url = `https://geocode-maps.yandex.ru/1.x/?apikey=${process?.env?.NEXT_PUBLIC_YANDEX_API_KEY}&geocode=${longitude},${latitude}&format=json&lang=${lng}`;
       const res = await fetch(url);
       const data = await res.json();
       const country =
@@ -76,102 +109,84 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
         data?.response?.GeoObjectCollection?.featureMember?.[0]?.GeoObject
           ?.metaDataProperty?.GeocoderMetaData?.AddressDetails?.Country
           ?.AdministrativeArea?.AdministrativeAreaName;
-      setPositionIP({
-        isCoords: true,
-        location: `${country}, ${city}`,
-        longitude: positionIP?.longitude,
-        latitude: positionIP?.latitude,
-      });
+      console.log("getLocationFromCoords location: ", `${country}, ${city}`);
+      isGPS &&
+        setPositionGPS((prevState) => ({
+          ...prevState,
+          location: `${country}, ${city}`,
+        }));
+      !isGPS &&
+        setPositionIP((prevState) => ({
+          ...prevState,
+          location: `${country}, ${city}`,
+        }));
+      return { location: `${country}, ${city}` };
     } catch (error) {
-      setPositionIP({
-        isCoords: false,
-        location: undefined,
-        longitude: DEFAULT_LONGITUDE,
-        latitude: DEFAULT_LATITUDE,
-      });
+      console.error("getLocationFromIp error: ", error);
     }
   };
 
-  const getLocationFromIp = useCallback(async () => {
-    try {
-      const ipResponse = await fetch("https://api.ipify.org?format=json");
-      const ipData = await ipResponse.json();
-      const ipAddress = ipData.ip;
-      if (!ipAddress) return;
-      await fetchNavigatorCoords();
-    } catch (error) {
-      setPositionIP({
-        isCoords: false,
-        longitude: DEFAULT_LONGITUDE,
-        latitude: DEFAULT_LATITUDE,
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const handlePositionChange = useCallback((position: GeolocationPosition) => {
+  const getCoordsGPS = (position: GeolocationPosition) => {
     if (
       !isNil(position?.coords?.longitude) &&
       !isNil(position?.coords?.latitude)
     ) {
-      setPositionGPS({
-        errorPosition: undefined,
+      setPositionGPS((prevState) => ({
+        ...prevState,
         isCoords: true,
         longitude: position.coords.longitude,
         latitude: position.coords.latitude,
+      }));
+    }
+  };
+
+  const getCoordsGPSError = (error: GeolocationPositionError) => {
+    console.error("getCoordsGPSError error: ", error);
+  };
+
+  useEffect(() => {
+    if (!positionGPS.isCoords) {
+      navigator?.geolocation?.watchPosition(getCoordsGPS, getCoordsGPSError, {
+        enableHighAccuracy: false,
       });
     }
-  }, []);
-
-  const handleError = useCallback((error: GeolocationPositionError) => {
-    setPositionGPS({
-      errorPosition: error,
-      isCoords: false,
-      longitude: undefined,
-      latitude: undefined,
-    });
-  }, []);
-
-  useEffect(() => {
-    if (positionIP.isCoords && !positionIP?.location) {
-      fetchIPInfo().then((r) => {});
+    if (!positionGPS.isCoords && !positionIP.isCoords) {
+      getCoords();
+    }
+    if (positionGPS.isCoords) {
+      getLocationFromCoords({
+        longitude: positionGPS?.longitude,
+        latitude: positionGPS?.latitude,
+        isGPS: true,
+      }).then((r) => null);
+    }
+    if (!positionGPS.isCoords && positionIP.isCoords) {
+      getLocationFromCoords({
+        longitude: positionGPS?.longitude,
+        latitude: positionGPS?.latitude,
+        isGPS: false,
+      }).then((r) => null);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [positionIP.isCoords, positionIP?.location]);
-
-  useEffect(() => {
-    if (!positionGPS?.isCoords && !positionIP?.isCoords) {
-      getLocationFromIp().then((r) => {});
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [positionGPS?.isCoords, positionIP?.isCoords]);
-
-  useEffect(() => {
-    navigator?.geolocation?.watchPosition(handlePositionChange, handleError, {
-      enableHighAccuracy: false,
-    });
-  }, [handleError, handlePositionChange]);
+  }, [
+    positionGPS.isCoords,
+    positionIP.isCoords,
+    positionGPS?.location,
+    positionIP?.location,
+  ]);
 
   return useMemo(() => {
     return {
-      errorPosition: positionGPS?.errorPosition,
-      isCoords: positionGPS?.isCoords
+      isCoords: positionGPS.isCoords
         ? positionGPS.isCoords
         : positionIP.isCoords,
-      isCoordsGPS: !!positionGPS?.isCoords,
-      location: positionIP?.location,
-      latitude: positionGPS?.isCoords
-        ? positionGPS?.latitude
-        : positionIP?.latitude,
-      latitudeGPS: positionGPS?.latitude,
-      longitude: positionGPS?.isCoords
-        ? positionGPS?.longitude
-        : positionIP?.longitude,
-      longitudeGPS: positionGPS?.longitude,
+      location: positionGPS?.location ?? positionIP?.location,
+      latitude: positionGPS?.latitude ?? positionIP?.latitude,
+      longitude: positionGPS?.longitude ?? positionIP?.longitude,
     };
   }, [
-    positionGPS?.errorPosition,
     positionGPS.isCoords,
+    positionGPS?.location,
     positionGPS?.latitude,
     positionGPS?.longitude,
     positionIP.isCoords,

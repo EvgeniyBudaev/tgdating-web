@@ -125,7 +125,7 @@ export async function addProfileAction(prevState: any, formData: FormData) {
     ) {
       profileFormData.append(
         EProfileAddFormFields.Latitude,
-        String(mapperParams.profileForm.latitude),
+        mapperParams.profileForm.latitude,
       );
     }
     if (
@@ -134,7 +134,7 @@ export async function addProfileAction(prevState: any, formData: FormData) {
     ) {
       profileFormData.append(
         EProfileAddFormFields.Longitude,
-        String(mapperParams.profileForm.longitude),
+        mapperParams.profileForm.longitude,
       );
     }
     profileFormData.append(

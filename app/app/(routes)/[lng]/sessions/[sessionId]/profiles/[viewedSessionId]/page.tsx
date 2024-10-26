@@ -28,11 +28,11 @@ async function loaderProfileDetail(params: TLoader) {
       latitude: searchParams?.latitude ?? "",
       longitude: searchParams?.longitude ?? "",
     });
-    return { profile: profileDetailResponse, isNotFound: false };
+    return { profile: profileDetailResponse, isExistUser: true };
   } catch (error) {
     //@ts-ignore
     if (error?.status === 404) {
-      return { profile: undefined, isNotFound: true };
+      return { profile: undefined, isExistUser: false };
     }
     throw new Error("errorBoundary.common.unexpectedError");
   }
@@ -71,7 +71,7 @@ export default async function ProfileDetailRoute(props: TProps) {
 
   return (
     <ProfileDetailPage
-      isNotFound={data.isNotFound}
+      isExistUser={data.isExistUser}
       lng={language}
       profile={data?.profile}
       viewedSessionId={viewedSessionId}

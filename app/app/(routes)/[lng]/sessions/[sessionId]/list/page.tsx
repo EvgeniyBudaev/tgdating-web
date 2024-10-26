@@ -34,6 +34,7 @@ type TLoader = {
 
 async function loaderProfileList(params: TLoader) {
   const { sessionId, searchParams } = params;
+  console.log("LLLLLLLLLLL loaderProfileList sessionId: ", sessionId);
   try {
     if (sessionId) {
       const query = {
@@ -50,20 +51,21 @@ async function loaderProfileList(params: TLoader) {
       };
       const filterParams = {
         sessionId: sessionId,
-        latitude: searchParams?.latitude ? searchParams.latitude : null,
-        longitude: searchParams?.longitude ? searchParams.longitude : null,
+        ...(searchParams?.latitude && { latitude: searchParams?.latitude }),
+        ...(searchParams?.longitude && { longitude: searchParams?.longitude }),
       };
       const profileListResponse = await getProfileList(query);
       const filterResponse = await getFilter(filterParams);
       return {
         profileFilter: filterResponse,
         profileList: profileListResponse,
+        isExistUser: true,
       };
     }
     return {
       profileFilter: undefined,
       profileList: undefined,
-      isNotFound: false,
+      isExistUser: false,
     };
   } catch (error) {
     //@ts-ignore
@@ -71,7 +73,7 @@ async function loaderProfileList(params: TLoader) {
       return {
         profileFilter: undefined,
         profileList: undefined,
-        isNotFound: true,
+        isExistUser: false,
       };
     }
     throw new Error("errorBoundary.common.unexpectedError");
@@ -83,7 +85,7 @@ type TProps = {
   searchParams?: TSearchParams;
 };
 
-export default async function MainRoute(props: TProps) {
+export default async function ProfileListRoute(props: TProps) {
   const { params } = props;
   const { lng, sessionId } = params;
   const language = lng as ELanguage;
@@ -91,10 +93,10 @@ export default async function MainRoute(props: TProps) {
     sessionId,
     searchParams: props?.searchParams ?? {},
   });
-
+  console.log("LLLLLLLLLLL ProfileListRoute isExistUser:", data.isExistUser);
   return (
     <SessionPage
-      isNotFound={data?.isNotFound}
+      isExistUser={data.isExistUser}
       lng={language}
       profileFilter={data?.profileFilter}
       profileList={data?.profileList}

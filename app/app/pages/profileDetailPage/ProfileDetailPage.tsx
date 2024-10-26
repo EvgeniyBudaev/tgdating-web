@@ -39,14 +39,14 @@ import { getFullYear } from "@/app/uikit/utils/date";
 import "./ProfileDetailPage.scss";
 
 type TProps = {
-  isNotFound: boolean;
+  isExistUser: boolean;
   lng: ELanguage;
   profile?: TProfileDetail;
   viewedSessionId: string;
 };
 
 export const ProfileDetailPage: FC<TProps> = ({
-  isNotFound,
+  isExistUser,
   lng,
   profile,
   viewedSessionId,
@@ -65,14 +65,14 @@ export const ProfileDetailPage: FC<TProps> = ({
   const [isShowTooltipHeart, setIsShowTooltipHeart] = useState(false);
 
   useEffect(() => {
-    if (isSession && isNotFound) {
+    if (isSession && !isExistUser) {
       return redirect(
         createPath({
           route: ERoutes.ProfileAdd,
         }),
       );
     }
-  }, [isSession, isNotFound]);
+  }, [isSession, isExistUser]);
 
   // const canAddLike = useMemo(() => {
   //   return !isSessionUser && isNil(profile?.like?.id);
@@ -174,7 +174,7 @@ export const ProfileDetailPage: FC<TProps> = ({
   return (
     profile &&
     profile?.sessionId &&
-    !isNotFound && (
+    isExistUser && (
       <>
         <DropDown>
           <DropDown.Button>

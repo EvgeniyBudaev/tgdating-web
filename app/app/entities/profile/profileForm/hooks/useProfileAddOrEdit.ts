@@ -131,6 +131,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   const distance = isEdit
     ? (profile?.filter?.distance?.toString() ?? DEFAULT_DISTANCE.toString())
     : DEFAULT_DISTANCE.toString();
+  console.log("ADD navigator?.latitude: ", navigator?.latitude);
   const latitude = navigator?.latitude?.toString() ?? "";
   const longitude = navigator?.longitude?.toString() ?? "";
   const fio =
@@ -158,11 +159,11 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     }
     if (isEdit && !isNil(state?.data) && state.success && !state?.error) {
       const query = {
-        ...(navigator?.latitudeGPS
-          ? { latitude: navigator?.latitudeGPS.toString() }
+        ...(navigator?.latitude
+          ? { latitude: navigator.latitude.toString() }
           : {}),
-        ...(navigator?.longitudeGPS
-          ? { longitude: navigator?.longitudeGPS.toString() }
+        ...(navigator?.longitude
+          ? { longitude: navigator.longitude.toString() }
           : {}),
       };
       const path = createPath(
@@ -181,8 +182,8 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   }, [
     isEdit,
     lng,
-    navigator?.latitudeGPS,
-    navigator?.longitudeGPS,
+    navigator?.latitude,
+    navigator?.longitude,
     user,
     profile,
     state,
@@ -190,10 +191,10 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
 
   // Profile Add
   useEffect(() => {
+    console.log("data: ", state?.data);
     console.log("isData: ", !isNil(state?.data));
     console.log("success: ", state.success);
-    console.log("isNotError: ", !state?.error);
-    console.log("data: ", state?.data);
+    console.log("isError: ", !!state?.error);
     if (!isEdit && !isNil(state?.data) && state.success && !state?.error) {
       const path = createPath({
         route: ERoutes.Root,
@@ -301,6 +302,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       (user?.allows_write_to_pm ?? "true").toString(),
     );
     formDataDto.append(EProfileAddFormFields.Latitude, latitude);
+    console.log("Submit latitude: ", latitude);
     formDataDto.append(EProfileAddFormFields.Longitude, longitude);
     formDataDto.append(EProfileAddFormFields.AgeFrom, ageFrom);
     formDataDto.append(EProfileAddFormFields.AgeTo, ageTo);

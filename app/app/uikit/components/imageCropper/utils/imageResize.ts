@@ -5,7 +5,7 @@ type TImageResizeOptions = {
 export const imageResize = (
   canvas: HTMLCanvasElement,
   options: TImageResizeOptions,
-): HTMLCanvasElement => {
+): HTMLCanvasElement | null => {
   const { width } = options;
   const originalWidth = canvas.width;
   const originalHeight = canvas.height;
@@ -19,6 +19,7 @@ export const imageResize = (
 
   // Получаем контекст 2D для нового canvas
   const ctx = resizedCanvas.getContext("2d");
+  if (!ctx) return null;
   ctx.imageSmoothingQuality = "high";
 
   // Рисуем изображение из `canvas` на новый canvas с использованием масштабирования

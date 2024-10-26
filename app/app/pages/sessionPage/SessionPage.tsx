@@ -18,14 +18,14 @@ import { Typography } from "@/app/uikit/components/typography";
 import "./SessionPage.scss";
 
 type TProps = {
-  isNotFound?: boolean;
+  isExistUser: boolean;
   lng: ELanguage;
   profileFilter?: TFilter;
   profileList?: TProfileList;
 };
 
 export const SessionPage: FC<TProps> = ({
-  isNotFound,
+  isExistUser,
   lng,
   profileFilter,
   profileList,
@@ -35,14 +35,19 @@ export const SessionPage: FC<TProps> = ({
   const { t } = useTranslation("index");
 
   useEffect(() => {
-    if (isSession && isNotFound) {
+    if (
+      (isSession && !isExistUser) ||
+      user?.id.toString() !== profileFilter?.sessionId
+    ) {
+      console.log("SessionPage isSession: ", isSession);
+      console.log("SessionPage isExistUser: ", isExistUser);
       return redirect(
         createPath({
           route: ERoutes.ProfileAdd,
         }),
       );
     }
-  }, [isSession, isNotFound]);
+  }, [isSession, isExistUser]);
 
   return (
     <div className="SessionPage">

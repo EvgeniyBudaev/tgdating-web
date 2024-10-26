@@ -1,6 +1,5 @@
 "use client";
 
-// import imageResize from "image-resize";
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
 import {
@@ -114,32 +113,33 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
         const canvas = previewCanvasRef.current;
         if (canvas) {
           setIsLoading(true);
-          // const canvasResized = (await imageResize(canvas, {
-          //   format: "jpg",
-          //   outputType: "canvas",
-          //   width: 640,
-          // })) as HTMLCanvasElement;
           const canvasResized = imageResize(canvas, { width: 640 });
+          if (!canvasResized) return setIsLoading(false);
           canvas.width = canvasResized.width;
           canvas.height = canvasResized.height;
           const ctx = canvas.getContext("2d");
+          if (!ctx) return setIsLoading(false);
           ctx.drawImage(canvasResized, 0, 0);
           setIsLoading(false);
-        }
-        // const cropImageSrc = previewCanvasRef.current?.toDataURL();
-        const blob = await toBlob(
-          previewCanvasRef.current as HTMLCanvasElement,
-          file?.type ?? "image/jpeg",
-        );
-        if (!isNil(blob) && !isNil(file)) {
-          const newFile: TFile = new File([blob], file.name, {
-            type: file.type,
-          });
-          const imageUrl = URL.createObjectURL(blob);
-          newFile.path = file.name;
-          newFile.preview = imageUrl;
-          console.log("File after Мб:", newFile.size / 1024 / 1024);
-          onCropFile?.(newFile);
+          // const cropImageSrc = previewCanvasRef.current?.toDataURL();
+          const fileType = "image/jpeg";
+          const blob = await toBlob(
+            previewCanvasRef.current as HTMLCanvasElement,
+            fileType,
+          );
+          if (!isNil(blob) && !isNil(file)) {
+            const fileName = file.name;
+            const newFileName = fileName.replace(/\.[^/.]+$/, ".jpeg");
+            const newFile: TFile = new File([blob], newFileName, {
+              type: fileType,
+            });
+            const imageUrl = URL.createObjectURL(blob);
+            newFile.path = newFileName;
+            newFile.preview = imageUrl;
+            console.log("File after Мб:", newFile.size / 1024 / 1024);
+            console.log("newFile: ", newFile);
+            onCropFile?.(newFile);
+          }
         }
       }
     };
