@@ -15,13 +15,14 @@ export const metadata: Metadata = {
   description: "Love assistant",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-  params: { lng },
+  params,
 }: Readonly<{
   children: ReactNode;
-  params: { lng: ELanguage };
+  params: Promise<{ lng: ELanguage }>;
 }>) {
+  const { lng } = await params;
   const isProduction = Environment?.NEXT_PUBLIC_NODE_ENV === "production";
 
   return (

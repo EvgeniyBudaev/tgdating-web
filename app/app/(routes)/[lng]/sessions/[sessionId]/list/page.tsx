@@ -14,7 +14,7 @@ import { ELanguage } from "@/app/shared/enums";
 
 export const dynamic = "force-dynamic";
 
-type TSearchParams = {
+type TSearchParamsLoader = {
   page?: string;
   size?: string;
   ageFrom?: string;
@@ -29,7 +29,7 @@ type TSearchParams = {
 
 type TLoader = {
   sessionId: string;
-  searchParams: TSearchParams;
+  searchParams: TSearchParamsLoader;
 };
 
 async function loaderProfileList(params: TLoader) {
@@ -72,9 +72,12 @@ async function loaderProfileList(params: TLoader) {
       isExistUser: false,
     };
   } catch (error) {
-    //@ts-ignore
-    console.log("loaderProfileList error?.status: ", error?.status);
-    if (error?.status === 404) {
+    const errorResponse = error as Response;
+    console.log(
+      "loaderProfileList errorResponse?.status: ",
+      errorResponse?.status,
+    );
+    if (errorResponse?.status === 404) {
       return {
         profileFilter: undefined,
         profileList: undefined,
@@ -85,18 +88,39 @@ async function loaderProfileList(params: TLoader) {
   }
 }
 
+type TParams = Promise<{
+  lng: string;
+  sessionId: string;
+}>;
+
+type TSearchParams = Promise<{
+  page?: string;
+  size?: string;
+  ageFrom?: string;
+  ageTo?: string;
+  searchGender?: string;
+  lookingFor?: string;
+  sessionId?: string;
+  distance?: string;
+  latitude?: string;
+  longitude?: string;
+}>;
+
 type TProps = {
-  params: { lng: string; sessionId: string };
+  params: TParams;
   searchParams?: TSearchParams;
 };
 
-export default async function ProfileListRoute(props: TProps) {
-  const { params } = props;
-  const { lng, sessionId } = params;
+export default async function ProfileListRoute({
+  params,
+  searchParams,
+}: TProps) {
+  const { lng, sessionId } = await params;
+  const query = await searchParams;
   const language = lng as ELanguage;
   const data = await loaderProfileList({
     sessionId,
-    searchParams: props?.searchParams ?? {},
+    searchParams: query ?? {},
   });
   console.log("ProfileListRoute isExistUser: ", data.isExistUser);
   return (

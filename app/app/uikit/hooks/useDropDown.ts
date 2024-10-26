@@ -28,7 +28,7 @@ export const useDropDown: TUseDropDown = () => {
       if (
         isDropDownOpen &&
         refButtonDropDown.current &&
-        event.target instanceof HTMLElement &&
+        event.target instanceof HTMLDivElement &&
         !refButtonDropDown.current.contains(event.target)
       ) {
         if (

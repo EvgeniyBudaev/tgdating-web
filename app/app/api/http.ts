@@ -24,7 +24,7 @@ export const fetchApi: TApiFunction = async (path, options) => {
     timeout: 50_000,
     retry: 1,
   };
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const locale = cookieStore.get(cookieName as any)?.value;
   const url = config.basePath + path;
   let contentType: { "Content-Type"?: string } = {

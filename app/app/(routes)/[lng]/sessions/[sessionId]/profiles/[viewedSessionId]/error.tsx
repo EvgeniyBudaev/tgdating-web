@@ -5,7 +5,6 @@ import { ErrorUI } from "@/app/shared/components/errorUI";
 
 export default function Error({
   error,
-  reset,
 }: {
   error: Error & { digest?: string };
   reset: () => void;

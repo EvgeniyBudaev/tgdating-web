@@ -20,19 +20,17 @@ async function loaderProfileEdit(params: TLoader) {
   }
 }
 
-type TSearchParams = {
-  latitude?: string;
-  longitude?: string;
-};
+type TParams = Promise<{
+  lng: string;
+  sessionId: string;
+}>;
 
-type TProps = {
-  params: { lng: string; sessionId: string };
-  searchParams?: TSearchParams;
-};
-
-export default async function ProfileEditRoute(props: TProps) {
-  const { params } = props;
-  const { lng, sessionId } = params;
+export default async function ProfileEditRoute({
+  params,
+}: {
+  params: TParams;
+}) {
+  const { lng, sessionId } = await params;
   const language = lng as ELanguage;
   const data = await loaderProfileEdit({ sessionId });
 

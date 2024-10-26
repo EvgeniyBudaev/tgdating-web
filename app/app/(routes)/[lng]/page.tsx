@@ -1,13 +1,12 @@
 import { MainPage } from "@/app/pages/mainPage";
 import { ELanguage } from "@/app/shared/enums";
 
-type TProps = {
-  params: { lng: string };
-};
+type TParams = Promise<{
+  lng: string;
+}>;
 
-export default async function MainRoute(props: TProps) {
-  const { params } = props;
-  const { lng } = params;
+export default async function MainRoute({ params }: { params: TParams }) {
+  const { lng } = await params;
   const language = lng as ELanguage;
 
   return (

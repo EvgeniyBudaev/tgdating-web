@@ -36,11 +36,9 @@ export const SessionPage: FC<TProps> = ({
 
   useEffect(() => {
     if (
-      (isSession && !isExistUser) ||
-      user?.id.toString() !== profileFilter?.sessionId
+      !isExistUser ||
+      (isSession && user?.id.toString() !== profileFilter?.sessionId)
     ) {
-      console.log("SessionPage isSession: ", isSession);
-      console.log("SessionPage isExistUser: ", isExistUser);
       return redirect(
         createPath({
           route: ERoutes.ProfileAdd,
