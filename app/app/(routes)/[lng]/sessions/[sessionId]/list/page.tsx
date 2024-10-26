@@ -34,6 +34,7 @@ type TLoader = {
 
 async function loaderProfileList(params: TLoader) {
   const { sessionId, searchParams } = params;
+  console.log("loaderProfileList sessionId: ", sessionId);
   try {
     if (sessionId) {
       const query = {
@@ -53,14 +54,18 @@ async function loaderProfileList(params: TLoader) {
         ...(searchParams?.latitude && { latitude: searchParams?.latitude }),
         ...(searchParams?.longitude && { longitude: searchParams?.longitude }),
       };
+      console.log("loaderProfileList get list");
       const profileListResponse = await getProfileList(query);
+      console.log("loaderProfileList get filter");
       const filterResponse = await getFilter(filterParams);
+      console.log("loaderProfileList isExistUser true");
       return {
         profileFilter: filterResponse,
         profileList: profileListResponse,
         isExistUser: true,
       };
     }
+    console.log("loaderProfileList return undefined");
     return {
       profileFilter: undefined,
       profileList: undefined,
@@ -68,6 +73,7 @@ async function loaderProfileList(params: TLoader) {
     };
   } catch (error) {
     //@ts-ignore
+    console.log("loaderProfileList error?.status: ", error?.status);
     if (error?.status === 404) {
       return {
         profileFilter: undefined,
@@ -92,6 +98,7 @@ export default async function ProfileListRoute(props: TProps) {
     sessionId,
     searchParams: props?.searchParams ?? {},
   });
+  console.log("ProfileListRoute isExistUser: ", data.isExistUser);
   return (
     <SessionPage
       isExistUser={data.isExistUser}

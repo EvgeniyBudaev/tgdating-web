@@ -47,7 +47,7 @@ export const SessionPage: FC<TProps> = ({
         }),
       );
     }
-  }, [isSession, isExistUser]);
+  }, [isSession, isExistUser, profileFilter?.sessionId, user?.id]);
 
   return (
     <div className="SessionPage">
@@ -74,11 +74,11 @@ export const SessionPage: FC<TProps> = ({
                     lng: lng,
                   }),
                   query: {
-                    ...(navigator?.latitudeGPS
-                      ? { latitude: navigator?.latitudeGPS.toString() }
+                    ...(navigator?.latitude
+                      ? { latitude: navigator?.latitude.toString() }
                       : {}),
-                    ...(navigator?.longitudeGPS
-                      ? { longitude: navigator?.longitudeGPS.toString() }
+                    ...(navigator?.longitude
+                      ? { longitude: navigator?.longitude.toString() }
                       : {}),
                   },
                 }}

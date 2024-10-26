@@ -51,12 +51,12 @@ export const useProfileDetail: TUseProfileDetail = ({
               ...contentType,
             },
           };
-          const latitudeGPS = navigator?.latitudeGPS;
-          const longitudeGPS = navigator?.longitudeGPS;
+          const latitude = navigator?.latitude;
+          const longitude = navigator?.longitude;
           const queryParams = {
             ...(viewedSessionId && { viewedSessionId: viewedSessionId }),
-            ...(latitudeGPS && { latitude: latitudeGPS.toString() }),
-            ...(longitudeGPS && { longitude: longitudeGPS.toString() }),
+            ...(latitude && { latitude: latitude.toString() }),
+            ...(longitude && { longitude: longitude.toString() }),
           };
           const url = `/${lng}/resources/profiles/detail/${user?.id}?${new URLSearchParams(queryParams)}`;
           const response = await fetch(url, requestOptions);
@@ -76,8 +76,8 @@ export const useProfileDetail: TUseProfileDetail = ({
   }, [
     isSession,
     lng,
-    navigator?.latitudeGPS,
-    navigator?.longitudeGPS,
+    navigator?.latitude,
+    navigator?.longitude,
     profileDetail,
     user?.id,
     viewedSessionId,

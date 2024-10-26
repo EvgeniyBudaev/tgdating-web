@@ -301,7 +301,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       (user?.allows_write_to_pm ?? "true").toString(),
     );
     formDataDto.append(EProfileAddFormFields.Latitude, latitude);
-    console.log("Submit latitude: ", latitude);
     formDataDto.append(EProfileAddFormFields.Longitude, longitude);
     formDataDto.append(EProfileAddFormFields.AgeFrom, ageFrom);
     formDataDto.append(EProfileAddFormFields.AgeTo, ageTo);

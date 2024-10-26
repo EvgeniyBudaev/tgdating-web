@@ -80,8 +80,8 @@ export const useQueryURL: TUseQueryURL = ({ lng }) => {
   const distance = params.get(DISTANCE) ?? DEFAULT_DISTANCE.toString();
   const latitude = params.get(LATITUDE) ?? "";
   const longitude = params.get(LONGITUDE) ?? "";
-  const latitudeGPS = (navigator?.latitudeGPS ?? "").toString();
-  const longitudeGPS = (navigator?.longitudeGPS ?? "").toString();
+  const latitudeGPS = (navigator?.latitude ?? "").toString();
+  const longitudeGPS = (navigator?.longitude ?? "").toString();
 
   const queryURL = useMemo(() => {
     return `?page=${page}&size=${size}&ageFrom=${ageFrom}&ageTo=${ageTo}&searchGender=${searchGender}&lookingFor=${lookingFor}&sessionId=${sessionId}&distance=${distance}&latitude=${latitudeGPS}&longitude=${longitudeGPS}`;

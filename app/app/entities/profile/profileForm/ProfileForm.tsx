@@ -246,11 +246,11 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
                       lng: lng,
                     },
                     {
-                      ...(navigator?.latitudeGPS
-                        ? { latitude: navigator?.latitudeGPS.toString() }
+                      ...(navigator?.latitude
+                        ? { latitude: navigator?.latitude.toString() }
                         : {}),
-                      ...(navigator?.longitudeGPS
-                        ? { longitude: navigator?.longitudeGPS.toString() }
+                      ...(navigator?.longitude
+                        ? { longitude: navigator?.longitude.toString() }
                         : {}),
                     },
                   )}

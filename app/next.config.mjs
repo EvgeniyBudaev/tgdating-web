@@ -10,11 +10,6 @@ const nextConfig = {
       "e0b6f6c2-22bc-484f-ad97-2ec3367df512.selstorage.ru",
     ],
   },
-  experimental: {
-    serverActions: {
-      bodySizeLimit: "50mb",
-    },
-  },
 };
 
 export default nextConfig;

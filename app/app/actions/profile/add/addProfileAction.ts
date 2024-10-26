@@ -2,19 +2,23 @@
 
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
+import { revalidatePath } from "next/cache";
 import { addProfileFormSchema } from "@/app/actions/profile/add/schemas";
 import { addProfile, type TAddProfileParams } from "@/app/api/profile/add";
 import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
 import { mapSignupToDto } from "@/app/actions/profile/add/mapSignupToDto";
 import type { TCommonResponseError } from "@/app/shared/types/error";
-import { getResponseError, getErrorsResolver } from "@/app/shared/utils";
+import {
+  getResponseError,
+  getErrorsResolver,
+  createPath,
+} from "@/app/shared/utils";
+import { ERoutes } from "@/app/shared/enums";
 
 export async function addProfileAction(prevState: any, formData: FormData) {
-  console.log("resolver: ", Object.fromEntries(formData.entries()));
   const resolver = addProfileFormSchema.safeParse(
     Object.fromEntries(formData.entries()),
   );
-  console.log("resolver.success: ", resolver.success);
   if (!resolver.success) {
     // @ts-ignore
     const errors = getErrorsResolver(resolver);
@@ -32,7 +36,6 @@ export async function addProfileAction(prevState: any, formData: FormData) {
     };
     // @ts-ignore
     const mapperParams = mapSignupToDto(formattedParams);
-    console.log("mapperParams: ", mapperParams);
 
     const profileFormData = new FormData();
     const sessionId = mapperParams.profileForm.telegramUserId;
@@ -161,10 +164,11 @@ export async function addProfileAction(prevState: any, formData: FormData) {
     const response = await addProfile(
       profileFormData as unknown as TAddProfileParams,
     );
-    // const path = createPath({
-    //   route: ERoutes.Root,
-    // });
-    // revalidatePath(path);
+    const path = createPath({
+      route: ERoutes.Session,
+      params: { sessionId: sessionId },
+    });
+    // revalidatePath("/");
     return {
       data: response,
       error: undefined,

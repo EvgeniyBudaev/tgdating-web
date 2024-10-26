@@ -27,7 +27,7 @@ $transition: 0.3s;
     border: 1px solid transparent;
     border-radius: $border-radius-lg;
     background-color: $bg_color;
-    z-index: 20;
+    z-index: 50;
 
     &.enter {
       transform: translateY(200px);
