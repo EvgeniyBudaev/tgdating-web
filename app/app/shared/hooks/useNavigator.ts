@@ -52,17 +52,6 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
     console.log("IP.location: ", positionIP?.location);
   }, [positionGPS?.location, positionIP?.location]);
 
-  const getCoords = () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      setPositionIP((prevState) => ({
-        ...prevState,
-        isCoords: true,
-        longitude: position?.coords?.longitude,
-        latitude: position?.coords?.latitude,
-      }));
-    });
-  };
-
   const getIp = async () => {
     try {
       const ipResponse = await fetch("https://api.ipify.org?format=json");
@@ -113,12 +102,18 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
       isGPS &&
         setPositionGPS((prevState) => ({
           ...prevState,
+          isCoords: true,
           location: `${country}, ${city}`,
+          longitude,
+          latitude,
         }));
       !isGPS &&
         setPositionIP((prevState) => ({
           ...prevState,
+          isCoords: true,
           location: `${country}, ${city}`,
+          longitude,
+          latitude,
         }));
       return { location: `${country}, ${city}` };
     } catch (error) {
@@ -126,54 +121,61 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
     }
   };
 
-  const getCoordsGPS = (position: GeolocationPosition) => {
-    if (
-      !isNil(position?.coords?.longitude) &&
-      !isNil(position?.coords?.latitude)
-    ) {
-      setPositionGPS((prevState) => ({
-        ...prevState,
-        isCoords: true,
-        longitude: position.coords.longitude,
-        latitude: position.coords.latitude,
-      }));
-    }
-  };
-
   const getCoordsGPSError = (error: GeolocationPositionError) => {
     console.error("getCoordsGPSError error: ", error);
   };
 
+  const getFromGPS = () => {
+    navigator?.geolocation?.watchPosition(
+      (position: GeolocationPosition) => {
+        if (
+          !isNil(position?.coords?.longitude) &&
+          !isNil(position?.coords?.latitude)
+        ) {
+          const longitude = position.coords.longitude;
+          const latitude = position.coords.latitude;
+          getLocationFromCoords({
+            longitude,
+            latitude,
+            isGPS: true,
+          }).then((r) => null);
+        }
+      },
+      getCoordsGPSError,
+      {
+        enableHighAccuracy: false,
+      },
+    );
+  };
+
+  const getFromIp = () => {
+    navigator?.geolocation?.getCurrentPosition((position) => {
+      if (
+        !isNil(position?.coords?.longitude) &&
+        !isNil(position?.coords?.latitude)
+      ) {
+        const longitude = position.coords.longitude;
+        const latitude = position.coords.latitude;
+        getLocationFromCoords({
+          longitude,
+          latitude,
+          isGPS: false,
+        }).then((r) => null);
+      }
+    });
+  };
+
   useEffect(() => {
     if (!positionGPS.isCoords) {
-      navigator?.geolocation?.watchPosition(getCoordsGPS, getCoordsGPSError, {
-        enableHighAccuracy: false,
-      });
+      console.log("getFromGPS");
+      getFromGPS();
     }
     if (!positionGPS.isCoords && !positionIP.isCoords) {
-      getCoords();
-    }
-    if (positionGPS.isCoords) {
-      getLocationFromCoords({
-        longitude: positionGPS?.longitude,
-        latitude: positionGPS?.latitude,
-        isGPS: true,
-      }).then((r) => null);
-    }
-    if (!positionGPS.isCoords && positionIP.isCoords) {
-      getLocationFromCoords({
-        longitude: positionGPS?.longitude,
-        latitude: positionGPS?.latitude,
-        isGPS: false,
-      }).then((r) => null);
+      console.log("getFromIp");
+      getFromIp();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    positionGPS.isCoords,
-    positionIP.isCoords,
-    positionGPS?.location,
-    positionIP?.location,
-  ]);
+  }, [positionGPS.isCoords, positionIP.isCoords]);
 
   return useMemo(() => {
     return {
