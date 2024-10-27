@@ -10,6 +10,7 @@ import { useTranslation } from "@/app/i18n/client";
 import type { TFilter } from "@/app/api/profile/filter";
 import { SearchForm } from "@/app/entities/search/searchForm";
 import { Container } from "@/app/shared/components/container";
+import { useNavigatorContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useNavigator, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
@@ -30,7 +31,7 @@ export const SessionPage: FC<TProps> = ({
   profileFilter,
   profileList,
 }) => {
-  const navigator = useNavigator({ lng });
+  const navigator = useNavigatorContext();
   const { isSession, user } = useTelegram();
   const { t } = useTranslation("index");
 

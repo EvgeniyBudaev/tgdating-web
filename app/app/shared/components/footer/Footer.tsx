@@ -1,11 +1,12 @@
 "use client";
 
-import { useParams, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { type FC, memo, useMemo } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { NavLink } from "@/app/shared/components/navLink";
+import { useNavigatorContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useNavigator, useTelegram } from "@/app/shared/hooks";
+import { useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { useHydrated } from "@/app/uikit/hooks";
 import { Icon } from "@/app/uikit/components/icon";
@@ -17,8 +18,7 @@ type TProps = {
 };
 
 const FooterComponent: FC<TProps> = ({ lng }) => {
-  const navigator = useNavigator({ lng });
-  const params = useParams();
+  const navigator = useNavigatorContext();
   const pathname = usePathname();
   const { isSession, user } = useTelegram();
   const { t } = useTranslation("index");

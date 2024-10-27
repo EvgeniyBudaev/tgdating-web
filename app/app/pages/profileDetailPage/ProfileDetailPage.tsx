@@ -4,7 +4,7 @@ import isNil from "lodash/isNil";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { FC, useEffect, useMemo, useRef, useState } from "react";
+import { FC, memo, useEffect, useMemo, useRef, useState } from "react";
 import { useFormState } from "react-dom";
 import { addLikeAction } from "@/app/actions/like/add/addLikeAction";
 import { updateLikeAction } from "@/app/actions/like/update/updateLikeAction";
@@ -45,7 +45,7 @@ type TProps = {
   viewedSessionId: string;
 };
 
-export const ProfileDetailPage: FC<TProps> = ({
+const ProfileDetailPageComponent: FC<TProps> = ({
   isExistUser,
   lng,
   profile,
@@ -63,6 +63,11 @@ export const ProfileDetailPage: FC<TProps> = ({
   // const isLiked = !isSessionUser && profile?.like?.isLiked;
   const buttonSubmitRef = useRef<HTMLInputElement | null>(null);
   const [isShowTooltipHeart, setIsShowTooltipHeart] = useState(false);
+  const isHeight = !isNil(profile?.height) && profile?.height !== 0;
+  const isWeight = !isNil(profile?.weight) && profile?.weight !== 0;
+  console.log("isHeight: ", isHeight);
+  console.log("isWeight: ", isWeight);
+  console.log("isHeight || isWeight: ", isHeight || isWeight);
 
   useEffect(() => {
     if (isSession && !isExistUser) {
@@ -228,13 +233,13 @@ export const ProfileDetailPage: FC<TProps> = ({
               <div className="ProfileDetailPage-Box">
                 <div className="ProfileDetailPage-Inner">
                   <div className="ProfileDetailPage-Inner-Left">
-                    <div className="ProfileDetailPage-Label">
+                    <Field>
                       <Typography>
                         {profile?.displayName}, {fullYear}
                       </Typography>
-                    </div>
+                    </Field>
                     {profile?.isOnline && (
-                      <div className="ProfileDetailPage-Online">
+                      <Field className="ProfileDetailPage-Online">
                         <Online
                           isOnline={profile?.isOnline}
                           message={
@@ -243,10 +248,15 @@ export const ProfileDetailPage: FC<TProps> = ({
                               : undefined
                           }
                         />
-                      </div>
+                      </Field>
                     )}
-                    {!isSessionUser && distance && (
+                    <Field>
                       <Typography>{distance}</Typography>
+                    </Field>
+                    {!isSessionUser && distance && (
+                      <Field>
+                        <Typography>{distance}</Typography>
+                      </Field>
                     )}
                   </div>
                   <div className="ProfileDetailPage-Inner-Right">
@@ -273,44 +283,38 @@ export const ProfileDetailPage: FC<TProps> = ({
                 </div>
               </Field>
             )}
-            {profile?.location ||
-              (!isNil(profile?.height) && profile?.height !== 0) ||
-              (!isNil(profile?.weight) && profile?.weight !== 0 && (
-                <div className="ProfileDetailPage-Box">
-                  {profile?.location && (
-                    <Field>
-                      <div className="ProfileDetailPage-Row">
-                        <Icon
-                          className="ProfileDetailPage-Icon"
-                          type="Location"
-                        />
-                        <Typography>{profile?.location}</Typography>
-                      </div>
-                    </Field>
-                  )}
-                  {((!isNil(profile?.height) && profile?.height !== 0) ||
-                    (!isNil(profile?.weight) && profile?.weight !== 0)) && (
-                    <Field>
-                      <div className="ProfileDetailPage-Row">
-                        <Icon
-                          className="ProfileDetailPage-Icon"
-                          type="Person"
-                        />
-                        {!isNil(profile?.height) && (
-                          <Typography>
-                            {profile?.height} {t("common.reductions.cm")}&nbsp;
-                          </Typography>
-                        )}
-                        {!isNil(profile?.weight) && (
-                          <Typography>
-                            {profile?.weight} {t("common.reductions.kg")}&nbsp;
-                          </Typography>
-                        )}
-                      </div>
-                    </Field>
-                  )}
-                </div>
-              ))}
+            {(profile?.location || isHeight || isWeight) && (
+              <div className="ProfileDetailPage-Box">
+                {profile?.location && (
+                  <Field>
+                    <div className="ProfileDetailPage-Row">
+                      <Icon
+                        className="ProfileDetailPage-Icon"
+                        type="Location"
+                      />
+                      <Typography>{profile?.location}</Typography>
+                    </div>
+                  </Field>
+                )}
+                {(isHeight || isWeight) && (
+                  <Field>
+                    <div className="ProfileDetailPage-Row">
+                      <Icon className="ProfileDetailPage-Icon" type="Person" />
+                      {isHeight && (
+                        <Typography>
+                          {profile?.height} {t("common.reductions.cm")}&nbsp;
+                        </Typography>
+                      )}
+                      {isWeight && (
+                        <Typography>
+                          {profile?.weight} {t("common.reductions.kg")}&nbsp;
+                        </Typography>
+                      )}
+                    </div>
+                  </Field>
+                )}
+              </div>
+            )}
           </Container>
         </div>
         <form action={handleSubmit} className="ProfileDetailPage-Form">
@@ -320,3 +324,7 @@ export const ProfileDetailPage: FC<TProps> = ({
     )
   );
 };
+
+ProfileDetailPageComponent.displayName = "ProfileDetailPage";
+
+export const ProfileDetailPage = memo(ProfileDetailPageComponent);

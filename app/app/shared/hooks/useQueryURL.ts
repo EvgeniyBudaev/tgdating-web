@@ -21,8 +21,8 @@ import {
   SESSION_ID,
   SIZE,
 } from "@/app/shared/constants";
+import { useNavigatorContext } from "@/app/shared/context";
 import { ELanguage } from "@/app/shared/enums";
-import { useNavigator } from "@/app/shared/hooks/useNavigator";
 import { useTelegram } from "@/app/shared/hooks/useTelegram";
 
 type TProps = {
@@ -64,7 +64,7 @@ type TResponse = {
 type TUseQueryURL = (props: TProps) => TResponse;
 
 export const useQueryURL: TUseQueryURL = ({ lng }) => {
-  const navigator = useNavigator({ lng });
+  const navigator = useNavigatorContext();
   const { replace } = useRouter();
   const pathname = usePathname();
   const { user } = useTelegram();

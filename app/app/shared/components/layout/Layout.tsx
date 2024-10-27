@@ -3,8 +3,9 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { type FC, memo, type ReactNode, useEffect, useMemo } from "react";
 import { Footer } from "@/app/shared/components/footer";
+import { NavigatorProvider } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useTelegram } from "@/app/shared/hooks";
+import { useNavigator, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import "./Layout.scss";
 
@@ -17,6 +18,7 @@ const LayoutComponent: FC<TProps> = ({ children, lng }) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
+  const navigator = useNavigator({ lng });
   const { user } = useTelegram();
 
   useEffect(() => {
@@ -37,10 +39,12 @@ const LayoutComponent: FC<TProps> = ({ children, lng }) => {
   }, [lng, pathname]);
 
   return (
-    <div className="Layout">
-      <div className="Layout-Content">{children}</div>
-      {isFooter && <Footer lng={lng} />}
-    </div>
+    <NavigatorProvider value={navigator}>
+      <div className="Layout">
+        <div className="Layout-Content">{children}</div>
+        {isFooter && <Footer lng={lng} />}
+      </div>
+    </NavigatorProvider>
   );
 };
 
