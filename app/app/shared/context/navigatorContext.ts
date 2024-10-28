@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { type TUseNavigatorResponse } from "@/app/shared/hooks/useNavigator";
+import type { TUseNavigatorResponse } from "@/app/shared/hooks/useNavigator";
 
 export const NavigatorContext = createContext<TUseNavigatorResponse | null>(
   null,

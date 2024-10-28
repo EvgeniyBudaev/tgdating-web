@@ -1,6 +1,5 @@
 import { useFieldError } from "./useFieldError";
 import { useFiles } from "./useFiles";
-import { useFilter } from "./useFilter";
 import { useFormErrors } from "./useFormErrors";
 import { useLanguage } from "./useLanguage";
 import { useMounted } from "./useMounted";
@@ -14,7 +13,6 @@ import { useQueryURL } from "./useQueryURL";
 export {
   useFieldError,
   useFiles,
-  useFilter,
   useFormErrors,
   useLanguage,
   useMounted,

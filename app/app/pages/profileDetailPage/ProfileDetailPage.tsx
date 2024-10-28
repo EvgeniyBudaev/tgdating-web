@@ -22,8 +22,8 @@ import { getDistance } from "@/app/pages/profileDetailPage/utils";
 import { Container } from "@/app/shared/components/container";
 import { Field } from "@/app/shared/components/form/field";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
+import { useTelegramContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useFilter, useTelegram } from "@/app/shared/hooks";
 import { PROFILE_LOOKING_FOR_MAPPING } from "@/app/shared/mapping/profile";
 import { createPath } from "@/app/shared/utils";
 import { DATE_FORMAT } from "@/app/uikit/components/dateTime/constants";
@@ -52,7 +52,9 @@ const ProfileDetailPageComponent: FC<TProps> = ({
   viewedSessionId,
 }) => {
   const { dayjs } = useDayjs();
-  const { isSession, user } = useTelegram();
+  const telegram = useTelegramContext();
+  const isSession = telegram?.isSession;
+  const user = telegram?.user;
   const { t } = useTranslation("index");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
@@ -65,9 +67,6 @@ const ProfileDetailPageComponent: FC<TProps> = ({
   const [isShowTooltipHeart, setIsShowTooltipHeart] = useState(false);
   const isHeight = !isNil(profile?.height) && profile?.height !== 0;
   const isWeight = !isNil(profile?.weight) && profile?.weight !== 0;
-  console.log("isHeight: ", isHeight);
-  console.log("isWeight: ", isWeight);
-  console.log("isHeight || isWeight: ", isHeight || isWeight);
 
   useEffect(() => {
     if (isSession && !isExistUser) {
@@ -250,9 +249,6 @@ const ProfileDetailPageComponent: FC<TProps> = ({
                         />
                       </Field>
                     )}
-                    <Field>
-                      <Typography>{distance}</Typography>
-                    </Field>
                     {!isSessionUser && distance && (
                       <Field>
                         <Typography>{distance}</Typography>
@@ -276,44 +272,51 @@ const ProfileDetailPageComponent: FC<TProps> = ({
                 </div>
               </div>
             </div>
-            {profile?.description && (
+            {(profile?.location || isHeight || isWeight) && (
               <Field>
-                <div className="ProfileDetailPage-Inner">
-                  <Typography>{profile?.description}</Typography>
+                <div className="ProfileDetailPage-Box">
+                  {profile?.location && (
+                    <Field>
+                      <div className="ProfileDetailPage-Row">
+                        <Icon
+                          className="ProfileDetailPage-Icon"
+                          type="Location"
+                        />
+                        <Typography>{profile?.location}</Typography>
+                      </div>
+                    </Field>
+                  )}
+                  {(isHeight || isWeight) && (
+                    <Field>
+                      <div className="ProfileDetailPage-Row">
+                        <Icon
+                          className="ProfileDetailPage-Icon"
+                          type="Person"
+                        />
+                        {isHeight && (
+                          <Typography>
+                            {profile?.height} {t("common.reductions.cm")}&nbsp;
+                          </Typography>
+                        )}
+                        {isWeight && (
+                          <Typography>
+                            {profile?.weight} {t("common.reductions.kg")}&nbsp;
+                          </Typography>
+                        )}
+                      </div>
+                    </Field>
+                  )}
                 </div>
               </Field>
             )}
-            {(profile?.location || isHeight || isWeight) && (
-              <div className="ProfileDetailPage-Box">
-                {profile?.location && (
-                  <Field>
-                    <div className="ProfileDetailPage-Row">
-                      <Icon
-                        className="ProfileDetailPage-Icon"
-                        type="Location"
-                      />
-                      <Typography>{profile?.location}</Typography>
-                    </div>
-                  </Field>
-                )}
-                {(isHeight || isWeight) && (
-                  <Field>
-                    <div className="ProfileDetailPage-Row">
-                      <Icon className="ProfileDetailPage-Icon" type="Person" />
-                      {isHeight && (
-                        <Typography>
-                          {profile?.height} {t("common.reductions.cm")}&nbsp;
-                        </Typography>
-                      )}
-                      {isWeight && (
-                        <Typography>
-                          {profile?.weight} {t("common.reductions.kg")}&nbsp;
-                        </Typography>
-                      )}
-                    </div>
-                  </Field>
-                )}
-              </div>
+            {profile?.description && (
+              <Field>
+                <div className="ProfileDetailPage-Box">
+                  <div className="ProfileDetailPage-Inner">
+                    <Typography>{profile?.description}</Typography>
+                  </div>
+                </div>
+              </Field>
             )}
           </Container>
         </div>

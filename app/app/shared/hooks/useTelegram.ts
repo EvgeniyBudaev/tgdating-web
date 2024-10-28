@@ -2,9 +2,24 @@
 
 import { useEffect, useState } from "react";
 import WebAppSDK from "@twa-dev/sdk";
-import { WebApp as WebAppTypes } from "@twa-dev/types";
+import { type WebApp as WebAppTypes, type WebAppUser } from "@twa-dev/types";
 
-export const useTelegram = () => {
+export type TUseTelegramResponse = {
+  tg: WebAppTypes | undefined;
+  chatId: number | undefined;
+  user:
+    | (WebAppUser & {
+        added_to_attachment_menu?: boolean;
+        allows_write_to_pm?: boolean;
+      })
+    | undefined;
+  queryId: string | undefined;
+  isSession: boolean;
+};
+
+type TUseTelegram = () => TUseTelegramResponse;
+
+export const useTelegram: TUseTelegram = () => {
   const [tg, setTg] = useState<WebAppTypes | undefined>();
   const telegram = typeof window !== "undefined" ? WebAppSDK : undefined;
 
@@ -51,7 +66,7 @@ export const useTelegram = () => {
     query_id: "SkeH",
   };
 
-  const initDataUnsafeMockData = mockData2;
+  const initDataUnsafeMockData = mockData1;
 
   return {
     tg,

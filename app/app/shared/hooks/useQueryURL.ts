@@ -21,9 +21,8 @@ import {
   SESSION_ID,
   SIZE,
 } from "@/app/shared/constants";
-import { useNavigatorContext } from "@/app/shared/context";
+import { useNavigatorContext, useTelegramContext } from "@/app/shared/context";
 import { ELanguage } from "@/app/shared/enums";
-import { useTelegram } from "@/app/shared/hooks/useTelegram";
 
 type TProps = {
   lng: ELanguage;
@@ -67,8 +66,8 @@ export const useQueryURL: TUseQueryURL = ({ lng }) => {
   const navigator = useNavigatorContext();
   const { replace } = useRouter();
   const pathname = usePathname();
-  const { user } = useTelegram();
-  const sessionId = user?.id ?? "1";
+  const telegram = useTelegramContext();
+  const sessionId = telegram?.user?.id ?? "";
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams.toString());
   const page = params.get(PAGE) ?? DEFAULT_PAGE.toString();

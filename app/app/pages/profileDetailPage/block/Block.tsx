@@ -6,12 +6,12 @@ import { type FC, useEffect, useRef } from "react";
 import { useFormState } from "react-dom";
 import { addBlockAction } from "@/app/actions/block/add/addBlockAction";
 import { useTranslation } from "@/app/i18n/client";
-import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import { EBlockFormFields } from "@/app/pages/profileDetailPage/block/enums";
-import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useTelegram } from "@/app/shared/hooks";
-import { Typography } from "@/app/uikit/components/typography";
+import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
+import { useTelegramContext } from "@/app/shared/context";
 import { createPath } from "@/app/shared/utils";
+import { ELanguage, ERoutes } from "@/app/shared/enums";
+import { Typography } from "@/app/uikit/components/typography";
 
 type TProps = {
   blockedUserSessionId: string;
@@ -19,7 +19,9 @@ type TProps = {
 };
 
 export const Block: FC<TProps> = ({ blockedUserSessionId, lng }) => {
-  const { isSession, user } = useTelegram();
+  const telegram = useTelegramContext();
+  const isSession = telegram?.isSession;
+  const user = telegram?.user;
   const { t } = useTranslation("index");
   const [state, formAction] = useFormState(addBlockAction, INITIAL_FORM_STATE);
   const buttonSubmitRef = useRef<HTMLInputElement | null>(null);

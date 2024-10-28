@@ -3,7 +3,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { type FC, memo, type ReactNode, useEffect, useMemo } from "react";
 import { Footer } from "@/app/shared/components/footer";
-import { NavigatorProvider } from "@/app/shared/context";
+import { NavigatorProvider, TelegramProvider } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useNavigator, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
@@ -19,16 +19,16 @@ const LayoutComponent: FC<TProps> = ({ children, lng }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const navigator = useNavigator({ lng });
-  const { user } = useTelegram();
+  const telegram = useTelegram();
 
   useEffect(() => {
     const updatedPathname = pathname.replace(
       `/${lng}`,
-      `/${user?.language_code}`,
+      `/${telegram?.user?.language_code}`,
     );
     const url = `${updatedPathname}?${searchParams}`;
     router.push(url);
-  }, [lng, pathname, router, searchParams, user?.language_code]);
+  }, [lng, pathname, router, searchParams, telegram?.user?.language_code]);
 
   const isFooter = useMemo(() => {
     const path = createPath({
@@ -39,12 +39,14 @@ const LayoutComponent: FC<TProps> = ({ children, lng }) => {
   }, [lng, pathname]);
 
   return (
-    <NavigatorProvider value={navigator}>
-      <div className="Layout">
-        <div className="Layout-Content">{children}</div>
-        {isFooter && <Footer lng={lng} />}
-      </div>
-    </NavigatorProvider>
+    <TelegramProvider value={telegram}>
+      <NavigatorProvider value={navigator}>
+        <div className="Layout">
+          <div className="Layout-Content">{children}</div>
+          {isFooter && <Footer lng={lng} />}
+        </div>
+      </NavigatorProvider>
+    </TelegramProvider>
   );
 };
 

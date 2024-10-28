@@ -16,10 +16,10 @@ import {
   DEFAULT_PAGE_SIZE,
 } from "@/app/shared/constants";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
-import { useNavigatorContext } from "@/app/shared/context";
+import { useNavigatorContext, useTelegramContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { EGender, ELookingFor, ESearchGender } from "@/app/shared/enums/form";
-import { useFiles, useFormErrors, useTelegram } from "@/app/shared/hooks";
+import { useFiles, useFormErrors } from "@/app/shared/hooks";
 import type { TUseNavigatorResponse } from "@/app/shared/hooks/useNavigator";
 import { GENDER_MAPPING } from "@/app/shared/mapping/gender";
 import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
@@ -80,7 +80,10 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   );
   const formErrors = useFormErrors({ errors: state.errors });
   const navigator = useNavigatorContext();
-  const { chatId, isSession, queryId, user } = useTelegram();
+  const telegram = useTelegramContext();
+  const user = telegram?.user;
+  const chatId = telegram?.chatId;
+  const queryId = telegram?.queryId;
   const language = lng as ELanguage;
   const location = isEdit
     ? (navigator?.location ?? profile?.location ?? undefined)

@@ -58,7 +58,6 @@ export const fetchApi: TApiFunction = async (path, options) => {
       const response = await fetch(url, {
         ...requestOptions,
         signal,
-        cache: "no-store",
       });
       clearTimeout(timeoutId);
 
