@@ -2,9 +2,7 @@ import { z } from "zod";
 
 export const addLikeParamsSchema = z.object({
   sessionId: z.string(),
-  likedUserId: z.string(),
-  message: z.string(),
-  username: z.string(),
+  likedSessionId: z.string(),
 });
 
 export const likeSchema = z.object({

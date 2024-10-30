@@ -28,3 +28,6 @@ export const FILE_MAX_AMOUNT_MESSAGE = t("common.validation.file.maxAmount");
 export const NUMBER_TYPE_ERROR = {
   invalid_type_error: t("common.validation.invalidTypeNumber"),
 };
+
+export const HEIGHT_MIN_SIZE_MESSAGE = t("common.validation.height.minSize");
+export const WEIGHT_MIN_SIZE_MESSAGE = t("common.validation.weight.minSize");

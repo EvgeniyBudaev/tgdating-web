@@ -1,36 +1,23 @@
 "use client";
 
 import isNil from "lodash/isNil";
-import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { FC, memo, useEffect, useMemo, useRef, useState } from "react";
-import { useFormState } from "react-dom";
-import { addLikeAction } from "@/app/actions/like/add/addLikeAction";
-import { updateLikeAction } from "@/app/actions/like/update/updateLikeAction";
 import type { TProfileDetail } from "@/app/api/profile/detail";
 import { ProfileSidebar } from "@/app/entities/profile/profileSidebar";
 import { useTranslation } from "@/app/i18n/client";
 import { Block } from "@/app/pages/profileDetailPage/block";
 import { Complaint } from "@/app/pages/profileDetailPage/complaint";
-import {
-  EAddLikeFormFields,
-  ECancelLikeFormFields,
-  EUpdateLikeFormFields,
-} from "@/app/pages/profileDetailPage/enums";
+import { Like } from "@/app/pages/profileDetailPage/like";
 import { getDistance } from "@/app/pages/profileDetailPage/utils";
 import { Container } from "@/app/shared/components/container";
 import { Field } from "@/app/shared/components/form/field";
-import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import { useTelegramContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { PROFILE_LOOKING_FOR_MAPPING } from "@/app/shared/mapping/profile";
 import { createPath } from "@/app/shared/utils";
-import { DATE_FORMAT } from "@/app/uikit/components/dateTime/constants";
-import { useDayjs } from "@/app/uikit/components/dateTime/hooks";
 import { DropDown } from "@/app/uikit/components/dropDown";
 import { Hamburger } from "@/app/uikit/components/hamburger";
-import { Heart } from "@/app/uikit/components/heart";
 import { Icon } from "@/app/uikit/components/icon";
 import { Online } from "@/app/uikit/components/online";
 import { Slider } from "@/app/uikit/components/slider";
@@ -42,6 +29,7 @@ type TProps = {
   isExistUser: boolean;
   lng: ELanguage;
   profile?: TProfileDetail;
+  sessionId: string;
   viewedSessionId: string;
 };
 
@@ -49,9 +37,8 @@ const ProfileDetailPageComponent: FC<TProps> = ({
   isExistUser,
   lng,
   profile,
-  viewedSessionId,
+  sessionId,
 }) => {
-  const { dayjs } = useDayjs();
   const telegram = useTelegramContext();
   const isSession = telegram?.isSession;
   const user = telegram?.user;
@@ -62,9 +49,6 @@ const ProfileDetailPageComponent: FC<TProps> = ({
   const isSessionUser = Boolean(
     profile?.sessionId && user?.id.toString() === profile.sessionId,
   );
-  // const isLiked = !isSessionUser && profile?.like?.isLiked;
-  const buttonSubmitRef = useRef<HTMLInputElement | null>(null);
-  const [isShowTooltipHeart, setIsShowTooltipHeart] = useState(false);
   const isHeight = !isNil(profile?.height) && profile?.height !== 0;
   const isWeight = !isNil(profile?.weight) && profile?.weight !== 0;
 
@@ -78,38 +62,6 @@ const ProfileDetailPageComponent: FC<TProps> = ({
     }
   }, [isSession, isExistUser]);
 
-  // const canAddLike = useMemo(() => {
-  //   return !isSessionUser && isNil(profile?.like?.id);
-  // }, [isSessionUser, profile?.like?.id]);
-  //
-  // const canUpdateLike = useMemo(() => {
-  //   return (
-  //     !isSessionUser && !isNil(profile?.like?.id) && !profile?.like?.isLiked
-  //   );
-  // }, [isSessionUser, profile?.like?.id, profile?.like?.isLiked]);
-  //
-  // const canCancelLike = useMemo(() => {
-  //   return (
-  //     !isSessionUser && !isNil(profile?.like?.id) && profile?.like?.isLiked
-  //   );
-  // }, [isSessionUser, profile?.like?.id, profile?.like?.isLiked]);
-
-  // const isCanClickHeart = useMemo(() => {
-  //   if (isNil(profile?.like?.updatedAt)) {
-  //     return true;
-  //   }
-  //   const lastClickDate = dayjs(profile?.like?.updatedAt)
-  //     .utc()
-  //     .format(DATE_FORMAT);
-  //   const today = dayjs().utc().format(DATE_FORMAT);
-  //   return canCancelLike || lastClickDate !== today;
-  // }, [canCancelLike, dayjs, profile?.like?.updatedAt]);
-
-  // const [state, formAction] = useFormState(
-  //   canAddLike ? addLikeAction : updateLikeAction,
-  //   INITIAL_FORM_STATE,
-  // );
-
   const distance = useMemo(() => {
     return profile?.navigator?.distance
       ? getDistance(profile.navigator.distance, t)
@@ -122,57 +74,6 @@ const ProfileDetailPageComponent: FC<TProps> = ({
 
   const handleCloseSidebar = () => {
     setIsSidebarOpen(false);
-  };
-
-  const handleHeartClick = () => {
-    // if (isCanClickHeart) {
-    //   buttonSubmitRef.current && buttonSubmitRef.current.click();
-    //   return;
-    // }
-    // setIsShowTooltipHeart(true);
-  };
-
-  const handleSubmit = (formData: FormData) => {
-    // if (isSession && profile) {
-    //   const formDataDto = new FormData();
-    //   const keycloakSession = session as TSession;
-    //   if (canAddLike) {
-    //     formDataDto.append(
-    //       EAddLikeFormFields.SessionId,
-    //       keycloakSession?.user.id,
-    //     );
-    //     formDataDto.append(EAddLikeFormFields.LikedUserId, profile.id.toString());
-    //     const message = t("common.actions.like");
-    //     formDataDto.append(EAddLikeFormFields.Message, message);
-    //     formDataDto.append(
-    //       EAddLikeFormFields.Username,
-    //       profile.telegram?.username ?? "",
-    //     );
-    //   }
-    //   if (canCancelLike) {
-    //     formDataDto.append(
-    //       ECancelLikeFormFields.Id,
-    //       (profile.like?.id ?? "").toString(),
-    //     );
-    //     formDataDto.append(ECancelLikeFormFields.IsCancel, "true");
-    //     formDataDto.append(
-    //       ECancelLikeFormFields.LikedUserId,
-    //       profile.id.toString(),
-    //     );
-    //   }
-    //   if (canUpdateLike) {
-    //     formDataDto.append(
-    //       EUpdateLikeFormFields.Id,
-    //       (profile.like?.id ?? "").toString(),
-    //     );
-    //     formDataDto.append(EUpdateLikeFormFields.IsCancel, "false");
-    //     formDataDto.append(
-    //       EUpdateLikeFormFields.LikedUserId,
-    //       profile.id.toString(),
-    //     );
-    //   }
-    //   formAction(formDataDto);
-    // }
   };
 
   return (
@@ -257,16 +158,7 @@ const ProfileDetailPageComponent: FC<TProps> = ({
                   </div>
                   <div className="ProfileDetailPage-Inner-Right">
                     {!isSessionUser && (
-                      <Heart
-                        // isLiked={isLiked}
-                        isLiked={false}
-                        message={
-                          isShowTooltipHeart
-                            ? t("pages.profile.doubleLike")
-                            : undefined
-                        }
-                        onClick={handleHeartClick}
-                      />
+                      <Like lng={lng} profile={profile} sessionId={sessionId} />
                     )}
                   </div>
                 </div>
@@ -320,9 +212,6 @@ const ProfileDetailPageComponent: FC<TProps> = ({
             )}
           </Container>
         </div>
-        <form action={handleSubmit} className="ProfileDetailPage-Form">
-          <input hidden={true} ref={buttonSubmitRef} type="submit" />
-        </form>
       </>
     )
   );

@@ -8,6 +8,8 @@ import { EGender, ELookingFor, ESearchGender } from "@/app/shared/enums/form";
 import {
   EMPTY_FIELD_ERROR_MESSAGE,
   FILE_MAX_SIZE_MESSAGE,
+  HEIGHT_MIN_SIZE_MESSAGE,
+  WEIGHT_MIN_SIZE_MESSAGE,
 } from "@/app/shared/validation";
 import {
   numberNonNegativeOptionalSchema,
@@ -16,6 +18,8 @@ import {
   stringOptionalSchema,
   symbolsMaxDisplayNameSchema,
 } from "@/app/shared/validation/schemas";
+import { HEIGHT_MIN_SIZE, WEIGHT_MIN_SIZE } from "@/app/shared/constants";
+import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
 
 export const editProfileFormSchema = zfd
   .formData({
@@ -117,7 +121,7 @@ export const editProfileFormSchema = zfd
       .min(1, EMPTY_FIELD_ERROR_MESSAGE),
     [EProfileEditFormFields.IsImages]: z.string().trim().nullish(),
   })
-  .superRefine(({ isImages, image }, ctx) => {
+  .superRefine(({ height, isImages, image, weight }, ctx) => {
     if (
       Boolean(isImages) &&
       !isNil(image) &&
@@ -152,6 +156,28 @@ export const editProfileFormSchema = zfd
         code: z.ZodIssueCode.custom,
         path: [EProfileEditFormFields.Image],
         message: FILE_MAX_SIZE_MESSAGE,
+      });
+    }
+    if (
+      !isNil(height) &&
+      Number(height) >= 0 &&
+      Number(height) < HEIGHT_MIN_SIZE
+    ) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: [EProfileAddFormFields.Height],
+        message: HEIGHT_MIN_SIZE_MESSAGE,
+      });
+    }
+    if (
+      !isNil(weight) &&
+      Number(weight) >= 0 &&
+      Number(weight) < WEIGHT_MIN_SIZE
+    ) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: [EProfileAddFormFields.Weight],
+        message: WEIGHT_MIN_SIZE_MESSAGE,
       });
     }
   });

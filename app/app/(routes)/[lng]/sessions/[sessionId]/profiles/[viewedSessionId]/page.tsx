@@ -88,6 +88,7 @@ export default async function ProfileDetailRoute({
       isExistUser={data.isExistUser}
       lng={language}
       profile={data?.profile}
+      sessionId={sessionId}
       viewedSessionId={viewedSessionId}
     />
   );

@@ -31,11 +31,15 @@ export async function addLikeAction(prevState: any, formData: FormData) {
   };
   try {
     const response = await addLike(formattedParams);
-    // const path = createPath({
-    //   route: ERoutes.ProfileDetail,
-    //   params: { id: resolver?.data?.likedUserId ?? "" },
-    // });
-    // revalidatePath(path);
+    const path = createPath({
+      route: ERoutes.ProfileDetail,
+      params: {
+        sessionId: (resolver.data.sessionId ?? "").toString(),
+        viewedSessionId: (resolver.data.likedSessionId ?? "").toString(),
+      },
+      lng: resolver.data.language,
+    });
+    revalidatePath(path);
     return {
       data: response,
       error: undefined,

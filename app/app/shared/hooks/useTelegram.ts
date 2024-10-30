@@ -29,7 +29,7 @@ export const useTelegram: TUseTelegram = () => {
 
   const mockData1 = {
     user: {
-      id: 1,
+      id: 343501363,
       first_name: "Евгений",
       last_name: "(◕ᆺ◕)",
       username: "golang_js",
@@ -55,12 +55,12 @@ export const useTelegram: TUseTelegram = () => {
 
   const mockData3 = {
     user: {
-      id: 3,
-      first_name: "Аким",
-      last_name: "Саввин",
-      username: "savin",
+      id: 7177572909,
+      first_name: "Женя",
+      last_name: "Демидов",
+      username: "boynotfound404",
       language_code: "ru",
-      is_premium: true,
+      is_premium: false,
       allows_write_to_pm: true,
     },
     query_id: "SkeH",

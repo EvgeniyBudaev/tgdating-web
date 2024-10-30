@@ -2,7 +2,6 @@
 
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
-import { revalidatePath } from "next/cache";
 import { addProfileFormSchema } from "@/app/actions/profile/add/schemas";
 import { addProfile, type TAddProfileParams } from "@/app/api/profile/add";
 import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
@@ -168,7 +167,6 @@ export async function addProfileAction(prevState: any, formData: FormData) {
       route: ERoutes.Session,
       params: { sessionId: sessionId },
     });
-    // revalidatePath("/");
     return {
       data: response,
       error: undefined,

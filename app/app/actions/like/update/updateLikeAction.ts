@@ -2,7 +2,6 @@
 
 import { revalidatePath } from "next/cache";
 import { updateLikeFormSchema } from "@/app/actions/like/update/schemas";
-import { cancelLike } from "@/app/api/like/cancel";
 import { updateLike } from "@/app/api/like/update";
 import { ERoutes } from "@/app/shared/enums";
 import type { TCommonResponseError } from "@/app/shared/types/error";
@@ -28,24 +27,24 @@ export async function updateLikeAction(prevState: any, formData: FormData) {
   }
 
   const formattedParams = {
-    ...resolver.data,
+    id: Number(resolver.data.id),
+    isLiked: JSON.parse(resolver.data.isLiked),
+    sessionId: resolver.data.sessionId,
   };
-  const isCancel = JSON.parse(formattedParams.isCancel);
-  const paramsDto = {
-    id: formattedParams.id,
-    humanId: formattedParams.likedUserId,
-  };
+
   try {
-    const response = isCancel
-      ? await cancelLike(paramsDto)
-      : await updateLike(paramsDto);
-    // const path = createPath({
-    //   route: ERoutes.ProfileDetail,
-    //   params: { id: resolver?.data?.likedUserId ?? "" },
-    // });
-    // revalidatePath(path);
+    const response = await updateLike(formattedParams);
+    const path = createPath({
+      route: ERoutes.ProfileDetail,
+      params: {
+        sessionId: (resolver.data.sessionId ?? "").toString(),
+        viewedSessionId: (resolver.data.likedSessionId ?? "").toString(),
+      },
+      lng: resolver.data.language,
+    });
+    revalidatePath(path);
     return {
-      data: response.data,
+      data: response,
       error: undefined,
       errors: undefined,
       success: true,
