@@ -27,17 +27,18 @@ export default async function RootLayout({
 
   return (
     <html lang={lng}>
-      <head>
-        {isProduction && (
-          <Script
-            src="https://telegram.org/js/telegram-web-app.js"
-            strategy="beforeInteractive"
-          />
-        )}
-        <title>Love</title>
-      </head>
-      <body>
-        <I18nContextProvider lng={lng}>
+    <head>
+      <meta name="viewport" content="viewport-fit=cover"/>
+      {isProduction && (
+        <Script
+          src="https://telegram.org/js/telegram-web-app.js"
+          strategy="beforeInteractive"
+        />
+      )}
+      <title>Love</title>
+    </head>
+    <body>
+    <I18nContextProvider lng={lng}>
           <InitClient />
           <ToastContainer />
           <LayoutComponent lng={lng}>{children}</LayoutComponent>
