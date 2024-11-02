@@ -128,7 +128,7 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
         data-testid={dataTestId}
       >
         {label && (
-          <label className="InputField-Label" htmlFor={name}>
+          <label className="InputField-Label" data-name={name} htmlFor={name}>
             <Typography>
               {label}
               {subLabel && (

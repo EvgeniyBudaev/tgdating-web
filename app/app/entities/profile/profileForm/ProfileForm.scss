@@ -2,6 +2,21 @@
 
 .ProfileForm {
   $this: &;
+  position: relative;
+  height: 100%;
+  //overflow: hidden;
+
+  &-Form {
+    //position: absolute;
+    //top: 0;
+    //right: 0;
+    //left: 0;
+    //overflow: scroll;
+  }
+
+  &-Section {
+    padding-bottom: 94px;
+  }
 
   &-Controls {
     position: fixed;

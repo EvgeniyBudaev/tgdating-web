@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import type { FC, ReactNode } from "react";
 import {
   ETypographyVariant,
@@ -7,13 +8,19 @@ import "./Section.scss";
 
 type TProps = {
   children?: ReactNode;
+  className?: string;
   title: string | ReactNode;
   subTitle?: string | ReactNode;
 };
 
-export const Section: FC<TProps> = ({ children, title, subTitle }) => {
+export const Section: FC<TProps> = ({
+  children,
+  className,
+  title,
+  subTitle,
+}) => {
   return (
-    <div className="Section">
+    <div className={clsx("Section", className)}>
       <div className="Section-Header">
         <span>
           <span className="Section-Title">

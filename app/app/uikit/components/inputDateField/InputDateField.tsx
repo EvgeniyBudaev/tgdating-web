@@ -26,6 +26,7 @@ type TProps = {
   isDisabled?: boolean;
   isInvalid?: boolean;
   locale?: Locale;
+  name?: string;
   maxDate?: Date | null;
   minDate?: Date | null;
   onChange: (value: Date | null) => void;
@@ -43,6 +44,7 @@ const InputDateFieldComponent: FC<TProps> = (props) => {
     isDisabled,
     isInvalid,
     locale,
+    name,
     maxDate,
     minDate,
     onChange,
@@ -71,7 +73,10 @@ const InputDateFieldComponent: FC<TProps> = (props) => {
   });
 
   return (
-    <div className={clsx("InputDateField", classes?.inputDateField)}>
+    <div
+      className={clsx("InputDateField", classes?.inputDateField)}
+      data-name={name}
+    >
       <UiPopover className="HeadlessPopover">
         <UiPopover.Button
           className="HeadlessPopover-Button"

@@ -107,14 +107,8 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, ITextareaProps>(
         data-testid={dataTestId}
       >
         {label && (
-          <label className="InputField-Label" htmlFor={name}>
+          <label className="InputField-Label" data-name={name} htmlFor={name}>
             <Typography>{label}</Typography>
-            {/*<Typography*/}
-            {/*  value={label}*/}
-            {/*  variant={*/}
-            {/*    !isFocused ? ETypographyVariant.TextB3Regular : ETypographyVariant.TextB4Regular*/}
-            {/*  }*/}
-            {/*/>*/}
             {isRequired && <span className="InputField-LabelRequired"> *</span>}
           </label>
         )}

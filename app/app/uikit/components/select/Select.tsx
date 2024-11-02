@@ -22,6 +22,7 @@ type TProps = {
   isRequired?: boolean;
   isSidebarOpen?: boolean;
   label?: string | ReactNode;
+  name?: string;
   onHeaderClick?: () => void;
   onSidebarClose?: () => void;
   subLabel?: string;
@@ -35,6 +36,7 @@ export const Select: FC<TProps> = ({
   isRequired = false,
   isSidebarOpen = false,
   label,
+  name,
   onHeaderClick,
   onSidebarClose,
   subLabel,
@@ -42,7 +44,7 @@ export const Select: FC<TProps> = ({
   const sidebarRef = useRef(null);
 
   return (
-    <div className="Select">
+    <div className="Select" data-name={name}>
       <div className="Select-Header" onClick={onHeaderClick}>
         <div className="Select-Header-Label">
           <Typography>{label}</Typography>

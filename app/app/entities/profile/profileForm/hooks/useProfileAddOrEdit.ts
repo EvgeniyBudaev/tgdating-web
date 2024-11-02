@@ -8,6 +8,7 @@ import { editProfileAction } from "@/app/actions/profile/edit/editProfileAction"
 import type { TProfile } from "@/app/api/profile/get";
 import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
 import { EProfileEditFormFields } from "@/app/actions/profile/edit/enums";
+import { scrollToFirstErrorField } from "@/app/entities/profile/profileForm/utils";
 import {
   DEFAULT_AGE_FROM,
   DEFAULT_AGE_TO,
@@ -189,10 +190,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
 
   // Profile Add
   useEffect(() => {
-    console.log("data: ", state?.data);
-    console.log("isData: ", !isNil(state?.data));
-    console.log("success: ", state.success);
-    console.log("isError: ", !!state?.error);
     if (!isEdit && !isNil(state?.data) && state.success && !state?.error) {
       const path = createPath({
         route: ERoutes.Root,
@@ -201,6 +198,12 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       redirect(path);
     }
   }, [isEdit, lng, state]);
+
+  useEffect(() => {
+    if (formErrors) {
+      scrollToFirstErrorField(formErrors);
+    }
+  }, [formErrors]);
 
   const handleDeleteFile = (file: TFile, files: TFile[]) => {
     onDeleteFile?.(file, files);

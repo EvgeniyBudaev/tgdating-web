@@ -2,12 +2,14 @@
 
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
-import { type FC } from "react";
+import { type FC, type FocusEvent, useEffect, useState } from "react";
 import type { TProfile } from "@/app/api/profile/get";
 import { useTranslation } from "react-i18next";
 import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
-import { useProfileAddOrEdit } from "@/app/entities/profile/profileForm/hooks";
-// import {ProfileSkeletonForm} from "@/app/entities/profile/profileForm/profileSkeletonForm";
+import {
+  useDetectKeyboardOpen,
+  useProfileAddOrEdit,
+} from "@/app/entities/profile/profileForm/hooks";
 import { Container } from "@/app/shared/components/container";
 import { ErrorBoundary } from "@/app/shared/components/errorBoundary";
 import { CancelButton } from "@/app/shared/components/form/cancelButton";
@@ -64,7 +66,23 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
     username,
   } = useProfileAddOrEdit({ isEdit, lng, profile });
 
-  // if (isEdit && !navigator.isCoords) return <ProfileSkeletonForm />;
+  const { formHeight, isKeyboardOpen } = useDetectKeyboardOpen();
+  const [focusedEvent, setFocusedEvent] = useState<FocusEvent<HTMLElement>>();
+  const formHeightFormatted = isKeyboardOpen ? `${formHeight}px` : "100%";
+
+  useEffect(() => {
+    if (isKeyboardOpen && focusedEvent) {
+      focusedEvent.target.scrollIntoView({
+        behavior: "instant",
+        block: "center",
+      });
+    }
+  }, [isKeyboardOpen, focusedEvent]);
+
+  const handleFocus = (event: FocusEvent<HTMLElement>) => {
+    setFocusedEvent(event);
+  };
+
   if (isEdit && navigator?.errorPosition) {
     return <ErrorBoundary message={"errorBoundary.common.geoPositionError"} />;
   }
@@ -74,7 +92,11 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
 
   return (
     <section className="ProfileForm">
-      <form action={onSubmit} className="ProfileForm-Form">
+      <form
+        action={onSubmit}
+        className="ProfileForm-Form"
+        style={{ height: formHeightFormatted }}
+      >
         <Section
           title={t("common.titles.publicPhotos")}
           subTitle={t("common.titles.required")}
@@ -97,7 +119,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
               maxFiles={3}
               // maxSize={1280 * 1280}
               multiple={false}
-              name="Files"
+              name={EProfileAddFormFields.Image}
               onAddFiles={onAddFiles}
               onDeleteFile={onDeleteFile}
               type="file"
@@ -119,6 +141,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
               label={t("common.form.field.displayName") ?? "Display name"}
               subLabel={t("common.titles.required")}
               name={EProfileAddFormFields.DisplayName}
+              onFocus={handleFocus}
               type="text"
             />
           </Field>
@@ -130,6 +153,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
             <InputDateField
               errors={formErrors?.birthday}
               locale={LANGUAGE_MAPPING[language]}
+              name={EProfileAddFormFields.Birthday}
               onChange={onDateChange}
               onFieldClear={() => setValueInputDateField(null)}
               placeholder={t("common.form.field.date.placeholder")}
@@ -145,16 +169,21 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
               label={t("common.form.field.description") ?? "Description"}
               maxLength={1000}
               name={EProfileAddFormFields.Description}
+              onFocus={handleFocus}
               type="text"
             />
           </Field>
         </Section>
-        <Section title={t("common.titles.properties")}>
+        <Section
+          className="ProfileForm-Section"
+          title={t("common.titles.properties")}
+        >
           <Field>
             <Select
               errors={formErrors?.gender}
               isSidebarOpen={isSidebarOpen.isGender}
               label={t("common.form.field.gender")}
+              name={EProfileAddFormFields.Gender}
               subLabel={t("common.titles.required")}
               headerTitle={!isNil(gender) ? gender?.label : "--"}
               onHeaderClick={() =>
@@ -176,6 +205,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
               errors={formErrors?.searchGender}
               isSidebarOpen={isSidebarOpen.isSearchGender}
               label={t("common.form.field.searchGender")}
+              name={EProfileAddFormFields.SearchGender}
               headerTitle={!isNil(searchGender) ? searchGender?.label : "--"}
               onHeaderClick={() =>
                 setIsSidebarOpen((prev) => ({ ...prev, isSearchGender: true }))
@@ -213,6 +243,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
               isNumeric={true}
               label={t("common.form.field.height") ?? "Height"}
               name={EProfileAddFormFields.Height}
+              onFocus={handleFocus}
               type="text"
             />
           </Field>
@@ -227,6 +258,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
               isNumeric={true}
               label={t("common.form.field.weight") ?? "Weight"}
               name={EProfileAddFormFields.Weight}
+              onFocus={handleFocus}
               type="text"
             />
           </Field>

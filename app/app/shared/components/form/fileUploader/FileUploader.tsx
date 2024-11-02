@@ -124,7 +124,7 @@ export const FileUploader: FC<TFileUploaderProps> = ({
   };
 
   return (
-    <div className="FileUploader">
+    <div className="FileUploader" data-name={rest.name}>
       <Previews
         accept={accept}
         className="FileUploader-Previews"
