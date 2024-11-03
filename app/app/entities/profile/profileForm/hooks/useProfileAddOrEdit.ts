@@ -3,12 +3,14 @@ import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
+import type { FieldErrors, FieldValues } from "react-hook-form";
 import { addProfileAction } from "@/app/actions/profile/add/addProfileAction";
 import { editProfileAction } from "@/app/actions/profile/edit/editProfileAction";
 import type { TProfile } from "@/app/api/profile/get";
 import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
 import { EProfileEditFormFields } from "@/app/actions/profile/edit/enums";
-import { scrollToFirstErrorField } from "@/app/entities/profile/profileForm/utils";
+import type { TState } from "@/app/shared/components/form/form/types";
+import { scrollToFirstErrorField } from "@/app/shared/components/form/form/utils";
 import {
   DEFAULT_AGE_FROM,
   DEFAULT_AGE_TO,
@@ -60,6 +62,7 @@ type TUseProfileEditResponse = {
   onDeleteFile(file: TFile, files: TFile[]): void;
   onSubmit(formData: FormData): void;
   searchGender: TSelectOption | undefined;
+  state: TState;
   valueInputDateField: Date | null;
   setValueInputDateField: (
     value: ((prevState: Date | null) => Date | null) | Date | null,
@@ -201,7 +204,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
 
   useEffect(() => {
     if (formErrors) {
-      scrollToFirstErrorField(formErrors);
+      scrollToFirstErrorField(formErrors as FieldErrors<FieldValues>);
     }
   }, [formErrors]);
 
@@ -341,6 +344,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     onSubmit: handleSubmit,
     searchGender,
     setValueInputDateField,
+    state,
     valueInputDateField,
     username: user?.username,
   };

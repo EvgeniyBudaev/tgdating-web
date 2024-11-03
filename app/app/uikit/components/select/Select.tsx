@@ -17,7 +17,7 @@ type TClasses = {
 type TProps = {
   children?: ReactNode;
   classes?: TClasses;
-  errors?: string | string[];
+  errors?: string | string[] | null;
   headerTitle?: string | number;
   isRequired?: boolean;
   isSidebarOpen?: boolean;

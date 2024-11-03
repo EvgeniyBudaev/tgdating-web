@@ -1,6 +1,8 @@
-type TScrollToFirstErrorField = (errors: Record<string, string[]>) => void;
+import type { FieldErrors, FieldValues } from "react-hook-form";
 
-export const scrollToFirstErrorField: TScrollToFirstErrorField = (errors) => {
+export const scrollToFirstErrorField = <T extends FieldValues>(
+  errors: FieldErrors<T>,
+) => {
   const ELEMENT_OFFSET_TOP = 10;
 
   const elements = Object.keys(errors)

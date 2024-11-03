@@ -27,7 +27,7 @@ export interface ITextareaProps
   className?: string;
   dataTestId?: string;
   defaultValue?: string;
-  errors?: string | string[];
+  errors?: string | string[] | null;
   hidden?: boolean;
   isFocused?: boolean;
   isReadOnly?: boolean;

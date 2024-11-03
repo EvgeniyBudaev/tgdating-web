@@ -1,7 +1,6 @@
 "use client";
 
 import clsx from "clsx";
-import isNaN from "lodash/isNaN";
 import { ChangeEvent, forwardRef, memo, useEffect, useState } from "react";
 import type {
   DetailedHTMLProps,
@@ -25,7 +24,7 @@ export interface IInputProps
   className?: string;
   defaultValue?: string | number;
   dataTestId?: string;
-  errors?: string | string[];
+  errors?: string | string[] | null;
   hidden?: boolean;
   isDisabled?: boolean;
   isFocused?: boolean;
@@ -57,17 +56,18 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
       label,
       maxLength,
       name,
-      subLabel,
-      type,
       onBlur,
       onChange,
       onFocus,
+      subLabel,
+      type,
+      value,
       ...rest
     }: IInputProps,
     ref: ForwardedRef<HTMLInputElement>,
   ): JSX.Element => {
     const [currentLength, setCurrentLength] = useState(
-      (defaultValue ?? "").toString().length ?? 0,
+      (defaultValue ?? value ?? "").toString().length ?? 0,
     );
     const [currentInputValue, setCurrentInputValue] = useState(
       defaultValue ?? "",
@@ -107,15 +107,6 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
       const value = event.target.value;
       setCurrentLength(value.length);
-      if (isNumeric && !isNaN(Number(value))) {
-        const valueNumeric = value.replace(",", ".");
-        const roundedValue = Math.floor(Number(valueNumeric));
-        setCurrentInputValue(roundedValue);
-      } else if (isNumeric && isNaN(Number(value))) {
-        return;
-      } else {
-        setCurrentInputValue(value);
-      }
       onChange?.(event);
     };
 
@@ -166,7 +157,7 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
               readOnly={isReadOnly}
               ref={ref}
               type={type}
-              value={currentInputValue}
+              value={value}
             />
           </div>
           {maxLength && (

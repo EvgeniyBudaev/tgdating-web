@@ -59,7 +59,7 @@
       "wrongCharacter": "Allowed characters: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
       "file": {
         "expectedFile": "You can only attach a file",
-        "maxSize": "Maximum file size 10mb",
+        "maxSize": "Maximum file size 50mb",
         "maxAmount": "Maximum number of files 3"
       },
       "invalidTypeNumber": "Must be a number",

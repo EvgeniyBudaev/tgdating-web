@@ -22,7 +22,7 @@ type TClasses = {
 
 type TProps = {
   classes?: TClasses;
-  errors?: string | string[];
+  errors?: string | string[] | null;
   isDisabled?: boolean;
   isInvalid?: boolean;
   locale?: Locale;

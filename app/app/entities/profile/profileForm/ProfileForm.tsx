@@ -3,9 +3,12 @@
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
 import { type FC, type FocusEvent, useEffect, useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
 import type { TProfile } from "@/app/api/profile/get";
 import { useTranslation } from "react-i18next";
 import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
+import { addProfileFormSchema } from "@/app/actions/profile/add/schemas";
+import { editProfileFormSchema } from "@/app/actions/profile/edit/schemas";
 import {
   useDetectKeyboardOpen,
   useProfileAddOrEdit,
@@ -14,21 +17,21 @@ import { Container } from "@/app/shared/components/container";
 import { ErrorBoundary } from "@/app/shared/components/errorBoundary";
 import { CancelButton } from "@/app/shared/components/form/cancelButton";
 import { Field } from "@/app/shared/components/form/field";
-import { FileUploader } from "@/app/shared/components/form/fileUploader";
+import { FileUploader } from "@/app/shared/components/form/form/fileUploader";
+import { Form } from "@/app/shared/components/form/form";
+import { useInitForm } from "@/app/shared/components/form/form/hooks";
+import { Input } from "@/app/shared/components/form/input";
+import { InputDateField } from "@/app/shared/components/form/inputDateField";
+import { Select } from "@/app/shared/components/form/select";
+import { Textarea } from "@/app/shared/components/form/textarea";
 import { SubmitButton } from "@/app/shared/components/form/submitButton";
 import { Section } from "@/app/shared/components/section";
-import { SidebarContent } from "@/app/shared/components/sidebarContent";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { GENDER_MAPPING } from "@/app/shared/mapping/gender";
 import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
 import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
 import { createPath } from "@/app/shared/utils";
-import { Error } from "@/app/uikit/components/error";
 import { Info } from "@/app/shared/components/info";
-import { Input } from "@/app/uikit/components/input";
-import { InputDateField } from "@/app/uikit/components/inputDateField";
-import { Select } from "@/app/uikit/components/select";
-import { Textarea } from "@/app/uikit/components/textarea";
 import {
   ETypographyVariant,
   Typography,
@@ -46,7 +49,6 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
   const {
     displayName,
     files,
-    formErrors,
     gender,
     isSidebarOpen,
     setIsSidebarOpen,
@@ -62,9 +64,16 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
     onSubmit,
     searchGender,
     setValueInputDateField,
+    state,
     valueInputDateField,
     username,
   } = useProfileAddOrEdit({ isEdit, lng, profile });
+  const schema = isEdit ? editProfileFormSchema : addProfileFormSchema;
+
+  const form = useInitForm({
+    resolver: zodResolver(schema),
+    state,
+  });
 
   const { formHeight, isKeyboardOpen } = useDetectKeyboardOpen();
   const [focusedEvent, setFocusedEvent] = useState<FocusEvent<HTMLElement>>();
@@ -73,7 +82,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
   useEffect(() => {
     if (isKeyboardOpen && focusedEvent) {
       focusedEvent.target.scrollIntoView({
-        behavior: "instant",
+        behavior: "smooth",
         block: "center",
       });
     }
@@ -92,9 +101,10 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
 
   return (
     <section className="ProfileForm">
-      <form
+      <Form
         action={onSubmit}
         className="ProfileForm-Form"
+        form={form}
         style={{ height: formHeightFormatted }}
       >
         <Section
@@ -124,20 +134,12 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
               onDeleteFile={onDeleteFile}
               type="file"
             />
-            {formErrors?.image && (
-              <Container>
-                <div className="InputField-ErrorField">
-                  <Error errors={formErrors?.image} />
-                </div>
-              </Container>
-            )}
           </Field>
         </Section>
         <Section title={t("common.titles.moreDetails")}>
           <Field>
             <Input
               defaultValue={displayName}
-              errors={formErrors?.displayName}
               label={t("common.form.field.displayName") ?? "Display name"}
               subLabel={t("common.titles.required")}
               name={EProfileAddFormFields.DisplayName}
@@ -151,7 +153,6 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
               ({t("common.titles.required")},&nbsp;{t("common.titles.hidden")})
             </Typography>
             <InputDateField
-              errors={formErrors?.birthday}
               locale={LANGUAGE_MAPPING[language]}
               name={EProfileAddFormFields.Birthday}
               onChange={onDateChange}
@@ -165,7 +166,6 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
               defaultValue={
                 isEdit ? (profile?.description ?? undefined) : undefined
               }
-              errors={formErrors?.description}
               label={t("common.form.field.description") ?? "Description"}
               maxLength={1000}
               name={EProfileAddFormFields.Description}
@@ -180,51 +180,40 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
         >
           <Field>
             <Select
-              errors={formErrors?.gender}
+              headerTitle={!isNil(gender) ? gender?.label : "--"}
               isSidebarOpen={isSidebarOpen.isGender}
               label={t("common.form.field.gender")}
               name={EProfileAddFormFields.Gender}
-              subLabel={t("common.titles.required")}
-              headerTitle={!isNil(gender) ? gender?.label : "--"}
+              onCloseSidebar={onCloseSidebar}
               onHeaderClick={() =>
                 setIsSidebarOpen((prev) => ({ ...prev, isGender: true }))
               }
-              onSidebarClose={onCloseSidebar}
-            >
-              <SidebarContent
-                onSave={onChangeGender}
-                options={GENDER_MAPPING[language]}
-                onCloseSidebar={onCloseSidebar}
-                selectedItem={gender}
-                title={t("common.form.field.gender")}
-              />
-            </Select>
+              onSave={onChangeGender}
+              options={GENDER_MAPPING[language]}
+              selectedItem={gender}
+              subLabel={t("common.titles.required")}
+              title={t("common.form.field.gender")}
+            />
           </Field>
           <Field>
             <Select
-              errors={formErrors?.searchGender}
+              headerTitle={!isNil(searchGender) ? searchGender?.label : "--"}
               isSidebarOpen={isSidebarOpen.isSearchGender}
               label={t("common.form.field.searchGender")}
               name={EProfileAddFormFields.SearchGender}
-              headerTitle={!isNil(searchGender) ? searchGender?.label : "--"}
+              onCloseSidebar={onCloseSidebar}
               onHeaderClick={() =>
                 setIsSidebarOpen((prev) => ({ ...prev, isSearchGender: true }))
               }
-              onSidebarClose={onCloseSidebar}
-            >
-              <SidebarContent
-                onSave={onChangeSearchGender}
-                options={SEARCH_GENDER_MAPPING[language]}
-                onCloseSidebar={onCloseSidebar}
-                selectedItem={searchGender}
-                title={t("common.form.field.searchGender")}
-              />
-            </Select>
+              onSave={onChangeSearchGender}
+              options={SEARCH_GENDER_MAPPING[language]}
+              selectedItem={searchGender}
+              title={t("common.form.field.searchGender")}
+            />
           </Field>
           <Field>
             <Input
               defaultValue={location}
-              errors={formErrors?.location}
               isReadOnly={true}
               label={t("common.form.field.location") ?? "Location"}
               subLabel={t("common.titles.autocomplete")}
@@ -239,7 +228,6 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
                   ? (profile?.height ?? undefined)
                   : undefined
               }
-              errors={formErrors?.height}
               isNumeric={true}
               label={t("common.form.field.height") ?? "Height"}
               name={EProfileAddFormFields.Height}
@@ -254,7 +242,6 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
                   ? (profile?.weight ?? undefined)
                   : undefined
               }
-              errors={formErrors?.weight}
               isNumeric={true}
               label={t("common.form.field.weight") ?? "Weight"}
               name={EProfileAddFormFields.Weight}
@@ -294,7 +281,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
             </div>
           </div>
         </Container>
-      </form>
+      </Form>
     </section>
   );
 };
