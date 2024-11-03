@@ -70,10 +70,12 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
   } = useProfileAddOrEdit({ isEdit, lng, profile });
   const schema = isEdit ? editProfileFormSchema : addProfileFormSchema;
 
-  const form = useInitForm({
-    resolver: zodResolver(schema),
-    state,
-  });
+  const form = useInitForm(
+    {
+      resolver: zodResolver(schema),
+    },
+    { state },
+  );
 
   const { formHeight, isKeyboardOpen } = useDetectKeyboardOpen();
   const [focusedEvent, setFocusedEvent] = useState<FocusEvent<HTMLElement>>();
@@ -148,10 +150,13 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
             />
           </Field>
           <Field>
-            <Typography>{t("common.form.field.birthday")}&nbsp;</Typography>
-            <Typography variant={ETypographyVariant.TextB4Regular}>
-              ({t("common.titles.required")},&nbsp;{t("common.titles.hidden")})
-            </Typography>
+            <div style={{ marginBottom: "4px" }}>
+              <Typography>{t("common.form.field.birthday")}&nbsp;</Typography>
+              <Typography variant={ETypographyVariant.TextB4Regular}>
+                ({t("common.titles.required")},&nbsp;{t("common.titles.hidden")}
+                ,&nbsp;{t("common.titles.changeable")})
+              </Typography>
+            </div>
             <InputDateField
               locale={LANGUAGE_MAPPING[language]}
               name={EProfileAddFormFields.Birthday}

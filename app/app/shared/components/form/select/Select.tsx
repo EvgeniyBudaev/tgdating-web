@@ -43,7 +43,7 @@ const SelectComponent: FC<TProps> = ({
   } = useController({
     name,
     control,
-    defaultValue,
+    defaultValue: selectedItem?.value ?? defaultValue,
   });
   const fieldErrors = useFieldError({ errors: error?.message });
 

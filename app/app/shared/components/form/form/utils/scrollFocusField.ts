@@ -1,11 +1,11 @@
 import type { FieldErrors, FieldValues } from "react-hook-form";
 
 export const scrollToFirstErrorField = <T extends FieldValues>(
-  errors: FieldErrors<T>,
+  errors: FieldErrors<T> | Record<string, string[]> | undefined,
 ) => {
   const ELEMENT_OFFSET_TOP = 10;
 
-  const elements = Object.keys(errors)
+  const elements = (errors ? Object.keys(errors) : [])
     .map(
       (name) => document.querySelector(`[data-name="${name}"]`) as HTMLElement,
     )

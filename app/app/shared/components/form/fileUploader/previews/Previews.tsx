@@ -20,6 +20,7 @@ type TProps = {
   accept?: Accept;
   className?: string;
   defaultImages?: TImage[];
+  errors?: string | string[] | null;
   files?: TFile[];
   isLoading?: boolean;
   lng: string;
@@ -39,6 +40,7 @@ export const Previews: FC<TProps> = ({
   accept,
   className,
   defaultImages,
+  errors,
   files,
   isLoading,
   lng,
@@ -112,13 +114,14 @@ export const Previews: FC<TProps> = ({
         <div className="Previews-Thumb">
           <div className="Previews-Thumb-Inner">
             <Dropzone
-              onDrop={onDrop}
               accept={accept}
-              disabled={isLoading}
               className={clsx("FileUploader-Dropzone", {
                 ["FileUploader-Dropzone__isLoading"]: isLoading,
               })}
+              disabled={isLoading}
+              errors={errors}
               multiple={multiple}
+              onDrop={onDrop}
               {...rest}
             >
               <Icon type="AddCircleOutline" />

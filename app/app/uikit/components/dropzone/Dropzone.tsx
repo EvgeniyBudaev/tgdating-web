@@ -10,6 +10,7 @@ export type TDropzoneProps = {
   children?: ReactNode;
   className?: string;
   dataTestId?: string;
+  errors?: string | string[] | null;
   name: string;
   multiple: boolean;
 } & DropzoneOptions;
@@ -18,6 +19,7 @@ export const Dropzone: FC<TDropzoneProps> = ({
   children,
   className,
   dataTestId = "uikit__dropzone",
+  errors,
   name,
   multiple,
   onDrop,
@@ -32,11 +34,10 @@ export const Dropzone: FC<TDropzoneProps> = ({
   return (
     <div
       {...getRootProps()}
-      className={clsx(
-        "Dropzone",
-        isDragActive ? "Dropzone__isDragActive" : "",
-        className,
-      )}
+      className={clsx("Dropzone", className, {
+        Dropzone__isDragActive: isDragActive,
+        Dropzone__isError: errors,
+      })}
       data-testid={dataTestId}
     >
       <input {...getInputProps()} name={name} />

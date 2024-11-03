@@ -14,16 +14,16 @@
     position: relative;
   }
 
-  #{$this}-Text {
+  &-Text {
     background-color: $secondary_bg_color;
-    border: 1px solid transparent;
-    border-top-left-radius: $border-radius;
-    border-top-right-radius: $border-radius;
-    box-sizing: border-box;
     display: flex;
     align-items: center;
     outline: none;
     padding: 9px 12px;
+    border: 1px solid transparent;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    box-sizing: border-box;
   }
 
   &-Title {
@@ -37,21 +37,11 @@
   &-IconWrapper {
     display: flex;
     align-items: center;
-    margin: 8px 0 4px;
     position: relative;
 
     &__isFocusable {
-      &:hover,
-      &:focus {
-        .InputDate-Text {
-          border: 1px solid $text_color;
-        }
-      }
-
-      &:hover {
-        #{$this}-PostIcon {
-          visibility: visible;
-        }
+      #{$this}-PostIcon {
+        visibility: visible;
       }
     }
   }
@@ -105,6 +95,10 @@
     }
   }
 
+  &__isFocused {
+    border-color: $link_color;
+  }
+
   &__isInvalid {
     .InputDate-Text,
     .InputDate-Text:hover {
@@ -118,6 +112,14 @@
     #{$this}-SubTitle,
     #{$this}-Title {
       color: $color-red;
+    }
+  }
+
+  &__isError {
+    border-color: $color-red;
+
+    #{$this}-Text {
+      border-color: $color-red;
     }
   }
 }

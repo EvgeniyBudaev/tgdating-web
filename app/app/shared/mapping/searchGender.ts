@@ -2,15 +2,15 @@ import { ESearchGender } from "@/app/shared/enums/form";
 import { ELanguage } from "@/app/shared/enums";
 
 const searchGenderOptionsRU = [
+  { label: "Все", value: ESearchGender.All },
   { label: "Парни", value: ESearchGender.Man },
   { label: "Девушки", value: ESearchGender.Woman },
-  { label: "Все", value: ESearchGender.All },
 ];
 
 const searchGenderOptionsEN = [
+  { label: "All", value: ESearchGender.All },
   { label: "Boys", value: ESearchGender.Man },
   { label: "Girls", value: ESearchGender.Woman },
-  { label: "All", value: ESearchGender.All },
 ];
 
 export const SEARCH_GENDER_MAPPING = {

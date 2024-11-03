@@ -8,6 +8,7 @@
       "required": "required",
       "moreDetails": "More details",
       "hidden": "hidden from users",
+      "changeable": "can be changed",
       "properties": "Properties",
       "autocomplete": "auto detection",
       "filtersGeneral": "General filters",
@@ -70,6 +71,7 @@
         "minSize": "Must be more or equal to 40"
       },
       "nonNegativeNumber": "Must be a positive number",
+      "mustInteger": "Must be an integer number",
       "lessOrEqualMaxNumber": "Must be less or equal to {{max}}",
       "maxSymbols": "Must be no more than {{max}} characters",
       "smallImage": "Image must be at least 100 x 100 pixels"

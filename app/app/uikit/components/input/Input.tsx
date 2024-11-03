@@ -69,9 +69,6 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
     const [currentLength, setCurrentLength] = useState(
       (defaultValue ?? value ?? "").toString().length ?? 0,
     );
-    const [currentInputValue, setCurrentInputValue] = useState(
-      defaultValue ?? "",
-    );
     const [isFocused, setIsFocused] = useState<boolean | undefined>(
       isInputFocused || !!defaultValue,
     );
@@ -79,17 +76,12 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
     useEffect(() => {
       if (defaultValue) {
         setCurrentLength((defaultValue ?? "").toString().length ?? 0);
-        setCurrentInputValue(defaultValue);
         setIsFocused(isInputFocused || !!defaultValue);
       }
     }, [defaultValue, isInputFocused]);
 
     const onBlurCallback = (event: FocusEvent<HTMLInputElement>) => {
-      if (event.target.value !== "") {
-        setIsFocused(true);
-      } else {
-        setIsFocused(false);
-      }
+      setIsFocused(false);
       if (onBlur) {
         onBlur(event);
       }
@@ -131,35 +123,27 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
           </label>
         )}
         <div className="InputField-Wrapper">
-          <div
-            className={clsx("InputField-Inner", {
-              ["InputField-Inner__disabled"]: isReadOnly || isDisabled,
-              ["InputField-Inner__active"]: isFocused,
-              ["InputField-Inner__error"]: errors,
+          <input
+            {...rest}
+            aria-disabled={isReadOnly}
+            autoComplete={autoComplete}
+            className={clsx(className, "Input", {
+              Input__disabled: isReadOnly || isDisabled,
+              Input__active: isFocused && !isReadOnly && !isDisabled,
+              Input__error: errors,
             })}
-          >
-            <input
-              {...rest}
-              aria-disabled={isReadOnly}
-              autoComplete={autoComplete}
-              className={clsx(className, "Input", {
-                Input__disabled: isReadOnly || isDisabled,
-                Input__active: isFocused && !isReadOnly && !isDisabled,
-                Input__error: errors,
-              })}
-              disabled={isDisabled}
-              hidden={hidden}
-              maxLength={maxLength}
-              name={name}
-              onBlur={onBlurCallback}
-              onChange={handleChange}
-              onFocus={onFocusCallback}
-              readOnly={isReadOnly}
-              ref={ref}
-              type={type}
-              value={value}
-            />
-          </div>
+            disabled={isDisabled}
+            hidden={hidden}
+            maxLength={maxLength}
+            name={name}
+            onBlur={onBlurCallback}
+            onChange={handleChange}
+            onFocus={onFocusCallback}
+            readOnly={isReadOnly}
+            ref={ref}
+            type={type}
+            value={value}
+          />
           {maxLength && (
             <div className="Textarea-MaxLength">
               {currentLength}/{maxLength}

@@ -7,12 +7,7 @@ import { addProfile, type TAddProfileParams } from "@/app/api/profile/add";
 import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
 import { mapSignupToDto } from "@/app/actions/profile/add/mapSignupToDto";
 import type { TCommonResponseError } from "@/app/shared/types/error";
-import {
-  getResponseError,
-  getErrorsResolver,
-  createPath,
-} from "@/app/shared/utils";
-import { ERoutes } from "@/app/shared/enums";
+import { getResponseError, getErrorsResolver } from "@/app/shared/utils";
 
 export async function addProfileAction(prevState: any, formData: FormData) {
   const resolver = addProfileFormSchema.safeParse(
@@ -35,6 +30,7 @@ export async function addProfileAction(prevState: any, formData: FormData) {
     };
     // @ts-ignore
     const mapperParams = mapSignupToDto(formattedParams);
+    console.log("addProfileAction mapperParams: ", mapperParams);
 
     const profileFormData = new FormData();
     const sessionId = mapperParams.profileForm.telegramUserId;
@@ -163,10 +159,6 @@ export async function addProfileAction(prevState: any, formData: FormData) {
     const response = await addProfile(
       profileFormData as unknown as TAddProfileParams,
     );
-    const path = createPath({
-      route: ERoutes.Session,
-      params: { sessionId: sessionId },
-    });
     return {
       data: response,
       error: undefined,
@@ -178,7 +170,6 @@ export async function addProfileAction(prevState: any, formData: FormData) {
     const responseData: TCommonResponseError = await errorResponse.json();
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};
-    console.log("addProfileAction responseData: ", responseData);
     return {
       data: undefined,
       error: formError,

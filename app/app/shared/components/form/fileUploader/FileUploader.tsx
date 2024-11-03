@@ -26,6 +26,7 @@ import "./FileUploader.scss";
 
 export type TFileUploaderProps = {
   defaultImages?: TImage[];
+  errors?: string | string[] | null;
   files?: TFile[];
   Input?: ReactElement;
   isLoading?: boolean;
@@ -41,6 +42,7 @@ export type TFileUploaderProps = {
 export const FileUploader: FC<TFileUploaderProps> = ({
   accept,
   defaultImages,
+  errors,
   files = [],
   Input,
   isLoading,
@@ -129,6 +131,7 @@ export const FileUploader: FC<TFileUploaderProps> = ({
         accept={accept}
         className="FileUploader-Previews"
         defaultImages={defaultImages}
+        errors={errors}
         files={files}
         isLoading={isLoading ?? pending}
         lng={lng}

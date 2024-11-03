@@ -4,6 +4,7 @@ import {
   type FocusEvent,
   memo,
   useCallback,
+  useEffect,
 } from "react";
 import { useController, useFormContext } from "react-hook-form";
 import { useFieldError } from "@/app/shared/hooks";
@@ -53,6 +54,10 @@ const InputComponent: FC<TProps> = ({
     },
     [field, isNumeric],
   );
+
+  useEffect(() => {
+    field.onChange(defaultValue);
+  }, [defaultValue, field]);
 
   return (
     <InputUi

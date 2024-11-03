@@ -8,20 +8,24 @@ import type {
 } from "react-hook-form";
 import type { TState } from "@/app/shared/components/form/form/types";
 
+type TOptions = {
+  state: TState;
+};
+
 type TUseInitForm<T extends FieldValues> = {
   resolver?: Resolver<T>;
-  state: TState;
 } & UseFormProps<T>;
 
 export type TUseInitFormReturn<T extends FieldValues> = {
   methods: UseFormReturn<T, any>;
-  state: TState;
+  state?: TState;
 };
 
 export const useInitForm = <T extends FieldValues>(
   props?: TUseInitForm<T>,
+  options?: TOptions,
 ): TUseInitFormReturn<T> => {
-  const { state, ...otherProps } = props;
+  const state = options?.state;
   const {
     resolver,
     mode = "all",
@@ -33,7 +37,7 @@ export const useInitForm = <T extends FieldValues>(
     shouldUnregister,
     shouldUseNativeValidation,
     criteriaMode,
-  } = otherProps ?? {};
+  } = props ?? {};
   const methods = useForm<T>({
     resolver,
     mode,

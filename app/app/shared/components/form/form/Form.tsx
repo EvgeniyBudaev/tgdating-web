@@ -23,7 +23,6 @@ const FormComponent = <T extends FieldValues>({
   onChange,
   style,
 }: TFormComponentProps<T>) => {
-  console.log("Form form: ", form);
   const csrf = "csrf_key";
   const uuid = useId();
 

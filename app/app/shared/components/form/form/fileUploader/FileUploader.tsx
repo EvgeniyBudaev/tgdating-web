@@ -71,6 +71,7 @@ const FileUploaderComponent: FC<TProps> = ({
       <FileUploaderUi
         accept={accept}
         defaultImages={defaultImages}
+        errors={fieldErrors}
         files={files}
         lng={lng}
         maxFiles={maxFiles}

@@ -1,13 +1,20 @@
 "use client";
 
 import clsx from "clsx";
-import { memo, type FC, type SyntheticEvent } from "react";
+import {
+  memo,
+  type FC,
+  type SyntheticEvent,
+  useState,
+  FocusEvent,
+} from "react";
 import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
 import "./InputDate.scss";
 
 type TProps = {
   className?: string;
+  errors?: string | string[] | null;
   isDisabled?: boolean;
   isInvalid?: boolean;
   onClick?: (event: SyntheticEvent) => void;
@@ -21,6 +28,7 @@ type TProps = {
 const InputDateComponent: FC<TProps> = (props) => {
   const {
     className,
+    errors,
     isDisabled,
     isInvalid,
     onClick,
@@ -30,14 +38,29 @@ const InputDateComponent: FC<TProps> = (props) => {
     title,
     value,
   } = props;
+  const [isFocused, setIsFocused] = useState<boolean | undefined>(false);
+
+  const onBlurCallback = (event: FocusEvent<HTMLInputElement>) => {
+    setIsFocused(false);
+  };
+
+  const onFocusCallback = (event: FocusEvent<HTMLInputElement>) => {
+    if (!isFocused) {
+      setIsFocused(true);
+    }
+  };
 
   return (
     <div
       className={clsx("InputDate", className, {
         InputDate__isDisabled: isDisabled,
+        InputDate__isFocused: isFocused && !isDisabled,
         InputDate__isInvalid: isInvalid && !isDisabled,
+        InputDate__isError: errors,
       })}
+      onBlur={onBlurCallback}
       onClick={!isDisabled ? onClick : undefined}
+      onFocus={onFocusCallback}
     >
       <div className="InputDate-Inner">
         {title && (

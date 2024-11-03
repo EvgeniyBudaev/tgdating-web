@@ -1,6 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import type { FieldValues, UseFormProps, UseFormReturn } from "react-hook-form";
 import type { TUseInitFormReturn } from "@/app/shared/components/form/form/hooks/useInitForm";
+import type { TDomainErrors } from "@/app/shared/types/error";
 import type { TErrorsResolverResponse } from "@/app/shared/utils/getErrorsResolver";
 
 type TChildrenFunction<T extends FieldValues> = (
@@ -29,16 +30,9 @@ export type TFormComponentProps<T extends FieldValues> = {
   style?: CSSProperties;
 } & UseFormProps<T>;
 
-export type TState =
-  | {
-      data: undefined;
-      success: boolean;
-      error: undefined;
-      errors: TErrorsResolverResponse;
-    }
-  | {
-      data: any;
-      success: boolean;
-      error: undefined;
-      errors: undefined;
-    };
+export type TState = {
+  data: any;
+  success: boolean;
+  error: string | undefined;
+  errors: TErrorsResolverResponse | TDomainErrors | undefined;
+};

@@ -63,6 +63,7 @@ const numberNonNegativeWithMaxOptionalSchema = (
     numberPreprocess,
     z
       .number({ ...NUMBER_TYPE_ERROR, ...params })
+      .int(t("common.validation.mustInteger"))
       .nonnegative({ message: t("common.validation.nonNegativeNumber") })
       .max(max, t("common.validation.lessOrEqualMaxNumber", { max: max }))
       .optional(),

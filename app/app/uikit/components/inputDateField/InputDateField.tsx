@@ -84,6 +84,7 @@ const InputDateFieldComponent: FC<TProps> = (props) => {
         >
           <div className="HeadlessPopover-Trigger" ref={triggerRef}>
             <InputDate
+              errors={errors}
               isDisabled={isDisabled}
               isInvalid={isInvalid}
               onFieldClear={onFieldClear}

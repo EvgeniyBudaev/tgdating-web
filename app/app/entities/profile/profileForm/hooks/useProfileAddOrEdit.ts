@@ -3,7 +3,6 @@ import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
-import type { FieldErrors, FieldValues } from "react-hook-form";
 import { addProfileAction } from "@/app/actions/profile/add/addProfileAction";
 import { editProfileAction } from "@/app/actions/profile/edit/editProfileAction";
 import type { TProfile } from "@/app/api/profile/get";
@@ -104,7 +103,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
           value: ESearchGender;
         }>
       ).find((item) => item.value === profile?.filter?.searchGender)
-    : undefined;
+    : SEARCH_GENDER_MAPPING[language][0];
   const [gender, setGender] = useState<TSelectOption | undefined>(
     genderDefault,
   );
@@ -204,7 +203,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
 
   useEffect(() => {
     if (formErrors) {
-      scrollToFirstErrorField(formErrors as FieldErrors<FieldValues>);
+      scrollToFirstErrorField(formErrors);
     }
   }, [formErrors]);
 

@@ -19,4 +19,8 @@ $imageSize: 120px;
     opacity: $opacity;
     transition: $transition;
   }
+
+  &__isError {
+    border-color: $color-red;
+  }
 }
