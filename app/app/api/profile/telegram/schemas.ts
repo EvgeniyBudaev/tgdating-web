@@ -9,5 +9,4 @@ export const telegramSchema = z.object({
   languageCode: z.string(),
   allowsWriteToPm: z.boolean(),
   queryId: z.string(),
-  chatId: z.number(),
 });

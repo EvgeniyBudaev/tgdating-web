@@ -85,7 +85,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   const navigator = useNavigatorContext();
   const telegram = useTelegramContext();
   const user = telegram?.user;
-  const chatId = telegram?.chatId;
   const queryId = telegram?.queryId;
   const language = lng as ELanguage;
   const location = isEdit
@@ -292,10 +291,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       user?.last_name ?? "",
     );
     formDataDto.append(EProfileAddFormFields.TelegramQueryId, queryId ?? "");
-    formDataDto.append(
-      EProfileAddFormFields.TelegramChatId,
-      (chatId ?? 0).toString(),
-    );
     formDataDto.append(
       EProfileAddFormFields.TelegramLanguageCode,
       user?.language_code ?? "ru",

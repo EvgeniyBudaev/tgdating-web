@@ -86,10 +86,6 @@ export const addProfileFormSchema = zfd
       .string()
       .trim()
       .min(1, EMPTY_FIELD_ERROR_MESSAGE),
-    [EProfileAddFormFields.TelegramChatId]: z
-      .string()
-      .trim()
-      .min(1, EMPTY_FIELD_ERROR_MESSAGE),
     [EProfileAddFormFields.Latitude]: numberNonNegativeOptionalSchema,
     [EProfileAddFormFields.Longitude]: numberNonNegativeOptionalSchema,
     [EProfileAddFormFields.AgeFrom]: z

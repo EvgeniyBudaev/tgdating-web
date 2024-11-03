@@ -113,10 +113,6 @@ export async function editProfileAction(prevState: any, formData: FormData) {
       EProfileEditFormFields.TelegramQueryId,
       mapperParams.profileForm.telegramQueryId,
     );
-    profileFormData.append(
-      EProfileEditFormFields.TelegramChatId,
-      mapperParams.profileForm.telegramChatId,
-    );
     if (
       !isNil(mapperParams.profileForm.latitude) &&
       !isEmpty(mapperParams.profileForm.latitude)

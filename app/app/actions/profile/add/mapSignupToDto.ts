@@ -20,7 +20,6 @@ type TProps = {
   [EProfileAddFormFields.TelegramLanguageCode]: string;
   [EProfileAddFormFields.TelegramAllowsWriteToPm]: string;
   [EProfileAddFormFields.TelegramQueryId]: string;
-  [EProfileAddFormFields.TelegramChatId]: string;
   [EProfileAddFormFields.Latitude]?: string | null | undefined;
   [EProfileAddFormFields.Longitude]?: string | null | undefined;
   [EProfileAddFormFields.AgeFrom]: string;
@@ -49,7 +48,6 @@ type TProfileForm = {
   [EProfileAddFormFields.TelegramLanguageCode]: string;
   [EProfileAddFormFields.TelegramAllowsWriteToPm]: string;
   [EProfileAddFormFields.TelegramQueryId]: string;
-  [EProfileAddFormFields.TelegramChatId]: string;
   [EProfileAddFormFields.Latitude]: string | null;
   [EProfileAddFormFields.Longitude]: string | null;
   [EProfileAddFormFields.AgeFrom]: string;
@@ -89,7 +87,6 @@ export const mapSignupToDto: TMapSignupToDto = (props) => {
       [EProfileAddFormFields.TelegramAllowsWriteToPm]:
         props.telegramAllowsWriteToPm,
       [EProfileAddFormFields.TelegramQueryId]: props.telegramQueryId,
-      [EProfileAddFormFields.TelegramChatId]: props.telegramChatId,
       [EProfileAddFormFields.Latitude]: props?.latitude
         ? props?.latitude.toString()
         : null,

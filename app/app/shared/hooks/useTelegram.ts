@@ -6,7 +6,6 @@ import { type WebApp as WebAppTypes, type WebAppUser } from "@twa-dev/types";
 
 export type TUseTelegramResponse = {
   tg: WebAppTypes | undefined;
-  chatId: number | undefined;
   user:
     | (WebAppUser & {
         added_to_attachment_menu?: boolean;
@@ -70,7 +69,6 @@ export const useTelegram: TUseTelegram = () => {
 
   return {
     tg,
-    chatId: tg?.initDataUnsafe?.chat?.id,
     user: tg?.initDataUnsafe?.user ?? initDataUnsafeMockData.user,
     queryId: tg?.initDataUnsafe?.query_id ?? initDataUnsafeMockData.query_id,
     isSession: tg?.initDataUnsafe?.user?.id
@@ -80,7 +78,6 @@ export const useTelegram: TUseTelegram = () => {
 
   // return {
   //   tg,
-  //   chatId: tg?.initDataUnsafe?.chat?.id,
   //   user: tg?.initDataUnsafe?.user,
   //   queryId: tg?.initDataUnsafe?.query_id,
   //   isSession: !!tg?.initDataUnsafe?.user?.id,

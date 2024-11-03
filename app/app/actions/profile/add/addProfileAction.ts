@@ -113,10 +113,6 @@ export async function addProfileAction(prevState: any, formData: FormData) {
       EProfileAddFormFields.TelegramQueryId,
       mapperParams.profileForm.telegramQueryId,
     );
-    profileFormData.append(
-      EProfileAddFormFields.TelegramChatId,
-      mapperParams.profileForm.telegramChatId,
-    );
     if (
       !isNil(mapperParams.profileForm?.latitude) &&
       !isEmpty(mapperParams.profileForm?.latitude)
