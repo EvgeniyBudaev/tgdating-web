@@ -8,11 +8,13 @@ import { mapUpdateToDto } from "@/app/api/profile/edit/utils";
 import { EProfileEditFormFields } from "@/app/actions/profile/edit/enums";
 import type { TCommonResponseError } from "@/app/shared/types/error";
 import { getResponseError, getErrorsResolver } from "@/app/shared/utils";
+import { decrypt } from "@/app/shared/utils/security";
 
 export async function editProfileAction(prevState: any, formData: FormData) {
   const resolver = editProfileFormSchema.safeParse(
     Object.fromEntries(formData.entries()),
   );
+  console.log("editProfileAction resolver.success: ", resolver.success);
   if (!resolver.success) {
     const errors = getErrorsResolver(resolver);
     return {
@@ -23,12 +25,17 @@ export async function editProfileAction(prevState: any, formData: FormData) {
     };
   }
 
+  const telegramInitDataCrypt = resolver.data.telegramInitDataCrypt;
+  const accessToken = decrypt(telegramInitDataCrypt);
+  console.log("editProfileAction accessToken: ", accessToken);
+
   try {
     const formattedParams = {
       ...resolver.data,
     };
     // @ts-ignore
     const mapperParams = mapUpdateToDto(formattedParams);
+    console.log("editProfileAction mapperParams: ", mapperParams);
 
     const profileFormData = new FormData();
     profileFormData.append(
@@ -158,6 +165,11 @@ export async function editProfileAction(prevState: any, formData: FormData) {
 
     const response = await editProfile(
       profileFormData as unknown as TEditProfileParams,
+      {
+        headers: {
+          Authorization: `tma ${accessToken}`,
+        },
+      },
     );
 
     return {
@@ -169,6 +181,7 @@ export async function editProfileAction(prevState: any, formData: FormData) {
   } catch (error) {
     const errorResponse = error as Response;
     const responseData: TCommonResponseError = await errorResponse.json();
+    console.log("editProfileAction errorResponseData: ", responseData);
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};
 

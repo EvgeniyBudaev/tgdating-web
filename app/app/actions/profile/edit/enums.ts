@@ -17,6 +17,7 @@ export enum EProfileEditFormFields {
   TelegramLanguageCode = "telegramLanguageCode",
   TelegramAllowsWriteToPm = "telegramAllowsWriteToPm",
   TelegramQueryId = "telegramQueryId",
+  TelegramInitDataCrypt = "telegramInitDataCrypt",
   Latitude = "latitude",
   Longitude = "longitude",
   AgeFrom = "ageFrom",

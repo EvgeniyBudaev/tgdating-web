@@ -72,7 +72,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
 
   const form = useInitForm(
     {
-      resolver: zodResolver(schema),
+      resolver: zodResolver(addProfileFormSchema),
     },
     { state },
   );

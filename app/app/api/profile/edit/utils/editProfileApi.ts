@@ -4,9 +4,11 @@ import { EFormMethods } from "@/app/shared/enums";
 
 export const editProfileApi: TApiFunction<TEditProfileParams, TEditProfile> = (
   params,
+  options,
 ) => {
   return fetchApi<TEditProfile>(`/gateway/api/v1/profiles`, {
     method: EFormMethods.Put,
     body: params,
+    headers: options?.headers,
   });
 };

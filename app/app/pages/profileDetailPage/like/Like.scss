@@ -8,14 +8,21 @@
   color: $color-red;
   z-index: 10;
   cursor: pointer;
-  max-width: 200px;
-  width: 100%;
+  width: 37px;
+  border-radius: $border-radius;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover,
+  &:active {
+    background-color: $color-gray;
+  }
 
   &-Info {
     position: relative;
     display: flex;
     width: 100%;
     align-items: center;
+    justify-content: center;
   }
 
   &-Message {
@@ -29,10 +36,5 @@
     margin-top: 8px;
     width: 24px;
     height: 24px;
-
-    &:hover,
-    &:active {
-      opacity: $opacity;
-    }
   }
 }

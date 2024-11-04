@@ -53,6 +53,9 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
       const city =
         data?.response?.GeoObjectCollection?.featureMember?.[0]?.GeoObject
           ?.metaDataProperty?.GeocoderMetaData?.AddressDetails?.Country
+          ?.AdministrativeArea?.SubAdministrativeArea?.Locality?.LocalityName ??
+        data?.response?.GeoObjectCollection?.featureMember?.[0]?.GeoObject
+          ?.metaDataProperty?.GeocoderMetaData?.AddressDetails?.Country
           ?.AdministrativeArea?.AdministrativeAreaName;
       setPosition((prevState) => ({
         ...prevState,

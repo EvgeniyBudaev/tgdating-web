@@ -8,6 +8,7 @@ import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
 import { mapSignupToDto } from "@/app/actions/profile/add/mapSignupToDto";
 import type { TCommonResponseError } from "@/app/shared/types/error";
 import { getResponseError, getErrorsResolver } from "@/app/shared/utils";
+import { decrypt } from "@/app/shared/utils/security";
 
 export async function addProfileAction(prevState: any, formData: FormData) {
   const resolver = addProfileFormSchema.safeParse(
@@ -23,6 +24,10 @@ export async function addProfileAction(prevState: any, formData: FormData) {
       success: false,
     };
   }
+
+  const telegramInitDataCrypt = resolver.data.telegramInitDataCrypt;
+  const accessToken = decrypt(telegramInitDataCrypt);
+  console.log("accessToken: ", accessToken);
 
   try {
     const formattedParams = {
@@ -154,6 +159,11 @@ export async function addProfileAction(prevState: any, formData: FormData) {
 
     const response = await addProfile(
       profileFormData as unknown as TAddProfileParams,
+      {
+        headers: {
+          Authorization: `tma ${accessToken}`,
+        },
+      },
     );
     return {
       data: response,

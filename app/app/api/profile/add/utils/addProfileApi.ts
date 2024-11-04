@@ -7,10 +7,12 @@ import { EFormMethods } from "@/app/shared/enums";
 
 export const addProfileApi: TApiFunction<TAddProfileParams, TAddProfile> = (
   params,
+  options,
 ) => {
   console.log("addProfileApi params:", params);
   return fetchApi<TAddProfile>(`/gateway/api/v1/profiles`, {
     method: EFormMethods.Post,
     body: params,
+    headers: options?.headers,
   });
 };

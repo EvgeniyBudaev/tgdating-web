@@ -202,6 +202,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
 
   useEffect(() => {
     if (formErrors) {
+      console.log("formErrors: ", formErrors);
       scrollToFirstErrorField(formErrors);
     }
   }, [formErrors]);
@@ -298,6 +299,10 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     formDataDto.append(
       EProfileAddFormFields.TelegramAllowsWriteToPm,
       (user?.allows_write_to_pm ?? "true").toString(),
+    );
+    formDataDto.append(
+      EProfileAddFormFields.TelegramInitDataCrypt,
+      telegram?.initDataCrypt ?? "",
     );
     formDataDto.append(EProfileAddFormFields.Latitude, latitude);
     formDataDto.append(EProfileAddFormFields.Longitude, longitude);

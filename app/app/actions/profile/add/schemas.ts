@@ -1,5 +1,4 @@
 import isEmpty from "lodash/isEmpty";
-import isInteger from "lodash/isInteger";
 import isNil from "lodash/isNil";
 import { z } from "zod";
 import { zfd } from "zod-form-data";
@@ -83,6 +82,10 @@ export const addProfileFormSchema = zfd
       .trim()
       .min(1, EMPTY_FIELD_ERROR_MESSAGE),
     [EProfileAddFormFields.TelegramQueryId]: z
+      .string()
+      .trim()
+      .min(1, EMPTY_FIELD_ERROR_MESSAGE),
+    [EProfileAddFormFields.TelegramInitDataCrypt]: z
       .string()
       .trim()
       .min(1, EMPTY_FIELD_ERROR_MESSAGE),

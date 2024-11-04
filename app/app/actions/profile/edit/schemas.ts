@@ -93,6 +93,10 @@ export const editProfileFormSchema = zfd
       .string()
       .trim()
       .min(1, EMPTY_FIELD_ERROR_MESSAGE),
+    [EProfileEditFormFields.TelegramInitDataCrypt]: z
+      .string()
+      .trim()
+      .min(1, EMPTY_FIELD_ERROR_MESSAGE),
     [EProfileEditFormFields.Latitude]: numberNonNegativeOptionalSchema,
     [EProfileEditFormFields.Longitude]: numberNonNegativeOptionalSchema,
     [EProfileEditFormFields.AgeFrom]: z
