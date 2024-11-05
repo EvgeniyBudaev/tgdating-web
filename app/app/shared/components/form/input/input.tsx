@@ -52,12 +52,14 @@ const InputComponent: FC<TProps> = ({
       }
       field.onChange(resultValue);
     },
-    [field, isNumeric],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [isNumeric],
   );
 
   useEffect(() => {
     field.onChange(defaultValue);
-  }, [defaultValue, field]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [defaultValue]);
 
   return (
     <InputUi

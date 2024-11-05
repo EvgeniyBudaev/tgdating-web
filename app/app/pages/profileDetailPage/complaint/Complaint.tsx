@@ -6,7 +6,7 @@ import { type FC, useEffect, useRef } from "react";
 import { useFormState } from "react-dom";
 import { addComplaintAction } from "@/app/actions/complaint/add/addComplaintAction";
 import { useTranslation } from "@/app/i18n/client";
-import { EComplaintFormFields } from "@/app/pages/profileDetailPage/complaint/enums";
+import { EComplaintFormFields } from "@/app/actions/complaint/add/enums";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import { useTelegramContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
@@ -57,6 +57,10 @@ export const Complaint: FC<TProps> = ({ criminalSessionId, lng }) => {
     //     criminalSessionId.toString(),
     //   );
     //   formDataDto.append(EComplaintFormFields.Reason, "");
+    //   formDataDto.append(
+    //     EComplaintFormFields.TelegramInitDataCrypt,
+    //     telegram?.initDataCrypt ?? "",
+    //   );
     //   // @ts-ignore
     //   formAction(formDataDto);
     // }

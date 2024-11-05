@@ -5,9 +5,11 @@ import { EFormMethods } from "@/app/shared/enums";
 
 export const updateLikeApi: TApiFunction<TUpdateLikeParams, TLike> = (
   params,
+  options,
 ) => {
   return fetchApi<TLike>(`/gateway/api/v1/profiles/likes`, {
     method: EFormMethods.Put,
     body: params,
+    headers: options?.headers,
   });
 };

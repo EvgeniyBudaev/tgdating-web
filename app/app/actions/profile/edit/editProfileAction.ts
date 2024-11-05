@@ -8,7 +8,6 @@ import { mapUpdateToDto } from "@/app/api/profile/edit/utils";
 import { EProfileEditFormFields } from "@/app/actions/profile/edit/enums";
 import type { TCommonResponseError } from "@/app/shared/types/error";
 import { getResponseError, getErrorsResolver } from "@/app/shared/utils";
-import { decrypt } from "@/app/shared/utils/security";
 
 export async function editProfileAction(prevState: any, formData: FormData) {
   const resolver = editProfileFormSchema.safeParse(
@@ -25,14 +24,9 @@ export async function editProfileAction(prevState: any, formData: FormData) {
     };
   }
 
-  const telegramInitDataCrypt = resolver.data.telegramInitDataCrypt;
-  const accessToken = decrypt(telegramInitDataCrypt);
-  console.log("editProfileAction accessToken: ", accessToken);
-
   try {
-    const formattedParams = {
-      ...resolver.data,
-    };
+    const { telegramInitDataCrypt: accessToken, ...formattedParams } =
+      resolver.data;
     // @ts-ignore
     const mapperParams = mapUpdateToDto(formattedParams);
     console.log("editProfileAction mapperParams: ", mapperParams);
@@ -167,7 +161,7 @@ export async function editProfileAction(prevState: any, formData: FormData) {
       profileFormData as unknown as TEditProfileParams,
       {
         headers: {
-          Authorization: `tma ${accessToken}`,
+          Authorization: accessToken,
         },
       },
     );

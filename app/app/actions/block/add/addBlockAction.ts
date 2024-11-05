@@ -26,11 +26,15 @@ export async function addBlockAction(prevState: any, formData: FormData) {
     };
   }
 
-  const formattedParams = {
-    ...resolver.data,
-  };
   try {
-    const response = await addBlock(formattedParams);
+    const { telegramInitDataCrypt: accessToken, ...formattedParams } =
+      resolver.data;
+    // @ts-ignore
+    const response = await addBlock(formattedParams, {
+      headers: {
+        Authorization: accessToken,
+      },
+    });
     const path = createPath({
       route: ERoutes.Session,
       params: { sessionId: resolver.data.sessionId },

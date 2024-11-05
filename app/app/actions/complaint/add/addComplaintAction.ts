@@ -31,9 +31,14 @@ export async function addComplaintAction(prevState: any, formData: FormData) {
     criminalSessionId: resolver.data.criminalSessionId,
     ...(resolver.data?.reason && { reason: resolver.data?.reason }),
   };
+  const accessToken = resolver.data.telegramInitDataCrypt;
 
   try {
-    const response = await addComplaint(formattedParams);
+    const response = await addComplaint(formattedParams, {
+      headers: {
+        Authorization: accessToken,
+      },
+    });
     const path = createPath({
       route: ERoutes.Session,
       params: { sessionId: resolver.data.sessionId },

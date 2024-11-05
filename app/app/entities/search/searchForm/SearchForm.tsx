@@ -19,6 +19,7 @@ import {
   SESSION_ID,
 } from "@/app/shared/constants";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
+import { useTelegramContext } from "@/app/shared/context";
 import { ELanguage } from "@/app/shared/enums";
 import {
   SEARCH_BAR_SEARCH_GENDER_MAPPING,
@@ -30,6 +31,7 @@ import { Select, type TSelectOption } from "@/app/uikit/components/select";
 import { Sidebar } from "@/app/uikit/components/sidebar";
 import { Typography } from "@/app/uikit/components/typography";
 import "./SearchForm.scss";
+import { EFilterUpdateFormFields } from "@/app/actions/filter/update/enums";
 
 type TProps = {
   lng: ELanguage;
@@ -37,6 +39,7 @@ type TProps = {
 };
 
 export const SearchForm: FC<TProps> = ({ lng, profileFilter }) => {
+  const telegram = useTelegramContext();
   const { t } = useTranslation("index");
   const sidebarRef = useRef(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState({
@@ -103,13 +106,26 @@ export const SearchForm: FC<TProps> = ({ lng, profileFilter }) => {
     const ageRangeValueFrom = Array.isArray(ageRange) ? ageRange[0] : ageRange;
     const ageRangeValueTo = Array.isArray(ageRange) ? ageRange[1] : ageRange;
     const formDataDto = new FormData();
-    formDataDto.append(AGE_FROM, ageRangeValueFrom.toString());
-    formDataDto.append(AGE_TO, ageRangeValueTo.toString());
     formDataDto.append(
-      SEARCH_GENDER,
+      EFilterUpdateFormFields.AgeFrom,
+      ageRangeValueFrom.toString(),
+    );
+    formDataDto.append(
+      EFilterUpdateFormFields.AgeTo,
+      ageRangeValueTo.toString(),
+    );
+    formDataDto.append(
+      EFilterUpdateFormFields.SearchGender,
       (searchGenderState?.value ?? "").toString() ?? DEFAULT_SEARCH_GENDER,
     );
-    formDataDto.append(SESSION_ID, profileFilter?.sessionId ?? "");
+    formDataDto.append(
+      EFilterUpdateFormFields.SessionId,
+      profileFilter?.sessionId ?? "",
+    );
+    formDataDto.append(
+      EFilterUpdateFormFields.TelegramInitDataCrypt,
+      telegram?.initDataCrypt ?? "",
+    );
     // @ts-ignore
     formAction(formDataDto);
     handleCloseSidebar();

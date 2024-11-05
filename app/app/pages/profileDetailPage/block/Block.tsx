@@ -6,11 +6,11 @@ import { type FC, useEffect, useRef } from "react";
 import { useFormState } from "react-dom";
 import { addBlockAction } from "@/app/actions/block/add/addBlockAction";
 import { useTranslation } from "@/app/i18n/client";
-import { EBlockFormFields } from "@/app/pages/profileDetailPage/block/enums";
+import { EBlockFormFields } from "@/app/actions/block/add/enums";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import { useTelegramContext } from "@/app/shared/context";
-import { createPath } from "@/app/shared/utils";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
+import { createPath } from "@/app/shared/utils";
 import { Typography } from "@/app/uikit/components/typography";
 
 type TProps = {
@@ -53,6 +53,10 @@ export const Block: FC<TProps> = ({ blockedUserSessionId, lng }) => {
       formDataDto.append(
         EBlockFormFields.BlockedUserSessionId,
         blockedUserSessionId.toString(),
+      );
+      formDataDto.append(
+        EBlockFormFields.TelegramInitDataCrypt,
+        telegram?.initDataCrypt ?? "",
       );
       // @ts-ignore
       formAction(formDataDto);

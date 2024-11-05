@@ -37,7 +37,8 @@ const InputDateFieldComponent: FC<TProps> = ({
       onChange(value);
       field.onChange(value?.toString());
     },
-    [field, onChange],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [onChange],
   );
 
   const handleFieldClear = useCallback(
@@ -45,7 +46,8 @@ const InputDateFieldComponent: FC<TProps> = ({
       onFieldClear?.(event);
       field.onChange("");
     },
-    [field, onFieldClear],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [onFieldClear],
   );
 
   return (

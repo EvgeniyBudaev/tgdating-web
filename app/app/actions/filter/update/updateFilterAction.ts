@@ -29,9 +29,8 @@ export async function updateFilterAction(prevState: any, formData: FormData) {
   }
 
   try {
-    const formattedParams = {
-      ...resolver.data,
-    };
+    const { telegramInitDataCrypt: accessToken, ...formattedParams } =
+      resolver.data;
     const filterFormData = new FormData();
     const sessionId = formattedParams.sessionId;
     filterFormData.append(EFormFields.SessionId, sessionId);
@@ -44,6 +43,11 @@ export async function updateFilterAction(prevState: any, formData: FormData) {
 
     const responseFilter = await updateFilter(
       filterFormData as unknown as TFilterUpdateParams,
+      {
+        headers: {
+          Authorization: accessToken,
+        },
+      },
     );
     const path = createPath({
       route: ERoutes.Session,

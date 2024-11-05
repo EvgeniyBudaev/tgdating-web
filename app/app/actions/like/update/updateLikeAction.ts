@@ -31,9 +31,14 @@ export async function updateLikeAction(prevState: any, formData: FormData) {
     isLiked: JSON.parse(resolver.data.isLiked),
     sessionId: resolver.data.sessionId,
   };
+  const accessToken = resolver.data.telegramInitDataCrypt;
 
   try {
-    const response = await updateLike(formattedParams);
+    const response = await updateLike(formattedParams, {
+      headers: {
+        Authorization: accessToken,
+      },
+    });
     const path = createPath({
       route: ERoutes.ProfileDetail,
       params: {

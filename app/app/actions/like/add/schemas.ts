@@ -16,4 +16,8 @@ export const addLikeFormSchema = zfd.formData({
     .string()
     .trim()
     .min(1, EMPTY_FIELD_ERROR_MESSAGE),
+  [EAddLikeFormFields.TelegramInitDataCrypt]: z
+    .string()
+    .trim()
+    .min(1, EMPTY_FIELD_ERROR_MESSAGE),
 });

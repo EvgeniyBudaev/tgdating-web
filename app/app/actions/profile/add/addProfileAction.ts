@@ -8,7 +8,6 @@ import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
 import { mapSignupToDto } from "@/app/actions/profile/add/mapSignupToDto";
 import type { TCommonResponseError } from "@/app/shared/types/error";
 import { getResponseError, getErrorsResolver } from "@/app/shared/utils";
-import { decrypt } from "@/app/shared/utils/security";
 
 export async function addProfileAction(prevState: any, formData: FormData) {
   const resolver = addProfileFormSchema.safeParse(
@@ -25,14 +24,9 @@ export async function addProfileAction(prevState: any, formData: FormData) {
     };
   }
 
-  const telegramInitDataCrypt = resolver.data.telegramInitDataCrypt;
-  const accessToken = decrypt(telegramInitDataCrypt);
-  console.log("accessToken: ", accessToken);
-
   try {
-    const formattedParams = {
-      ...resolver.data,
-    };
+    const { telegramInitDataCrypt: accessToken, ...formattedParams } =
+      resolver.data;
     // @ts-ignore
     const mapperParams = mapSignupToDto(formattedParams);
     console.log("addProfileAction mapperParams: ", mapperParams);
@@ -161,7 +155,7 @@ export async function addProfileAction(prevState: any, formData: FormData) {
       profileFormData as unknown as TAddProfileParams,
       {
         headers: {
-          Authorization: `tma ${accessToken}`,
+          Authorization: accessToken,
         },
       },
     );

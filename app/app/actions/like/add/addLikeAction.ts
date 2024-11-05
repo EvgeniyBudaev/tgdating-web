@@ -26,11 +26,15 @@ export async function addLikeAction(prevState: any, formData: FormData) {
     };
   }
 
-  const formattedParams = {
-    ...resolver.data,
-  };
   try {
-    const response = await addLike(formattedParams);
+    const { telegramInitDataCrypt: accessToken, ...formattedParams } =
+      resolver.data;
+    // @ts-ignore
+    const response = await addLike(formattedParams, {
+      headers: {
+        Authorization: accessToken,
+      },
+    });
     const path = createPath({
       route: ERoutes.ProfileDetail,
       params: {

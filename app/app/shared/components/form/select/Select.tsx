@@ -52,7 +52,8 @@ const SelectComponent: FC<TProps> = ({
       onSave?.(option);
       field.onChange(option?.value);
     },
-    [field, onSave],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [onSave],
   );
 
   return (

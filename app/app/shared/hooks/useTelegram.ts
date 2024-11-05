@@ -27,7 +27,7 @@ export const useTelegram: TUseTelegram = () => {
 
   const mockData1 = {
     initData:
-      "query_id=AAEzankUAAAAADNqeRSHrQIA&user=%7B%22id%22%3A343501363%2C%22first_name%22%3A%22%D0%95%D0%B2%D0%B3%D0%B5%D0%BD%D0%B8%D0%B9%22%2C%22last_name%22%3A%22%28%E2%97%95%E1%86%BA%E2%97%95%29%22%2C%22username%22%3A%22golang_js%22%2C%22language_code%22%3A%22ru%22%2C%22is_premium%22%3Atrue%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1730715477&hash=dec99ac55920b376bc1f48b4a5e99609769ad810e6793b79ae4516c44c880438",
+      "query_id=AAEzankUAAAAADNqeRQdz9rK&user=%7B%22id%22%3A343501363%2C%22first_name%22%3A%22%D0%95%D0%B2%D0%B3%D0%B5%D0%BD%D0%B8%D0%B9%22%2C%22last_name%22%3A%22%28%E2%97%95%E1%86%BA%E2%97%95%29%22%2C%22username%22%3A%22golang_js%22%2C%22language_code%22%3A%22ru%22%2C%22is_premium%22%3Atrue%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1730727135&hash=7175902c05d4b32ebd085482879f8283bcb0f307c03d129beb44923e504a2df8",
     initDataUnsafe: {
       query_id: "AAEzankUAAAAADNqeRRE2I2Y",
       user: {

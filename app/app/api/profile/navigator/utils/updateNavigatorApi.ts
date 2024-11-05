@@ -7,10 +7,12 @@ import { EFormMethods } from "@/app/shared/enums";
 
 export const updateNavigatorApi: TApiFunction<TNavigatorParams, TNavigator> = (
   params,
+  options,
 ) => {
   const url = `/gateway/api/v1/profiles/navigators`;
   return fetchApi<TNavigator>(url, {
     method: EFormMethods.Put,
     body: params,
+    headers: options?.headers,
   });
 };

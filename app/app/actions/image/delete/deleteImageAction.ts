@@ -28,24 +28,21 @@ export async function deleteImageAction(prevState: any, formData: FormData) {
   }
 
   try {
-    const formattedParams = {
-      ...resolver.data,
-    };
+    const { telegramInitDataCrypt: accessToken, ...formattedParams } =
+      resolver.data;
 
-    const response = await deleteImage(formattedParams);
+    const response = await deleteImage(formattedParams, {
+      headers: {
+        Authorization: accessToken,
+      },
+    });
     const path = createPath({
       route: ERoutes.ProfileEdit,
       params: { id: resolver.data.id },
     });
     revalidatePath(path);
-    // return {
-    //   data: response.data,
-    //   error: undefined,
-    //   errors: undefined,
-    //   success: true,
-    // };
     return {
-      data: undefined,
+      data: response,
       errorUI: undefined,
       errors: undefined,
       success: true,

@@ -1,13 +1,6 @@
-import Cryptr from "cryptr";
+import AES from "crypto-js/aes";
 
 export const encrypt = (text: string) => {
-  const secretKey = process.env.NEXT_PUBLIC_SECRET;
-  const cr = new Cryptr(secretKey ?? "mySecretKey");
-  return cr.encrypt(text);
-};
-
-export const decrypt = (encryptedString: string) => {
-  const secretKey = process.env.NEXT_PUBLIC_SECRET;
-  const cr = new Cryptr(secretKey ?? "mySecretKey");
-  return cr.decrypt(encryptedString);
+  const secretKey = process.env.NEXT_PUBLIC_CRYPTO_SECRET_KEY;
+  return AES.encrypt(text, secretKey).toString();
 };

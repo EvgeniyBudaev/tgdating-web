@@ -42,7 +42,8 @@ const TextareaComponent: FC<TProps> = ({
       let resultValue = event.target.value;
       field.onChange(resultValue);
     },
-    [field],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
   );
 
   return (

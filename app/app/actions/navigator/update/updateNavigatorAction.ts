@@ -10,7 +10,10 @@ import {
   createPath,
 } from "@/app/shared/utils";
 
-export async function updateFilterAction(prevState: any, formData: FormData) {
+export async function updateNavigatorAction(
+  prevState: any,
+  formData: FormData,
+) {
   const resolver = updateNavigatorFormSchema.safeParse(
     Object.fromEntries(formData.entries()),
   );
@@ -26,11 +29,13 @@ export async function updateFilterAction(prevState: any, formData: FormData) {
   }
 
   try {
-    const formattedParams = {
-      ...resolver.data,
-    };
-
-    const response = await updateNavigator(formattedParams);
+    const { telegramInitDataCrypt: accessToken, ...formattedParams } =
+      resolver.data;
+    const response = await updateNavigator(formattedParams, {
+      headers: {
+        Authorization: accessToken,
+      },
+    });
     // const path = createPath({
     //   route: ERoutes.ProfileEdit,
     //   params: { id: resolver.data.id },

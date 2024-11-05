@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { zfd } from "zod-form-data";
-import { EComplaintFormFields } from "@/app/pages/profileDetailPage/complaint/enums";
+import { EComplaintFormFields } from "@/app/actions/complaint/add/enums";
 import { EMPTY_FIELD_ERROR_MESSAGE } from "@/app/shared/validation";
 
 export const addComplaintFormSchema = zfd.formData({
@@ -13,4 +13,8 @@ export const addComplaintFormSchema = zfd.formData({
     .trim()
     .min(1, EMPTY_FIELD_ERROR_MESSAGE),
   [EComplaintFormFields.Reason]: z.string().trim(),
+  [EComplaintFormFields.TelegramInitDataCrypt]: z
+    .string()
+    .trim()
+    .min(1, EMPTY_FIELD_ERROR_MESSAGE),
 });

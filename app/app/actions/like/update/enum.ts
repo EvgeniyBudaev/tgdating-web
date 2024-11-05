@@ -4,4 +4,5 @@ export enum EUpdateLikeFormFields {
   Language = "language",
   LikedSessionId = "likedSessionId",
   SessionId = "sessionId",
+  TelegramInitDataCrypt = "telegramInitDataCrypt",
 }

@@ -5,7 +5,8 @@ import { type FC } from "react";
 import { deleteImageAction } from "@/app/actions/image/delete/deleteImageAction";
 import type { TImage } from "@/app/api/profile/image";
 import { useTranslation } from "@/app/i18n/client";
-import { EFormFields } from "@/app/shared/components/form/fileUploader/previews/imageList/enums";
+import { EFormFields } from "@/app/actions/image/delete/enums";
+import { useTelegramContext } from "@/app/shared/context";
 import { DropDown } from "@/app/uikit/components/dropDown";
 import { Typography } from "@/app/uikit/components/typography";
 
@@ -16,10 +17,15 @@ type TProps = {
 
 export const ImageList: FC<TProps> = ({ defaultImages, lng }) => {
   const { t } = useTranslation("index");
+  const telegram = useTelegramContext();
 
   const handleDeleteImage = async (image: TImage) => {
     const formDataDto = new FormData();
     formDataDto.append(EFormFields.Id, image.id.toString());
+    formDataDto.append(
+      EFormFields.TelegramInitDataCrypt,
+      telegram?.initDataCrypt ?? "",
+    );
     // @ts-ignore
     await deleteImageAction({}, formDataDto);
   };

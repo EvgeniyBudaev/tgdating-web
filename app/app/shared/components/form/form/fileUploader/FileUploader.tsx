@@ -51,7 +51,8 @@ const FileUploaderComponent: FC<TProps> = ({
       field.onChange(acceptedFiles[0]);
       onAddFiles?.(acceptedFiles, fileList);
     },
-    [field, onAddFiles],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [onAddFiles],
   );
 
   const handleDeleteFile = useCallback(
@@ -63,7 +64,8 @@ const FileUploaderComponent: FC<TProps> = ({
       }
       onDeleteFile?.(deletedFile, fileList);
     },
-    [field, files, onDeleteFile],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [files, onDeleteFile],
   );
 
   return (

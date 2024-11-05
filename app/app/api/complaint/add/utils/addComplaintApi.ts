@@ -4,9 +4,11 @@ import { EFormMethods } from "@/app/shared/enums";
 
 export const addComplaintApi: TApiFunction<TAddComplaintParams, TComplaint> = (
   params,
+  options,
 ) => {
   return fetchApi<TComplaint>(`/api/v1/profiles/complaints`, {
     method: EFormMethods.Post,
     body: params,
+    headers: options?.headers,
   });
 };
