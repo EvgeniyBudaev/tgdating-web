@@ -10,6 +10,7 @@ import {
   getErrorsResolver,
   createPath,
 } from "@/app/shared/utils";
+import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
 
 export async function addComplaintAction(prevState: any, formData: FormData) {
   const resolver = addComplaintFormSchema.safeParse(
@@ -29,11 +30,14 @@ export async function addComplaintAction(prevState: any, formData: FormData) {
   const formattedParams = {
     sessionId: resolver.data.sessionId,
     criminalSessionId: resolver.data.criminalSessionId,
-    ...(resolver.data?.reason && { reason: resolver.data?.reason }),
+    reason: resolver.data.reason,
   };
   const accessToken = resolver.data.telegramInitDataCrypt;
+  const csrf = resolver.data.csrf;
 
   try {
+    const checkCsrf = await checkCsrfToken(csrf);
+    if (checkCsrf?.error) throw checkCsrf.error;
     const response = await addComplaint(formattedParams, {
       headers: {
         Authorization: accessToken,
@@ -52,6 +56,7 @@ export async function addComplaintAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
+    if (errorResponse?.status === 401 || errorResponse?.status === 403) throw error;
     const responseData: TCommonResponseError = await errorResponse.json();
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};

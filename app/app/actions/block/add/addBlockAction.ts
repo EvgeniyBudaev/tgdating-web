@@ -10,6 +10,7 @@ import {
   getErrorsResolver,
   createPath,
 } from "@/app/shared/utils";
+import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
 
 export async function addBlockAction(prevState: any, formData: FormData) {
   const resolver = addBlockFormSchema.safeParse(
@@ -27,8 +28,13 @@ export async function addBlockAction(prevState: any, formData: FormData) {
   }
 
   try {
-    const { telegramInitDataCrypt: accessToken, ...formattedParams } =
-      resolver.data;
+    const {
+      csrf,
+      telegramInitDataCrypt: accessToken,
+      ...formattedParams
+    } = resolver.data;
+    const checkCsrf = await checkCsrfToken(csrf);
+    if (checkCsrf?.error) throw checkCsrf.error;
     // @ts-ignore
     const response = await addBlock(formattedParams, {
       headers: {
@@ -48,6 +54,7 @@ export async function addBlockAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
+    if (errorResponse?.status === 401 || errorResponse?.status === 403) throw error;
     const responseData: TCommonResponseError = await errorResponse.json();
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};

@@ -8,10 +8,14 @@ import { addComplaintAction } from "@/app/actions/complaint/add/addComplaintActi
 import { useTranslation } from "@/app/i18n/client";
 import { EComplaintFormFields } from "@/app/actions/complaint/add/enums";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
-import { useTelegramContext } from "@/app/shared/context";
+import {
+  useAuthenticityTokenContext,
+  useTelegramContext,
+} from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useQueryURL } from "@/app/shared/hooks";
+import {EComplaint} from "@/app/shared/enums/form";
 import { Typography } from "@/app/uikit/components/typography";
+import {createPath} from "@/app/shared/utils";
 
 type TProps = {
   criminalSessionId: string;
@@ -19,6 +23,7 @@ type TProps = {
 };
 
 export const Complaint: FC<TProps> = ({ criminalSessionId, lng }) => {
+  const csrf = useAuthenticityTokenContext();
   const telegram = useTelegramContext();
   const isSession = telegram?.isSession;
   const { t } = useTranslation("index");
@@ -27,14 +32,16 @@ export const Complaint: FC<TProps> = ({ criminalSessionId, lng }) => {
     INITIAL_FORM_STATE,
   );
   const buttonSubmitRef = useRef<HTMLInputElement | null>(null);
-  const { queryURL } = useQueryURL({ lng });
 
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
-      const rootUrl = `${ERoutes.Root}${lng}${queryURL}`;
-      redirect(rootUrl);
+      const path = createPath({
+        route: ERoutes.Root,
+        lng: lng,
+      });
+      redirect(path);
     }
-  }, [lng, queryURL, state?.data, state?.error, state.success]);
+  }, [lng, state?.data, state?.error, state.success]);
 
   const handleBlock = () => {
     // TODO: fix
@@ -45,25 +52,28 @@ export const Complaint: FC<TProps> = ({ criminalSessionId, lng }) => {
   };
 
   const handleSubmit = (formData: FormData) => {
-    // if (isSession && criminalSessionId) {
-    //   const formDataDto = new FormData();
-    //   const keycloakSession = session as TSession;
-    //   formDataDto.append(
-    //     EComplaintFormFields.SessionId,
-    //     keycloakSession?.user.id,
-    //   );
-    //   formDataDto.append(
-    //     EComplaintFormFields.CriminalSessionId,
-    //     criminalSessionId.toString(),
-    //   );
-    //   formDataDto.append(EComplaintFormFields.Reason, "");
-    //   formDataDto.append(
-    //     EComplaintFormFields.TelegramInitDataCrypt,
-    //     telegram?.initDataCrypt ?? "",
-    //   );
-    //   // @ts-ignore
-    //   formAction(formDataDto);
-    // }
+    if (isSession && criminalSessionId) {
+      const formDataDto = new FormData();
+      formDataDto.append(
+        EComplaintFormFields.SessionId,
+        (telegram?.user?.id ?? "").toString(),
+      );
+      formDataDto.append(
+        EComplaintFormFields.CriminalSessionId,
+        criminalSessionId.toString(),
+      );
+      formDataDto.append(EComplaintFormFields.Reason, EComplaint.Other);
+      formDataDto.append(
+        EComplaintFormFields.TelegramInitDataCrypt,
+        telegram?.initDataCrypt ?? "",
+      );
+      formDataDto.append(
+          EComplaintFormFields.Csrf,
+          csrf ?? "",
+      );
+      // @ts-ignore
+      formAction(formDataDto);
+    }
   };
 
   return (

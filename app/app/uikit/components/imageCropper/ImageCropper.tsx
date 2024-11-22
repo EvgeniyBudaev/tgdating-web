@@ -58,6 +58,7 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
     }, [file]);
 
     const handleImageCrop = (file: File) => {
+      console.log('file: ', file);
       const reader = new FileReader();
       reader.addEventListener("load", () => {
         const imageElement = new Image();

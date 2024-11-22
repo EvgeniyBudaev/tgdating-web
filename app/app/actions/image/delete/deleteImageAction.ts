@@ -10,6 +10,7 @@ import {
   getErrorsResolver,
   createPath,
 } from "@/app/shared/utils";
+import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
 
 export async function deleteImageAction(prevState: any, formData: FormData) {
   console.log("resolver: ", Object.fromEntries(formData.entries()));
@@ -28,8 +29,13 @@ export async function deleteImageAction(prevState: any, formData: FormData) {
   }
 
   try {
-    const { telegramInitDataCrypt: accessToken, ...formattedParams } =
-      resolver.data;
+    const {
+      csrf,
+      telegramInitDataCrypt: accessToken,
+      ...formattedParams
+    } = resolver.data;
+    const checkCsrf = await checkCsrfToken(csrf);
+    if (checkCsrf?.error) throw checkCsrf.error;
 
     const response = await deleteImage(formattedParams, {
       headers: {
@@ -49,6 +55,7 @@ export async function deleteImageAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
+    if (errorResponse?.status === 403) throw error;
     const responseData: TCommonResponseError = await errorResponse.json();
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};

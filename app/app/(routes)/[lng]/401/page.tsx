@@ -1,5 +1,5 @@
-import { ErrorBoundary } from "@/app/shared/components/errorBoundary";
+import {UnauthorizedPage} from "@/app/pages/unauthorizedPage";
 
-export default async function PermissionDeniedRoute() {
-  return <ErrorBoundary message={"errorBoundary.common.unauthorized"} />;
+export default async function UnauthorizedRoute() {
+  return <UnauthorizedPage />;
 }

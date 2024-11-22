@@ -9,6 +9,7 @@ import {
   getErrorsResolver,
   createPath,
 } from "@/app/shared/utils";
+import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
 
 export async function updateNavigatorAction(
   prevState: any,
@@ -29,8 +30,13 @@ export async function updateNavigatorAction(
   }
 
   try {
-    const { telegramInitDataCrypt: accessToken, ...formattedParams } =
-      resolver.data;
+    const {
+      csrf,
+      telegramInitDataCrypt: accessToken,
+      ...formattedParams
+    } = resolver.data;
+    const checkCsrf = await checkCsrfToken(csrf);
+    if (checkCsrf?.error) throw checkCsrf.error;
     const response = await updateNavigator(formattedParams, {
       headers: {
         Authorization: accessToken,
@@ -49,6 +55,7 @@ export async function updateNavigatorAction(
     };
   } catch (error) {
     const errorResponse = error as Response;
+    if (errorResponse?.status === 403) throw error;
     const responseData: TCommonResponseError = await errorResponse.json();
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};

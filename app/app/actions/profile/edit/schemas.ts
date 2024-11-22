@@ -119,6 +119,10 @@ export const editProfileFormSchema = zfd
       .string()
       .trim()
       .min(1, EMPTY_FIELD_ERROR_MESSAGE),
+    [EProfileAddFormFields.Csrf]: z
+      .string()
+      .trim()
+      .min(1, EMPTY_FIELD_ERROR_MESSAGE),
     [EProfileEditFormFields.IsImages]: z.string().trim().nullish(),
   })
   .superRefine(({ height, isImages, image, weight }, ctx) => {

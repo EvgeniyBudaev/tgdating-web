@@ -18,10 +18,15 @@ import {
   DEFAULT_PAGE_SIZE,
 } from "@/app/shared/constants";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
-import { useNavigatorContext, useTelegramContext } from "@/app/shared/context";
+import {
+  useAuthenticityTokenContext,
+  useNavigatorContext,
+  useTelegramContext,
+} from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { EGender, ELookingFor, ESearchGender } from "@/app/shared/enums/form";
 import { useFiles, useFormErrors } from "@/app/shared/hooks";
+import type {TUseTelegramResponse} from "@/app/shared/hooks/useTelegram";
 import type { TUseNavigatorResponse } from "@/app/shared/hooks/useNavigator";
 import { GENDER_MAPPING } from "@/app/shared/mapping/gender";
 import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
@@ -66,7 +71,7 @@ type TUseProfileEditResponse = {
   setValueInputDateField: (
     value: ((prevState: Date | null) => Date | null) | Date | null,
   ) => void;
-  username: string | undefined;
+  tg:  TUseTelegramResponse | null;
 };
 
 type TUseProfileAddOrEdit = (props: TProps) => TUseProfileEditResponse;
@@ -82,6 +87,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     INITIAL_FORM_STATE,
   );
   const formErrors = useFormErrors({ errors: state.errors });
+  const csrf = useAuthenticityTokenContext();
   const navigator = useNavigatorContext();
   const telegram = useTelegramContext();
   const user = telegram?.user;
@@ -151,7 +157,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     if (isEdit && profile && user) {
       if (profile.sessionId !== user?.id.toString()) {
         // const path = createPath({
-        //   route: ERoutes.PermissionDenied,
+        //   route: ERoutes.Unauthorized,
         //   lng: lng,
         // });
         // redirect(path);
@@ -200,9 +206,19 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     }
   }, [isEdit, lng, state]);
 
+  // Check auth user
+  useEffect(() => {
+    if (isEmpty(telegram?.user)) {
+      const path = createPath({
+        route: ERoutes.Unauthorized,
+        lng: lng,
+      });
+      redirect(path);
+    }
+  }, [telegram?.user]);
+
   useEffect(() => {
     if (formErrors) {
-      console.log("formErrors: ", formErrors);
       scrollToFirstErrorField(formErrors);
     }
   }, [formErrors]);
@@ -311,6 +327,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     formDataDto.append(EProfileAddFormFields.Distance, distance);
     formDataDto.append(EProfileAddFormFields.Page, page);
     formDataDto.append(EProfileAddFormFields.Size, size);
+    formDataDto.append(EProfileAddFormFields.Csrf, csrf ?? "");
     if (isEdit) {
       if (
         !isNil(profile?.images) &&
@@ -345,6 +362,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     setValueInputDateField,
     state,
     valueInputDateField,
-    username: user?.username,
+    tg: telegram,
   };
 };

@@ -3,4 +3,5 @@ export enum EAddLikeFormFields {
   SessionId = "sessionId",
   LikedSessionId = "likedSessionId",
   TelegramInitDataCrypt = "telegramInitDataCrypt",
+  Csrf = "csrf",
 }

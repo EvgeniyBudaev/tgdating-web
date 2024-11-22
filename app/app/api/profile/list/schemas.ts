@@ -3,7 +3,7 @@ import { paginationSchema } from "@/app/api/pagination/schemas";
 
 const profileListItemSchema = z.object({
   sessionId: z.string(),
-  distance: z.number(),
+  distance: z.number().nullish(),
   url: z.string(),
   isOnline: z.boolean(),
   lastOnline: z.string(),

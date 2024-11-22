@@ -10,6 +10,7 @@ import {
   getErrorsResolver,
   createPath,
 } from "@/app/shared/utils";
+import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
 
 export async function updateLikeAction(prevState: any, formData: FormData) {
   const resolver = updateLikeFormSchema.safeParse(
@@ -28,12 +29,15 @@ export async function updateLikeAction(prevState: any, formData: FormData) {
 
   const formattedParams = {
     id: Number(resolver.data.id),
-    isLiked: JSON.parse(resolver.data.isLiked),
+    isLiked: Boolean(JSON.parse(resolver.data.isLiked)),
     sessionId: resolver.data.sessionId,
   };
   const accessToken = resolver.data.telegramInitDataCrypt;
+  const csrf = resolver.data.csrf;
 
   try {
+    const checkCsrf = await checkCsrfToken(csrf);
+    if (checkCsrf?.error) throw checkCsrf.error;
     const response = await updateLike(formattedParams, {
       headers: {
         Authorization: accessToken,
@@ -56,6 +60,7 @@ export async function updateLikeAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
+    if (errorResponse?.status === 403) throw error;
     const responseData: TCommonResponseError = await errorResponse.json();
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};

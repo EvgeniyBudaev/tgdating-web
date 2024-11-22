@@ -19,7 +19,10 @@ import {
   SESSION_ID,
 } from "@/app/shared/constants";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
-import { useTelegramContext } from "@/app/shared/context";
+import {
+  useAuthenticityTokenContext,
+  useTelegramContext,
+} from "@/app/shared/context";
 import { ELanguage } from "@/app/shared/enums";
 import {
   SEARCH_BAR_SEARCH_GENDER_MAPPING,
@@ -39,6 +42,7 @@ type TProps = {
 };
 
 export const SearchForm: FC<TProps> = ({ lng, profileFilter }) => {
+  const csrf = useAuthenticityTokenContext();
   const telegram = useTelegramContext();
   const { t } = useTranslation("index");
   const sidebarRef = useRef(null);
@@ -126,6 +130,7 @@ export const SearchForm: FC<TProps> = ({ lng, profileFilter }) => {
       EFilterUpdateFormFields.TelegramInitDataCrypt,
       telegram?.initDataCrypt ?? "",
     );
+    formDataDto.append(EFilterUpdateFormFields.Csrf, csrf ?? "");
     // @ts-ignore
     formAction(formDataDto);
     handleCloseSidebar();

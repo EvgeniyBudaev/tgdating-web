@@ -9,12 +9,14 @@ import { ProfileSidebar } from "@/app/entities/profile/profileSidebar";
 import { useTranslation } from "@/app/i18n/client";
 import { Block } from "@/app/pages/profileDetailPage/block";
 import { Complaint } from "@/app/pages/profileDetailPage/complaint";
+import {Freeze} from "@/app/pages/profileDetailPage/freeze";
 import { Like } from "@/app/pages/profileDetailPage/like";
 import { getDistance } from "@/app/pages/profileDetailPage/utils";
 import { Container } from "@/app/shared/components/container";
 import { Field } from "@/app/shared/components/form/field";
 import { useTelegramContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
+import {useCheckPermissions} from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { DropDown } from "@/app/uikit/components/dropDown";
 import { Hamburger } from "@/app/uikit/components/hamburger";
@@ -39,6 +41,7 @@ const ProfileDetailPageComponent: FC<TProps> = ({
   profile,
   sessionId,
 }) => {
+  useCheckPermissions({lng});
   const telegram = useTelegramContext();
   const isSession = telegram?.isSession;
   const user = telegram?.user;
@@ -105,6 +108,7 @@ const ProfileDetailPageComponent: FC<TProps> = ({
                   >
                     <Typography>{t("common.actions.edit")}</Typography>
                   </Link>
+                  <Freeze lng={lng} sessionId={sessionId} />
                 </>
               )}
             </div>

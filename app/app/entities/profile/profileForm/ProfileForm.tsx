@@ -27,6 +27,7 @@ import { Textarea } from "@/app/shared/components/form/textarea";
 import { SubmitButton } from "@/app/shared/components/form/submitButton";
 import { Section } from "@/app/shared/components/section";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
+import {useCheckPermissions} from "@/app/shared/hooks";
 import { GENDER_MAPPING } from "@/app/shared/mapping/gender";
 import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
 import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
@@ -45,6 +46,7 @@ type TProps = {
 };
 
 export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
+  useCheckPermissions({lng});
   const { t } = useTranslation("index");
   const {
     displayName,
@@ -66,7 +68,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
     setValueInputDateField,
     state,
     valueInputDateField,
-    username,
+    tg,
   } = useProfileAddOrEdit({ isEdit, lng, profile });
   const schema = isEdit ? editProfileFormSchema : addProfileFormSchema;
 
@@ -98,7 +100,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
     return <ErrorBoundary message={"errorBoundary.common.geoPositionError"} />;
   }
 
-  if (isNil(username) || isEmpty(username))
+  if (tg?.user && isEmpty(tg.user?.username))
     return <Info message={t("common.titles.isEmptyUsername")} />;
 
   return (
@@ -143,7 +145,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
             <Input
               defaultValue={displayName}
               label={t("common.form.field.displayName") ?? "Display name"}
-              subLabel={t("common.titles.required")}
+              subLabel={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
               name={EProfileAddFormFields.DisplayName}
               onFocus={handleFocus}
               type="text"
@@ -196,7 +198,7 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
               onSave={onChangeGender}
               options={GENDER_MAPPING[language]}
               selectedItem={gender}
-              subLabel={t("common.titles.required")}
+              subLabel={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
               title={t("common.form.field.gender")}
             />
           </Field>

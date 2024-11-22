@@ -8,7 +8,10 @@ import { updateLikeAction } from "@/app/actions/like/update/updateLikeAction";
 import type { TProfileDetail } from "@/app/api/profile/detail";
 import { useTranslation } from "@/app/i18n/client";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
-import { useTelegramContext } from "@/app/shared/context";
+import {
+  useAuthenticityTokenContext,
+  useTelegramContext,
+} from "@/app/shared/context";
 import { ELanguage } from "@/app/shared/enums";
 import { DATE_FORMAT } from "@/app/uikit/components/dateTime/constants";
 import { useDayjs } from "@/app/uikit/components/dateTime/hooks";
@@ -23,6 +26,7 @@ type TProps = {
 };
 
 export const Like: FC<TProps> = ({ lng, profile, sessionId }) => {
+  const csrf = useAuthenticityTokenContext();
   const telegram = useTelegramContext();
   const isLiked = profile?.like?.isLiked;
   const { dayjs } = useDayjs();
@@ -89,6 +93,7 @@ export const Like: FC<TProps> = ({ lng, profile, sessionId }) => {
           EAddLikeFormFields.TelegramInitDataCrypt,
           telegram?.initDataCrypt ?? "",
         );
+        formDataDto.append(EAddLikeFormFields.Csrf, csrf ?? "");
       }
       if (canCancelLike) {
         formDataDto.append(
@@ -106,6 +111,7 @@ export const Like: FC<TProps> = ({ lng, profile, sessionId }) => {
           EUpdateLikeFormFields.TelegramInitDataCrypt,
           telegram?.initDataCrypt ?? "",
         );
+        formDataDto.append(EUpdateLikeFormFields.Csrf, csrf ?? "");
       }
       if (canUpdateLike) {
         formDataDto.append(
@@ -123,6 +129,7 @@ export const Like: FC<TProps> = ({ lng, profile, sessionId }) => {
           EUpdateLikeFormFields.TelegramInitDataCrypt,
           telegram?.initDataCrypt ?? "",
         );
+        formDataDto.append(EUpdateLikeFormFields.Csrf, csrf ?? "");
       }
       // @ts-ignore
       formAction(formDataDto);

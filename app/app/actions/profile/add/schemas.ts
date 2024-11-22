@@ -47,7 +47,6 @@ export const addProfileFormSchema = zfd
       ESearchGender.Man,
       ESearchGender.Woman,
       ESearchGender.All,
-      "",
     ]),
     [EProfileAddFormFields.Location]: stringOptionalSchema,
     [EProfileAddFormFields.Description]: stringOptionalSchema,
@@ -63,7 +62,6 @@ export const addProfileFormSchema = zfd
       ELookingFor.Business,
       ELookingFor.Sex,
       ELookingFor.All,
-      "",
     ]),
     [EProfileAddFormFields.Image]: imageFileSchema,
     [EProfileAddFormFields.TelegramUserID]: z
@@ -108,6 +106,10 @@ export const addProfileFormSchema = zfd
       .trim()
       .min(1, EMPTY_FIELD_ERROR_MESSAGE),
     [EProfileAddFormFields.Size]: z
+      .string()
+      .trim()
+      .min(1, EMPTY_FIELD_ERROR_MESSAGE),
+    [EProfileAddFormFields.Csrf]: z
       .string()
       .trim()
       .min(1, EMPTY_FIELD_ERROR_MESSAGE),

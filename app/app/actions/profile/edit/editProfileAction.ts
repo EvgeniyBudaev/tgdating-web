@@ -8,6 +8,7 @@ import { mapUpdateToDto } from "@/app/api/profile/edit/utils";
 import { EProfileEditFormFields } from "@/app/actions/profile/edit/enums";
 import type { TCommonResponseError } from "@/app/shared/types/error";
 import { getResponseError, getErrorsResolver } from "@/app/shared/utils";
+import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
 
 export async function editProfileAction(prevState: any, formData: FormData) {
   const resolver = editProfileFormSchema.safeParse(
@@ -25,8 +26,13 @@ export async function editProfileAction(prevState: any, formData: FormData) {
   }
 
   try {
-    const { telegramInitDataCrypt: accessToken, ...formattedParams } =
-      resolver.data;
+    const {
+      csrf,
+      telegramInitDataCrypt: accessToken,
+      ...formattedParams
+    } = resolver.data;
+    const checkCsrf = await checkCsrfToken(csrf);
+    if (checkCsrf?.error) throw checkCsrf.error;
     // @ts-ignore
     const mapperParams = mapUpdateToDto(formattedParams);
     console.log("editProfileAction mapperParams: ", mapperParams);
@@ -174,6 +180,7 @@ export async function editProfileAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
+    if (errorResponse?.status === 401 || errorResponse?.status === 403) throw error;
     const responseData: TCommonResponseError = await errorResponse.json();
     console.log("editProfileAction errorResponseData: ", responseData);
     const { message: formError, fieldErrors } =

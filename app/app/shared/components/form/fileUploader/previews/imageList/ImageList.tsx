@@ -6,7 +6,10 @@ import { deleteImageAction } from "@/app/actions/image/delete/deleteImageAction"
 import type { TImage } from "@/app/api/profile/image";
 import { useTranslation } from "@/app/i18n/client";
 import { EFormFields } from "@/app/actions/image/delete/enums";
-import { useTelegramContext } from "@/app/shared/context";
+import {
+  useAuthenticityTokenContext,
+  useTelegramContext,
+} from "@/app/shared/context";
 import { DropDown } from "@/app/uikit/components/dropDown";
 import { Typography } from "@/app/uikit/components/typography";
 
@@ -16,6 +19,7 @@ type TProps = {
 };
 
 export const ImageList: FC<TProps> = ({ defaultImages, lng }) => {
+  const csrf = useAuthenticityTokenContext();
   const { t } = useTranslation("index");
   const telegram = useTelegramContext();
 
@@ -26,6 +30,7 @@ export const ImageList: FC<TProps> = ({ defaultImages, lng }) => {
       EFormFields.TelegramInitDataCrypt,
       telegram?.initDataCrypt ?? "",
     );
+    formDataDto.append(EFormFields.Csrf, csrf ?? "");
     // @ts-ignore
     await deleteImageAction({}, formDataDto);
   };

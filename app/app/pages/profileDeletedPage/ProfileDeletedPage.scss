@@ -1,0 +1,23 @@
+@import "@/app/styles";
+
+.ProfileDeletedPage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: $secondary_bg_color;
+
+  &-Inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-Title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+    color: $text_color;
+  }
+}

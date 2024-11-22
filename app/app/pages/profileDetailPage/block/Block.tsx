@@ -8,7 +8,10 @@ import { addBlockAction } from "@/app/actions/block/add/addBlockAction";
 import { useTranslation } from "@/app/i18n/client";
 import { EBlockFormFields } from "@/app/actions/block/add/enums";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
-import { useTelegramContext } from "@/app/shared/context";
+import {
+  useAuthenticityTokenContext,
+  useTelegramContext,
+} from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { createPath } from "@/app/shared/utils";
 import { Typography } from "@/app/uikit/components/typography";
@@ -19,9 +22,9 @@ type TProps = {
 };
 
 export const Block: FC<TProps> = ({ blockedUserSessionId, lng }) => {
+  const csrf = useAuthenticityTokenContext();
   const telegram = useTelegramContext();
   const isSession = telegram?.isSession;
-  const user = telegram?.user;
   const { t } = useTranslation("index");
   const [state, formAction] = useFormState(addBlockAction, INITIAL_FORM_STATE);
   const buttonSubmitRef = useRef<HTMLInputElement | null>(null);
@@ -48,7 +51,7 @@ export const Block: FC<TProps> = ({ blockedUserSessionId, lng }) => {
       const formDataDto = new FormData();
       formDataDto.append(
         EBlockFormFields.SessionId,
-        (user?.id ?? "").toString(),
+        (telegram?.user?.id ?? "").toString(),
       );
       formDataDto.append(
         EBlockFormFields.BlockedUserSessionId,
@@ -58,6 +61,7 @@ export const Block: FC<TProps> = ({ blockedUserSessionId, lng }) => {
         EBlockFormFields.TelegramInitDataCrypt,
         telegram?.initDataCrypt ?? "",
       );
+      formDataDto.append(EBlockFormFields.Csrf, csrf ?? "");
       // @ts-ignore
       formAction(formDataDto);
     }

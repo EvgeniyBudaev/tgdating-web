@@ -2,6 +2,9 @@ import acceptLanguage from "accept-language";
 import helmet from "helmet";
 import { IncomingMessage, ServerResponse } from "http";
 import { NextRequest, NextResponse } from "next/server";
+import { Environment } from "@/app/environment";
+import { COOKIE_CSRF_NAME } from "@/app/shared/constants";
+import { CSRF } from "@/app/shared/utils/security/csrf";
 import { fallbackLng, languages, cookieName } from "./app/i18n/settings";
 
 acceptLanguage.languages(languages);
@@ -146,6 +149,24 @@ export async function middleware(request: NextRequest) {
     },
   });
   response.headers.set("Content-Security-Policy", cspHeader);
+
+  // CSRF
+  const csrf = new CSRF({ secret: Environment.NEXT_PUBLIC_CRYPTO_SECRET_KEY });
+  const hasCookie = request.cookies.has(COOKIE_CSRF_NAME);
+  let csrfToken;
+  if (hasCookie) {
+    csrfToken = request.cookies.get(COOKIE_CSRF_NAME)?.value;
+  } else {
+    csrfToken = csrf.generate();
+    response.cookies.set({
+      name: COOKIE_CSRF_NAME,
+      value: csrfToken,
+      httpOnly: true,
+      path: "/",
+      sameSite: "strict",
+      secure: true,
+    });
+  }
 
   const helmetAdapter = makeHelmetAdapter(response);
   policies.forEach((policy) => policy(...helmetAdapter));

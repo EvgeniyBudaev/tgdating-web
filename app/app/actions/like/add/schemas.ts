@@ -20,4 +20,8 @@ export const addLikeFormSchema = zfd.formData({
     .string()
     .trim()
     .min(1, EMPTY_FIELD_ERROR_MESSAGE),
+  [EAddLikeFormFields.Csrf]: z
+    .string()
+    .trim()
+    .min(1, EMPTY_FIELD_ERROR_MESSAGE),
 });

@@ -5,7 +5,7 @@ export const AGE_TO = "ageTo";
 
 export const DEFAULT_AGE_FROM = 18;
 export const DEFAULT_AGE_TO = 100;
-export const DEFAULT_DISTANCE = 1000;
+export const DEFAULT_DISTANCE = 10000;
 export const DEFAULT_LANGUAGE = "ru";
 export const DEFAULT_LOOKING_FOR = "all";
 export const DEFAULT_PAGE = 1;
@@ -24,3 +24,5 @@ export const PROXY_URL = "";
 export const SEARCH_GENDER = "searchGender";
 export const SESSION_ID = "sessionId";
 export const SIZE = "size";
+
+export const COOKIE_CSRF_NAME = "tgCsrfServer";

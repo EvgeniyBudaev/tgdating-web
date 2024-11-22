@@ -2,17 +2,18 @@
   "common": {
     "titles": {
       "accountBlocked": "Account blocked",
-      "accountDeleted": "Account deleted",
       "isEmptyUsername": "A unique name has not been set in Telegram/Settings/Username. Please set a username and try logging in to the app again. It may take a few minutes to update your Telegram data",
       "publicPhotos": "Public photos",
       "required": "required",
       "moreDetails": "More details",
-      "hidden": "hidden from users",
       "changeable": "can be changed",
+      "hidden": "hidden from users",
       "properties": "Properties",
       "autocomplete": "auto detection",
       "filtersGeneral": "General filters",
       "age": "Age",
+      "accountFrozen": "Account frozen",
+      "accountDeleted": "Account deleted",
       "online": "Online",
       "isEmptyList": "No people found. Try changing your search settings."
     },
@@ -34,8 +35,10 @@
     "actions": {
       "settings": "Settings",
       "filter": "Filter",
+      "restore": "Restore account",
       "block": "Block",
       "complaint": "Complain and block",
+      "freeze": "Freeze",
       "edit": "Edit",
       "cancel": "Cancel",
       "search": "Search",
@@ -84,6 +87,7 @@
   },
   "errorBoundary": {
     "common": {
+      "unauthorized": "Not authorized via Telegram app",
       "unexpectedError": "Unexpected error"
     }
   }

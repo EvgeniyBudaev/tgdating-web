@@ -4,4 +4,5 @@ export enum EFormFields {
   Latitude = "latitude",
   Longitude = "longitude",
   TelegramInitDataCrypt = "telegramInitDataCrypt",
+  Csrf = "csrf",
 }

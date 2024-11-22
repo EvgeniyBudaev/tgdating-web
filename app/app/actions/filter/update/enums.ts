@@ -4,4 +4,5 @@ export enum EFilterUpdateFormFields {
   AgeFrom = "ageFrom",
   AgeTo = "ageTo",
   TelegramInitDataCrypt = "telegramInitDataCrypt",
+  Csrf = "csrf",
 }

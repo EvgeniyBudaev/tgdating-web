@@ -1,5 +1,7 @@
+import {redirect} from "next/navigation";
 import { getFilter } from "@/app/api/profile/filter";
 import { getProfileList } from "@/app/api/profile/list";
+import {getProfileShortInfo} from "@/app/api/profile/shortInfo/get";
 import { SessionPage } from "@/app/pages/sessionPage";
 import {
   DEFAULT_AGE_FROM,
@@ -10,7 +12,8 @@ import {
   DEFAULT_PAGE_SIZE,
   DEFAULT_SEARCH_GENDER,
 } from "@/app/shared/constants";
-import { ELanguage } from "@/app/shared/enums";
+import {ELanguage, ERoutes} from "@/app/shared/enums";
+import {createPath} from "@/app/shared/utils";
 
 export const dynamic = "force-dynamic";
 
@@ -56,32 +59,44 @@ async function loaderProfileList(params: TLoader) {
       };
       console.log("loaderProfileList get list");
       const profileListResponse = await getProfileList(query);
+      const profileShortInfoResponse = await getProfileShortInfo({sessionId: sessionId});
       console.log("loaderProfileList get filter");
       const filterResponse = await getFilter(filterParams);
       console.log("loaderProfileList isExistUser true");
       return {
         profileFilter: filterResponse,
         profileList: profileListResponse,
+        profileShortInfo: profileShortInfoResponse,
         isExistUser: true,
+        isUnauthorized: false,
       };
     }
     console.log("loaderProfileList return undefined");
     return {
       profileFilter: undefined,
       profileList: undefined,
+      profileShortInfo: undefined,
       isExistUser: false,
+      isUnauthorized: false,
     };
   } catch (error) {
     const errorResponse = error as Response;
-    console.log(
-      "loaderProfileList errorResponse?.status: ",
-      errorResponse?.status,
-    );
+    if (errorResponse?.status === 401) {
+      return {
+        profileFilter: undefined,
+        profileList: undefined,
+        profileShortInfo: undefined,
+        isExistUser: true,
+        isUnauthorized: true,
+      };
+    }
     if (errorResponse?.status === 404) {
       return {
         profileFilter: undefined,
         profileList: undefined,
+        profileShortInfo: undefined,
         isExistUser: false,
+        isUnauthorized: false,
       };
     }
     throw new Error("errorBoundary.common.unexpectedError");
@@ -122,7 +137,33 @@ export default async function ProfileListRoute({
     sessionId,
     searchParams: query ?? {},
   });
-  console.log("ProfileListRoute isExistUser: ", data.isExistUser);
+
+  if (data?.isUnauthorized) {
+    redirect(
+      createPath({
+        route: ERoutes.Unauthorized,
+      }),
+    );
+  }
+
+  if (data?.profileShortInfo?.isDeleted) {
+    redirect(
+      createPath({
+        route: ERoutes.ProfileDeleted,
+        params: {sessionId: sessionId}
+      }),
+    );
+  }
+
+  if (data?.profileShortInfo?.isBlocked) {
+    redirect(
+      createPath({
+        route: ERoutes.ProfileBlocked,
+        params: {sessionId: sessionId}
+      }),
+    );
+  }
+
   return (
     <SessionPage
       isExistUser={data.isExistUser}

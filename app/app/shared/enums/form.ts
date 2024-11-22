@@ -26,3 +26,7 @@ export enum ELookingFor {
   Sex = "sex",
   All = "all",
 }
+
+export enum EComplaint {
+  Other = "other",
+}

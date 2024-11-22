@@ -1,7 +1,7 @@
 "use server";
 
-import isEmpty from "lodash/isEmpty";
 import { revalidatePath } from "next/cache";
+import { EFilterUpdateFormFields } from "@/app/actions/filter/update/enums";
 import { updateFilterFormSchema } from "@/app/actions/filter/update/schemas";
 import { TFilterUpdateParams, updateFilter } from "@/app/api/profile/filter";
 import type { TCommonResponseError } from "@/app/shared/types/error";
@@ -10,8 +10,8 @@ import {
   getErrorsResolver,
   createPath,
 } from "@/app/shared/utils";
-import { EFormFields } from "@/app/actions/filter/update/enums";
 import { ERoutes } from "@/app/shared/enums";
+import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
 
 export async function updateFilterAction(prevState: any, formData: FormData) {
   const resolver = updateFilterFormSchema.safeParse(
@@ -29,17 +29,25 @@ export async function updateFilterAction(prevState: any, formData: FormData) {
   }
 
   try {
-    const { telegramInitDataCrypt: accessToken, ...formattedParams } =
-      resolver.data;
+    const {
+      csrf,
+      telegramInitDataCrypt: accessToken,
+      ...formattedParams
+    } = resolver.data;
+    const checkCsrf = await checkCsrfToken(csrf);
+    if (checkCsrf?.error) throw checkCsrf.error;
     const filterFormData = new FormData();
     const sessionId = formattedParams.sessionId;
-    filterFormData.append(EFormFields.SessionId, sessionId);
+    filterFormData.append(EFilterUpdateFormFields.SessionId, sessionId);
     filterFormData.append(
-      EFormFields.SearchGender,
+      EFilterUpdateFormFields.SearchGender,
       formattedParams.searchGender,
     );
-    filterFormData.append(EFormFields.AgeFrom, formattedParams.ageFrom);
-    filterFormData.append(EFormFields.AgeTo, formattedParams.ageTo);
+    filterFormData.append(
+      EFilterUpdateFormFields.AgeFrom,
+      formattedParams.ageFrom,
+    );
+    filterFormData.append(EFilterUpdateFormFields.AgeTo, formattedParams.ageTo);
 
     const responseFilter = await updateFilter(
       filterFormData as unknown as TFilterUpdateParams,
@@ -62,6 +70,7 @@ export async function updateFilterAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
+    if (errorResponse?.status === 403) throw error;
     const responseData: TCommonResponseError = await errorResponse.json();
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};

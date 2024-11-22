@@ -1,10 +1,8 @@
+import { redirect } from "next/navigation";
 import { getProfileDetail } from "@/app/api/profile/detail";
-import { ProfileDeleted } from "@/app/entities/profile/profileDeleted";
-import { ProfileBlocked } from "@/app/entities/profile/profileBlocked";
+import {ProfileDetailPage} from "@/app/pages/profileDetailPage";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { createPath } from "@/app/shared/utils";
-import { redirect } from "next/navigation";
-import { ProfileDetailPage } from "@/app/pages/profileDetailPage";
 
 export const dynamic = "force-dynamic";
 
@@ -28,11 +26,14 @@ async function loaderProfileDetail(params: TLoader) {
       latitude: searchParams?.latitude ?? "",
       longitude: searchParams?.longitude ?? "",
     });
-    return { profile: profileDetailResponse, isExistUser: true };
+    return { profile: profileDetailResponse, isExistUser: true, isUnauthorized: false };
   } catch (error) {
     const errorResponse = error as Response;
+    if (errorResponse?.status === 401) {
+      return { profile: undefined, isExistUser: true, isUnauthorized: true };
+    }
     if (errorResponse?.status === 404) {
-      return { profile: undefined, isExistUser: false };
+      return { profile: undefined, isExistUser: false, isUnauthorized: false };
     }
     throw new Error("errorBoundary.common.unexpectedError");
   }
@@ -67,20 +68,39 @@ export default async function ProfileDetailRoute({
     searchParams: query ?? {},
   });
 
+  if (data?.isUnauthorized || !data?.isExistUser) {
+    redirect(
+      createPath({
+        route: ERoutes.Unauthorized,
+      }),
+    );
+  }
+
   if (data?.profile?.isBlocked) {
-    return <ProfileBlocked />;
+    redirect(
+      createPath({
+        route: ERoutes.ProfileBlocked,
+        params: {sessionId: sessionId}
+      }),
+    );
   }
 
   if (data?.profile?.isDeleted) {
-    return <ProfileDeleted />;
+    redirect(
+      createPath({
+        route: ERoutes.ProfileDeleted,
+        params: {sessionId: sessionId}
+      }),
+    );
   }
 
   if (data?.profile?.block?.isBlocked) {
-    const path = createPath({
-      route: ERoutes.Session,
-      params: { sessionId: sessionId },
-    });
-    redirect(path);
+    redirect(
+      createPath({
+        route: ERoutes.ProfileBlocked,
+        params: {sessionId: sessionId}
+      }),
+    );
   }
 
   return (

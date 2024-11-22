@@ -8,6 +8,7 @@ import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
 import { mapSignupToDto } from "@/app/actions/profile/add/mapSignupToDto";
 import type { TCommonResponseError } from "@/app/shared/types/error";
 import { getResponseError, getErrorsResolver } from "@/app/shared/utils";
+import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
 
 export async function addProfileAction(prevState: any, formData: FormData) {
   const resolver = addProfileFormSchema.safeParse(
@@ -25,11 +26,15 @@ export async function addProfileAction(prevState: any, formData: FormData) {
   }
 
   try {
-    const { telegramInitDataCrypt: accessToken, ...formattedParams } =
-      resolver.data;
+    const {
+      csrf,
+      telegramInitDataCrypt: accessToken,
+      ...formattedParams
+    } = resolver.data;
+    const checkCsrf = await checkCsrfToken(csrf);
+    if (checkCsrf?.error) throw checkCsrf.error;
     // @ts-ignore
     const mapperParams = mapSignupToDto(formattedParams);
-    console.log("addProfileAction mapperParams: ", mapperParams);
 
     const profileFormData = new FormData();
     const sessionId = mapperParams.profileForm.telegramUserId;
@@ -167,6 +172,8 @@ export async function addProfileAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
+    console.log("addProfileAction errorResponse: ", errorResponse);
+    if (errorResponse?.status === 403) throw error;
     const responseData: TCommonResponseError = await errorResponse.json();
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};

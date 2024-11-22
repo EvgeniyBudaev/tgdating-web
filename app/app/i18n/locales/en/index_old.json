@@ -121,7 +121,8 @@
       "deleteAccount": "Delete account",
       "filterSetup": "Set up a filter",
       "profileDetail": "Go to profile",
-      "lodaing": "Добавь сюда перевод!!!"
+      "lodaing": "Добавь сюда перевод!!!",
+      "recover": "Recover account"
     },
     "previews": {
       "defaultImage": "Default image",
@@ -149,7 +150,8 @@
       "deleteQuestion": "Are you sure you want to delete?"
     },
     "titles": {
-      "birthday": "Birthday"
+      "birthday": "Birthday",
+      "accountFreezed": "Добавь сюда перевод!!!"
     },
     "form": {
       "field": {
@@ -224,7 +226,6 @@
   "errorBoundary": {
     "common": {
       "accessDenied": "Access denied",
-      "unauthorized": "Not authorized via Telegram app",
       "forbidden": "No access to the report",
       "geoPositionError": "Error determining geoposition. Check your Internet connection and your equipment filters. Try refreshing the page"
     }

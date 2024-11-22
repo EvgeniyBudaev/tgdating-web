@@ -43,7 +43,7 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
   }) => {
     if (!longitude && !latitude) return undefined;
     try {
-      const url = `https://geocode-maps.yandex.ru/1.x/?apikey=${process?.env?.NEXT_PUBLIC_YANDEX_API_KEY}&geocode=${longitude},${latitude}&format=json&lang=${lng}`;
+      const url = `https://geocode-maps.yandex.ru/1.x/?apikey=${process.env.NEXT_PUBLIC_YANDEX_API_KEY}&geocode=${longitude},${latitude}&format=json&lang=${lng}`;
       const res = await fetch(url);
       const data = await res.json();
       const country =
@@ -57,14 +57,15 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
         data?.response?.GeoObjectCollection?.featureMember?.[0]?.GeoObject
           ?.metaDataProperty?.GeocoderMetaData?.AddressDetails?.Country
           ?.AdministrativeArea?.AdministrativeAreaName;
+      const location = country ? `${country}` + (city && `, ${city}`) : undefined;
       setPosition((prevState) => ({
         ...prevState,
         isCoords: true,
-        location: `${country}, ${city}`,
+        location,
         longitude,
         latitude,
       }));
-      return { location: `${country}, ${city}` };
+      return { location };
     } catch (error) {
       console.error("getLocationFromIp error: ", error);
     }

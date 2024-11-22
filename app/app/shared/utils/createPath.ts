@@ -3,12 +3,13 @@ import { ERoutes } from "@/app/shared/enums";
 type TRoutes =
   | ERoutes.Root
   | ERoutes.Unauthorized
-  | ERoutes.PermissionDenied
   | ERoutes.ProfileAdd;
 
 type TRoutesWithParams =
   | ERoutes.Session
   | ERoutes.ProfileDetail
+  | ERoutes.ProfileBlocked
+  | ERoutes.ProfileDeleted
   | ERoutes.ProfileEdit;
 
 type TCreatePathProps =
