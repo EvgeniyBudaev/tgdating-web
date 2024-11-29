@@ -9,7 +9,7 @@ export const deleteProfileApi: TApiFunction<
   TDeleteProfileParams,
   TDeleteProfile
 > = (params, options) => {
-  return fetchApi<TDeleteProfile>(`/gateway/api/v1/profiles`, {
+  return fetchApi<TDeleteProfile>(`/api/v1/profiles`, {
     method: EFormMethods.Delete,
     body: params,
     headers: options?.headers,

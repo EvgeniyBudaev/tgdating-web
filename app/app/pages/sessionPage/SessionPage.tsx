@@ -16,10 +16,12 @@ import {useCheckPermissions} from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { Online } from "@/app/uikit/components/online";
 import { Typography } from "@/app/uikit/components/typography";
+import {notification} from "@/app/uikit/utils";
 import "./SessionPage.scss";
 
 type TProps = {
   isExistUser: boolean;
+  isManyRequest: boolean;
   lng: ELanguage;
   profileFilter?: TFilter;
   profileList?: TProfileList;
@@ -27,6 +29,7 @@ type TProps = {
 
 export const SessionPage: FC<TProps> = ({
   isExistUser,
+                                          isManyRequest,
   lng,
   profileFilter,
   profileList,
@@ -37,6 +40,15 @@ export const SessionPage: FC<TProps> = ({
   const isSession = telegram?.isSession;
   const user = telegram?.user;
   const { t } = useTranslation("index");
+
+  useEffect(() => {
+    if (isManyRequest) {
+      notification({
+        title: t("errorBoundary.common.manyRequest"),
+        type: "error",
+      });
+    }
+  }, [isManyRequest]);
 
   useEffect(() => {
     if (

@@ -6,7 +6,7 @@ export const editProfileApi: TApiFunction<TEditProfileParams, TEditProfile> = (
   params,
   options,
 ) => {
-  return fetchApi<TEditProfile>(`/gateway/api/v1/profiles`, {
+  return fetchApi<TEditProfile>(`/api/v1/profiles`, {
     method: EFormMethods.Put,
     body: params,
     headers: options?.headers,

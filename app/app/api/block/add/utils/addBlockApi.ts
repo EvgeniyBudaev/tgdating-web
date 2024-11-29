@@ -6,7 +6,7 @@ export const addBlockApi: TApiFunction<TAddBlockParams, TBlock> = (
   params,
   options,
 ) => {
-  return fetchApi<TBlock>(`/gateway/api/v1/profiles/blocks`, {
+  return fetchApi<TBlock>(`/api/v1/profiles/blocks`, {
     method: EFormMethods.Post,
     body: params,
     headers: options?.headers,

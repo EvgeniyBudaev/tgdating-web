@@ -16,13 +16,13 @@ export const useCheckPermissions: TUseCheckPermissions = (props) => {
   const telegram = useTelegramContext();
   const user = telegram?.user;
 
-  useEffect(() => {
-    if (isEmpty(user)) {
-      const path = createPath({
-        route: ERoutes.Unauthorized,
-        lng: lng,
-      });
-      redirect(path);
-    }
-  }, [lng, user]);
+  // useEffect(() => {
+  //   if (isEmpty(user)) {
+  //     const path = createPath({
+  //       route: ERoutes.Unauthorized,
+  //       lng: lng,
+  //     });
+  //     redirect(path);
+  //   }
+  // }, [lng, user]);
 }

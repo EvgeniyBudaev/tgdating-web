@@ -8,7 +8,7 @@ export const getFilterApi: TApiFunction<TFilterParams, TFilter> = (params) => {
     ...(params?.latitude && { latitude: params?.latitude }),
     ...(params?.longitude && { longitude: params?.longitude }),
   };
-  const url = `/gateway/api/v1/profiles/filter/${sessionId}?${new URLSearchParams(queryParams)}`;
+  const url = `/api/v1/profiles/filter/${sessionId}?${new URLSearchParams(queryParams)}`;
   return fetchApi<TFilter>(url, {
     method: EFormMethods.Get,
   });

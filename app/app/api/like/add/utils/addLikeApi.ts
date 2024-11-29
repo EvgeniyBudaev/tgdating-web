@@ -6,7 +6,7 @@ export const addLikeApi: TApiFunction<TAddLikeParams, TLike> = (
   params,
   options,
 ) => {
-  return fetchApi<TLike>(`/gateway/api/v1/profiles/likes`, {
+  return fetchApi<TLike>(`/api/v1/profiles/likes`, {
     method: EFormMethods.Post,
     body: params,
     headers: options?.headers,

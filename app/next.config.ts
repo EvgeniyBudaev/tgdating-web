@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   images: {
     domains: [
-      "backend",
+      "gateway",
       "localhost",
       "127.0.0.1",
       "telegram-dating.com",

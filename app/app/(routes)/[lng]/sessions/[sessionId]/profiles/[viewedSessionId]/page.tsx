@@ -26,14 +26,17 @@ async function loaderProfileDetail(params: TLoader) {
       latitude: searchParams?.latitude ?? "",
       longitude: searchParams?.longitude ?? "",
     });
-    return { profile: profileDetailResponse, isExistUser: true, isUnauthorized: false };
+    return { profile: profileDetailResponse, isExistUser: true, isManyRequest: false, isUnauthorized: false };
   } catch (error) {
     const errorResponse = error as Response;
     if (errorResponse?.status === 401) {
-      return { profile: undefined, isExistUser: true, isUnauthorized: true };
+      return { profile: undefined, isExistUser: true, isManyRequest: false, isUnauthorized: true };
     }
     if (errorResponse?.status === 404) {
-      return { profile: undefined, isExistUser: false, isUnauthorized: false };
+      return { profile: undefined, isExistUser: false, isManyRequest: false, isUnauthorized: false };
+    }
+    if (errorResponse?.status === 429) {
+      return { profile: undefined, isExistUser: true, isManyRequest: true, isUnauthorized: false };
     }
     throw new Error("errorBoundary.common.unexpectedError");
   }
@@ -106,6 +109,7 @@ export default async function ProfileDetailRoute({
   return (
     <ProfileDetailPage
       isExistUser={data.isExistUser}
+      isManyRequest={data.isManyRequest}
       lng={language}
       profile={data?.profile}
       sessionId={sessionId}

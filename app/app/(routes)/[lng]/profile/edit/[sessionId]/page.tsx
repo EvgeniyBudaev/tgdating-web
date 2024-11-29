@@ -16,14 +16,17 @@ async function loaderProfileEdit(params: TLoader) {
     const profileResponse = await getProfile({
       sessionId,
     });
-    return { profile: profileResponse, isExistUser: true, isUnauthorized: false };
+    return { profile: profileResponse, isExistUser: true, isManyRequest: false, isUnauthorized: false };
   } catch (error) {
     const errorResponse = error as Response;
     if (errorResponse?.status === 401) {
-      return { profile: undefined, isExistUser: true, isUnauthorized: true };
+      return { profile: undefined, isExistUser: true, isManyRequest: false, isUnauthorized: true };
     }
     if (errorResponse?.status === 404) {
-      return { profile: undefined, isExistUser: false, isUnauthorized: false };
+      return { profile: undefined, isExistUser: false, isManyRequest: false, isUnauthorized: false };
+    }
+    if (errorResponse?.status === 429) {
+      return { profile: undefined, isExistUser: true, isManyRequest: true, isUnauthorized: false };
     }
     throw new Error("errorBoundary.common.unexpectedError");
   }
@@ -69,5 +72,5 @@ export default async function ProfileEditRoute({
     );
   }
 
-  return <ProfileEditPage lng={language} profile={data?.profile} />;
+  return <ProfileEditPage isManyRequest={data.isManyRequest} lng={language} profile={data?.profile} />;
 }

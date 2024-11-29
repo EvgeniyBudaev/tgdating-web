@@ -79,6 +79,7 @@ docker volume rm $(docker volume ls -q)
 docker volume prune
 docker volume prune -a
 sudo docker volume prune
+docker system prune -a // локальное удаление всех volumes
 ```
 
 Сборка docker-образа

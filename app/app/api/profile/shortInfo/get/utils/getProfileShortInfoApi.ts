@@ -14,7 +14,7 @@ export const getProfileShortInfoApi: TApiFunction<
     ...(params?.latitude && { latitude: params?.latitude }),
     ...(params?.longitude && { longitude: params?.longitude }),
   };
-  const url = `/gateway/api/v1/profiles/short/${sessionId}?${new URLSearchParams(queryParams)}`;
+  const url = `/api/v1/profiles/short/${sessionId}?${new URLSearchParams(queryParams)}`;
   return fetchApi<TProfileShortInfo>(url, {
     method: EFormMethods.Get,
   });

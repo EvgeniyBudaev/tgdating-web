@@ -37,15 +37,17 @@ import {
   ETypographyVariant,
   Typography,
 } from "@/app/uikit/components/typography";
+import {notification} from "@/app/uikit/utils";
 import "./ProfileForm.scss";
 
 type TProps = {
   isEdit?: boolean;
+  isManyRequest?: boolean;
   lng: ELanguage;
   profile?: TProfile;
 };
 
-export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
+export const ProfileForm: FC<TProps> = ({ isEdit, isManyRequest, lng, profile }) => {
   useCheckPermissions({lng});
   const { t } = useTranslation("index");
   const {
@@ -82,6 +84,15 @@ export const ProfileForm: FC<TProps> = ({ isEdit, lng, profile }) => {
   const { formHeight, isKeyboardOpen } = useDetectKeyboardOpen();
   const [focusedEvent, setFocusedEvent] = useState<FocusEvent<HTMLElement>>();
   const formHeightFormatted = isKeyboardOpen ? `${formHeight}px` : "100%";
+
+  useEffect(() => {
+    if (isManyRequest) {
+      notification({
+        title: t("errorBoundary.common.manyRequest"),
+        type: "error",
+      });
+    }
+  }, [isManyRequest]);
 
   useEffect(() => {
     if (isKeyboardOpen && focusedEvent) {

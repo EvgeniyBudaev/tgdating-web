@@ -1,40 +1,7 @@
-@import "@/app/styles";
-
 .Like {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  height: 100%;
-  color: $color-red;
-  z-index: 10;
-  cursor: pointer;
-  width: 37px;
-  border-radius: $border-radius;
-  -webkit-tap-highlight-color: transparent;
-
-  &:hover,
-  &:active {
-    background-color: $color-gray;
-  }
-
-  &-Info {
-    position: relative;
+  &-Form {
     display: flex;
-    width: 100%;
     align-items: center;
-    justify-content: center;
-  }
-
-  &-Message {
-    color: $text_color;
-    background-color: $secondary_bg_color;
-    padding: 4px;
-    border-radius: $border-radius;
-  }
-
-  &-Icon {
-    margin-top: 8px;
-    width: 24px;
-    height: 24px;
+    width: 100%;
   }
 }

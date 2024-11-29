@@ -68,6 +68,7 @@ async function loaderProfileList(params: TLoader) {
         profileList: profileListResponse,
         profileShortInfo: profileShortInfoResponse,
         isExistUser: true,
+        isManyRequest: false,
         isUnauthorized: false,
       };
     }
@@ -77,16 +78,20 @@ async function loaderProfileList(params: TLoader) {
       profileList: undefined,
       profileShortInfo: undefined,
       isExistUser: false,
+      isManyRequest: false,
       isUnauthorized: false,
     };
   } catch (error) {
     const errorResponse = error as Response;
+    console.log("loaderProfileList errorResponse: ", errorResponse);
+    console.log("loaderProfileList errorResponse?.status: ", errorResponse?.status);
     if (errorResponse?.status === 401) {
       return {
         profileFilter: undefined,
         profileList: undefined,
         profileShortInfo: undefined,
         isExistUser: true,
+        isManyRequest: false,
         isUnauthorized: true,
       };
     }
@@ -96,6 +101,17 @@ async function loaderProfileList(params: TLoader) {
         profileList: undefined,
         profileShortInfo: undefined,
         isExistUser: false,
+        isManyRequest: false,
+        isUnauthorized: false,
+      };
+    }
+    if (errorResponse?.status === 429) {
+      return {
+        profileFilter: undefined,
+        profileList: undefined,
+        profileShortInfo: undefined,
+        isExistUser: true,
+        isManyRequest: true,
         isUnauthorized: false,
       };
     }
@@ -167,6 +183,7 @@ export default async function ProfileListRoute({
   return (
     <SessionPage
       isExistUser={data.isExistUser}
+      isManyRequest={data.isManyRequest}
       lng={language}
       profileFilter={data?.profileFilter}
       profileList={data?.profileList}

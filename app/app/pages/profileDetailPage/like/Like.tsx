@@ -7,6 +7,7 @@ import { EUpdateLikeFormFields } from "@/app/actions/like/update/enum";
 import { updateLikeAction } from "@/app/actions/like/update/updateLikeAction";
 import type { TProfileDetail } from "@/app/api/profile/detail";
 import { useTranslation } from "@/app/i18n/client";
+import {LikeButton} from "@/app/pages/profileDetailPage/like/likeButton";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import {
   useAuthenticityTokenContext,
@@ -15,8 +16,6 @@ import {
 import { ELanguage } from "@/app/shared/enums";
 import { DATE_FORMAT } from "@/app/uikit/components/dateTime/constants";
 import { useDayjs } from "@/app/uikit/components/dateTime/hooks";
-import { Icon } from "@/app/uikit/components/icon";
-import { Typography } from "@/app/uikit/components/typography";
 import "./Like.scss";
 
 type TProps = {
@@ -137,33 +136,9 @@ export const Like: FC<TProps> = ({ lng, profile, sessionId }) => {
   };
 
   return (
-    <div className="Like" onClick={handleHeartClick}>
-      {isLiked ? (
-        <div className="Like-Info">
-          {message && (
-            <div className="Like-Message">
-              <Typography>{message}</Typography>
-            </div>
-          )}
-          <div>
-            <Icon className="Like-Icon" type="Heart" />
-          </div>
-        </div>
-      ) : (
-        <div className="Like-Info">
-          {message && (
-            <div className="Like-Message">
-              <Typography>{message}</Typography>
-            </div>
-          )}
-          <div>
-            <Icon className="Like-Icon" type="HeartEmpty" />
-          </div>
-        </div>
-      )}
-      <form action={handleSubmit} className="Like-Form">
-        <input hidden={true} ref={buttonSubmitRef} type="submit" />
-      </form>
-    </div>
+    <form action={handleSubmit} className="Like-Form" style={{justifyContent: !message ? 'flex-end' :'center'}}>
+      <LikeButton isLiked={isLiked} message={message} onClick={handleHeartClick}/>
+      <input hidden={true} ref={buttonSubmitRef} type="submit"/>
+    </form>
   );
 };

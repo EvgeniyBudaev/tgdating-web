@@ -9,7 +9,7 @@ export const updateNavigatorApi: TApiFunction<TNavigatorParams, TNavigator> = (
   params,
   options,
 ) => {
-  const url = `/gateway/api/v1/profiles/navigators`;
+  const url = `/api/v1/profiles/navigators`;
   return fetchApi<TNavigator>(url, {
     method: EFormMethods.Put,
     body: params,

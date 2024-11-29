@@ -9,7 +9,7 @@ export const restoreProfileApi: TApiFunction<
   TRestoreProfileParams,
   TRestoreProfile
 > = (params, options) => {
-  return fetchApi<TRestoreProfile>(`/gateway/api/v1/profiles/restore`, {
+  return fetchApi<TRestoreProfile>(`/api/v1/profiles/restore`, {
     method: EFormMethods.Post,
     body: params,
     headers: options?.headers,

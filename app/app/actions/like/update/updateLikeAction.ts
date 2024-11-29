@@ -32,6 +32,7 @@ export async function updateLikeAction(prevState: any, formData: FormData) {
     isLiked: Boolean(JSON.parse(resolver.data.isLiked)),
     sessionId: resolver.data.sessionId,
   };
+
   const accessToken = resolver.data.telegramInitDataCrypt;
   const csrf = resolver.data.csrf;
 

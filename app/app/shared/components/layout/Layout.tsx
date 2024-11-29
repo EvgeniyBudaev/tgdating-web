@@ -27,13 +27,6 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   const telegram = useTelegram();
 
   useEffect(() => {
-    if (!telegram?.user?.language_code) {
-      const path = createPath({
-        route: ERoutes.Unauthorized,
-        lng: lng,
-      });
-      router.push(path);
-    }
     if (telegram?.user?.language_code) {
       const updatedPathname = pathname.replace(
         `/${lng}`,

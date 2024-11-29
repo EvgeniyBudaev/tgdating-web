@@ -87,6 +87,7 @@
   },
   "errorBoundary": {
     "common": {
+      "manyRequest": "Too many requests",
       "unauthorized": "Not authorized via Telegram app",
       "unexpectedError": "Unexpected error"
     }

@@ -9,7 +9,7 @@ export const updateFilterApi: TApiFunction<TFilterUpdateParams, TFilter> = (
   params,
   options,
 ) => {
-  const url = `/gateway/api/v1/profiles/filters`;
+  const url = `/api/v1/profiles/filters`;
   return fetchApi<TFilter>(url, {
     method: EFormMethods.Put,
     body: params,

@@ -26,9 +26,11 @@ import { Slider } from "@/app/uikit/components/slider";
 import { Typography } from "@/app/uikit/components/typography";
 import { getFullYear } from "@/app/uikit/utils/date";
 import "./ProfileDetailPage.scss";
+import {notification} from "@/app/uikit/utils";
 
 type TProps = {
   isExistUser: boolean;
+  isManyRequest: boolean;
   lng: ELanguage;
   profile?: TProfileDetail;
   sessionId: string;
@@ -37,6 +39,7 @@ type TProps = {
 
 const ProfileDetailPageComponent: FC<TProps> = ({
   isExistUser,
+                                                  isManyRequest,
   lng,
   profile,
   sessionId,
@@ -54,6 +57,15 @@ const ProfileDetailPageComponent: FC<TProps> = ({
   );
   const isHeight = !isNil(profile?.height) && profile?.height !== 0;
   const isWeight = !isNil(profile?.weight) && profile?.weight !== 0;
+
+  useEffect(() => {
+    if (isManyRequest) {
+      notification({
+        title: t("errorBoundary.common.manyRequest"),
+        type: "error",
+      });
+    }
+  }, [isManyRequest]);
 
   useEffect(() => {
     if (isSession && !isExistUser) {

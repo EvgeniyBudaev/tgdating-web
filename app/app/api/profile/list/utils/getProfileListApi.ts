@@ -15,7 +15,7 @@ export const getProfileListApi: TApiFunction<
     ...(params?.longitude && { longitude: params?.longitude }),
   };
   // @ts-ignore
-  const url = `/gateway/api/v1/profiles/list?${new URLSearchParams(queryParams)}`;
+  const url = `/api/v1/profiles/list?${new URLSearchParams(queryParams)}`;
 
   return fetchApi<TProfileList>(url, {
     method: EFormMethods.Get,

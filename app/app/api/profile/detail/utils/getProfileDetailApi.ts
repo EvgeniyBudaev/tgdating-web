@@ -15,7 +15,7 @@ export const getProfileDetailApi: TApiFunction<
     ...(params?.latitude && { latitude: params?.latitude }),
     ...(params?.longitude && { longitude: params?.longitude }),
   };
-  const url = `/gateway/api/v1/profiles/detail/${viewedSessionId}?${new URLSearchParams(queryParams)}`;
+  const url = `/api/v1/profiles/detail/${viewedSessionId}?${new URLSearchParams(queryParams)}`;
   return fetchApi<TProfileDetail>(url, {
     method: EFormMethods.Get,
   });
