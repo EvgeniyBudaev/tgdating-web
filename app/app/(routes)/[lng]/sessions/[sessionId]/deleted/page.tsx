@@ -1,6 +1,6 @@
 import {getProfileDetail} from "@/app/api/profile/detail";
 import {ProfileBlocked} from "@/app/entities/profile/profileBlocked";
-import {ProfileDeletedPage} from "@/app/pages/profileDeletedPage";
+import {ProfileFreezePage} from "@/app/pages/profileFreezePage";
 import { ELanguage } from "@/app/shared/enums";
 
 type TLoader = {
@@ -38,5 +38,5 @@ export default async function ProfileDeletedRoute({ params }: { params: TParams 
     return <ProfileBlocked />;
   }
 
-  return <ProfileDeletedPage isDeleted={data?.profile?.isDeleted} lng={language} sessionId={sessionId} />;
+  return <ProfileFreezePage isDeleted={data?.profile?.isFrozen} lng={language} sessionId={sessionId} />;
 }

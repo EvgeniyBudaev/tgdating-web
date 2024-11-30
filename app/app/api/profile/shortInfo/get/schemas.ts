@@ -9,6 +9,6 @@ export const profileShortInfoParamsSchema = z.object({
 export const profileShortInfoSchema = z.object({
   sessionId: z.string(),
   imageUrl: z.string(),
-  isDeleted: z.boolean(),
+  isFrozen: z.boolean(),
   isBlocked: z.boolean(),
 });

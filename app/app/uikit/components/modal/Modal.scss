@@ -1,8 +1,15 @@
 @import "@/app/styles";
 
 .Modal {
+  &Header {
+    margin-bottom: 8px;
+
+    &__center {
+      text-align: center;
+    }
+  }
+
   &Content {
-    background-color: $color-black;
   }
 
   &Footer {
@@ -52,13 +59,13 @@
 }
 
 .react-responsive-modal-overlay {
-  background: $color-black;
+  background: $bg_color;
 }
 
 .react-responsive-modal-modal {
   padding: 0;
   box-shadow: none;
   border: none;
-  background-color: $color-black;
+  background-color: $bg_color;
   overflow: visible;
 }

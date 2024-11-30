@@ -3,8 +3,8 @@ import {redirect} from "next/navigation";
 import {type FC, useEffect, useRef} from "react";
 import {useFormState} from "react-dom";
 import {useTranslation} from "@/app/i18n/client";
-import {freezeProfileAction} from "@/app/actions/profile/freeze/freezeProfileAction";
-import {EProfileFreezeFormFields} from "@/app/actions/profile/freeze/enums";
+import {deleteProfileAction} from "@/app/actions/profile/delete/deleteProfileAction";
+import {EProfileDeleteFormFields} from "@/app/actions/profile/delete/enums";
 import {INITIAL_FORM_STATE} from "@/app/shared/constants/form";
 import {useAuthenticityTokenContext, useTelegramContext} from "@/app/shared/context";
 import {ELanguage, ERoutes} from "@/app/shared/enums";
@@ -12,7 +12,7 @@ import {createPath} from "@/app/shared/utils";
 import {Button} from "@/app/uikit/components/button";
 import {Modal, useModalWindow} from "@/app/uikit/components/modal";
 import {Typography} from "@/app/uikit/components/typography";
-import "./Freeze.scss";
+import "./Delete.scss";
 
 type TProps = {
   lng: ELanguage;
@@ -20,14 +20,14 @@ type TProps = {
   onCloseDropDown?: () => void;
 };
 
-export const Freeze: FC<TProps> = ({lng, sessionId, onCloseDropDown}) => {
+export const Delete: FC<TProps> = ({lng, sessionId, onCloseDropDown}) => {
   const csrf = useAuthenticityTokenContext();
   const { closeModal, isOpenModal, openModal } = useModalWindow();
   const buttonSubmitRef = useRef<HTMLInputElement | null>(null);
   const { t } = useTranslation("index");
   const telegram = useTelegramContext();
   const isSession = telegram?.isSession;
-  const [state, formAction] = useFormState(freezeProfileAction, INITIAL_FORM_STATE);
+  const [state, formAction] = useFormState(deleteProfileAction, INITIAL_FORM_STATE);
 
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
@@ -52,14 +52,14 @@ export const Freeze: FC<TProps> = ({lng, sessionId, onCloseDropDown}) => {
     if (isSession) {
       const formDataDto = new FormData();
       formDataDto.append(
-        EProfileFreezeFormFields.SessionId,
+        EProfileDeleteFormFields.SessionId,
         sessionId,
       );
       formDataDto.append(
-        EProfileFreezeFormFields.TelegramInitDataCrypt,
+        EProfileDeleteFormFields.TelegramInitDataCrypt,
         telegram?.initDataCrypt ?? "",
       );
-      formDataDto.append(EProfileFreezeFormFields.Csrf, csrf ?? "");
+      formDataDto.append(EProfileDeleteFormFields.Csrf, csrf ?? "");
       // @ts-ignore
       formAction(formDataDto);
     }
@@ -71,15 +71,15 @@ export const Freeze: FC<TProps> = ({lng, sessionId, onCloseDropDown}) => {
         className="DropDown-MenuItem DropDown-MenuItem-Warning"
         onClick={handleFreeze}
       >
-        <Typography>{t("common.actions.freeze")}</Typography>
+        <Typography>{t("common.actions.delete")}</Typography>
       </div>
       <Modal isOpen={isOpenModal} onCloseModal={closeModal}>
         <Modal.Header align="center">
-          <Typography>{t("common.titles.freezeQuestion")}</Typography>
+          <Typography>{t("common.titles.deleteQuestion")}</Typography>
         </Modal.Header>
         <Modal.Footer>
-          <div className="Freeze-Modal-Footer-Controls">
-            <Button className="Freeze-Modal-Footer-Cancel" onClick={closeModal} type="button">
+          <div className="Delete-Modal-Footer-Controls">
+            <Button className="Delete-Modal-Footer-Cancel" onClick={closeModal} type="button">
               <Typography>{t("common.actions.no")}</Typography>
             </Button>
             <form action={handleSubmit} className="Block-Form">

@@ -12,9 +12,11 @@
       "autocomplete": "auto detection",
       "filtersGeneral": "General filters",
       "age": "Age",
+      "deleteQuestion": "Delete account?",
+      "freezeQuestion": "Freeze account?",
+      "online": "Online",
       "accountFrozen": "Account frozen",
       "accountDeleted": "Account deleted",
-      "online": "Online",
       "isEmptyList": "No people found. Try changing your search settings."
     },
     "form": {
@@ -35,16 +37,18 @@
     "actions": {
       "settings": "Settings",
       "filter": "Filter",
-      "restore": "Restore account",
       "block": "Block",
       "complaint": "Complain and block",
+      "delete": "Delete",
+      "no": "No",
+      "yes": "Yes",
       "freeze": "Freeze",
       "edit": "Edit",
       "cancel": "Cancel",
+      "restore": "Restore account",
       "search": "Search",
       "profile": "Profile",
       "back": "Back",
-      "delete": "Delete",
       "loading": "Loading",
       "save": "Save"
     },
@@ -80,16 +84,16 @@
       "smallImage": "Image must be at least 100 x 100 pixels"
     }
   },
-  "pages": {
-    "profile": {
-      "doubleLike": "Re-like will be available tomorrow"
-    }
-  },
   "errorBoundary": {
     "common": {
       "manyRequest": "Too many requests",
       "unauthorized": "Not authorized via Telegram app",
       "unexpectedError": "Unexpected error"
+    }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "Re-like will be available tomorrow"
     }
   }
 }

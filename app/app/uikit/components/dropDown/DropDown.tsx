@@ -1,12 +1,13 @@
 "use client";
 
 import clsx from "clsx";
-import type { FC, ReactNode } from "react";
+import isNil from "lodash/isNil";
+import { type FC, type ReactNode, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
 import type { TDropDownClasses } from "@/app/uikit/components/dropDown/types";
 import { Overlay } from "@/app/uikit/components/overlay";
 import { TRANSITION } from "@/app/uikit/constants";
-import { DropDownProvider } from "@/app/uikit/context";
+import {DropDownProvider} from "@/app/uikit/context";
 import { useDropDown, useDropDownContext } from "@/app/uikit/hooks";
 import "./DropDown.scss";
 
@@ -14,6 +15,7 @@ type TProps = {
   children?: ReactNode;
   classes?: TDropDownClasses;
   dataTestId?: string;
+  isCanClickOutside?: boolean;
   transition?: number;
 };
 
@@ -21,9 +23,10 @@ export const DropDown = ({
   children,
   classes,
   dataTestId = "uikit__dropDown",
+  isCanClickOutside = true,
   transition,
 }: TProps): JSX.Element => {
-  const dropDownState = useDropDown();
+  const dropDownState = useDropDown({isCanClickOutside});
 
   return (
     <DropDownProvider value={dropDownState}>
@@ -44,15 +47,21 @@ export const DropDown = ({
 type TDropDownButton = {
   children?: ReactNode;
   classes?: TDropDownClasses;
+  onOpen?: () => void;
 };
 
-const DropDownButton: FC<TDropDownButton> = ({ children, classes }) => {
+const DropDownButton: FC<TDropDownButton> = ({ children, classes, onOpen }) => {
   const dropDownState = useDropDownContext();
+
+  const handleOpen = () => {
+    dropDownState?.onOpen?.();
+    onOpen?.();
+  }
 
   return (
     <div
       className={clsx("DropDown-Button", classes?.dropDownButton)}
-      onClick={dropDownState?.onClickButtonDropDown}
+      onClick={handleOpen}
       ref={dropDownState?.refButtonDropDown}
     >
       {children}
@@ -66,6 +75,8 @@ type TDropDownPanel = {
   children?: ReactNode;
   classes?: TDropDownClasses;
   dataTestId?: string;
+  isOpen?: boolean;
+  onClose?: () => void;
   transition?: number;
 };
 
@@ -73,17 +84,33 @@ const DropDownPanel: FC<TDropDownPanel> = ({
   children,
   classes,
   dataTestId = "uikit__dropDown",
+  isOpen,
+  onClose,
   transition,
 }) => {
   const dropDownState = useDropDownContext();
+
+  const handleClose = () => {
+    if (isNil(isOpen)) {
+      dropDownState?.onClose?.();
+    } else {
+      onClose?.();
+    }
+  }
+
+  useEffect(() => {
+    if (!isNil(isOpen) && !isOpen) {
+      dropDownState?.onClose?.();
+    }
+  }, [isOpen]);
 
   return (
     <CSSTransition
       className={clsx("DropDown-Panel", classes?.dropDownPanel)}
       data-testid={dataTestId}
-      in={dropDownState?.isDropDownOpen}
+      in={isOpen ?? dropDownState?.isDropDownOpen}
       nodeRef={dropDownState?.refPanelDropDown}
-      onClick={dropDownState?.onClickButtonDropDown}
+      onClick={handleClose}
       timeout={transition ?? TRANSITION}
       unmountOnExit
     >

@@ -1,3 +1,3 @@
-import { deleteProfileApi } from "./deleteProfileApi";
+import {deleteProfileApi} from "./deleteProfileApi";
 
-export { deleteProfileApi };
+export  {deleteProfileApi}

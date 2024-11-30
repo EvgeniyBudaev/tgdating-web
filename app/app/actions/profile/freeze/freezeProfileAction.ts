@@ -1,13 +1,13 @@
 "use server";
 
-import { deleteProfileFormSchema } from "@/app/actions/profile/delete/schemas";
-import {deleteProfile} from "@/app/api/profile/delete/domain";
+import { freezeProfileFormSchema } from "@/app/actions/profile/freeze/schemas";
+import {freezeProfile} from "@/app/api/profile/freeze/domain";
 import {getErrorsResolver, getResponseError} from "@/app/shared/utils";
 import type {TCommonResponseError} from "@/app/shared/types/error";
 import {checkCsrfToken} from "@/app/shared/utils/security/csrf";
 
-export async function deleteProfileAction(prevState: any, formData: FormData) {
-  const resolver = deleteProfileFormSchema.safeParse(
+export async function freezeProfileAction(prevState: any, formData: FormData) {
+  const resolver = freezeProfileFormSchema.safeParse(
     Object.fromEntries(formData.entries()),
   );
 
@@ -30,7 +30,7 @@ export async function deleteProfileAction(prevState: any, formData: FormData) {
   try {
     const checkCsrf = await checkCsrfToken(csrf);
     if (checkCsrf?.error) throw checkCsrf.error;
-    const response = await deleteProfile(formattedParams, {
+    const response = await freezeProfile(formattedParams, {
       headers: {
         Authorization: accessToken,
       },

@@ -28,7 +28,7 @@ export const profileDetailSchema = z.object({
   description: z.string().nullish(),
   height: z.number().nullish(),
   weight: z.number().nullish(),
-  isDeleted: z.boolean(),
+  isFrozen: z.boolean(),
   isBlocked: z.boolean(),
   isPremium: z.boolean(),
   isShowDistance: z.boolean(),

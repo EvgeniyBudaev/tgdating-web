@@ -13,7 +13,7 @@ import {ELanguage, ERoutes} from "@/app/shared/enums";
 import {createPath} from "@/app/shared/utils";
 import {Button} from "@/app/uikit/components/button";
 import {Typography} from "@/app/uikit/components/typography";
-import "./ProfileDeletedPage.scss";
+import "./ProfileFreezePage.scss";
 
 type TProps = {
   isDeleted?: boolean;
@@ -21,7 +21,7 @@ type TProps = {
   sessionId: string;
 }
 
-export const ProfileDeletedPage: FC<TProps> = ({isDeleted, lng, sessionId}) => {
+export const ProfileFreezePage: FC<TProps> = ({isDeleted, lng, sessionId}) => {
   const csrf = useAuthenticityTokenContext();
   const { t } = useTranslation("index");
   const telegram = useTelegramContext();
@@ -73,10 +73,15 @@ export const ProfileDeletedPage: FC<TProps> = ({isDeleted, lng, sessionId}) => {
   }
 
   return (
-    <div className="ProfileDeletedPage">
-      <div className="ProfileDeletedPage-Inner">
-        <div className="ProfileDeletedPage-Title">
-          {isSessionUser  ? t("common.titles.accountFrozen") : t("common.titles.accountDeleted")}
+    <div className="ProfileFreezePage">
+      <div className="ProfileFreezePage-Inner">
+        <div className="ProfileFreezePage-Title">
+          {isSessionUser && (
+            <Typography>{t("common.titles.accountFrozen")}</Typography>
+          )}
+          {!isSessionUser && (
+            <Typography>{t("common.titles.accountDeleted")}</Typography>
+          )}
         </div>
         {isSessionUser && (
           <form action={handleSubmit}>

@@ -6,7 +6,6 @@ export const imageSchema = z.object({
   name: z.string(),
   url: z.string(),
   size: z.number(),
-  isDeleted: z.boolean(),
   isBlocked: z.boolean(),
   isPrimary: z.boolean(),
   isPrivate: z.boolean(),

@@ -12,9 +12,13 @@ export const useDropDownContext = (): TDropDownState | null => {
   return useContext(DropDownContext);
 };
 
-type TUseDropDown = () => TDropDownState;
+type TProps = {
+  isCanClickOutside?: boolean;
+}
 
-export const useDropDown: TUseDropDown = () => {
+type TUseDropDown = (props: TProps) => TDropDownState;
+
+export const useDropDown: TUseDropDown = ({isCanClickOutside}) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const refButtonDropDown = useRef<HTMLDivElement>(null);
   const refPanelDropDown = useRef<HTMLDivElement>(null);
@@ -23,13 +27,22 @@ export const useDropDown: TUseDropDown = () => {
     setIsDropDownOpen((prevState?: boolean) => !prevState);
   }, []);
 
+  const handleOpen = useCallback(() => {
+    setIsDropDownOpen(true);
+  }, []);
+
+  const handleClose = useCallback(() => {
+    setIsDropDownOpen(false);
+  }, []);
+
   const handleClickOutsideDropDown = useCallback(
     (event: MouseEvent) => {
       if (
         isDropDownOpen &&
         refButtonDropDown.current &&
         event.target instanceof HTMLDivElement &&
-        !refButtonDropDown.current.contains(event.target)
+        !refButtonDropDown.current.contains(event.target) &&
+        isCanClickOutside
       ) {
         if (
           refPanelDropDown.current &&
@@ -64,12 +77,16 @@ export const useDropDown: TUseDropDown = () => {
     return {
       isDropDownOpen,
       onClickButtonDropDown: handleClickButtonDropDown,
+      onOpen: handleOpen,
+      onClose: handleClose,
       refButtonDropDown,
       refPanelDropDown,
     };
   }, [
     isDropDownOpen,
     handleClickButtonDropDown,
+    handleOpen,
+    handleClose,
     refButtonDropDown,
     refPanelDropDown,
   ]);

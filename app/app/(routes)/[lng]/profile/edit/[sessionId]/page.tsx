@@ -54,7 +54,7 @@ export default async function ProfileEditRoute({
     );
   }
 
-  if (data?.profile?.isDeleted) {
+  if (data?.profile?.isFrozen) {
     redirect(
       createPath({
         route: ERoutes.ProfileDeleted,

@@ -20,9 +20,10 @@ import {createPath} from "@/app/shared/utils";
 type TProps = {
   criminalSessionId: string;
   lng: ELanguage;
+  onCloseDropDown?: () => void;
 };
 
-export const Complaint: FC<TProps> = ({ criminalSessionId, lng }) => {
+export const Complaint: FC<TProps> = ({ criminalSessionId, lng, onCloseDropDown }) => {
   const csrf = useAuthenticityTokenContext();
   const telegram = useTelegramContext();
   const isSession = telegram?.isSession;
@@ -49,6 +50,7 @@ export const Complaint: FC<TProps> = ({ criminalSessionId, lng }) => {
     if ("click" in buttonSubmitRef?.current) {
       buttonSubmitRef.current && buttonSubmitRef.current.click();
     }
+    onCloseDropDown?.();
   };
 
   const handleSubmit = (formData: FormData) => {

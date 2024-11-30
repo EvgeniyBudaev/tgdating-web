@@ -19,9 +19,10 @@ import { Typography } from "@/app/uikit/components/typography";
 type TProps = {
   blockedUserSessionId: string;
   lng: ELanguage;
+  onCloseDropDown?: () => void;
 };
 
-export const Block: FC<TProps> = ({ blockedUserSessionId, lng }) => {
+export const Block: FC<TProps> = ({ blockedUserSessionId, lng, onCloseDropDown }) => {
   const csrf = useAuthenticityTokenContext();
   const telegram = useTelegramContext();
   const isSession = telegram?.isSession;
@@ -44,6 +45,7 @@ export const Block: FC<TProps> = ({ blockedUserSessionId, lng }) => {
     if ("click" in buttonSubmitRef.current) {
       buttonSubmitRef.current && buttonSubmitRef.current.click();
     }
+    onCloseDropDown?.();
   };
 
   const handleSubmit = (formData: FormData) => {

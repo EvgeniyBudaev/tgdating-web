@@ -9,6 +9,7 @@ import { ProfileSidebar } from "@/app/entities/profile/profileSidebar";
 import { useTranslation } from "@/app/i18n/client";
 import { Block } from "@/app/pages/profileDetailPage/block";
 import { Complaint } from "@/app/pages/profileDetailPage/complaint";
+import {Delete} from "@/app/pages/profileDetailPage/delete/Delete";
 import {Freeze} from "@/app/pages/profileDetailPage/freeze";
 import { Like } from "@/app/pages/profileDetailPage/like";
 import { getDistance } from "@/app/pages/profileDetailPage/utils";
@@ -24,9 +25,9 @@ import { Icon } from "@/app/uikit/components/icon";
 import { Online } from "@/app/uikit/components/online";
 import { Slider } from "@/app/uikit/components/slider";
 import { Typography } from "@/app/uikit/components/typography";
+import {notification} from "@/app/uikit/utils";
 import { getFullYear } from "@/app/uikit/utils/date";
 import "./ProfileDetailPage.scss";
-import {notification} from "@/app/uikit/utils";
 
 type TProps = {
   isExistUser: boolean;
@@ -39,7 +40,7 @@ type TProps = {
 
 const ProfileDetailPageComponent: FC<TProps> = ({
   isExistUser,
-                                                  isManyRequest,
+  isManyRequest,
   lng,
   profile,
   sessionId,
@@ -49,6 +50,7 @@ const ProfileDetailPageComponent: FC<TProps> = ({
   const isSession = telegram?.isSession;
   const user = telegram?.user;
   const { t } = useTranslation("index");
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
   const fullYear = getFullYear(profile?.birthday);
@@ -91,22 +93,30 @@ const ProfileDetailPageComponent: FC<TProps> = ({
     setIsSidebarOpen(false);
   };
 
+  const handleOpenDropDown = () => {
+    setIsDropDownOpen(true);
+  };
+
+  const handleCloseDropDown = () => {
+    setIsDropDownOpen(false);
+  };
+
   return (
     profile &&
     profile?.sessionId &&
     isExistUser && (
       <>
-        <DropDown>
-          <DropDown.Button>
+        <DropDown isCanClickOutside={false}>
+          <DropDown.Button onOpen={handleOpenDropDown}>
             <Hamburger />
           </DropDown.Button>
-          <DropDown.Panel>
+          <DropDown.Panel isOpen={isDropDownOpen}>
             <div className="DropDown-Menu">
               {!isSessionUser && (
-                <Block blockedUserSessionId={profile.sessionId} lng={lng} />
+                <Block blockedUserSessionId={profile.sessionId} lng={lng} onCloseDropDown={handleCloseDropDown} />
               )}
               {!isSessionUser && (
-                <Complaint criminalSessionId={profile.sessionId} lng={lng} />
+                <Complaint criminalSessionId={profile.sessionId} lng={lng} onCloseDropDown={handleCloseDropDown} />
               )}
               {isSessionUser && (
                 <>
@@ -117,15 +127,17 @@ const ProfileDetailPageComponent: FC<TProps> = ({
                       params: { sessionId: profile.sessionId },
                     })}
                     key={profile.sessionId}
+                    onClick={handleCloseDropDown}
                   >
                     <Typography>{t("common.actions.edit")}</Typography>
                   </Link>
                   <Freeze lng={lng} sessionId={sessionId} />
+                  <Delete lng={lng} sessionId={sessionId} />
                 </>
               )}
             </div>
             <div className="DropDown-Menu">
-              <div className="DropDown-MenuItem DropDown-MenuItem-Cancel">
+              <div className="DropDown-MenuItem DropDown-MenuItem-Cancel" onClick={handleCloseDropDown}>
                 <Typography>{t("common.actions.cancel")}</Typography>
               </div>
             </div>
