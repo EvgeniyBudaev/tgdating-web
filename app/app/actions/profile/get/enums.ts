@@ -1,5 +1,5 @@
 export enum EFormFields {
-  SessionId = "sessionId",
+  TelegramUserId = "telegramUserId",
   Latitude = "latitude",
   Longitude = "longitude",
 }

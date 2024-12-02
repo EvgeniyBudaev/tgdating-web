@@ -7,7 +7,6 @@ import { filterSchema } from "@/app/api/profile/filter/schemas";
 import { telegramSchema } from "@/app/api/profile/telegram/schemas";
 
 export const editProfileParamsSchema = zfd.formData({
-  sessionId: zfd.text(),
   displayName: zfd.text(),
   birthday: zfd.text(),
   gender: zfd.text(),
@@ -36,7 +35,7 @@ export const editProfileParamsSchema = zfd.formData({
 });
 
 export const editProfileSchema = z.object({
-  sessionId: z.string(),
+  telegramUserId: z.string(),
   displayName: z.string(),
   birthday: z.string(),
   gender: z.string(),

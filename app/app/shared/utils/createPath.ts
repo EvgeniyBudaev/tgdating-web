@@ -1,12 +1,9 @@
 import { ERoutes } from "@/app/shared/enums";
 
-type TRoutes =
-  | ERoutes.Root
-  | ERoutes.Unauthorized
-  | ERoutes.ProfileAdd;
+type TRoutes = ERoutes.Root | ERoutes.Unauthorized | ERoutes.ProfileAdd;
 
 type TRoutesWithParams =
-  | ERoutes.Session
+  | ERoutes.Telegram
   | ERoutes.ProfileDetail
   | ERoutes.ProfileBlocked
   | ERoutes.ProfileDeleted

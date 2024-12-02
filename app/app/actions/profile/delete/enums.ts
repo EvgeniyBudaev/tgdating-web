@@ -1,5 +1,5 @@
 export enum EProfileDeleteFormFields {
-  SessionId = "sessionId",
+  TelegramUserId = "telegramUserId",
   TelegramInitDataCrypt = "telegramInitDataCrypt",
   Csrf = "csrf",
 }

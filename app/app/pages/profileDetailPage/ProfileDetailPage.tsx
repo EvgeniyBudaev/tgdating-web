@@ -9,15 +9,15 @@ import { ProfileSidebar } from "@/app/entities/profile/profileSidebar";
 import { useTranslation } from "@/app/i18n/client";
 import { Block } from "@/app/pages/profileDetailPage/block";
 import { Complaint } from "@/app/pages/profileDetailPage/complaint";
-import {Delete} from "@/app/pages/profileDetailPage/delete/Delete";
-import {Freeze} from "@/app/pages/profileDetailPage/freeze";
+import { Delete } from "@/app/pages/profileDetailPage/delete/Delete";
+import { Freeze } from "@/app/pages/profileDetailPage/freeze";
 import { Like } from "@/app/pages/profileDetailPage/like";
 import { getDistance } from "@/app/pages/profileDetailPage/utils";
 import { Container } from "@/app/shared/components/container";
 import { Field } from "@/app/shared/components/form/field";
 import { useTelegramContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import {useCheckPermissions} from "@/app/shared/hooks";
+import { useCheckPermissions } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { DropDown } from "@/app/uikit/components/dropDown";
 import { Hamburger } from "@/app/uikit/components/hamburger";
@@ -25,7 +25,7 @@ import { Icon } from "@/app/uikit/components/icon";
 import { Online } from "@/app/uikit/components/online";
 import { Slider } from "@/app/uikit/components/slider";
 import { Typography } from "@/app/uikit/components/typography";
-import {notification} from "@/app/uikit/utils";
+import { notification } from "@/app/uikit/utils";
 import { getFullYear } from "@/app/uikit/utils/date";
 import "./ProfileDetailPage.scss";
 
@@ -34,8 +34,8 @@ type TProps = {
   isManyRequest: boolean;
   lng: ELanguage;
   profile?: TProfileDetail;
-  sessionId: string;
-  viewedSessionId: string;
+  telegramUserId: string;
+  viewedTelegramUserId: string;
 };
 
 const ProfileDetailPageComponent: FC<TProps> = ({
@@ -43,9 +43,9 @@ const ProfileDetailPageComponent: FC<TProps> = ({
   isManyRequest,
   lng,
   profile,
-  sessionId,
+  telegramUserId,
 }) => {
-  useCheckPermissions({lng});
+  useCheckPermissions({ lng });
   const telegram = useTelegramContext();
   const isSession = telegram?.isSession;
   const user = telegram?.user;
@@ -55,7 +55,7 @@ const ProfileDetailPageComponent: FC<TProps> = ({
   const sidebarRef = useRef(null);
   const fullYear = getFullYear(profile?.birthday);
   const isSessionUser = Boolean(
-    profile?.sessionId && user?.id.toString() === profile.sessionId,
+    profile?.telegramUserId && user?.id.toString() === profile.telegramUserId,
   );
   const isHeight = !isNil(profile?.height) && profile?.height !== 0;
   const isWeight = !isNil(profile?.weight) && profile?.weight !== 0;
@@ -103,7 +103,7 @@ const ProfileDetailPageComponent: FC<TProps> = ({
 
   return (
     profile &&
-    profile?.sessionId &&
+    profile?.telegramUserId &&
     isExistUser && (
       <>
         <DropDown isCanClickOutside={false}>
@@ -113,10 +113,18 @@ const ProfileDetailPageComponent: FC<TProps> = ({
           <DropDown.Panel isOpen={isDropDownOpen}>
             <div className="DropDown-Menu">
               {!isSessionUser && (
-                <Block blockedUserSessionId={profile.sessionId} lng={lng} onCloseDropDown={handleCloseDropDown} />
+                <Block
+                  blockedTelegramUserId={profile.telegramUserId}
+                  lng={lng}
+                  onCloseDropDown={handleCloseDropDown}
+                />
               )}
               {!isSessionUser && (
-                <Complaint criminalSessionId={profile.sessionId} lng={lng} onCloseDropDown={handleCloseDropDown} />
+                <Complaint
+                  criminalTelegramUserId={profile.telegramUserId}
+                  lng={lng}
+                  onCloseDropDown={handleCloseDropDown}
+                />
               )}
               {isSessionUser && (
                 <>
@@ -124,20 +132,23 @@ const ProfileDetailPageComponent: FC<TProps> = ({
                     className="DropDown-MenuItem"
                     href={createPath({
                       route: ERoutes.ProfileEdit,
-                      params: { sessionId: profile.sessionId },
+                      params: { telegramUserId: profile.telegramUserId },
                     })}
-                    key={profile.sessionId}
+                    key={profile.telegramUserId}
                     onClick={handleCloseDropDown}
                   >
                     <Typography>{t("common.actions.edit")}</Typography>
                   </Link>
-                  <Freeze lng={lng} sessionId={sessionId} />
-                  <Delete lng={lng} sessionId={sessionId} />
+                  <Freeze lng={lng} telegramUserId={telegramUserId} />
+                  <Delete lng={lng} telegramUserId={telegramUserId} />
                 </>
               )}
             </div>
             <div className="DropDown-Menu">
-              <div className="DropDown-MenuItem DropDown-MenuItem-Cancel" onClick={handleCloseDropDown}>
+              <div
+                className="DropDown-MenuItem DropDown-MenuItem-Cancel"
+                onClick={handleCloseDropDown}
+              >
                 <Typography>{t("common.actions.cancel")}</Typography>
               </div>
             </div>
@@ -151,10 +162,7 @@ const ProfileDetailPageComponent: FC<TProps> = ({
         />
         <div className="ProfileDetailPage">
           <div className="ProfileDetailPage-Slider">
-            <Slider
-              images={profile?.images}
-              sessionId={profile?.sessionId ?? ""}
-            />
+            <Slider images={profile?.images} />
           </div>
           <Container>
             <div className="ProfileDetailPage-User">
@@ -186,7 +194,11 @@ const ProfileDetailPageComponent: FC<TProps> = ({
                   </div>
                   <div className="ProfileDetailPage-Inner-Right">
                     {!isSessionUser && (
-                      <Like lng={lng} profile={profile} sessionId={sessionId} />
+                      <Like
+                        lng={lng}
+                        profile={profile}
+                        telegramUserId={telegramUserId}
+                      />
                     )}
                   </div>
                 </div>

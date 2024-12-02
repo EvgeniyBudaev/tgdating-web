@@ -1,10 +1,10 @@
 "use server";
 
 import { deleteProfileFormSchema } from "@/app/actions/profile/delete/schemas";
-import {deleteProfile} from "@/app/api/profile/delete/domain";
-import {getErrorsResolver, getResponseError} from "@/app/shared/utils";
-import type {TCommonResponseError} from "@/app/shared/types/error";
-import {checkCsrfToken} from "@/app/shared/utils/security/csrf";
+import { deleteProfile } from "@/app/api/profile/delete/domain";
+import { getErrorsResolver, getResponseError } from "@/app/shared/utils";
+import type { TCommonResponseError } from "@/app/shared/types/error";
+import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
 
 export async function deleteProfileAction(prevState: any, formData: FormData) {
   const resolver = deleteProfileFormSchema.safeParse(
@@ -22,7 +22,7 @@ export async function deleteProfileAction(prevState: any, formData: FormData) {
   }
 
   const formattedParams = {
-    sessionId: resolver.data.sessionId,
+    telegramUserId: resolver.data.telegramUserId,
   };
   const accessToken = resolver.data.telegramInitDataCrypt;
   const csrf = resolver.data.csrf;
@@ -43,10 +43,11 @@ export async function deleteProfileAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
-    if (errorResponse?.status === 401 || errorResponse?.status === 403) throw error;
+    if (errorResponse?.status === 401 || errorResponse?.status === 403)
+      throw error;
     const responseData: TCommonResponseError = await errorResponse.json();
     const { message: formError, fieldErrors } =
-    getResponseError(responseData) ?? {};
+      getResponseError(responseData) ?? {};
     return {
       data: undefined,
       error: formError,

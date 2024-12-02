@@ -9,12 +9,12 @@ export const getProfileShortInfoApi: TApiFunction<
   TProfileShortInfoParams,
   TProfileShortInfo
 > = (params) => {
-  const { sessionId } = params;
+  const { telegramUserId } = params;
   const queryParams = {
     ...(params?.latitude && { latitude: params?.latitude }),
     ...(params?.longitude && { longitude: params?.longitude }),
   };
-  const url = `/api/v1/profiles/short/${sessionId}?${new URLSearchParams(queryParams)}`;
+  const url = `/api/v1/profiles/short/${telegramUserId}?${new URLSearchParams(queryParams)}`;
   return fetchApi<TProfileShortInfo>(url, {
     method: EFormMethods.Get,
   });

@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const freezeProfileParamsSchema = z.object({
-  sessionId: z.string(),
+  telegramUserId: z.string(),
 });
 
 export const freezeProfileSchema = z.object({

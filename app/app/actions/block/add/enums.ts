@@ -1,6 +1,6 @@
 export enum EBlockFormFields {
-  SessionId = "sessionId",
-  BlockedUserSessionId = "blockedUserSessionId",
+  TelegramUserId = "telegramUserId",
+  BlockedTelegramUserId = "blockedTelegramUserId",
   TelegramInitDataCrypt = "telegramInitDataCrypt",
   Csrf = "csrf",
 }

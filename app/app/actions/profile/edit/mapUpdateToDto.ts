@@ -2,26 +2,25 @@ import { EProfileEditFormFields } from "@/app/actions/profile/edit/enums";
 import { TFile } from "@/app/shared/types/file";
 
 type TProps = {
-  [EProfileEditFormFields.SessionId]: string;
   [EProfileEditFormFields.DisplayName]: string;
   [EProfileEditFormFields.Birthday]: string;
   [EProfileEditFormFields.Gender]: string;
   [EProfileEditFormFields.SearchGender]: string;
   [EProfileEditFormFields.Location]?: string | null | undefined;
   [EProfileEditFormFields.Description]?: string | null | undefined;
-  [EProfileEditFormFields.Height]?: string | null | undefined;
-  [EProfileEditFormFields.Weight]?: string | null | undefined;
+  [EProfileEditFormFields.Height]?: number | null | undefined;
+  [EProfileEditFormFields.Weight]?: number | null | undefined;
   [EProfileEditFormFields.LookingFor]: string;
   [EProfileEditFormFields.Image]: TFile | TFile[] | null | undefined;
   [EProfileEditFormFields.TelegramUserID]: string;
   [EProfileEditFormFields.TelegramUsername]: string;
-  [EProfileEditFormFields.TelegramFirstName]: string;
-  [EProfileEditFormFields.TelegramLastName]: string;
+  [EProfileEditFormFields.TelegramFirstName]?: string | null | undefined;
+  [EProfileEditFormFields.TelegramLastName]?: string | null | undefined;
   [EProfileEditFormFields.TelegramLanguageCode]: string;
   [EProfileEditFormFields.TelegramAllowsWriteToPm]: string;
   [EProfileEditFormFields.TelegramQueryId]: string;
-  [EProfileEditFormFields.Latitude]?: string | null | undefined;
-  [EProfileEditFormFields.Longitude]?: string | null | undefined;
+  [EProfileEditFormFields.Latitude]?: number | null | undefined;
+  [EProfileEditFormFields.Longitude]?: number | null | undefined;
   [EProfileEditFormFields.AgeFrom]: string;
   [EProfileEditFormFields.AgeTo]: string;
   [EProfileEditFormFields.Distance]: string;
@@ -31,7 +30,6 @@ type TProps = {
 };
 
 type TProfileForm = {
-  [EProfileEditFormFields.SessionId]: string;
   [EProfileEditFormFields.DisplayName]: string;
   [EProfileEditFormFields.Birthday]: string;
   [EProfileEditFormFields.Gender]: string;
@@ -68,15 +66,18 @@ type TMapUpdateToDto = (props: TProps) => TResponse;
 export const mapUpdateToDto: TMapUpdateToDto = (props) => {
   return {
     profileForm: {
-      [EProfileEditFormFields.SessionId]: props.sessionId,
       [EProfileEditFormFields.DisplayName]: props.displayName,
       [EProfileEditFormFields.Birthday]: props.birthday,
       [EProfileEditFormFields.Gender]: props.gender,
       [EProfileEditFormFields.SearchGender]: props.searchGender,
       [EProfileEditFormFields.Location]: props?.location ?? null,
       [EProfileEditFormFields.Description]: props?.description ?? null,
-      [EProfileEditFormFields.Height]: props?.height ?? null,
-      [EProfileEditFormFields.Weight]: props?.weight ?? null,
+      [EProfileEditFormFields.Height]: props?.height
+        ? props.height.toString()
+        : null,
+      [EProfileEditFormFields.Weight]: props?.weight
+        ? props.weight.toString()
+        : null,
       [EProfileEditFormFields.LookingFor]: props.lookingFor,
       [EProfileEditFormFields.Image]: props?.image ?? null,
       [EProfileEditFormFields.TelegramUserID]: props.telegramUserId,
@@ -89,8 +90,12 @@ export const mapUpdateToDto: TMapUpdateToDto = (props) => {
       [EProfileEditFormFields.TelegramAllowsWriteToPm]:
         props.telegramAllowsWriteToPm,
       [EProfileEditFormFields.TelegramQueryId]: props.telegramQueryId,
-      [EProfileEditFormFields.Latitude]: props?.latitude ?? null,
-      [EProfileEditFormFields.Longitude]: props?.longitude ?? null,
+      [EProfileEditFormFields.Latitude]: props?.latitude
+        ? props.latitude.toString()
+        : null,
+      [EProfileEditFormFields.Longitude]: props?.longitude
+        ? props.longitude.toString()
+        : null,
       [EProfileEditFormFields.AgeFrom]: props.ageFrom,
       [EProfileEditFormFields.AgeTo]: props.ageTo,
       [EProfileEditFormFields.Distance]: props.distance,

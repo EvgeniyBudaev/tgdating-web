@@ -1,5 +1,4 @@
 export enum EProfileEditFormFields {
-  SessionId = "sessionId",
   DisplayName = "displayName",
   Birthday = "birthday",
   Gender = "gender",

@@ -2,7 +2,7 @@
 
 import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
-import { type FC, useEffect, useRef } from "react";
+import { type FC, useEffect } from "react";
 import { useFormState } from "react-dom";
 import { addBlockAction } from "@/app/actions/block/add/addBlockAction";
 import { useTranslation } from "@/app/i18n/client";
@@ -14,21 +14,23 @@ import {
 } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { createPath } from "@/app/shared/utils";
+import { Button } from "@/app/uikit/components/button";
+import { Modal, useModalWindow } from "@/app/uikit/components/modal";
 import { Typography } from "@/app/uikit/components/typography";
 
 type TProps = {
-  blockedUserSessionId: string;
+  blockedTelegramUserId: string;
   lng: ELanguage;
   onCloseDropDown?: () => void;
 };
 
-export const Block: FC<TProps> = ({ blockedUserSessionId, lng, onCloseDropDown }) => {
+export const Block: FC<TProps> = ({ blockedTelegramUserId, lng }) => {
   const csrf = useAuthenticityTokenContext();
+  const { closeModal, isOpenModal, openModal } = useModalWindow();
   const telegram = useTelegramContext();
   const isSession = telegram?.isSession;
   const { t } = useTranslation("index");
   const [state, formAction] = useFormState(addBlockAction, INITIAL_FORM_STATE);
-  const buttonSubmitRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
@@ -41,23 +43,19 @@ export const Block: FC<TProps> = ({ blockedUserSessionId, lng, onCloseDropDown }
   }, [lng, state?.data, state?.error, state.success]);
 
   const handleBlock = () => {
-    // @ts-ignore
-    if ("click" in buttonSubmitRef.current) {
-      buttonSubmitRef.current && buttonSubmitRef.current.click();
-    }
-    onCloseDropDown?.();
+    openModal();
   };
 
   const handleSubmit = (formData: FormData) => {
-    if (isSession && blockedUserSessionId) {
+    if (isSession && blockedTelegramUserId) {
       const formDataDto = new FormData();
       formDataDto.append(
-        EBlockFormFields.SessionId,
+        EBlockFormFields.TelegramUserId,
         (telegram?.user?.id ?? "").toString(),
       );
       formDataDto.append(
-        EBlockFormFields.BlockedUserSessionId,
-        blockedUserSessionId.toString(),
+        EBlockFormFields.BlockedTelegramUserId,
+        blockedTelegramUserId.toString(),
       );
       formDataDto.append(
         EBlockFormFields.TelegramInitDataCrypt,
@@ -77,9 +75,27 @@ export const Block: FC<TProps> = ({ blockedUserSessionId, lng, onCloseDropDown }
       >
         <Typography>{t("common.actions.block")}</Typography>
       </div>
-      <form action={handleSubmit} className="Block-Form">
-        <input hidden={true} ref={buttonSubmitRef} type="submit" />
-      </form>
+      <Modal isOpen={isOpenModal} onCloseModal={closeModal}>
+        <Modal.Header align="center">
+          <Typography>{t("common.titles.blockQuestion")}</Typography>
+        </Modal.Header>
+        <Modal.Footer>
+          <div className="Freeze-Modal-Footer-Controls">
+            <Button
+              className="Freeze-Modal-Footer-Cancel"
+              onClick={closeModal}
+              type="button"
+            >
+              <Typography>{t("common.actions.no")}</Typography>
+            </Button>
+            <form action={handleSubmit} className="Block-Form">
+              <Button type="submit">
+                <Typography>{t("common.actions.yes")}</Typography>
+              </Button>
+            </form>
+          </div>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };

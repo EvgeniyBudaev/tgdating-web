@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { getProfileDetail } from "@/app/api/profile/detail";
-import {ProfileDetailPage} from "@/app/pages/profileDetailPage";
+import { ProfileDetailPage } from "@/app/pages/profileDetailPage";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { createPath } from "@/app/shared/utils";
 
@@ -12,31 +12,51 @@ type TSearchParamsLoader = {
 };
 
 type TLoader = {
-  sessionId: string;
-  viewedSessionId: string;
+  telegramUserId: string;
+  viewedTelegramUserId: string;
   searchParams: TSearchParamsLoader;
 };
 
 async function loaderProfileDetail(params: TLoader) {
-  const { sessionId, viewedSessionId, searchParams } = params;
+  const { telegramUserId, viewedTelegramUserId, searchParams } = params;
   try {
     const profileDetailResponse = await getProfileDetail({
-      sessionId: sessionId,
-      viewedSessionId: viewedSessionId,
+      telegramUserId: telegramUserId,
+      viewedTelegramUserId: viewedTelegramUserId,
       latitude: searchParams?.latitude ?? "",
       longitude: searchParams?.longitude ?? "",
     });
-    return { profile: profileDetailResponse, isExistUser: true, isManyRequest: false, isUnauthorized: false };
+    return {
+      profile: profileDetailResponse,
+      isExistUser: true,
+      isManyRequest: false,
+      isUnauthorized: false,
+    };
   } catch (error) {
     const errorResponse = error as Response;
     if (errorResponse?.status === 401) {
-      return { profile: undefined, isExistUser: true, isManyRequest: false, isUnauthorized: true };
+      return {
+        profile: undefined,
+        isExistUser: true,
+        isManyRequest: false,
+        isUnauthorized: true,
+      };
     }
     if (errorResponse?.status === 404) {
-      return { profile: undefined, isExistUser: false, isManyRequest: false, isUnauthorized: false };
+      return {
+        profile: undefined,
+        isExistUser: false,
+        isManyRequest: false,
+        isUnauthorized: false,
+      };
     }
     if (errorResponse?.status === 429) {
-      return { profile: undefined, isExistUser: true, isManyRequest: true, isUnauthorized: false };
+      return {
+        profile: undefined,
+        isExistUser: true,
+        isManyRequest: true,
+        isUnauthorized: false,
+      };
     }
     throw new Error("errorBoundary.common.unexpectedError");
   }
@@ -44,8 +64,8 @@ async function loaderProfileDetail(params: TLoader) {
 
 type TParams = Promise<{
   lng: string;
-  sessionId: string;
-  viewedSessionId: string;
+  telegramUserId: string;
+  viewedTelegramUserId: string;
 }>;
 
 type TSearchParams = Promise<{
@@ -62,12 +82,12 @@ export default async function ProfileDetailRoute({
   params,
   searchParams,
 }: TProps) {
-  const { lng, sessionId, viewedSessionId } = await params;
+  const { lng, telegramUserId, viewedTelegramUserId } = await params;
   const query = await searchParams;
   const language = lng as ELanguage;
   const data = await loaderProfileDetail({
-    sessionId,
-    viewedSessionId,
+    telegramUserId,
+    viewedTelegramUserId,
     searchParams: query ?? {},
   });
 
@@ -83,7 +103,7 @@ export default async function ProfileDetailRoute({
     redirect(
       createPath({
         route: ERoutes.ProfileBlocked,
-        params: {sessionId: sessionId}
+        params: { telegramUserId: telegramUserId },
       }),
     );
   }
@@ -92,7 +112,7 @@ export default async function ProfileDetailRoute({
     redirect(
       createPath({
         route: ERoutes.ProfileDeleted,
-        params: {sessionId: sessionId}
+        params: { telegramUserId: telegramUserId },
       }),
     );
   }
@@ -101,7 +121,7 @@ export default async function ProfileDetailRoute({
     redirect(
       createPath({
         route: ERoutes.ProfileBlocked,
-        params: {sessionId: sessionId}
+        params: { telegramUserId: telegramUserId },
       }),
     );
   }
@@ -112,8 +132,8 @@ export default async function ProfileDetailRoute({
       isManyRequest={data.isManyRequest}
       lng={language}
       profile={data?.profile}
-      sessionId={sessionId}
-      viewedSessionId={viewedSessionId}
+      telegramUserId={telegramUserId}
+      viewedTelegramUserId={viewedTelegramUserId}
     />
   );
 }

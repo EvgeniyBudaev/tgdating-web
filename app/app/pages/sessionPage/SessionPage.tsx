@@ -12,11 +12,11 @@ import { SearchForm } from "@/app/entities/search/searchForm";
 import { Container } from "@/app/shared/components/container";
 import { useNavigatorContext, useTelegramContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import {useCheckPermissions} from "@/app/shared/hooks";
+import { useCheckPermissions } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { Online } from "@/app/uikit/components/online";
 import { Typography } from "@/app/uikit/components/typography";
-import {notification} from "@/app/uikit/utils";
+import { notification } from "@/app/uikit/utils";
 import "./SessionPage.scss";
 
 type TProps = {
@@ -29,12 +29,12 @@ type TProps = {
 
 export const SessionPage: FC<TProps> = ({
   isExistUser,
-                                          isManyRequest,
+  isManyRequest,
   lng,
   profileFilter,
   profileList,
 }) => {
-  useCheckPermissions({lng});
+  useCheckPermissions({ lng });
   const navigator = useNavigatorContext();
   const telegram = useTelegramContext();
   const isSession = telegram?.isSession;
@@ -53,7 +53,7 @@ export const SessionPage: FC<TProps> = ({
   useEffect(() => {
     if (
       !isExistUser ||
-      (isSession && user?.id.toString() !== profileFilter?.sessionId)
+      (isSession && user?.id.toString() !== profileFilter?.telegramUserId)
     ) {
       return redirect(
         createPath({
@@ -61,7 +61,7 @@ export const SessionPage: FC<TProps> = ({
         }),
       );
     }
-  }, [isSession, isExistUser, profileFilter?.sessionId, user?.id]);
+  }, [isSession, isExistUser, profileFilter?.telegramUserId, user?.id]);
 
   return (
     <div className="SessionPage">
@@ -82,8 +82,8 @@ export const SessionPage: FC<TProps> = ({
                   pathname: createPath({
                     route: ERoutes.ProfileDetail,
                     params: {
-                      sessionId: user?.id ?? "",
-                      viewedSessionId: item.sessionId,
+                      telegramUserId: user?.id ?? "",
+                      viewedTelegramUserId: item.telegramUserId,
                     },
                     lng: lng,
                   }),
@@ -96,9 +96,12 @@ export const SessionPage: FC<TProps> = ({
                       : {}),
                   },
                 }}
-                key={item.sessionId}
+                key={item.telegramUserId}
               >
-                <div className="SessionPage-WrapperImage" key={item.sessionId}>
+                <div
+                  className="SessionPage-WrapperImage"
+                  key={item.telegramUserId}
+                >
                   <Online
                     classes={{ root: "SessionPage-Online" }}
                     isOnline={item.isOnline}

@@ -37,8 +37,11 @@ export async function updateFilterAction(prevState: any, formData: FormData) {
     const checkCsrf = await checkCsrfToken(csrf);
     if (checkCsrf?.error) throw checkCsrf.error;
     const filterFormData = new FormData();
-    const sessionId = formattedParams.sessionId;
-    filterFormData.append(EFilterUpdateFormFields.SessionId, sessionId);
+    const telegramUserId = formattedParams.telegramUserId;
+    filterFormData.append(
+      EFilterUpdateFormFields.TelegramUserId,
+      telegramUserId,
+    );
     filterFormData.append(
       EFilterUpdateFormFields.SearchGender,
       formattedParams.searchGender,
@@ -58,8 +61,8 @@ export async function updateFilterAction(prevState: any, formData: FormData) {
       },
     );
     const path = createPath({
-      route: ERoutes.Session,
-      params: { sessionId: sessionId },
+      route: ERoutes.Telegram,
+      params: { telegramUserId: telegramUserId },
     });
     revalidatePath(path);
     return {

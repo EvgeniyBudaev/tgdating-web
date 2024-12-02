@@ -5,13 +5,13 @@ import { navigatorSchema } from "@/app/api/profile/navigator";
 import { telegramSchema } from "@/app/api/profile/telegram";
 
 export const getProfileParamsSchema = z.object({
-  sessionId: z.string(),
+  telegramUserId: z.string(),
   latitude: z.string().nullish(),
   longitude: z.string().nullish(),
 });
 
 export const getProfileSchema = z.object({
-  sessionId: z.string(),
+  telegramUserId: z.string(),
   displayName: z.string(),
   birthday: z.string(),
   gender: z.string(),

@@ -27,7 +27,7 @@ import { Textarea } from "@/app/shared/components/form/textarea";
 import { SubmitButton } from "@/app/shared/components/form/submitButton";
 import { Section } from "@/app/shared/components/section";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import {useCheckPermissions} from "@/app/shared/hooks";
+import { useCheckPermissions } from "@/app/shared/hooks";
 import { GENDER_MAPPING } from "@/app/shared/mapping/gender";
 import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
 import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
@@ -37,7 +37,7 @@ import {
   ETypographyVariant,
   Typography,
 } from "@/app/uikit/components/typography";
-import {notification} from "@/app/uikit/utils";
+import { notification } from "@/app/uikit/utils";
 import "./ProfileForm.scss";
 
 type TProps = {
@@ -47,8 +47,13 @@ type TProps = {
   profile?: TProfile;
 };
 
-export const ProfileForm: FC<TProps> = ({ isEdit, isManyRequest, lng, profile }) => {
-  useCheckPermissions({lng});
+export const ProfileForm: FC<TProps> = ({
+  isEdit,
+  isManyRequest,
+  lng,
+  profile,
+}) => {
+  useCheckPermissions({ lng });
   const { t } = useTranslation("index");
   const {
     displayName,
@@ -277,8 +282,12 @@ export const ProfileForm: FC<TProps> = ({ isEdit, isManyRequest, lng, profile })
                     {
                       route: ERoutes.ProfileDetail,
                       params: {
-                        sessionId: (profile?.sessionId ?? "").toString(),
-                        viewedSessionId: (profile?.sessionId ?? "").toString(),
+                        telegramUserId: (
+                          profile?.telegramUserId ?? ""
+                        ).toString(),
+                        viewedTelegramUserId: (
+                          profile?.telegramUserId ?? ""
+                        ).toString(),
                       },
                       lng: lng,
                     },

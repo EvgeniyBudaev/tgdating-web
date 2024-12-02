@@ -1,5 +1,5 @@
 export enum EProfileRestoreFormFields {
-  SessionId = "sessionId",
+  TelegramUserId = "telegramUserId",
   TelegramInitDataCrypt = "telegramInitDataCrypt",
   Csrf = "csrf",
 }

@@ -1,35 +1,45 @@
 "use client";
 
 import isNil from "lodash/isNil";
-import {redirect} from "next/navigation";
-import {type FC, useEffect} from "react";
-import {useFormState} from "react-dom";
-import {EProfileRestoreFormFields} from "@/app/actions/profile/restore/enums";
-import {restoreProfileAction} from "@/app/actions/profile/restore/restoreProfileAction";
+import { redirect } from "next/navigation";
+import { type FC, useEffect } from "react";
+import { useFormState } from "react-dom";
+import { EProfileRestoreFormFields } from "@/app/actions/profile/restore/enums";
+import { restoreProfileAction } from "@/app/actions/profile/restore/restoreProfileAction";
 import { useTranslation } from "@/app/i18n/client";
-import {INITIAL_FORM_STATE} from "@/app/shared/constants/form";
-import {useAuthenticityTokenContext, useTelegramContext} from "@/app/shared/context";
-import {ELanguage, ERoutes} from "@/app/shared/enums";
-import {createPath} from "@/app/shared/utils";
-import {Button} from "@/app/uikit/components/button";
-import {Typography} from "@/app/uikit/components/typography";
+import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
+import {
+  useAuthenticityTokenContext,
+  useTelegramContext,
+} from "@/app/shared/context";
+import { ELanguage, ERoutes } from "@/app/shared/enums";
+import { createPath } from "@/app/shared/utils";
+import { Button } from "@/app/uikit/components/button";
+import { Typography } from "@/app/uikit/components/typography";
 import "./ProfileFreezePage.scss";
 
 type TProps = {
   isDeleted?: boolean;
   lng: ELanguage;
-  sessionId: string;
-}
+  telegramUserId: string;
+};
 
-export const ProfileFreezePage: FC<TProps> = ({isDeleted, lng, sessionId}) => {
+export const ProfileFreezePage: FC<TProps> = ({
+  isDeleted,
+  lng,
+  telegramUserId,
+}) => {
   const csrf = useAuthenticityTokenContext();
   const { t } = useTranslation("index");
   const telegram = useTelegramContext();
   const isSession = telegram?.isSession;
   const isSessionUser = Boolean(
-    sessionId && telegram?.user?.id.toString() === sessionId,
+    telegramUserId && telegram?.user?.id.toString() === telegramUserId,
   );
-  const [state, formAction] = useFormState(restoreProfileAction, INITIAL_FORM_STATE);
+  const [state, formAction] = useFormState(
+    restoreProfileAction,
+    INITIAL_FORM_STATE,
+  );
 
   useEffect(() => {
     if (!isDeleted) {
@@ -46,8 +56,8 @@ export const ProfileFreezePage: FC<TProps> = ({isDeleted, lng, sessionId}) => {
       const path = createPath({
         route: ERoutes.ProfileDetail,
         params: {
-          sessionId: sessionId,
-          viewedSessionId: sessionId,
+          telegramUserId: telegramUserId,
+          viewedTelegramUserId: telegramUserId,
         },
         lng: lng,
       });
@@ -59,8 +69,8 @@ export const ProfileFreezePage: FC<TProps> = ({isDeleted, lng, sessionId}) => {
     if (isSession) {
       const formDataDto = new FormData();
       formDataDto.append(
-        EProfileRestoreFormFields.SessionId,
-        sessionId,
+        EProfileRestoreFormFields.TelegramUserId,
+        telegramUserId,
       );
       formDataDto.append(
         EProfileRestoreFormFields.TelegramInitDataCrypt,
@@ -70,7 +80,7 @@ export const ProfileFreezePage: FC<TProps> = ({isDeleted, lng, sessionId}) => {
       // @ts-ignore
       formAction(formDataDto);
     }
-  }
+  };
 
   return (
     <div className="ProfileFreezePage">

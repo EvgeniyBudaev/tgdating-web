@@ -27,8 +27,8 @@ const FooterComponent: FC<TProps> = ({ lng }) => {
 
   const sessionPath = createPath(
     {
-      route: ERoutes.Session,
-      params: { sessionId: (user?.id ?? "").toString() },
+      route: ERoutes.Telegram,
+      params: { telegramUserId: (user?.id ?? "").toString() },
       lng: lng,
     },
     {
@@ -45,8 +45,8 @@ const FooterComponent: FC<TProps> = ({ lng }) => {
     {
       route: ERoutes.ProfileDetail,
       params: {
-        sessionId: (user?.id ?? "").toString(),
-        viewedSessionId: (user?.id ?? "").toString(),
+        telegramUserId: (user?.id ?? "").toString(),
+        viewedTelegramUserId: (user?.id ?? "").toString(),
       },
       lng: lng,
     },

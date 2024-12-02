@@ -44,8 +44,10 @@ export async function addLikeAction(prevState: any, formData: FormData) {
     const path = createPath({
       route: ERoutes.ProfileDetail,
       params: {
-        sessionId: (resolver.data.sessionId ?? "").toString(),
-        viewedSessionId: (resolver.data.likedSessionId ?? "").toString(),
+        telegramUserId: (resolver.data.telegramUserId ?? "").toString(),
+        viewedTelegramUserId: (
+          resolver.data.likedTelegramUserId ?? ""
+        ).toString(),
       },
       lng: resolver.data.language,
     });

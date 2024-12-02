@@ -14,10 +14,9 @@ import "./Slider.scss";
 
 type TProps = {
   images?: TImage[] | null;
-  sessionId: string;
 };
 
-export const Slider: FC<TProps> = ({ images, sessionId }) => {
+export const Slider: FC<TProps> = ({ images }) => {
   return !isNil(images) && !isEmpty(images) ? (
     <Swiper
       className="Slider"

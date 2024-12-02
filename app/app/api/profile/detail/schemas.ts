@@ -3,8 +3,8 @@ import { imageSchema } from "@/app/api/profile/image";
 import { telegramSchema } from "@/app/api/profile/telegram";
 
 export const profileDetailParamsSchema = z.object({
-  sessionId: z.string(),
-  viewedSessionId: z.string(),
+  telegramUserId: z.string(),
+  viewedTelegramUserId: z.string(),
   latitude: z.string().nullish(),
   longitude: z.string().nullish(),
 });
@@ -20,7 +20,7 @@ const likeSchema = z.object({
 });
 
 export const profileDetailSchema = z.object({
-  sessionId: z.string(),
+  telegramUserId: z.string(),
   displayName: z.string(),
   birthday: z.string(),
   gender: z.string(),

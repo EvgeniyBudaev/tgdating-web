@@ -1,5 +1,5 @@
 export enum EFilterUpdateFormFields {
-  SessionId = "sessionId",
+  TelegramUserId = "telegramUserId",
   SearchGender = "searchGender",
   AgeFrom = "ageFrom",
   AgeTo = "ageTo",

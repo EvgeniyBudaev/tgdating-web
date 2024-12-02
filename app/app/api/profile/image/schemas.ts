@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const imageSchema = z.object({
   id: z.number(),
-  sessionId: z.string(),
+  telegramUserId: z.string(),
   name: z.string(),
   url: z.string(),
   size: z.number(),

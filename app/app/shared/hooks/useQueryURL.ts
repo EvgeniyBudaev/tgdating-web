@@ -35,7 +35,7 @@ type TOnUpdateQueryURLProps = {
   ageTo?: string;
   searchGender?: string;
   lookingFor?: string;
-  sessionId?: string;
+  telegramUserId?: string;
   distance?: string;
   latitude?: string;
   longitude?: string;
@@ -48,7 +48,7 @@ type TOnGetQueryURLResponse = {
   ageTo: string;
   searchGender: string;
   lookingFor: string;
-  sessionId: string;
+  telegramUserId: string;
   distance: string;
   latitude: string;
   longitude: string;
@@ -67,7 +67,7 @@ export const useQueryURL: TUseQueryURL = ({ lng }) => {
   const { replace } = useRouter();
   const pathname = usePathname();
   const telegram = useTelegramContext();
-  const sessionId = telegram?.user?.id ?? "";
+  const telegramUserId = telegram?.user?.id ?? "";
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams.toString());
   const page = params.get(PAGE) ?? DEFAULT_PAGE.toString();
@@ -83,7 +83,7 @@ export const useQueryURL: TUseQueryURL = ({ lng }) => {
   const longitudeGPS = (navigator?.longitude ?? "").toString();
 
   const queryURL = useMemo(() => {
-    return `?page=${page}&size=${size}&ageFrom=${ageFrom}&ageTo=${ageTo}&searchGender=${searchGender}&lookingFor=${lookingFor}&sessionId=${sessionId}&distance=${distance}&latitude=${latitudeGPS}&longitude=${longitudeGPS}`;
+    return `?page=${page}&size=${size}&ageFrom=${ageFrom}&ageTo=${ageTo}&searchGender=${searchGender}&lookingFor=${lookingFor}&telegramUserId=${telegramUserId}&distance=${distance}&latitude=${latitudeGPS}&longitude=${longitudeGPS}`;
   }, [
     page,
     size,
@@ -91,7 +91,7 @@ export const useQueryURL: TUseQueryURL = ({ lng }) => {
     ageTo,
     searchGender,
     lookingFor,
-    sessionId,
+    telegramUserId,
     distance,
     latitudeGPS,
     longitudeGPS,
@@ -110,9 +110,9 @@ export const useQueryURL: TUseQueryURL = ({ lng }) => {
     props?.lookingFor
       ? params.set(LOOKING_FOR, props.lookingFor)
       : params.set(LOOKING_FOR, lookingFor);
-    props?.sessionId
-      ? params.set(SESSION_ID, props.sessionId)
-      : params.set(SESSION_ID, sessionId?.toString() ?? "");
+    props?.telegramUserId
+      ? params.set(SESSION_ID, props.telegramUserId)
+      : params.set(SESSION_ID, telegramUserId?.toString() ?? "");
     props?.distance
       ? params.set(DISTANCE, props.distance)
       : params.set(DISTANCE, distance);
@@ -133,7 +133,7 @@ export const useQueryURL: TUseQueryURL = ({ lng }) => {
       ageTo: params.get(AGE_TO) ?? DEFAULT_AGE_TO.toString(),
       searchGender: params.get(SEARCH_GENDER) ?? DEFAULT_SEARCH_GENDER,
       lookingFor: params.get(LOOKING_FOR) ?? DEFAULT_LOOKING_FOR,
-      sessionId: params.get(SESSION_ID) ?? "",
+      telegramUserId: params.get(SESSION_ID) ?? "",
       distance: params.get(DISTANCE) ?? DEFAULT_DISTANCE.toString(),
       latitude: params.get(LATITUDE) ?? "",
       longitude: params.get(LONGITUDE) ?? "",

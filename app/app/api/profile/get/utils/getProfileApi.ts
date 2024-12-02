@@ -5,12 +5,12 @@ import { EFormMethods } from "@/app/shared/enums";
 export const getProfileApi: TApiFunction<TProfileParams, TProfile> = (
   params,
 ) => {
-  const { sessionId } = params;
+  const { telegramUserId } = params;
   const queryParams = {
     ...(params?.latitude && { latitude: params?.latitude }),
     ...(params?.longitude && { longitude: params?.longitude }),
   };
-  const url = `/api/v1/profiles/session/${sessionId}?${new URLSearchParams(queryParams)}`;
+  const url = `/api/v1/profiles/telegram/${telegramUserId}?${new URLSearchParams(queryParams)}`;
   return fetchApi<TProfile>(url, {
     method: EFormMethods.Get,
   });

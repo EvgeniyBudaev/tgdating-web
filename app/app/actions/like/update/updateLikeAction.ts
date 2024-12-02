@@ -30,7 +30,7 @@ export async function updateLikeAction(prevState: any, formData: FormData) {
   const formattedParams = {
     id: Number(resolver.data.id),
     isLiked: Boolean(JSON.parse(resolver.data.isLiked)),
-    sessionId: resolver.data.sessionId,
+    telegramUserId: resolver.data.telegramUserId,
   };
 
   const accessToken = resolver.data.telegramInitDataCrypt;
@@ -47,8 +47,10 @@ export async function updateLikeAction(prevState: any, formData: FormData) {
     const path = createPath({
       route: ERoutes.ProfileDetail,
       params: {
-        sessionId: (resolver.data.sessionId ?? "").toString(),
-        viewedSessionId: (resolver.data.likedSessionId ?? "").toString(),
+        telegramUserId: (resolver.data.telegramUserId ?? "").toString(),
+        viewedTelegramUserId: (
+          resolver.data.likedTelegramUserId ?? ""
+        ).toString(),
       },
       lng: resolver.data.language,
     });

@@ -5,7 +5,7 @@ import { type FC } from "react";
 import { deleteImageAction } from "@/app/actions/image/delete/deleteImageAction";
 import type { TImage } from "@/app/api/profile/image";
 import { useTranslation } from "@/app/i18n/client";
-import { EFormFields } from "@/app/actions/image/delete/enums";
+import { EImageDeleteFormFields } from "@/app/actions/image/delete/enums";
 import {
   useAuthenticityTokenContext,
   useTelegramContext,
@@ -25,12 +25,12 @@ export const ImageList: FC<TProps> = ({ defaultImages, lng }) => {
 
   const handleDeleteImage = async (image: TImage) => {
     const formDataDto = new FormData();
-    formDataDto.append(EFormFields.Id, image.id.toString());
+    formDataDto.append(EImageDeleteFormFields.Id, image.id.toString());
     formDataDto.append(
-      EFormFields.TelegramInitDataCrypt,
+      EImageDeleteFormFields.TelegramInitDataCrypt,
       telegram?.initDataCrypt ?? "",
     );
-    formDataDto.append(EFormFields.Csrf, csrf ?? "");
+    formDataDto.append(EImageDeleteFormFields.Csrf, csrf ?? "");
     // @ts-ignore
     await deleteImageAction({}, formDataDto);
   };

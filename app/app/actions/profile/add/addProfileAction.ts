@@ -33,12 +33,10 @@ export async function addProfileAction(prevState: any, formData: FormData) {
     } = resolver.data;
     const checkCsrf = await checkCsrfToken(csrf);
     if (checkCsrf?.error) throw checkCsrf.error;
-    // @ts-ignore
+
     const mapperParams = mapSignupToDto(formattedParams);
 
     const profileFormData = new FormData();
-    const sessionId = mapperParams.profileForm.telegramUserId;
-    profileFormData.append("sessionId", sessionId);
     profileFormData.append(
       EProfileAddFormFields.DisplayName,
       mapperParams.profileForm.displayName,

@@ -1,5 +1,5 @@
 export enum EProfileFreezeFormFields {
-  SessionId = "sessionId",
+  TelegramUserId = "telegramUserId",
   TelegramInitDataCrypt = "telegramInitDataCrypt",
   Csrf = "csrf",
 }

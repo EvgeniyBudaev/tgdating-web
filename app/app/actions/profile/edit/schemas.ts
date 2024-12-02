@@ -23,10 +23,6 @@ import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
 
 export const editProfileFormSchema = zfd
   .formData({
-    [EProfileEditFormFields.SessionId]: z
-      .string()
-      .trim()
-      .min(1, EMPTY_FIELD_ERROR_MESSAGE),
     [EProfileEditFormFields.DisplayName]: symbolsMaxDisplayNameSchema,
     [EProfileEditFormFields.Birthday]: z
       .string()

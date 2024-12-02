@@ -1,8 +1,7 @@
 import { z } from "zod";
 
 export const telegramSchema = z.object({
-  sessionId: z.string(),
-  userId: z.number(),
+  telegramUserId: z.string(),
   username: z.string(),
   firstName: z.string().nullish(),
   lastName: z.string().nullish(),

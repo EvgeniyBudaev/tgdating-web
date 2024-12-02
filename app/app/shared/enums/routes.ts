@@ -1,10 +1,10 @@
 export enum ERoutes {
   Root = "/",
-  Session = "/sessions/:sessionId/list",
+  Telegram = "/telegram/:telegramUserId/list",
   Unauthorized = "/401",
-  ProfileDetail = "/sessions/:sessionId/profiles/:viewedSessionId",
+  ProfileDetail = "/telegram/:telegramUserId/profiles/:viewedTelegramUserId",
   ProfileAdd = "/profile/add",
-  ProfileEdit = "/profile/edit/:sessionId",
-  ProfileBlocked = "/sessions/:sessionId/blocked",
-  ProfileDeleted = "/sessions/:sessionId/deleted",
+  ProfileEdit = "/profile/edit/:telegramUserId",
+  ProfileBlocked = "/telegram/:telegramUserId/blocked",
+  ProfileDeleted = "/telegram/:telegramUserId/deleted",
 }

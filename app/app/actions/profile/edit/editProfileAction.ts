@@ -14,7 +14,7 @@ export async function editProfileAction(prevState: any, formData: FormData) {
   const resolver = editProfileFormSchema.safeParse(
     Object.fromEntries(formData.entries()),
   );
-  console.log("editProfileAction resolver.success: ", resolver.success);
+
   if (!resolver.success) {
     const errors = getErrorsResolver(resolver);
     return {
@@ -33,15 +33,10 @@ export async function editProfileAction(prevState: any, formData: FormData) {
     } = resolver.data;
     const checkCsrf = await checkCsrfToken(csrf);
     if (checkCsrf?.error) throw checkCsrf.error;
-    // @ts-ignore
+
     const mapperParams = mapUpdateToDto(formattedParams);
-    console.log("editProfileAction mapperParams: ", mapperParams);
 
     const profileFormData = new FormData();
-    profileFormData.append(
-      EProfileEditFormFields.SessionId,
-      mapperParams.profileForm.sessionId,
-    );
     profileFormData.append(
       EProfileEditFormFields.DisplayName,
       mapperParams.profileForm.displayName,
@@ -180,7 +175,8 @@ export async function editProfileAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
-    if (errorResponse?.status === 401 || errorResponse?.status === 403) throw error;
+    if (errorResponse?.status === 401 || errorResponse?.status === 403)
+      throw error;
     const responseData: TCommonResponseError = await errorResponse.json();
     console.log("editProfileAction errorResponseData: ", responseData);
     const { message: formError, fieldErrors } =

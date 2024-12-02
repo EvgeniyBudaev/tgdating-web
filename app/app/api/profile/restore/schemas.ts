@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const restoreProfileParamsSchema = z.object({
-  sessionId: z.string(),
+  telegramUserId: z.string(),
 });
 
 export const restoreProfileSchema = z.object({

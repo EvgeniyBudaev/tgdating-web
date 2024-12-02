@@ -1,14 +1,9 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
 import { updateNavigatorFormSchema } from "@/app/actions/navigator/update/schemas";
 import { updateNavigator } from "@/app/api/profile/navigator";
 import type { TCommonResponseError } from "@/app/shared/types/error";
-import {
-  getResponseError,
-  getErrorsResolver,
-  createPath,
-} from "@/app/shared/utils";
+import { getResponseError, getErrorsResolver } from "@/app/shared/utils";
 import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
 
 export async function updateNavigatorAction(
@@ -42,11 +37,6 @@ export async function updateNavigatorAction(
         Authorization: accessToken,
       },
     });
-    // const path = createPath({
-    //   route: ERoutes.ProfileEdit,
-    //   params: { id: resolver.data.id },
-    // });
-    // revalidatePath(path);
     return {
       data: response,
       error: undefined,

@@ -1,7 +1,7 @@
-import {redirect} from "next/navigation";
+import { redirect } from "next/navigation";
 import { getFilter } from "@/app/api/profile/filter";
 import { getProfileList } from "@/app/api/profile/list";
-import {getProfileShortInfo} from "@/app/api/profile/shortInfo/get";
+import { getProfileShortInfo } from "@/app/api/profile/shortInfo/get";
 import { SessionPage } from "@/app/pages/sessionPage";
 import {
   DEFAULT_AGE_FROM,
@@ -12,8 +12,8 @@ import {
   DEFAULT_PAGE_SIZE,
   DEFAULT_SEARCH_GENDER,
 } from "@/app/shared/constants";
-import {ELanguage, ERoutes} from "@/app/shared/enums";
-import {createPath} from "@/app/shared/utils";
+import { ELanguage, ERoutes } from "@/app/shared/enums";
+import { createPath } from "@/app/shared/utils";
 
 export const dynamic = "force-dynamic";
 
@@ -24,22 +24,21 @@ type TSearchParamsLoader = {
   ageTo?: string;
   searchGender?: string;
   lookingFor?: string;
-  sessionId?: string;
+  telegramUserId?: string;
   distance?: string;
   latitude?: string;
   longitude?: string;
 };
 
 type TLoader = {
-  sessionId: string;
+  telegramUserId: string;
   searchParams: TSearchParamsLoader;
 };
 
 async function loaderProfileList(params: TLoader) {
-  const { sessionId, searchParams } = params;
-  console.log("loaderProfileList sessionId: ", sessionId);
+  const { telegramUserId, searchParams } = params;
   try {
-    if (sessionId) {
+    if (telegramUserId) {
       const query = {
         page: searchParams?.page ?? DEFAULT_PAGE.toString(),
         size: searchParams?.size ?? DEFAULT_PAGE_SIZE.toString(),
@@ -47,22 +46,21 @@ async function loaderProfileList(params: TLoader) {
         ageTo: searchParams?.ageTo ?? DEFAULT_AGE_TO.toString(),
         searchGender: searchParams?.searchGender ?? DEFAULT_SEARCH_GENDER,
         lookingFor: searchParams?.lookingFor ?? DEFAULT_LOOKING_FOR,
-        sessionId: sessionId,
+        telegramUserId: telegramUserId,
         distance: searchParams?.distance ?? DEFAULT_DISTANCE.toString(),
         ...(searchParams?.latitude && { latitude: searchParams?.latitude }),
         ...(searchParams?.longitude && { longitude: searchParams?.longitude }),
       };
       const filterParams = {
-        sessionId: sessionId,
+        telegramUserId: telegramUserId,
         ...(searchParams?.latitude && { latitude: searchParams?.latitude }),
         ...(searchParams?.longitude && { longitude: searchParams?.longitude }),
       };
-      console.log("loaderProfileList get list");
       const profileListResponse = await getProfileList(query);
-      const profileShortInfoResponse = await getProfileShortInfo({sessionId: sessionId});
-      console.log("loaderProfileList get filter");
+      const profileShortInfoResponse = await getProfileShortInfo({
+        telegramUserId,
+      });
       const filterResponse = await getFilter(filterParams);
-      console.log("loaderProfileList isExistUser true");
       return {
         profileFilter: filterResponse,
         profileList: profileListResponse,
@@ -72,7 +70,6 @@ async function loaderProfileList(params: TLoader) {
         isUnauthorized: false,
       };
     }
-    console.log("loaderProfileList return undefined");
     return {
       profileFilter: undefined,
       profileList: undefined,
@@ -84,7 +81,10 @@ async function loaderProfileList(params: TLoader) {
   } catch (error) {
     const errorResponse = error as Response;
     console.log("loaderProfileList errorResponse: ", errorResponse);
-    console.log("loaderProfileList errorResponse?.status: ", errorResponse?.status);
+    console.log(
+      "loaderProfileList errorResponse?.status: ",
+      errorResponse?.status,
+    );
     if (errorResponse?.status === 401) {
       return {
         profileFilter: undefined,
@@ -121,7 +121,7 @@ async function loaderProfileList(params: TLoader) {
 
 type TParams = Promise<{
   lng: string;
-  sessionId: string;
+  telegramUserId: string;
 }>;
 
 type TSearchParams = Promise<{
@@ -131,7 +131,7 @@ type TSearchParams = Promise<{
   ageTo?: string;
   searchGender?: string;
   lookingFor?: string;
-  sessionId?: string;
+  telegramUserId?: string;
   distance?: string;
   latitude?: string;
   longitude?: string;
@@ -146,11 +146,11 @@ export default async function ProfileListRoute({
   params,
   searchParams,
 }: TProps) {
-  const { lng, sessionId } = await params;
+  const { lng, telegramUserId } = await params;
   const query = await searchParams;
   const language = lng as ELanguage;
   const data = await loaderProfileList({
-    sessionId,
+    telegramUserId,
     searchParams: query ?? {},
   });
 
@@ -166,7 +166,7 @@ export default async function ProfileListRoute({
     redirect(
       createPath({
         route: ERoutes.ProfileDeleted,
-        params: {sessionId: sessionId}
+        params: { telegramUserId: telegramUserId },
       }),
     );
   }
@@ -175,7 +175,7 @@ export default async function ProfileListRoute({
     redirect(
       createPath({
         route: ERoutes.ProfileBlocked,
-        params: {sessionId: sessionId}
+        params: { telegramUserId: telegramUserId },
       }),
     );
   }

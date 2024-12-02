@@ -42,8 +42,8 @@ export async function addBlockAction(prevState: any, formData: FormData) {
       },
     });
     const path = createPath({
-      route: ERoutes.Session,
-      params: { sessionId: resolver.data.sessionId },
+      route: ERoutes.Telegram,
+      params: { telegramUserId: resolver.data.telegramUserId },
     });
     revalidatePath(path);
     return {
@@ -54,7 +54,8 @@ export async function addBlockAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
-    if (errorResponse?.status === 401 || errorResponse?.status === 403) throw error;
+    if (errorResponse?.status === 401 || errorResponse?.status === 403)
+      throw error;
     const responseData: TCommonResponseError = await errorResponse.json();
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};

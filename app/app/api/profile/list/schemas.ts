@@ -2,7 +2,7 @@ import { z } from "zod";
 import { paginationSchema } from "@/app/api/pagination/schemas";
 
 const profileListItemSchema = z.object({
-  sessionId: z.string(),
+  telegramUserId: z.string(),
   distance: z.number().nullish(),
   url: z.string(),
   isOnline: z.boolean(),
@@ -10,7 +10,7 @@ const profileListItemSchema = z.object({
 });
 
 export const profileListParamsSchema = z.object({
-  sessionId: z.string(),
+  telegramUserId: z.string(),
   searchGender: z.string(),
   lookingFor: z.string(),
   ageFrom: z.string(),

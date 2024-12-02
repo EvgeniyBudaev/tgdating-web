@@ -123,8 +123,8 @@ export const SearchForm: FC<TProps> = ({ lng, profileFilter }) => {
       (searchGenderState?.value ?? "").toString() ?? DEFAULT_SEARCH_GENDER,
     );
     formDataDto.append(
-      EFilterUpdateFormFields.SessionId,
-      profileFilter?.sessionId ?? "",
+      EFilterUpdateFormFields.TelegramUserId,
+      profileFilter?.telegramUserId ?? "",
     );
     formDataDto.append(
       EFilterUpdateFormFields.TelegramInitDataCrypt,

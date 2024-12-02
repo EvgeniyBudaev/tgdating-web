@@ -2,9 +2,9 @@
 
 import { restoreProfileFormSchema } from "@/app/actions/profile/restore/schemas";
 import { restoreProfile } from "@/app/api/profile/restore";
-import {getErrorsResolver, getResponseError} from "@/app/shared/utils";
-import type {TCommonResponseError} from "@/app/shared/types/error";
-import {checkCsrfToken} from "@/app/shared/utils/security/csrf";
+import { getErrorsResolver, getResponseError } from "@/app/shared/utils";
+import type { TCommonResponseError } from "@/app/shared/types/error";
+import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
 
 export async function restoreProfileAction(prevState: any, formData: FormData) {
   const resolver = restoreProfileFormSchema.safeParse(
@@ -22,7 +22,7 @@ export async function restoreProfileAction(prevState: any, formData: FormData) {
   }
 
   const formattedParams = {
-    sessionId: resolver.data.sessionId,
+    telegramUserId: resolver.data.telegramUserId,
   };
   const accessToken = resolver.data.telegramInitDataCrypt;
   const csrf = resolver.data.csrf;
@@ -46,7 +46,7 @@ export async function restoreProfileAction(prevState: any, formData: FormData) {
     if (errorResponse?.status === 403) throw error;
     const responseData: TCommonResponseError = await errorResponse.json();
     const { message: formError, fieldErrors } =
-    getResponseError(responseData) ?? {};
+      getResponseError(responseData) ?? {};
     return {
       data: undefined,
       error: formError,

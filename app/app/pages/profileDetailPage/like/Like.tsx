@@ -7,7 +7,7 @@ import { EUpdateLikeFormFields } from "@/app/actions/like/update/enum";
 import { updateLikeAction } from "@/app/actions/like/update/updateLikeAction";
 import type { TProfileDetail } from "@/app/api/profile/detail";
 import { useTranslation } from "@/app/i18n/client";
-import {LikeButton} from "@/app/pages/profileDetailPage/like/likeButton";
+import { LikeButton } from "@/app/pages/profileDetailPage/like/likeButton";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import {
   useAuthenticityTokenContext,
@@ -21,10 +21,10 @@ import "./Like.scss";
 type TProps = {
   lng: ELanguage;
   profile?: TProfileDetail;
-  sessionId: string;
+  telegramUserId: string;
 };
 
-export const Like: FC<TProps> = ({ lng, profile, sessionId }) => {
+export const Like: FC<TProps> = ({ lng, profile, telegramUserId }) => {
   const csrf = useAuthenticityTokenContext();
   const telegram = useTelegramContext();
   const isLiked = profile?.like?.isLiked;
@@ -84,10 +84,10 @@ export const Like: FC<TProps> = ({ lng, profile, sessionId }) => {
       if (canAddLike) {
         formDataDto.append(EAddLikeFormFields.Language, lng);
         formDataDto.append(
-          EAddLikeFormFields.LikedSessionId,
-          profile.sessionId,
+          EAddLikeFormFields.LikedTelegramUserId,
+          profile.telegramUserId,
         );
-        formDataDto.append(EAddLikeFormFields.SessionId, sessionId);
+        formDataDto.append(EAddLikeFormFields.TelegramUserId, telegramUserId);
         formDataDto.append(
           EAddLikeFormFields.TelegramInitDataCrypt,
           telegram?.initDataCrypt ?? "",
@@ -102,10 +102,13 @@ export const Like: FC<TProps> = ({ lng, profile, sessionId }) => {
         formDataDto.append(EUpdateLikeFormFields.IsLiked, "false");
         formDataDto.append(EUpdateLikeFormFields.Language, lng);
         formDataDto.append(
-          EUpdateLikeFormFields.LikedSessionId,
-          profile.sessionId,
+          EUpdateLikeFormFields.LikedTelegramUserId,
+          profile.telegramUserId,
         );
-        formDataDto.append(EUpdateLikeFormFields.SessionId, sessionId);
+        formDataDto.append(
+          EUpdateLikeFormFields.TelegramUserId,
+          telegramUserId,
+        );
         formDataDto.append(
           EUpdateLikeFormFields.TelegramInitDataCrypt,
           telegram?.initDataCrypt ?? "",
@@ -120,10 +123,13 @@ export const Like: FC<TProps> = ({ lng, profile, sessionId }) => {
         formDataDto.append(EUpdateLikeFormFields.IsLiked, "true");
         formDataDto.append(EUpdateLikeFormFields.Language, lng);
         formDataDto.append(
-          EUpdateLikeFormFields.LikedSessionId,
-          profile.sessionId,
+          EUpdateLikeFormFields.LikedTelegramUserId,
+          profile.telegramUserId,
         );
-        formDataDto.append(EUpdateLikeFormFields.SessionId, sessionId);
+        formDataDto.append(
+          EUpdateLikeFormFields.TelegramUserId,
+          telegramUserId,
+        );
         formDataDto.append(
           EUpdateLikeFormFields.TelegramInitDataCrypt,
           telegram?.initDataCrypt ?? "",
@@ -136,9 +142,17 @@ export const Like: FC<TProps> = ({ lng, profile, sessionId }) => {
   };
 
   return (
-    <form action={handleSubmit} className="Like-Form" style={{justifyContent: !message ? 'flex-end' :'center'}}>
-      <LikeButton isLiked={isLiked} message={message} onClick={handleHeartClick}/>
-      <input hidden={true} ref={buttonSubmitRef} type="submit"/>
+    <form
+      action={handleSubmit}
+      className="Like-Form"
+      style={{ justifyContent: !message ? "flex-end" : "center" }}
+    >
+      <LikeButton
+        isLiked={isLiked}
+        message={message}
+        onClick={handleHeartClick}
+      />
+      <input hidden={true} ref={buttonSubmitRef} type="submit" />
     </form>
   );
 };

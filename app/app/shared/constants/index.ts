@@ -22,7 +22,7 @@ export const LONGITUDE = "longitude";
 export const PAGE = "page";
 export const PROXY_URL = "";
 export const SEARCH_GENDER = "searchGender";
-export const SESSION_ID = "sessionId";
+export const SESSION_ID = "telegramUserId";
 export const SIZE = "size";
 
 export const COOKIE_CSRF_NAME = "tgCsrfServer";

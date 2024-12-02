@@ -1,19 +1,18 @@
 "use client";
 
-import {redirect} from "next/navigation";
-import {type FC, useEffect} from "react";
+import { redirect } from "next/navigation";
+import { type FC, useEffect } from "react";
 import { useTranslation } from "@/app/i18n/client";
-import {ELanguage, ERoutes} from "@/app/shared/enums";
-import {createPath} from "@/app/shared/utils";
+import { ELanguage, ERoutes } from "@/app/shared/enums";
+import { createPath } from "@/app/shared/utils";
 import "./ProfileBlockedPage.scss";
 
 type TProps = {
   isBlocked?: boolean;
   lng: ELanguage;
-  sessionId: string;
-}
+};
 
-export const ProfileBlockedPage: FC<TProps> = ({isBlocked, lng}) => {
+export const ProfileBlockedPage: FC<TProps> = ({ isBlocked, lng }) => {
   const { t } = useTranslation("index");
 
   useEffect(() => {

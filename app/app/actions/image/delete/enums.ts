@@ -1,8 +1,5 @@
-export enum EFormFields {
+export enum EImageDeleteFormFields {
   Id = "id",
-  SessionId = "sessionId",
-  Latitude = "latitude",
-  Longitude = "longitude",
   TelegramInitDataCrypt = "telegramInitDataCrypt",
   Csrf = "csrf",
 }

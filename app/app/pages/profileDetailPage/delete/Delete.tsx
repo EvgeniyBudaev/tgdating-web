@@ -1,39 +1,44 @@
 import isNil from "lodash/isNil";
-import {redirect} from "next/navigation";
-import {type FC, useEffect, useRef} from "react";
-import {useFormState} from "react-dom";
-import {useTranslation} from "@/app/i18n/client";
-import {deleteProfileAction} from "@/app/actions/profile/delete/deleteProfileAction";
-import {EProfileDeleteFormFields} from "@/app/actions/profile/delete/enums";
-import {INITIAL_FORM_STATE} from "@/app/shared/constants/form";
-import {useAuthenticityTokenContext, useTelegramContext} from "@/app/shared/context";
-import {ELanguage, ERoutes} from "@/app/shared/enums";
-import {createPath} from "@/app/shared/utils";
-import {Button} from "@/app/uikit/components/button";
-import {Modal, useModalWindow} from "@/app/uikit/components/modal";
-import {Typography} from "@/app/uikit/components/typography";
+import { redirect } from "next/navigation";
+import { type FC, useEffect, useRef } from "react";
+import { useFormState } from "react-dom";
+import { useTranslation } from "@/app/i18n/client";
+import { deleteProfileAction } from "@/app/actions/profile/delete/deleteProfileAction";
+import { EProfileDeleteFormFields } from "@/app/actions/profile/delete/enums";
+import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
+import {
+  useAuthenticityTokenContext,
+  useTelegramContext,
+} from "@/app/shared/context";
+import { ELanguage, ERoutes } from "@/app/shared/enums";
+import { createPath } from "@/app/shared/utils";
+import { Button } from "@/app/uikit/components/button";
+import { Modal, useModalWindow } from "@/app/uikit/components/modal";
+import { Typography } from "@/app/uikit/components/typography";
 import "./Delete.scss";
 
 type TProps = {
   lng: ELanguage;
-  sessionId: string;
+  telegramUserId: string;
   onCloseDropDown?: () => void;
 };
 
-export const Delete: FC<TProps> = ({lng, sessionId, onCloseDropDown}) => {
+export const Delete: FC<TProps> = ({ lng, telegramUserId }) => {
   const csrf = useAuthenticityTokenContext();
   const { closeModal, isOpenModal, openModal } = useModalWindow();
-  const buttonSubmitRef = useRef<HTMLInputElement | null>(null);
   const { t } = useTranslation("index");
   const telegram = useTelegramContext();
   const isSession = telegram?.isSession;
-  const [state, formAction] = useFormState(deleteProfileAction, INITIAL_FORM_STATE);
+  const [state, formAction] = useFormState(
+    deleteProfileAction,
+    INITIAL_FORM_STATE,
+  );
 
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
       const path = createPath({
         route: ERoutes.ProfileDeleted,
-        params: { sessionId: sessionId },
+        params: { telegramUserId: telegramUserId },
         lng: lng,
       });
       redirect(path);
@@ -42,18 +47,14 @@ export const Delete: FC<TProps> = ({lng, sessionId, onCloseDropDown}) => {
 
   const handleFreeze = () => {
     openModal();
-    // @ts-ignore
-    if ("click" in buttonSubmitRef.current) {
-      buttonSubmitRef.current && buttonSubmitRef.current.click();
-    }
   };
 
   const handleSubmit = (formData: FormData) => {
     if (isSession) {
       const formDataDto = new FormData();
       formDataDto.append(
-        EProfileDeleteFormFields.SessionId,
-        sessionId,
+        EProfileDeleteFormFields.TelegramUserId,
+        telegramUserId,
       );
       formDataDto.append(
         EProfileDeleteFormFields.TelegramInitDataCrypt,
@@ -63,7 +64,7 @@ export const Delete: FC<TProps> = ({lng, sessionId, onCloseDropDown}) => {
       // @ts-ignore
       formAction(formDataDto);
     }
-  }
+  };
 
   return (
     <>
@@ -79,7 +80,11 @@ export const Delete: FC<TProps> = ({lng, sessionId, onCloseDropDown}) => {
         </Modal.Header>
         <Modal.Footer>
           <div className="Delete-Modal-Footer-Controls">
-            <Button className="Delete-Modal-Footer-Cancel" onClick={closeModal} type="button">
+            <Button
+              className="Delete-Modal-Footer-Cancel"
+              onClick={closeModal}
+              type="button"
+            >
               <Typography>{t("common.actions.no")}</Typography>
             </Button>
             <form action={handleSubmit} className="Block-Form">
@@ -91,5 +96,5 @@ export const Delete: FC<TProps> = ({lng, sessionId, onCloseDropDown}) => {
         </Modal.Footer>
       </Modal>
     </>
-  )
-}
+  );
+};

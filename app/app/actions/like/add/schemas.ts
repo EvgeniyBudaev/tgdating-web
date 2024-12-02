@@ -8,11 +8,11 @@ export const addLikeFormSchema = zfd.formData({
     .string()
     .trim()
     .min(1, EMPTY_FIELD_ERROR_MESSAGE),
-  [EAddLikeFormFields.LikedSessionId]: z
+  [EAddLikeFormFields.LikedTelegramUserId]: z
     .string()
     .trim()
     .min(1, EMPTY_FIELD_ERROR_MESSAGE),
-  [EAddLikeFormFields.SessionId]: z
+  [EAddLikeFormFields.TelegramUserId]: z
     .string()
     .trim()
     .min(1, EMPTY_FIELD_ERROR_MESSAGE),

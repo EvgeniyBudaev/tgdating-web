@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const deleteProfileParamsSchema = z.object({
-  sessionId: z.string(),
+  telegramUserId: z.string(),
 });
 
 export const deleteProfileSchema = z.object({

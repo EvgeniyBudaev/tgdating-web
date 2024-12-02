@@ -3,7 +3,6 @@ import { zfd } from "zod-form-data";
 import { fileSchema } from "@/app/api/upload";
 
 export const addProfileParamsSchema = zfd.formData({
-  sessionId: zfd.text(),
   displayName: zfd.text(),
   birthday: zfd.text(),
   gender: zfd.text(),
@@ -31,5 +30,5 @@ export const addProfileParamsSchema = zfd.formData({
 });
 
 export const profileSchema = z.object({
-  sessionId: z.string(),
+  telegramUserId: z.string(),
 });

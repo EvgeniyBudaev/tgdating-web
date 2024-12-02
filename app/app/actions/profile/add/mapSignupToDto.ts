@@ -2,15 +2,14 @@ import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
 import { TFile } from "@/app/shared/types/file";
 
 type TProps = {
-  [EProfileAddFormFields.SessionId]: string;
   [EProfileAddFormFields.DisplayName]: string;
   [EProfileAddFormFields.Birthday]: string;
   [EProfileAddFormFields.Gender]: string;
   [EProfileAddFormFields.SearchGender]: string;
   [EProfileAddFormFields.Location]?: string | null | undefined;
   [EProfileAddFormFields.Description]?: string | null | undefined;
-  [EProfileAddFormFields.Height]?: string | null | undefined;
-  [EProfileAddFormFields.Weight]?: string | null | undefined;
+  [EProfileAddFormFields.Height]?: number | null | undefined;
+  [EProfileAddFormFields.Weight]?: number | null | undefined;
   [EProfileAddFormFields.LookingFor]: string;
   [EProfileAddFormFields.Image]: TFile | TFile[];
   [EProfileAddFormFields.TelegramUserID]: string;
@@ -20,8 +19,8 @@ type TProps = {
   [EProfileAddFormFields.TelegramLanguageCode]: string;
   [EProfileAddFormFields.TelegramAllowsWriteToPm]: string;
   [EProfileAddFormFields.TelegramQueryId]: string;
-  [EProfileAddFormFields.Latitude]?: string | null | undefined;
-  [EProfileAddFormFields.Longitude]?: string | null | undefined;
+  [EProfileAddFormFields.Latitude]?: number | null | undefined;
+  [EProfileAddFormFields.Longitude]?: number | null | undefined;
   [EProfileAddFormFields.AgeFrom]: string;
   [EProfileAddFormFields.AgeTo]: string;
   [EProfileAddFormFields.Distance]: string;
@@ -30,7 +29,6 @@ type TProps = {
 };
 
 type TProfileForm = {
-  [EProfileAddFormFields.SessionId]: string;
   [EProfileAddFormFields.DisplayName]: string;
   [EProfileAddFormFields.Birthday]: string;
   [EProfileAddFormFields.Gender]: string;
@@ -58,8 +56,7 @@ type TProfileForm = {
 };
 
 type TResponse = {
-  // profileForm: TProfileForm;
-  profileForm: any;
+  profileForm: TProfileForm;
 };
 
 type TMapSignupToDto = (props: TProps) => TResponse;
@@ -67,15 +64,18 @@ type TMapSignupToDto = (props: TProps) => TResponse;
 export const mapSignupToDto: TMapSignupToDto = (props) => {
   return {
     profileForm: {
-      [EProfileAddFormFields.SessionId]: props.sessionId,
       [EProfileAddFormFields.DisplayName]: props.displayName,
       [EProfileAddFormFields.Birthday]: props.birthday,
       [EProfileAddFormFields.Gender]: props.gender,
       [EProfileAddFormFields.SearchGender]: props.searchGender,
       [EProfileAddFormFields.Location]: props?.location ?? null,
       [EProfileAddFormFields.Description]: props?.description ?? null,
-      [EProfileAddFormFields.Height]: props?.height ?? null,
-      [EProfileAddFormFields.Weight]: props?.weight ?? null,
+      [EProfileAddFormFields.Height]: props?.height
+        ? props.height.toString()
+        : null,
+      [EProfileAddFormFields.Weight]: props?.weight
+        ? props.weight.toString()
+        : null,
       [EProfileAddFormFields.LookingFor]: props.lookingFor,
       [EProfileAddFormFields.Image]: props.image,
       [EProfileAddFormFields.TelegramUserID]: props.telegramUserId,
@@ -88,7 +88,7 @@ export const mapSignupToDto: TMapSignupToDto = (props) => {
         props.telegramAllowsWriteToPm,
       [EProfileAddFormFields.TelegramQueryId]: props.telegramQueryId,
       [EProfileAddFormFields.Latitude]: props?.latitude
-        ? props?.latitude.toString()
+        ? props.latitude.toString()
         : null,
       [EProfileAddFormFields.Longitude]: props?.longitude
         ? props.longitude.toString()

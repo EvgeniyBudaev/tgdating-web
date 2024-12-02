@@ -21,10 +21,6 @@ import {
 
 export const addProfileFormSchema = zfd
   .formData({
-    [EProfileAddFormFields.SessionId]: z
-      .string()
-      .trim()
-      .min(1, EMPTY_FIELD_ERROR_MESSAGE),
     [EProfileAddFormFields.DisplayName]: symbolsMaxDisplayNameSchema,
     [EProfileAddFormFields.Birthday]: z
       .string()

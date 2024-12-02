@@ -2,7 +2,7 @@ import { z } from "zod";
 import { zfd } from "zod-form-data";
 
 export const filterSchema = z.object({
-  sessionId: z.string(),
+  telegramUserId: z.string(),
   searchGender: z.string(),
   lookingFor: z.string(),
   ageFrom: z.number(),
@@ -13,13 +13,13 @@ export const filterSchema = z.object({
 });
 
 export const filterParamsSchema = z.object({
-  sessionId: z.string(),
+  telegramUserId: z.string(),
   latitude: z.string().nullish(),
   longitude: z.string().nullish(),
 });
 
 export const filterUpdateParamsSchema = z.object({
-  sessionId: zfd.text(),
+  telegramUserId: zfd.text(),
   searchGender: zfd.text(),
   lookingFor: zfd.text(),
   ageFrom: zfd.text(),

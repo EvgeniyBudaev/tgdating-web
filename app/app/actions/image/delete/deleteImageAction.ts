@@ -1,19 +1,12 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
 import { deleteImageFormSchema } from "@/app/actions/image/delete/schemas";
 import { deleteImage } from "@/app/api/profile/image/delete";
-import { ERoutes } from "@/app/shared/enums";
 import type { TCommonResponseError } from "@/app/shared/types/error";
-import {
-  getResponseError,
-  getErrorsResolver,
-  createPath,
-} from "@/app/shared/utils";
+import { getResponseError, getErrorsResolver } from "@/app/shared/utils";
 import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
 
 export async function deleteImageAction(prevState: any, formData: FormData) {
-  console.log("resolver: ", Object.fromEntries(formData.entries()));
   const resolver = deleteImageFormSchema.safeParse(
     Object.fromEntries(formData.entries()),
   );
@@ -42,11 +35,6 @@ export async function deleteImageAction(prevState: any, formData: FormData) {
         Authorization: accessToken,
       },
     });
-    const path = createPath({
-      route: ERoutes.ProfileEdit,
-      params: { id: resolver.data.id },
-    });
-    revalidatePath(path);
     return {
       data: response,
       errorUI: undefined,

@@ -26,7 +26,7 @@ import {
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { EGender, ELookingFor, ESearchGender } from "@/app/shared/enums/form";
 import { useFiles, useFormErrors } from "@/app/shared/hooks";
-import type {TUseTelegramResponse} from "@/app/shared/hooks/useTelegram";
+import type { TUseTelegramResponse } from "@/app/shared/hooks/useTelegram";
 import type { TUseNavigatorResponse } from "@/app/shared/hooks/useNavigator";
 import { GENDER_MAPPING } from "@/app/shared/mapping/gender";
 import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
@@ -71,7 +71,7 @@ type TUseProfileEditResponse = {
   setValueInputDateField: (
     value: ((prevState: Date | null) => Date | null) | Date | null,
   ) => void;
-  tg:  TUseTelegramResponse | null;
+  tg: TUseTelegramResponse | null;
 };
 
 type TUseProfileAddOrEdit = (props: TProps) => TUseProfileEditResponse;
@@ -155,7 +155,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   // Profile Edit
   useEffect(() => {
     if (isEdit && profile && user) {
-      if (profile.sessionId !== user?.id.toString()) {
+      if (profile.telegramUserId !== user?.id.toString()) {
         // const path = createPath({
         //   route: ERoutes.Unauthorized,
         //   lng: lng,
@@ -176,8 +176,8 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
         {
           route: ERoutes.ProfileDetail,
           params: {
-            sessionId: user?.id.toString() ?? "",
-            viewedSessionId: state.data.sessionId,
+            telegramUserId: user?.id.toString() ?? "",
+            viewedTelegramUserId: state.data.telegramUserId,
           },
           lng: lng,
         },
@@ -259,10 +259,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     const location = formData.get(EProfileAddFormFields.Location);
     const height = formData.get(EProfileAddFormFields.Height);
     const weight = formData.get(EProfileAddFormFields.Weight);
-    formDataDto.append(
-      EProfileEditFormFields.SessionId,
-      (user?.id ?? "").toString(),
-    );
     formDataDto.append(
       EProfileAddFormFields.DisplayName,
       (displayName ?? "").toString(),
