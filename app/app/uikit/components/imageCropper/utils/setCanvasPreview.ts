@@ -8,7 +8,7 @@ export const setCanvasPreview = (
   const ctx = canvas.getContext("2d");
 
   if (!ctx) {
-    throw new Error("Failed to get canvas context");
+    throw new Error("Failed to getProfile canvas context");
   }
 
   const pixelRatio = window.devicePixelRatio;

@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { type FC } from "react";
-import { deleteImageAction } from "@/app/actions/image/delete/deleteImageAction";
-import type { TImage } from "@/app/api/profile/image";
+import { deleteImageAction } from "@/app/actions/image/deleteImage/deleteImageAction";
+import type { TImage } from "../../../../../../api/image";
 import { useTranslation } from "@/app/i18n/client";
-import { EImageDeleteFormFields } from "@/app/actions/image/delete/enums";
+import { EImageDeleteFormFields } from "@/app/actions/image/deleteImage/enums";
 import {
   useAuthenticityTokenContext,
   useTelegramContext,
@@ -59,7 +59,7 @@ export const ImageList: FC<TProps> = ({ defaultImages, lng }) => {
                       className="DropDown-MenuItem"
                       onClick={() => handleDeleteImage(image)}
                     >
-                      <Typography>{t("common.actions.delete")}</Typography>
+                      <Typography>{t("common.actions.deleteProfile")}</Typography>
                     </div>
                   </div>
                   <div className="DropDown-Menu">

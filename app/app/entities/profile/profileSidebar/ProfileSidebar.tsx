@@ -1,7 +1,7 @@
 "use client";
 
-import { type ForwardedRef, forwardRef, memo, useRef } from "react";;
-import type { TProfileDetail } from "@/app/api/profile/detail";
+import { type ForwardedRef, forwardRef, memo } from "react";
+import type {TProfileDetail} from "@/app/api/profile/getProfileDetail/types";
 import { useTranslation } from "@/app/i18n/client";
 import { Header } from "@/app/shared/components/header";
 import { Icon } from "@/app/uikit/components/icon";

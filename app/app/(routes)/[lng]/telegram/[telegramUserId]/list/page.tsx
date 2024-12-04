@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
-import { getFilter } from "@/app/api/profile/filter";
-import { getProfileList } from "@/app/api/profile/list";
-import { getProfileShortInfo } from "@/app/api/profile/shortInfo/get";
+import {getFilter} from "@/app/api/filter/getFilter/domain";
+import { getProfileList } from "@/app/api/profile/getProfileList/domain";
+import { getProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/domain";
 import { SessionPage } from "@/app/pages/sessionPage";
 import {
   DEFAULT_AGE_FROM,

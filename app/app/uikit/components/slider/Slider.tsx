@@ -6,7 +6,7 @@ import Image from "next/image";
 import type { FC } from "react";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import type { TImage } from "@/app/api/profile/image";
+import type { TImage } from "../../../api/image";
 import { Icon } from "@/app/uikit/components/icon";
 import "swiper/css";
 import "swiper/css/pagination";

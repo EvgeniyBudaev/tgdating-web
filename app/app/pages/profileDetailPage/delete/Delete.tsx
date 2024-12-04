@@ -1,10 +1,10 @@
 import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
-import { type FC, useEffect, useRef } from "react";
+import { type FC, useEffect } from "react";
 import { useFormState } from "react-dom";
 import { useTranslation } from "@/app/i18n/client";
-import { deleteProfileAction } from "@/app/actions/profile/delete/deleteProfileAction";
-import { EProfileDeleteFormFields } from "@/app/actions/profile/delete/enums";
+import { deleteProfileAction } from "@/app/actions/profile/deleteProfile/deleteProfileAction";
+import { EProfileDeleteFormFields } from "@/app/actions/profile/deleteProfile/enums";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import {
   useAuthenticityTokenContext,
@@ -72,7 +72,7 @@ export const Delete: FC<TProps> = ({ lng, telegramUserId }) => {
         className="DropDown-MenuItem DropDown-MenuItem-Warning"
         onClick={handleFreeze}
       >
-        <Typography>{t("common.actions.delete")}</Typography>
+        <Typography>{t("common.actions.deleteProfile")}</Typography>
       </div>
       <Modal isOpen={isOpenModal} onCloseModal={closeModal}>
         <Modal.Header align="center">

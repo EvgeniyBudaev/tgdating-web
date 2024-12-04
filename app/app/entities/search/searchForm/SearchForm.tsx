@@ -3,20 +3,17 @@
 import isNil from "lodash/isNil";
 import { type FC, useMemo, useRef, useState } from "react";
 import { useFormState } from "react-dom";
-import { updateFilterAction } from "@/app/actions/filter/update/updateFilterAction";
-import type { TFilter } from "@/app/api/profile/filter";
+import { updateFilterAction } from "@/app/actions/filter/updateFilter/updateFilterAction";
+import { EFilterUpdateFormFields } from "@/app/actions/filter/updateFilter/enums";
+import type {TFilter} from "@/app/api/filter/types";
 import { useTranslation } from "@/app/i18n/client";
 import { Header } from "@/app/shared/components/header";
 import { SearchBar } from "@/app/shared/components/searchBar";
 import { SidebarContent } from "@/app/shared/components/sidebarContent";
 import {
-  AGE_FROM,
-  AGE_TO,
   DEFAULT_AGE_FROM,
   DEFAULT_AGE_TO,
   DEFAULT_SEARCH_GENDER,
-  SEARCH_GENDER,
-  SESSION_ID,
 } from "@/app/shared/constants";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import {
@@ -34,7 +31,6 @@ import { Select, type TSelectOption } from "@/app/uikit/components/select";
 import { Sidebar } from "@/app/uikit/components/sidebar";
 import { Typography } from "@/app/uikit/components/typography";
 import "./SearchForm.scss";
-import { EFilterUpdateFormFields } from "@/app/actions/filter/update/enums";
 
 type TProps = {
   lng: ELanguage;

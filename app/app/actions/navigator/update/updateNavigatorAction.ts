@@ -1,7 +1,7 @@
 "use server";
 
 import { updateNavigatorFormSchema } from "@/app/actions/navigator/update/schemas";
-import { updateNavigator } from "@/app/api/profile/navigator";
+import { updateNavigator } from "@/app/api/navigator/updateNavigator/domain";
 import type { TCommonResponseError } from "@/app/shared/types/error";
 import { getResponseError, getErrorsResolver } from "@/app/shared/utils";
 import { checkCsrfToken } from "@/app/shared/utils/security/csrf";

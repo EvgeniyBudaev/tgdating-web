@@ -4,9 +4,9 @@ import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
 import { type FC, useEffect } from "react";
 import { useFormState } from "react-dom";
-import { addComplaintAction } from "@/app/actions/complaint/add/addComplaintAction";
+import { addComplaintAction } from "@/app/actions/complaint/addComplaint/addComplaintAction";
 import { useTranslation } from "@/app/i18n/client";
-import { EComplaintFormFields } from "@/app/actions/complaint/add/enums";
+import { EComplaintFormFields } from "@/app/actions/complaint/addComplaint/enums";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import {
   useAuthenticityTokenContext,

@@ -4,9 +4,9 @@ import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
 import { type FC, useEffect } from "react";
 import { useFormState } from "react-dom";
-import { addBlockAction } from "@/app/actions/block/add/addBlockAction";
+import { addBlockAction } from "@/app/actions/block/addBlock/addBlockAction";
 import { useTranslation } from "@/app/i18n/client";
-import { EBlockFormFields } from "@/app/actions/block/add/enums";
+import { EBlockFormFields } from "@/app/actions/block/addBlock/enums";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import {
   useAuthenticityTokenContext,

@@ -4,7 +4,7 @@ import isNil from "lodash/isNil";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { FC, memo, useEffect, useMemo, useRef, useState } from "react";
-import type { TProfileDetail } from "@/app/api/profile/detail";
+import type {TProfileDetail} from "@/app/api/profile/getProfileDetail/types";
 import { ProfileSidebar } from "@/app/entities/profile/profileSidebar";
 import { useTranslation } from "@/app/i18n/client";
 import { Block } from "@/app/pages/profileDetailPage/block";
@@ -137,7 +137,7 @@ const ProfileDetailPageComponent: FC<TProps> = ({
                     key={profile.telegramUserId}
                     onClick={handleCloseDropDown}
                   >
-                    <Typography>{t("common.actions.edit")}</Typography>
+                    <Typography>{t("common.actions.editProfile")}</Typography>
                   </Link>
                   <Freeze lng={lng} telegramUserId={telegramUserId} />
                   <Delete lng={lng} telegramUserId={telegramUserId} />
@@ -174,12 +174,12 @@ const ProfileDetailPageComponent: FC<TProps> = ({
                         {profile?.displayName}, {fullYear}
                       </Typography>
                     </Field>
-                    {profile?.isOnline && (
+                    {profile?.status?.isOnline && (
                       <Field className="ProfileDetailPage-Online">
                         <Online
-                          isOnline={profile?.isOnline}
+                          isOnline={profile?.status?.isOnline}
                           message={
-                            profile?.isOnline
+                            profile?.status?.isOnline
                               ? t("common.titles.online")
                               : undefined
                           }

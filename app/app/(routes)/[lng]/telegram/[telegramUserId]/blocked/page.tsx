@@ -1,4 +1,4 @@
-import { getProfileDetail } from "@/app/api/profile/detail";
+import {getProfileDetail} from "@/app/api/profile/getProfileDetail/domain";
 import { ProfileBlockedPage } from "@/app/pages/profileBlockedPage";
 import { ELanguage } from "@/app/shared/enums";
 
@@ -38,6 +38,6 @@ export default async function ProfileBlockedRoute({
   const data = await loaderProfileBlocked({ telegramUserId });
 
   return (
-    <ProfileBlockedPage isBlocked={data?.profile?.isBlocked} lng={language} />
+    <ProfileBlockedPage isBlocked={data?.profile?.status?.isBlocked} lng={language} />
   );
 }

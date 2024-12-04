@@ -1,7 +1,7 @@
 "use server";
 
 import { getProfileShortInfoFormSchema } from "@/app/actions/profile/getProfileShortInfo/schemas";
-import { getProfileShortInfo } from "@/app/api/profile/shortInfo/get";
+import { getProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/domain";
 import type { TCommonResponseError } from "@/app/shared/types/error";
 import { getResponseError, getErrorsResolver } from "@/app/shared/utils";
 

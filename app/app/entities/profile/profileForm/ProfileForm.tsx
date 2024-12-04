@@ -4,11 +4,11 @@ import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
 import { type FC, type FocusEvent, useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import type { TProfile } from "@/app/api/profile/get";
+import type {TProfile} from "@/app/api/profile/getProfile/types";
 import { useTranslation } from "react-i18next";
-import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
-import { addProfileFormSchema } from "@/app/actions/profile/add/schemas";
-import { editProfileFormSchema } from "@/app/actions/profile/edit/schemas";
+import { EProfileAddFormFields } from "@/app/actions/profile/addProfile/enums";
+import { addProfileFormSchema } from "@/app/actions/profile/addProfile/schemas";
+import { editProfileFormSchema } from "@/app/actions/profile/editProfile/schemas";
 import {
   useDetectKeyboardOpen,
   useProfileAddOrEdit,

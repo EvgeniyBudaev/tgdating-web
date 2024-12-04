@@ -4,8 +4,8 @@ import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
 import { type FC, useEffect } from "react";
 import { useFormState } from "react-dom";
-import { EProfileRestoreFormFields } from "@/app/actions/profile/restore/enums";
-import { restoreProfileAction } from "@/app/actions/profile/restore/restoreProfileAction";
+import { EProfileRestoreFormFields } from "@/app/actions/profile/restoreProfile/enums";
+import { restoreProfileAction } from "@/app/actions/profile/restoreProfile/restoreProfileAction";
 import { useTranslation } from "@/app/i18n/client";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import {
@@ -96,7 +96,7 @@ export const ProfileFreezePage: FC<TProps> = ({
         {isSessionUser && (
           <form action={handleSubmit}>
             <Button type="submit">
-              <Typography>{t("common.actions.restore")}</Typography>
+              <Typography>{t("common.actions.restoreProfile")}</Typography>
             </Button>
           </form>
         )}

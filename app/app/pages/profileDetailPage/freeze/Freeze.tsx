@@ -3,8 +3,8 @@ import { redirect } from "next/navigation";
 import { type FC, useEffect } from "react";
 import { useFormState } from "react-dom";
 import { useTranslation } from "@/app/i18n/client";
-import { freezeProfileAction } from "@/app/actions/profile/freeze/freezeProfileAction";
-import { EProfileFreezeFormFields } from "@/app/actions/profile/freeze/enums";
+import { freezeProfileAction } from "@/app/actions/profile/freezeProfile/freezeProfileAction";
+import { EProfileFreezeFormFields } from "@/app/actions/profile/freezeProfile/enums";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import {
   useAuthenticityTokenContext,
@@ -72,7 +72,7 @@ export const Freeze: FC<TProps> = ({ lng, telegramUserId }) => {
         className="DropDown-MenuItem DropDown-MenuItem-Warning"
         onClick={handleFreeze}
       >
-        <Typography>{t("common.actions.freeze")}</Typography>
+        <Typography>{t("common.actions.freezeProfile")}</Typography>
       </div>
       <Modal isOpen={isOpenModal} onCloseModal={closeModal}>
         <Modal.Header align="center">

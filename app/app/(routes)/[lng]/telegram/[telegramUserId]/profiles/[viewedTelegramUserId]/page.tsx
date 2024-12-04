@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { getProfileDetail } from "@/app/api/profile/detail";
+import { getProfileDetail } from "@/app/api/profile/getProfileDetail/domain";
 import { ProfileDetailPage } from "@/app/pages/profileDetailPage";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { createPath } from "@/app/shared/utils";
@@ -99,7 +99,7 @@ export default async function ProfileDetailRoute({
     );
   }
 
-  if (data?.profile?.isBlocked) {
+  if (data?.profile?.status?.isBlocked) {
     redirect(
       createPath({
         route: ERoutes.ProfileBlocked,
@@ -108,7 +108,7 @@ export default async function ProfileDetailRoute({
     );
   }
 
-  if (data?.profile?.isFrozen) {
+  if (data?.profile?.status?.isFrozen) {
     redirect(
       createPath({
         route: ERoutes.ProfileDeleted,

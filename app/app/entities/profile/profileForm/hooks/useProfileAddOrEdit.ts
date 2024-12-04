@@ -3,11 +3,11 @@ import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
-import { addProfileAction } from "@/app/actions/profile/add/addProfileAction";
-import { editProfileAction } from "@/app/actions/profile/edit/editProfileAction";
-import type { TProfile } from "@/app/api/profile/get";
-import { EProfileAddFormFields } from "@/app/actions/profile/add/enums";
-import { EProfileEditFormFields } from "@/app/actions/profile/edit/enums";
+import { addProfileAction } from "@/app/actions/profile/addProfile/addProfileAction";
+import { editProfileAction } from "@/app/actions/profile/editProfile/editProfileAction";
+import type {TProfile} from "@/app/api/profile/getProfile/types";
+import { EProfileAddFormFields } from "@/app/actions/profile/addProfile/enums";
+import { EProfileEditFormFields } from "@/app/actions/profile/editProfile/enums";
 import type { TState } from "@/app/shared/components/form/form/types";
 import { scrollToFirstErrorField } from "@/app/shared/components/form/form/utils";
 import {

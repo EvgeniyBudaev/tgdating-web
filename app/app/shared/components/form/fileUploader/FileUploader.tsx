@@ -11,7 +11,7 @@ import {
 import { useFormStatus } from "react-dom";
 import { useTranslation } from "react-i18next";
 import type { DropEvent, FileRejection } from "react-dropzone";
-import type { TImage } from "@/app/api/profile/image";
+import type { TImage } from "../../../../api/image";
 import { Previews } from "@/app/shared/components/form/fileUploader/previews";
 import {
   filterDuplicatedFiles,
