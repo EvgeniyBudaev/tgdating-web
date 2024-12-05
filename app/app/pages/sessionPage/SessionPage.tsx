@@ -6,8 +6,8 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { type FC, useEffect } from "react";
 import type { TProfileList } from "@/app/api/profile/getProfileList/types";
+import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/types";
 import { useTranslation } from "@/app/i18n/client";
-import type {TFilter} from "@/app/api/filter/types";
 import { SearchForm } from "@/app/entities/search/searchForm";
 import { Container } from "@/app/shared/components/container";
 import { useNavigatorContext, useTelegramContext } from "@/app/shared/context";
@@ -23,16 +23,16 @@ type TProps = {
   isExistUser: boolean;
   isManyRequest: boolean;
   lng: ELanguage;
-  profileFilter?: TFilter;
   profileList?: TProfileList;
+  profileShortInfo?: TProfileShortInfo;
 };
 
 export const SessionPage: FC<TProps> = ({
   isExistUser,
   isManyRequest,
   lng,
-  profileFilter,
   profileList,
+  profileShortInfo,
 }) => {
   useCheckPermissions({ lng });
   const navigator = useNavigatorContext();
@@ -53,7 +53,7 @@ export const SessionPage: FC<TProps> = ({
   useEffect(() => {
     if (
       !isExistUser ||
-      (isSession && user?.id.toString() !== profileFilter?.telegramUserId)
+      (isSession && user?.id.toString() !== profileShortInfo?.telegramUserId)
     ) {
       return redirect(
         createPath({
@@ -61,11 +61,13 @@ export const SessionPage: FC<TProps> = ({
         }),
       );
     }
-  }, [isSession, isExistUser, profileFilter?.telegramUserId, user?.id]);
+  }, [isSession, isExistUser, profileShortInfo?.telegramUserId, user?.id]);
 
   return (
     <div className="SessionPage">
-      {profileFilter && <SearchForm lng={lng} profileFilter={profileFilter} />}
+      {profileShortInfo && (
+        <SearchForm lng={lng} profileShortInfo={profileShortInfo} />
+      )}
       {isEmpty(profileList?.content) && (
         <Container>
           <div className="SessionPage-IsEmpty">

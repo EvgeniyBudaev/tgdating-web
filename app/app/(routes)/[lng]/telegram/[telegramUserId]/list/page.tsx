@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import {getFilter} from "@/app/api/filter/getFilter/domain";
+import { getFilter } from "@/app/api/filter/getFilter/domain";
 import { getProfileList } from "@/app/api/profile/getProfileList/domain";
 import { getProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/domain";
 import { SessionPage } from "@/app/pages/sessionPage";
@@ -40,19 +40,14 @@ async function loaderProfileList(params: TLoader) {
   try {
     if (telegramUserId) {
       const query = {
-        page: searchParams?.page ?? DEFAULT_PAGE.toString(),
-        size: searchParams?.size ?? DEFAULT_PAGE_SIZE.toString(),
-        ageFrom: searchParams?.ageFrom ?? DEFAULT_AGE_FROM.toString(),
-        ageTo: searchParams?.ageTo ?? DEFAULT_AGE_TO.toString(),
+        telegramUserId: telegramUserId,
         searchGender: searchParams?.searchGender ?? DEFAULT_SEARCH_GENDER,
         lookingFor: searchParams?.lookingFor ?? DEFAULT_LOOKING_FOR,
-        telegramUserId: telegramUserId,
+        ageFrom: searchParams?.ageFrom ?? DEFAULT_AGE_FROM.toString(),
+        ageTo: searchParams?.ageTo ?? DEFAULT_AGE_TO.toString(),
         distance: searchParams?.distance ?? DEFAULT_DISTANCE.toString(),
-        ...(searchParams?.latitude && { latitude: searchParams?.latitude }),
-        ...(searchParams?.longitude && { longitude: searchParams?.longitude }),
-      };
-      const filterParams = {
-        telegramUserId: telegramUserId,
+        page: searchParams?.page ?? DEFAULT_PAGE.toString(),
+        size: searchParams?.size ?? DEFAULT_PAGE_SIZE.toString(),
         ...(searchParams?.latitude && { latitude: searchParams?.latitude }),
         ...(searchParams?.longitude && { longitude: searchParams?.longitude }),
       };
@@ -60,9 +55,7 @@ async function loaderProfileList(params: TLoader) {
       const profileShortInfoResponse = await getProfileShortInfo({
         telegramUserId,
       });
-      const filterResponse = await getFilter(filterParams);
       return {
-        profileFilter: filterResponse,
         profileList: profileListResponse,
         profileShortInfo: profileShortInfoResponse,
         isExistUser: true,
@@ -71,7 +64,6 @@ async function loaderProfileList(params: TLoader) {
       };
     }
     return {
-      profileFilter: undefined,
       profileList: undefined,
       profileShortInfo: undefined,
       isExistUser: false,
@@ -87,7 +79,6 @@ async function loaderProfileList(params: TLoader) {
     );
     if (errorResponse?.status === 401) {
       return {
-        profileFilter: undefined,
         profileList: undefined,
         profileShortInfo: undefined,
         isExistUser: true,
@@ -97,7 +88,6 @@ async function loaderProfileList(params: TLoader) {
     }
     if (errorResponse?.status === 404) {
       return {
-        profileFilter: undefined,
         profileList: undefined,
         profileShortInfo: undefined,
         isExistUser: false,
@@ -107,7 +97,6 @@ async function loaderProfileList(params: TLoader) {
     }
     if (errorResponse?.status === 429) {
       return {
-        profileFilter: undefined,
         profileList: undefined,
         profileShortInfo: undefined,
         isExistUser: true,
@@ -185,8 +174,8 @@ export default async function ProfileListRoute({
       isExistUser={data.isExistUser}
       isManyRequest={data.isManyRequest}
       lng={language}
-      profileFilter={data?.profileFilter}
       profileList={data?.profileList}
+      profileShortInfo={data?.profileShortInfo}
     />
   );
 }

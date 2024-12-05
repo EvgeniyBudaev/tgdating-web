@@ -5,7 +5,7 @@ import { type FC, useMemo, useRef, useState } from "react";
 import { useFormState } from "react-dom";
 import { updateFilterAction } from "@/app/actions/filter/updateFilter/updateFilterAction";
 import { EFilterUpdateFormFields } from "@/app/actions/filter/updateFilter/enums";
-import type {TFilter} from "@/app/api/filter/types";
+import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/types";
 import { useTranslation } from "@/app/i18n/client";
 import { Header } from "@/app/shared/components/header";
 import { SearchBar } from "@/app/shared/components/searchBar";
@@ -34,10 +34,10 @@ import "./SearchForm.scss";
 
 type TProps = {
   lng: ELanguage;
-  profileFilter?: TFilter;
+  profileShortInfo?: TProfileShortInfo;
 };
 
-export const SearchForm: FC<TProps> = ({ lng, profileFilter }) => {
+export const SearchForm: FC<TProps> = ({ lng, profileShortInfo }) => {
   const csrf = useAuthenticityTokenContext();
   const telegram = useTelegramContext();
   const { t } = useTranslation("index");
@@ -46,8 +46,8 @@ export const SearchForm: FC<TProps> = ({ lng, profileFilter }) => {
     isGeneralFilters: false,
     isSearchGender: false,
   });
-  const defaultAgeRangeFrom = profileFilter?.ageFrom ?? DEFAULT_AGE_FROM;
-  const defaultAgeRangeTo = profileFilter?.ageTo ?? DEFAULT_AGE_TO;
+  const defaultAgeRangeFrom = profileShortInfo?.ageFrom ?? DEFAULT_AGE_FROM;
+  const defaultAgeRangeTo = profileShortInfo?.ageTo ?? DEFAULT_AGE_TO;
 
   const [ageRange, setAgeRange] = useState<any>([
     defaultAgeRangeFrom,
@@ -57,15 +57,15 @@ export const SearchForm: FC<TProps> = ({ lng, profileFilter }) => {
 
   const searchGenderDefault = useMemo(() => {
     return SEARCH_GENDER_MAPPING[lng].find(
-      (item) => item.value === profileFilter?.searchGender,
+      (item) => item.value === profileShortInfo?.searchGender,
     );
-  }, [lng, profileFilter?.searchGender]);
+  }, [lng, profileShortInfo?.searchGender]);
 
   const searchBarTitle = useMemo(() => {
     return SEARCH_BAR_SEARCH_GENDER_MAPPING[lng].find(
-      (item) => item.value === profileFilter?.searchGender,
+      (item) => item.value === profileShortInfo?.searchGender,
     )?.label;
-  }, [lng, profileFilter?.searchGender]);
+  }, [lng, profileShortInfo?.searchGender]);
 
   const [searchGenderState, setSearchGenderState] = useState<
     TSelectOption | undefined
@@ -120,7 +120,7 @@ export const SearchForm: FC<TProps> = ({ lng, profileFilter }) => {
     );
     formDataDto.append(
       EFilterUpdateFormFields.TelegramUserId,
-      profileFilter?.telegramUserId ?? "",
+      profileShortInfo?.telegramUserId ?? "",
     );
     formDataDto.append(
       EFilterUpdateFormFields.TelegramInitDataCrypt,
