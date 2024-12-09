@@ -1,10 +1,12 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { deleteImageFormSchema } from "@/app/actions/image/deleteImage/schemas";
 import { deleteImage } from "@/app/api/image/deleteImage/domain";
 import type { TCommonResponseError } from "@/app/shared/types/error";
-import { getResponseError, getErrorsResolver } from "@/app/shared/utils";
+import {getResponseError, getErrorsResolver, createPath} from "@/app/shared/utils";
 import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
+import {ERoutes} from "@/app/shared/enums";
 
 export async function deleteImageAction(prevState: any, formData: FormData) {
   const resolver = deleteImageFormSchema.safeParse(
@@ -25,6 +27,7 @@ export async function deleteImageAction(prevState: any, formData: FormData) {
     const {
       csrf,
       telegramInitDataCrypt: accessToken,
+      telegramUserId,
       ...formattedParams
     } = resolver.data;
     const checkCsrf = await checkCsrfToken(csrf);
@@ -35,6 +38,11 @@ export async function deleteImageAction(prevState: any, formData: FormData) {
         Authorization: accessToken,
       },
     });
+    const path = createPath({
+      route: ERoutes.ProfileEdit,
+      params: { telegramUserId },
+    });
+    revalidatePath(path);
     return {
       data: response,
       errorUI: undefined,
@@ -43,6 +51,7 @@ export async function deleteImageAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
+    console.log("deleteImageAction errorResponse: ", errorResponse);
     if (errorResponse?.status === 403) throw error;
     const responseData: TCommonResponseError = await errorResponse.json();
     const { message: formError, fieldErrors } =

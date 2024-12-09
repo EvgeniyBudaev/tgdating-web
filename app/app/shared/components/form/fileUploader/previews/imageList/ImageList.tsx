@@ -12,6 +12,7 @@ import {
 } from "@/app/shared/context";
 import { DropDown } from "@/app/uikit/components/dropDown";
 import { Typography } from "@/app/uikit/components/typography";
+import {useParams} from "next/navigation";
 
 type TProps = {
   defaultImages: TImage[];
@@ -22,10 +23,12 @@ export const ImageList: FC<TProps> = ({ defaultImages, lng }) => {
   const csrf = useAuthenticityTokenContext();
   const { t } = useTranslation("index");
   const telegram = useTelegramContext();
+  const params = useParams();
 
   const handleDeleteImage = async (image: TImage) => {
     const formDataDto = new FormData();
     formDataDto.append(EImageDeleteFormFields.Id, image.id.toString());
+    formDataDto.append(EImageDeleteFormFields.TelegramUserId, params.telegramUserId);
     formDataDto.append(
       EImageDeleteFormFields.TelegramInitDataCrypt,
       telegram?.initDataCrypt ?? "",
@@ -59,7 +62,7 @@ export const ImageList: FC<TProps> = ({ defaultImages, lng }) => {
                       className="DropDown-MenuItem"
                       onClick={() => handleDeleteImage(image)}
                     >
-                      <Typography>{t("common.actions.deleteProfile")}</Typography>
+                      <Typography>{t("common.actions.delete")}</Typography>
                     </div>
                   </div>
                   <div className="DropDown-Menu">

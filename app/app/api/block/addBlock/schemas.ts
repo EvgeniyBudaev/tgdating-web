@@ -6,10 +6,5 @@ export const addBlockParamsSchema = z.object({
 });
 
 export const blockSchema = z.object({
-  id: z.number(),
-  telegramUserId: z.number(),
-  blockedTelegramUserId: z.string(),
-  isBlocked: z.boolean(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
+  success: z.boolean(),
 });

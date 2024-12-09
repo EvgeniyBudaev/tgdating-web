@@ -12,6 +12,5 @@ const locationSchema = z.object({
 });
 
 export const navigatorSchema = z.object({
-  telegramUserId: z.string(),
   location: locationSchema.nullish(),
 });

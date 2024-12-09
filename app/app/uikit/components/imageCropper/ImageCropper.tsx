@@ -80,6 +80,7 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
     };
 
     const handleImageLoad = (event: SyntheticEvent<HTMLImageElement>) => {
+      console.log("handleImageLoad");
       const { height, width } = event.currentTarget;
       const cropWidthInPercent = (MIN_DIMENSION / width) * 100;
       const crop = makeAspectCrop(
@@ -96,6 +97,7 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
     };
 
     const handleCanvasPreview = async () => {
+      console.log("handleCanvasPreview");
       if (
         !isNil(imageRef?.current?.width) &&
         !isNil(imageRef?.current?.height) &&

@@ -122,7 +122,10 @@
       "filterSetup": "Set up a filter",
       "profileDetail": "Go to profile",
       "lodaing": "Добавь сюда перевод!!!",
-      "recover": "Recover account"
+      "recover": "Recover account",
+      "freeze": "Freeze",
+      "edit": "Edit",
+      "restore": "Restore account"
     },
     "previews": {
       "defaultImage": "Default image",

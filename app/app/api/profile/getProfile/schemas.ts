@@ -3,7 +3,6 @@ import {filterSchema} from "@/app/api/filter/schemas";
 import {imageSchema} from "@/app/api/image";
 import {navigatorSchema} from "@/app/api/navigator/updateNavigator/schemas";
 import {statusSchema} from "@/app/api/status/schemas";
-import {telegramSchema} from "@/app/api/telegram/schemas";
 
 export const getProfileParamsSchema = z.object({
   telegramUserId: z.string(),
@@ -20,12 +19,8 @@ export const getProfileSchema = z.object({
   description: z.string().nullish(),
   height: z.number().nullish(),
   weight: z.number().nullish(),
-  createdAt: z.string(),
-  updatedAt: z.string().nullish(),
-  lastOnline: z.string(),
-  images: imageSchema.array().nullish(),
   navigator: navigatorSchema.nullish(),
   filter: filterSchema.nullish(),
-  telegram: telegramSchema.nullish(),
   status: statusSchema.nullish(),
+  images: imageSchema.array().nullish(),
 });

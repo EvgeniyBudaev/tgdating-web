@@ -5,7 +5,7 @@ import isNil from "lodash/isNil";
 import Image from "next/image";
 import type { FC } from "react";
 import type { Accept, DropEvent, FileRejection } from "react-dropzone";
-import type { TImage } from "../../../../../api/image";
+import type {TImage} from "@/app/api/image";
 import { useTranslation } from "@/app/i18n/client";
 import { ImageList } from "@/app/shared/components/form/fileUploader/previews/imageList";
 import type { TFile } from "@/app/shared/types/file";

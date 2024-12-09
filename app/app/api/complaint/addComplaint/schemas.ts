@@ -7,10 +7,5 @@ export const addComplaintParamsSchema = z.object({
 });
 
 export const complaintSchema = z.object({
-  id: z.number(),
-  telegramUserId: z.string(),
-  criminalTelegramUserId: z.string(),
-  reason: z.string(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
+  success: z.boolean(),
 });

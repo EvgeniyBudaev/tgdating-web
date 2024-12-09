@@ -9,7 +9,7 @@ export const DEFAULT_DISTANCE = 10000;
 export const DEFAULT_LANGUAGE = "ru";
 export const DEFAULT_LOOKING_FOR = "all";
 export const DEFAULT_PAGE = 1;
-export const DEFAULT_PAGE_SIZE = 10;
+export const DEFAULT_PAGE_SIZE = 50;
 export const DEFAULT_SEARCH_GENDER = "all";
 
 export const HEIGHT_MIN_SIZE = 50;
