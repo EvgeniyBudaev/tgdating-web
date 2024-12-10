@@ -33,7 +33,7 @@ export const useTelegram: TUseTelegram = () => {
 
   const mockData1 = {
     initData:
-      "query_id=AAEzankUAAAAADNqeRSf30Jo&user=%7B%22id%22%3A343501363%2C%22first_name%22%3A%22%D0%95%D0%B2%D0%B3%D0%B5%D0%BD%D0%B8%D0%B9%22%2C%22last_name%22%3A%22%28%E2%97%95%E1%86%BA%E2%97%95%29%22%2C%22username%22%3A%22golang_js%22%2C%22language_code%22%3A%22ru%22%2C%22is_premium%22%3Atrue%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2FjkBNT8VgdJucqRa8f90CHgGQ6IlzU38PwTTLn54NKLg.svg%22%7D&auth_date=1733758887&signature=Dnsfn0C0uCQ04jTjgxId7Q6vk887jkAWaSjHvQPsSRqnCNmbgyUILuXG_hAcMF8KRPcWMMTQYWFfARRhSP34DQ&hash=db14cb7dd5a36896187a1cd4af8eed7af8ba51cdb0e207d41c93f3d2929b19a4",
+      "query_id=AAEzankUAAAAADNqeRTg4g2x&user=%7B%22id%22%3A343501363%2C%22first_name%22%3A%22%D0%95%D0%B2%D0%B3%D0%B5%D0%BD%D0%B8%D0%B9%22%2C%22last_name%22%3A%22%28%E2%97%95%E1%86%BA%E2%97%95%29%22%2C%22username%22%3A%22golang_js%22%2C%22language_code%22%3A%22ru%22%2C%22is_premium%22%3Atrue%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2FjkBNT8VgdJucqRa8f90CHgGQ6IlzU38PwTTLn54NKLg.svg%22%7D&auth_date=1733805429&signature=Wu3V7HWxZzWGACyfPxAi7BjWsHAx3_Od5qDLc5E28zWlCzOXdQ1JJhc68yVSOJB-1CDU0xlSQLf99SAYpf5YCg&hash=59fa72be9366309809fcc7347b00305f99a2e351110dd88dfa027be855776526",
   };
 
   const mockData2 = {

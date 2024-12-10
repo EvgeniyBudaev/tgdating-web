@@ -56,8 +56,8 @@ type TOnGetQueryURLResponse = {
 
 type TResponse = {
   queryURL: string;
-  onGetQueryURL?: () => TOnGetQueryURLResponse;
-  onUpdateQueryURL?: (props: TOnUpdateQueryURLProps) => void;
+  getQuery: () => TOnGetQueryURLResponse;
+  updateQueryURL: (props: TOnUpdateQueryURLProps) => void;
 };
 
 type TUseQueryURL = (props: TProps) => TResponse;
@@ -97,7 +97,7 @@ export const useQueryURL: TUseQueryURL = ({ lng }) => {
     longitudeGPS,
   ]);
 
-  const onUpdateQueryURL = (props: TOnUpdateQueryURLProps) => {
+  const updateQueryURL = (props: TOnUpdateQueryURLProps) => {
     props?.page ? params.set(PAGE, props.page) : params.set(PAGE, page);
     props?.size ? params.set(SIZE, props.size) : params.set(SIZE, size);
     props?.ageFrom
@@ -125,7 +125,7 @@ export const useQueryURL: TUseQueryURL = ({ lng }) => {
     replace(`${pathname}?${params.toString()}`);
   };
 
-  const onGetQueryURL = () => {
+  const getQuery = () => {
     return {
       page: params.get(PAGE) ?? DEFAULT_PAGE.toString(),
       size: params.get(SIZE) ?? DEFAULT_PAGE_SIZE.toString(),
@@ -142,7 +142,7 @@ export const useQueryURL: TUseQueryURL = ({ lng }) => {
 
   return {
     queryURL,
-    onGetQueryURL,
-    onUpdateQueryURL,
+    getQuery,
+    updateQueryURL,
   };
 };

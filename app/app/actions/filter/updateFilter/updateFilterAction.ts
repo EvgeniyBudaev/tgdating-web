@@ -1,17 +1,11 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
 import { EFilterUpdateFormFields } from "@/app/actions/filter/updateFilter/enums";
 import { updateFilterFormSchema } from "@/app/actions/filter/updateFilter/schemas";
 import { updateFilter } from "@/app/api/filter/updateFilter/domain";
-import type {TUpdateFilterParams} from "@/app/api/filter/updateFilter/types";
+import type { TUpdateFilterParams } from "@/app/api/filter/updateFilter/types";
 import type { TCommonResponseError } from "@/app/shared/types/error";
-import {
-  getResponseError,
-  getErrorsResolver,
-  createPath,
-} from "@/app/shared/utils";
-import { ERoutes } from "@/app/shared/enums";
+import { getResponseError, getErrorsResolver } from "@/app/shared/utils";
 import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
 
 export async function updateFilterAction(prevState: any, formData: FormData) {
@@ -52,7 +46,6 @@ export async function updateFilterAction(prevState: any, formData: FormData) {
       formattedParams.ageFrom,
     );
     filterFormData.append(EFilterUpdateFormFields.AgeTo, formattedParams.ageTo);
-
     const responseFilter = await updateFilter(
       filterFormData as unknown as TUpdateFilterParams,
       {
@@ -61,11 +54,6 @@ export async function updateFilterAction(prevState: any, formData: FormData) {
         },
       },
     );
-    const path = createPath({
-      route: ERoutes.Telegram,
-      params: { telegramUserId: telegramUserId },
-    });
-    revalidatePath(path);
     return {
       data: responseFilter,
       error: undefined,

@@ -1,7 +1,7 @@
 "use client";
 
 import isNil from "lodash/isNil";
-import { type FC, useMemo, useRef, useState } from "react";
+import { type FC, useEffect, useMemo, useRef, useState } from "react";
 import { useFormState } from "react-dom";
 import { updateFilterAction } from "@/app/actions/filter/updateFilter/updateFilterAction";
 import { EFilterUpdateFormFields } from "@/app/actions/filter/updateFilter/enums";
@@ -20,7 +20,7 @@ import {
   useAuthenticityTokenContext,
   useTelegramContext,
 } from "@/app/shared/context";
-import { ELanguage } from "@/app/shared/enums";
+import { ELanguage, ERoutes } from "@/app/shared/enums";
 import {
   SEARCH_BAR_SEARCH_GENDER_MAPPING,
   SEARCH_GENDER_MAPPING,
@@ -31,6 +31,9 @@ import { Select, type TSelectOption } from "@/app/uikit/components/select";
 import { Sidebar } from "@/app/uikit/components/sidebar";
 import { Typography } from "@/app/uikit/components/typography";
 import "./SearchForm.scss";
+import { useQueryURL } from "@/app/shared/hooks";
+import { createPath } from "@/app/shared/utils";
+import { redirect } from "next/navigation";
 
 type TProps = {
   lng: ELanguage;
@@ -46,6 +49,7 @@ export const SearchForm: FC<TProps> = ({ lng, profileShortInfo }) => {
     isGeneralFilters: false,
     isSearchGender: false,
   });
+  const { updateQueryURL } = useQueryURL({ lng });
   const defaultAgeRangeFrom = profileShortInfo?.ageFrom ?? DEFAULT_AGE_FROM;
   const defaultAgeRangeTo = profileShortInfo?.ageTo ?? DEFAULT_AGE_TO;
 
@@ -53,7 +57,10 @@ export const SearchForm: FC<TProps> = ({ lng, profileShortInfo }) => {
     defaultAgeRangeFrom,
     defaultAgeRangeTo,
   ]);
-  const [_, formAction] = useFormState(updateFilterAction, INITIAL_FORM_STATE);
+  const [state, formAction] = useFormState(
+    updateFilterAction,
+    INITIAL_FORM_STATE,
+  );
 
   const searchGenderDefault = useMemo(() => {
     return SEARCH_GENDER_MAPPING[lng].find(
@@ -70,6 +77,15 @@ export const SearchForm: FC<TProps> = ({ lng, profileShortInfo }) => {
   const [searchGenderState, setSearchGenderState] = useState<
     TSelectOption | undefined
   >(searchGenderDefault);
+
+  const ageRangeValueFrom = Array.isArray(ageRange)
+    ? ageRange[0].toString()
+    : ageRange.toString();
+  const ageRangeValueTo = Array.isArray(ageRange)
+    ? ageRange[1].toString()
+    : ageRange.toString();
+  const searchGender =
+    (searchGenderState?.value ?? "").toString() ?? DEFAULT_SEARCH_GENDER;
 
   const handleOpenSidebar = () => {
     setIsSidebarOpen((prev) => ({
@@ -103,21 +119,10 @@ export const SearchForm: FC<TProps> = ({ lng, profileShortInfo }) => {
   };
 
   const handleSubmit = () => {
-    const ageRangeValueFrom = Array.isArray(ageRange) ? ageRange[0] : ageRange;
-    const ageRangeValueTo = Array.isArray(ageRange) ? ageRange[1] : ageRange;
     const formDataDto = new FormData();
-    formDataDto.append(
-      EFilterUpdateFormFields.AgeFrom,
-      ageRangeValueFrom.toString(),
-    );
-    formDataDto.append(
-      EFilterUpdateFormFields.AgeTo,
-      ageRangeValueTo.toString(),
-    );
-    formDataDto.append(
-      EFilterUpdateFormFields.SearchGender,
-      (searchGenderState?.value ?? "").toString() ?? DEFAULT_SEARCH_GENDER,
-    );
+    formDataDto.append(EFilterUpdateFormFields.AgeFrom, ageRangeValueFrom);
+    formDataDto.append(EFilterUpdateFormFields.AgeTo, ageRangeValueTo);
+    formDataDto.append(EFilterUpdateFormFields.SearchGender, searchGender);
     formDataDto.append(
       EFilterUpdateFormFields.TelegramUserId,
       profileShortInfo?.telegramUserId ?? "",
@@ -136,6 +141,16 @@ export const SearchForm: FC<TProps> = ({ lng, profileShortInfo }) => {
     handleCloseSidebar();
     handleSubmit();
   };
+
+  useEffect(() => {
+    if (!isNil(state?.data) && state.success && !state?.error) {
+      updateQueryURL({
+        ageFrom: ageRangeValueFrom,
+        ageTo: ageRangeValueTo,
+        searchGender: searchGender,
+      });
+    }
+  }, [lng, state?.data, state?.error, state.success]);
 
   return (
     <div className="SearchForm">

@@ -10,7 +10,7 @@ import {
 } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useNavigator, useTelegram } from "@/app/shared/hooks";
-import {convertToUrlSearchParams, createPath} from "@/app/shared/utils";
+import { convertToUrlSearchParams, createPath } from "@/app/shared/utils";
 import "./Layout.scss";
 
 type TProps = {
@@ -26,16 +26,16 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   const navigator = useNavigator({ lng });
   const telegram = useTelegram();
 
-  useEffect(() => {
-    if (telegram?.user?.language_code) {
-      const updatedPathname = pathname.replace(
-        `/${lng}`,
-        `/${telegram?.user?.language_code}`,
-      );
-      const url = `${updatedPathname}?${convertToUrlSearchParams(searchParams)}`;
-      router.push(url);
-    }
-  }, [lng, pathname, router, searchParams, telegram?.user?.language_code]);
+  // useEffect(() => {
+  //   if (telegram?.user?.language_code) {
+  //     const updatedPathname = pathname.replace(
+  //       `/${lng}`,
+  //       `/${telegram?.user?.language_code}`,
+  //     );
+  //     const url = `${updatedPathname}?${convertToUrlSearchParams(searchParams)}`;
+  //     router.push(url);
+  //   }
+  // }, [lng, pathname, router, searchParams, telegram?.user?.language_code]);
 
   const isFooter = useMemo(() => {
     const path = createPath({
