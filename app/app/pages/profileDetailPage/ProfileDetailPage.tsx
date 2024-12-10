@@ -4,7 +4,7 @@ import isNil from "lodash/isNil";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { FC, memo, useEffect, useMemo, useRef, useState } from "react";
-import type {TProfileDetail} from "@/app/api/profile/getProfileDetail/types";
+import type { TProfileDetail } from "@/app/api/profile/getProfileDetail/types";
 import { ProfileSidebar } from "@/app/entities/profile/profileSidebar";
 import { useTranslation } from "@/app/i18n/client";
 import { Block } from "@/app/pages/profileDetailPage/block";
@@ -128,6 +128,7 @@ const ProfileDetailPageComponent: FC<TProps> = ({
               )}
               {isSessionUser && (
                 <>
+                  {/*<Settings lng={lng} telegramUserId={telegramUserId} />*/}
                   <Link
                     className="DropDown-MenuItem"
                     href={createPath({

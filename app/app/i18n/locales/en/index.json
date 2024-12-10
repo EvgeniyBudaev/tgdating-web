@@ -33,7 +33,8 @@
         "searchGender": "Interest",
         "location": "Location",
         "height": "Height",
-        "weight": "Weight"
+        "weight": "Weight",
+        "language": "interface language"
       }
     },
     "actions": {

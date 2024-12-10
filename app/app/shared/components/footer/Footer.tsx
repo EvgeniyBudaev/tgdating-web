@@ -27,7 +27,6 @@ const FooterComponent: FC<TProps> = ({ lng }) => {
   const isHydrated = useHydrated();
   const { getQuery } = useQueryURL({ lng });
   const params = getQuery();
-  console.log("params: ", params);
 
   const telegramUserIdListPath = createPath(
     {
@@ -45,7 +44,6 @@ const FooterComponent: FC<TProps> = ({ lng }) => {
     //     : {}),
     // },
   );
-  console.log("telegramUserIdListPath: ", telegramUserIdListPath);
 
   const profileDetailPath = createPath(
     {

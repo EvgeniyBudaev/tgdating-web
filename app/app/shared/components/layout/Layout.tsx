@@ -25,17 +25,18 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   const router = useRouter();
   const navigator = useNavigator({ lng });
   const telegram = useTelegram();
+  const telegramLanguageCode = telegram?.user?.language_code;
 
-  // useEffect(() => {
-  //   if (telegram?.user?.language_code) {
-  //     const updatedPathname = pathname.replace(
-  //       `/${lng}`,
-  //       `/${telegram?.user?.language_code}`,
-  //     );
-  //     const url = `${updatedPathname}?${convertToUrlSearchParams(searchParams)}`;
-  //     router.push(url);
-  //   }
-  // }, [lng, pathname, router, searchParams, telegram?.user?.language_code]);
+  useEffect(() => {
+    if (telegramLanguageCode && telegramLanguageCode !== lng) {
+      const updatedPathname = pathname.replace(
+        `/${lng}`,
+        `/${telegramLanguageCode}`,
+      );
+      const url = `${updatedPathname}?${searchParams}`;
+      router.push(url);
+    }
+  }, [telegramLanguageCode]);
 
   const isFooter = useMemo(() => {
     const path = createPath({

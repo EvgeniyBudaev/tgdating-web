@@ -20,7 +20,8 @@ import {
   useAuthenticityTokenContext,
   useTelegramContext,
 } from "@/app/shared/context";
-import { ELanguage, ERoutes } from "@/app/shared/enums";
+import { ELanguage } from "@/app/shared/enums";
+import { useQueryURL } from "@/app/shared/hooks";
 import {
   SEARCH_BAR_SEARCH_GENDER_MAPPING,
   SEARCH_GENDER_MAPPING,
@@ -31,9 +32,6 @@ import { Select, type TSelectOption } from "@/app/uikit/components/select";
 import { Sidebar } from "@/app/uikit/components/sidebar";
 import { Typography } from "@/app/uikit/components/typography";
 import "./SearchForm.scss";
-import { useQueryURL } from "@/app/shared/hooks";
-import { createPath } from "@/app/shared/utils";
-import { redirect } from "next/navigation";
 
 type TProps = {
   lng: ELanguage;

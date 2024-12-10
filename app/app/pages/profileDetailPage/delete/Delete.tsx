@@ -20,7 +20,6 @@ import "./Delete.scss";
 type TProps = {
   lng: ELanguage;
   telegramUserId: string;
-  onCloseDropDown?: () => void;
 };
 
 export const Delete: FC<TProps> = ({ lng, telegramUserId }) => {

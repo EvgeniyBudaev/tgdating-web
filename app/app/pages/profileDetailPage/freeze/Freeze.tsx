@@ -20,7 +20,6 @@ import "./Freeze.scss";
 type TProps = {
   lng: ELanguage;
   telegramUserId: string;
-  onCloseDropDown?: () => void;
 };
 
 export const Freeze: FC<TProps> = ({ lng, telegramUserId }) => {

@@ -12,7 +12,7 @@ import {
 } from "@/app/shared/context";
 import { DropDown } from "@/app/uikit/components/dropDown";
 import { Typography } from "@/app/uikit/components/typography";
-import {useParams} from "next/navigation";
+import { useParams } from "next/navigation";
 
 type TProps = {
   defaultImages: TImage[];
@@ -24,11 +24,12 @@ export const ImageList: FC<TProps> = ({ defaultImages, lng }) => {
   const { t } = useTranslation("index");
   const telegram = useTelegramContext();
   const params = useParams();
+  const telegramUserId = (params?.telegramUserId ?? "") as string;
 
   const handleDeleteImage = async (image: TImage) => {
     const formDataDto = new FormData();
     formDataDto.append(EImageDeleteFormFields.Id, image.id.toString());
-    formDataDto.append(EImageDeleteFormFields.TelegramUserId, params.telegramUserId);
+    formDataDto.append(EImageDeleteFormFields.TelegramUserId, telegramUserId);
     formDataDto.append(
       EImageDeleteFormFields.TelegramInitDataCrypt,
       telegram?.initDataCrypt ?? "",

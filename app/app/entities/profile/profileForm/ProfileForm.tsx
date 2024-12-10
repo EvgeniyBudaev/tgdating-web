@@ -4,7 +4,7 @@ import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
 import { type FC, type FocusEvent, useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import type {TProfile} from "@/app/api/profile/getProfile/types";
+import type { TProfile } from "@/app/api/profile/getProfile/types";
 import { useTranslation } from "react-i18next";
 import { EProfileAddFormFields } from "@/app/actions/profile/addProfile/enums";
 import { addProfileFormSchema } from "@/app/actions/profile/addProfile/schemas";
@@ -29,7 +29,7 @@ import { Section } from "@/app/shared/components/section";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useCheckPermissions } from "@/app/shared/hooks";
 import { GENDER_MAPPING } from "@/app/shared/mapping/gender";
-import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
+import { LOCALE_MAPPING } from "@/app/shared/mapping/language";
 import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
 import { createPath } from "@/app/shared/utils";
 import { Info } from "@/app/shared/components/info";
@@ -176,7 +176,7 @@ export const ProfileForm: FC<TProps> = ({
               </Typography>
             </div>
             <InputDateField
-              locale={LANGUAGE_MAPPING[language]}
+              locale={LOCALE_MAPPING[language]}
               name={EProfileAddFormFields.Birthday}
               onChange={onDateChange}
               onFieldClear={() => setValueInputDateField(null)}

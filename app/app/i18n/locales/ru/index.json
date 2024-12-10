@@ -33,7 +33,8 @@
         "searchGender": "Интересуют",
         "location": "Местоположение",
         "height": "Рост",
-        "weight": "Вес"
+        "weight": "Вес",
+        "language": "Язык интерфейса"
       }
     },
     "actions": {
