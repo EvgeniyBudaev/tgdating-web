@@ -10,6 +10,7 @@
       "hidden": "hidden from users",
       "properties": "Properties",
       "autocomplete": "auto detection",
+      "noChanged": "can't be changed",
       "filtersGeneral": "General filters",
       "age": "Age",
       "blockQuestion": "Block account?",
@@ -19,7 +20,8 @@
       "online": "Online",
       "accountFrozen": "Account frozen",
       "accountDeleted": "Account deleted",
-      "isEmptyList": "No people found. Try changing your search settings."
+      "isEmptyList": "No people found. Try changing your search settings.",
+      "geoPositionExist": "Geoposition determined"
     },
     "form": {
       "field": {

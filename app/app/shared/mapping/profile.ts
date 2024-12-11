@@ -2,38 +2,38 @@ import { ELookingFor } from "@/app/shared/enums/form";
 import { ELanguage } from "@/app/shared/enums";
 
 const CHAT_MAPPING = {
-  [ELanguage.Ru]: "Чат",
-  [ELanguage.En]: "Chat",
+  [ELanguage.Ru]: "чат",
+  [ELanguage.En]: "chat",
 };
 
 const DATES_MAPPING = {
-  [ELanguage.Ru]: "Свидания",
-  [ELanguage.En]: "Dates",
+  [ELanguage.Ru]: "свидания",
+  [ELanguage.En]: "dates",
 };
 
 const RELATIONSHIP_MAPPING = {
-  [ELanguage.Ru]: "Отношения",
-  [ELanguage.En]: "Relationship",
+  [ELanguage.Ru]: "отношения",
+  [ELanguage.En]: "relationship",
 };
 
 const FRIENDSHIP_MAPPING = {
-  [ELanguage.Ru]: "Дружба",
-  [ELanguage.En]: "Friendship",
+  [ELanguage.Ru]: "дружба",
+  [ELanguage.En]: "friendship",
 };
 
 const BUSINESS_MAPPING = {
-  [ELanguage.Ru]: "Деловые связи",
-  [ELanguage.En]: "Business connections",
+  [ELanguage.Ru]: "деловые связи",
+  [ELanguage.En]: "business connections",
 };
 
 const SEX_MAPPING = {
-  [ELanguage.Ru]: "Секс",
-  [ELanguage.En]: "Sex",
+  [ELanguage.Ru]: "секс",
+  [ELanguage.En]: "sex",
 };
 
 const ALL_MAPPING = {
-  [ELanguage.Ru]: "Для всего",
-  [ELanguage.En]: "For everything",
+  [ELanguage.Ru]: "для всего",
+  [ELanguage.En]: "for everything",
 };
 
 export const PROFILE_LOOKING_FOR_MAPPING = {

@@ -2,6 +2,7 @@
 
 import isNil from "lodash/isNil";
 import { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 type TPosition = {
   errorPosition?: GeolocationPositionError;
@@ -26,6 +27,7 @@ type TProps = {
 type TUseNavigator = (props: TProps) => TUseNavigatorResponse;
 
 export const useNavigator: TUseNavigator = ({ lng }) => {
+  const { t } = useTranslation("index");
   const [position, setPosition] = useState<TPosition>({
     errorPosition: undefined,
     isCoords: false,
@@ -57,7 +59,9 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
         data?.response?.GeoObjectCollection?.featureMember?.[0]?.GeoObject
           ?.metaDataProperty?.GeocoderMetaData?.AddressDetails?.Country
           ?.AdministrativeArea?.AdministrativeAreaName;
-      const location = country ? `${country}` + (city && `, ${city}`) : undefined;
+      const location = country
+        ? `${country}` + (city && `, ${city}`)
+        : t("common.titles.geoPositionExist");
       setPosition((prevState) => ({
         ...prevState,
         isCoords: true,

@@ -154,7 +154,8 @@
     },
     "titles": {
       "birthday": "Дата рождения",
-      "accountFreezed": "Добавь сюда перевод!!!"
+      "accountFreezed": "Добавь сюда перевод!!!",
+      "geopositionExist": "Добавь сюда перевод!!!"
     },
     "form": {
       "field": {

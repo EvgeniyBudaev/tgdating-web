@@ -239,7 +239,7 @@ export const ProfileForm: FC<TProps> = ({
               defaultValue={location}
               isReadOnly={true}
               label={t("common.form.field.location") ?? "Location"}
-              subLabel={t("common.titles.autocomplete")}
+              subLabel={`${t("common.titles.autocomplete")}, ${t("common.titles.noChanged")}`}
               name={EProfileAddFormFields.Location}
               type="text"
             />

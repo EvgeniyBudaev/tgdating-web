@@ -59,8 +59,8 @@ export const useTelegram: TUseTelegram = () => {
   //   if (telegram) {
   //     const params = tgMock.initData;
   //     const initDataSearchParams =  new URLSearchParams(params);
-  //     const queryId = initDataSearchParams.getProfile("query_id");
-  //     const user = JSON.parse(initDataSearchParams.getProfile("user") ?? "");
+  //     const queryId = initDataSearchParams.get("query_id");
+  //     const user = JSON.parse(initDataSearchParams.get("user") ?? "");
   //     setTg(telegram);
   //     setQueryId(queryId);
   //     setUser(user);

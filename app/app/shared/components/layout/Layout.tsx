@@ -10,7 +10,7 @@ import {
 } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useNavigator, useTelegram } from "@/app/shared/hooks";
-import { convertToUrlSearchParams, createPath } from "@/app/shared/utils";
+import { createPath } from "@/app/shared/utils";
 import "./Layout.scss";
 
 type TProps = {

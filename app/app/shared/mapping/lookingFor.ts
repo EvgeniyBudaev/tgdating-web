@@ -2,23 +2,23 @@ import { ELookingFor } from "@/app/shared/enums/form";
 import { ELanguage } from "@/app/shared/enums";
 
 const lookingForOptionsRU = [
-  { label: "Общение", value: ELookingFor.Chat },
-  { label: "Свидания", value: ELookingFor.Dates },
-  { label: "Отношения", value: ELookingFor.Relationship },
-  { label: "Дружба", value: ELookingFor.Friendship },
-  { label: "Деловые связи", value: ELookingFor.Business },
-  { label: "Секс", value: ELookingFor.Sex },
-  { label: "Для всего", value: ELookingFor.All },
+  { label: "общение", value: ELookingFor.Chat },
+  { label: "свидания", value: ELookingFor.Dates },
+  { label: "отношения", value: ELookingFor.Relationship },
+  { label: "дружба", value: ELookingFor.Friendship },
+  { label: "деловые связи", value: ELookingFor.Business },
+  { label: "секс", value: ELookingFor.Sex },
+  { label: "для всего", value: ELookingFor.All },
 ];
 
 const lookingForOptionsEN = [
-  { label: "Communication", value: ELookingFor.Chat },
-  { label: "Dates", value: ELookingFor.Dates },
-  { label: "Relationship", value: ELookingFor.Relationship },
-  { label: "Friendship", value: ELookingFor.Friendship },
-  { label: "Business", value: ELookingFor.Business },
-  { label: "Sex", value: ELookingFor.Sex },
-  { label: "For everything", value: ELookingFor.All },
+  { label: "communication", value: ELookingFor.Chat },
+  { label: "dates", value: ELookingFor.Dates },
+  { label: "relationship", value: ELookingFor.Relationship },
+  { label: "friendship", value: ELookingFor.Friendship },
+  { label: "business", value: ELookingFor.Business },
+  { label: "sex", value: ELookingFor.Sex },
+  { label: "for everything", value: ELookingFor.All },
 ];
 
 export const LOOKING_FOR_MAPPING = {
