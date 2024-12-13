@@ -65,21 +65,6 @@ export async function addProfileAction(prevState: any, formData: FormData) {
         EProfileAddFormFields.Description,
         mapperParams.profileForm.description,
       );
-    mapperParams.profileForm?.height &&
-      profileFormData.append(
-        EProfileAddFormFields.Height,
-        mapperParams.profileForm.height,
-      );
-    mapperParams.profileForm?.weight &&
-      profileFormData.append(
-        EProfileAddFormFields.Weight,
-        mapperParams.profileForm.weight,
-      );
-    mapperParams.profileForm?.lookingFor &&
-      profileFormData.append(
-        EProfileAddFormFields.LookingFor,
-        mapperParams.profileForm.lookingFor,
-      );
     if (formData.getAll("image")?.length) {
       (formData.getAll("image") ?? []).forEach((item) => {
         profileFormData.append(EProfileAddFormFields.Image, item);

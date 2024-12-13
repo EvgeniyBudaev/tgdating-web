@@ -24,7 +24,7 @@ import {
   useTelegramContext,
 } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { EGender, ELookingFor, ESearchGender } from "@/app/shared/enums/form";
+import { EGender, ESearchGender } from "@/app/shared/enums/form";
 import { useFiles, useFormErrors } from "@/app/shared/hooks";
 import type { TUseTelegramResponse } from "@/app/shared/hooks/useTelegram";
 import type { TUseNavigatorResponse } from "@/app/shared/hooks/useNavigator";
@@ -257,8 +257,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     const displayName = formData.get(EProfileAddFormFields.DisplayName);
     const description = formData.get(EProfileAddFormFields.Description);
     const location = formData.get(EProfileAddFormFields.Location);
-    const height = formData.get(EProfileAddFormFields.Height);
-    const weight = formData.get(EProfileAddFormFields.Weight);
     formDataDto.append(
       EProfileAddFormFields.DisplayName,
       (displayName ?? "").toString(),
@@ -271,8 +269,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       EProfileAddFormFields.Location,
       (location ?? "").toString(),
     );
-    formDataDto.append(EProfileAddFormFields.Height, (height ?? "").toString());
-    formDataDto.append(EProfileAddFormFields.Weight, (weight ?? "").toString());
     (files ?? []).forEach((file) => {
       formDataDto.append(EProfileAddFormFields.Image, file);
     });
@@ -286,7 +282,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       EProfileAddFormFields.SearchGender,
       (searchGender?.value ?? ESearchGender.All).toString(),
     );
-    formDataDto.append(EProfileAddFormFields.LookingFor, ELookingFor.All);
     formDataDto.append(
       EProfileAddFormFields.TelegramUserID,
       user?.id.toString() ?? "",

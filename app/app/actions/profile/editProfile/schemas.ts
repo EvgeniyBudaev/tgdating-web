@@ -4,21 +4,16 @@ import { z } from "zod";
 import { zfd } from "zod-form-data";
 import { fileSchema, MAX_FILE_SIZE } from "@/app/api/upload";
 import { EProfileEditFormFields } from "@/app/actions/profile/editProfile/enums";
-import { EGender, ELookingFor, ESearchGender } from "@/app/shared/enums/form";
+import { EGender, ESearchGender } from "@/app/shared/enums/form";
 import {
   EMPTY_FIELD_ERROR_MESSAGE,
   FILE_MAX_SIZE_MESSAGE,
-  HEIGHT_MIN_SIZE_MESSAGE,
-  WEIGHT_MIN_SIZE_MESSAGE,
 } from "@/app/shared/validation";
 import {
   numberNonNegativeOptionalSchema,
-  numberNonNegativeWithMaxHeightOptionalSchema,
-  numberNonNegativeWithMaxWeightOptionalSchema,
   stringOptionalSchema,
   symbolsMaxDisplayNameSchema,
 } from "@/app/shared/validation/schemas";
-import { HEIGHT_MIN_SIZE, WEIGHT_MIN_SIZE } from "@/app/shared/constants";
 import { EProfileAddFormFields } from "@/app/actions/profile/addProfile/enums";
 
 export const editProfileFormSchema = zfd
@@ -49,20 +44,6 @@ export const editProfileFormSchema = zfd
     ]),
     [EProfileEditFormFields.Location]: stringOptionalSchema,
     [EProfileEditFormFields.Description]: stringOptionalSchema,
-    [EProfileEditFormFields.Height]:
-      numberNonNegativeWithMaxHeightOptionalSchema,
-    [EProfileEditFormFields.Weight]:
-      numberNonNegativeWithMaxWeightOptionalSchema,
-    [EProfileEditFormFields.LookingFor]: z.enum([
-      ELookingFor.Chat,
-      ELookingFor.Dates,
-      ELookingFor.Relationship,
-      ELookingFor.Friendship,
-      ELookingFor.Business,
-      ELookingFor.Sex,
-      ELookingFor.All,
-      "",
-    ]),
     [EProfileEditFormFields.Image]: z.union([
       z.literal(null),
       fileSchema.or(fileSchema.array()),
@@ -121,7 +102,7 @@ export const editProfileFormSchema = zfd
       .min(1, EMPTY_FIELD_ERROR_MESSAGE),
     [EProfileEditFormFields.IsImages]: z.string().trim().nullish(),
   })
-  .superRefine(({ height, isImages, image, weight }, ctx) => {
+  .superRefine(({ isImages, image }, ctx) => {
     if (
       Boolean(isImages) &&
       !isNil(image) &&
@@ -156,28 +137,6 @@ export const editProfileFormSchema = zfd
         code: z.ZodIssueCode.custom,
         path: [EProfileEditFormFields.Image],
         message: FILE_MAX_SIZE_MESSAGE,
-      });
-    }
-    if (
-      !isNil(height) &&
-      Number(height) >= 0 &&
-      Number(height) < HEIGHT_MIN_SIZE
-    ) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        path: [EProfileAddFormFields.Height],
-        message: HEIGHT_MIN_SIZE_MESSAGE,
-      });
-    }
-    if (
-      !isNil(weight) &&
-      Number(weight) >= 0 &&
-      Number(weight) < WEIGHT_MIN_SIZE
-    ) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        path: [EProfileAddFormFields.Weight],
-        message: WEIGHT_MIN_SIZE_MESSAGE,
       });
     }
   });

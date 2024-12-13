@@ -169,20 +169,21 @@ export const ProfileForm: FC<TProps> = ({
           </Field>
           <Field>
             <div style={{ marginBottom: "4px" }}>
-              <Typography>{t("common.form.field.birthday")}&nbsp;</Typography>
+              <Typography>{t("common.form.field.age")}&nbsp;</Typography>
               <Typography variant={ETypographyVariant.TextB4Regular}>
                 ({t("common.titles.required")},&nbsp;{t("common.titles.hidden")}
                 ,&nbsp;{t("common.titles.changeable")})
               </Typography>
             </div>
-            <InputDateField
-              locale={LOCALE_MAPPING[language]}
-              name={EProfileAddFormFields.Birthday}
-              onChange={onDateChange}
-              onFieldClear={() => setValueInputDateField(null)}
-              placeholder={t("common.form.field.date.placeholder")}
-              value={valueInputDateField}
-            />
+            <Select />
+            {/*<InputDateField*/}
+            {/*  locale={LOCALE_MAPPING[language]}*/}
+            {/*  name={EProfileAddFormFields.Birthday}*/}
+            {/*  onChange={onDateChange}*/}
+            {/*  onFieldClear={() => setValueInputDateField(null)}*/}
+            {/*  placeholder={t("common.form.field.date.placeholder")}*/}
+            {/*  value={valueInputDateField}*/}
+            {/*/>*/}
           </Field>
           <Field>
             <Textarea
@@ -241,34 +242,6 @@ export const ProfileForm: FC<TProps> = ({
               label={t("common.form.field.location") ?? "Location"}
               subLabel={`${t("common.titles.autocomplete")}, ${t("common.titles.noChanged")}`}
               name={EProfileAddFormFields.Location}
-              type="text"
-            />
-          </Field>
-          <Field>
-            <Input
-              defaultValue={
-                isEdit && profile?.height !== 0
-                  ? (profile?.height ?? undefined)
-                  : undefined
-              }
-              isNumeric={true}
-              label={t("common.form.field.height") ?? "Height"}
-              name={EProfileAddFormFields.Height}
-              onFocus={handleFocus}
-              type="text"
-            />
-          </Field>
-          <Field>
-            <Input
-              defaultValue={
-                isEdit && profile?.weight !== 0
-                  ? (profile?.weight ?? undefined)
-                  : undefined
-              }
-              isNumeric={true}
-              label={t("common.form.field.weight") ?? "Weight"}
-              name={EProfileAddFormFields.Weight}
-              onFocus={handleFocus}
               type="text"
             />
           </Field>

@@ -4,17 +4,12 @@ import { z } from "zod";
 import { zfd } from "zod-form-data";
 import { imageFileSchema } from "@/app/api/upload";
 import { EProfileAddFormFields } from "@/app/actions/profile/addProfile/enums";
-import { HEIGHT_MIN_SIZE, WEIGHT_MIN_SIZE } from "@/app/shared/constants";
-import { EGender, ELookingFor, ESearchGender } from "@/app/shared/enums/form";
+import { EGender, ESearchGender } from "@/app/shared/enums/form";
 import {
   EMPTY_FIELD_ERROR_MESSAGE,
-  HEIGHT_MIN_SIZE_MESSAGE,
-  WEIGHT_MIN_SIZE_MESSAGE,
 } from "@/app/shared/validation";
 import {
   numberNonNegativeOptionalSchema,
-  numberNonNegativeWithMaxHeightOptionalSchema,
-  numberNonNegativeWithMaxWeightOptionalSchema,
   stringOptionalSchema,
   symbolsMaxDisplayNameSchema,
 } from "@/app/shared/validation/schemas";
@@ -46,19 +41,6 @@ export const addProfileFormSchema = zfd
     ]),
     [EProfileAddFormFields.Location]: stringOptionalSchema,
     [EProfileAddFormFields.Description]: stringOptionalSchema,
-    [EProfileAddFormFields.Height]:
-      numberNonNegativeWithMaxHeightOptionalSchema,
-    [EProfileAddFormFields.Weight]:
-      numberNonNegativeWithMaxWeightOptionalSchema,
-    [EProfileAddFormFields.LookingFor]: z.enum([
-      ELookingFor.Chat,
-      ELookingFor.Dates,
-      ELookingFor.Relationship,
-      ELookingFor.Friendship,
-      ELookingFor.Business,
-      ELookingFor.Sex,
-      ELookingFor.All,
-    ]),
     [EProfileAddFormFields.Image]: imageFileSchema,
     [EProfileAddFormFields.TelegramUserID]: z
       .string()
@@ -109,28 +91,4 @@ export const addProfileFormSchema = zfd
       .string()
       .trim()
       .min(1, EMPTY_FIELD_ERROR_MESSAGE),
-  })
-  .superRefine(({ height, weight }, ctx) => {
-    if (
-      !isNil(height) &&
-      Number(height) >= 0 &&
-      Number(height) < HEIGHT_MIN_SIZE
-    ) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        path: [EProfileAddFormFields.Height],
-        message: HEIGHT_MIN_SIZE_MESSAGE,
-      });
-    }
-    if (
-      !isNil(weight) &&
-      Number(weight) >= 0 &&
-      Number(weight) < WEIGHT_MIN_SIZE
-    ) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        path: [EProfileAddFormFields.Weight],
-        message: WEIGHT_MIN_SIZE_MESSAGE,
-      });
-    }
   });

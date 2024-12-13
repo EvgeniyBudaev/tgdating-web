@@ -57,8 +57,6 @@ const ProfileDetailPageComponent: FC<TProps> = ({
   const isSessionUser = Boolean(
     profile?.telegramUserId && user?.id.toString() === profile.telegramUserId,
   );
-  const isHeight = !isNil(profile?.height) && profile?.height !== 0;
-  const isWeight = !isNil(profile?.weight) && profile?.weight !== 0;
 
   useEffect(() => {
     if (isManyRequest) {
@@ -205,7 +203,7 @@ const ProfileDetailPageComponent: FC<TProps> = ({
                 </div>
               </div>
             </div>
-            {(profile?.location || isHeight || isWeight) && (
+            {profile?.location && (
               <Field>
                 <div className="ProfileDetailPage-Box">
                   {profile?.location && (
@@ -216,26 +214,6 @@ const ProfileDetailPageComponent: FC<TProps> = ({
                           type="Location"
                         />
                         <Typography>{profile?.location}</Typography>
-                      </div>
-                    </Field>
-                  )}
-                  {(isHeight || isWeight) && (
-                    <Field>
-                      <div className="ProfileDetailPage-Row">
-                        <Icon
-                          className="ProfileDetailPage-Icon"
-                          type="Person"
-                        />
-                        {isHeight && (
-                          <Typography>
-                            {profile?.height} {t("common.reductions.cm")}&nbsp;
-                          </Typography>
-                        )}
-                        {isWeight && (
-                          <Typography>
-                            {profile?.weight} {t("common.reductions.kg")}&nbsp;
-                          </Typography>
-                        )}
                       </div>
                     </Field>
                   )}

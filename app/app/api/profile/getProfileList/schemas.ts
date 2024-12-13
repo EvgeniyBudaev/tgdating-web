@@ -4,7 +4,6 @@ import { paginationSchema } from "@/app/api/pagination/schemas";
 export const getProfileListParamsSchema = z.object({
   telegramUserId: z.string(),
   searchGender: z.string(),
-  lookingFor: z.string(),
   ageFrom: z.string(),
   ageTo: z.string(),
   distance: z.string(),

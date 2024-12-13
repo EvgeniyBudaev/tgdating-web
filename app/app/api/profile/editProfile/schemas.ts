@@ -5,7 +5,6 @@ import { imageSchema } from "@/app/api/image/schemas";
 import { navigatorSchema } from "@/app/api/navigator/updateNavigator/schemas";
 import { filterSchema } from "@/app/api/filter/schemas";
 import {statusSchema} from "@/app/api/status/schemas";
-import { telegramSchema } from "@/app/api/telegram/schemas";
 
 export const editProfileParamsSchema = zfd.formData({
   displayName: zfd.text(),
@@ -14,9 +13,6 @@ export const editProfileParamsSchema = zfd.formData({
   searchGender: zfd.text(),
   location: zfd.text().nullish(),
   description: zfd.text().nullish(),
-  height: zfd.text().nullish(),
-  weight: zfd.text().nullish(),
-  lookingFor: zfd.text().nullish(),
   image: fileSchema.or(fileSchema.array()).nullish(),
   telegramUserId: zfd.text(),
   telegramUsername: zfd.text().nullish(),
@@ -42,8 +38,6 @@ export const editProfileSchema = z.object({
   gender: z.string(),
   location: z.string().nullish(),
   description: z.string().nullish(),
-  height: z.number().nullish(),
-  weight: z.number().nullish(),
   navigator: navigatorSchema.nullish(),
   filter: filterSchema.nullish(),
   status: statusSchema.nullish(),

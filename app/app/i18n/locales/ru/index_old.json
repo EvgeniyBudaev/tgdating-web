@@ -171,16 +171,27 @@
         "email": "Электронная почта",
         "password": "Пароль",
         "passwordConfirm": "Подтверждение пароля",
-        "lookingFor": "Ищу для",
         "rating": "Оценка",
-        "message": "Текст сообщения"
+        "message": "Текст сообщения",
+        "height": "Рост",
+        "weight": "Вес"
       }
     },
     "title": {
       "comments": "Отзывы"
     },
     "validation": {
-      "maxCharacters": "Должно быть не менее {{max}} символов"
+      "maxCharacters": "Должно быть не менее {{max}} символов",
+      "height": {
+        "minSize": "Должно быть больше или равно 50"
+      },
+      "weight": {
+        "minSize": "Должно быть больше или равно 40"
+      }
+    },
+    "reductions": {
+      "cm": "см",
+      "kg": "кг"
     }
   },
   "form": {

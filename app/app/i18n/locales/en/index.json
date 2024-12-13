@@ -34,8 +34,6 @@
         "gender": "Gender",
         "searchGender": "Interest",
         "location": "Location",
-        "height": "Height",
-        "weight": "Weight",
         "language": "interface language"
       }
     },
@@ -59,8 +57,6 @@
       "save": "Save"
     },
     "reductions": {
-      "cm": "cm",
-      "kg": "kg",
       "km": "km",
       "m": "m"
     },
@@ -77,12 +73,6 @@
         "maxAmount": "Maximum number of files 3"
       },
       "invalidTypeNumber": "Must be a number",
-      "height": {
-        "minSize": "Must be more or equal to 50"
-      },
-      "weight": {
-        "minSize": "Must be more or equal to 40"
-      },
       "nonNegativeNumber": "Must be a positive number",
       "mustInteger": "Must be an integer number",
       "lessOrEqualMaxNumber": "Must be less or equal to {{max}}",

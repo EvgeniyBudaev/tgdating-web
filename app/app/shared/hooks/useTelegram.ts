@@ -41,7 +41,7 @@ export const useTelegram: TUseTelegram = () => {
       "query_id=AAEtEtErAwAAAC0S0SuevPSy&user=%7B%22id%22%3A7177572909%2C%22first_name%22%3A%22%D0%96%D0%B5%D0%BD%D1%8F%22%2C%22last_name%22%3A%22%D0%94%D0%B5%D0%BC%D0%B8%D0%B4%D0%BE%D0%B2%22%2C%22username%22%3A%22boynotfound404%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2Fesufwwkha4nemTDY8JLY6VAJIm8Nxpmo7WtAvWACM0Q__Rfh8yage3X-RBQhqmjV.svg%22%7D&auth_date=1733669117&signature=ClZllvMZM_tuTyb9ko-f7rovUIuY3GPqvhJDD254Vfsh2g4xFWPfgzDY3kOznFd6bIWkgKioLTVyp4lSh8bICg&hash=b3ccfd435fe888150ea4d779e4bb2c964b87c75bcb48bd7f497ad85ca84202e2",
   };
 
-  const tgMock = mockData1;
+  const tgMock = mockData2;
 
   // For test without telegram auth
   useEffect(() => {

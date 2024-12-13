@@ -20,8 +20,6 @@ export const profileDetailSchema = z.object({
   birthday: z.string(),
   location: z.string().nullish(),
   description: z.string().nullish(),
-  height: z.number().nullish(),
-  weight: z.number().nullish(),
   navigator: z.object({
     distance: z.number().nullish(),
   }).nullish(),

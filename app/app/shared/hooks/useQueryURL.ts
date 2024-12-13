@@ -8,14 +8,12 @@ import {
   DEFAULT_AGE_FROM,
   DEFAULT_AGE_TO,
   DEFAULT_DISTANCE,
-  DEFAULT_LOOKING_FOR,
   DEFAULT_PAGE,
   DEFAULT_PAGE_SIZE,
   DEFAULT_SEARCH_GENDER,
   DISTANCE,
   LATITUDE,
   LONGITUDE,
-  LOOKING_FOR,
   PAGE,
   SEARCH_GENDER,
   SESSION_ID,
@@ -34,7 +32,6 @@ type TOnUpdateQueryURLProps = {
   ageFrom?: string;
   ageTo?: string;
   searchGender?: string;
-  lookingFor?: string;
   telegramUserId?: string;
   distance?: string;
   latitude?: string;
@@ -47,7 +44,6 @@ type TOnGetQueryURLResponse = {
   ageFrom: string;
   ageTo: string;
   searchGender: string;
-  lookingFor: string;
   telegramUserId: string;
   distance: string;
   latitude: string;
@@ -75,7 +71,6 @@ export const useQueryURL: TUseQueryURL = ({ lng }) => {
   const ageFrom = params.get(AGE_FROM) ?? DEFAULT_AGE_FROM.toString();
   const ageTo = params.get(AGE_TO) ?? DEFAULT_AGE_TO.toString();
   const searchGender = params.get(SEARCH_GENDER) ?? DEFAULT_SEARCH_GENDER;
-  const lookingFor = params.get(LOOKING_FOR) ?? DEFAULT_LOOKING_FOR;
   const distance = params.get(DISTANCE) ?? DEFAULT_DISTANCE.toString();
   const latitude = params.get(LATITUDE) ?? "";
   const longitude = params.get(LONGITUDE) ?? "";
@@ -83,14 +78,13 @@ export const useQueryURL: TUseQueryURL = ({ lng }) => {
   const longitudeGPS = (navigator?.longitude ?? "").toString();
 
   const queryURL = useMemo(() => {
-    return `?page=${page}&size=${size}&ageFrom=${ageFrom}&ageTo=${ageTo}&searchGender=${searchGender}&lookingFor=${lookingFor}&telegramUserId=${telegramUserId}&distance=${distance}&latitude=${latitudeGPS}&longitude=${longitudeGPS}`;
+    return `?page=${page}&size=${size}&ageFrom=${ageFrom}&ageTo=${ageTo}&searchGender=${searchGender}&telegramUserId=${telegramUserId}&distance=${distance}&latitude=${latitudeGPS}&longitude=${longitudeGPS}`;
   }, [
     page,
     size,
     ageFrom,
     ageTo,
     searchGender,
-    lookingFor,
     telegramUserId,
     distance,
     latitudeGPS,
@@ -107,9 +101,6 @@ export const useQueryURL: TUseQueryURL = ({ lng }) => {
     props?.searchGender
       ? params.set(SEARCH_GENDER, props.searchGender)
       : params.set(SEARCH_GENDER, searchGender);
-    props?.lookingFor
-      ? params.set(LOOKING_FOR, props.lookingFor)
-      : params.set(LOOKING_FOR, lookingFor);
     props?.telegramUserId
       ? params.set(SESSION_ID, props.telegramUserId)
       : params.set(SESSION_ID, telegramUserId?.toString() ?? "");
@@ -132,7 +123,6 @@ export const useQueryURL: TUseQueryURL = ({ lng }) => {
       ageFrom: params.get(AGE_FROM) ?? DEFAULT_AGE_FROM.toString(),
       ageTo: params.get(AGE_TO) ?? DEFAULT_AGE_TO.toString(),
       searchGender: params.get(SEARCH_GENDER) ?? DEFAULT_SEARCH_GENDER,
-      lookingFor: params.get(LOOKING_FOR) ?? DEFAULT_LOOKING_FOR,
       telegramUserId: params.get(SESSION_ID) ?? "",
       distance: params.get(DISTANCE) ?? DEFAULT_DISTANCE.toString(),
       latitude: params.get(LATITUDE) ?? "",

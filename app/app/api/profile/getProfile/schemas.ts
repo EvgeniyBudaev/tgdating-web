@@ -17,8 +17,6 @@ export const getProfileSchema = z.object({
   gender: z.string(),
   location: z.string().nullish(),
   description: z.string().nullish(),
-  height: z.number().nullish(),
-  weight: z.number().nullish(),
   navigator: navigatorSchema.nullish(),
   filter: filterSchema.nullish(),
   status: statusSchema.nullish(),

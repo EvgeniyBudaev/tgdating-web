@@ -65,21 +65,6 @@ export async function editProfileAction(prevState: any, formData: FormData) {
         EProfileEditFormFields.Description,
         mapperParams.profileForm.description,
       );
-    mapperParams.profileForm?.height &&
-      profileFormData.append(
-        EProfileEditFormFields.Height,
-        mapperParams.profileForm.height,
-      );
-    mapperParams.profileForm?.weight &&
-      profileFormData.append(
-        EProfileEditFormFields.Weight,
-        mapperParams.profileForm.weight,
-      );
-    mapperParams.profileForm?.lookingFor &&
-      profileFormData.append(
-        EProfileEditFormFields.LookingFor,
-        mapperParams.profileForm.lookingFor,
-      );
     if (formData.getAll(EProfileEditFormFields.Image)?.length) {
       (formData.getAll(EProfileEditFormFields.Image) ?? []).forEach((item) => {
         profileFormData.append(EProfileEditFormFields.Image, item);

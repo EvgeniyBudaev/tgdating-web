@@ -171,16 +171,27 @@
         "email": "Email",
         "password": "Password",
         "passwordConfirm": "Password confirmation",
-        "lookingFor": "Looking for",
         "rating": "Rating",
-        "message": "Message text"
+        "message": "Message text",
+        "height": "Height",
+        "weight": "Weight"
       }
     },
     "title": {
       "comments": "Добавь сюда перевод!!!"
     },
     "validation": {
-      "maxCharacters": "Добавь сюда перевод!!!"
+      "maxCharacters": "Добавь сюда перевод!!!",
+      "height": {
+        "minSize": "Must be more or equal to 50"
+      },
+      "weight": {
+        "minSize": "Must be more or equal to 40"
+      }
+    },
+    "reductions": {
+      "cm": "cm",
+      "kg": "kg"
     }
   },
   "form": {

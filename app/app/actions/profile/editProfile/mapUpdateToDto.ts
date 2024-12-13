@@ -8,9 +8,6 @@ type TProps = {
   [EProfileEditFormFields.SearchGender]: string;
   [EProfileEditFormFields.Location]?: string | null | undefined;
   [EProfileEditFormFields.Description]?: string | null | undefined;
-  [EProfileEditFormFields.Height]?: number | null | undefined;
-  [EProfileEditFormFields.Weight]?: number | null | undefined;
-  [EProfileEditFormFields.LookingFor]: string;
   [EProfileEditFormFields.Image]: TFile | TFile[] | null | undefined;
   [EProfileEditFormFields.TelegramUserID]: string;
   [EProfileEditFormFields.TelegramUsername]: string;
@@ -36,9 +33,6 @@ type TProfileForm = {
   [EProfileEditFormFields.SearchGender]: string;
   [EProfileEditFormFields.Location]: string | null;
   [EProfileEditFormFields.Description]: string | null;
-  [EProfileEditFormFields.Height]: string | null;
-  [EProfileEditFormFields.Weight]: string | null;
-  [EProfileEditFormFields.LookingFor]: string;
   [EProfileEditFormFields.Image]: TFile | TFile[] | null;
   [EProfileEditFormFields.TelegramUserID]: string;
   [EProfileEditFormFields.TelegramUsername]: string;
@@ -72,13 +66,6 @@ export const mapUpdateToDto: TMapUpdateToDto = (props) => {
       [EProfileEditFormFields.SearchGender]: props.searchGender,
       [EProfileEditFormFields.Location]: props?.location ?? null,
       [EProfileEditFormFields.Description]: props?.description ?? null,
-      [EProfileEditFormFields.Height]: props?.height
-        ? props.height.toString()
-        : null,
-      [EProfileEditFormFields.Weight]: props?.weight
-        ? props.weight.toString()
-        : null,
-      [EProfileEditFormFields.LookingFor]: props.lookingFor,
       [EProfileEditFormFields.Image]: props?.image ?? null,
       [EProfileEditFormFields.TelegramUserID]: props.telegramUserId,
       [EProfileEditFormFields.TelegramUsername]: props.telegramUsername,

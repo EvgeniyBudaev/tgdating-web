@@ -1,5 +1,4 @@
 import { redirect } from "next/navigation";
-import { getFilter } from "@/app/api/filter/getFilter/domain";
 import { getProfileList } from "@/app/api/profile/getProfileList/domain";
 import { getProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/domain";
 import { SessionPage } from "@/app/pages/sessionPage";
@@ -7,7 +6,6 @@ import {
   DEFAULT_AGE_FROM,
   DEFAULT_AGE_TO,
   DEFAULT_DISTANCE,
-  DEFAULT_LOOKING_FOR,
   DEFAULT_PAGE,
   DEFAULT_PAGE_SIZE,
   DEFAULT_SEARCH_GENDER,
@@ -23,7 +21,6 @@ type TSearchParamsLoader = {
   ageFrom?: string;
   ageTo?: string;
   searchGender?: string;
-  lookingFor?: string;
   telegramUserId?: string;
   distance?: string;
   latitude?: string;
@@ -42,7 +39,6 @@ async function loaderProfileList(params: TLoader) {
       const query = {
         telegramUserId: telegramUserId,
         searchGender: searchParams?.searchGender ?? DEFAULT_SEARCH_GENDER,
-        lookingFor: searchParams?.lookingFor ?? DEFAULT_LOOKING_FOR,
         ageFrom: searchParams?.ageFrom ?? DEFAULT_AGE_FROM.toString(),
         ageTo: searchParams?.ageTo ?? DEFAULT_AGE_TO.toString(),
         distance: searchParams?.distance ?? DEFAULT_DISTANCE.toString(),
@@ -119,7 +115,6 @@ type TSearchParams = Promise<{
   ageFrom?: string;
   ageTo?: string;
   searchGender?: string;
-  lookingFor?: string;
   telegramUserId?: string;
   distance?: string;
   latitude?: string;

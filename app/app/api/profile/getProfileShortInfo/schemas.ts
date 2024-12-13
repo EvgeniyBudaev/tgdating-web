@@ -9,7 +9,6 @@ export const profileShortInfoSchema = z.object({
   isBlocked: z.boolean(),
   isFrozen: z.boolean(),
   searchGender: z.string(),
-  lookingFor: z.string(),
   ageFrom: z.number(),
   ageTo: z.number(),
   distance: z.number(),
