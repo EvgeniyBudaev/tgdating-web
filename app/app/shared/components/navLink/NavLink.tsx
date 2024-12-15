@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { memo } from "react";
 import type { FC, PropsWithChildren } from "react";
 
 type TProps = {
@@ -11,7 +12,7 @@ type TProps = {
   href: string;
 } & PropsWithChildren;
 
-export const NavLink: FC<TProps> = ({
+const NavLinkComponent: FC<TProps> = ({
   activeClassName = "isActive",
   className,
   href,
@@ -38,3 +39,7 @@ export const NavLink: FC<TProps> = ({
     </Link>
   );
 };
+
+NavLinkComponent.displayName = "NavLink";
+
+export const NavLink = memo(NavLinkComponent);

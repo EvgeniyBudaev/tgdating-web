@@ -1,10 +1,10 @@
 "use client";
 
-import { type FC } from "react";
+import { type FC, memo } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import "./ProfileBlocked.scss";
 
-export const ProfileBlocked: FC = () => {
+const ProfileBlockedComponent: FC = () => {
   const { t } = useTranslation("index");
 
   return (
@@ -15,3 +15,7 @@ export const ProfileBlocked: FC = () => {
     </div>
   );
 };
+
+ProfileBlockedComponent.displayName = "ProfileBlocked";
+
+export const ProfileBlocked = memo(ProfileBlockedComponent);

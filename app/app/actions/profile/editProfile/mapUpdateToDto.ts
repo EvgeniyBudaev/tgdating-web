@@ -3,7 +3,7 @@ import { TFile } from "@/app/shared/types/file";
 
 type TProps = {
   [EProfileEditFormFields.DisplayName]: string;
-  [EProfileEditFormFields.Birthday]: string;
+  [EProfileEditFormFields.Age]: string | number;
   [EProfileEditFormFields.Gender]: string;
   [EProfileEditFormFields.SearchGender]: string;
   [EProfileEditFormFields.Location]?: string | null | undefined;
@@ -28,7 +28,7 @@ type TProps = {
 
 type TProfileForm = {
   [EProfileEditFormFields.DisplayName]: string;
-  [EProfileEditFormFields.Birthday]: string;
+  [EProfileEditFormFields.Age]: string;
   [EProfileEditFormFields.Gender]: string;
   [EProfileEditFormFields.SearchGender]: string;
   [EProfileEditFormFields.Location]: string | null;
@@ -61,7 +61,7 @@ export const mapUpdateToDto: TMapUpdateToDto = (props) => {
   return {
     profileForm: {
       [EProfileEditFormFields.DisplayName]: props.displayName,
-      [EProfileEditFormFields.Birthday]: props.birthday,
+      [EProfileEditFormFields.Age]: props.age.toString(),
       [EProfileEditFormFields.Gender]: props.gender,
       [EProfileEditFormFields.SearchGender]: props.searchGender,
       [EProfileEditFormFields.Location]: props?.location ?? null,

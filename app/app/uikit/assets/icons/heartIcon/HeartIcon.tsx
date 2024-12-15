@@ -1,11 +1,8 @@
+import { memo } from "react";
 import type { FC } from "react";
 import { TIconProps } from "@/app/uikit/assets/icons/types";
 
-export const HeartIcon: FC<TIconProps> = ({
-  height = 24,
-  width = 24,
-  ...props
-}) => (
+const Component: FC<TIconProps> = ({ height = 24, width = 24, ...props }) => (
   <svg
     fill="currentColor"
     height={height}
@@ -23,3 +20,5 @@ export const HeartIcon: FC<TIconProps> = ({
     />
   </svg>
 );
+
+export const HeartIcon = memo(Component);

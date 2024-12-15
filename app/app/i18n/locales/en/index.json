@@ -5,12 +5,8 @@
       "isEmptyUsername": "A unique name has not been set in Telegram/Settings/Username. Please set a username and try logging in to the app again. It may take a few minutes to update your Telegram data",
       "publicPhotos": "Public photos",
       "required": "required",
-      "moreDetails": "More details",
       "changeable": "can be changed",
-      "hidden": "hidden from users",
-      "properties": "Properties",
-      "autocomplete": "auto detection",
-      "noChanged": "can't be changed",
+      "canHidden": "it will be possible to hide",
       "filtersGeneral": "General filters",
       "age": "Age",
       "blockQuestion": "Block account?",
@@ -26,14 +22,11 @@
     "form": {
       "field": {
         "displayName": "Display name",
-        "birthday": "Birthday",
-        "date": {
-          "placeholder": "Select date"
-        },
+        "age": "Age",
+        "selectAge": "Select your age",
         "description": "Description",
         "gender": "Gender",
         "searchGender": "Interest",
-        "location": "Location",
         "language": "interface language"
       }
     },
@@ -49,9 +42,9 @@
       "editProfile": "Edit",
       "cancel": "Cancel",
       "restoreProfile": "Restore account",
-      "search": "Search",
-      "profile": "Profile",
       "back": "Back",
+      "main": "Home",
+      "profile": "Profile",
       "delete": "Delete",
       "loading": "Loading",
       "save": "Save"

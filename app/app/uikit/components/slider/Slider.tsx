@@ -3,10 +3,10 @@
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
 import Image from "next/image";
-import type { FC } from "react";
+import { type FC, memo } from "react";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import type { TImage } from "../../../api/image";
+import type { TImage } from "@/app/api/image";
 import { Icon } from "@/app/uikit/components/icon";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -16,7 +16,7 @@ type TProps = {
   images?: TImage[] | null;
 };
 
-export const Slider: FC<TProps> = ({ images }) => {
+const SliderComponent: FC<TProps> = ({ images }) => {
   return !isNil(images) && !isEmpty(images) ? (
     <Swiper
       className="Slider"
@@ -47,3 +47,7 @@ export const Slider: FC<TProps> = ({ images }) => {
     <Icon type="NoImage" />
   );
 };
+
+SliderComponent.displayName = "Slider";
+
+export const Slider = memo(SliderComponent);

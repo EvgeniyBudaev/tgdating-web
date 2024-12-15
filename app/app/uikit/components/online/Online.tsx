@@ -1,5 +1,7 @@
+"use client";
+
 import clsx from "clsx";
-import { type FC } from "react";
+import { type FC, memo } from "react";
 import { Typography } from "@/app/uikit/components/typography";
 import "./Online.scss";
 
@@ -13,7 +15,7 @@ type TProps = {
   message?: string;
 };
 
-export const Online: FC<TProps> = ({ classes, isOnline, message }) => {
+const OnlineComponent: FC<TProps> = ({ classes, isOnline, message }) => {
   if (!isOnline) return null;
 
   return (
@@ -27,3 +29,7 @@ export const Online: FC<TProps> = ({ classes, isOnline, message }) => {
     </div>
   );
 };
+
+OnlineComponent.displayName = "Online";
+
+export const Online = memo(OnlineComponent);

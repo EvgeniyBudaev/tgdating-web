@@ -1,7 +1,7 @@
 "use client";
 
 import isNil from "lodash/isNil";
-import { useRef, useState, type FC, useMemo } from "react";
+import { useRef, useState, type FC, useMemo, memo } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { Header } from "@/app/shared/components/header";
 import { SidebarContent } from "@/app/shared/components/sidebarContent";
@@ -22,7 +22,7 @@ type TProps = {
   telegramUserId: string;
 };
 
-export const Settings: FC<TProps> = ({ lng, telegramUserId }) => {
+const SettingsComponent: FC<TProps> = ({ lng, telegramUserId }) => {
   const csrf = useAuthenticityTokenContext();
   const sidebarRef = useRef(null);
   const telegram = useTelegramContext();
@@ -125,3 +125,7 @@ export const Settings: FC<TProps> = ({ lng, telegramUserId }) => {
     </>
   );
 };
+
+SettingsComponent.displayName = "Settings";
+
+export const Settings = memo(SettingsComponent);

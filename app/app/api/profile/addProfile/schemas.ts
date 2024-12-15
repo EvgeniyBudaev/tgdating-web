@@ -4,7 +4,7 @@ import { fileSchema } from "@/app/api/upload";
 
 export const addProfileParamsSchema = zfd.formData({
   displayName: zfd.text(),
-  birthday: zfd.text(),
+  age: zfd.text(),
   gender: zfd.text(),
   searchGender: zfd.text(),
   location: zfd.text().nullish(),

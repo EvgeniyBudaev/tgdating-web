@@ -1,6 +1,5 @@
 "use client";
 
-import isNil from "lodash/isNil";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { FC, memo, useEffect, useMemo, useRef, useState } from "react";
@@ -53,7 +52,6 @@ const ProfileDetailPageComponent: FC<TProps> = ({
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
-  const fullYear = getFullYear(profile?.birthday);
   const isSessionUser = Boolean(
     profile?.telegramUserId && user?.id.toString() === profile.telegramUserId,
   );
@@ -170,7 +168,7 @@ const ProfileDetailPageComponent: FC<TProps> = ({
                   <div className="ProfileDetailPage-Inner-Left">
                     <Field>
                       <Typography>
-                        {profile?.displayName}, {fullYear}
+                        {profile?.displayName}, {profile?.age}
                       </Typography>
                     </Field>
                     {profile?.status?.isOnline && (

@@ -2,7 +2,7 @@
 
 import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
-import { type FC, useEffect } from "react";
+import { type FC, memo, useEffect } from "react";
 import { useFormState } from "react-dom";
 import { addBlockAction } from "@/app/actions/block/addBlock/addBlockAction";
 import { useTranslation } from "@/app/i18n/client";
@@ -24,7 +24,7 @@ type TProps = {
   onCloseDropDown?: () => void;
 };
 
-export const Block: FC<TProps> = ({ blockedTelegramUserId, lng }) => {
+const BlockComponent: FC<TProps> = ({ blockedTelegramUserId, lng }) => {
   const csrf = useAuthenticityTokenContext();
   const { closeModal, isOpenModal, openModal } = useModalWindow();
   const telegram = useTelegramContext();
@@ -99,3 +99,7 @@ export const Block: FC<TProps> = ({ blockedTelegramUserId, lng }) => {
     </>
   );
 };
+
+BlockComponent.displayName = "Blocked";
+
+export const Block = memo(BlockComponent);

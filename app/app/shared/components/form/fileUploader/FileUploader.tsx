@@ -7,11 +7,13 @@ import {
   type FC,
   type ReactElement,
   useEffect,
+  memo,
 } from "react";
 import { useFormStatus } from "react-dom";
 import { useTranslation } from "react-i18next";
 import type { DropEvent, FileRejection } from "react-dropzone";
-import type { TImage } from "../../../../api/image";
+
+import type { TImage } from "@/app/api/image";
 import { Previews } from "@/app/shared/components/form/fileUploader/previews";
 import {
   filterDuplicatedFiles,
@@ -39,7 +41,7 @@ export type TFileUploaderProps = {
   type: string;
 } & TDropzoneProps;
 
-export const FileUploader: FC<TFileUploaderProps> = ({
+const FileUploaderComponent: FC<TFileUploaderProps> = ({
   accept,
   defaultImages,
   errors,
@@ -162,3 +164,7 @@ export const FileUploader: FC<TFileUploaderProps> = ({
     </div>
   );
 };
+
+FileUploaderComponent.displayName = "FileUploader";
+
+export const FileUploader = memo(FileUploaderComponent);

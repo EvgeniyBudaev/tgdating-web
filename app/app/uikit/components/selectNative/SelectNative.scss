@@ -1,0 +1,29 @@
+@import "@/app/styles";
+
+.SelectNative {
+  width: 100%;
+
+  &-Wrapper {
+    position: relative;
+  }
+
+  &-IconDropdownIndicator {
+    svg {
+      fill: $text_color;
+    }
+  }
+
+  &-IconDropdownIndicator__open {
+    transform: rotate(180deg);
+  }
+}
+
+.theme-dark {
+  .SelectNative {
+    &-IconDropdownIndicator {
+      svg {
+        fill: $text_color;
+      }
+    }
+  }
+}

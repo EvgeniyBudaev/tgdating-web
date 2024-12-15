@@ -1,7 +1,7 @@
 "use client";
 
 import { redirect } from "next/navigation";
-import { type FC, useEffect } from "react";
+import { type FC, memo, useEffect } from "react";
 import { useTelegramContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useCheckPermissions } from "@/app/shared/hooks";
@@ -12,7 +12,7 @@ type TProps = {
   lng: ELanguage;
 };
 
-export const MainPage: FC<TProps> = ({ lng }) => {
+const MainPageComponent: FC<TProps> = ({ lng }) => {
   useCheckPermissions({ lng });
   const telegram = useTelegramContext();
   const user = telegram?.user;
@@ -30,3 +30,7 @@ export const MainPage: FC<TProps> = ({ lng }) => {
 
   return <></>;
 };
+
+MainPageComponent.displayName = "MainPage";
+
+export const MainPage = memo(MainPageComponent);

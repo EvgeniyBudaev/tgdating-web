@@ -1,6 +1,7 @@
 "use client";
 
 import clsx from "clsx";
+import { memo } from "react";
 import type { FC, ReactNode } from "react";
 import { useDropzone } from "react-dropzone";
 import type { DropzoneOptions } from "react-dropzone";
@@ -15,7 +16,7 @@ export type TDropzoneProps = {
   multiple: boolean;
 } & DropzoneOptions;
 
-export const Dropzone: FC<TDropzoneProps> = ({
+const DropzoneComponent: FC<TDropzoneProps> = ({
   children,
   className,
   dataTestId = "uikit__dropzone",
@@ -45,3 +46,7 @@ export const Dropzone: FC<TDropzoneProps> = ({
     </div>
   );
 };
+
+DropzoneComponent.displayName = "Dropzone";
+
+export const Dropzone = memo(DropzoneComponent);

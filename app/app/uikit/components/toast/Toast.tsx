@@ -1,5 +1,7 @@
+"use client";
+
 import clsx from "clsx";
-import type { FC } from "react";
+import { type FC, memo } from "react";
 import { EToast } from "@/app/uikit/components/toast/enums";
 
 type TProps = {
@@ -11,7 +13,7 @@ type TProps = {
   type?: EToast;
 };
 
-export const Toast: FC<TProps> = ({
+const ToastComponent: FC<TProps> = ({
   className,
   dataTestId = "uikit__toast",
   description,
@@ -24,3 +26,7 @@ export const Toast: FC<TProps> = ({
     </div>
   );
 };
+
+ToastComponent.displayName = "Toast";
+
+export const Toast = memo(ToastComponent);

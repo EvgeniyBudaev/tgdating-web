@@ -2,7 +2,7 @@
 
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
-import { type FC, type FocusEvent, useEffect, useState } from "react";
+import { type FC, type FocusEvent, memo, useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { TProfile } from "@/app/api/profile/getProfile/types";
 import { useTranslation } from "react-i18next";
@@ -21,15 +21,14 @@ import { FileUploader } from "@/app/shared/components/form/form/fileUploader";
 import { Form } from "@/app/shared/components/form/form";
 import { useInitForm } from "@/app/shared/components/form/form/hooks";
 import { Input } from "@/app/shared/components/form/input";
-import { InputDateField } from "@/app/shared/components/form/inputDateField";
 import { Select } from "@/app/shared/components/form/select";
+import { SelectNative } from "@/app/shared/components/form/selectNative";
 import { Textarea } from "@/app/shared/components/form/textarea";
 import { SubmitButton } from "@/app/shared/components/form/submitButton";
 import { Section } from "@/app/shared/components/section";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useCheckPermissions } from "@/app/shared/hooks";
 import { GENDER_MAPPING } from "@/app/shared/mapping/gender";
-import { LOCALE_MAPPING } from "@/app/shared/mapping/language";
 import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
 import { createPath } from "@/app/shared/utils";
 import { Info } from "@/app/shared/components/info";
@@ -47,7 +46,7 @@ type TProps = {
   profile?: TProfile;
 };
 
-export const ProfileForm: FC<TProps> = ({
+const ProfileFormComponent: FC<TProps> = ({
   isEdit,
   isManyRequest,
   lng,
@@ -68,13 +67,11 @@ export const ProfileForm: FC<TProps> = ({
     onChangeGender,
     onChangeSearchGender,
     onCloseSidebar,
-    onDateChange,
     onDeleteFile,
     onSubmit,
     searchGender,
-    setValueInputDateField,
+    selectAge,
     state,
-    valueInputDateField,
     tg,
   } = useProfileAddOrEdit({ isEdit, lng, profile });
   const schema = isEdit ? editProfileFormSchema : addProfileFormSchema;
@@ -155,8 +152,6 @@ export const ProfileForm: FC<TProps> = ({
               type="file"
             />
           </Field>
-        </Section>
-        <Section title={t("common.titles.moreDetails")}>
           <Field>
             <Input
               defaultValue={displayName}
@@ -171,19 +166,21 @@ export const ProfileForm: FC<TProps> = ({
             <div style={{ marginBottom: "4px" }}>
               <Typography>{t("common.form.field.age")}&nbsp;</Typography>
               <Typography variant={ETypographyVariant.TextB4Regular}>
-                ({t("common.titles.required")},&nbsp;{t("common.titles.hidden")}
+                ({t("common.titles.required")},&nbsp;
+                {t("common.titles.canHidden")}
                 ,&nbsp;{t("common.titles.changeable")})
               </Typography>
             </div>
-            <Select />
-            {/*<InputDateField*/}
-            {/*  locale={LOCALE_MAPPING[language]}*/}
-            {/*  name={EProfileAddFormFields.Birthday}*/}
-            {/*  onChange={onDateChange}*/}
-            {/*  onFieldClear={() => setValueInputDateField(null)}*/}
-            {/*  placeholder={t("common.form.field.date.placeholder")}*/}
-            {/*  value={valueInputDateField}*/}
-            {/*/>*/}
+            <SelectNative
+              name={EProfileAddFormFields.Age}
+              onBlur={selectAge.onBlur}
+              onChange={selectAge.onChange}
+              onFocus={selectAge.onFocus}
+              options={selectAge.options}
+              placeholder={t("common.form.field.selectAge")}
+              // theme="dark"
+              value={selectAge.selectedOption}
+            />
           </Field>
           <Field>
             <Textarea
@@ -197,11 +194,6 @@ export const ProfileForm: FC<TProps> = ({
               type="text"
             />
           </Field>
-        </Section>
-        <Section
-          className="ProfileForm-Section"
-          title={t("common.titles.properties")}
-        >
           <Field>
             <Select
               headerTitle={!isNil(gender) ? gender?.label : "--"}
@@ -236,14 +228,19 @@ export const ProfileForm: FC<TProps> = ({
             />
           </Field>
           <Field>
-            <Input
+            <input
               defaultValue={location}
-              isReadOnly={true}
-              label={t("common.form.field.location") ?? "Location"}
-              subLabel={`${t("common.titles.autocomplete")}, ${t("common.titles.noChanged")}`}
               name={EProfileAddFormFields.Location}
-              type="text"
+              type="hidden"
             />
+            {/*<Input*/}
+            {/*  defaultValue={location}*/}
+            {/*  isReadOnly={true}*/}
+            {/*  label={t("common.form.field.location") ?? "Location"}*/}
+            {/*  subLabel={`${t("common.titles.autocomplete")}, ${t("common.titles.noChanged")}`}*/}
+            {/*  name={EProfileAddFormFields.Location}*/}
+            {/*  type="text"*/}
+            {/*/>*/}
           </Field>
         </Section>
         <Container>
@@ -285,3 +282,7 @@ export const ProfileForm: FC<TProps> = ({
     </section>
   );
 };
+
+ProfileFormComponent.displayName = "ProfileForm";
+
+export const ProfileForm = memo(ProfileFormComponent);

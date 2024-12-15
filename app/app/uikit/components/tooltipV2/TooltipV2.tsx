@@ -1,5 +1,7 @@
+"use client";
+
 import clsx from "clsx";
-import * as React from "react";
+import { type FC, memo, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { usePopper } from "react-popper";
 import { DATA_TEST_ID } from "@/app/uikit/components/tooltipV2/constants";
@@ -8,10 +10,9 @@ import type {
   TTooltipProps,
 } from "@/app/uikit/components/tooltipV2/types";
 import { getTooltipOffset } from "@/app/uikit/components/tooltipV2/utils";
-import { useHydrated } from "@/app/uikit/hooks";
 import "./TooltipV2.scss";
 
-export const TooltipV2: React.FC<TTooltipProps> = ({
+const TooltipV2Component: FC<TTooltipProps> = ({
   children,
   classes,
   dataTestId = DATA_TEST_ID,
@@ -24,18 +25,15 @@ export const TooltipV2: React.FC<TTooltipProps> = ({
   showTimerDelay = 0,
 }) => {
   const [referenceElement, setReferenceElement] =
-    React.useState<HTMLDivElement | null>(null);
-  const [popperElement, setPopperElement] =
-    React.useState<HTMLDivElement | null>(null);
-  const [arrowElement, setArrowElement] = React.useState<HTMLDivElement | null>(
+    useState<HTMLDivElement | null>(null);
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null,
   );
-  const [visible, setVisible] = React.useState(isVisible);
+  const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(null);
+  const [visible, setVisible] = useState(isVisible);
   const isManualVisibility = typeof isOpen !== "undefined";
-  const [timer, setTimer] = React.useState<NodeJS.Timeout | undefined>();
-  const [showTimer, setShowTimer] = React.useState<
-    NodeJS.Timeout | undefined
-  >();
+  const [timer, setTimer] = useState<NodeJS.Timeout | undefined>();
+  const [showTimer, setShowTimer] = useState<NodeJS.Timeout | undefined>();
 
   let popperModifiers: TModifiers = [
     {
@@ -59,7 +57,7 @@ export const TooltipV2: React.FC<TTooltipProps> = ({
     },
   ];
 
-  React.useEffect(() => {
+  useEffect(() => {
     const listener = () => setVisible(false);
     document.addEventListener("scroll", listener);
     return () => document.removeEventListener("scroll", listener);
@@ -78,7 +76,7 @@ export const TooltipV2: React.FC<TTooltipProps> = ({
     },
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!visible)
       return () => {
         clearTimeout(timer);
@@ -164,3 +162,7 @@ export const TooltipV2: React.FC<TTooltipProps> = ({
     </div>
   );
 };
+
+TooltipV2Component.displayName = "TooltipV2";
+
+export const TooltipV2 = memo(TooltipV2Component);

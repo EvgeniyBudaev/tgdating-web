@@ -1,8 +1,8 @@
 import { z } from "zod";
-import {filterSchema} from "@/app/api/filter/schemas";
-import {imageSchema} from "@/app/api/image";
-import {navigatorSchema} from "@/app/api/navigator/updateNavigator/schemas";
-import {statusSchema} from "@/app/api/status/schemas";
+import { filterSchema } from "@/app/api/filter/schemas";
+import { imageSchema } from "@/app/api/image";
+import { navigatorSchema } from "@/app/api/navigator/updateNavigator/schemas";
+import { statusSchema } from "@/app/api/status/schemas";
 
 export const getProfileParamsSchema = z.object({
   telegramUserId: z.string(),
@@ -13,7 +13,7 @@ export const getProfileParamsSchema = z.object({
 export const getProfileSchema = z.object({
   telegramUserId: z.string(),
   displayName: z.string(),
-  birthday: z.string(),
+  age: z.number(),
   gender: z.string(),
   location: z.string().nullish(),
   description: z.string().nullish(),

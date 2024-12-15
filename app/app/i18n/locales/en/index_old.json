@@ -125,7 +125,8 @@
       "recover": "Recover account",
       "freeze": "Freeze",
       "edit": "Edit",
-      "restore": "Restore account"
+      "restore": "Restore account",
+      "search": "Search"
     },
     "previews": {
       "defaultImage": "Default image",
@@ -155,7 +156,12 @@
     "titles": {
       "birthday": "Birthday",
       "accountFreezed": "Добавь сюда перевод!!!",
-      "geopositionExist": "Добавь сюда перевод!!!"
+      "geopositionExist": "Добавь сюда перевод!!!",
+      "moreDetails": "More details",
+      "hidden": "hidden from users",
+      "properties": "Properties",
+      "autocomplete": "auto detection",
+      "noChanged": "can't be changed"
     },
     "form": {
       "field": {
@@ -174,7 +180,12 @@
         "rating": "Rating",
         "message": "Message text",
         "height": "Height",
-        "weight": "Weight"
+        "weight": "Weight",
+        "birthday": "Birthday",
+        "date": {
+          "placeholder": "Select date"
+        },
+        "location": "Location"
       }
     },
     "title": {

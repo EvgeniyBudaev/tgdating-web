@@ -1,7 +1,7 @@
 "use client";
 
 import { redirect } from "next/navigation";
-import { type FC, useEffect } from "react";
+import { type FC, memo, useEffect } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { createPath } from "@/app/shared/utils";
@@ -12,7 +12,7 @@ type TProps = {
   lng: ELanguage;
 };
 
-export const ProfileBlockedPage: FC<TProps> = ({ isBlocked, lng }) => {
+const ProfileBlockedPageComponent: FC<TProps> = ({ isBlocked, lng }) => {
   const { t } = useTranslation("index");
 
   useEffect(() => {
@@ -35,3 +35,7 @@ export const ProfileBlockedPage: FC<TProps> = ({ isBlocked, lng }) => {
     </div>
   );
 };
+
+ProfileBlockedPageComponent.displayName = "ProfileBlockedPage";
+
+export const ProfileBlockedPage = memo(ProfileBlockedPageComponent);

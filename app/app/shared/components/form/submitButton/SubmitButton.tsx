@@ -1,5 +1,6 @@
 "use client";
 
+import { type FC, memo } from "react";
 import { useFormStatus } from "react-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/app/uikit/components/button";
@@ -7,7 +8,7 @@ import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
 import "./SubmitButton.scss";
 
-export function SubmitButton() {
+const SubmitButtonComponent: FC = () => {
   const { pending } = useFormStatus();
   const { t } = useTranslation("index");
 
@@ -22,4 +23,6 @@ export function SubmitButton() {
       {!pending && <Typography>{t("common.actions.save")}</Typography>}
     </Button>
   );
-}
+};
+
+export const SubmitButton = memo(SubmitButtonComponent);

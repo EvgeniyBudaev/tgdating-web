@@ -1,4 +1,7 @@
+"use client";
+
 import clsx from "clsx";
+import { memo } from "react";
 import type { FC, ReactNode } from "react";
 import {
   ETypographyVariant,
@@ -13,7 +16,7 @@ type TProps = {
   subTitle?: string | ReactNode;
 };
 
-export const Section: FC<TProps> = ({
+const SectionComponent: FC<TProps> = ({
   children,
   className,
   title,
@@ -40,3 +43,7 @@ export const Section: FC<TProps> = ({
     </div>
   );
 };
+
+SectionComponent.displayName = "Section";
+
+export const Section = memo(SectionComponent);

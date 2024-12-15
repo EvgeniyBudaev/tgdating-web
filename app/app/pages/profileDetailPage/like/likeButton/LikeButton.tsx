@@ -1,18 +1,18 @@
 "use client";
 
-import {type FC} from "react";
+import { memo, type FC } from "react";
 import { useFormStatus } from "react-dom";
-import {Icon} from "@/app/uikit/components/icon";
-import {Typography} from "@/app/uikit/components/typography";
+import { Icon } from "@/app/uikit/components/icon";
+import { Typography } from "@/app/uikit/components/typography";
 import "./LikeButton.scss";
 
 type TProps = {
   isLiked?: boolean;
   message?: string;
   onClick: () => void;
-}
+};
 
-export const LikeButton: FC<TProps> = ({isLiked, message, onClick}) => {
+const LikeButtonComponent: FC<TProps> = ({ isLiked, message, onClick }) => {
   const { pending } = useFormStatus();
 
   return (
@@ -33,7 +33,7 @@ export const LikeButton: FC<TProps> = ({isLiked, message, onClick}) => {
             </div>
           )}
           <div className="LikeButton-IconWrapper">
-            <Icon className="LikeButton-Icon" type="Heart"/>
+            <Icon className="LikeButton-Icon" type="Heart" />
           </div>
         </div>
       )}
@@ -46,10 +46,14 @@ export const LikeButton: FC<TProps> = ({isLiked, message, onClick}) => {
             </div>
           )}
           <div className="LikeButton-IconWrapper">
-            <Icon className="LikeButton-Icon" type="HeartEmpty"/>
+            <Icon className="LikeButton-Icon" type="HeartEmpty" />
           </div>
         </div>
       )}
     </div>
-  )
-}
+  );
+};
+
+LikeButtonComponent.displayName = "LikeButton";
+
+export const LikeButton = memo(LikeButtonComponent);

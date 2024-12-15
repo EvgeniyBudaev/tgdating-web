@@ -1,4 +1,6 @@
-import { FC } from "react";
+"use client";
+
+import { type FC, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { ButtonLink } from "@/app/uikit/components/button/buttonLink";
 import { Typography } from "@/app/uikit/components/typography";
@@ -8,7 +10,7 @@ type TProps = {
   href: string;
 };
 
-export const CancelButton: FC<TProps> = ({ href }) => {
+export const CancelButtonComponent: FC<TProps> = ({ href }) => {
   const { t } = useTranslation("index");
 
   return (
@@ -17,3 +19,7 @@ export const CancelButton: FC<TProps> = ({ href }) => {
     </ButtonLink>
   );
 };
+
+CancelButtonComponent.displayName = "CancelButton";
+
+export const CancelButton = memo(CancelButtonComponent);

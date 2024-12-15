@@ -15,6 +15,7 @@ export async function addProfileAction(prevState: any, formData: FormData) {
   const resolver = addProfileFormSchema.safeParse(
     Object.fromEntries(formData.entries()),
   );
+
   if (!resolver.success) {
     // @ts-ignore
     const errors = getErrorsResolver(resolver);
@@ -43,8 +44,8 @@ export async function addProfileAction(prevState: any, formData: FormData) {
       mapperParams.profileForm.displayName,
     );
     profileFormData.append(
-      EProfileAddFormFields.Birthday,
-      mapperParams.profileForm.birthday,
+      EProfileAddFormFields.Age,
+      mapperParams.profileForm.age,
     );
     profileFormData.append(
       EProfileAddFormFields.Gender,

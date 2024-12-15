@@ -6,7 +6,7 @@ import { editProfileFormSchema } from "@/app/actions/profile/editProfile/schemas
 import { editProfile } from "@/app/api/profile/editProfile/domain";
 import { mapUpdateToDto } from "@/app/actions/profile/editProfile/mapUpdateToDto";
 import { EProfileEditFormFields } from "@/app/actions/profile/editProfile/enums";
-import type {TEditProfileParams} from "@/app/api/profile/editProfile/types";
+import type { TEditProfileParams } from "@/app/api/profile/editProfile/types";
 import type { TCommonResponseError } from "@/app/shared/types/error";
 import { getResponseError, getErrorsResolver } from "@/app/shared/utils";
 import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
@@ -43,8 +43,8 @@ export async function editProfileAction(prevState: any, formData: FormData) {
       mapperParams.profileForm.displayName,
     );
     profileFormData.append(
-      EProfileEditFormFields.Birthday,
-      mapperParams.profileForm.birthday,
+      EProfileEditFormFields.Age,
+      mapperParams.profileForm.age,
     );
     profileFormData.append(
       EProfileEditFormFields.Gender,

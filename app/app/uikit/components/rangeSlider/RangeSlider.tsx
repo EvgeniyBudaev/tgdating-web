@@ -192,4 +192,6 @@ const RangeSliderComponent: FC<TProps> = ({
   );
 };
 
+RangeSliderComponent.displayName = "RangeSlider";
+
 export const RangeSlider = memo(RangeSliderComponent);

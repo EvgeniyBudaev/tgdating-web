@@ -1,5 +1,6 @@
 import { AddCircleOutlineIcon } from "./addCircleOutlineIcon";
 import { ArrowBackIcon } from "./arrowBackIcon";
+import { ArrowDownIcon } from "./arrowDownIcon";
 import { ArrowLeftIcon } from "./arrowLeftIcon";
 import { ArrowRightIcon } from "./arrowRightIcon";
 import { AttentionIcon } from "./attentionIcon";
@@ -11,6 +12,7 @@ import { ExitIcon } from "./exitIcon";
 import { FilterIcon } from "./filterIcon";
 import { HeartEmptyIcon } from "./heartEmptyIcon";
 import { HeartIcon } from "./heartIcon";
+import { HomeIcon } from "./homeIcon";
 import { ImageIcon } from "./imageIcon";
 import { InfoIcon } from "./infoIcon";
 import { LocationIcon } from "./locationIcon";
@@ -21,11 +23,13 @@ import { SaveIcon } from "./saveIcon";
 import { SearchIcon } from "./searchIcon";
 import { SpinnerIcon } from "./spinnerIcon";
 import { TrashIcon } from "./trashIcon";
+import { UndoIcon } from "./undoIcon";
 import { WatchIcon } from "./watchIcon";
 
 export {
   AddCircleOutlineIcon,
   ArrowBackIcon,
+  ArrowDownIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
   AttentionIcon,
@@ -37,6 +41,7 @@ export {
   FilterIcon,
   HeartEmptyIcon,
   HeartIcon,
+  HomeIcon,
   ImageIcon,
   InfoIcon,
   LocationIcon,
@@ -47,5 +52,6 @@ export {
   SearchIcon,
   SpinnerIcon,
   TrashIcon,
+  UndoIcon,
   WatchIcon,
 };

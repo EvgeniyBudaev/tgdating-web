@@ -35,6 +35,7 @@ type TProps = {
   onCropFile?: (file: TFile) => void;
   onError?: (error: string) => void;
 };
+
 const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
   (
     { error, file, onCancel, onCropFile, onError }: TProps,
@@ -58,7 +59,7 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
     }, [file]);
 
     const handleImageCrop = (file: File) => {
-      console.log('file: ', file);
+      console.log("file: ", file);
       const reader = new FileReader();
       reader.addEventListener("load", () => {
         const imageElement = new Image();

@@ -1,6 +1,6 @@
 import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
-import { type FC, useEffect } from "react";
+import { type FC, memo, useEffect } from "react";
 import { useFormState } from "react-dom";
 import { useTranslation } from "@/app/i18n/client";
 import { deleteProfileAction } from "@/app/actions/profile/deleteProfile/deleteProfileAction";
@@ -22,7 +22,7 @@ type TProps = {
   telegramUserId: string;
 };
 
-export const Delete: FC<TProps> = ({ lng, telegramUserId }) => {
+const DeleteComponent: FC<TProps> = ({ lng, telegramUserId }) => {
   const csrf = useAuthenticityTokenContext();
   const { closeModal, isOpenModal, openModal } = useModalWindow();
   const { t } = useTranslation("index");
@@ -97,3 +97,7 @@ export const Delete: FC<TProps> = ({ lng, telegramUserId }) => {
     </>
   );
 };
+
+DeleteComponent.displayName = "Delete";
+
+export const Delete = memo(DeleteComponent);

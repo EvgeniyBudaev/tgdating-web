@@ -2,7 +2,7 @@
 
 import { type FC, memo, useCallback } from "react";
 import { useController, useFormContext } from "react-hook-form";
-import type { TImage } from "../../../../../api/image";
+import type { TImage } from "@/app/api/image";
 import { Container } from "@/app/shared/components/container";
 import { FileUploader as FileUploaderUi } from "@/app/shared/components/form/fileUploader";
 import { ELanguage } from "@/app/shared/enums";

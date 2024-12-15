@@ -1,11 +1,8 @@
+import { memo } from "react";
 import type { FC } from "react";
 import { TIconProps } from "@/app/uikit/assets/icons/types";
 
-export const SpinnerIcon: FC<TIconProps> = ({
-  height = 48,
-  width = 48,
-  ...props
-}) => (
+const Component: FC<TIconProps> = ({ height = 48, width = 48, ...props }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={width}
@@ -258,3 +255,5 @@ export const SpinnerIcon: FC<TIconProps> = ({
     </g>
   </svg>
 );
+
+export const SpinnerIcon = memo(Component);

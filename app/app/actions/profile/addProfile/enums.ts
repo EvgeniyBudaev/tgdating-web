@@ -1,6 +1,6 @@
 export enum EProfileAddFormFields {
   DisplayName = "displayName",
-  Birthday = "birthday",
+  Age = "age",
   Gender = "gender",
   SearchGender = "searchGender",
   Location = "location",

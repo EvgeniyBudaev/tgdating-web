@@ -15,6 +15,7 @@ import type { TDropzoneProps } from "@/app/uikit/components/dropzone/Dropzone";
 import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
 import "./Previews.scss";
+import { memo } from "react";
 
 type TProps = {
   accept?: Accept;
@@ -36,7 +37,7 @@ type TProps = {
   onLoad?: (file: TFile) => void;
 } & TDropzoneProps;
 
-export const Previews: FC<TProps> = ({
+const PreviewsComponent: FC<TProps> = ({
   accept,
   className,
   defaultImages,
@@ -132,3 +133,7 @@ export const Previews: FC<TProps> = ({
     </aside>
   );
 };
+
+PreviewsComponent.displayName = "Previews";
+
+export const Previews = memo(PreviewsComponent);

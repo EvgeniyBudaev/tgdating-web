@@ -1,4 +1,4 @@
-import { type FC } from "react";
+import { type FC, memo } from "react";
 import { Container } from "@/app/shared/components/container";
 import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
@@ -8,7 +8,7 @@ type TProps = {
   message: string;
 };
 
-export const Info: FC<TProps> = ({ message }) => {
+const InfoComponent: FC<TProps> = ({ message }) => {
   return (
     <div className="Info">
       <Container>
@@ -22,3 +22,7 @@ export const Info: FC<TProps> = ({ message }) => {
     </div>
   );
 };
+
+InfoComponent.displayName = "Info";
+
+export const Info = memo(InfoComponent);

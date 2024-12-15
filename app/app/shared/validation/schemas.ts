@@ -34,8 +34,10 @@ const numberPreprocess = (arg: unknown, ctx: RefinementCtx): unknown => {
   if (
     !arg ||
     (typeof arg === "string" && (arg === "undefined" || arg === "null"))
-  )
+  ) {
     return undefined;
+  }
+
   const number = parseFloatNumber(arg as number | string);
   if (
     !Number.isNaN(number) &&
@@ -53,6 +55,14 @@ const numberNotNegativeOptionalSchema = (params?: TRawCreateParams) =>
       .number({ ...NUMBER_TYPE_ERROR, ...params })
       .nonnegative({ message: t("common.validation.nonNegativeNumber") })
       .optional(),
+  );
+
+const numberNotNegativeSchema = (params?: TRawCreateParams) =>
+  z.preprocess(
+    numberPreprocess,
+    z
+      .number({ ...NUMBER_TYPE_ERROR, ...params })
+      .nonnegative({ message: t("common.validation.nonNegativeNumber") }),
   );
 
 const numberNonNegativeWithMaxOptionalSchema = (
@@ -81,6 +91,7 @@ export const numberNonNegativeWithMaxHeightOptionalSchema =
 export const numberNonNegativeWithMaxWeightOptionalSchema =
   numberNonNegativeWithMaxOptionalSchema(650);
 export const symbolsMaxDisplayNameSchema = symbolsMaxSchema(64);
+export const numberNonNegativeSchema = numberNotNegativeSchema();
 export const numberNonNegativeOptionalSchema =
   numberNotNegativeOptionalSchema();
 export const stringOptionalSchema = textOptionalSchema();

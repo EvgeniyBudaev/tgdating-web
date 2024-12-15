@@ -1,6 +1,6 @@
 import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
-import { type FC, useEffect } from "react";
+import { type FC, memo, useEffect } from "react";
 import { useFormState } from "react-dom";
 import { useTranslation } from "@/app/i18n/client";
 import { freezeProfileAction } from "@/app/actions/profile/freezeProfile/freezeProfileAction";
@@ -22,7 +22,7 @@ type TProps = {
   telegramUserId: string;
 };
 
-export const Freeze: FC<TProps> = ({ lng, telegramUserId }) => {
+const FreezeComponent: FC<TProps> = ({ lng, telegramUserId }) => {
   const csrf = useAuthenticityTokenContext();
   const { closeModal, isOpenModal, openModal } = useModalWindow();
   const { t } = useTranslation("index");
@@ -97,3 +97,7 @@ export const Freeze: FC<TProps> = ({ lng, telegramUserId }) => {
     </>
   );
 };
+
+FreezeComponent.displayName = "Freeze";
+
+export const Freeze = memo(FreezeComponent);

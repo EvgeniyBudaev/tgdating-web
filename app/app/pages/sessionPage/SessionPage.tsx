@@ -4,7 +4,7 @@ import isEmpty from "lodash/isEmpty";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { type FC, useEffect } from "react";
+import { type FC, memo, useEffect } from "react";
 import type { TProfileList } from "@/app/api/profile/getProfileList/types";
 import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/types";
 import { useTranslation } from "@/app/i18n/client";
@@ -27,7 +27,7 @@ type TProps = {
   profileShortInfo?: TProfileShortInfo;
 };
 
-export const SessionPage: FC<TProps> = ({
+const SessionPageComponent: FC<TProps> = ({
   isExistUser,
   isManyRequest,
   lng,
@@ -126,3 +126,7 @@ export const SessionPage: FC<TProps> = ({
     </div>
   );
 };
+
+SessionPageComponent.displayName = "SessionPage";
+
+export const SessionPage = memo(SessionPageComponent);

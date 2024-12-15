@@ -1,4 +1,7 @@
+"use client";
+
 import clsx from "clsx";
+import { memo } from "react";
 import type { FC, MouseEventHandler } from "react";
 import { EColorText, EColorType } from "@/app/uikit/components/colors";
 import { TColor } from "@/app/uikit/components/colors/types";
@@ -18,7 +21,7 @@ type TProps = {
   width?: number;
 };
 
-export const Icon: FC<TProps> = ({
+const IconComponent: FC<TProps> = ({
   className,
   color = EColorText.Dark,
   dataTestId = "uikit__icon",
@@ -42,3 +45,7 @@ export const Icon: FC<TProps> = ({
     </div>
   );
 };
+
+IconComponent.displayName = "Icon";
+
+export const Icon = memo(IconComponent);

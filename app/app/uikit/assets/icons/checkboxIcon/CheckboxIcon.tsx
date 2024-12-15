@@ -1,7 +1,8 @@
+import { memo } from "react";
 import type { FC } from "react";
 import { TIconProps } from "@/app/uikit/assets/icons/types";
 
-export const CheckboxIcon: FC<TIconProps> = (props) => (
+const Component: FC<TIconProps> = (props) => (
   <svg
     viewBox="0 0 10 8"
     fill="none"
@@ -16,3 +17,5 @@ export const CheckboxIcon: FC<TIconProps> = (props) => (
     />
   </svg>
 );
+
+export const CheckboxIcon = memo(Component);

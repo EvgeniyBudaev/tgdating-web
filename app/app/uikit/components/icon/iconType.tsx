@@ -1,6 +1,7 @@
 import {
   AddCircleOutlineIcon,
   ArrowBackIcon,
+  ArrowDownIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
   AttentionIcon,
@@ -12,6 +13,7 @@ import {
   FilterIcon,
   HeartEmptyIcon,
   HeartIcon,
+  HomeIcon,
   ImageIcon,
   InfoIcon,
   LocationIcon,
@@ -22,12 +24,14 @@ import {
   SearchIcon,
   SpinnerIcon,
   TrashIcon,
+  UndoIcon,
   WatchIcon,
 } from "@/app/uikit/assets/icons";
 
 export type IconType =
   | "AddCircleOutline"
   | "ArrowBack"
+  | "ArrowDown"
   | "ArrowLeft"
   | "ArrowRight"
   | "Attention"
@@ -39,6 +43,7 @@ export type IconType =
   | "Filter"
   | "HeartEmpty"
   | "Heart"
+  | "Home"
   | "Image"
   | "Info"
   | "Location"
@@ -49,11 +54,13 @@ export type IconType =
   | "Search"
   | "Spinner"
   | "Trash"
+  | "Undo"
   | "Watch";
 
 export const iconTypes = new Map([
   ["AddCircleOutline", <AddCircleOutlineIcon key="AddCircleOutlineIcon" />],
   ["ArrowBack", <ArrowBackIcon key="ArrowBackIcon" />],
+  ["ArrowDown", <ArrowDownIcon key="ArrowDownIcon" />],
   ["ArrowLeft", <ArrowLeftIcon key="ArrowLeftIcon" />],
   ["ArrowRight", <ArrowRightIcon key="ArrowRightIcon" />],
   ["Attention", <AttentionIcon key="AttentionIcon" />],
@@ -65,6 +72,7 @@ export const iconTypes = new Map([
   ["Filter", <FilterIcon key="HeartIcon" />],
   ["HeartEmpty", <HeartEmptyIcon key="HeartEmptyIcon" />],
   ["Heart", <HeartIcon key="HeartIcon" />],
+  ["Home", <HomeIcon key="HomeIcon" />],
   ["Image", <ImageIcon key="ImageIcon" />],
   ["Info", <InfoIcon key="InfoIcon" />],
   ["Location", <LocationIcon key="LocationIcon" />],
@@ -75,5 +83,6 @@ export const iconTypes = new Map([
   ["Search", <SearchIcon key="SearchIcon" />],
   ["Spinner", <SpinnerIcon key="SpinnerIcon" />],
   ["Trash", <TrashIcon key="TrashIcon" />],
+  ["Undo", <UndoIcon key="UndoIcon" />],
   ["Watch", <WatchIcon key="WatchIcon" />],
 ]);

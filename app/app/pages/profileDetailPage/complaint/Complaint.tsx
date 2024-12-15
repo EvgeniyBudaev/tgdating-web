@@ -2,7 +2,7 @@
 
 import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
-import { type FC, useEffect } from "react";
+import { type FC, memo, useEffect } from "react";
 import { useFormState } from "react-dom";
 import { addComplaintAction } from "@/app/actions/complaint/addComplaint/addComplaintAction";
 import { useTranslation } from "@/app/i18n/client";
@@ -25,7 +25,7 @@ type TProps = {
   onCloseDropDown?: () => void;
 };
 
-export const Complaint: FC<TProps> = ({ criminalTelegramUserId, lng }) => {
+const ComplaintComponent: FC<TProps> = ({ criminalTelegramUserId, lng }) => {
   const csrf = useAuthenticityTokenContext();
   const { closeModal, isOpenModal, openModal } = useModalWindow();
   const telegram = useTelegramContext();
@@ -104,3 +104,7 @@ export const Complaint: FC<TProps> = ({ criminalTelegramUserId, lng }) => {
     </>
   );
 };
+
+ComplaintComponent.displayName = "Complaint";
+
+export const Complaint = memo(ComplaintComponent);

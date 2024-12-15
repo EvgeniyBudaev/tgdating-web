@@ -1,10 +1,10 @@
 "use client";
 
-import {FC} from "react";
-import {useTranslation} from "@/app/i18n/client";
+import { memo, type FC } from "react";
+import { useTranslation } from "@/app/i18n/client";
 import "./UnauthorizedPage.scss";
 
-export const UnauthorizedPage: FC = () => {
+export const UnauthorizedPageComponent: FC = () => {
   const { t } = useTranslation("index");
 
   return (
@@ -15,5 +15,9 @@ export const UnauthorizedPage: FC = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
+
+UnauthorizedPageComponent.displayName = "UnauthorizedPage";
+
+export const UnauthorizedPage = memo(UnauthorizedPageComponent);

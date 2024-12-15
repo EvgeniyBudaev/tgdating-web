@@ -1,11 +1,8 @@
+import { memo } from "react";
 import type { FC } from "react";
 import { TIconProps } from "@/app/uikit/assets/icons/types";
 
-export const TrashIcon: FC<TIconProps> = ({
-  height = 24,
-  width = 24,
-  ...props
-}) => (
+const Component: FC<TIconProps> = ({ height = 24, width = 24, ...props }) => (
   <svg
     fill="currentColor"
     width={width}
@@ -21,3 +18,5 @@ export const TrashIcon: FC<TIconProps> = ({
     ></path>
   </svg>
 );
+
+export const TrashIcon = memo(Component);

@@ -11,6 +11,7 @@ import {
 } from "@/app/shared/validation";
 import {
   numberNonNegativeOptionalSchema,
+  numberNonNegativeSchema,
   stringOptionalSchema,
   symbolsMaxDisplayNameSchema,
 } from "@/app/shared/validation/schemas";
@@ -19,10 +20,14 @@ import { EProfileAddFormFields } from "@/app/actions/profile/addProfile/enums";
 export const editProfileFormSchema = zfd
   .formData({
     [EProfileEditFormFields.DisplayName]: symbolsMaxDisplayNameSchema,
-    [EProfileEditFormFields.Birthday]: z
-      .string()
-      .trim()
-      .min(1, EMPTY_FIELD_ERROR_MESSAGE),
+    [EProfileEditFormFields.Age]: z.union([z.string(), z.number()]).refine(
+      (value) => {
+        return Number(value);
+      },
+      {
+        message: EMPTY_FIELD_ERROR_MESSAGE,
+      },
+    ),
     [EProfileEditFormFields.Gender]: z
       .enum([EGender.Man, EGender.Woman, ""])
       .transform((value) => {
@@ -30,7 +35,7 @@ export const editProfileFormSchema = zfd
       })
       .refine(
         (value) => {
-          return !isNil(value) && !isEmpty(value);
+          return !isEmpty(value);
         },
         {
           message: EMPTY_FIELD_ERROR_MESSAGE,

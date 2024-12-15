@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 import { addProfileAction } from "@/app/actions/profile/addProfile/addProfileAction";
 import { editProfileAction } from "@/app/actions/profile/editProfile/editProfileAction";
-import type {TProfile} from "@/app/api/profile/getProfile/types";
+import type { TProfile } from "@/app/api/profile/getProfile/types";
 import { EProfileAddFormFields } from "@/app/actions/profile/addProfile/enums";
 import { EProfileEditFormFields } from "@/app/actions/profile/editProfile/enums";
 import type { TState } from "@/app/shared/components/form/form/types";
@@ -32,8 +32,12 @@ import { GENDER_MAPPING } from "@/app/shared/mapping/gender";
 import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
 import type { TFile } from "@/app/shared/types/file";
 import { createPath } from "@/app/shared/utils";
-import { formattedDate } from "@/app/shared/utils/date";
 import type { TSelectOption } from "@/app/uikit/components/select";
+import { useSelect } from "@/app/entities/profile/profileForm/hooks/useSelect";
+import type {
+  TSelectNativeOnChange,
+  TSelectNativeOption,
+} from "@/app/uikit/components/selectNative/types";
 
 type TProps = {
   isEdit?: boolean;
@@ -62,15 +66,17 @@ type TUseProfileEditResponse = {
   onChangeGender(value?: TSelectOption): void;
   onChangeSearchGender(value?: TSelectOption): void;
   onCloseSidebar(): void;
-  onDateChange(date: Date | null): void;
   onDeleteFile(file: TFile, files: TFile[]): void;
   onSubmit(formData: FormData): void;
   searchGender: TSelectOption | undefined;
+  selectAge: {
+    onBlur: () => void;
+    onChange: TSelectNativeOnChange;
+    onFocus: () => void;
+    options: TSelectNativeOption[];
+    selectedOption: TSelectNativeOption | null | TSelectNativeOption[];
+  };
   state: TState;
-  valueInputDateField: Date | null;
-  setValueInputDateField: (
-    value: ((prevState: Date | null) => Date | null) | Date | null,
-  ) => void;
   tg: TUseTelegramResponse | null;
 };
 
@@ -93,6 +99,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   const user = telegram?.user;
   const queryId = telegram?.queryId;
   const language = lng as ELanguage;
+  console.log("navigator: ", navigator);
   const location = isEdit
     ? (navigator?.location ?? profile?.location ?? undefined)
     : (navigator?.location ?? undefined);
@@ -119,9 +126,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     isGender: false,
     isSearchGender: false,
   });
-  const [valueInputDateField, setValueInputDateField] = useState<Date | null>(
-    isEdit ? ((profile?.birthday as Date | undefined) ?? null) : null,
-  );
   const [files, setFiles] = useState<TFile[] | null>(null);
   const page = isEdit
     ? (profile?.filter?.page?.toString() ?? DEFAULT_PAGE.toString())
@@ -151,6 +155,19 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     files: files ?? [],
     setValue: (_fieldName: string, files: TFile[]) => setFiles(files),
   });
+
+  const defaultOption: TSelectNativeOption = {
+    label: profile?.age.toString() ?? DEFAULT_AGE_FROM.toString(),
+    value: profile?.age ?? DEFAULT_AGE_FROM,
+  };
+  const defaultSelectedOption = isEdit ? defaultOption : undefined;
+  const {
+    onBlur: onBlurSelectAge,
+    onChange: onChangeSelectAge,
+    onFocus: onFocusSelectAge,
+    options: optionsSelectAge,
+    selectedOption: selectedOptionAge,
+  } = useSelect({ defaultSelectedOption: defaultSelectedOption });
 
   // Profile Edit
   useEffect(() => {
@@ -227,10 +244,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     onDeleteFile?.(file, files);
   };
 
-  const handleDateChange = (date: Date | null) => {
-    setValueInputDateField?.(date);
-  };
-
   const handleCloseSidebar = () => {
     setIsSidebarOpen({
       isGender: false,
@@ -272,8 +285,12 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     (files ?? []).forEach((file) => {
       formDataDto.append(EProfileAddFormFields.Image, file);
     });
-    const utcDate = formattedDate(valueInputDateField);
-    formDataDto.append(EProfileAddFormFields.Birthday, utcDate ?? "");
+    const age = selectedOptionAge
+      ? Array.isArray(selectedOptionAge)
+        ? selectedOptionAge[0].value
+        : (selectedOptionAge?.value ?? DEFAULT_AGE_FROM.toString())
+      : "";
+    formDataDto.append(EProfileAddFormFields.Age, age);
     formDataDto.append(
       EProfileAddFormFields.Gender,
       (gender?.value ?? "").toString(),
@@ -346,13 +363,17 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     onChangeGender: handleChangeGender,
     onChangeSearchGender: handleChangeSearchGender,
     onCloseSidebar: handleCloseSidebar,
-    onDateChange: handleDateChange,
     onDeleteFile: handleDeleteFile,
     onSubmit: handleSubmit,
     searchGender,
-    setValueInputDateField,
+    selectAge: {
+      onBlur: onBlurSelectAge,
+      onChange: onChangeSelectAge,
+      onFocus: onFocusSelectAge,
+      options: optionsSelectAge,
+      selectedOption: selectedOptionAge,
+    },
     state,
-    valueInputDateField,
     tg: telegram,
   };
 };

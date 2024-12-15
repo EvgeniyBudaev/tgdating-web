@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { type FC, type ReactNode, useState } from "react";
+import { type FC, type ReactNode, memo, useState } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { Header } from "@/app/shared/components/header";
 import { Icon } from "@/app/uikit/components/icon";
@@ -23,7 +23,7 @@ type TProps = {
   title: string;
 };
 
-export const SidebarContent: FC<TProps> = ({
+const SidebarContentComponent: FC<TProps> = ({
   children,
   classes,
   onSave,
@@ -74,3 +74,7 @@ export const SidebarContent: FC<TProps> = ({
     </>
   );
 };
+
+SidebarContentComponent.displayName = "SidebarContent";
+
+export const SidebarContent = memo(SidebarContentComponent);

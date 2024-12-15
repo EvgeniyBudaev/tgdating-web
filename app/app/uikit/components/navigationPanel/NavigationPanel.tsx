@@ -12,7 +12,7 @@ type TProps = {
   theme?: ETheme;
 };
 
-const Component: FC<TProps> = ({
+const NavigationPanelComponent: FC<TProps> = ({
   currentPage,
   onChangePage,
   pagesCount,
@@ -34,4 +34,6 @@ const Component: FC<TProps> = ({
   );
 };
 
-export const NavigationPanel = memo(Component);
+NavigationPanelComponent.displayName = "NavigationPanel";
+
+export const NavigationPanel = memo(NavigationPanelComponent);

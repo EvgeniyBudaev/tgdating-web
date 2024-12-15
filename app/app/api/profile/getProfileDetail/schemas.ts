@@ -1,7 +1,7 @@
 import { z } from "zod";
-import {imageSchema} from "@/app/api/image";
-import {likeSchema} from "@/app/api/like/schemas";
-import {statusSchema} from "@/app/api/status/schemas";
+import { imageSchema } from "@/app/api/image";
+import { likeSchema } from "@/app/api/like/schemas";
+import { statusSchema } from "@/app/api/status/schemas";
 
 export const profileDetailParamsSchema = z.object({
   telegramUserId: z.string(),
@@ -17,12 +17,14 @@ const blockSchema = z.object({
 export const profileDetailSchema = z.object({
   telegramUserId: z.string(),
   displayName: z.string(),
-  birthday: z.string(),
+  age: z.number(),
   location: z.string().nullish(),
   description: z.string().nullish(),
-  navigator: z.object({
-    distance: z.number().nullish(),
-  }).nullish(),
+  navigator: z
+    .object({
+      distance: z.number().nullish(),
+    })
+    .nullish(),
   status: statusSchema.nullish(),
   block: blockSchema.nullish(),
   like: likeSchema.nullish(),

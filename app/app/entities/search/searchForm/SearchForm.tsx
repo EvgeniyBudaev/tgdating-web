@@ -1,7 +1,7 @@
 "use client";
 
 import isNil from "lodash/isNil";
-import { type FC, useEffect, useMemo, useRef, useState } from "react";
+import { type FC, memo, useEffect, useMemo, useRef, useState } from "react";
 import { useFormState } from "react-dom";
 import { updateFilterAction } from "@/app/actions/filter/updateFilter/updateFilterAction";
 import { EFilterUpdateFormFields } from "@/app/actions/filter/updateFilter/enums";
@@ -38,7 +38,7 @@ type TProps = {
   profileShortInfo?: TProfileShortInfo;
 };
 
-export const SearchForm: FC<TProps> = ({ lng, profileShortInfo }) => {
+const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo }) => {
   const csrf = useAuthenticityTokenContext();
   const telegram = useTelegramContext();
   const { t } = useTranslation("index");
@@ -210,3 +210,7 @@ export const SearchForm: FC<TProps> = ({ lng, profileShortInfo }) => {
     </div>
   );
 };
+
+SearchFormComponent.displayName = "SearchForm";
+
+export const SearchForm = memo(SearchFormComponent);

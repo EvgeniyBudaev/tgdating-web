@@ -1,11 +1,11 @@
 import isNil from "lodash/isNil";
-import { type FC, useMemo, useRef, useState } from "react";
+import { type FC, memo, useMemo, useRef, useState } from "react";
 import { useFormState } from "react-dom";
 import { addLikeAction } from "@/app/actions/like/addLike/addLikeAction";
 import { EAddLikeFormFields } from "@/app/actions/like/addLike/enum";
 import { EUpdateLikeFormFields } from "@/app/actions/like/updateLike/enum";
 import { updateLikeAction } from "@/app/actions/like/updateLike/updateLikeAction";
-import type {TProfileDetail} from "@/app/api/profile/getProfileDetail/types";
+import type { TProfileDetail } from "@/app/api/profile/getProfileDetail/types";
 import { useTranslation } from "@/app/i18n/client";
 import { LikeButton } from "@/app/pages/profileDetailPage/like/likeButton";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
@@ -24,7 +24,7 @@ type TProps = {
   telegramUserId: string;
 };
 
-export const Like: FC<TProps> = ({ lng, profile, telegramUserId }) => {
+const LikeComponent: FC<TProps> = ({ lng, profile, telegramUserId }) => {
   const csrf = useAuthenticityTokenContext();
   const telegram = useTelegramContext();
   const isLiked = profile?.like?.isLiked;
@@ -156,3 +156,7 @@ export const Like: FC<TProps> = ({ lng, profile, telegramUserId }) => {
     </form>
   );
 };
+
+LikeComponent.displayName = "Like";
+
+export const Like = memo(LikeComponent);

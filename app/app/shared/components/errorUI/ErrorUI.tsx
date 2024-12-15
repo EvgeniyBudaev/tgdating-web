@@ -1,8 +1,8 @@
 "use client";
 
+import { memo } from "react";
 import type { FC } from "react";
 import { useTranslation } from "react-i18next";
-import { i18n } from "i18next";
 import { Icon } from "@/app/uikit/components/icon";
 import {
   ETypographyVariant,
@@ -15,7 +15,7 @@ type TProps = {
   message?: string;
 };
 
-export const ErrorUI: FC<TProps> = ({ error, message }) => {
+const ErrorUIComponent: FC<TProps> = ({ error, message }) => {
   const { t } = useTranslation("index");
 
   const errorMessage =
@@ -40,3 +40,7 @@ export const ErrorUI: FC<TProps> = ({ error, message }) => {
     </section>
   );
 };
+
+ErrorUIComponent.displayName = "ErrorUI";
+
+export const ErrorUI = memo(ErrorUIComponent);

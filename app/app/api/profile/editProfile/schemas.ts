@@ -4,11 +4,11 @@ import { fileSchema } from "@/app/api/upload/schemas";
 import { imageSchema } from "@/app/api/image/schemas";
 import { navigatorSchema } from "@/app/api/navigator/updateNavigator/schemas";
 import { filterSchema } from "@/app/api/filter/schemas";
-import {statusSchema} from "@/app/api/status/schemas";
+import { statusSchema } from "@/app/api/status/schemas";
 
 export const editProfileParamsSchema = zfd.formData({
   displayName: zfd.text(),
-  birthday: zfd.text(),
+  age: zfd.text(),
   gender: zfd.text(),
   searchGender: zfd.text(),
   location: zfd.text().nullish(),
@@ -34,7 +34,7 @@ export const editProfileParamsSchema = zfd.formData({
 export const editProfileSchema = z.object({
   telegramUserId: z.string(),
   displayName: z.string(),
-  birthday: z.string(),
+  age: z.number(),
   gender: z.string(),
   location: z.string().nullish(),
   description: z.string().nullish(),

@@ -2,7 +2,7 @@
 
 import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
-import { type FC, useEffect } from "react";
+import { type FC, memo, useEffect } from "react";
 import { useFormState } from "react-dom";
 import { EProfileRestoreFormFields } from "@/app/actions/profile/restoreProfile/enums";
 import { restoreProfileAction } from "@/app/actions/profile/restoreProfile/restoreProfileAction";
@@ -24,7 +24,7 @@ type TProps = {
   telegramUserId: string;
 };
 
-export const ProfileFreezePage: FC<TProps> = ({
+const ProfileFreezePageComponent: FC<TProps> = ({
   isDeleted,
   lng,
   telegramUserId,
@@ -104,3 +104,7 @@ export const ProfileFreezePage: FC<TProps> = ({
     </div>
   );
 };
+
+ProfileFreezePageComponent.displayName = "ProfileFreezePage";
+
+export const ProfileFreezePage = memo(ProfileFreezePageComponent);

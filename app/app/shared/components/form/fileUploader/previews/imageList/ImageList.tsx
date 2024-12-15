@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { type FC } from "react";
+import { useParams } from "next/navigation";
+import { type FC, memo } from "react";
+import type { TImage } from "@/app/api/image";
 import { deleteImageAction } from "@/app/actions/image/deleteImage/deleteImageAction";
-import type { TImage } from "../../../../../../api/image";
 import { useTranslation } from "@/app/i18n/client";
 import { EImageDeleteFormFields } from "@/app/actions/image/deleteImage/enums";
 import {
@@ -12,14 +13,13 @@ import {
 } from "@/app/shared/context";
 import { DropDown } from "@/app/uikit/components/dropDown";
 import { Typography } from "@/app/uikit/components/typography";
-import { useParams } from "next/navigation";
 
 type TProps = {
   defaultImages: TImage[];
   lng: string;
 };
 
-export const ImageList: FC<TProps> = ({ defaultImages, lng }) => {
+const ImageListComponent: FC<TProps> = ({ defaultImages, lng }) => {
   const csrf = useAuthenticityTokenContext();
   const { t } = useTranslation("index");
   const telegram = useTelegramContext();
@@ -80,3 +80,7 @@ export const ImageList: FC<TProps> = ({ defaultImages, lng }) => {
     </>
   );
 };
+
+ImageListComponent.displayName = "ImageList";
+
+export const ImageList = memo(ImageListComponent);

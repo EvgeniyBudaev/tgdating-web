@@ -1,11 +1,8 @@
+import { memo } from "react";
 import type { FC } from "react";
 import { TIconProps } from "@/app/uikit/assets/icons/types";
 
-export const ArrowRightIcon: FC<TIconProps> = ({
-  height = 24,
-  width = 24,
-  ...props
-}) => (
+const Component: FC<TIconProps> = ({ height = 24, width = 24, ...props }) => (
   <svg
     height={height}
     width={width}
@@ -17,3 +14,5 @@ export const ArrowRightIcon: FC<TIconProps> = ({
     <path d="M0 14.5697L1.21337 16L8 8L1.21337 0L0 1.4303L5.57326 8L0 14.5697Z" />
   </svg>
 );
+
+export const ArrowRightIcon = memo(Component);
