@@ -5,3 +5,7 @@ export const updateLikeParamsSchema = z.object({
   isLiked: z.boolean(),
   telegramUserId: z.string(),
 });
+
+export const updateLikeSchema = z.object({
+  success: z.boolean(),
+});

@@ -63,7 +63,7 @@ const LikeComponent: FC<TProps> = ({ lng, profile, telegramUserId }) => {
 
   const [_, formAction] = useFormState(
     // @ts-ignore
-    canAddLike ? addLikeAction : updateLikeAction,
+  canAddLike ? addLikeAction : updateLikeAction,
     INITIAL_FORM_STATE,
   );
 

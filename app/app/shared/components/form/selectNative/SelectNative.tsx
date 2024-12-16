@@ -3,18 +3,20 @@ import { useController, useFormContext } from "react-hook-form";
 import { useFieldError } from "@/app/shared/hooks";
 import { SelectNative as SelectNativeUi } from "@/app/uikit/components/selectNative";
 import type {
-  TSelectNativeOnChange,
+  TSelectNativeOnChange, TSelectNativeOption,
   TSelectNativeProps,
 } from "@/app/uikit/components/selectNative/types";
+import type {SingleValue} from "react-select";
 
 type TProps = {
   name: string;
+  selectedOption: SingleValue<TSelectNativeOption>;
 } & TSelectNativeProps;
 
 const SelectNativeComponent: FC<TProps> = (props) => {
-  const { name, onChange, value, ...rest } = props;
+  const { name, onChange, selectedOption, ...rest } = props;
   const { control } = useFormContext();
-  const defaultValue = Array.isArray(value) ? value[0].value : value?.value;
+  const defaultValue = selectedOption?.value;
   const {
     field,
     fieldState: { error },

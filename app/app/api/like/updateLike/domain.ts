@@ -1,13 +1,12 @@
 import { fetchApi, type TApiFunction } from "@/app/api";
-import type {TUpdateLikeParams} from "@/app/api/like/updateLike/types";
-import type {TLike} from "@/app/api/like/types";
+import type {TUpdateLikeParams, TUpdateLike} from "@/app/api/like/updateLike/types";
 import { EFormMethods } from "@/app/shared/enums";
 
-export const updateLike: TApiFunction<TUpdateLikeParams, TLike> = (
+export const updateLike: TApiFunction<TUpdateLikeParams, TUpdateLike> = (
   params,
   options,
 ) => {
-  return fetchApi<TLike>(`/api/v1/profiles/likes`, {
+  return fetchApi<TUpdateLike>(`/api/v1/profiles/likes`, {
     method: EFormMethods.Put,
     body: params,
     headers: options?.headers,

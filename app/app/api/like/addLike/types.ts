@@ -1,4 +1,5 @@
 import type { z } from "zod";
-import { addLikeParamsSchema } from "@/app/api/like/addLike/schemas";
+import {addLikeParamsSchema, addLikeSchema} from "@/app/api/like/addLike/schemas";
 
 export type TAddLikeParams = z.infer<typeof addLikeParamsSchema>;
+export type TAddLike = z.infer<typeof addLikeSchema>;

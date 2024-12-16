@@ -74,7 +74,7 @@ type TUseProfileEditResponse = {
     onChange: TSelectNativeOnChange;
     onFocus: () => void;
     options: TSelectNativeOption[];
-    selectedOption: TSelectNativeOption | null | TSelectNativeOption[];
+    selectedOption: TSelectNativeOption | null;
   };
   state: TState;
   tg: TUseTelegramResponse | null;
@@ -99,7 +99,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   const user = telegram?.user;
   const queryId = telegram?.queryId;
   const language = lng as ELanguage;
-  console.log("navigator: ", navigator);
   const location = isEdit
     ? (navigator?.location ?? profile?.location ?? undefined)
     : (navigator?.location ?? undefined);
@@ -290,7 +289,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
         ? selectedOptionAge[0].value
         : (selectedOptionAge?.value ?? DEFAULT_AGE_FROM.toString())
       : "";
-    formDataDto.append(EProfileAddFormFields.Age, age);
+    formDataDto.append(EProfileAddFormFields.Age, age.toString());
     formDataDto.append(
       EProfileAddFormFields.Gender,
       (gender?.value ?? "").toString(),

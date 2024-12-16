@@ -1,6 +1,6 @@
 import isNil from "lodash/isNil";
 import { useEffect, useState } from "react";
-import type { MultiValue, SingleValue } from "react-select";
+import type { SingleValue } from "react-select";
 import { DEFAULT_AGE_FROM } from "@/app/shared/constants";
 import type {
   TSelectNativeOnChange,
@@ -8,19 +8,16 @@ import type {
 } from "@/app/uikit/components/selectNative/types";
 
 type TProps = {
-  defaultSelectedOption?:
-    | SingleValue<TSelectNativeOption>
-    | MultiValue<TSelectNativeOption>;
+  defaultSelectedOption?: SingleValue<TSelectNativeOption>;
 };
 
 type TUseSelectResponse = {
   isSelectOpened: boolean;
-  multipleSelectedOption: TSelectNativeOption | null | TSelectNativeOption[];
   onBlur: () => void;
   onChange: TSelectNativeOnChange;
   onFocus: () => void;
   options: TSelectNativeOption[];
-  selectedOption: TSelectNativeOption | null | TSelectNativeOption[];
+  selectedOption: TSelectNativeOption | null;
 };
 
 type TUseSelect = (props: TProps) => TUseSelectResponse;
@@ -36,21 +33,12 @@ export const useSelect: TUseSelect = (props) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [selectedOption, setSelectedOption] = useState<
-    SingleValue<TSelectNativeOption> | MultiValue<TSelectNativeOption>
-  >(defaultSelectedOption);
-
-  const [multipleSelectedOption, setMultipleSelectedOption] = useState<
-    SingleValue<TSelectNativeOption> | MultiValue<TSelectNativeOption>
-  >({ value: DEFAULT_AGE_FROM, label: DEFAULT_AGE_FROM.toString() });
+    SingleValue<TSelectNativeOption>>(defaultSelectedOption);
 
   const handleChange: TSelectNativeOnChange = (selectedOption) => {
     if (isNil(selectedOption)) return undefined;
-    if (Array.isArray(selectedOption)) {
-      setMultipleSelectedOption(selectedOption); // onSortingChange?.(selectedOption[0].value);
-    } else {
-      const selectedOptionSingle = selectedOption as TSelectNativeOption;
-      setSelectedOption(selectedOptionSingle); // onSortingChange?.(selectedOptionSingle.value);
-    }
+    const selectedOptionSingle = selectedOption as TSelectNativeOption;
+    setSelectedOption(selectedOptionSingle);
     setIsSubmitting((prevState) => !prevState);
   };
 
@@ -69,7 +57,6 @@ export const useSelect: TUseSelect = (props) => {
 
   return {
     isSelectOpened,
-    multipleSelectedOption,
     onBlur: handleBlur,
     onChange: handleChange,
     onFocus: handleFocus,

@@ -179,7 +179,7 @@ const ProfileFormComponent: FC<TProps> = ({
               options={selectAge.options}
               placeholder={t("common.form.field.selectAge")}
               // theme="dark"
-              value={selectAge.selectedOption}
+              selectedOption={selectAge.selectedOption}
             />
           </Field>
           <Field>
