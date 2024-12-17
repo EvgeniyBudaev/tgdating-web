@@ -11,7 +11,7 @@ import { ETheme } from "@/app/uikit/enums/theme";
 import { useHydrated } from "@/app/uikit/hooks";
 import "./SelectNative.scss";
 
-const SelectNativeComponent: FC<TSelectNativeProps> = ({
+const SelectNativeUiComponent: FC<TSelectNativeProps> = ({
   className,
   components,
   dataTestId = "uikit__selectNative",
@@ -76,4 +76,4 @@ const SelectNativeComponent: FC<TSelectNativeProps> = ({
   ) : null;
 };
 
-export const SelectNative = memo(SelectNativeComponent);
+export const SelectNative = memo(SelectNativeUiComponent);

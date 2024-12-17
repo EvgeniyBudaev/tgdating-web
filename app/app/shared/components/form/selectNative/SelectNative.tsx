@@ -25,7 +25,8 @@ const SelectNativeComponent: FC<TProps> = (props) => {
     control,
     defaultValue: defaultValue,
   });
-  const defaultOption = { label: field.value.toString(), value: field.value };
+  const isDefaultOption = field?.value ?? null;
+  const defaultOption = isDefaultOption ? { label: field.value.toString(), value: field.value } : null;
   const fieldErrors = useFieldError({ errors: error?.message });
 
   const handleChange: TSelectNativeOnChange = useCallback(
