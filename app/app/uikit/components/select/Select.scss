@@ -15,7 +15,9 @@
     align-items: center;
     background-color: $bg_light_color;
     padding: 8px 16px;
+    border: 1px solid transparent;
     border-radius: $border-radius;
+    cursor: pointer;
 
     &Right {
       display: flex;
@@ -27,6 +29,12 @@
     & .Icon {
       height: 12px;
       width: 12px;
+    }
+  }
+
+  &__errors {
+    #{$this}-Header {
+      border: 1px solid $color-red;
     }
   }
 

@@ -28,7 +28,7 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   const telegram = useTelegram();
   const telegramLanguageCode = telegram?.user?.language_code;
   // const telegramTheme = telegram?.colorScheme;
-  const telegramTheme = ETheme.Dark;
+  const telegramTheme = ETheme.Light;
   const theme = telegramTheme ?? ETheme.Light;
   const themeState = useTheme({defaultTheme: theme});
 

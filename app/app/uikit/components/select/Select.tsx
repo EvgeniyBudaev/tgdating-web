@@ -47,7 +47,10 @@ export const Select: FC<TProps> = ({
 
   return (
     <div
-      className={clsx("Select", { ["theme-dark"]: theme === ETheme.Dark })}
+      className={clsx("Select", {
+        ["theme-dark"]: theme === ETheme.Dark,
+        ["Select__errors"]: errors,
+      })}
       data-name={name}
     >
       <div className="Select-Label">

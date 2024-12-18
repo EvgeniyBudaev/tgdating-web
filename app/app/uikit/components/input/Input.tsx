@@ -126,7 +126,6 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
             </Typography>
           </label>
         )}
-        <div className="InputField-Wrapper">
           <input
             {...rest}
             aria-disabled={isReadOnly}
@@ -159,7 +158,6 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
               <Error errors={errors} />
             </div>
           )}
-        </div>
       </div>
     );
   },

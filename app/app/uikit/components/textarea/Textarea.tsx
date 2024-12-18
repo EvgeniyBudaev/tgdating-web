@@ -116,43 +116,33 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, ITextareaProps>(
             {isRequired && <span className="InputField-LabelRequired"> *</span>}
           </label>
         )}
-        <div className="InputField-Wrapper">
-          <div
-            className={clsx("InputField-Inner Textarea", {
-              ["theme-dark"]: theme === ETheme.Dark,
-              ["InputField-Inner__active"]: isFocused,
-              ["InputField-Inner__error"]: errors,
-            })}
-          >
-            <textarea
-              {...rest}
-              autoComplete={autoComplete}
-              className={clsx(className, classes?.textarea, "Input Textarea", {
-                ["theme-dark"]: theme === ETheme.Dark,
-                Input__active: isFocused,
-                Textarea__isResize__off: !isResize,
-              })}
-              defaultValue={defaultValue}
-              hidden={hidden}
-              name={name}
-              maxLength={maxLength}
-              onBlur={onBlurCallback}
-              onChange={handleChange}
-              onFocus={onFocusCallback}
-              ref={ref}
-            />
+        <textarea
+          {...rest}
+          autoComplete={autoComplete}
+          className={clsx(className, classes?.textarea, "Input Textarea", {
+            ["theme-dark"]: theme === ETheme.Dark,
+            Input__active: isFocused,
+            Textarea__isResize__off: !isResize,
+          })}
+          defaultValue={defaultValue}
+          hidden={hidden}
+          name={name}
+          maxLength={maxLength}
+          onBlur={onBlurCallback}
+          onChange={handleChange}
+          onFocus={onFocusCallback}
+          ref={ref}
+        />
+        {maxLength && (
+          <div className="Textarea-MaxLength">
+            {currentLength}/{maxLength}
           </div>
-          {maxLength && (
-            <div className="Textarea-MaxLength">
-              {currentLength}/{maxLength}
-            </div>
-          )}
-          {errors && (
-            <div className="InputField-ErrorField">
-              <Error errors={errors} />
-            </div>
-          )}
-        </div>
+        )}
+        {errors && (
+          <div className="InputField-ErrorField">
+            <Error errors={errors}/>
+          </div>
+        )}
       </div>
     );
   },
