@@ -7,7 +7,6 @@ import type {
 } from "react-select";
 import { Icon } from "@/app/uikit/components/icon";
 import type { TSelectOption } from "@/app/uikit/components/select";
-import { TSelectNativeOption } from "@/app/uikit/components/selectNative/types";
 
 export const StyledDropdownIndicator = (
   props: JSX.IntrinsicAttributes &

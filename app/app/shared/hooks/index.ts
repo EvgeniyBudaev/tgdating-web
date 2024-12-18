@@ -8,6 +8,7 @@ import { useNavigator } from "@/app/shared/hooks/useNavigator";
 import { useInitDayjs } from "@/app/shared/hooks/useInitDayjs";
 import { useProxyUrl } from "@/app/shared/hooks/useProxyUrl";
 import { useTelegram } from "@/app/shared/hooks/useTelegram";
+import { useThemeContext, useTheme } from "@/app/shared/hooks/useTheme";
 import { useTranslatedData } from "@/app/shared/hooks/useTranslatedData";
 import { useQueryURL } from "@/app/shared/hooks/useQueryURL";
 
@@ -22,6 +23,8 @@ export {
   useInitDayjs,
   useProxyUrl,
   useTelegram,
+  useThemeContext,
+  useTheme,
   useTranslatedData,
   useQueryURL,
 };

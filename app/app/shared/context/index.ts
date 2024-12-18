@@ -13,6 +13,7 @@ import {
   TelegramProvider,
   useTelegramContext,
 } from "./telegramContext";
+import {type TTheme, ThemeContext, ThemeProvider} from "./themeContext";
 
 export {
   AuthenticityTokenContext,
@@ -24,4 +25,7 @@ export {
   TelegramContext,
   TelegramProvider,
   useTelegramContext,
+  TTheme,
+  ThemeContext,
+  ThemeProvider
 };

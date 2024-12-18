@@ -19,7 +19,6 @@ type TProps = {
   classes?: TClasses;
   errors?: string | string[] | null;
   headerTitle?: string | number;
-  isRequired?: boolean;
   isSidebarOpen?: boolean;
   label?: string | ReactNode;
   name?: string;
@@ -45,28 +44,25 @@ export const Select: FC<TProps> = ({
 
   return (
     <div className="Select" data-name={name}>
+      <div className="Select-Label">
+        <Typography>{label}</Typography>
+        {subLabel && (
+          <Typography variant={ETypographyVariant.TextB4Regular}>
+            &nbsp;({subLabel})
+          </Typography>
+        )}
+      </div>
       <div className="Select-Header" onClick={onHeaderClick}>
-        <div className="Select-Header-Label">
-          <Typography>{label}</Typography>
-          {subLabel && (
-            <Typography variant={ETypographyVariant.TextB4Regular}>
-              &nbsp;({subLabel})
-            </Typography>
-          )}
-          {isRequired && (
-            <span className="Select-Header-LabelRequired"> *</span>
-          )}
-        </div>
         <div className="Select-HeaderRight">
           <div className="Select-Header-Value">
             <Typography>{headerTitle ?? "--"}</Typography>
           </div>
-          <Icon type="ArrowRight" />
+          <Icon type="ArrowRight"/>
         </div>
       </div>
       {errors && (
         <div className="InputField-ErrorField">
-          <Error errors={errors} />
+          <Error errors={errors}/>
         </div>
       )}
       <Sidebar

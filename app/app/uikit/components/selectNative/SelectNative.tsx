@@ -43,6 +43,7 @@ const SelectNativeUiComponent: FC<TSelectNativeProps> = ({
   return hydrated ? (
     <div className={clsx("SelectNative-Wrapper", className)}>
       <ReactSelect
+        // menuIsOpen={true}
         className={clsx("SelectNative", className)}
         components={{
           DropdownIndicator: StyledDropdownIndicator,

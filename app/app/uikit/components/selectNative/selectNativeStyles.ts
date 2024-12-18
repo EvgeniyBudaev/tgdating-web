@@ -49,7 +49,7 @@ export const selectNativeStyles = (
           style.option.color
         : (style.option && style.option.color) || style.option.color,
       cursor: style.option.cursor,
-      transition: style.control.transition,
+      transition: style.option.transition,
       ":hover": style.option[":hover"],
     }),
     menu: (provided) => ({
@@ -60,6 +60,8 @@ export const selectNativeStyles = (
     }),
     menuList: (provided) => ({
       ...provided,
+      padding: style.menuList.padding,
+      zIndex: style.menuList.zIndex,
     }),
     menuPortal: (provided) => ({
       ...provided,

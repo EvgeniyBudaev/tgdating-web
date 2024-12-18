@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import WebAppSDK from "@twa-dev/sdk";
 import { type WebApp as WebAppTypes, type WebAppUser } from "@twa-dev/types";
 import { encrypt } from "@/app/shared/utils/security";
+import {ETheme} from "@/app/uikit/enums";
 
 type TTelegramUser =
   | (WebAppUser & {
@@ -15,11 +16,12 @@ type TTelegramUser =
   | undefined;
 
 export type TUseTelegramResponse = {
-  tg: WebAppTypes | undefined;
-  user: TTelegramUser;
-  queryId: string | null | undefined;
+  colorScheme?: ETheme;
   initDataCrypt: string | undefined;
   isSession: boolean;
+  tg: WebAppTypes | undefined;
+  queryId: string | null | undefined;
+  user: TTelegramUser;
 };
 
 type TUseTelegram = () => TUseTelegramResponse;
@@ -71,10 +73,11 @@ export const useTelegram: TUseTelegram = () => {
   // }, [telegram]);
 
   return {
-    tg,
-    user,
-    queryId,
+    colorScheme: tg?.colorScheme as ETheme,
     initDataCrypt,
     isSession: !!user?.id,
+    tg,
+    queryId,
+    user,
   };
 };

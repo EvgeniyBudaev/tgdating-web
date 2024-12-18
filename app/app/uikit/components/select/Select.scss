@@ -4,19 +4,17 @@
   position: relative;
   width: 100%;
 
+  &-Label {
+    width: 100%;
+    margin-bottom: 4px;
+  }
+
   &-Header {
     display: flex;
     align-items: center;
-
-    &-Label {
-      width: 100%;
-      max-width: 200px;
-      margin-right: 8px;
-    }
-
-    &-LabelRequired {
-      color: $color-red;
-    }
+    background-color: $secondary_bg_color;
+    padding: 8px 16px;
+    border-radius: $border-radius;
 
     &Right {
       display: flex;

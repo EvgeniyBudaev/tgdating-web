@@ -10,14 +10,14 @@ const CURRENT_COLOR = "currentColor";
 const BORDER_RADIUS = "4px";
 const CURSOR = "pointer";
 const MENU_PADDING = "8px 0";
-const MENU_LIST_PADDING = "8px 0";
+const MENU_LIST_PADDING = "0";
 const TRANSITION = "all 0.15s";
 const TRANSPARENT = "transparent";
 const Z_INDEX = 10;
 
 export const VARIANTS: { [key in ETheme]: TSelectNativeVariantStyle } = {
   // Dark theme
-  DARK: {
+  dark: {
     control: {
       background:
         "linear-gradient(40deg, rgba(138, 143, 160, 0.16), rgba(31, 32, 41, 0.24) 40%),\n" +
@@ -60,13 +60,11 @@ export const VARIANTS: { [key in ETheme]: TSelectNativeVariantStyle } = {
       padding: MENU_LIST_PADDING,
       zIndex: Z_INDEX,
     },
-    menuPortal: {
-      zIndex: Z_INDEX,
-    },
+    menuPortal: {},
   },
 
   // Light theme
-  LIGHT: {
+  light: {
     control: {
       background: TRANSPARENT,
       border: `1px solid ${COLOR_GRAY}`,
@@ -100,15 +98,13 @@ export const VARIANTS: { [key in ETheme]: TSelectNativeVariantStyle } = {
     },
     menu: {
       backgroundColor: COLOR_WHITE,
-      zIndex: Z_INDEX,
       padding: MENU_PADDING,
+      zIndex: Z_INDEX,
     },
     menuList: {
       padding: MENU_LIST_PADDING,
       zIndex: Z_INDEX,
     },
-    menuPortal: {
-      zIndex: Z_INDEX,
-    },
+    menuPortal: {},
   },
 };

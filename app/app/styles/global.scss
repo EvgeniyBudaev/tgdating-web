@@ -21,13 +21,18 @@ body {
 }
 
 body {
-  background-color: $bg_color;
-  color: $text_color;
+  background-color: $text_color;
+  color: $bg_color;
   margin: 0;
   padding: 0;
   position: relative;
   display: flex;
   flex-direction: column;
+
+  &.theme-dark {
+    background-color: $bg_color;
+    color: $text_color;
+  }
 }
 
 ul,
