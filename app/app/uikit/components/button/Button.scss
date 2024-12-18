@@ -37,7 +37,7 @@
 
   &.Button__disabled {
     color: $text_color;
-    background-color: $color-gray;
+    background-color: $text_color_not_active;
     border-color: $text_color;
 
     &:active {

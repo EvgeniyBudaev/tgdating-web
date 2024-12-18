@@ -12,6 +12,7 @@ $imageSize: 120px;
   border-radius: $border-radius;
   min-height: $imageSize;
   width: $imageSize;
+  background-color: $bg_light_color;
   cursor: pointer;
 
   &:hover,
@@ -22,5 +23,9 @@ $imageSize: 120px;
 
   &__isError {
     border-color: $color-red;
+  }
+
+  &.theme-dark {
+    background-color: $secondary_bg_color;
   }
 }

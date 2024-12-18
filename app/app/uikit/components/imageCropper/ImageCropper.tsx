@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
 import {
@@ -26,6 +27,7 @@ import {
   setCanvasPreview,
 } from "@/app/uikit/components/imageCropper/utils";
 import { Typography } from "@/app/uikit/components/typography";
+import { ETheme } from "@/app/uikit/enums";
 import "./ImageCropper.scss";
 
 type TProps = {
@@ -34,11 +36,12 @@ type TProps = {
   onCancel?: () => void;
   onCropFile?: (file: TFile) => void;
   onError?: (error: string) => void;
+  theme?: ETheme;
 };
 
 const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
   (
-    { error, file, onCancel, onCropFile, onError }: TProps,
+    { error, file, onCancel, onCropFile, onError, theme }: TProps,
     ref: ForwardedRef<HTMLDivElement>,
   ): JSX.Element => {
     const ASPECT_RATIO = 1;
@@ -81,7 +84,6 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
     };
 
     const handleImageLoad = (event: SyntheticEvent<HTMLImageElement>) => {
-      console.log("handleImageLoad");
       const { height, width } = event.currentTarget;
       const cropWidthInPercent = (MIN_DIMENSION / width) * 100;
       const crop = makeAspectCrop(
@@ -98,7 +100,6 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
     };
 
     const handleCanvasPreview = async () => {
-      console.log("handleCanvasPreview");
       if (
         !isNil(imageRef?.current?.width) &&
         !isNil(imageRef?.current?.height) &&
@@ -157,7 +158,11 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
     }
 
     return (
-      <div className="ImageCropper">
+      <div
+        className={clsx("ImageCropper", {
+          ["theme-dark"]: theme === ETheme.Dark,
+        })}
+      >
         {!isEmpty(imageSrc) && !isNil(imageSrc) && (
           <ReactCrop
             aspect={ASPECT_RATIO}

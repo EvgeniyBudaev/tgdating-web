@@ -38,21 +38,21 @@ $transition: 150ms;
   input:hover,
   textarea,
   textarea:hover {
-    background-color: $secondary_bg_color;
+    background-color: $bg_light_color;
   }
 
   &__active {
     width: 100%;
 
     #{$this}-Inner__active {
-      background-color: $secondary_bg_color;
-      color: $text_color;
+      background-color: $bg_light_color;
+      color: $bg_color;
 
       input,
       input:hover,
       textarea,
       textarea:hover {
-        background-color: $secondary_bg_color;
+        background-color: $bg_light_color;
       }
     }
 
@@ -60,28 +60,28 @@ $transition: 150ms;
     input:-webkit-autofill.Input__active:hover,
     input:-webkit-autofill.Input__active:focus,
     input:-webkit-autofill.Input__active:active {
-      -webkit-box-shadow: 0 0 0 30px $secondary_bg_color inset !important;
+      -webkit-box-shadow: 0 0 0 30px $bg_light_color inset !important;
     }
 
     input:-webkit-autofill {
-      background-color: $secondary_bg_color !important;
-      border: 1px solid $secondary_bg_color !important;
-      -webkit-text-fill-color: $text_color;
+      background-color: $bg_light_color !important;
+      border: 1px solid $bg_light_color !important;
+      -webkit-text-fill-color: $bg_color;
     }
 
     input:-webkit-autofill:focus {
-      background-color: $secondary_bg_color !important;
-      border: 1px solid $secondary_bg_color !important;
-      -webkit-text-fill-color: $text_color;
+      background-color: $bg_light_color !important;
+      border: 1px solid $bg_light_color !important;
+      -webkit-text-fill-color: $bg_color;
     }
 
     & textarea,
     & textarea:hover {
-      background-color: $bg_color;
+      background-color: $bg_light_color;
     }
 
     #{$this}-Inner__active#{$this}-Inner__error {
-      background-color: $bg_color;
+      background-color: $bg_light_color;
     }
   }
 
@@ -89,12 +89,12 @@ $transition: 150ms;
     cursor: default;
 
     .Input__disabled {
-      background-color: $color-gray;
+      background-color: $text_color_not_active;
     }
 
     input:hover,
     input {
-      background-color: $color-gray;
+      background-color: $text_color_not_active;
     }
   }
 
@@ -110,6 +110,72 @@ $transition: 150ms;
     color: $color-red;
     transition: all $transition;
   }
+
+  &.theme-dark {
+    input,
+    input:hover,
+    textarea,
+    textarea:hover {
+      background-color: $secondary_bg_color;
+    }
+
+    #{$this}__active {
+      width: 100%;
+
+      #{$this}-Inner__active {
+        background-color: $secondary_bg_color;
+        color: $text_color;
+
+        input,
+        input:hover,
+        textarea,
+        textarea:hover {
+          background-color: $secondary_bg_color;
+        }
+      }
+
+      input:-webkit-autofill.Input__active,
+      input:-webkit-autofill.Input__active:hover,
+      input:-webkit-autofill.Input__active:focus,
+      input:-webkit-autofill.Input__active:active {
+        -webkit-box-shadow: 0 0 0 30px $secondary_bg_color inset !important;
+      }
+
+      input:-webkit-autofill {
+        background-color: $secondary_bg_color !important;
+        border: 1px solid $secondary_bg_color !important;
+        -webkit-text-fill-color: $text_color;
+      }
+
+      input:-webkit-autofill:focus {
+        background-color: $secondary_bg_color !important;
+        border: 1px solid $secondary_bg_color !important;
+        -webkit-text-fill-color: $text_color;
+      }
+
+      & textarea,
+      & textarea:hover {
+        background-color: $bg_color;
+      }
+
+      #{$this}-Inner__active#{$this}-Inner__error {
+        background-color: $bg_color;
+      }
+    }
+
+    #{$this}__disabled {
+      cursor: default;
+
+      .Input__disabled {
+        background-color: $color-gray;
+      }
+
+      input:hover,
+      input {
+        background-color: $color-gray;
+      }
+    }
+  }
 }
 
 .Input {
@@ -117,15 +183,17 @@ $transition: 150ms;
   display: flex;
   align-items: center;
   width: 100%;
-  border: 1px solid $secondary_bg_color;
+  border: 1px solid transparent;
   border-top-left-radius: $border-radius;
   border-top-right-radius: $border-radius;
-  outline: $secondary_bg_color;
-  color: $text_color;
-  background-color: $secondary_bg_color;
+  outline: $bg_light_color;
+  color: $bg_color;
+  background-color: $bg_light_color;
 
   &__active {
-    border-color: $link_color;
+    border: 1px solid $link_color;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
   }
 
   &__error {
@@ -137,11 +205,25 @@ $transition: 150ms;
   }
 
   &#{$this}__error {
-    background-color: $secondary_bg_color;
+    background-color: $bg_light_color;
 
     &:hover {
-      background-color: $secondary_bg_color;
+      background-color: $bg_light_color;
       transition: background-color 0.25s ease;
+    }
+  }
+
+  &.theme-dark {
+    outline: $secondary_bg_color;
+    color: $text_color;
+    background-color: $secondary_bg_color;
+
+    &#{$this}__error {
+      background-color: $secondary_bg_color;
+
+      &:hover {
+        background-color: $secondary_bg_color;
+      }
     }
   }
 }

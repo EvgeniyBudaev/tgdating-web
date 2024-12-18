@@ -13,6 +13,7 @@ import {
   ETypographyVariant,
   Typography,
 } from "@/app/uikit/components/typography";
+import { ETheme } from "@/app/uikit/enums";
 import "./Input.scss";
 
 export interface IInputProps
@@ -36,6 +37,7 @@ export interface IInputProps
   maxLength?: number;
   name?: string;
   subLabel?: string;
+  theme?: ETheme;
   type?: string;
   value?: string;
 }
@@ -60,6 +62,7 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
       onChange,
       onFocus,
       subLabel,
+      theme,
       type,
       value,
       ...rest
@@ -105,6 +108,7 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
     return (
       <div
         className={clsx("InputField", className, {
+          ["theme-dark"]: theme === ETheme.Dark,
           InputField__disabled: isReadOnly || isDisabled,
           InputField__active: isFocused && !isReadOnly && !isDisabled,
         })}
@@ -128,6 +132,7 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
             aria-disabled={isReadOnly}
             autoComplete={autoComplete}
             className={clsx(className, "Input", {
+              ["theme-dark"]: theme === ETheme.Dark,
               Input__disabled: isReadOnly || isDisabled,
               Input__active: isFocused && !isReadOnly && !isDisabled,
               Input__error: errors,

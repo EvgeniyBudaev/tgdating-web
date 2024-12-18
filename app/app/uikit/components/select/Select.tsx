@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import { FC, type ReactNode, useRef } from "react";
 import { Error } from "@/app/uikit/components/error";
 import { Icon } from "@/app/uikit/components/icon";
@@ -8,6 +9,7 @@ import {
   ETypographyVariant,
   Typography,
 } from "@/app/uikit/components/typography";
+import { ETheme } from "@/app/uikit/enums";
 import "./Select.scss";
 
 type TClasses = {
@@ -25,6 +27,7 @@ type TProps = {
   onHeaderClick?: () => void;
   onSidebarClose?: () => void;
   subLabel?: string;
+  theme?: ETheme;
 };
 
 export const Select: FC<TProps> = ({
@@ -32,18 +35,21 @@ export const Select: FC<TProps> = ({
   classes,
   errors,
   headerTitle,
-  isRequired = false,
   isSidebarOpen = false,
   label,
   name,
   onHeaderClick,
   onSidebarClose,
   subLabel,
+  theme,
 }) => {
   const sidebarRef = useRef(null);
 
   return (
-    <div className="Select" data-name={name}>
+    <div
+      className={clsx("Select", { ["theme-dark"]: theme === ETheme.Dark })}
+      data-name={name}
+    >
       <div className="Select-Label">
         <Typography>{label}</Typography>
         {subLabel && (
@@ -57,12 +63,12 @@ export const Select: FC<TProps> = ({
           <div className="Select-Header-Value">
             <Typography>{headerTitle ?? "--"}</Typography>
           </div>
-          <Icon type="ArrowRight"/>
+          <Icon type="ArrowRight" />
         </div>
       </div>
       {errors && (
         <div className="InputField-ErrorField">
-          <Error errors={errors}/>
+          <Error errors={errors} />
         </div>
       )}
       <Sidebar
@@ -70,6 +76,7 @@ export const Select: FC<TProps> = ({
         className={classes?.sidebar}
         onClose={onSidebarClose}
         ref={sidebarRef}
+        theme={theme}
       >
         {children}
       </Sidebar>

@@ -6,6 +6,7 @@ import {
   Select as SelectUi,
   TSelectOption,
 } from "@/app/uikit/components/select";
+import { ETheme } from "@/app/uikit/enums";
 
 type TProps = {
   defaultValue?: string | number;
@@ -19,6 +20,7 @@ type TProps = {
   options?: TSelectOption[];
   selectedItem?: TSelectOption;
   subLabel?: string;
+  theme?: ETheme;
   title: string;
 };
 
@@ -34,6 +36,7 @@ const SelectComponent: FC<TProps> = ({
   options,
   selectedItem,
   subLabel,
+  theme,
   title,
 }) => {
   const { control } = useFormContext();
@@ -66,12 +69,14 @@ const SelectComponent: FC<TProps> = ({
       headerTitle={headerTitle}
       onHeaderClick={onHeaderClick}
       onSidebarClose={onCloseSidebar}
+      theme={theme}
     >
       <SidebarContent
         onSave={handleChange}
         options={options}
         onCloseSidebar={onCloseSidebar}
         selectedItem={selectedItem}
+        theme={theme}
         title={title}
       />
     </SelectUi>

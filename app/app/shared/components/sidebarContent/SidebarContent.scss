@@ -1,9 +1,19 @@
 @import "@/app/styles";
 
 .SidebarContent {
+  $this: &;
+
   &-Header {
-    background-color: $bg_color;
+    background-color: $bg_light_color;
     margin-bottom: 25px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    padding: 16px;
 
     &-Cancel {
       color: $link_color;
@@ -35,9 +45,8 @@
   }
 
   &-List {
-    background-color: $bg_color;
-    border-top: 1px solid $secondary_bg_color;
-    border-bottom: 1px solid $secondary_bg_color;
+    background-color: $bg_light_color;
+    margin-top: 75px;
 
     &-Item {
       display: flex;
@@ -45,16 +54,15 @@
       justify-content: space-between;
       min-height: 50px;
       padding: 8px 16px;
-      border-bottom: 1px solid $secondary_bg_color;
+      border-bottom: 1px solid $text_color_not_active;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
       width: 100%;
-      color: $text_color_not_active;
 
       &__isChecked {
         opacity: 1;
         color: $text_color;
-        background-color: $color-gray;
+        background-color: $link_color;
       }
 
       &__isChecked .Icon {
@@ -70,12 +78,27 @@
       &:hover,
       &:active {
         color: $text_color;
-        background-color: $color-gray;
+        background-color: $link_color;
       }
     }
 
     &-Delete {
       color: $color-red;
+    }
+  }
+
+  &.theme-dark {
+    #{$this}-Header {
+      background-color: $bg_color;
+    }
+
+    #{$this}-List {
+      background-color: $bg_color;
+
+      #{$this}-Item {
+        color: $text_color_not_active;
+        border-bottom: 1px solid $secondary_bg_color;
+      }
     }
   }
 }

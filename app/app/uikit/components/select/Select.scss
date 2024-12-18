@@ -1,6 +1,7 @@
 @import "@/app/styles";
 
 .Select {
+  $this: &;
   position: relative;
   width: 100%;
 
@@ -12,7 +13,7 @@
   &-Header {
     display: flex;
     align-items: center;
-    background-color: $secondary_bg_color;
+    background-color: $bg_light_color;
     padding: 8px 16px;
     border-radius: $border-radius;
 
@@ -26,6 +27,12 @@
     & .Icon {
       height: 12px;
       width: 12px;
+    }
+  }
+
+  &.theme-dark {
+    #{$this}-Header {
+      background-color: $secondary_bg_color;
     }
   }
 }

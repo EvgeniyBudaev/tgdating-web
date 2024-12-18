@@ -5,6 +5,7 @@ import { forwardRef, memo } from "react";
 import type { MouseEvent, ForwardedRef, ReactNode } from "react";
 import { CSSTransition } from "react-transition-group";
 import { TRANSITION } from "@/app/uikit/constants";
+import { ETheme } from "@/app/uikit/enums";
 import "./Sidebar.scss";
 
 type TProps = {
@@ -14,6 +15,7 @@ type TProps = {
   isActive?: boolean;
   onClose?: (event: MouseEvent) => void;
   ref: ForwardedRef<HTMLDivElement>;
+  theme?: ETheme;
   transition?: number;
 };
 
@@ -26,6 +28,7 @@ const SidebarComponent = forwardRef(
       dataTestId = "uikit__sidebar",
       isActive = false,
       onClose,
+      theme,
       transition,
     }: TProps,
     ref: ForwardedRef<HTMLDivElement>,
@@ -33,7 +36,9 @@ const SidebarComponent = forwardRef(
     return (
       <>
         <CSSTransition
-          className={clsx("Sidebar", className)}
+          className={clsx("Sidebar", className, {
+            ["theme-dark"]: theme === ETheme.Dark,
+          })}
           data-testid={dataTestId}
           in={isActive}
           nodeRef={ref}

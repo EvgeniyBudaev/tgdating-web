@@ -22,20 +22,15 @@ import { Form } from "@/app/shared/components/form/form";
 import { useInitForm } from "@/app/shared/components/form/form/hooks";
 import { Input } from "@/app/shared/components/form/input";
 import { Select } from "@/app/shared/components/form/select";
-import { SelectNative } from "@/app/shared/components/form/selectNative";
 import { Textarea } from "@/app/shared/components/form/textarea";
 import { SubmitButton } from "@/app/shared/components/form/submitButton";
 import { Section } from "@/app/shared/components/section";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useCheckPermissions } from "@/app/shared/hooks";
+import { useCheckPermissions, useThemeContext } from "@/app/shared/hooks";
 import { GENDER_MAPPING } from "@/app/shared/mapping/gender";
 import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
 import { createPath } from "@/app/shared/utils";
 import { Info } from "@/app/shared/components/info";
-import {
-  ETypographyVariant,
-  Typography,
-} from "@/app/uikit/components/typography";
 import { notification } from "@/app/uikit/utils";
 import "./ProfileForm.scss";
 
@@ -53,25 +48,27 @@ const ProfileFormComponent: FC<TProps> = ({
   profile,
 }) => {
   useCheckPermissions({ lng });
+  const themeState = useThemeContext();
   const { t } = useTranslation("index");
   const {
+    age,
+    ageOptions,
     displayName,
     files,
     gender,
-    isSelectOpened,
     isSidebarOpen,
     setIsSidebarOpen,
     language,
     location,
     navigator,
     onAddFiles,
+    onChangeAge,
     onChangeGender,
     onChangeSearchGender,
     onCloseSidebar,
     onDeleteFile,
     onSubmit,
     searchGender,
-    selectAge,
     state,
     tg,
   } = useProfileAddOrEdit({ isEdit, lng, profile });
@@ -150,6 +147,7 @@ const ProfileFormComponent: FC<TProps> = ({
               name={EProfileAddFormFields.Image}
               onAddFiles={onAddFiles}
               onDeleteFile={onDeleteFile}
+              theme={themeState?.theme}
               type="file"
             />
           </Field>
@@ -160,27 +158,26 @@ const ProfileFormComponent: FC<TProps> = ({
               subLabel={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
               name={EProfileAddFormFields.DisplayName}
               onFocus={handleFocus}
+              theme={themeState?.theme}
               type="text"
             />
           </Field>
           <Field>
-            <div style={{ marginBottom: "4px" }}>
-              <Typography>{t("common.form.field.age")}&nbsp;</Typography>
-              <Typography variant={ETypographyVariant.TextB4Regular}>
-                ({t("common.titles.required")},&nbsp;
-                {t("common.titles.canHidden")}
-                ,&nbsp;{t("common.titles.changeable")})
-              </Typography>
-            </div>
-            <SelectNative
+            <Select
+              headerTitle={!isNil(age) ? age?.label : "--"}
+              isSidebarOpen={isSidebarOpen.isAge}
+              label={t("common.form.field.age")}
               name={EProfileAddFormFields.Age}
-              onBlur={selectAge.onBlur}
-              onChange={selectAge.onChange}
-              onFocus={selectAge.onFocus}
-              options={selectAge.options}
-              placeholder={t("common.form.field.selectAge")}
-              // theme="dark"
-              selectedOption={selectAge.selectedOption}
+              onCloseSidebar={onCloseSidebar}
+              onHeaderClick={() =>
+                setIsSidebarOpen((prev) => ({ ...prev, isAge: true }))
+              }
+              onSave={onChangeAge}
+              options={ageOptions}
+              selectedItem={age}
+              subLabel={`${t("common.titles.required")}, ${t("common.titles.canHidden")}, ${t("common.titles.changeable")}`}
+              theme={themeState?.theme}
+              title={t("common.form.field.age")}
             />
           </Field>
           <Field>
@@ -192,6 +189,7 @@ const ProfileFormComponent: FC<TProps> = ({
               maxLength={1000}
               name={EProfileAddFormFields.Description}
               onFocus={handleFocus}
+              theme={themeState?.theme}
               type="text"
             />
           </Field>
@@ -209,6 +207,7 @@ const ProfileFormComponent: FC<TProps> = ({
               options={GENDER_MAPPING[language]}
               selectedItem={gender}
               subLabel={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
+              theme={themeState?.theme}
               title={t("common.form.field.gender")}
             />
           </Field>
@@ -225,6 +224,7 @@ const ProfileFormComponent: FC<TProps> = ({
               onSave={onChangeSearchGender}
               options={SEARCH_GENDER_MAPPING[language]}
               selectedItem={searchGender}
+              theme={themeState?.theme}
               title={t("common.form.field.searchGender")}
             />
           </Field>
@@ -274,11 +274,9 @@ const ProfileFormComponent: FC<TProps> = ({
                 />
               </div>
             )}
-            {!isSelectOpened && (
-              <div className="ProfileForm-Save">
-                <SubmitButton/>
-              </div>
-            )}
+            <div className="ProfileForm-Save">
+              <SubmitButton />
+            </div>
           </div>
         </Container>
       </Form>

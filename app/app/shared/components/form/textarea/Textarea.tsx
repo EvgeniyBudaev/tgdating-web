@@ -8,6 +8,7 @@ import {
 import { useController, useFormContext } from "react-hook-form";
 import { useFieldError } from "@/app/shared/hooks";
 import { Textarea as TextareaUi } from "@/app/uikit/components/textarea";
+import { ETheme } from "@/app/uikit/enums";
 
 type TProps = {
   defaultValue?: string | number;
@@ -15,6 +16,7 @@ type TProps = {
   maxLength?: number;
   name: string;
   onFocus?: ((event: FocusEvent<HTMLElement>) => void) | undefined;
+  theme?: ETheme;
   type?: string;
 };
 
@@ -24,6 +26,7 @@ const TextareaComponent: FC<TProps> = ({
   maxLength,
   name,
   onFocus,
+  theme,
   type,
 }) => {
   const { control } = useFormContext();
@@ -55,6 +58,7 @@ const TextareaComponent: FC<TProps> = ({
       onFocus={onFocus}
       onChange={handleChange}
       ref={field.ref}
+      theme={theme}
       type={type}
       value={field.value}
     />

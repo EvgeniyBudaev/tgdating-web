@@ -4,7 +4,7 @@
       "accountBlocked": "Account blocked",
       "isEmptyUsername": "A unique name has not been set in Telegram/Settings/Username. Please set a username and try logging in to the app again. It may take a few minutes to update your Telegram data",
       "publicPhotos": "Public photos",
-      "required": "required",
+      "required": "required to fill",
       "changeable": "can be changed",
       "canHidden": "it will be possible to hide",
       "filtersGeneral": "General filters",

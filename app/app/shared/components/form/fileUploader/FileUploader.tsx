@@ -24,6 +24,7 @@ import { type TDropzoneProps } from "@/app/uikit/components/dropzone/Dropzone";
 import { ImageCropper } from "@/app/uikit/components/imageCropper";
 import { Modal, useModalWindow } from "@/app/uikit/components/modal";
 import { Typography } from "@/app/uikit/components/typography";
+import { ETheme } from "@/app/uikit/enums";
 import "./FileUploader.scss";
 
 export type TFileUploaderProps = {
@@ -38,6 +39,7 @@ export type TFileUploaderProps = {
   onAddFile?: (file: File) => void;
   onAddFiles?: (acceptedFiles: TFile[], files: TFile[]) => void;
   onDeleteFile?: (deletedFile: TFile, files: TFile[]) => void;
+  theme?: ETheme;
   type: string;
 } & TDropzoneProps;
 
@@ -54,6 +56,7 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
   onAddFile,
   onAddFiles,
   onDeleteFile,
+  theme,
   ...rest
 }) => {
   const { pending } = useFormStatus();
@@ -143,9 +146,10 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
         onDeleteFile={onDelete}
         onDrop={onDrop}
         onLoad={handleLoadImage}
+        theme={theme}
         {...rest}
       />
-      <Modal isOpen={isOpenModal} onCloseModal={closeModal}>
+      <Modal isOpen={isOpenModal} onCloseModal={closeModal} theme={theme}>
         {acceptedFiles?.[0] && (
           <ImageCropper
             error={errorImageCropper}
@@ -153,6 +157,7 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
             onCancel={closeModal}
             onCropFile={handleCropFile}
             onError={setErrorImageCropper}
+            theme={theme}
           />
         )}
         {errorImageCropper && (

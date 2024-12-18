@@ -5,6 +5,7 @@ import { useState, useEffect, type FC, type ReactNode } from "react";
 import { default as ReactModal } from "react-responsive-modal";
 import { Icon } from "@/app/uikit/components/icon";
 import "react-responsive-modal/styles.css";
+import { ETheme } from "@/app/uikit/enums";
 import "./Modal.scss";
 
 type IModalSize = "medium";
@@ -16,6 +17,7 @@ type TModalProps = {
   isOpen: boolean;
   onCloseModal: () => void;
   size?: IModalSize;
+  theme?: ETheme;
 };
 
 export const Modal = ({
@@ -25,9 +27,11 @@ export const Modal = ({
   isOpen,
   onCloseModal,
   size = "medium",
+  theme,
 }: TModalProps): JSX.Element => {
   const defaultClassNames = {
     modal: clsx("ModalDefault", className, {
+      ["theme-dark"]: theme === ETheme.Dark,
       ModalDefault__medium: size === "medium",
     }),
     closeButton: clsx("ModalDefaultCloseButton"),

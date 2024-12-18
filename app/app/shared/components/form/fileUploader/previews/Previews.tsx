@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import isNil from "lodash/isNil";
 import Image from "next/image";
-import type { FC } from "react";
+import { type FC, memo } from "react";
 import type { Accept, DropEvent, FileRejection } from "react-dropzone";
 import type { TImage } from "@/app/api/image";
 import { useTranslation } from "@/app/i18n/client";
@@ -14,8 +14,8 @@ import { Dropzone } from "@/app/uikit/components/dropzone";
 import type { TDropzoneProps } from "@/app/uikit/components/dropzone/Dropzone";
 import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
+import { ETheme } from "@/app/uikit/enums";
 import "./Previews.scss";
-import { memo } from "react";
 
 type TProps = {
   accept?: Accept;
@@ -35,6 +35,7 @@ type TProps = {
     event: DropEvent,
   ) => void;
   onLoad?: (file: TFile) => void;
+  theme?: ETheme;
 } & TDropzoneProps;
 
 const PreviewsComponent: FC<TProps> = ({
@@ -51,6 +52,7 @@ const PreviewsComponent: FC<TProps> = ({
   onDeleteFile,
   onDrop,
   onLoad,
+  theme,
   ...rest
 }) => {
   const { t } = useTranslation("index");
@@ -123,6 +125,7 @@ const PreviewsComponent: FC<TProps> = ({
               errors={errors}
               multiple={multiple}
               onDrop={onDrop}
+              theme={theme}
               {...rest}
             >
               <Icon type="AddCircleOutline" />

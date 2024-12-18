@@ -11,6 +11,7 @@ import type {
 } from "react";
 import { Error } from "@/app/uikit/components/error";
 import { Typography } from "@/app/uikit/components/typography";
+import { ETheme } from "@/app/uikit/enums";
 import "../input/Input.scss";
 
 type TClasses = {
@@ -36,6 +37,7 @@ export interface ITextareaProps
   label?: string;
   name?: string;
   maxLength?: number;
+  theme?: ETheme;
   type?: string;
   value?: string;
 }
@@ -57,6 +59,7 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, ITextareaProps>(
       label,
       name,
       maxLength,
+      theme,
       type,
       onBlur,
       onChange,
@@ -102,6 +105,7 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, ITextareaProps>(
     return (
       <div
         className={clsx("InputField", className, {
+          ["theme-dark"]: theme === ETheme.Dark,
           InputField__active: isFocused && !isReadOnly,
         })}
         data-testid={dataTestId}
@@ -115,6 +119,7 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, ITextareaProps>(
         <div className="InputField-Wrapper">
           <div
             className={clsx("InputField-Inner Textarea", {
+              ["theme-dark"]: theme === ETheme.Dark,
               ["InputField-Inner__active"]: isFocused,
               ["InputField-Inner__error"]: errors,
             })}
@@ -123,6 +128,7 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, ITextareaProps>(
               {...rest}
               autoComplete={autoComplete}
               className={clsx(className, classes?.textarea, "Input Textarea", {
+                ["theme-dark"]: theme === ETheme.Dark,
                 Input__active: isFocused,
                 Textarea__isResize__off: !isResize,
               })}

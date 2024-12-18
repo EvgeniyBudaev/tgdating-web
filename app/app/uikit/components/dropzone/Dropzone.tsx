@@ -5,6 +5,7 @@ import { memo } from "react";
 import type { FC, ReactNode } from "react";
 import { useDropzone } from "react-dropzone";
 import type { DropzoneOptions } from "react-dropzone";
+import { ETheme } from "@/app/uikit/enums";
 import "./Dropzone.scss";
 
 export type TDropzoneProps = {
@@ -14,6 +15,7 @@ export type TDropzoneProps = {
   errors?: string | string[] | null;
   name: string;
   multiple: boolean;
+  theme?: ETheme;
 } & DropzoneOptions;
 
 const DropzoneComponent: FC<TDropzoneProps> = ({
@@ -24,6 +26,7 @@ const DropzoneComponent: FC<TDropzoneProps> = ({
   name,
   multiple,
   onDrop,
+  theme,
   ...rest
 }) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -36,6 +39,7 @@ const DropzoneComponent: FC<TDropzoneProps> = ({
     <div
       {...getRootProps()}
       className={clsx("Dropzone", className, {
+        ["theme-dark"]: theme === ETheme.Dark,
         Dropzone__isDragActive: isDragActive,
         Dropzone__isError: errors,
       })}

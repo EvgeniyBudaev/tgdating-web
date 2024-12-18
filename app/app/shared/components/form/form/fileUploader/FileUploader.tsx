@@ -10,6 +10,7 @@ import { useFieldError } from "@/app/shared/hooks";
 import type { TFile } from "@/app/shared/types/file";
 import type { TDropzoneProps } from "@/app/uikit/components/dropzone/Dropzone";
 import { Error } from "@/app/uikit/components/error";
+import { ETheme } from "@/app/uikit/enums";
 
 type TProps = {
   defaultImages?: TImage[];
@@ -20,6 +21,7 @@ type TProps = {
   name: string;
   onAddFiles?: (acceptedFiles: TFile[], files: TFile[]) => void;
   onDeleteFile?: (deletedFile: TFile, files: TFile[]) => void;
+  theme?: ETheme;
   type: string;
 } & TDropzoneProps;
 
@@ -33,6 +35,7 @@ const FileUploaderComponent: FC<TProps> = ({
   name,
   onAddFiles,
   onDeleteFile,
+  theme,
   type,
 }) => {
   const { control } = useFormContext();
@@ -81,6 +84,7 @@ const FileUploaderComponent: FC<TProps> = ({
         name={name}
         onAddFiles={handleAddFiles}
         onDeleteFile={handleDeleteFile}
+        theme={theme}
         type={type}
       />
       {fieldErrors && (

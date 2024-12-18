@@ -9,6 +9,7 @@ import {
 import { useController, useFormContext } from "react-hook-form";
 import { useFieldError } from "@/app/shared/hooks";
 import { Input as InputUi } from "@/app/uikit/components/input";
+import { ETheme } from "@/app/uikit/enums";
 
 type TProps = {
   defaultValue?: string | number;
@@ -19,6 +20,7 @@ type TProps = {
   name: string;
   onFocus?: ((event: FocusEvent<HTMLElement>) => void) | undefined;
   subLabel?: string;
+  theme?: ETheme;
   type?: string;
 };
 
@@ -31,6 +33,7 @@ const InputComponent: FC<TProps> = ({
   name,
   onFocus,
   subLabel,
+  theme,
   type,
 }) => {
   const { control } = useFormContext();
@@ -72,6 +75,7 @@ const InputComponent: FC<TProps> = ({
       onChange={handleChange}
       ref={field.ref}
       subLabel={subLabel}
+      theme={theme}
       type={type}
       value={field.value}
     />

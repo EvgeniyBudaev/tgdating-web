@@ -33,11 +33,7 @@ import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
 import type { TFile } from "@/app/shared/types/file";
 import { createPath } from "@/app/shared/utils";
 import type { TSelectOption } from "@/app/uikit/components/select";
-import { useSelect } from "@/app/entities/profile/profileForm/hooks/useSelect";
-import type {
-  TSelectNativeOnChange,
-  TSelectNativeOption,
-} from "@/app/uikit/components/selectNative/types";
+import { DEFAULT_AGE } from "@/app/uikit/constants";
 
 type TProps = {
   isEdit?: boolean;
@@ -46,37 +42,37 @@ type TProps = {
 };
 
 type TUseProfileEditResponse = {
+  age: TSelectOption | undefined;
+  ageOptions: TSelectOption[];
   displayName: string | undefined;
   files: TFile[] | null;
   formErrors: Record<string, string[]> | undefined;
   gender: TSelectOption | undefined;
-  isSelectOpened: boolean;
-  isSidebarOpen: { isSearchGender: boolean; isGender: boolean };
+  isSidebarOpen: { isAge: boolean; isGender: boolean; isSearchGender: boolean };
   setIsSidebarOpen: (
     value:
-      | ((prevState: { isSearchGender: boolean; isGender: boolean }) => {
-          isSearchGender: boolean;
+      | ((prevState: {
+          isAge: boolean;
           isGender: boolean;
+          isSearchGender: boolean;
+        }) => {
+          isAge: boolean;
+          isGender: boolean;
+          isSearchGender: boolean;
         })
-      | { isSearchGender: boolean; isGender: boolean },
+      | { isAge: boolean; isGender: boolean; isSearchGender: boolean },
   ) => void;
   language: ELanguage;
   location: string | undefined;
   navigator: TUseNavigatorResponse | null;
   onAddFiles: ((acceptedFiles: TFile[], files: TFile[]) => void) | undefined;
+  onChangeAge(value?: TSelectOption): void;
   onChangeGender(value?: TSelectOption): void;
   onChangeSearchGender(value?: TSelectOption): void;
   onCloseSidebar(): void;
   onDeleteFile(file: TFile, files: TFile[]): void;
   onSubmit(formData: FormData): void;
   searchGender: TSelectOption | undefined;
-  selectAge: {
-    onBlur: () => void;
-    onChange: TSelectNativeOnChange;
-    onFocus: () => void;
-    options: TSelectNativeOption[];
-    selectedOption: TSelectNativeOption | null;
-  };
   state: TState;
   tg: TUseTelegramResponse | null;
 };
@@ -103,6 +99,12 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   const location = isEdit
     ? (navigator?.location ?? profile?.location ?? undefined)
     : (navigator?.location ?? undefined);
+  const ageDefault = isEdit
+    ? {
+        label: (profile?.age ?? DEFAULT_AGE).toString(),
+        value: (profile?.age ?? DEFAULT_AGE).toString(),
+      }
+    : undefined;
   const genderDefault = isEdit
     ? (
         GENDER_MAPPING[language] as Array<{ label: string; value: EGender }>
@@ -116,6 +118,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
         }>
       ).find((item) => item.value === profile?.filter?.searchGender)
     : SEARCH_GENDER_MAPPING[language][0];
+  const [age, setAge] = useState<TSelectOption | undefined>(ageDefault);
   const [gender, setGender] = useState<TSelectOption | undefined>(
     genderDefault,
   );
@@ -123,6 +126,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     searchGenderDefault,
   );
   const [isSidebarOpen, setIsSidebarOpen] = useState({
+    isAge: false,
     isGender: false,
     isSearchGender: false,
   });
@@ -149,26 +153,16 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       ? `${user?.first_name} ${user?.last_name}`
       : user?.first_name;
   const displayName = isEdit ? profile?.displayName : fio;
+  const ageOptions: TSelectOption[] = Array.from({ length: 83 }, (_, i) => ({
+    value: DEFAULT_AGE_FROM + i,
+    label: (DEFAULT_AGE_FROM + i).toString(),
+  }));
 
   const { onAddFiles, onDeleteFile } = useFiles({
     fieldName: EProfileAddFormFields.Image,
     files: files ?? [],
     setValue: (_fieldName: string, files: TFile[]) => setFiles(files),
   });
-
-  const defaultOption: TSelectNativeOption = {
-    label: profile?.age.toString() ?? DEFAULT_AGE_FROM.toString(),
-    value: profile?.age ?? DEFAULT_AGE_FROM,
-  };
-  const defaultSelectedOption = isEdit ? defaultOption : undefined;
-  const {
-    isSelectOpened,
-    onBlur: onBlurSelectAge,
-    onChange: onChangeSelectAge,
-    onFocus: onFocusSelectAge,
-    options: optionsSelectAge,
-    selectedOption: selectedOptionAge,
-  } = useSelect({ defaultSelectedOption: defaultSelectedOption });
 
   // Profile Edit
   useEffect(() => {
@@ -247,9 +241,17 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
 
   const handleCloseSidebar = () => {
     setIsSidebarOpen({
+      isAge: false,
       isGender: false,
       isSearchGender: false,
     });
+  };
+
+  const handleChangeAge = (value?: TSelectOption) => {
+    if (value) {
+      value && setAge(value);
+      handleCloseSidebar();
+    }
   };
 
   const handleChangeGender = (value?: TSelectOption) => {
@@ -286,12 +288,10 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     (files ?? []).forEach((file) => {
       formDataDto.append(EProfileAddFormFields.Image, file);
     });
-    const age = selectedOptionAge
-      ? Array.isArray(selectedOptionAge)
-        ? selectedOptionAge[0].value
-        : (selectedOptionAge?.value ?? DEFAULT_AGE_FROM.toString())
-      : "";
-    formDataDto.append(EProfileAddFormFields.Age, age.toString());
+    formDataDto.append(
+      EProfileAddFormFields.Age,
+      (age?.value ?? "").toString(),
+    );
     formDataDto.append(
       EProfileAddFormFields.Gender,
       (gender?.value ?? "").toString(),
@@ -351,30 +351,25 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   };
 
   return {
+    age,
+    ageOptions,
     displayName,
     files,
     formErrors,
     gender,
-    isSelectOpened,
     isSidebarOpen,
     setIsSidebarOpen,
     language,
     location,
     navigator,
     onAddFiles,
+    onChangeAge: handleChangeAge,
     onChangeGender: handleChangeGender,
     onChangeSearchGender: handleChangeSearchGender,
     onCloseSidebar: handleCloseSidebar,
     onDeleteFile: handleDeleteFile,
     onSubmit: handleSubmit,
     searchGender,
-    selectAge: {
-      onBlur: onBlurSelectAge,
-      onChange: onChangeSelectAge,
-      onFocus: onFocusSelectAge,
-      options: optionsSelectAge,
-      selectedOption: selectedOptionAge,
-    },
     state,
     tg: telegram,
   };

@@ -3,10 +3,10 @@
 import clsx from "clsx";
 import { type FC, type ReactNode, memo, useState } from "react";
 import { useTranslation } from "@/app/i18n/client";
-import { Header } from "@/app/shared/components/header";
 import { Icon } from "@/app/uikit/components/icon";
 import type { TSelectOption } from "@/app/uikit/components/select";
 import { Typography } from "@/app/uikit/components/typography";
+import { ETheme } from "@/app/uikit/enums";
 import "./SidebarContent.scss";
 
 type TClasses = {
@@ -20,6 +20,7 @@ type TProps = {
   onCloseSidebar?: () => void;
   onSave?: (value?: TSelectOption) => void;
   selectedItem?: TSelectOption;
+  theme?: ETheme;
   title: string;
 };
 
@@ -30,6 +31,7 @@ const SidebarContentComponent: FC<TProps> = ({
   options,
   onCloseSidebar,
   selectedItem,
+  theme,
   title,
 }) => {
   const [checkedItem, setCheckedItem] = useState<TSelectOption | undefined>(
@@ -43,14 +45,18 @@ const SidebarContentComponent: FC<TProps> = ({
   };
 
   return (
-    <>
-      <Header className="SidebarContent-Header">
+    <div
+      className={clsx("SidebarContent", {
+        ["theme-dark"]: theme === ETheme.Dark,
+      })}
+    >
+      <div className="SidebarContent-Header">
         <Icon
           className="SidebarContent-Header-Cancel"
           onClick={handleBack}
           type="ArrowBack"
         />
-      </Header>
+      </div>
       {options && (
         <div className="SidebarContent-List">
           {(options ?? []).map((item) => {
@@ -70,8 +76,7 @@ const SidebarContentComponent: FC<TProps> = ({
           })}
         </div>
       )}
-      <div className="SidebarContent-List">{children}</div>
-    </>
+    </div>
   );
 };
 
