@@ -9,6 +9,8 @@ const COLOR_GRAY = "#3e3b50";
 const CURRENT_COLOR = "currentColor";
 const BORDER_RADIUS = "4px";
 const CURSOR = "pointer";
+const MENU_PADDING = "8px 0";
+const MENU_LIST_PADDING = "8px 0";
 const TRANSITION = "all 0.15s";
 const TRANSPARENT = "transparent";
 const Z_INDEX = 10;
@@ -51,9 +53,11 @@ export const VARIANTS: { [key in ETheme]: TSelectNativeVariantStyle } = {
     },
     menu: {
       backgroundColor: COLOR_DARKNESS,
+      padding: MENU_PADDING,
       zIndex: Z_INDEX,
     },
     menuList: {
+      padding: MENU_LIST_PADDING,
       zIndex: Z_INDEX,
     },
     menuPortal: {
@@ -97,8 +101,14 @@ export const VARIANTS: { [key in ETheme]: TSelectNativeVariantStyle } = {
     menu: {
       backgroundColor: COLOR_WHITE,
       zIndex: Z_INDEX,
+      padding: MENU_PADDING,
     },
-    menuList: {},
-    menuPortal: {},
+    menuList: {
+      padding: MENU_LIST_PADDING,
+      zIndex: Z_INDEX,
+    },
+    menuPortal: {
+      zIndex: Z_INDEX,
+    },
   },
 };

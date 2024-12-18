@@ -11,16 +11,16 @@ import "./SubmitButton.scss";
 const SubmitButtonComponent: FC = () => {
   const { pending } = useFormStatus();
   const { t } = useTranslation("index");
-
+  const isLoading = pending;
   return (
-    <Button className="SubmitButton" isLoading={pending} type="submit">
-      {pending && (
+    <Button className="SubmitButton" isDisabled={isLoading} isLoading={isLoading} type="submit">
+      {isLoading && (
         <span className="SubmitButton-Loading">
           <Typography>{t("common.actions.loading")}</Typography>
           <Icon className="SubmitButton-Loading-Icon" type="Spinner" />
         </span>
       )}
-      {!pending && <Typography>{t("common.actions.save")}</Typography>}
+      {!isLoading && <Typography>{t("common.actions.save")}</Typography>}
     </Button>
   );
 };

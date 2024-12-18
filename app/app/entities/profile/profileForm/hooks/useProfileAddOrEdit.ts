@@ -50,6 +50,7 @@ type TUseProfileEditResponse = {
   files: TFile[] | null;
   formErrors: Record<string, string[]> | undefined;
   gender: TSelectOption | undefined;
+  isSelectOpened: boolean;
   isSidebarOpen: { isSearchGender: boolean; isGender: boolean };
   setIsSidebarOpen: (
     value:
@@ -161,6 +162,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   };
   const defaultSelectedOption = isEdit ? defaultOption : undefined;
   const {
+    isSelectOpened,
     onBlur: onBlurSelectAge,
     onChange: onChangeSelectAge,
     onFocus: onFocusSelectAge,
@@ -353,6 +355,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     files,
     formErrors,
     gender,
+    isSelectOpened,
     isSidebarOpen,
     setIsSidebarOpen,
     language,

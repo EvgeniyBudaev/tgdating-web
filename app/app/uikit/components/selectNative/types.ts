@@ -127,12 +127,15 @@ export type TSelectNativeVariantStyle = {
   };
   menu: {
     backgroundColor?: string;
+    padding?: string;
     zIndex?: string | number;
   };
   menuList: {
+    padding?: string;
     zIndex?: string | number;
   };
   menuPortal: {
+    padding?: string;
     zIndex?: string | number;
   };
 };

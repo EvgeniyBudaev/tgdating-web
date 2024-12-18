@@ -58,6 +58,7 @@ const ProfileFormComponent: FC<TProps> = ({
     displayName,
     files,
     gender,
+    isSelectOpened,
     isSidebarOpen,
     setIsSidebarOpen,
     language,
@@ -273,9 +274,11 @@ const ProfileFormComponent: FC<TProps> = ({
                 />
               </div>
             )}
-            <div className="ProfileForm-Save">
-              <SubmitButton />
-            </div>
+            {!isSelectOpened && (
+              <div className="ProfileForm-Save">
+                <SubmitButton/>
+              </div>
+            )}
           </div>
         </Container>
       </Form>

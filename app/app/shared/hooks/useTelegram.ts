@@ -57,7 +57,8 @@ export const useTelegram: TUseTelegram = () => {
 
   // useEffect(() => {
   //   if (telegram) {
-  //     const params = tgMock.initData;
+  // telegram.expand(); //расширяем на все окно
+  //     const params = telegram.initData;
   //     const initDataSearchParams =  new URLSearchParams(params);
   //     const queryId = initDataSearchParams.get("query_id");
   //     const user = JSON.parse(initDataSearchParams.get("user") ?? "");

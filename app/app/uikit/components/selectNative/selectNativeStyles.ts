@@ -55,6 +55,7 @@ export const selectNativeStyles = (
     menu: (provided) => ({
       ...provided,
       backgroundColor: style.menu.backgroundColor,
+      padding: style.menu.padding,
       zIndex: style.menu.zIndex,
     }),
     menuList: (provided) => ({
