@@ -7,7 +7,8 @@ import { CSSTransition } from "react-transition-group";
 import type { TDropDownClasses } from "@/app/uikit/components/dropDown/types";
 import { Overlay } from "@/app/uikit/components/overlay";
 import { TRANSITION } from "@/app/uikit/constants";
-import {DropDownProvider} from "@/app/uikit/context";
+import { DropDownProvider } from "@/app/uikit/context";
+import { ETheme } from "@/app/uikit/enums";
 import { useDropDown, useDropDownContext } from "@/app/uikit/hooks";
 import "./DropDown.scss";
 
@@ -16,6 +17,7 @@ type TProps = {
   classes?: TDropDownClasses;
   dataTestId?: string;
   isCanClickOutside?: boolean;
+  theme?: ETheme;
   transition?: number;
 };
 
@@ -24,9 +26,10 @@ export const DropDown = ({
   classes,
   dataTestId = "uikit__dropDown",
   isCanClickOutside = true,
+  theme,
   transition,
 }: TProps): JSX.Element => {
-  const dropDownState = useDropDown({isCanClickOutside});
+  const dropDownState = useDropDown({ isCanClickOutside });
 
   return (
     <DropDownProvider value={dropDownState}>
@@ -35,7 +38,9 @@ export const DropDown = ({
         isActive={dropDownState.isDropDownOpen}
       />
       <div
-        className={clsx("DropDown", classes?.dropDown)}
+        className={clsx("DropDown", classes?.dropDown, {
+          ["theme-dark"]: theme === ETheme.Dark,
+        })}
         data-testid={dataTestId}
       >
         {children}
@@ -56,7 +61,7 @@ const DropDownButton: FC<TDropDownButton> = ({ children, classes, onOpen }) => {
   const handleOpen = () => {
     dropDownState?.onOpen?.();
     onOpen?.();
-  }
+  };
 
   return (
     <div
@@ -96,7 +101,7 @@ const DropDownPanel: FC<TDropDownPanel> = ({
     } else {
       onClose?.();
     }
-  }
+  };
 
   useEffect(() => {
     if (!isNil(isOpen) && !isOpen) {

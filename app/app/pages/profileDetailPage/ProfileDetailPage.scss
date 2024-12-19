@@ -1,6 +1,7 @@
 @import "@/app/styles";
 
 .ProfileDetailPage {
+  $this: &;
   position: relative;
 
   & .swiper {
@@ -22,7 +23,7 @@
 
   &-Box {
     padding: 8px;
-    background-color: $secondary_bg_color;
+    background-color: $bg_light_color;
     border-radius: $border-radius-lg;
     width: 100%;
   }
@@ -73,5 +74,11 @@
     opacity: 0;
     height: 0;
     width: 0;
+  }
+
+  &.theme-dark {
+    #{$this}-Box {
+      background-color: $secondary_bg_color;
+    }
   }
 }

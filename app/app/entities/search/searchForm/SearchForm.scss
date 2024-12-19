@@ -1,6 +1,7 @@
 @import "@/app/styles";
 
 .SearchForm {
+  $this: &;
   position: relative;
   padding: 16px;
 
@@ -31,6 +32,25 @@
       fill: $link_color;
       height: 24px;
       width: 24px;
+    }
+  }
+
+  & #{$this}-SidebarContent {
+    height: 100vh;
+    background-color: $text_color;
+  }
+
+  & #{$this}-SidebarContent-List-Item {
+    border: none;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  &.theme-dark {
+    #{$this}-SidebarContent {
+      background-color: $bg_color;
     }
   }
 }

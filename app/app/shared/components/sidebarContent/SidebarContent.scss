@@ -4,7 +4,7 @@
   $this: &;
 
   &-Header {
-    background-color: $bg_light_color;
+    background-color: $text_color;
     margin-bottom: 25px;
     position: fixed;
     top: 0;
@@ -29,11 +29,13 @@
     }
 
     &-Save {
+      height: 24px;
+      padding: 0;
       font-weight: 700;
       color: $link_color;
       cursor: pointer;
       border: none;
-      background-color: $bg_color;
+      background-color: transparent;
 
       &:hover,
       &:active {
@@ -45,7 +47,7 @@
   }
 
   &-List {
-    background-color: $bg_light_color;
+    background-color: $text_color;
     margin-top: 75px;
 
     &-Item {
@@ -58,10 +60,16 @@
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
       width: 100%;
+      color: $bg_color;
+
+      &:hover,
+      &:active {
+        color: $bg_color;
+        background-color: $link_color;
+      }
 
       &__isChecked {
         opacity: 1;
-        color: $text_color;
         background-color: $link_color;
       }
 
@@ -73,12 +81,6 @@
 
       &:last-child {
         border-bottom: none;
-      }
-
-      &:hover,
-      &:active {
-        color: $text_color;
-        background-color: $link_color;
       }
     }
 
@@ -95,9 +97,18 @@
     #{$this}-List {
       background-color: $bg_color;
 
-      #{$this}-Item {
-        color: $text_color_not_active;
+      &-Item {
+        color: $text_color;
         border-bottom: 1px solid $secondary_bg_color;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:hover,
+        &:active {
+          color: $text_color;
+        }
       }
     }
   }

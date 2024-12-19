@@ -3,7 +3,7 @@
 .SearchBar {
   display: flex;
   align-items: center;
-  background-color: $secondary_bg_color;
+  background-color: $bg_light_color;
   width: 200px;
   max-width: 100%;
   border-radius: $border-radius-2xl;
@@ -13,5 +13,9 @@
     height: 16px;
     width: 16px;
     margin-right: 8px;
+  }
+
+  &.theme-dark {
+    background-color: $secondary_bg_color;
   }
 }

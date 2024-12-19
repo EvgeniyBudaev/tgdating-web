@@ -4,13 +4,12 @@
 $transition: 0.3s;
 
 .DropDown {
+  $this: &;
   position: absolute;
-  //bottom: 20px;
   left: 0;
   right: 0;
   height: 100%;
   width: 100%;
-  //width: calc(100% - 16px);
   margin-left: auto;
   margin-right: auto;
 
@@ -26,7 +25,7 @@ $transition: 0.3s;
     width: 100%;
     border: 1px solid transparent;
     border-radius: $border-radius-lg;
-    background-color: $bg_color;
+    background-color: $bg_light_color;
     z-index: 50;
 
     &.enter {
@@ -65,12 +64,12 @@ $transition: 0.3s;
     align-items: center;
     justify-content: center;
     color: $link_color;
-    background-color: $secondary_bg_color;
+    background-color: $text_color;
     width: 100%;
     padding: 0 16px;
     min-height: 46px;
     cursor: pointer;
-    border-bottom: 1px solid $bg_color;
+    border-bottom: 1px solid $bg_light_color;
     border-radius: $border-radius-xl;
     transition: all $transition;
 
@@ -89,6 +88,17 @@ $transition: 0.3s;
     &:hover,
     &:active {
       opacity: $opacity;
+    }
+  }
+
+  &.theme-dark {
+    #{$this}-Panel {
+      background-color: $bg_color;
+    }
+
+    #{$this}-MenuItem {
+      background-color: $secondary_bg_color;
+      border-bottom: 1px solid $bg_color;
     }
   }
 }

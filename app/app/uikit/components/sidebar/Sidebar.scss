@@ -13,7 +13,7 @@ $transition: 0.3s;
   height: 100vh;
   overflow: auto;
   z-index: 50;
-  background-color: $text_color;
+  background-color: $bg_light_color;
 
   &.theme-dark {
     background-color: $secondary_bg_color;

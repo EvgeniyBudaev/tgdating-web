@@ -5,7 +5,7 @@
   top: 16px;
   right: 16px;
   z-index: 10;
-  background-color: $bg_color;
+  background-color: $bg_light_color;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -19,5 +19,9 @@
   &:hover,
   &:active {
     opacity: $opacity;
+  }
+
+  &.theme-dark {
+    background-color: $bg_color;
   }
 }

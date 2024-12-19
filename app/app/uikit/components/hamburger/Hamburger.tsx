@@ -1,16 +1,24 @@
 "use client";
 
+import clsx from "clsx";
 import { type FC, memo } from "react";
 import { Icon } from "@/app/uikit/components/icon";
+import { ETheme } from "@/app/uikit/enums";
 import "./Hamburger.scss";
 
 type TProps = {
   onClick?: () => void;
+  theme?: ETheme;
 };
 
-const HamburgerComponent: FC<TProps> = ({ onClick }) => {
+const HamburgerComponent: FC<TProps> = ({ onClick, theme }) => {
   return (
-    <div className="Hamburger" onClick={onClick}>
+    <div
+      className={clsx("Hamburger", {
+        ["theme-dark"]: theme === ETheme.Dark,
+      })}
+      onClick={onClick}
+    >
       <Icon type="MoreHoriz" />
     </div>
   );

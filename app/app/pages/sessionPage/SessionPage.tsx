@@ -12,7 +12,7 @@ import { SearchForm } from "@/app/entities/search/searchForm";
 import { Container } from "@/app/shared/components/container";
 import { useNavigatorContext, useTelegramContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useCheckPermissions } from "@/app/shared/hooks";
+import { useCheckPermissions, useThemeContext } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { Online } from "@/app/uikit/components/online";
 import { Typography } from "@/app/uikit/components/typography";
@@ -37,6 +37,8 @@ const SessionPageComponent: FC<TProps> = ({
   useCheckPermissions({ lng });
   const navigator = useNavigatorContext();
   const telegram = useTelegramContext();
+  const themeState = useThemeContext();
+  const theme = themeState?.theme;
   const isSession = telegram?.isSession;
   const user = telegram?.user;
   const { t } = useTranslation("index");
@@ -66,7 +68,11 @@ const SessionPageComponent: FC<TProps> = ({
   return (
     <div className="SessionPage">
       {profileShortInfo && (
-        <SearchForm lng={lng} profileShortInfo={profileShortInfo} />
+        <SearchForm
+          lng={lng}
+          profileShortInfo={profileShortInfo}
+          theme={theme}
+        />
       )}
       {isEmpty(profileList?.content) && (
         <Container>

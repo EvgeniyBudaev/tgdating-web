@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { FC, memo, useEffect, useMemo, useRef, useState } from "react";
@@ -16,7 +17,7 @@ import { Container } from "@/app/shared/components/container";
 import { Field } from "@/app/shared/components/form/field";
 import { useTelegramContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useCheckPermissions } from "@/app/shared/hooks";
+import { useCheckPermissions, useThemeContext } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { DropDown } from "@/app/uikit/components/dropDown";
 import { Hamburger } from "@/app/uikit/components/hamburger";
@@ -27,6 +28,7 @@ import { Typography } from "@/app/uikit/components/typography";
 import { notification } from "@/app/uikit/utils";
 import { getFullYear } from "@/app/uikit/utils/date";
 import "./ProfileDetailPage.scss";
+import { ETheme } from "@/app/uikit/enums";
 
 type TProps = {
   isExistUser: boolean;
@@ -46,6 +48,8 @@ const ProfileDetailPageComponent: FC<TProps> = ({
 }) => {
   useCheckPermissions({ lng });
   const telegram = useTelegramContext();
+  const themeState = useThemeContext();
+  const theme = themeState?.theme;
   const isSession = telegram?.isSession;
   const user = telegram?.user;
   const { t } = useTranslation("index");
@@ -102,9 +106,9 @@ const ProfileDetailPageComponent: FC<TProps> = ({
     profile?.telegramUserId &&
     isExistUser && (
       <>
-        <DropDown isCanClickOutside={false}>
+        <DropDown isCanClickOutside={false} theme={theme}>
           <DropDown.Button onOpen={handleOpenDropDown}>
-            <Hamburger />
+            <Hamburger theme={theme} />
           </DropDown.Button>
           <DropDown.Panel isOpen={isDropDownOpen}>
             <div className="DropDown-Menu">
@@ -157,7 +161,11 @@ const ProfileDetailPageComponent: FC<TProps> = ({
           profile={profile}
           ref={sidebarRef}
         />
-        <div className="ProfileDetailPage">
+        <div
+          className={clsx("ProfileDetailPage", {
+            ["theme-dark"]: theme === ETheme.Dark,
+          })}
+        >
           <div className="ProfileDetailPage-Slider">
             <Slider images={profile?.images} />
           </div>
