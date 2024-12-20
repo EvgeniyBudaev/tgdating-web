@@ -20,7 +20,7 @@ $transition: 0.3s;
     margin-right: auto;
     left: 0;
     right: 0;
-    bottom: 20px;
+    bottom: 80px;
     height: max-content;
     width: 100%;
     border: 1px solid transparent;
@@ -64,7 +64,7 @@ $transition: 0.3s;
     align-items: center;
     justify-content: center;
     color: $link_color;
-    background-color: $text_color;
+    background: $text_color;
     width: 100%;
     padding: 0 16px;
     min-height: 46px;
@@ -82,7 +82,7 @@ $transition: 0.3s;
     }
 
     &-Warning {
-      color: $color-red;
+      //color: $color-red;
     }
 
     &:hover,
@@ -93,11 +93,16 @@ $transition: 0.3s;
 
   &.theme-dark {
     #{$this}-Panel {
-      background-color: $bg_color;
+      background: $bg_color;
     }
 
     #{$this}-MenuItem {
-      background-color: $secondary_bg_color;
+      color: $text_color;
+      background: linear-gradient(
+        to right,
+        rgb(32, 106, 180),
+        rgb(26, 74, 125)
+      ); // #206AB4 #1A4A7D
       border-bottom: 1px solid $bg_color;
     }
   }

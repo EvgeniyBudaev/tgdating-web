@@ -2,10 +2,12 @@ import {
   AddCircleOutlineIcon,
   ArrowBackIcon,
   ArrowDownIcon,
+  ArrowForwardIOSIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
   AttentionIcon,
   CalendarIcon,
+  CheckIcon,
   CheckboxIcon,
   CloseIcon,
   EditIcon,
@@ -32,10 +34,12 @@ export type IconType =
   | "AddCircleOutline"
   | "ArrowBack"
   | "ArrowDown"
+  | "ArrowForwardIOS"
   | "ArrowLeft"
   | "ArrowRight"
   | "Attention"
   | "Calendar"
+  | "Check"
   | "Checkbox"
   | "Close"
   | "Edit"
@@ -61,10 +65,12 @@ export const iconTypes = new Map([
   ["AddCircleOutline", <AddCircleOutlineIcon key="AddCircleOutlineIcon" />],
   ["ArrowBack", <ArrowBackIcon key="ArrowBackIcon" />],
   ["ArrowDown", <ArrowDownIcon key="ArrowDownIcon" />],
+  ["ArrowForwardIOS", <ArrowForwardIOSIcon key="ArrowForwardIOSIcon" />],
   ["ArrowLeft", <ArrowLeftIcon key="ArrowLeftIcon" />],
   ["ArrowRight", <ArrowRightIcon key="ArrowRightIcon" />],
   ["Attention", <AttentionIcon key="AttentionIcon" />],
   ["Calendar", <CalendarIcon key="CalendarIcon" />],
+  ["Check", <CheckIcon key="CheckIcon" />],
   ["Checkbox", <CheckboxIcon key="CheckboxIcon" />],
   ["Close", <CloseIcon key="CloseIcon" />],
   ["Edit", <EditIcon key="EditIcon" />],

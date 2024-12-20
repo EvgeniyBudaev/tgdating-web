@@ -1,0 +1,72 @@
+@import "@/app/styles";
+
+.Controls {
+  $this: &;
+  position: fixed;
+  bottom: 70px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+
+  &-Item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    z-index: 100;
+    margin-bottom: 8px;
+    border-radius: $border-radius;
+    cursor: pointer;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-Item-Pink {
+    background-color: rgba(50, 28, 61, 1);
+  }
+
+  &-Item-Green {
+    background-color: rgba(31, 47, 61, 1);
+  }
+
+  &-Box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+    width: 24px;
+    opacity: 1;
+    z-index: 200;
+    position: relative;
+    border: 1px solid transparent;
+    border-radius: $border-radius;
+
+    &-Pink {
+      background-color: $color-pink;
+      box-shadow:
+        0 0 25px $color-pink,
+        0 0 100px $color-pink,
+        0 0 150px $color-pink;
+    }
+
+    &-Green {
+      background-color: $color-green;
+      box-shadow:
+        0 0 25px $color-green,
+        0 0 100px $color-green,
+        0 0 150px $color-green;
+    }
+
+    &__no-checked {
+      background-color: $color-green;
+    }
+  }
+
+  &-Icon {
+    height: 14px;
+    width: 14px;
+  }
+}

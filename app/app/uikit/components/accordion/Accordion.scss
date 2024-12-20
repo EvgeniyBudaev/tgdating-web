@@ -1,0 +1,108 @@
+@import "@/app/styles";
+
+/* ----- Открытие/закрытие Sidebar ----- */
+$delay: 0.3s;
+
+.Accordion {
+  $this: &;
+  margin-top: 8px;
+  width: 100%;
+
+  &-Header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $text_color;
+    transition: all $delay ease;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:last-child {
+      margin-top: 0;
+    }
+
+    &Icon {
+      padding: 8px;
+      color: $text_color;
+
+      svg {
+        transform: rotate(-90deg);
+        transition: all $delay ease;
+      }
+    }
+
+    &Title {
+      width: 100%;
+      max-width: calc(100% - 92px);
+      padding: 0 16px;
+      // truncate multi line
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+  }
+
+  &-ContentWrapper {
+    position: relative;
+    width: 100%;
+    z-index: 100;
+
+    &.enter {
+      transform: translateY(200px);
+    }
+
+    &.enter-active {
+      transition: transform $delay;
+      transform: translateY(0);
+    }
+
+    &.exit {
+      transition: transform $delay;
+      transform: translateY(0);
+    }
+
+    &.exit-active {
+      overflow: hidden;
+      transition: transform $delay;
+      transform: translateY(200px);
+    }
+  }
+
+  &-Content {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 24px;
+    height: max-content;
+    width: 100%;
+    color: $text_color;
+    padding: 16px;
+    overflow: hidden;
+    z-index: 100;
+  }
+
+  &#{$this}__active {
+    #{$this}-HeaderIcon {
+      svg {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
+
+.theme-dark {
+  .Accordion {
+    &-Header {
+      background-color: $bg_color;
+    }
+
+    &-Content {
+      background-color: $bg_color;
+    }
+  }
+}

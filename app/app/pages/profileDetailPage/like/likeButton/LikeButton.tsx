@@ -3,7 +3,7 @@
 import { memo, type FC } from "react";
 import { useFormStatus } from "react-dom";
 import { Icon } from "@/app/uikit/components/icon";
-import { Typography } from "@/app/uikit/components/typography";
+import { TooltipV2 } from "@/app/uikit/components/tooltipV2";
 import "./LikeButton.scss";
 
 type TProps = {
@@ -14,40 +14,36 @@ type TProps = {
 
 const LikeButtonComponent: FC<TProps> = ({ isLiked, message, onClick }) => {
   const { pending } = useFormStatus();
+  const isLoading = pending;
+  const isMessage = !!message;
 
   return (
     <div className="LikeButton" onClick={onClick}>
-      {pending && (
+      {isLoading && (
         <div className="LikeButton-Info">
-          <div className="LikeButton-IconWrapper">
+          <div className="Controls-Box Controls-Box-Green">
             <Icon className="SubmitButton-Loading-Icon" type="Spinner" />
           </div>
         </div>
       )}
 
-      {isLiked && !pending && (
+      {isLiked && !isLoading && (
         <div className="LikeButton-Info">
-          {message && (
-            <div className="LikeButton-Message">
-              <Typography>{message}</Typography>
+          <TooltipV2 isOpen={isMessage} isVisible={isMessage} message={message}>
+            <div className="Controls-Box Controls-Box-Green">
+              <Icon className="Controls-Icon" type="Heart" />
             </div>
-          )}
-          <div className="LikeButton-IconWrapper">
-            <Icon className="LikeButton-Icon" type="Heart" />
-          </div>
+          </TooltipV2>
         </div>
       )}
 
-      {!isLiked && !pending && (
+      {!isLiked && !isLoading && (
         <div className="LikeButton-Info">
-          {message && (
-            <div className="LikeButton-Message">
-              <Typography>{message}</Typography>
+          <TooltipV2 isOpen={isMessage} isVisible={isMessage} message={message}>
+            <div className="Controls-Box Controls-Box__no-checked Controls-Box-Green">
+              <Icon className="Controls-Icon" type="HeartEmpty" />
             </div>
-          )}
-          <div className="LikeButton-IconWrapper">
-            <Icon className="LikeButton-Icon" type="HeartEmpty" />
-          </div>
+          </TooltipV2>
         </div>
       )}
     </div>

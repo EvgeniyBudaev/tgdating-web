@@ -3,6 +3,7 @@
 .ProfileDetailPage {
   $this: &;
   position: relative;
+  height: 100%;
 
   & .swiper {
     height: 100%;
@@ -10,33 +11,9 @@
 
   &-Slider {
     position: relative;
-    height: 400px;
+    height: calc(100% - 250px);
     width: 100%;
     margin-bottom: 16px;
-  }
-
-  &-User {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-  }
-
-  &-Box {
-    padding: 8px;
-    background-color: $bg_light_color;
-    border-radius: $border-radius-lg;
-    width: 100%;
-  }
-
-  &-Inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    &-Right {
-      width: 100px;
-      max-width: 100%;
-    }
   }
 
   & .Field {
@@ -47,24 +24,31 @@
     }
   }
 
-  &-Row {
+  &-Online {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 24px;
+    width: 100%;
+  }
+
+  &-Distansion {
+    display: flex;
+    align-items: center;
+  }
+
+  &-Location {
     display: flex;
     align-items: center;
   }
 
   &-Icon {
-    margin-right: 8px;
+    height: 16px;
+    width: 16px;
   }
 
-  &-Online {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-
-    & .Online {
-      position: relative;
-    }
+  &-Description {
+    color: $color-gray;
   }
 
   &-Form {
@@ -74,6 +58,10 @@
     opacity: 0;
     height: 0;
     width: 0;
+  }
+
+  &-Field {
+    margin-bottom: 4px;
   }
 
   &.theme-dark {

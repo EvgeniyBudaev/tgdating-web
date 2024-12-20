@@ -5,41 +5,5 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  color: $color-red;
-  z-index: 10;
   width: 100%;
-
-  &-Info {
-    position: relative;
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: flex-end;
-  }
-
-  &-Message {
-    color: $text_color;
-    background-color: $secondary_bg_color;
-    padding: 4px;
-    border-radius: $border-radius;
-  }
-
-  &-IconWrapper {
-    width: 36px;
-    border-radius: $border-radius;
-    -webkit-tap-highlight-color: transparent;
-    cursor: pointer;
-    padding: 4px;
-
-    &:hover,
-    &:active {
-      background-color: $color-gray;
-    }
-  }
-
-  &-Icon {
-    margin-top: 8px;
-    width: 24px;
-    height: 24px;
-  }
 }

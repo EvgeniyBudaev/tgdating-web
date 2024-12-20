@@ -64,12 +64,13 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, ITextareaProps>(
       onBlur,
       onChange,
       onFocus,
+      value,
       ...rest
     }: ITextareaProps,
     ref: ForwardedRef<HTMLTextAreaElement>,
   ): JSX.Element => {
     const [currentLength, setCurrentLength] = useState(
-      defaultValue?.length ?? 0,
+      defaultValue?.length ?? value?.length ?? 0,
     );
     const [isFocused, setIsFocused] = useState<boolean | undefined>(
       isInputFocused || !!defaultValue,
@@ -132,6 +133,7 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, ITextareaProps>(
           onChange={handleChange}
           onFocus={onFocusCallback}
           ref={ref}
+          value={value}
         />
         {maxLength && (
           <div className="Textarea-MaxLength">
@@ -140,7 +142,7 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, ITextareaProps>(
         )}
         {errors && (
           <div className="InputField-ErrorField">
-            <Error errors={errors}/>
+            <Error errors={errors} />
           </div>
         )}
       </div>

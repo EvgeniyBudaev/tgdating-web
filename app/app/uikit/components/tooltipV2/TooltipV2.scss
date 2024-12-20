@@ -14,20 +14,19 @@
     display: inline-block;
     max-width: 300px;
     width: 100%;
-    background-color: transparent;
     border-radius: 4px;
     padding: 4px;
     z-index: 10;
 
     &Inner {
-      background-color: $secondary_bg_color;
+      background-color: rgb(42, 35, 70);
       border-radius: 4px;
       color: $text_color;
       padding: 16px 24px;
       width: 100%;
       box-shadow:
-        0 10px 15px -3px rgb(0 0 0 / 0.1),
-        0 4px 6px -4px rgb(0 0 0 / 0.1);
+        0 10px 15px -3px rgb(0 0 0 / 0.2),
+        0 4px 6px -4px rgb(0 0 0 / 0.2);
       font-style: normal;
       font-weight: normal;
       font-size: 16px;

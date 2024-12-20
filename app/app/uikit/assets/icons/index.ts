@@ -1,10 +1,12 @@
 import { AddCircleOutlineIcon } from "./addCircleOutlineIcon";
 import { ArrowBackIcon } from "./arrowBackIcon";
 import { ArrowDownIcon } from "./arrowDownIcon";
+import { ArrowForwardIOSIcon } from "./arrowForwardIOSIcon";
 import { ArrowLeftIcon } from "./arrowLeftIcon";
 import { ArrowRightIcon } from "./arrowRightIcon";
 import { AttentionIcon } from "./attentionIcon";
 import { CalendarIcon } from "./calendarIcon";
+import { CheckIcon } from "./checkIcon";
 import { CheckboxIcon } from "./checkboxIcon";
 import { CloseIcon } from "./closeIcon";
 import { EditIcon } from "./editIcon";
@@ -30,10 +32,12 @@ export {
   AddCircleOutlineIcon,
   ArrowBackIcon,
   ArrowDownIcon,
+  ArrowForwardIOSIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
   AttentionIcon,
   CalendarIcon,
+  CheckIcon,
   CheckboxIcon,
   CloseIcon,
   EditIcon,

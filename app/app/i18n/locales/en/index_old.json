@@ -126,7 +126,8 @@
       "freeze": "Freeze",
       "edit": "Edit",
       "restore": "Restore account",
-      "search": "Search"
+      "search": "Search",
+      "detailProfile": "Go to your profile"
     },
     "previews": {
       "defaultImage": "Default image",
@@ -185,7 +186,8 @@
         "date": {
           "placeholder": "Select date"
         },
-        "location": "Location"
+        "location": "Location",
+        "selectAge": "Select your age"
       }
     },
     "title": {

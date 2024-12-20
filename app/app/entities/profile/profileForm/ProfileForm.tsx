@@ -31,6 +31,7 @@ import { GENDER_MAPPING } from "@/app/shared/mapping/gender";
 import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
 import { createPath } from "@/app/shared/utils";
 import { Info } from "@/app/shared/components/info";
+import { Gradient } from "@/app/uikit/components/gradient";
 import { notification } from "@/app/uikit/utils";
 import "./ProfileForm.scss";
 
@@ -116,6 +117,7 @@ const ProfileFormComponent: FC<TProps> = ({
 
   return (
     <section className="ProfileForm">
+      <Gradient />
       <Form
         action={onSubmit}
         className="ProfileForm-Form"

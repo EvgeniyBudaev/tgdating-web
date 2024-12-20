@@ -9,6 +9,9 @@
   align-items: center;
   padding: 8px 16px;
   width: 100%;
+  background-color: $bg_color;
+  overflow: hidden;
+  z-index: 200;
 
   &-Item {
     position: relative;
@@ -18,19 +21,13 @@
     margin-left: 8px;
     padding: 4px;
     border-radius: $border-radius;
-    max-width: 80px;
+    max-width: 60px;
     width: 100%;
-    color: $link_active_color;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
 
-    & svg {
-      fill: $link_active_color;
-    }
-
     &__isActive {
       color: $link_color;
-      background-color: $color-gray;
       cursor: default;
 
       & svg {
@@ -42,7 +39,6 @@
     &:active {
       color: $link_color;
       fill: $link_color;
-      background-color: $color-gray;
 
       & svg {
         fill: $link_color;

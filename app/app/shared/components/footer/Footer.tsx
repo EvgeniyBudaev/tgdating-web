@@ -36,14 +36,6 @@ const FooterComponent: FC<TProps> = ({ lng }) => {
       lng: lng,
     },
     params,
-    // {
-    //   ...(navigator?.latitude
-    //     ? { latitude: navigator?.latitude.toString() }
-    //     : {}),
-    //   ...(navigator?.longitude
-    //     ? { longitude: navigator?.longitude.toString() }
-    //     : {}),
-    // },
   );
 
   const profileDetailPath = createPath(
