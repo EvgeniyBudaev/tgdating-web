@@ -58,12 +58,17 @@ const FooterComponent: FC<TProps> = ({ lng }) => {
   );
 
   const isFooter = useMemo(() => {
-    const path = createPath({
+    const pathProfileAdd = createPath({
       route: ERoutes.ProfileAdd,
       lng,
     });
-    return pathname !== path;
-  }, [lng, pathname]);
+    const pathProfileEdit = createPath({
+      route: ERoutes.ProfileEdit,
+      params: { telegramUserId: (user?.id ?? "").toString() },
+      lng,
+    });
+    return pathname !== pathProfileAdd && pathname !== pathProfileEdit;
+  }, [lng, pathname, user]);
 
   const handleBack = () => {
     router.back();
@@ -73,30 +78,32 @@ const FooterComponent: FC<TProps> = ({ lng }) => {
 
   return (
     <div className="Footer">
-      {isSession && isFooter && (
-        <>
-          <NavLink
-            className="Footer-Item"
-            activeClassName="Footer-Item__isActive"
-            href={telegramUserIdListPath}
-          >
-            <Icon className="Footer-Item-Icon" type="Home" />
-            <Typography>{t("common.actions.main")}</Typography>
-          </NavLink>
-          <NavLink
-            className="Footer-Item"
-            activeClassName="Footer-Item__isActive"
-            href={profileDetailPath}
-          >
-            <Icon className="Footer-Item-Icon" type="Person" />
-            <Typography>{t("common.actions.profile")}</Typography>
-          </NavLink>
-          <div className="Footer-Item" onClick={handleBack}>
-            <Icon className="Footer-Item-Icon" type="Undo" />
-            <Typography>{t("common.actions.back")}</Typography>
-          </div>
-        </>
-      )}
+      <div className="Footer-Inner">
+        {isSession && isFooter && (
+          <>
+            <NavLink
+              className="Footer-Item"
+              activeClassName="Footer-Item__isActive"
+              href={telegramUserIdListPath}
+            >
+              <Icon className="Footer-Item-Icon" type="Home" />
+              <Typography>{t("common.actions.main")}</Typography>
+            </NavLink>
+            <NavLink
+              className="Footer-Item"
+              activeClassName="Footer-Item__isActive"
+              href={profileDetailPath}
+            >
+              <Icon className="Footer-Item-Icon" type="Person" />
+              <Typography>{t("common.actions.profile")}</Typography>
+            </NavLink>
+            <div className="Footer-Item" onClick={handleBack}>
+              <Icon className="Footer-Item-Icon" type="Undo" />
+              <Typography>{t("common.actions.back")}</Typography>
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };

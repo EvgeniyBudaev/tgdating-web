@@ -70,7 +70,7 @@ const PreviewsComponent: FC<TProps> = ({
       >
         <div className="Previews-Thumb-Inner">
           {!isNil(file.preview) && (
-            <DropDown>
+            <DropDown theme={theme}>
               <DropDown.Button>
                 <div className="Previews-Thumb-WrapperImage">
                   <Image

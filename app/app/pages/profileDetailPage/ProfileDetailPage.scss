@@ -13,15 +13,7 @@
     position: relative;
     height: calc(100% - 250px);
     width: 100%;
-    margin-bottom: 16px;
-  }
-
-  & .Field {
-    margin-bottom: 8px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+    margin-bottom: 4px;
   }
 
   &-Online {
@@ -61,7 +53,11 @@
   }
 
   &-Field {
-    margin-bottom: 4px;
+    margin-bottom: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &.theme-dark {

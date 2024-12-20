@@ -3,32 +3,46 @@
 .Footer {
   $this: &;
   position: fixed;
-  bottom: 0;
+  bottom: 16px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  padding: 8px 16px;
   width: 100%;
-  background-color: $secondary_bg_color;
   overflow: hidden;
   z-index: 200;
+
+  &-Inner {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    width: max-content;
+    border: 1px solid transparent;
+    //border-radius: 30px;
+    //background-color: $secondary_bg_color;
+  }
 
   &-Item {
     position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin-left: 8px;
     padding: 4px;
     border-radius: $border-radius;
-    max-width: 60px;
-    width: 100%;
+    width: 64px;
+    height: 64px;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
+    background-color: rgba(31, 41, 65, 1);
 
     &__isActive {
       color: $link_color;
       cursor: default;
+      box-shadow:
+        0 0 20px $link_color,
+        0 0 0 $link_color,
+        0 0 0 $link_color;
 
       & svg {
         fill: $link_color;

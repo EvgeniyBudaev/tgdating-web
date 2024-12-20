@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
 import { type FC, type FocusEvent, memo, useEffect, useState } from "react";
@@ -239,7 +240,11 @@ const ProfileFormComponent: FC<TProps> = ({
           </Field>
         </Section>
         <Container>
-          <div className="ProfileForm-Controls">
+          <div
+            className={clsx("ProfileForm-Controls", {
+              ["ProfileForm-Controls__isEdit"]: isEdit,
+            })}
+          >
             {isEdit && (
               <div className="ProfileForm-Cancel">
                 <CancelButton

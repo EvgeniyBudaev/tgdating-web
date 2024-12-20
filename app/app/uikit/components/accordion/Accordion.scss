@@ -5,8 +5,8 @@ $delay: 0.3s;
 
 .Accordion {
   $this: &;
-  margin-top: 8px;
   width: 100%;
+  margin-top: 8px;
 
   &-Header {
     display: flex;
@@ -25,6 +25,7 @@ $delay: 0.3s;
 
     &Icon {
       padding: 8px;
+      height: 16px;
       color: $text_color;
 
       svg {
@@ -36,7 +37,7 @@ $delay: 0.3s;
     &Title {
       width: 100%;
       max-width: calc(100% - 92px);
-      padding: 0 16px;
+      padding: 0 8px;
       // truncate multi line
       overflow: hidden;
       text-overflow: ellipsis;

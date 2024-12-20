@@ -8,18 +8,20 @@
 
   &-Form {
     min-height: 1000px;
-    margin-bottom: 16px;
   }
 
   &-Controls {
     position: fixed;
     left: 0;
-    bottom: 80px;
+    bottom: 16px;
     padding: 0 16px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     z-index: 200;
+
+    &__isEdit {
+    }
   }
 
   &-Cancel {

@@ -15,6 +15,10 @@ $transition: 0.3s;
   z-index: 300;
   background-color: $bg_light_color;
 
+  &-Content {
+    position: relative;
+  }
+
   &.theme-dark {
     background-color: $secondary_bg_color;
   }

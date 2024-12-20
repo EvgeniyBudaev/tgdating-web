@@ -3,7 +3,7 @@
 .Controls {
   $this: &;
   position: fixed;
-  bottom: 70px;
+  bottom: 100px;
   right: 16px;
   display: flex;
   flex-direction: column;
@@ -12,10 +12,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60px;
-    width: 60px;
+    height: 64px;
+    width: 64px;
     z-index: 100;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
     border-radius: $border-radius;
     cursor: pointer;
 

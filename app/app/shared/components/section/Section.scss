@@ -2,7 +2,6 @@
 
 .Section {
   position: relative;
-  margin-bottom: 16px;
   height: 100%;
 
   &:last-child {
@@ -21,7 +20,6 @@
 
   &-Container {
     margin: 0 16px;
-    height: 100%;
   }
 
   &-Title {

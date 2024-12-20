@@ -192,7 +192,7 @@ const ProfileDetailPageComponent: FC<TProps> = ({
                 {profile?.displayName}
               </Typography>
               {profile?.age && (
-                <Typography variant={ETypographyVariant.TextB2Regular}>
+                <Typography variant={ETypographyVariant.TextH4Medium}>
                   , {profile?.age}
                 </Typography>
               )}
@@ -247,7 +247,7 @@ const ProfileDetailPageComponent: FC<TProps> = ({
               </Accordion>
             </div>
           )}
-          {!isAccordionOpen && (
+          {!isSessionUser && !isAccordionOpen && (
             <Controls
               lng={lng}
               profile={profile}
