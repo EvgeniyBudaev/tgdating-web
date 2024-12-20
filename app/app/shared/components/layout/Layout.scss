@@ -2,10 +2,15 @@
 
 .Layout {
   height: 100%;
+  background-color: $secondary_bg_color;
 
   &-Content {
-    margin-bottom: 78px;
-    height: 100%;
+    margin-bottom: 66px;
+    height: calc(100% - 82px);
+    border: 1px solid transparent;
+    border-bottom-left-radius: 34px;
+    border-bottom-right-radius: 34px;
+    background-color: $bg_color;
   }
 
   &-Form {

@@ -6,7 +6,7 @@
   height: max-content;
   width: max-content;
   color: $text_color;
-  background-color: $link_color;
+  background: linear-gradient(to right, $link_color, $link_active_color);
   border: 1px solid transparent;
   border-radius: $border-radius;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
@@ -25,14 +25,14 @@
   }
 
   &:hover {
-    background-color: $link_active_color;
+    background: linear-gradient(to right, $link_color, $link_active_color);
     color: $text_color;
     z-index: 2;
   }
 
   &.Button__loading {
     cursor: not-allowed;
-    background-color: $link_active_color;
+    background: linear-gradient(to right, $link_color, $link_active_color);
   }
 
   &.Button__disabled {

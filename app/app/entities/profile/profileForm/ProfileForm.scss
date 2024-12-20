@@ -7,19 +7,15 @@
   overflow-x: hidden;
 
   &-Form {
-    height: 100%;
+    min-height: 1000px;
     margin-bottom: 16px;
-  }
-
-  &-Section {
-    padding-bottom: 94px;
-    height: 100%;
   }
 
   &-Controls {
     position: fixed;
     left: 0;
-    bottom: 100px;
+    bottom: 80px;
+    padding: 0 16px;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -28,12 +24,12 @@
 
   &-Cancel {
     padding: 0 16px;
-    width: 100%;
+    width: max-content;
     min-height: 46px;
   }
 
   &-Save {
     padding: 0 16px;
-    width: 100%;
+    width: max-content;
   }
 }

@@ -127,7 +127,7 @@ const ProfileFormComponent: FC<TProps> = ({
           title={t("common.titles.publicPhotos")}
           subTitle={t("common.titles.required")}
         >
-          {/*<Gradient />*/}
+          <Gradient />
           <Field>
             <FileUploader
               accept={{
