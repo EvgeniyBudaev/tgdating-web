@@ -3,6 +3,7 @@
 .SubmitButton {
   min-height: 46px;
   width: 100%;
+  z-index: 200;
 
   &-Loading {
     display: flex;

@@ -3,21 +3,25 @@
 .Section {
   position: relative;
   margin-bottom: 16px;
+  height: 100%;
 
   &:last-child {
     margin-bottom: 0;
   }
 
   &-Header {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 16px 16px 2px;
     margin-bottom: 16px;
+    z-index: 100;
   }
 
   &-Container {
     margin: 0 16px;
+    height: 100%;
   }
 
   &-Title {

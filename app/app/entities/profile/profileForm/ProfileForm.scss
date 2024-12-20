@@ -7,21 +7,23 @@
   overflow-x: hidden;
 
   &-Form {
-    margin-bottom: 100px;
+    height: 100%;
+    margin-bottom: 16px;
   }
 
   &-Section {
     padding-bottom: 94px;
+    height: 100%;
   }
 
   &-Controls {
     position: fixed;
     left: 0;
-    bottom: 16px;
+    bottom: 100px;
     display: flex;
     justify-content: space-between;
     width: 100%;
-    z-index: 40;
+    z-index: 200;
   }
 
   &-Cancel {

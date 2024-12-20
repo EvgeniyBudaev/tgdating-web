@@ -117,7 +117,6 @@ const ProfileFormComponent: FC<TProps> = ({
 
   return (
     <section className="ProfileForm">
-      <Gradient />
       <Form
         action={onSubmit}
         className="ProfileForm-Form"
@@ -128,6 +127,7 @@ const ProfileFormComponent: FC<TProps> = ({
           title={t("common.titles.publicPhotos")}
           subTitle={t("common.titles.required")}
         >
+          {/*<Gradient />*/}
           <Field>
             <FileUploader
               accept={{
@@ -236,14 +236,6 @@ const ProfileFormComponent: FC<TProps> = ({
               name={EProfileAddFormFields.Location}
               type="hidden"
             />
-            {/*<Input*/}
-            {/*  defaultValue={location}*/}
-            {/*  isReadOnly={true}*/}
-            {/*  label={t("common.form.field.location") ?? "Location"}*/}
-            {/*  subLabel={`${t("common.titles.autocomplete")}, ${t("common.titles.noChanged")}`}*/}
-            {/*  name={EProfileAddFormFields.Location}*/}
-            {/*  type="text"*/}
-            {/*/>*/}
           </Field>
         </Section>
         <Container>
