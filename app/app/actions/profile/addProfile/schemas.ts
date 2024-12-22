@@ -8,7 +8,6 @@ import { EGender, ESearchGender } from "@/app/shared/enums/form";
 import { EMPTY_FIELD_ERROR_MESSAGE } from "@/app/shared/validation";
 import {
   numberNonNegativeOptionalSchema,
-  numberNonNegativeSchema,
   stringOptionalSchema,
   symbolsMaxDisplayNameSchema,
 } from "@/app/shared/validation/schemas";
@@ -25,9 +24,6 @@ export const addProfileFormSchema = zfd.formData({
   ),
   [EProfileAddFormFields.Gender]: z
     .enum([EGender.Man, EGender.Woman, ""])
-    .transform((value) => {
-      return isEmpty(value) || isNil(value) ? "" : value;
-    })
     .refine(
       (value) => {
         return !isEmpty(value);

@@ -123,7 +123,7 @@ export const useQueryURL: TUseQueryURL = ({ lng }) => {
       ageFrom: params.get(AGE_FROM) ?? DEFAULT_AGE_FROM.toString(),
       ageTo: params.get(AGE_TO) ?? DEFAULT_AGE_TO.toString(),
       searchGender: params.get(SEARCH_GENDER) ?? DEFAULT_SEARCH_GENDER,
-      telegramUserId: params.get(SESSION_ID) ?? "",
+      telegramUserId: (telegram?.user?.id ?? "").toString(),
       distance: params.get(DISTANCE) ?? DEFAULT_DISTANCE.toString(),
       latitude: params.get(LATITUDE) ?? "",
       longitude: params.get(LONGITUDE) ?? "",

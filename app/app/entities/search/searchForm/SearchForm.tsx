@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import isNil from "lodash/isNil";
 import { type FC, memo, useEffect, useMemo, useRef, useState } from "react";
 import { useFormState } from "react-dom";
@@ -33,7 +34,6 @@ import { Sidebar } from "@/app/uikit/components/sidebar";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums";
 import "./SearchForm.scss";
-import clsx from "clsx";
 
 type TProps = {
   lng: ELanguage;
@@ -42,6 +42,7 @@ type TProps = {
 };
 
 const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
+  console.log("profileShortInfo:", profileShortInfo);
   const csrf = useAuthenticityTokenContext();
   const telegram = useTelegramContext();
   const { t } = useTranslation("index");
@@ -135,7 +136,6 @@ const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
     formDataDto.append(EFilterUpdateFormFields.Csrf, csrf ?? "");
     // @ts-ignore
     formAction(formDataDto);
-    handleCloseSidebar();
   };
 
   const handleBack = () => {
@@ -145,11 +145,11 @@ const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
 
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
-      updateQueryURL({
-        ageFrom: ageRangeValueFrom,
-        ageTo: ageRangeValueTo,
-        searchGender: searchGender,
-      });
+      // updateQueryURL({
+      //   ageFrom: ageRangeValueFrom,
+      //   ageTo: ageRangeValueTo,
+      //   searchGender: searchGender,
+      // });
     }
   }, [lng, state?.data, state?.error, state.success]);
 
@@ -168,7 +168,6 @@ const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
       </Header>
       <Sidebar
         isActive={isSidebarOpen.isGeneralFilters}
-        onClose={handleBack}
         ref={sidebarRef}
         theme={theme}
       >

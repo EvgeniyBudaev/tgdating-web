@@ -2,14 +2,6 @@ import { redirect } from "next/navigation";
 import { getProfileList } from "@/app/api/profile/getProfileList/domain";
 import { getProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/domain";
 import { SessionPage } from "@/app/pages/sessionPage";
-import {
-  DEFAULT_AGE_FROM,
-  DEFAULT_AGE_TO,
-  DEFAULT_DISTANCE,
-  DEFAULT_PAGE,
-  DEFAULT_PAGE_SIZE,
-  DEFAULT_SEARCH_GENDER,
-} from "@/app/shared/constants";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { createPath } from "@/app/shared/utils";
 
@@ -38,12 +30,6 @@ async function loaderProfileList(params: TLoader) {
     if (telegramUserId) {
       const query = {
         telegramUserId: telegramUserId,
-        searchGender: searchParams?.searchGender ?? DEFAULT_SEARCH_GENDER,
-        ageFrom: searchParams?.ageFrom ?? DEFAULT_AGE_FROM.toString(),
-        ageTo: searchParams?.ageTo ?? DEFAULT_AGE_TO.toString(),
-        distance: searchParams?.distance ?? DEFAULT_DISTANCE.toString(),
-        page: searchParams?.page ?? DEFAULT_PAGE.toString(),
-        size: searchParams?.size ?? DEFAULT_PAGE_SIZE.toString(),
         ...(searchParams?.latitude && { latitude: searchParams?.latitude }),
         ...(searchParams?.longitude && { longitude: searchParams?.longitude }),
       };
@@ -163,7 +149,6 @@ export default async function ProfileListRoute({
       }),
     );
   }
-
   return (
     <SessionPage
       isExistUser={data.isExistUser}

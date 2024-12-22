@@ -3,12 +3,6 @@ import { paginationSchema } from "@/app/api/pagination/schemas";
 
 export const getProfileListParamsSchema = z.object({
   telegramUserId: z.string(),
-  searchGender: z.string(),
-  ageFrom: z.string(),
-  ageTo: z.string(),
-  distance: z.string(),
-  page: z.string(),
-  size: z.string(),
   latitude: z.string().nullish(),
   longitude: z.string().nullish(),
 });

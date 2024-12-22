@@ -1,12 +1,18 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { EFilterUpdateFormFields } from "@/app/actions/filter/updateFilter/enums";
 import { updateFilterFormSchema } from "@/app/actions/filter/updateFilter/schemas";
 import { updateFilter } from "@/app/api/filter/updateFilter/domain";
 import type { TUpdateFilterParams } from "@/app/api/filter/updateFilter/types";
 import type { TCommonResponseError } from "@/app/shared/types/error";
-import { getResponseError, getErrorsResolver } from "@/app/shared/utils";
+import {
+  getResponseError,
+  getErrorsResolver,
+  createPath,
+} from "@/app/shared/utils";
 import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
+import { ERoutes } from "@/app/shared/enums";
 
 export async function updateFilterAction(prevState: any, formData: FormData) {
   const resolver = updateFilterFormSchema.safeParse(
@@ -54,6 +60,11 @@ export async function updateFilterAction(prevState: any, formData: FormData) {
         },
       },
     );
+    const path = createPath({
+      route: ERoutes.Telegram,
+      params: { telegramUserId },
+    });
+    revalidatePath(path);
     return {
       data: responseFilter,
       error: undefined,

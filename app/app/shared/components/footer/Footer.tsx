@@ -6,7 +6,6 @@ import { useTranslation } from "@/app/i18n/client";
 import { NavLink } from "@/app/shared/components/navLink";
 import { useNavigatorContext, useTelegramContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useQueryURL } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { useHydrated } from "@/app/uikit/hooks";
 import { Icon } from "@/app/uikit/components/icon";
@@ -26,8 +25,6 @@ const FooterComponent: FC<TProps> = ({ lng }) => {
   const user = telegram?.user;
   const { t } = useTranslation("index");
   const isHydrated = useHydrated();
-  const { getQuery } = useQueryURL({ lng });
-  const params = getQuery();
 
   const telegramUserIdListPath = createPath(
     {
@@ -35,7 +32,14 @@ const FooterComponent: FC<TProps> = ({ lng }) => {
       params: { telegramUserId: (user?.id ?? "").toString() },
       lng: lng,
     },
-    params,
+    {
+      ...(navigator?.latitude
+        ? { latitude: navigator?.latitude.toString() }
+        : {}),
+      ...(navigator?.longitude
+        ? { longitude: navigator?.longitude.toString() }
+        : {}),
+    },
   );
 
   const profileDetailPath = createPath(

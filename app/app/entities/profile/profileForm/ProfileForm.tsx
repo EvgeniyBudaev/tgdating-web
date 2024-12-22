@@ -118,6 +118,7 @@ const ProfileFormComponent: FC<TProps> = ({
 
   return (
     <section className="ProfileForm">
+      <Gradient />
       <Form
         action={onSubmit}
         className="ProfileForm-Form"
@@ -128,7 +129,6 @@ const ProfileFormComponent: FC<TProps> = ({
           title={t("common.titles.publicPhotos")}
           subTitle={t("common.titles.required")}
         >
-          <Gradient />
           <Field>
             <FileUploader
               accept={{

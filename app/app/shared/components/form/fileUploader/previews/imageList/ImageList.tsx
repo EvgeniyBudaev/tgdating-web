@@ -13,13 +13,15 @@ import {
 } from "@/app/shared/context";
 import { DropDown } from "@/app/uikit/components/dropDown";
 import { Typography } from "@/app/uikit/components/typography";
+import { ETheme } from "@/app/uikit/enums";
 
 type TProps = {
   defaultImages: TImage[];
   lng: string;
+  theme?: ETheme;
 };
 
-const ImageListComponent: FC<TProps> = ({ defaultImages, lng }) => {
+const ImageListComponent: FC<TProps> = ({ defaultImages, lng, theme }) => {
   const csrf = useAuthenticityTokenContext();
   const { t } = useTranslation("index");
   const telegram = useTelegramContext();
@@ -45,7 +47,7 @@ const ImageListComponent: FC<TProps> = ({ defaultImages, lng }) => {
         return (
           <div className="Previews-Thumb" key={image.id}>
             <div className="Previews-Thumb-Inner">
-              <DropDown>
+              <DropDown theme={theme}>
                 <DropDown.Button>
                   <Image
                     alt={image.name}

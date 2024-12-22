@@ -64,7 +64,7 @@ $transition: 0.3s;
     align-items: center;
     justify-content: center;
     color: $link_color;
-    background: $text_color;
+    background: linear-gradient(to right, $link_color, $link_active_color);
     width: 100%;
     padding: 0 16px;
     margin-bottom: 4px;
@@ -89,7 +89,11 @@ $transition: 0.3s;
 
     &:hover,
     &:active {
-      opacity: $opacity;
+      background: linear-gradient(
+        to right,
+        $link_color_hover,
+        $link_active_color_hover
+      );
     }
   }
 

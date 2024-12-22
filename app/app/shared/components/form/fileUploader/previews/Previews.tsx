@@ -58,7 +58,7 @@ const PreviewsComponent: FC<TProps> = ({
   const { t } = useTranslation("index");
 
   const renderDefaultImages = !isNil(defaultImages) && (
-    <ImageList defaultImages={defaultImages} lng={lng} />
+    <ImageList defaultImages={defaultImages} lng={lng} theme={theme} />
   );
 
   const renderThumbs =

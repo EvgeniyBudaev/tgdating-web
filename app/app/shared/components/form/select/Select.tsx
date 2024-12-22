@@ -52,6 +52,9 @@ const SelectComponent: FC<TProps> = ({
 
   const handleChange = useCallback(
     (option?: TSelectOption) => {
+      if (!option) {
+        return field.onChange("");
+      }
       onSave?.(option);
       field.onChange(option?.value);
     },
