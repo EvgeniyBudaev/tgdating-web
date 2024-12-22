@@ -1,0 +1,10 @@
+@import "@/app/styles";
+
+.Distance {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}

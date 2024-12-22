@@ -4,10 +4,10 @@
   $this: &;
   position: relative;
   height: 100%;
+  min-height: 850px;
   overflow-x: hidden;
 
   &-Form {
-    min-height: 1000px;
   }
 
   &-Controls {

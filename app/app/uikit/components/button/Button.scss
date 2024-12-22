@@ -25,14 +25,22 @@
   }
 
   &:hover {
-    background: linear-gradient(to right, $link_color, $link_active_color);
+    background: linear-gradient(
+      to right,
+      $link_color_hover,
+      $link_active_color_hover
+    );
     color: $text_color;
     z-index: 2;
   }
 
   &.Button__loading {
     cursor: not-allowed;
-    background: linear-gradient(to right, $link_color, $link_active_color);
+    background: linear-gradient(
+      to right,
+      $link_color_hover,
+      $link_active_color_hover
+    );
   }
 
   &.Button__disabled {

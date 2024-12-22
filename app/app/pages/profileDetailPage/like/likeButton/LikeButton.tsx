@@ -31,7 +31,10 @@ const LikeButtonComponent: FC<TProps> = ({ isLiked, message, onClick }) => {
         <div className="LikeButton-Info">
           <TooltipV2 isOpen={isMessage} isVisible={isMessage} message={message}>
             <div className="Controls-Box Controls-Box-Green">
-              <Icon className="Controls-Icon" type="Heart" />
+              <Icon
+                className="Controls-Icon LikeButton-Icon__isLiked"
+                type="Heart"
+              />
             </div>
           </TooltipV2>
         </div>

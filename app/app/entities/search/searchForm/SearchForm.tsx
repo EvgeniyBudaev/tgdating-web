@@ -159,13 +159,13 @@ const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
         ["theme-dark"]: theme === ETheme.Dark,
       })}
     >
-      <Header>
+      <div className="SearchForm-Header">
         <SearchBar theme={theme} title={searchBarTitle} />
         <div className="SearchForm-WrapperIcon" onClick={handleOpenSidebar}>
           <Icon className="SearchForm-Icon" type="Filter" />
           <Typography>{t("common.actions.filter")}</Typography>
         </div>
-      </Header>
+      </div>
       <Sidebar
         isActive={isSidebarOpen.isGeneralFilters}
         ref={sidebarRef}

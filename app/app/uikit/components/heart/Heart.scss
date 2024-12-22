@@ -1,0 +1,16 @@
+@import "@/app/styles";
+
+.Heart {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+
+  &-Icon {
+    height: 16px;
+    width: 16px;
+    color: $color-red;
+  }
+}

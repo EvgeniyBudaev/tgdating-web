@@ -39,8 +39,8 @@
     &:hover,
     &:active {
       color: $link_color;
+      background-color: $link_active_color;
       fill: $link_color;
-      background-color: $color-gray;
     }
   }
 

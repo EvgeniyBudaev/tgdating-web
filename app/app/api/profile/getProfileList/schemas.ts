@@ -12,6 +12,7 @@ const profileListItemSchema = z.object({
   distance: z.number().nullish(),
   url: z.string(),
   isOnline: z.boolean(),
+  isLiked: z.boolean(),
   lastOnline: z.string(),
 });
 

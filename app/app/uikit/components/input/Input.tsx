@@ -126,6 +126,7 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
             </Typography>
           </label>
         )}
+        <Typography>
           <input
             {...rest}
             aria-disabled={isReadOnly}
@@ -148,16 +149,18 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
             type={type}
             value={value}
           />
-          {maxLength && (
-            <div className="Textarea-MaxLength">
-              {currentLength}/{maxLength}
-            </div>
-          )}
-          {errors && (
-            <div className="InputField-ErrorField">
-              <Error errors={errors} />
-            </div>
-          )}
+        </Typography>
+
+        {maxLength && (
+          <div className="Textarea-MaxLength">
+            {currentLength}/{maxLength}
+          </div>
+        )}
+        {errors && (
+          <div className="InputField-ErrorField">
+            <Error errors={errors} />
+          </div>
+        )}
       </div>
     );
   },

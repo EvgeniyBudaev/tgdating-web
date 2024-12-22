@@ -32,10 +32,10 @@
     "actions": {
       "settings": "Settings",
       "filter": "Filter",
-      "block": "Block the profile being viewed",
+      "block": "Block",
       "no": "No",
       "yes": "Yes",
-      "complaint": "Complain and block the profile being viewed",
+      "complaint": "Complain and block",
       "deleteProfile": "Delete account",
       "freezeProfile": "Freeze account",
       "editProfile": "Edit account",

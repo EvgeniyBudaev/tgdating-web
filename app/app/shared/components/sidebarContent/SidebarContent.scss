@@ -22,8 +22,8 @@
 
       &:hover,
       &:active {
-        color: $link_active_color;
-        background-color: $color-gray;
+        color: $link_color;
+        background-color: $link_active_color;
         border-radius: $border-radius;
       }
     }
@@ -39,8 +39,8 @@
 
       &:hover,
       &:active {
-        color: $link_active_color;
-        background-color: $color-gray;
+        color: $link_color;
+        background-color: $link_active_color;
         border-radius: $border-radius;
       }
     }

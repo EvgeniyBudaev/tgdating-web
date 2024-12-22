@@ -102,6 +102,15 @@ $transition: 0.3s;
       color: $text_color;
       background: linear-gradient(to right, $link_color, $link_active_color);
       border-bottom: 1px solid $bg_color;
+
+      &:hover,
+      &:active {
+        background: linear-gradient(
+          to right,
+          $link_color_hover,
+          $link_active_color_hover
+        );
+      }
     }
   }
 }

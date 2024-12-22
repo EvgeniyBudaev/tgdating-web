@@ -4,7 +4,7 @@ import isEmpty from "lodash/isEmpty";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { type FC, memo, useEffect } from "react";
+import { type FC, memo, useEffect, useMemo } from "react";
 import type { TProfileList } from "@/app/api/profile/getProfileList/types";
 import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/types";
 import { useTranslation } from "@/app/i18n/client";
@@ -14,10 +14,14 @@ import { useNavigatorContext, useTelegramContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useCheckPermissions, useThemeContext } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
+import { Distance } from "@/app/uikit/components/distance";
+import { Gradient } from "@/app/uikit/components/gradient";
+import { Heart } from "@/app/uikit/components/heart";
 import { Online } from "@/app/uikit/components/online";
 import { Typography } from "@/app/uikit/components/typography";
 import { notification } from "@/app/uikit/utils";
 import "./SessionPage.scss";
+import { getDistance } from "@/app/pages/profileDetailPage/utils";
 
 type TProps = {
   isExistUser: boolean;
@@ -67,6 +71,7 @@ const SessionPageComponent: FC<TProps> = ({
 
   return (
     <div className="SessionPage">
+      <Gradient />
       {profileShortInfo && (
         <SearchForm
           lng={lng}
@@ -74,61 +79,68 @@ const SessionPageComponent: FC<TProps> = ({
           theme={theme}
         />
       )}
-      {isEmpty(profileList?.content) && (
-        <Container>
-          <div className="SessionPage-IsEmpty">
-            <Typography>{t("common.titles.isEmptyList")}</Typography>
-          </div>
-        </Container>
-      )}
-      {!isEmpty(profileList?.content) && (
-        <div className="SessionPage-List">
-          {(profileList?.content ?? []).map((item) => {
-            return (
-              <Link
-                href={{
-                  pathname: createPath({
-                    route: ERoutes.ProfileDetail,
-                    params: {
-                      telegramUserId: user?.id ?? "",
-                      viewedTelegramUserId: item.telegramUserId,
+      <div className="SessionPage-Inner">
+        {isEmpty(profileList?.content) && (
+          <Container>
+            <div className="SessionPage-IsEmpty">
+              <Typography>{t("common.titles.isEmptyList")}</Typography>
+            </div>
+          </Container>
+        )}
+        {!isEmpty(profileList?.content) && (
+          <div className="SessionPage-List">
+            {(profileList?.content ?? []).map((item) => {
+              const distance = item?.distance
+                ? getDistance(item.distance, t)
+                : undefined;
+              return (
+                <Link
+                  href={{
+                    pathname: createPath({
+                      route: ERoutes.ProfileDetail,
+                      params: {
+                        telegramUserId: user?.id ?? "",
+                        viewedTelegramUserId: item.telegramUserId,
+                      },
+                      lng: lng,
+                    }),
+                    query: {
+                      ...(navigator?.latitude
+                        ? { latitude: navigator?.latitude.toString() }
+                        : {}),
+                      ...(navigator?.longitude
+                        ? { longitude: navigator?.longitude.toString() }
+                        : {}),
                     },
-                    lng: lng,
-                  }),
-                  query: {
-                    ...(navigator?.latitude
-                      ? { latitude: navigator?.latitude.toString() }
-                      : {}),
-                    ...(navigator?.longitude
-                      ? { longitude: navigator?.longitude.toString() }
-                      : {}),
-                  },
-                }}
-                key={item.telegramUserId}
-              >
-                <div
-                  className="SessionPage-WrapperImage"
+                  }}
                   key={item.telegramUserId}
                 >
-                  <Online
-                    classes={{ root: "SessionPage-Online" }}
-                    isOnline={item.isOnline}
-                  />
-                  <Image
-                    alt=""
-                    className="SessionPage-Image"
-                    priority={true}
-                    height={120}
-                    width={150}
-                    src={item.url}
-                    quality={100}
-                  />
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      )}
+                  <div
+                    className="SessionPage-WrapperImage"
+                    key={item.telegramUserId}
+                  >
+                    <Online
+                      classes={{ root: "SessionPage-Online" }}
+                      isOnline={item.isOnline}
+                    />
+                    <Heart isLiked={item.isLiked} />
+                    <Distance distance={distance} />
+                    <Image
+                      alt=""
+                      className="SessionPage-Image"
+                      priority={true}
+                      height={120}
+                      width={150}
+                      src={item.url}
+                      quality={100}
+                    />
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

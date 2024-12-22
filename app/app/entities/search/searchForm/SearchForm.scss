@@ -5,6 +5,12 @@
   position: relative;
   padding: 16px;
 
+  &-Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   &-WrapperIcon {
     display: flex;
     flex-direction: column;

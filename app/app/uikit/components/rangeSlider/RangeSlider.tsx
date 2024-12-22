@@ -144,6 +144,7 @@ const RangeSliderComponent: FC<TProps> = ({
         )}
       </div>
       <div className="RangeSlider-Slider">
+        <div className="RangeSlider-Slider-Track__initial"></div>
         <div className="RangeSlider-Slider-Track" ref={trackRef}></div>
         <input
           className="RangeSlider-Slider-Input RangeSlider-Slider-Input-Min"
