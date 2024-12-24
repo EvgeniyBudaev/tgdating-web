@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import Link from "next/link";
 import { memo, type FC } from "react";
 import type { TProfileDetail } from "@/app/api/profile/getProfileDetail/types";
@@ -26,9 +27,14 @@ const ControlsComponent: FC<TProps> = ({ lng, profile, telegramUserId }) => {
     },
     params,
   );
+  console.log("isLeftHand", profile?.status?.isLeftHand);
 
   return (
-    <div className="Controls">
+    <div
+      className={clsx("Controls", {
+        ["Controls__isLeftHand"]: profile?.status?.isLeftHand,
+      })}
+    >
       <Link
         className="Controls-Item Controls-Item-Pink"
         href={telegramUserIdListPath}

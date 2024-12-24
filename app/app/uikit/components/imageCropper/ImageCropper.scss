@@ -13,39 +13,83 @@
     align-items: center;
     justify-content: flex-end;
     width: 100%;
-  }
 
-  &-Control {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 8px;
-    padding: 4px;
-    border-radius: $border-radius;
-    max-width: 80px;
-    width: 100%;
-    color: $link_color;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-
-    &:first-child {
-      margin-left: 0;
+    &-Button {
+      position: relative;
+      height: 70px;
+      width: 70px;
+      margin-left: 16px;
     }
 
-    & svg {
-      fill: $link_color;
+    &-Item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 70px;
+      width: 70px;
+      border-radius: $border-radius;
+      cursor: pointer;
     }
 
-    &:hover,
-    &:active {
-      color: $link_color;
-      background-color: $link_active_color;
-      fill: $link_color;
+    &-Item-Pink {
+      background-color: rgba(50, 28, 61, 1);
     }
-  }
 
-  &-Save {
-    right: 0;
+    &-Item-Green {
+      background-color: rgba(31, 47, 61, 1);
+    }
+
+    &-Text {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    &-Text-Pink {
+      color: $color-pink;
+    }
+
+    &-Text-Green {
+      color: $color-green;
+    }
+
+    &-Box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 24px;
+      width: 24px;
+      opacity: 1;
+      z-index: 200;
+      position: relative;
+      border: 1px solid transparent;
+      border-radius: $border-radius;
+
+      &-Pink {
+        background-color: $color-pink;
+        box-shadow:
+          0 0 25px $color-pink,
+          0 0 100px $color-pink,
+          0 0 150px $color-pink;
+      }
+
+      &-Green {
+        background-color: $color-green;
+        box-shadow:
+          0 0 25px $color-green,
+          0 0 100px $color-green,
+          0 0 150px $color-green;
+      }
+
+      &__no-checked {
+        background-color: $color-green;
+      }
+    }
+
+    &-Icon {
+      height: 14px;
+      width: 14px;
+    }
   }
 
   &-Loading-Icon {

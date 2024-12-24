@@ -23,6 +23,7 @@ type TProps = {
   [EProfileAddFormFields.Distance]: string;
   [EProfileAddFormFields.Page]: string;
   [EProfileAddFormFields.Size]: string;
+  [EProfileAddFormFields.IsLeftHand]: string;
 };
 
 type TProfileForm = {
@@ -47,6 +48,7 @@ type TProfileForm = {
   [EProfileAddFormFields.Distance]: string;
   [EProfileAddFormFields.Page]: string;
   [EProfileAddFormFields.Size]: string;
+  [EProfileAddFormFields.IsLeftHand]: string;
 };
 
 type TResponse = {
@@ -85,6 +87,7 @@ export const mapSignupToDto: TMapSignupToDto = (props) => {
       [EProfileAddFormFields.Distance]: props.distance,
       [EProfileAddFormFields.Page]: props.page,
       [EProfileAddFormFields.Size]: props.size,
+      [EProfileAddFormFields.IsLeftHand]: props.isLeftHand,
     },
   };
 };

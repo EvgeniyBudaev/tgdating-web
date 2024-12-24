@@ -1,17 +1,26 @@
 @import "@/app/styles";
 
 .SubmitButton {
-  min-height: 46px;
-  width: 100%;
   z-index: 200;
+  height: 46px;
+  width: 152px;
 
-  &-Loading {
+  &-Inner {
     display: flex;
     align-items: center;
+  }
+
+  &-Icon {
+    margin-left: 4px;
   }
 
   &-Loading-Icon {
     height: 24px;
     width: 24px;
+  }
+
+  &-Save-Icon {
+    height: 16px;
+    width: 16px;
   }
 }

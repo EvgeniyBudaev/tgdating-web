@@ -3,7 +3,14 @@
 import clsx from "clsx";
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
-import { type FC, type FocusEvent, memo, useEffect, useState } from "react";
+import {
+  type FC,
+  type FocusEvent,
+  memo,
+  useEffect,
+  useId,
+  useState,
+} from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { TProfile } from "@/app/api/profile/getProfile/types";
 import { useTranslation } from "react-i18next";
@@ -21,6 +28,7 @@ import { Field } from "@/app/shared/components/form/field";
 import { FileUploader } from "@/app/shared/components/form/form/fileUploader";
 import { Form } from "@/app/shared/components/form/form";
 import { useInitForm } from "@/app/shared/components/form/form/hooks";
+import { Checkbox } from "@/app/shared/components/form/checkbox";
 import { Input } from "@/app/shared/components/form/input";
 import { Select } from "@/app/shared/components/form/select";
 import { Textarea } from "@/app/shared/components/form/textarea";
@@ -58,6 +66,7 @@ const ProfileFormComponent: FC<TProps> = ({
     displayName,
     files,
     gender,
+    isLeftHand,
     isSidebarOpen,
     setIsSidebarOpen,
     language,
@@ -65,6 +74,7 @@ const ProfileFormComponent: FC<TProps> = ({
     navigator,
     onAddFiles,
     onChangeAge,
+    onChangeIsLeftHand,
     onChangeGender,
     onChangeSearchGender,
     onCloseSidebar,
@@ -74,6 +84,7 @@ const ProfileFormComponent: FC<TProps> = ({
     state,
     tg,
   } = useProfileAddOrEdit({ isEdit, lng, profile });
+  const idCheckbox = useId();
   const schema = isEdit ? editProfileFormSchema : addProfileFormSchema;
 
   const form = useInitForm(
@@ -238,6 +249,14 @@ const ProfileFormComponent: FC<TProps> = ({
               type="hidden"
             />
           </Field>
+          {/*<Field>*/}
+          {/*  <Checkbox*/}
+          {/*    checked={isLeftHand}*/}
+          {/*    label={t("common.form.field.isLeftHand")}*/}
+          {/*    name={EProfileAddFormFields.IsLeftHand}*/}
+          {/*    onChange={onChangeIsLeftHand}*/}
+          {/*  />*/}
+          {/*</Field>*/}
         </Section>
         <Container>
           <div

@@ -183,29 +183,39 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
           </ReactCrop>
         )}
         <div className="ImageCropper-Controls">
-          <div
-            className="ImageCropper-Control ImageCropper-Cancel"
-            onClick={onCancel}
-          >
-            <Icon type="ArrowBack" />
-            <Typography>{t("common.actions.cancel")}</Typography>
+          <div className="ImageCropper-Controls-Button">
+            <div
+              className="ImageCropper-Controls-Item ImageCropper-Controls-Item-Pink"
+              onClick={onCancel}
+            >
+              <div className="ImageCropper-Controls-Box ImageCropper-Controls-Box-Pink">
+                <Icon className="ImageCropper-Controls-Icon" type="Close" />
+              </div>
+            </div>
+            <span className="ImageCropper-Controls-Text ImageCropper-Controls-Text-Pink">
+              <Typography>{t("common.actions.cancel")}</Typography>
+            </span>
           </div>
-          <div
-            className="ImageCropper-Control ImageCropper-Save"
-            onClick={handleCanvasPreview}
-          >
-            {!isLoading && (
-              <>
-                <Icon type="Save" />
+          <div className="ImageCropper-Controls-Button">
+            <div
+              className="ImageCropper-Controls-Item ImageCropper-Controls-Item-Green"
+              onClick={handleCanvasPreview}
+            >
+              <div className="ImageCropper-Controls-Box ImageCropper-Controls-Box-Green">
+                {!isLoading ? (
+                  <Icon type="Save" />
+                ) : (
+                  <Icon className="ImageCropper-Loading-Icon" type="Spinner" />
+                )}
+              </div>
+            </div>
+            <span className="ImageCropper-Controls-Text ImageCropper-Controls-Text-Green">
+              {!isLoading ? (
                 <Typography>{t("common.actions.save")}</Typography>
-              </>
-            )}
-            {isLoading && (
-              <>
-                <Icon className="ImageCropper-Loading-Icon" type="Spinner" />
+              ) : (
                 <Typography>{t("common.actions.loading")}</Typography>
-              </>
-            )}
+              )}
+            </span>
           </div>
         </div>
         {crop && (

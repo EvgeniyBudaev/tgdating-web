@@ -1,6 +1,7 @@
 @import "@/app/styles";
 
 .Hamburger {
+  $this: &;
   position: fixed;
   top: 16px;
   right: 16px;
@@ -12,16 +13,16 @@
   justify-content: center;
   cursor: pointer;
 
-  & .icon-dark {
-    fill: $link_color;
-  }
+  & #{$this}-Icon {
+    height: 32px;
+    width: 32px;
 
-  &:hover,
-  &:active {
-    opacity: $opacity;
+    svg {
+      fill: $link_color;
+    }
   }
 
   &.theme-dark {
-    background-color: $bg_color;
+    background-color: rgba(31, 41, 65, 1);
   }
 }

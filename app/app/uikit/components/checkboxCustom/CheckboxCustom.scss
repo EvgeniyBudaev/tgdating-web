@@ -1,0 +1,54 @@
+@import "@/app/styles";
+
+.CheckboxCustom {
+  $this: &;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.15s;
+
+  &-Checkbox {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    width: 24px;
+    border: 1px solid $secondary_bg_color;
+    border-radius: $border-radius;
+    background-color: $secondary_bg_color;
+  }
+
+  &-Icon {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    height: 20px;
+    width: 20px;
+    transform: translateY(-5px);
+    transition:
+      opacity 0.128s ease-in-out,
+      transform 0.328s ease-in-out;
+  }
+
+  &__isChecked {
+    #{$this}-Icon {
+      z-index: 1;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &-Label {
+    margin-left: 8px;
+  }
+
+  &-ErrorField {
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+    color: $color-red;
+    transition: all $transition;
+  }
+}

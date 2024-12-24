@@ -1,7 +1,7 @@
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 import { addProfileAction } from "@/app/actions/profile/addProfile/addProfileAction";
 import { editProfileAction } from "@/app/actions/profile/editProfile/editProfileAction";
@@ -48,6 +48,7 @@ type TUseProfileEditResponse = {
   files: TFile[] | null;
   formErrors: Record<string, string[]> | undefined;
   gender: TSelectOption | undefined;
+  isLeftHand: boolean;
   isSidebarOpen: { isAge: boolean; isGender: boolean; isSearchGender: boolean };
   setIsSidebarOpen: (
     value:
@@ -67,6 +68,7 @@ type TUseProfileEditResponse = {
   navigator: TUseNavigatorResponse | null;
   onAddFiles: ((acceptedFiles: TFile[], files: TFile[]) => void) | undefined;
   onChangeAge(value?: TSelectOption): void;
+  onChangeIsLeftHand?: (value: boolean) => void;
   onChangeGender(value?: TSelectOption): void;
   onChangeSearchGender(value?: TSelectOption): void;
   onCloseSidebar(): void;
@@ -122,6 +124,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   const [gender, setGender] = useState<TSelectOption | undefined>(
     genderDefault,
   );
+  const [isLeftHand, setIsLeftHand] = useState(false);
   const [searchGender, setSearchGender] = useState<TSelectOption | undefined>(
     searchGenderDefault,
   );
@@ -268,6 +271,10 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     }
   };
 
+  const handleChangeIsLeftHand = (value: boolean) => {
+    setIsLeftHand(value);
+  };
+
   const handleSubmit = (formData: FormData) => {
     const formDataDto = new FormData();
     const displayName = formData.get(EProfileAddFormFields.DisplayName);
@@ -336,6 +343,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     formDataDto.append(EProfileAddFormFields.Distance, distance);
     formDataDto.append(EProfileAddFormFields.Page, page);
     formDataDto.append(EProfileAddFormFields.Size, size);
+    formDataDto.append(EProfileAddFormFields.IsLeftHand, isLeftHand.toString());
     formDataDto.append(EProfileAddFormFields.Csrf, csrf ?? "");
     if (isEdit) {
       if (
@@ -357,6 +365,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     files,
     formErrors,
     gender,
+    isLeftHand,
     isSidebarOpen,
     setIsSidebarOpen,
     language,
@@ -364,6 +373,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     navigator,
     onAddFiles,
     onChangeAge: handleChangeAge,
+    onChangeIsLeftHand: handleChangeIsLeftHand,
     onChangeGender: handleChangeGender,
     onChangeSearchGender: handleChangeSearchGender,
     onCloseSidebar: handleCloseSidebar,

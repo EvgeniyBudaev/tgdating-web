@@ -26,6 +26,7 @@
         "description": "Описание",
         "gender": "Пол",
         "searchGender": "Интересуют",
+        "isLeftHand": "Адаптировать под левую руку",
         "language": "Язык интерфейса"
       }
     },

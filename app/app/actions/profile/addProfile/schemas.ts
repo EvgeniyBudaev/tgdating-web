@@ -1,5 +1,4 @@
 import isEmpty from "lodash/isEmpty";
-import isNil from "lodash/isNil";
 import { z } from "zod";
 import { zfd } from "zod-form-data";
 import { imageFileSchema } from "@/app/api/upload";
@@ -85,6 +84,7 @@ export const addProfileFormSchema = zfd.formData({
     .string()
     .trim()
     .min(1, EMPTY_FIELD_ERROR_MESSAGE),
+  [EProfileAddFormFields.IsLeftHand]: z.string(),
   [EProfileAddFormFields.Csrf]: z
     .string()
     .trim()

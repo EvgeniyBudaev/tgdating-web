@@ -26,6 +26,7 @@
         "description": "Description",
         "gender": "Gender",
         "searchGender": "Interest",
+        "isLeftHand": "Adapt to left hand",
         "language": "interface language"
       }
     },

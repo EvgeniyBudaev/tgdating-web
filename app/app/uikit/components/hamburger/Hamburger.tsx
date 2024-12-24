@@ -19,7 +19,7 @@ const HamburgerComponent: FC<TProps> = ({ onClick, theme }) => {
       })}
       onClick={onClick}
     >
-      <Icon type="MoreHoriz" />
+      <Icon className="Hamburger-Icon" type="MoreHoriz" />
     </div>
   );
 };
