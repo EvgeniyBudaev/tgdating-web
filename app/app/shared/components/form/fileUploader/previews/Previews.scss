@@ -3,6 +3,7 @@
 $imageSize: 120px;
 
 .Previews {
+  $this: &;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax($imageSize, 1fr));
   gap: 8px;
@@ -29,6 +30,16 @@ $imageSize: 120px;
       object-position: center;
       border: 1px solid transparent;
       border-radius: $border-radius;
+    }
+  }
+
+  &-Icon {
+    color: $bg_color;
+  }
+
+  &.theme-dark {
+    #{$this}-Icon {
+      color: $text_color;
     }
   }
 }

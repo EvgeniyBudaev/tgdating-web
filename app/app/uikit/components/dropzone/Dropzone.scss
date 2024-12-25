@@ -8,7 +8,7 @@ $imageSize: 120px;
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: 1px dashed #ccc;
+  border: 1px dashed $bg_color;
   border-radius: $border-radius;
   min-height: $imageSize;
   width: $imageSize;
@@ -26,6 +26,7 @@ $imageSize: 120px;
   }
 
   &.theme-dark {
+    border-color: $text_color;
     background-color: $secondary_bg_color;
   }
 }

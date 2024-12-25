@@ -218,8 +218,8 @@ const ProfileDetailPageComponent: FC<TProps> = ({
                 )}
                 {profile?.location && (
                   <div className="ProfileDetailPage-Location">
-                    {!isSessionUser && distance && <span>, </span>}
-                    <Typography>{profile?.location}</Typography>
+                    {!isSessionUser && distance && <span>,&nbsp;</span>}
+                    <Typography>{profile?.location}&nbsp;</Typography>
                     <Icon
                       className="ProfileDetailPage-Icon"
                       height={16}

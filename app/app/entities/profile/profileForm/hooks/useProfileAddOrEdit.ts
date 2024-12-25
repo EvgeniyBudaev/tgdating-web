@@ -1,7 +1,7 @@
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
-import { ChangeEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 import { addProfileAction } from "@/app/actions/profile/addProfile/addProfileAction";
 import { editProfileAction } from "@/app/actions/profile/editProfile/editProfileAction";
@@ -278,7 +278,9 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   const handleSubmit = (formData: FormData) => {
     const formDataDto = new FormData();
     const displayName = formData.get(EProfileAddFormFields.DisplayName);
-    const description = formData.get(EProfileAddFormFields.Description);
+    const description = formData.get(
+      EProfileAddFormFields.Description,
+    ) as string;
     const location = formData.get(EProfileAddFormFields.Location);
     formDataDto.append(
       EProfileAddFormFields.DisplayName,

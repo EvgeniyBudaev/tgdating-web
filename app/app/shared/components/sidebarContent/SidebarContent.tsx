@@ -60,7 +60,8 @@ const SidebarContentComponent: FC<TProps> = ({
       {options && (
         <div className="SidebarContent-List">
           {(options ?? []).map((item) => {
-            const isChecked = item.value === checkedItem?.value;
+            const isChecked =
+              item.value.toString() === (checkedItem?.value ?? "").toString();
             return (
               <div
                 className={clsx("SidebarContent-List-Item", classes?.item, {

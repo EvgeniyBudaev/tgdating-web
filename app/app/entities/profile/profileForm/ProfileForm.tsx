@@ -43,6 +43,7 @@ import { Info } from "@/app/shared/components/info";
 import { Gradient } from "@/app/uikit/components/gradient";
 import { notification } from "@/app/uikit/utils";
 import "./ProfileForm.scss";
+import { ETheme } from "@/app/uikit/enums";
 
 type TProps = {
   isEdit?: boolean;
@@ -59,6 +60,7 @@ const ProfileFormComponent: FC<TProps> = ({
 }) => {
   useCheckPermissions({ lng });
   const themeState = useThemeContext();
+  const theme = themeState?.theme;
   const { t } = useTranslation("index");
   const {
     age,
@@ -128,7 +130,11 @@ const ProfileFormComponent: FC<TProps> = ({
     return <Info message={t("common.titles.isEmptyUsername")} />;
 
   return (
-    <section className="ProfileForm">
+    <section
+      className={clsx("ProfileForm", {
+        ["theme-dark"]: theme === ETheme.Dark,
+      })}
+    >
       <Gradient />
       <Form
         action={onSubmit}
@@ -161,7 +167,7 @@ const ProfileFormComponent: FC<TProps> = ({
               name={EProfileAddFormFields.Image}
               onAddFiles={onAddFiles}
               onDeleteFile={onDeleteFile}
-              theme={themeState?.theme}
+              theme={theme}
               type="file"
             />
           </Field>
@@ -172,7 +178,7 @@ const ProfileFormComponent: FC<TProps> = ({
               subLabel={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
               name={EProfileAddFormFields.DisplayName}
               onFocus={handleFocus}
-              theme={themeState?.theme}
+              theme={theme}
               type="text"
             />
           </Field>
@@ -189,8 +195,8 @@ const ProfileFormComponent: FC<TProps> = ({
               onSave={onChangeAge}
               options={ageOptions}
               selectedItem={age}
-              subLabel={`${t("common.titles.required")}, ${t("common.titles.canHidden")}, ${t("common.titles.changeable")}`}
-              theme={themeState?.theme}
+              subLabel={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
+              theme={theme}
               title={t("common.form.field.age")}
             />
           </Field>
@@ -203,7 +209,7 @@ const ProfileFormComponent: FC<TProps> = ({
               maxLength={1000}
               name={EProfileAddFormFields.Description}
               onFocus={handleFocus}
-              theme={themeState?.theme}
+              theme={theme}
               type="text"
             />
           </Field>
@@ -221,7 +227,7 @@ const ProfileFormComponent: FC<TProps> = ({
               options={GENDER_MAPPING[language]}
               selectedItem={gender}
               subLabel={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
-              theme={themeState?.theme}
+              theme={theme}
               title={t("common.form.field.gender")}
             />
           </Field>
@@ -238,7 +244,7 @@ const ProfileFormComponent: FC<TProps> = ({
               onSave={onChangeSearchGender}
               options={SEARCH_GENDER_MAPPING[language]}
               selectedItem={searchGender}
-              theme={themeState?.theme}
+              theme={theme}
               title={t("common.form.field.searchGender")}
             />
           </Field>

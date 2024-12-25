@@ -8,7 +8,6 @@ import { updateFilterAction } from "@/app/actions/filter/updateFilter/updateFilt
 import { EFilterUpdateFormFields } from "@/app/actions/filter/updateFilter/enums";
 import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/types";
 import { useTranslation } from "@/app/i18n/client";
-import { Header } from "@/app/shared/components/header";
 import { SearchBar } from "@/app/shared/components/searchBar";
 import { SidebarContent } from "@/app/shared/components/sidebarContent";
 import {

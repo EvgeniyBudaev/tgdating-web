@@ -11,7 +11,7 @@ $delay: 0.3s;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $text_color;
+    background-color: $bg_light_color;
     transition: all $delay ease;
 
     &:hover {
@@ -25,7 +25,7 @@ $delay: 0.3s;
     &Icon {
       padding: 8px;
       height: 16px;
-      color: $text_color;
+      color: $bg_color;
 
       svg {
         transform: rotate(-90deg);
@@ -77,10 +77,11 @@ $delay: 0.3s;
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 24px;
+    bottom: 18px;
     height: max-content;
     width: 100%;
-    color: $text_color;
+    color: $bg_color;
+    background-color: $bg_light_color;
     padding: 16px;
     overflow: hidden;
     z-index: 100;
@@ -99,9 +100,14 @@ $delay: 0.3s;
   .Accordion {
     &-Header {
       background-color: $bg_color;
+
+      &Icon {
+        color: $text_color;
+      }
     }
 
     &-Content {
+      color: $text_color;
       background-color: $bg_color;
     }
   }

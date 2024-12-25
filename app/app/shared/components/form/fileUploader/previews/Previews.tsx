@@ -110,7 +110,11 @@ const PreviewsComponent: FC<TProps> = ({
     : true;
 
   return (
-    <aside className={clsx("Previews", className)}>
+    <aside
+      className={clsx("Previews", className, {
+        ["theme-dark"]: theme === ETheme.Dark,
+      })}
+    >
       {renderDefaultImages}
       {renderThumbs}
       {isCheckedByMaxFiles && (
@@ -118,7 +122,7 @@ const PreviewsComponent: FC<TProps> = ({
           <div className="Previews-Thumb-Inner">
             <Dropzone
               accept={accept}
-              className={clsx("FileUploader-Dropzone", {
+              className={clsx("Previews-Dropzone", {
                 ["FileUploader-Dropzone__isLoading"]: isLoading,
               })}
               disabled={isLoading}
@@ -128,7 +132,7 @@ const PreviewsComponent: FC<TProps> = ({
               theme={theme}
               {...rest}
             >
-              <Icon type="AddCircleOutline" />
+              <Icon className="Previews-Icon" type="AddCircleOutline" />
             </Dropzone>
           </div>
         </div>

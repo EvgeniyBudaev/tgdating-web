@@ -5,6 +5,7 @@
   position: relative;
   height: 100%;
   min-height: 850px;
+  color: $text_color;
   overflow-x: hidden;
 
   &-Form {
@@ -33,5 +34,8 @@
   &-Save {
     padding: 0 16px;
     width: 152px;
+  }
+
+  &.theme-dark {
   }
 }

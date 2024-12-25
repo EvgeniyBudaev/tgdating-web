@@ -1,14 +1,16 @@
 "use client";
 
+import clsx from "clsx";
 import isEmpty from "lodash/isEmpty";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { type FC, memo, useEffect, useMemo } from "react";
+import { type FC, memo, useEffect } from "react";
 import type { TProfileList } from "@/app/api/profile/getProfileList/types";
 import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/types";
 import { useTranslation } from "@/app/i18n/client";
 import { SearchForm } from "@/app/entities/search/searchForm";
+import { getDistance } from "@/app/pages/profileDetailPage/utils";
 import { Container } from "@/app/shared/components/container";
 import { useNavigatorContext, useTelegramContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
@@ -19,9 +21,9 @@ import { Gradient } from "@/app/uikit/components/gradient";
 import { Heart } from "@/app/uikit/components/heart";
 import { Online } from "@/app/uikit/components/online";
 import { Typography } from "@/app/uikit/components/typography";
+import { ETheme } from "@/app/uikit/enums";
 import { notification } from "@/app/uikit/utils";
 import "./SessionPage.scss";
-import { getDistance } from "@/app/pages/profileDetailPage/utils";
 
 type TProps = {
   isExistUser: boolean;
@@ -70,7 +72,11 @@ const SessionPageComponent: FC<TProps> = ({
   }, [isSession, isExistUser, profileShortInfo?.telegramUserId, user?.id]);
 
   return (
-    <div className="SessionPage">
+    <div
+      className={clsx("SessionPage", {
+        ["theme-dark"]: theme === ETheme.Dark,
+      })}
+    >
       <Gradient />
       {profileShortInfo && (
         <SearchForm
@@ -80,6 +86,7 @@ const SessionPageComponent: FC<TProps> = ({
         />
       )}
       <div className="SessionPage-Inner">
+        <div className="SessionPage-Background" />
         {isEmpty(profileList?.content) && (
           <Container>
             <div className="SessionPage-IsEmpty">
@@ -124,7 +131,7 @@ const SessionPageComponent: FC<TProps> = ({
                       isOnline={item.isOnline}
                     />
                     <Heart isLiked={item.isLiked} />
-                    <Distance distance={distance} />
+                    <Distance distance={distance} theme={theme} />
                     <Image
                       alt=""
                       className="SessionPage-Image"
