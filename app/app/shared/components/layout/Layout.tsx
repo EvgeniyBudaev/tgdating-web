@@ -7,10 +7,9 @@ import {
   AuthenticityTokenProvider,
   NavigatorProvider,
   TelegramProvider,
-  ThemeProvider,
 } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useNavigator, useTelegram, useTheme } from "@/app/shared/hooks";
+import { useNavigator, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { ETheme } from "@/app/uikit/enums";
 import "./Layout.scss";
@@ -28,10 +27,7 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   const navigator = useNavigator({ lng });
   const telegram = useTelegram();
   const telegramLanguageCode = telegram?.user?.language_code;
-  // const telegramTheme = telegram?.colorScheme;
-  const telegramTheme = ETheme.Dark;
-  const theme = telegramTheme ?? ETheme.Light;
-  const themeState = useTheme({ defaultTheme: theme });
+  const theme = telegram.theme;
 
   useEffect(() => {
     if (telegramLanguageCode && telegramLanguageCode !== lng) {
@@ -51,7 +47,7 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
     return () => {
       document.body.classList.remove("theme-dark");
     };
-  }, [theme]);
+  }, [telegram?.tg?.colorScheme]);
 
   const isFooter = useMemo(() => {
     const path = createPath({
@@ -65,12 +61,10 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
     <TelegramProvider value={telegram}>
       <AuthenticityTokenProvider value={csrfToken}>
         <NavigatorProvider value={navigator}>
-          <ThemeProvider value={themeState}>
-            <div className="Layout">
-              <div className="Layout-Content">{children}</div>
-              {isFooter && <Footer lng={lng} />}
-            </div>
-          </ThemeProvider>
+          <div className="Layout">
+            <div className="Layout-Content">{children}</div>
+            {isFooter && <Footer lng={lng} />}
+          </div>
         </NavigatorProvider>
       </AuthenticityTokenProvider>
     </TelegramProvider>

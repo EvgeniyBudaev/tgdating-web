@@ -3,14 +3,7 @@
 import clsx from "clsx";
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
-import {
-  type FC,
-  type FocusEvent,
-  memo,
-  useEffect,
-  useId,
-  useState,
-} from "react";
+import { type FC, type FocusEvent, memo, useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { TProfile } from "@/app/api/profile/getProfile/types";
 import { useTranslation } from "react-i18next";
@@ -28,22 +21,21 @@ import { Field } from "@/app/shared/components/form/field";
 import { FileUploader } from "@/app/shared/components/form/form/fileUploader";
 import { Form } from "@/app/shared/components/form/form";
 import { useInitForm } from "@/app/shared/components/form/form/hooks";
-import { Checkbox } from "@/app/shared/components/form/checkbox";
 import { Input } from "@/app/shared/components/form/input";
 import { Select } from "@/app/shared/components/form/select";
 import { Textarea } from "@/app/shared/components/form/textarea";
 import { SubmitButton } from "@/app/shared/components/form/submitButton";
 import { Section } from "@/app/shared/components/section";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useCheckPermissions, useThemeContext } from "@/app/shared/hooks";
+import { useCheckPermissions, useTheme } from "@/app/shared/hooks";
 import { GENDER_MAPPING } from "@/app/shared/mapping/gender";
 import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
 import { createPath } from "@/app/shared/utils";
 import { Info } from "@/app/shared/components/info";
 import { Gradient } from "@/app/uikit/components/gradient";
+import { ETheme } from "@/app/uikit/enums";
 import { notification } from "@/app/uikit/utils";
 import "./ProfileForm.scss";
-import { ETheme } from "@/app/uikit/enums";
 
 type TProps = {
   isEdit?: boolean;
@@ -59,8 +51,7 @@ const ProfileFormComponent: FC<TProps> = ({
   profile,
 }) => {
   useCheckPermissions({ lng });
-  const themeState = useThemeContext();
-  const theme = themeState?.theme;
+  const { theme } = useTheme();
   const { t } = useTranslation("index");
   const {
     age,
@@ -86,7 +77,6 @@ const ProfileFormComponent: FC<TProps> = ({
     state,
     tg,
   } = useProfileAddOrEdit({ isEdit, lng, profile });
-  const idCheckbox = useId();
   const schema = isEdit ? editProfileFormSchema : addProfileFormSchema;
 
   const form = useInitForm(

@@ -1,33 +1,13 @@
-import { useContext, useMemo, useState } from "react";
-import {type TTheme, ThemeContext} from "@/app/shared/context";
-import {ETheme} from "@/app/uikit/enums";
+import { useTelegramContext } from "@/app/shared/context";
+import { ETheme } from "@/app/uikit/enums";
 
-export const useThemeContext = (): TTheme | null => {
-  return useContext(ThemeContext);
+type TUseTheme = () => {
+  theme: ETheme;
 };
 
-type TProps = {
-  defaultTheme: ETheme;
-}
+export const useTheme: TUseTheme = () => {
+  const telegram = useTelegramContext();
+  const theme = telegram?.theme ?? ETheme.Light;
 
-type TUseThemeResponse = {
-  theme: ETheme;
-  onChangeTheme: (theme: ETheme) => void;
-}
-
-type TUseTheme = (props: TProps) => TUseThemeResponse;
-
-export const useTheme: TUseTheme = ({defaultTheme}) => {
-  const [theme, setTheme] = useState(defaultTheme);
-
-  const handleChangeTheme = (theme: ETheme) => {
-    setTheme(theme);
-  };
-
-  return useMemo(() => {
-    return {
-      theme,
-      onChangeTheme: handleChangeTheme,
-    };
-  }, [theme, setTheme]);
+  return { theme };
 };

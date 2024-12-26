@@ -7,13 +7,13 @@ import { useTranslation } from "@/app/i18n/client";
 import { NavLink } from "@/app/shared/components/navLink";
 import { useNavigatorContext, useTelegramContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useThemeContext } from "@/app/shared/hooks";
+import { useTheme } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { useHydrated } from "@/app/uikit/hooks";
 import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
-import "./Footer.scss";
 import { ETheme } from "@/app/uikit/enums";
+import "./Footer.scss";
 
 type TProps = {
   lng: ELanguage;
@@ -21,8 +21,7 @@ type TProps = {
 
 const FooterComponent: FC<TProps> = ({ lng }) => {
   const navigator = useNavigatorContext();
-  const themeState = useThemeContext();
-  const theme = themeState?.theme;
+  const { theme } = useTheme();
   const router = useRouter();
   const pathname = usePathname();
   const telegram = useTelegramContext();

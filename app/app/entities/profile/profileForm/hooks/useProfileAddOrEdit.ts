@@ -91,6 +91,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     isEdit ? editProfileAction : addProfileAction,
     INITIAL_FORM_STATE,
   );
+  console.log("state: ", state);
   const formErrors = useFormErrors({ errors: state.errors });
   const csrf = useAuthenticityTokenContext();
   const navigator = useNavigatorContext();
