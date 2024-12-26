@@ -53,6 +53,8 @@ export const useTelegram: TUseTelegram = () => {
     const queryId = initDataSearchParams.get("query_id");
     const user = JSON.parse(initDataSearchParams.get("user") ?? "");
     setQueryId(queryId);
+    const colorScheme = telegram?.colorScheme as ETheme ?? ETheme.Light;
+    setTheme(colorScheme);
     setUser(user);
     const telegramInitDataCrypt = encrypt(params);
     setInitDataCrypt(telegramInitDataCrypt);

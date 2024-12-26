@@ -2,6 +2,8 @@ import {getProfileDetail} from "@/app/api/profile/getProfileDetail/domain";
 import { ProfileBlockedPage } from "@/app/pages/profileBlockedPage";
 import { ELanguage } from "@/app/shared/enums";
 
+export const dynamic = "force-dynamic";
+
 type TLoader = {
   telegramUserId: string;
 };

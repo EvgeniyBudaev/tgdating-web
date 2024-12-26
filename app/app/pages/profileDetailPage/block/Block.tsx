@@ -27,6 +27,7 @@ const BlockComponent: FC<TProps> = ({ blockedTelegramUserId, lng }) => {
   const csrf = useAuthenticityTokenContext();
   const { closeModal, isOpenModal, openModal } = useModalWindow();
   const telegram = useTelegramContext();
+  const user = telegram?.user;
   const isSession = telegram?.isSession;
   const { t } = useTranslation("index");
   const [state, formAction] = useActionState(
@@ -37,7 +38,8 @@ const BlockComponent: FC<TProps> = ({ blockedTelegramUserId, lng }) => {
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
       const path = createPath({
-        route: ERoutes.Root,
+        route: ERoutes.Telegram,
+        params: { telegramUserId: (user?.id ?? "").toString() },
         lng: lng,
       });
       redirect(path);

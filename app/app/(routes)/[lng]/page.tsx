@@ -1,6 +1,8 @@
 import { MainPage } from "@/app/pages/mainPage";
 import { ELanguage } from "@/app/shared/enums";
 
+export const dynamic = "force-dynamic";
+
 type TParams = Promise<{
   lng: string;
 }>;

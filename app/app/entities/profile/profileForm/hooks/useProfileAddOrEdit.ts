@@ -90,7 +90,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     isEdit ? editProfileAction : addProfileAction,
     INITIAL_FORM_STATE,
   );
-  console.log("state: ", state);
   const formErrors = useFormErrors({ errors: state.errors });
   const csrf = useAuthenticityTokenContext();
   const navigator = useNavigatorContext();
@@ -214,23 +213,13 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   useEffect(() => {
     if (!isEdit && !isNil(state?.data) && state.success && !state?.error) {
       const path = createPath({
-        route: ERoutes.Root,
+        route: ERoutes.Telegram,
+        params: { telegramUserId: (user?.id ?? "").toString() },
         lng: lng,
       });
       redirect(path);
     }
   }, [isEdit, lng, state]);
-
-  // Check auth user
-  useEffect(() => {
-    if (isEmpty(telegram?.user)) {
-      const path = createPath({
-        route: ERoutes.Unauthorized,
-        lng: lng,
-      });
-      redirect(path);
-    }
-  }, [telegram?.user]);
 
   useEffect(() => {
     if (formErrors) {

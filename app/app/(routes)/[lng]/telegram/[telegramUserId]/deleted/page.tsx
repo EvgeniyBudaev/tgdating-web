@@ -3,6 +3,8 @@ import { ProfileBlocked } from "@/app/entities/profile/profileBlocked";
 import { ProfileFreezePage } from "@/app/pages/profileFreezePage";
 import { ELanguage } from "@/app/shared/enums";
 
+export const dynamic = "force-dynamic";
+
 type TLoader = {
   telegramUserId: string;
 };

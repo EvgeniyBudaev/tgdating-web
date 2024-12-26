@@ -31,6 +31,7 @@ const ProfileFreezePageComponent: FC<TProps> = ({
   const csrf = useAuthenticityTokenContext();
   const { t } = useTranslation("index");
   const telegram = useTelegramContext();
+  const user = telegram?.user;
   const isSession = telegram?.isSession;
   const isSessionUser = Boolean(
     telegramUserId && telegram?.user?.id.toString() === telegramUserId,
@@ -43,7 +44,8 @@ const ProfileFreezePageComponent: FC<TProps> = ({
   useEffect(() => {
     if (!isDeleted) {
       const path = createPath({
-        route: ERoutes.Root,
+        route: ERoutes.Telegram,
+        params: { telegramUserId: (user?.id ?? "").toString() },
         lng: lng,
       });
       redirect(path);
