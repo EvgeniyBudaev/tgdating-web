@@ -5,11 +5,9 @@ import { useRef, useState, type FC, useMemo, memo } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { Header } from "@/app/shared/components/header";
 import { SidebarContent } from "@/app/shared/components/sidebarContent";
-import {
-  useAuthenticityTokenContext,
-  useTelegramContext,
-} from "@/app/shared/context";
+import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage } from "@/app/shared/enums";
+import { useTelegram } from "@/app/shared/hooks";
 import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
 import { Icon } from "@/app/uikit/components/icon";
 import { Select, type TSelectOption } from "@/app/uikit/components/select";
@@ -25,8 +23,8 @@ type TProps = {
 const SettingsComponent: FC<TProps> = ({ lng, telegramUserId }) => {
   const csrf = useAuthenticityTokenContext();
   const sidebarRef = useRef(null);
-  const telegram = useTelegramContext();
-  const telegramLanguageCode = telegram?.user?.language_code ?? lng;
+  const { initDataCrypt, isSession, user, theme } = useTelegram();
+  const telegramLanguageCode = user?.language_code ?? lng;
   const { t } = useTranslation("index");
   const [isSidebarOpen, setIsSidebarOpen] = useState({
     isGeneralSettings: false,

@@ -7,11 +7,9 @@ import { EProfileRestoreFormFields } from "@/app/actions/profile/restoreProfile/
 import { restoreProfileAction } from "@/app/actions/profile/restoreProfile/restoreProfileAction";
 import { useTranslation } from "@/app/i18n/client";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
-import {
-  useAuthenticityTokenContext,
-  useTelegramContext,
-} from "@/app/shared/context";
+import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
+import { useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { Button } from "@/app/uikit/components/button";
 import { Typography } from "@/app/uikit/components/typography";
@@ -30,11 +28,9 @@ const ProfileFreezePageComponent: FC<TProps> = ({
 }) => {
   const csrf = useAuthenticityTokenContext();
   const { t } = useTranslation("index");
-  const telegram = useTelegramContext();
-  const user = telegram?.user;
-  const isSession = telegram?.isSession;
+  const { initDataCrypt, isSession, user, theme } = useTelegram();
   const isSessionUser = Boolean(
-    telegramUserId && telegram?.user?.id.toString() === telegramUserId,
+    telegramUserId && user?.id.toString() === telegramUserId,
   );
   const [state, formAction] = useActionState(
     restoreProfileAction,
@@ -75,7 +71,7 @@ const ProfileFreezePageComponent: FC<TProps> = ({
       );
       formDataDto.append(
         EProfileRestoreFormFields.TelegramInitDataCrypt,
-        telegram?.initDataCrypt ?? "",
+        initDataCrypt ?? "",
       );
       formDataDto.append(EProfileRestoreFormFields.Csrf, csrf ?? "");
       // @ts-ignore

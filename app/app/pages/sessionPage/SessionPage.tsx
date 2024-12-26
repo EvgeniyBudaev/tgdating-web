@@ -12,9 +12,9 @@ import { useTranslation } from "@/app/i18n/client";
 import { SearchForm } from "@/app/entities/search/searchForm";
 import { getDistance } from "@/app/pages/profileDetailPage/utils";
 import { Container } from "@/app/shared/components/container";
-import { useNavigatorContext, useTelegramContext } from "@/app/shared/context";
+import { useNavigatorContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useCheckPermissions, useTheme } from "@/app/shared/hooks";
+import { useCheckPermissions, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { Distance } from "@/app/uikit/components/distance";
 import { Gradient } from "@/app/uikit/components/gradient";
@@ -42,10 +42,7 @@ const SessionPageComponent: FC<TProps> = ({
 }) => {
   useCheckPermissions({ lng });
   const navigator = useNavigatorContext();
-  const telegram = useTelegramContext();
-  const { theme } = useTheme();
-  const isSession = telegram?.isSession;
-  const user = telegram?.user;
+  const { isSession, user, theme } = useTelegram();
   const { t } = useTranslation("index");
 
   useEffect(() => {

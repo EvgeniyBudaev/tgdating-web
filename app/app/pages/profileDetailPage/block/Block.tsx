@@ -7,11 +7,9 @@ import { addBlockAction } from "@/app/actions/block/addBlock/addBlockAction";
 import { useTranslation } from "@/app/i18n/client";
 import { EBlockFormFields } from "@/app/actions/block/addBlock/enums";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
-import {
-  useAuthenticityTokenContext,
-  useTelegramContext,
-} from "@/app/shared/context";
+import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
+import { useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { Button } from "@/app/uikit/components/button";
 import { Modal, useModalWindow } from "@/app/uikit/components/modal";
@@ -26,9 +24,7 @@ type TProps = {
 const BlockComponent: FC<TProps> = ({ blockedTelegramUserId, lng }) => {
   const csrf = useAuthenticityTokenContext();
   const { closeModal, isOpenModal, openModal } = useModalWindow();
-  const telegram = useTelegramContext();
-  const user = telegram?.user;
-  const isSession = telegram?.isSession;
+  const { initDataCrypt, isSession, user, theme } = useTelegram();
   const { t } = useTranslation("index");
   const [state, formAction] = useActionState(
     addBlockAction,
@@ -55,7 +51,7 @@ const BlockComponent: FC<TProps> = ({ blockedTelegramUserId, lng }) => {
       const formDataDto = new FormData();
       formDataDto.append(
         EBlockFormFields.TelegramUserId,
-        (telegram?.user?.id ?? "").toString(),
+        (user?.id ?? "").toString(),
       );
       formDataDto.append(
         EBlockFormFields.BlockedTelegramUserId,
@@ -63,7 +59,7 @@ const BlockComponent: FC<TProps> = ({ blockedTelegramUserId, lng }) => {
       );
       formDataDto.append(
         EBlockFormFields.TelegramInitDataCrypt,
-        telegram?.initDataCrypt ?? "",
+        initDataCrypt ?? "",
       );
       formDataDto.append(EBlockFormFields.Csrf, csrf ?? "");
       // @ts-ignore

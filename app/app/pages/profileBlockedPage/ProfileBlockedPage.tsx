@@ -3,8 +3,8 @@
 import { redirect } from "next/navigation";
 import { type FC, memo, useEffect } from "react";
 import { useTranslation } from "@/app/i18n/client";
-import {useTelegramContext} from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
+import { useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import "./ProfileBlockedPage.scss";
 
@@ -15,8 +15,7 @@ type TProps = {
 
 const ProfileBlockedPageComponent: FC<TProps> = ({ isBlocked, lng }) => {
   const { t } = useTranslation("index");
-  const telegram = useTelegramContext();
-  const user = telegram?.user;
+  const { user } = useTelegram();
 
   useEffect(() => {
     if (!isBlocked) {

@@ -5,16 +5,14 @@ import { useTranslation } from "@/app/i18n/client";
 import { deleteProfileAction } from "@/app/actions/profile/deleteProfile/deleteProfileAction";
 import { EProfileDeleteFormFields } from "@/app/actions/profile/deleteProfile/enums";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
-import {
-  useAuthenticityTokenContext,
-  useTelegramContext,
-} from "@/app/shared/context";
+import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
+import "./Delete.scss";
+import { useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { Button } from "@/app/uikit/components/button";
 import { Modal, useModalWindow } from "@/app/uikit/components/modal";
 import { Typography } from "@/app/uikit/components/typography";
-import "./Delete.scss";
 
 type TProps = {
   lng: ELanguage;
@@ -25,8 +23,7 @@ const DeleteComponent: FC<TProps> = ({ lng, telegramUserId }) => {
   const csrf = useAuthenticityTokenContext();
   const { closeModal, isOpenModal, openModal } = useModalWindow();
   const { t } = useTranslation("index");
-  const telegram = useTelegramContext();
-  const isSession = telegram?.isSession;
+  const { initDataCrypt, isSession } = useTelegram();
   const [state, formAction] = useActionState(
     deleteProfileAction,
     INITIAL_FORM_STATE,
@@ -56,7 +53,7 @@ const DeleteComponent: FC<TProps> = ({ lng, telegramUserId }) => {
       );
       formDataDto.append(
         EProfileDeleteFormFields.TelegramInitDataCrypt,
-        telegram?.initDataCrypt ?? "",
+        initDataCrypt ?? "",
       );
       formDataDto.append(EProfileDeleteFormFields.Csrf, csrf ?? "");
       // @ts-ignore

@@ -19,8 +19,9 @@ import {
   SESSION_ID,
   SIZE,
 } from "@/app/shared/constants";
-import { useNavigatorContext, useTelegramContext } from "@/app/shared/context";
+import { useNavigatorContext } from "@/app/shared/context";
 import { ELanguage } from "@/app/shared/enums";
+import { useTelegram } from "@/app/shared/hooks/useTelegram";
 
 type TProps = {
   lng: ELanguage;
@@ -62,8 +63,8 @@ export const useQueryURL: TUseQueryURL = ({ lng }) => {
   const navigator = useNavigatorContext();
   const { replace } = useRouter();
   const pathname = usePathname();
-  const telegram = useTelegramContext();
-  const telegramUserId = telegram?.user?.id ?? "";
+  const { user } = useTelegram();
+  const telegramUserId = user?.id ?? "";
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams.toString());
   const page = params.get(PAGE) ?? DEFAULT_PAGE.toString();
@@ -123,7 +124,7 @@ export const useQueryURL: TUseQueryURL = ({ lng }) => {
       ageFrom: params.get(AGE_FROM) ?? DEFAULT_AGE_FROM.toString(),
       ageTo: params.get(AGE_TO) ?? DEFAULT_AGE_TO.toString(),
       searchGender: params.get(SEARCH_GENDER) ?? DEFAULT_SEARCH_GENDER,
-      telegramUserId: (telegram?.user?.id ?? "").toString(),
+      telegramUserId: (user?.id ?? "").toString(),
       distance: params.get(DISTANCE) ?? DEFAULT_DISTANCE.toString(),
       latitude: params.get(LATITUDE) ?? "",
       longitude: params.get(LONGITUDE) ?? "",

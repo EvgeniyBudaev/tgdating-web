@@ -15,11 +15,9 @@ import type { TProfileDetail } from "@/app/api/profile/getProfileDetail/types";
 import { useTranslation } from "@/app/i18n/client";
 import { LikeButton } from "@/app/pages/profileDetailPage/like/likeButton";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
-import {
-  useAuthenticityTokenContext,
-  useTelegramContext,
-} from "@/app/shared/context";
+import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage } from "@/app/shared/enums";
+import { useTelegram } from "@/app/shared/hooks";
 import { DATE_FORMAT } from "@/app/uikit/components/dateTime/constants";
 import { useDayjs } from "@/app/uikit/components/dateTime/hooks";
 import "./Like.scss";
@@ -32,7 +30,7 @@ type TProps = {
 
 const LikeComponent: FC<TProps> = ({ lng, profile, telegramUserId }) => {
   const csrf = useAuthenticityTokenContext();
-  const telegram = useTelegramContext();
+  const { initDataCrypt } = useTelegram();
   const isLiked = profile?.like?.isLiked;
   const { dayjs } = useDayjs();
   const buttonSubmitRef = useRef<HTMLInputElement | null>(null);
@@ -96,7 +94,7 @@ const LikeComponent: FC<TProps> = ({ lng, profile, telegramUserId }) => {
         formDataDto.append(EAddLikeFormFields.TelegramUserId, telegramUserId);
         formDataDto.append(
           EAddLikeFormFields.TelegramInitDataCrypt,
-          telegram?.initDataCrypt ?? "",
+          initDataCrypt ?? "",
         );
         formDataDto.append(EAddLikeFormFields.Csrf, csrf ?? "");
       }
@@ -117,7 +115,7 @@ const LikeComponent: FC<TProps> = ({ lng, profile, telegramUserId }) => {
         );
         formDataDto.append(
           EUpdateLikeFormFields.TelegramInitDataCrypt,
-          telegram?.initDataCrypt ?? "",
+          initDataCrypt ?? "",
         );
         formDataDto.append(EUpdateLikeFormFields.Csrf, csrf ?? "");
       }
@@ -138,7 +136,7 @@ const LikeComponent: FC<TProps> = ({ lng, profile, telegramUserId }) => {
         );
         formDataDto.append(
           EUpdateLikeFormFields.TelegramInitDataCrypt,
-          telegram?.initDataCrypt ?? "",
+          initDataCrypt ?? "",
         );
         formDataDto.append(EUpdateLikeFormFields.Csrf, csrf ?? "");
       }

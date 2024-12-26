@@ -5,9 +5,9 @@ import { usePathname, useRouter } from "next/navigation";
 import { type FC, memo, useMemo } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { NavLink } from "@/app/shared/components/navLink";
-import { useNavigatorContext, useTelegramContext } from "@/app/shared/context";
+import { useNavigatorContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useTheme } from "@/app/shared/hooks";
+import { useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { useHydrated } from "@/app/uikit/hooks";
 import { Icon } from "@/app/uikit/components/icon";
@@ -21,12 +21,9 @@ type TProps = {
 
 const FooterComponent: FC<TProps> = ({ lng }) => {
   const navigator = useNavigatorContext();
-  const { theme } = useTheme();
   const router = useRouter();
   const pathname = usePathname();
-  const telegram = useTelegramContext();
-  const isSession = telegram?.isSession;
-  const user = telegram?.user;
+  const { isSession, user, theme } = useTelegram();
   const { t } = useTranslation("index");
   const isHydrated = useHydrated();
 

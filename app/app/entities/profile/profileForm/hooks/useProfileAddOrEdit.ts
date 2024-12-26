@@ -20,11 +20,10 @@ import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import {
   useAuthenticityTokenContext,
   useNavigatorContext,
-  useTelegramContext,
 } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { EGender, ESearchGender } from "@/app/shared/enums/form";
-import { useFiles, useFormErrors } from "@/app/shared/hooks";
+import { useFiles, useFormErrors, useTelegram } from "@/app/shared/hooks";
 import type { TUseTelegramResponse } from "@/app/shared/hooks/useTelegram";
 import type { TUseNavigatorResponse } from "@/app/shared/hooks/useNavigator";
 import { GENDER_MAPPING } from "@/app/shared/mapping/gender";
@@ -33,6 +32,7 @@ import type { TFile } from "@/app/shared/types/file";
 import { createPath } from "@/app/shared/utils";
 import type { TSelectOption } from "@/app/uikit/components/select";
 import { DEFAULT_AGE } from "@/app/uikit/constants";
+import { ETheme } from "@/app/uikit/enums";
 
 type TProps = {
   isEdit?: boolean;
@@ -76,6 +76,7 @@ type TUseProfileEditResponse = {
   searchGender: TSelectOption | undefined;
   state: TState;
   tg: TUseTelegramResponse | null;
+  theme: ETheme;
 };
 
 type TUseProfileAddOrEdit = (props: TProps) => TUseProfileEditResponse;
@@ -93,9 +94,8 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   const formErrors = useFormErrors({ errors: state.errors });
   const csrf = useAuthenticityTokenContext();
   const navigator = useNavigatorContext();
-  const telegram = useTelegramContext();
-  const user = telegram?.user;
-  const queryId = telegram?.queryId;
+  const telegram = useTelegram();
+  const { initDataCrypt, user, theme, queryId } = telegram;
   const language = lng as ELanguage;
   const location = isEdit
     ? (navigator?.location ?? profile?.location ?? undefined)
@@ -325,7 +325,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     );
     formDataDto.append(
       EProfileAddFormFields.TelegramInitDataCrypt,
-      telegram?.initDataCrypt ?? "",
+      initDataCrypt ?? "",
     );
     formDataDto.append(EProfileAddFormFields.Latitude, latitude);
     formDataDto.append(EProfileAddFormFields.Longitude, longitude);
@@ -373,5 +373,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     searchGender,
     state,
     tg: telegram,
+    theme,
   };
 };

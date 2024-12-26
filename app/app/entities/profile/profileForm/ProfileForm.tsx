@@ -27,7 +27,7 @@ import { Textarea } from "@/app/shared/components/form/textarea";
 import { SubmitButton } from "@/app/shared/components/form/submitButton";
 import { Section } from "@/app/shared/components/section";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useCheckPermissions, useTheme } from "@/app/shared/hooks";
+import { useCheckPermissions } from "@/app/shared/hooks";
 import { GENDER_MAPPING } from "@/app/shared/mapping/gender";
 import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
 import { createPath } from "@/app/shared/utils";
@@ -51,7 +51,6 @@ const ProfileFormComponent: FC<TProps> = ({
   profile,
 }) => {
   useCheckPermissions({ lng });
-  const { theme } = useTheme();
   const { t } = useTranslation("index");
   const {
     age,
@@ -76,6 +75,7 @@ const ProfileFormComponent: FC<TProps> = ({
     searchGender,
     state,
     tg,
+    theme,
   } = useProfileAddOrEdit({ isEdit, lng, profile });
   const schema = isEdit ? editProfileFormSchema : addProfileFormSchema;
 

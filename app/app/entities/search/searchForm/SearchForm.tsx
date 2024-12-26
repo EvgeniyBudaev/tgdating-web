@@ -23,12 +23,9 @@ import {
   DEFAULT_SEARCH_GENDER,
 } from "@/app/shared/constants";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
-import {
-  useAuthenticityTokenContext,
-  useTelegramContext,
-} from "@/app/shared/context";
+import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage } from "@/app/shared/enums";
-import { useQueryURL } from "@/app/shared/hooks";
+import { useQueryURL, useTelegram } from "@/app/shared/hooks";
 import {
   SEARCH_BAR_SEARCH_GENDER_MAPPING,
   SEARCH_GENDER_MAPPING,
@@ -48,9 +45,8 @@ type TProps = {
 };
 
 const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
-  console.log("profileShortInfo:", profileShortInfo);
   const csrf = useAuthenticityTokenContext();
-  const telegram = useTelegramContext();
+  const { initDataCrypt } = useTelegram();
   const { t } = useTranslation("index");
   const sidebarRef = useRef(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState({
@@ -137,7 +133,7 @@ const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
     );
     formDataDto.append(
       EFilterUpdateFormFields.TelegramInitDataCrypt,
-      telegram?.initDataCrypt ?? "",
+      initDataCrypt ?? "",
     );
     formDataDto.append(EFilterUpdateFormFields.Csrf, csrf ?? "");
     // @ts-ignore

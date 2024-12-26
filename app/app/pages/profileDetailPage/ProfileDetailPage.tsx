@@ -14,9 +14,8 @@ import { Delete } from "@/app/pages/profileDetailPage/delete/Delete";
 import { Freeze } from "@/app/pages/profileDetailPage/freeze";
 import { getDistance } from "@/app/pages/profileDetailPage/utils";
 import { Container } from "@/app/shared/components/container";
-import { useTelegramContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useCheckPermissions, useTheme } from "@/app/shared/hooks";
+import { useCheckPermissions, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { Accordion } from "@/app/uikit/components/accordion";
 import { DropDown } from "@/app/uikit/components/dropDown";
@@ -49,10 +48,7 @@ const ProfileDetailPageComponent: FC<TProps> = ({
   telegramUserId,
 }) => {
   useCheckPermissions({ lng });
-  const telegram = useTelegramContext();
-  const { theme } = useTheme();
-  const isSession = telegram?.isSession;
-  const user = telegram?.user;
+  const { isSession, user, theme } = useTelegram();
   const { t } = useTranslation("index");
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

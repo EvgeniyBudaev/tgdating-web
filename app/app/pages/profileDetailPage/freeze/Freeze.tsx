@@ -5,11 +5,9 @@ import { useTranslation } from "@/app/i18n/client";
 import { freezeProfileAction } from "@/app/actions/profile/freezeProfile/freezeProfileAction";
 import { EProfileFreezeFormFields } from "@/app/actions/profile/freezeProfile/enums";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
-import {
-  useAuthenticityTokenContext,
-  useTelegramContext,
-} from "@/app/shared/context";
+import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
+import { useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { Button } from "@/app/uikit/components/button";
 import { Modal, useModalWindow } from "@/app/uikit/components/modal";
@@ -25,8 +23,7 @@ const FreezeComponent: FC<TProps> = ({ lng, telegramUserId }) => {
   const csrf = useAuthenticityTokenContext();
   const { closeModal, isOpenModal, openModal } = useModalWindow();
   const { t } = useTranslation("index");
-  const telegram = useTelegramContext();
-  const isSession = telegram?.isSession;
+  const { initDataCrypt, isSession } = useTelegram();
   const [state, formAction] = useActionState(
     freezeProfileAction,
     INITIAL_FORM_STATE,
@@ -56,7 +53,7 @@ const FreezeComponent: FC<TProps> = ({ lng, telegramUserId }) => {
       );
       formDataDto.append(
         EProfileFreezeFormFields.TelegramInitDataCrypt,
-        telegram?.initDataCrypt ?? "",
+        initDataCrypt ?? "",
       );
       formDataDto.append(EProfileFreezeFormFields.Csrf, csrf ?? "");
       // @ts-ignore

@@ -7,12 +7,10 @@ import { addComplaintAction } from "@/app/actions/complaint/addComplaint/addComp
 import { useTranslation } from "@/app/i18n/client";
 import { EComplaintFormFields } from "@/app/actions/complaint/addComplaint/enums";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
-import {
-  useAuthenticityTokenContext,
-  useTelegramContext,
-} from "@/app/shared/context";
+import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { EComplaint } from "@/app/shared/enums/form";
+import { useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { Button } from "@/app/uikit/components/button";
 import { Modal, useModalWindow } from "@/app/uikit/components/modal";
@@ -27,9 +25,7 @@ type TProps = {
 const ComplaintComponent: FC<TProps> = ({ criminalTelegramUserId, lng }) => {
   const csrf = useAuthenticityTokenContext();
   const { closeModal, isOpenModal, openModal } = useModalWindow();
-  const telegram = useTelegramContext();
-  const user = telegram?.user;
-  const isSession = telegram?.isSession;
+  const { initDataCrypt, isSession, user, theme } = useTelegram();
   const { t } = useTranslation("index");
   const [state, formAction] = useActionState(
     addComplaintAction,
@@ -56,7 +52,7 @@ const ComplaintComponent: FC<TProps> = ({ criminalTelegramUserId, lng }) => {
       const formDataDto = new FormData();
       formDataDto.append(
         EComplaintFormFields.TelegramUserId,
-        (telegram?.user?.id ?? "").toString(),
+        (user?.id ?? "").toString(),
       );
       formDataDto.append(
         EComplaintFormFields.CriminalTelegramUserId,
@@ -65,7 +61,7 @@ const ComplaintComponent: FC<TProps> = ({ criminalTelegramUserId, lng }) => {
       formDataDto.append(EComplaintFormFields.Reason, EComplaint.Other);
       formDataDto.append(
         EComplaintFormFields.TelegramInitDataCrypt,
-        telegram?.initDataCrypt ?? "",
+        initDataCrypt ?? "",
       );
       formDataDto.append(EComplaintFormFields.Csrf, csrf ?? "");
       // @ts-ignore

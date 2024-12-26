@@ -7,10 +7,8 @@ import type { TImage } from "@/app/api/image";
 import { deleteImageAction } from "@/app/actions/image/deleteImage/deleteImageAction";
 import { useTranslation } from "@/app/i18n/client";
 import { EImageDeleteFormFields } from "@/app/actions/image/deleteImage/enums";
-import {
-  useAuthenticityTokenContext,
-  useTelegramContext,
-} from "@/app/shared/context";
+import { useAuthenticityTokenContext } from "@/app/shared/context";
+import { useTelegram } from "@/app/shared/hooks";
 import { DropDown } from "@/app/uikit/components/dropDown";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums";
@@ -24,7 +22,7 @@ type TProps = {
 const ImageListComponent: FC<TProps> = ({ defaultImages, lng, theme }) => {
   const csrf = useAuthenticityTokenContext();
   const { t } = useTranslation("index");
-  const telegram = useTelegramContext();
+  const { initDataCrypt } = useTelegram();
   const params = useParams();
   const telegramUserId = (params?.telegramUserId ?? "") as string;
 
@@ -34,7 +32,7 @@ const ImageListComponent: FC<TProps> = ({ defaultImages, lng, theme }) => {
     formDataDto.append(EImageDeleteFormFields.TelegramUserId, telegramUserId);
     formDataDto.append(
       EImageDeleteFormFields.TelegramInitDataCrypt,
-      telegram?.initDataCrypt ?? "",
+      initDataCrypt ?? "",
     );
     formDataDto.append(EImageDeleteFormFields.Csrf, csrf ?? "");
     // @ts-ignore
