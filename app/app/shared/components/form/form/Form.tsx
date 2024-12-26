@@ -57,7 +57,9 @@ const FormComponent = <T extends FieldValues>({
         className={className}
         data-testid={dataTestId}
         id={resultFormId}
-        method={method}
+        // https://raddy.dev/blog/build-your-own-retro-gaming-website-next-js-14-prisma/
+        // #Bug 1 encType Error
+        // method={method}
         noValidate={noValidate}
         onChange={onChange && form.methods.handleSubmit(handleChange)}
         onSubmit={

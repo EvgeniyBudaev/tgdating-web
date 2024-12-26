@@ -2,8 +2,7 @@
 
 import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
-import { type FC, memo, useEffect } from "react";
-import { useFormState } from "react-dom";
+import { type FC, memo, useActionState, useEffect } from "react";
 import { addBlockAction } from "@/app/actions/block/addBlock/addBlockAction";
 import { useTranslation } from "@/app/i18n/client";
 import { EBlockFormFields } from "@/app/actions/block/addBlock/enums";
@@ -30,7 +29,10 @@ const BlockComponent: FC<TProps> = ({ blockedTelegramUserId, lng }) => {
   const telegram = useTelegramContext();
   const isSession = telegram?.isSession;
   const { t } = useTranslation("index");
-  const [state, formAction] = useFormState(addBlockAction, INITIAL_FORM_STATE);
+  const [state, formAction] = useActionState(
+    addBlockAction,
+    INITIAL_FORM_STATE,
+  );
 
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {

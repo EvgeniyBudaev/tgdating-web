@@ -1,6 +1,12 @@
 import isNil from "lodash/isNil";
-import { type FC, memo, useMemo, useRef, useState } from "react";
-import { useFormState } from "react-dom";
+import {
+  type FC,
+  memo,
+  useActionState,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { addLikeAction } from "@/app/actions/like/addLike/addLikeAction";
 import { EAddLikeFormFields } from "@/app/actions/like/addLike/enum";
 import { EUpdateLikeFormFields } from "@/app/actions/like/updateLike/enum";
@@ -61,9 +67,9 @@ const LikeComponent: FC<TProps> = ({ lng, profile, telegramUserId }) => {
     return canCancelLike || lastClickDate !== today;
   }, [canCancelLike, dayjs, profile?.like?.updatedAt]);
 
-  const [_, formAction] = useFormState(
+  const [_, formAction] = useActionState(
     // @ts-ignore
-  canAddLike ? addLikeAction : updateLikeAction,
+    canAddLike ? addLikeAction : updateLikeAction,
     INITIAL_FORM_STATE,
   );
 

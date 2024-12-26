@@ -2,8 +2,7 @@
 
 import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
-import { type FC, memo, useEffect } from "react";
-import { useFormState } from "react-dom";
+import { type FC, memo, useActionState, useEffect } from "react";
 import { EProfileRestoreFormFields } from "@/app/actions/profile/restoreProfile/enums";
 import { restoreProfileAction } from "@/app/actions/profile/restoreProfile/restoreProfileAction";
 import { useTranslation } from "@/app/i18n/client";
@@ -36,7 +35,7 @@ const ProfileFreezePageComponent: FC<TProps> = ({
   const isSessionUser = Boolean(
     telegramUserId && telegram?.user?.id.toString() === telegramUserId,
   );
-  const [state, formAction] = useFormState(
+  const [state, formAction] = useActionState(
     restoreProfileAction,
     INITIAL_FORM_STATE,
   );

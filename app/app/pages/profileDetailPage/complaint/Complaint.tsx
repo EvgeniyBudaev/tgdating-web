@@ -2,8 +2,7 @@
 
 import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
-import { type FC, memo, useEffect } from "react";
-import { useFormState } from "react-dom";
+import { type FC, memo, useActionState, useEffect } from "react";
 import { addComplaintAction } from "@/app/actions/complaint/addComplaint/addComplaintAction";
 import { useTranslation } from "@/app/i18n/client";
 import { EComplaintFormFields } from "@/app/actions/complaint/addComplaint/enums";
@@ -31,7 +30,7 @@ const ComplaintComponent: FC<TProps> = ({ criminalTelegramUserId, lng }) => {
   const telegram = useTelegramContext();
   const isSession = telegram?.isSession;
   const { t } = useTranslation("index");
-  const [state, formAction] = useFormState(
+  const [state, formAction] = useActionState(
     addComplaintAction,
     INITIAL_FORM_STATE,
   );

@@ -2,8 +2,15 @@
 
 import clsx from "clsx";
 import isNil from "lodash/isNil";
-import { type FC, memo, useEffect, useMemo, useRef, useState } from "react";
-import { useFormState } from "react-dom";
+import {
+  type FC,
+  memo,
+  useActionState,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { updateFilterAction } from "@/app/actions/filter/updateFilter/updateFilterAction";
 import { EFilterUpdateFormFields } from "@/app/actions/filter/updateFilter/enums";
 import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/types";
@@ -58,7 +65,7 @@ const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
     defaultAgeRangeFrom,
     defaultAgeRangeTo,
   ]);
-  const [state, formAction] = useFormState(
+  const [state, formAction] = useActionState(
     updateFilterAction,
     INITIAL_FORM_STATE,
   );

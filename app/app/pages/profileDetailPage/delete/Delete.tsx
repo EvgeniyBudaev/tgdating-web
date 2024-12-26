@@ -1,7 +1,6 @@
 import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
-import { type FC, memo, useEffect } from "react";
-import { useFormState } from "react-dom";
+import { type FC, memo, useActionState, useEffect } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { deleteProfileAction } from "@/app/actions/profile/deleteProfile/deleteProfileAction";
 import { EProfileDeleteFormFields } from "@/app/actions/profile/deleteProfile/enums";
@@ -28,7 +27,7 @@ const DeleteComponent: FC<TProps> = ({ lng, telegramUserId }) => {
   const { t } = useTranslation("index");
   const telegram = useTelegramContext();
   const isSession = telegram?.isSession;
-  const [state, formAction] = useFormState(
+  const [state, formAction] = useActionState(
     deleteProfileAction,
     INITIAL_FORM_STATE,
   );

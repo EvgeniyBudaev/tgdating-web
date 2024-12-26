@@ -1,8 +1,7 @@
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
-import { useEffect, useState } from "react";
-import { useFormState } from "react-dom";
+import { useEffect, useState, useActionState } from "react";
 import { addProfileAction } from "@/app/actions/profile/addProfile/addProfileAction";
 import { editProfileAction } from "@/app/actions/profile/editProfile/editProfileAction";
 import type { TProfile } from "@/app/api/profile/getProfile/types";
@@ -86,7 +85,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   lng,
   profile,
 }) => {
-  const [state, formAction] = useFormState(
+  const [state, formAction] = useActionState(
     // @ts-ignore
     isEdit ? editProfileAction : addProfileAction,
     INITIAL_FORM_STATE,
