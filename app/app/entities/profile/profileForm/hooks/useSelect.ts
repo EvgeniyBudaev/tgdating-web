@@ -1,3 +1,5 @@
+"use client";
+
 import isNil from "lodash/isNil";
 import { useEffect, useState } from "react";
 import type { SingleValue } from "react-select";
@@ -33,7 +35,8 @@ export const useSelect: TUseSelect = (props) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [selectedOption, setSelectedOption] = useState<
-    SingleValue<TSelectNativeOption>>(defaultSelectedOption);
+    SingleValue<TSelectNativeOption>
+  >(defaultSelectedOption);
 
   const handleChange: TSelectNativeOnChange = (selectedOption) => {
     if (isNil(selectedOption)) return undefined;

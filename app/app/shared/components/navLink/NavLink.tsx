@@ -2,24 +2,22 @@
 
 import clsx from "clsx";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { memo } from "react";
 import type { FC, PropsWithChildren } from "react";
 
 type TProps = {
   activeClassName?: string;
   className?: string;
   href: string;
+  pathname: string;
 } & PropsWithChildren;
 
-const NavLinkComponent: FC<TProps> = ({
+export const NavLink: FC<TProps> = ({
   activeClassName = "isActive",
+  children,
   className,
   href,
-  children,
+  pathname,
 }) => {
-  const pathname = usePathname();
-
   const removeQueryParams = (url: string): string => {
     const match = url.match(/^(.+?)\?/);
     return match ? match[1] : url;
@@ -39,7 +37,3 @@ const NavLinkComponent: FC<TProps> = ({
     </Link>
   );
 };
-
-NavLinkComponent.displayName = "NavLink";
-
-export const NavLink = memo(NavLinkComponent);

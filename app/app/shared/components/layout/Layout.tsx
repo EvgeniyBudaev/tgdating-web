@@ -24,7 +24,7 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const navigator = useNavigator({ lng });
-  const { user, theme } = useTelegram();
+  const { isSession, user, theme } = useTelegram();
   const telegramLanguageCode = user?.language_code;
 
   useEffect(() => {
@@ -60,7 +60,9 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
       <NavigatorProvider value={navigator}>
         <div className="Layout">
           <div className="Layout-Content">{children}</div>
-          {isFooter && <Footer lng={lng} />}
+          {isFooter && (
+            <Footer isSession={isSession} lng={lng} theme={theme} user={user} />
+          )}
         </div>
       </NavigatorProvider>
     </AuthenticityTokenProvider>

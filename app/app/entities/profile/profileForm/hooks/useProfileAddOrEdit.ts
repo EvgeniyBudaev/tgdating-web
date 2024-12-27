@@ -1,3 +1,5 @@
+"use client";
+
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
