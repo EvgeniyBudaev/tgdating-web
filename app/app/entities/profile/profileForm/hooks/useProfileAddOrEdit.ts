@@ -34,7 +34,7 @@ import type { TFile } from "@/app/shared/types/file";
 import { createPath } from "@/app/shared/utils";
 import type { TSelectOption } from "@/app/uikit/components/select";
 import { DEFAULT_AGE } from "@/app/uikit/constants";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 
 type TProps = {
   isEdit?: boolean;
@@ -49,6 +49,7 @@ type TUseProfileEditResponse = {
   files: TFile[] | null;
   formErrors: Record<string, string[]> | undefined;
   gender: TSelectOption | undefined;
+  isEdit: boolean;
   isLeftHand: boolean;
   isSidebarOpen: { isAge: boolean; isGender: boolean; isSearchGender: boolean };
   setIsSidebarOpen: (
@@ -84,7 +85,7 @@ type TUseProfileEditResponse = {
 type TUseProfileAddOrEdit = (props: TProps) => TUseProfileEditResponse;
 
 export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
-  isEdit,
+  isEdit = false,
   lng,
   profile,
 }) => {
@@ -269,13 +270,14 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   const handleSubmit = (formData: FormData) => {
     const formDataDto = new FormData();
     const displayName = formData.get(EProfileAddFormFields.DisplayName);
+    console.log("displayName: ", displayName);
     const description = formData.get(
       EProfileAddFormFields.Description,
     ) as string;
     const location = formData.get(EProfileAddFormFields.Location);
     formDataDto.append(
       EProfileAddFormFields.DisplayName,
-      (displayName ?? "").toString(),
+      (displayName ?? "").toString().trim(),
     );
     formDataDto.append(
       EProfileAddFormFields.Description,
@@ -358,6 +360,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     files,
     formErrors,
     gender,
+    isEdit,
     isLeftHand,
     isSidebarOpen,
     setIsSidebarOpen,

@@ -4,7 +4,7 @@ import type { FC, PropsWithChildren } from "react";
 import { CSSTransition } from "react-transition-group";
 import { Icon } from "@/app/uikit/components/icon";
 import { TRANSITION } from "@/app/uikit/constants";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 import "./Accordion.scss";
 
 type TProps = {

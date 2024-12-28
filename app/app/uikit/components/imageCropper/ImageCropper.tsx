@@ -27,7 +27,7 @@ import {
   setCanvasPreview,
 } from "@/app/uikit/components/imageCropper/utils";
 import { Typography } from "@/app/uikit/components/typography";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 import "./ImageCropper.scss";
 
 type TProps = {

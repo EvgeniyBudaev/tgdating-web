@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { type FC, memo } from "react";
 import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 import "./SearchBar.scss";
 
 type TProps = {

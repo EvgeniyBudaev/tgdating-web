@@ -3,7 +3,7 @@ import { type FC, memo } from "react";
 import { Error } from "@/app/uikit/components/error";
 import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 import "./CheckboxCustom.scss";
 
 type TProps = {

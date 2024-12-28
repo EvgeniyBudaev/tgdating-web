@@ -26,7 +26,7 @@ const MainPageComponent: FC<TProps> = ({ lng }) => {
     }
   }, [lng, user?.id]);
 
-  return <></>;
+  return <span></span>;
 };
 
 MainPageComponent.displayName = "MainPage";

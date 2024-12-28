@@ -6,7 +6,7 @@ import {
   Select as SelectUi,
   TSelectOption,
 } from "@/app/uikit/components/select";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 
 type TProps = {
   defaultValue?: string | number;

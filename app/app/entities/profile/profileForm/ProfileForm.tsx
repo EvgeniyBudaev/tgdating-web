@@ -33,7 +33,7 @@ import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
 import { createPath } from "@/app/shared/utils";
 import { Info } from "@/app/shared/components/info";
 import { Gradient } from "@/app/uikit/components/gradient";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 import { notification } from "@/app/uikit/utils";
 import "./ProfileForm.scss";
 

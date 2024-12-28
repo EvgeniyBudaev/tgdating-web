@@ -1,6 +1,7 @@
 import { useCheckPermissions } from "@/app/shared/hooks/useCheckPermissions";
 import { useFieldError } from "@/app/shared/hooks/useFieldError";
 import { useFiles } from "@/app/shared/hooks/useFiles";
+import { useForm } from "@/app/shared/hooks/useForm";
 import { useFormErrors } from "@/app/shared/hooks/useFormErrors";
 import { useLanguage } from "@/app/shared/hooks/useLanguage";
 import { useMounted } from "@/app/shared/hooks/useMounted";
@@ -15,6 +16,7 @@ export {
   useCheckPermissions,
   useFieldError,
   useFiles,
+  useForm,
   useFormErrors,
   useLanguage,
   useMounted,

@@ -5,7 +5,7 @@ import { useState, useEffect, type FC, type ReactNode } from "react";
 import { default as ReactModal } from "react-responsive-modal";
 import { Icon } from "@/app/uikit/components/icon";
 import "react-responsive-modal/styles.css";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 import "./Modal.scss";
 
 type IModalSize = "medium";

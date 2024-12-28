@@ -3,7 +3,7 @@ import { memo } from "react";
 import type { ChangeEvent, FC, ReactNode } from "react";
 import { Error } from "@/app/uikit/components/error";
 import { Icon } from "@/app/uikit/components/icon";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 import "./Checkbox.scss";
 
 export type TCheckboxProps = {

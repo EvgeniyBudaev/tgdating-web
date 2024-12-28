@@ -14,7 +14,7 @@ import { Dropzone } from "@/app/uikit/components/dropzone";
 import type { TDropzoneProps } from "@/app/uikit/components/dropzone/Dropzone";
 import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 import "./Previews.scss";
 
 type TProps = {

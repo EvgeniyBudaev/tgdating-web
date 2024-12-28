@@ -21,7 +21,7 @@ import { Gradient } from "@/app/uikit/components/gradient";
 import { Heart } from "@/app/uikit/components/heart";
 import { Online } from "@/app/uikit/components/online";
 import { Typography } from "@/app/uikit/components/typography";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 import { notification } from "@/app/uikit/utils";
 import "./SessionPage.scss";
 

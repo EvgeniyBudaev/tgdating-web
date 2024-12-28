@@ -11,7 +11,7 @@ import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { useTelegram } from "@/app/shared/hooks";
 import { DropDown } from "@/app/uikit/components/dropDown";
 import { Typography } from "@/app/uikit/components/typography";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 
 type TProps = {
   defaultImages: TImage[];

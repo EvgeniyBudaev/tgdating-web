@@ -3,7 +3,7 @@
 .Footer {
   $this: &;
   position: fixed;
-  bottom: 16px;
+  bottom: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,6 +35,13 @@
     color: $bg_color;
     background-color: $text_color;
 
+    &:hover {
+      color: $link_color;
+      & svg {
+        fill: $link_color;
+      }
+    }
+
     &__isActive {
       color: $link_color;
       cursor: default;
@@ -42,17 +49,6 @@
         0 0 20px $link_color,
         0 0 0 $link_color,
         0 0 0 $link_color;
-
-      & svg {
-        fill: $link_color;
-      }
-    }
-
-    &:hover,
-    &:active {
-      color: $link_color;
-      fill: $link_color;
-
       & svg {
         fill: $link_color;
       }
@@ -67,6 +63,17 @@
     #{$this}-Item {
       color: $text_color;
       background-color: rgba(31, 41, 65, 1);
+
+      &:hover {
+        color: $link_color;
+        & svg {
+          fill: $link_color;
+        }
+      }
+
+      &__isActive {
+        color: $link_color;
+      }
     }
   }
 }

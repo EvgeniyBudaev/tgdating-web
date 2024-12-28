@@ -8,7 +8,7 @@ import type { TDropDownClasses } from "@/app/uikit/components/dropDown/types";
 import { Overlay } from "@/app/uikit/components/overlay";
 import { TRANSITION } from "@/app/uikit/constants";
 import { DropDownProvider } from "@/app/uikit/context";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 import { useDropDown, useDropDownContext } from "@/app/uikit/hooks";
 import "./DropDown.scss";
 

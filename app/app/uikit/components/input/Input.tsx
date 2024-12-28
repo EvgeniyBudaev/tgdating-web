@@ -13,7 +13,7 @@ import {
   ETypographyVariant,
   Typography,
 } from "@/app/uikit/components/typography";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 import "./Input.scss";
 
 export interface IInputProps
@@ -69,6 +69,7 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
     }: IInputProps,
     ref: ForwardedRef<HTMLInputElement>,
   ): JSX.Element => {
+    const [inputValue, setInputValue] = useState(defaultValue || value || "");
     const [currentLength, setCurrentLength] = useState(
       (defaultValue ?? value ?? "").toString().length ?? 0,
     );
@@ -80,6 +81,7 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
       if (defaultValue) {
         setCurrentLength((defaultValue ?? "").toString().length ?? 0);
         setIsFocused(isInputFocused || !!defaultValue);
+        setInputValue(defaultValue);
       }
     }, [defaultValue, isInputFocused]);
 
@@ -102,6 +104,7 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
       const value = event.target.value;
       setCurrentLength(value.length);
+      setInputValue(value);
       onChange?.(event);
     };
 
@@ -147,7 +150,7 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
             readOnly={isReadOnly}
             ref={ref}
             type={type}
-            value={value}
+            value={inputValue}
           />
         </Typography>
 

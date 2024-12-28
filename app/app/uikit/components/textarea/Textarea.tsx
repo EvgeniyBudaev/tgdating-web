@@ -11,7 +11,7 @@ import type {
 } from "react";
 import { Error } from "@/app/uikit/components/error";
 import { Typography } from "@/app/uikit/components/typography";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 import "../input/Input.scss";
 
 type TClasses = {

@@ -5,7 +5,7 @@ import { memo } from "react";
 import type { FC, ReactNode } from "react";
 import { useDropzone } from "react-dropzone";
 import type { DropzoneOptions } from "react-dropzone";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 import "./Dropzone.scss";
 
 export type TDropzoneProps = {

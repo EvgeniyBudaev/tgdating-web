@@ -11,7 +11,7 @@ import type { TTelegramUser } from "@/app/shared/hooks/useTelegram";
 import { createPath } from "@/app/shared/utils";
 import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 import "./Footer.scss";
 
 type TProps = {

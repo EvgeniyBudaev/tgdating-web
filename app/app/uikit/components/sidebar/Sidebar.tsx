@@ -5,7 +5,7 @@ import { forwardRef, memo } from "react";
 import type { MouseEvent, ForwardedRef, ReactNode } from "react";
 import { CSSTransition } from "react-transition-group";
 import { TRANSITION } from "@/app/uikit/constants";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 import "./Sidebar.scss";
 
 type TProps = {

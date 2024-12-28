@@ -9,7 +9,7 @@ import {
   ETypographyVariant,
   Typography,
 } from "@/app/uikit/components/typography";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 import "./Select.scss";
 
 type TClasses = {

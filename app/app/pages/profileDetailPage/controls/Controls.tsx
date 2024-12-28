@@ -27,7 +27,6 @@ const ControlsComponent: FC<TProps> = ({ lng, profile, telegramUserId }) => {
     },
     params,
   );
-  console.log("isLeftHand", profile?.status?.isLeftHand);
 
   return (
     <div

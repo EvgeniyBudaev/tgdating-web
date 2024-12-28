@@ -10,7 +10,7 @@ import { useFieldError } from "@/app/shared/hooks";
 import type { TFile } from "@/app/shared/types/file";
 import type { TDropzoneProps } from "@/app/uikit/components/dropzone/Dropzone";
 import { Error } from "@/app/uikit/components/error";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 
 type TProps = {
   defaultImages?: TImage[];

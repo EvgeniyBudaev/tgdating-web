@@ -6,7 +6,7 @@ import { useTranslation } from "@/app/i18n/client";
 import { Icon } from "@/app/uikit/components/icon";
 import type { TSelectOption } from "@/app/uikit/components/select";
 import { Typography } from "@/app/uikit/components/typography";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 import "./SidebarContent.scss";
 
 type TClasses = {

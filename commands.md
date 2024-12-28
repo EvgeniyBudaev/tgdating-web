@@ -138,6 +138,9 @@ sudo apt-get install python3-certbot-nginx
 
 Обновление сертификата
 
+1. Вариант с DNS
+   https://www.youtube.com/watch?v=VJPfdXN-dSc&list=LL&index=13
+
 ```
 sudo apt update
 sudo apt upgrade -y
@@ -159,6 +162,34 @@ sudo kill PID_number
 certbot certonly --manual -d telegram-dating.com -d \*.telegram-dating.com -v
 Нажимаем в терминале Continue
 
+2. Вариант с HTTP-01
+
+Сделать скриншоты конфига nginx
+
+```
+sudo apt update
+sudo apt upgrade -y
+sudo certbot --nginx
+sudo systemctl reload nginx
+```
+
+Бесплатный сертификат нужно обновлять минимум раз в три месяца. Certbot делает это по умолчанию,
+если вы не меняли стандартных настроек. Убедиться, что всё обновляется, можно с помощью команды:
+
+```
+sudo certbot renew --dry-run
+```
+
+Проверить конфигурацию nginx, могла измениться. Если изменилась, то вернуть предыдущие настройки
+
+Если по каким-то причинам автообновление не происходит, то можно выполнить следующую команду:
+
+```
+sudo certbot renew --pre-hook "service nginx stop" --post-hook "service nginx start"
+```
+
+Эта команда обновит сертификат и перезапустит nginx.
+
 Все сертификаты
 
 ```
@@ -168,5 +199,5 @@ sudo certbot certificates
 Удалить сертификат
 
 ```
-sudo cerbot delete
+sudo certbot delete
 ```

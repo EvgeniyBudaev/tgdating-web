@@ -24,7 +24,7 @@ import { type TDropzoneProps } from "@/app/uikit/components/dropzone/Dropzone";
 import { ImageCropper } from "@/app/uikit/components/imageCropper";
 import { Modal, useModalWindow } from "@/app/uikit/components/modal";
 import { Typography } from "@/app/uikit/components/typography";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 import "./FileUploader.scss";
 
 export type TFileUploaderProps = {

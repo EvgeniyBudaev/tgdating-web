@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import isNil from "lodash/isNil";
 import { type FC, memo } from "react";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 import "./Distance.scss";
 
 type TProps = {

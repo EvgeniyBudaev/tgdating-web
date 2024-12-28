@@ -2,7 +2,7 @@ import { type FC, memo, useCallback, useEffect } from "react";
 import { useController, useFormContext } from "react-hook-form";
 import { useFieldError } from "@/app/shared/hooks";
 import { CheckboxCustom as CheckboxUi } from "@/app/uikit/components/checkboxCustom";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 
 type TProps = {
   checked?: boolean;

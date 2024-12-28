@@ -5,11 +5,12 @@ import {
   memo,
   useCallback,
   useEffect,
+  useState,
 } from "react";
 import { useController, useFormContext } from "react-hook-form";
 import { useFieldError } from "@/app/shared/hooks";
 import { Input as InputUi } from "@/app/uikit/components/input";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 
 type TProps = {
   defaultValue?: string | number;
@@ -59,13 +60,9 @@ const InputComponent: FC<TProps> = ({
     [isNumeric],
   );
 
-  useEffect(() => {
-    field.onChange(defaultValue);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [defaultValue]);
-
   return (
     <InputUi
+      defaultValue={defaultValue}
       errors={fieldErrors}
       isReadOnly={isReadOnly}
       label={label}

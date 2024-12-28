@@ -8,7 +8,7 @@ import {
 import { useController, useFormContext } from "react-hook-form";
 import { useFieldError } from "@/app/shared/hooks";
 import { Textarea as TextareaUi } from "@/app/uikit/components/textarea";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 
 type TProps = {
   defaultValue?: string | number;

@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import { type FC, memo } from "react";
 import { Icon } from "@/app/uikit/components/icon";
-import { ETheme } from "@/app/uikit/enums";
+import { ETheme } from "@/app/uikit/enums/theme";
 import "./Hamburger.scss";
 
 type TProps = {
