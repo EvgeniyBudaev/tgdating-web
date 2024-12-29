@@ -9,8 +9,6 @@ import { Layout as LayoutComponent } from "@/app/shared/components/layout";
 import { COOKIE_CSRF_NAME } from "@/app/shared/constants";
 import { ELanguage } from "@/app/shared/enums";
 import { ClientOnly } from "@/app/uikit/components/clientOnly";
-import { ToastContainer } from "@/app/uikit/components/toast/toastContainer";
-import "react-toastify/dist/ReactToastify.css";
 import "@/app/styles/_index.scss";
 
 export const metadata: Metadata = {
@@ -48,7 +46,7 @@ export default async function RootLayout({
           <I18nContextProvider lng={lng}>
             <ClientOnly>
               <InitClient />
-              <ToastContainer />
+
               <LayoutComponent lng={lng} csrfToken={csrfToken}>
                 {children}
               </LayoutComponent>

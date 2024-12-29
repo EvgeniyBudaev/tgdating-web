@@ -1,3 +1,4 @@
+import {useCheckLike} from "@/app/shared/hooks/useCheckLike";
 import { useCheckPermissions } from "@/app/shared/hooks/useCheckPermissions";
 import { useFieldError } from "@/app/shared/hooks/useFieldError";
 import { useFiles } from "@/app/shared/hooks/useFiles";
@@ -13,6 +14,7 @@ import { useTranslatedData } from "@/app/shared/hooks/useTranslatedData";
 import { useQueryURL } from "@/app/shared/hooks/useQueryURL";
 
 export {
+  useCheckLike,
   useCheckPermissions,
   useFieldError,
   useFiles,

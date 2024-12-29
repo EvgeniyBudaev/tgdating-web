@@ -270,7 +270,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   const handleSubmit = (formData: FormData) => {
     const formDataDto = new FormData();
     const displayName = formData.get(EProfileAddFormFields.DisplayName);
-    console.log("displayName: ", displayName);
     const description = formData.get(
       EProfileAddFormFields.Description,
     ) as string;

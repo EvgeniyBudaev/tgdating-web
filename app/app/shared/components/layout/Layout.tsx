@@ -8,10 +8,12 @@ import {
   NavigatorProvider,
 } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useNavigator, useTelegram } from "@/app/shared/hooks";
+import { useCheckLike, useNavigator, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./Layout.scss";
+import { ToastContainer } from "@/app/uikit/components/toast/toastContainer";
+import "react-toastify/dist/ReactToastify.css";
 
 type TProps = {
   children?: ReactNode;
@@ -26,6 +28,7 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   const navigator = useNavigator({ lng });
   const { isSession, user, theme } = useTelegram();
   const telegramLanguageCode = user?.language_code;
+  useCheckLike({ telegramUserId: (user?.id ?? "").toString() });
 
   useEffect(() => {
     if (telegramLanguageCode && telegramLanguageCode !== lng) {
@@ -58,6 +61,7 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   return (
     <AuthenticityTokenProvider value={csrfToken}>
       <NavigatorProvider value={navigator}>
+        <ToastContainer />
         <div className="Layout">
           <div className="Layout-Content">{children}</div>
           {isFooter && (

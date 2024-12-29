@@ -162,7 +162,8 @@
       "hidden": "hidden from users",
       "properties": "Properties",
       "autocomplete": "auto detection",
-      "noChanged": "can't be changed"
+      "noChanged": "can't be changed",
+      "canHidden": "it will be possible to hide"
     },
     "form": {
       "field": {
@@ -187,7 +188,8 @@
           "placeholder": "Select date"
         },
         "location": "Location",
-        "selectAge": "Select your age"
+        "selectAge": "Select your age",
+        "isLeftHand": "Adapt to left hand"
       }
     },
     "title": {

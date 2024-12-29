@@ -47,7 +47,6 @@ export const useTelegram: TUseTelegram = () => {
   };
 
   const tgMock = mockData1;
-
   // For test without telegram auth
   useEffect(() => {
     const params = tgMock.initData;

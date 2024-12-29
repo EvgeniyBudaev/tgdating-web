@@ -6,7 +6,6 @@
       "publicPhotos": "Public photos",
       "required": "required to fill",
       "changeable": "can be changed",
-      "canHidden": "it will be possible to hide",
       "filtersGeneral": "General filters",
       "age": "Age",
       "blockQuestion": "Block account?",
@@ -17,6 +16,7 @@
       "accountFrozen": "Account frozen",
       "accountDeleted": "Account deleted",
       "isEmptyList": "No people found. Try changing your search settings.",
+      "isNewLike": "There is sympathy! View in bot chat",
       "geoPositionExist": "Geoposition determined"
     },
     "form": {
@@ -26,7 +26,6 @@
         "description": "Description",
         "gender": "Gender",
         "searchGender": "Interest",
-        "isLeftHand": "Adapt to left hand",
         "language": "interface language"
       }
     },
