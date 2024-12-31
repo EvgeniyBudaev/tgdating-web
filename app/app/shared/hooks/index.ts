@@ -1,4 +1,4 @@
-import {useCheckLike} from "@/app/shared/hooks/useCheckLike";
+import { useCheckLike } from "@/app/shared/hooks/useCheckLike";
 import { useCheckPermissions } from "@/app/shared/hooks/useCheckPermissions";
 import { useFieldError } from "@/app/shared/hooks/useFieldError";
 import { useFiles } from "@/app/shared/hooks/useFiles";
@@ -9,6 +9,7 @@ import { useMounted } from "@/app/shared/hooks/useMounted";
 import { useNavigator } from "@/app/shared/hooks/useNavigator";
 import { useInitDayjs } from "@/app/shared/hooks/useInitDayjs";
 import { useProxyUrl } from "@/app/shared/hooks/useProxyUrl";
+import { useScroll } from "@/app/shared/hooks/useScroll";
 import { useTelegram } from "@/app/shared/hooks/useTelegram";
 import { useTranslatedData } from "@/app/shared/hooks/useTranslatedData";
 import { useQueryURL } from "@/app/shared/hooks/useQueryURL";
@@ -25,6 +26,7 @@ export {
   useNavigator,
   useInitDayjs,
   useProxyUrl,
+  useScroll,
   useTelegram,
   useTranslatedData,
   useQueryURL,

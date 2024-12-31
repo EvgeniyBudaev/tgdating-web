@@ -1,4 +1,4 @@
-import {getProfileDetail} from "@/app/api/profile/getProfileDetail/domain";
+import { getProfileDetail } from "@/app/api/profile/getProfileDetail/domain";
 import { ProfileBlocked } from "@/app/entities/profile/profileBlocked";
 import { ProfileFreezePage } from "@/app/pages/profileFreezePage";
 import { ELanguage } from "@/app/shared/enums";
@@ -9,7 +9,7 @@ type TLoader = {
   telegramUserId: string;
 };
 
-async function loaderProfileDeleted(params: TLoader) {
+async function loaderProfileFrozen(params: TLoader) {
   const { telegramUserId } = params;
   try {
     const profileDetailResponse = await getProfileDetail({
@@ -31,14 +31,14 @@ type TParams = Promise<{
   telegramUserId: string;
 }>;
 
-export default async function ProfileDeletedRoute({
+export default async function ProfileFrozenRoute({
   params,
 }: {
   params: TParams;
 }) {
   const { lng, telegramUserId } = await params;
   const language = lng as ELanguage;
-  const data = await loaderProfileDeleted({ telegramUserId });
+  const data = await loaderProfileFrozen({ telegramUserId });
 
   if (data?.profile?.status?.isBlocked) {
     return <ProfileBlocked />;

@@ -62,6 +62,7 @@ const SessionPageComponent: FC<TProps> = ({
       return redirect(
         createPath({
           route: ERoutes.ProfileAdd,
+          lng,
         }),
       );
     }

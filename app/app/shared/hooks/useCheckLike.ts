@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import type { TLike } from "@/app/api/like/types";
 import { checkLikeAction } from "@/app/actions/like/checkLike/checkLikeAction";
+import { useDayjs } from "@/app/uikit/components/dateTime/hooks";
 import { notification } from "@/app/uikit/utils";
 
 type TProps = {
@@ -20,6 +21,7 @@ export const useCheckLike: TUseCheckLike = ({ telegramUserId }) => {
   const [lastLike, setLastLike] = useState<TLike | null>(null);
   const [isNewLike, setIsNewLike] = useState(false);
   const DURATION = 5000;
+  const { dayjs } = useDayjs();
   const { t } = useTranslation("index");
 
   useEffect(() => {
@@ -29,12 +31,19 @@ export const useCheckLike: TUseCheckLike = ({ telegramUserId }) => {
         if (likeResponse.success && likeResponse.data) {
           const newLike = likeResponse.data;
           let isNewLike = false;
-          const timeAgo = new Date(Date.now() - 5 * 60 * 1000); // 5 minutes
+          const now = dayjs().utc();
+          const likeCreatedAt = dayjs(newLike.createdAt).utc();
+          const differenceTime = now.diff(likeCreatedAt, "second");
+
           setLastLike((prev) => {
-            if (
-              newLike.createdAt !== prev?.createdAt &&
-              newLike.createdAt < timeAgo
-            )
+            console.log("newLike.createdAt: ", newLike.createdAt);
+            console.log("prev?.createdAt: ", prev?.createdAt);
+            console.log(
+              "newLike.createdAt !== prev?.createdAt: ",
+              newLike.createdAt !== prev?.createdAt,
+            );
+            console.log("differenceTime: ", differenceTime);
+            if (newLike.createdAt !== prev?.createdAt && differenceTime < 10)
               isNewLike = true;
             return newLike;
           });
@@ -47,6 +56,7 @@ export const useCheckLike: TUseCheckLike = ({ telegramUserId }) => {
 
   useEffect(() => {
     if (isNewLike) {
+      console.log("isNewLike: ", isNewLike);
       notification({
         title: t("common.titles.isNewLike"),
         type: "success",

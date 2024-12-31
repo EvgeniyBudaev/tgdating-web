@@ -72,6 +72,7 @@ const ProfileDetailPageComponent: FC<TProps> = ({
       return redirect(
         createPath({
           route: ERoutes.ProfileAdd,
+          lng,
         }),
       );
     }
@@ -121,6 +122,7 @@ const ProfileDetailPageComponent: FC<TProps> = ({
                       blockedTelegramUserId={profile.telegramUserId}
                       lng={lng}
                       onCloseDropDown={handleCloseDropDown}
+                      telegramUserId={telegramUserId}
                     />
                   )}
                   {!isSessionUser && (
@@ -128,6 +130,7 @@ const ProfileDetailPageComponent: FC<TProps> = ({
                       criminalTelegramUserId={profile.telegramUserId}
                       lng={lng}
                       onCloseDropDown={handleCloseDropDown}
+                      telegramUserId={telegramUserId}
                     />
                   )}
                   {isSessionUser && (

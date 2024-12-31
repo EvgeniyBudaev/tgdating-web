@@ -32,7 +32,7 @@ const FreezeComponent: FC<TProps> = ({ lng, telegramUserId }) => {
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
       const path = createPath({
-        route: ERoutes.ProfileDeleted,
+        route: ERoutes.ProfileFrozen,
         params: { telegramUserId: telegramUserId },
         lng: lng,
       });

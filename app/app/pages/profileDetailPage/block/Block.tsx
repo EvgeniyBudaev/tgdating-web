@@ -19,12 +19,17 @@ type TProps = {
   blockedTelegramUserId: string;
   lng: ELanguage;
   onCloseDropDown?: () => void;
+  telegramUserId: string;
 };
 
-const BlockComponent: FC<TProps> = ({ blockedTelegramUserId, lng }) => {
+const BlockComponent: FC<TProps> = ({
+  blockedTelegramUserId,
+  lng,
+  telegramUserId,
+}) => {
   const csrf = useAuthenticityTokenContext();
   const { closeModal, isOpenModal, openModal } = useModalWindow();
-  const { initDataCrypt, isSession, user, theme } = useTelegram();
+  const { initDataCrypt, isSession } = useTelegram();
   const { t } = useTranslation("index");
   const [state, formAction] = useActionState(
     addBlockAction,
@@ -35,12 +40,12 @@ const BlockComponent: FC<TProps> = ({ blockedTelegramUserId, lng }) => {
     if (!isNil(state?.data) && state.success && !state?.error) {
       const path = createPath({
         route: ERoutes.Telegram,
-        params: { telegramUserId: (user?.id ?? "").toString() },
+        params: { telegramUserId },
         lng: lng,
       });
       redirect(path);
     }
-  }, [lng, state?.data, state?.error, state.success]);
+  }, [lng, state?.data, state?.error, state.success, telegramUserId]);
 
   const handleBlock = () => {
     openModal();
@@ -49,10 +54,7 @@ const BlockComponent: FC<TProps> = ({ blockedTelegramUserId, lng }) => {
   const handleSubmit = (formData: FormData) => {
     if (isSession && blockedTelegramUserId) {
       const formDataDto = new FormData();
-      formDataDto.append(
-        EBlockFormFields.TelegramUserId,
-        (user?.id ?? "").toString(),
-      );
+      formDataDto.append(EBlockFormFields.TelegramUserId, telegramUserId);
       formDataDto.append(
         EBlockFormFields.BlockedTelegramUserId,
         blockedTelegramUserId.toString(),

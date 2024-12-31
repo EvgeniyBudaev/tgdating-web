@@ -20,12 +20,17 @@ type TProps = {
   criminalTelegramUserId: string;
   lng: ELanguage;
   onCloseDropDown?: () => void;
+  telegramUserId: string;
 };
 
-const ComplaintComponent: FC<TProps> = ({ criminalTelegramUserId, lng }) => {
+const ComplaintComponent: FC<TProps> = ({
+  criminalTelegramUserId,
+  lng,
+  telegramUserId,
+}) => {
   const csrf = useAuthenticityTokenContext();
   const { closeModal, isOpenModal, openModal } = useModalWindow();
-  const { initDataCrypt, isSession, user, theme } = useTelegram();
+  const { initDataCrypt, isSession } = useTelegram();
   const { t } = useTranslation("index");
   const [state, formAction] = useActionState(
     addComplaintAction,
@@ -36,12 +41,12 @@ const ComplaintComponent: FC<TProps> = ({ criminalTelegramUserId, lng }) => {
     if (!isNil(state?.data) && state.success && !state?.error) {
       const path = createPath({
         route: ERoutes.Telegram,
-        params: { telegramUserId: (user?.id ?? "").toString() },
+        params: { telegramUserId },
         lng: lng,
       });
       redirect(path);
     }
-  }, [lng, state?.data, state?.error, state.success]);
+  }, [lng, state?.data, state?.error, state.success, telegramUserId]);
 
   const handleBlock = () => {
     openModal();
@@ -50,10 +55,7 @@ const ComplaintComponent: FC<TProps> = ({ criminalTelegramUserId, lng }) => {
   const handleSubmit = (formData: FormData) => {
     if (isSession && criminalTelegramUserId) {
       const formDataDto = new FormData();
-      formDataDto.append(
-        EComplaintFormFields.TelegramUserId,
-        (user?.id ?? "").toString(),
-      );
+      formDataDto.append(EComplaintFormFields.TelegramUserId, telegramUserId);
       formDataDto.append(
         EComplaintFormFields.CriminalTelegramUserId,
         criminalTelegramUserId.toString(),

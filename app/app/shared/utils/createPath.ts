@@ -7,6 +7,7 @@ type TRoutesWithParams =
   | ERoutes.ProfileDetail
   | ERoutes.ProfileBlocked
   | ERoutes.ProfileDeleted
+  | ERoutes.ProfileFrozen
   | ERoutes.ProfileEdit;
 
 type TCreatePathProps =

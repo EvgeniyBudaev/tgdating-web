@@ -19,6 +19,9 @@
       color: $link_color;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
+      height: 32px;
+      width: 32px;
+      z-index: 100;
 
       &:hover,
       &:active {

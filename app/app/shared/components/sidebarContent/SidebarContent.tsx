@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import { type FC, type ReactNode, memo, useState } from "react";
 import { useTranslation } from "@/app/i18n/client";
+import { Gradient } from "@/app/uikit/components/gradient";
 import { Icon } from "@/app/uikit/components/icon";
 import type { TSelectOption } from "@/app/uikit/components/select";
 import { Typography } from "@/app/uikit/components/typography";
@@ -51,6 +52,7 @@ const SidebarContentComponent: FC<TProps> = ({
       })}
     >
       <div className="SidebarContent-Header">
+        <Gradient />
         <Icon
           className="SidebarContent-Header-Cancel"
           onClick={handleBack}

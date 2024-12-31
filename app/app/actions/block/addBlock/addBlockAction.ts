@@ -1,15 +1,9 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
 import { addBlockFormSchema } from "@/app/actions/block/addBlock/schemas";
 import { addBlock } from "@/app/api/block/addBlock/domain";
-import { ERoutes } from "@/app/shared/enums";
 import type { TCommonResponseError } from "@/app/shared/types/error";
-import {
-  getResponseError,
-  getErrorsResolver,
-  createPath,
-} from "@/app/shared/utils";
+import { getResponseError, getErrorsResolver } from "@/app/shared/utils";
 import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
 
 export async function addBlockAction(prevState: any, formData: FormData) {
@@ -41,11 +35,6 @@ export async function addBlockAction(prevState: any, formData: FormData) {
         Authorization: accessToken,
       },
     });
-    const path = createPath({
-      route: ERoutes.Telegram,
-      params: { telegramUserId: resolver.data.telegramUserId },
-    });
-    revalidatePath(path);
     return {
       data: response,
       error: undefined,

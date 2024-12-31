@@ -32,13 +32,12 @@ const DeleteComponent: FC<TProps> = ({ lng, telegramUserId }) => {
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
       const path = createPath({
-        route: ERoutes.ProfileDeleted,
-        params: { telegramUserId: telegramUserId },
+        route: ERoutes.ProfileAdd,
         lng: lng,
       });
       redirect(path);
     }
-  }, [lng, state?.data, state?.error, state.success]);
+  }, [lng, state?.data, state?.error, state.success, telegramUserId]);
 
   const handleFreeze = () => {
     openModal();
