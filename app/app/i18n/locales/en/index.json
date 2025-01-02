@@ -46,7 +46,9 @@
       "back": "Back",
       "delete": "Delete",
       "loading": "Loading",
-      "save": "Save"
+      "register": "Register",
+      "save": "Save",
+      "saveChanges": "Save changes"
     },
     "reductions": {
       "km": "km",
@@ -54,7 +56,6 @@
     },
     "validation": {
       "email": "Invalid email",
-      "cyrillicEmail": "Only Latin characters",
       "empty": "Field cannot be empty",
       "onlyLetters": "Allowed characters: letters only",
       "passwordNotMatch": "Password mismatch",
@@ -66,7 +67,6 @@
       },
       "invalidTypeNumber": "Must be a number",
       "nonNegativeNumber": "Must be a positive number",
-      "mustInteger": "Must be an integer number",
       "lessOrEqualMaxNumber": "Must be less or equal to {{max}}",
       "maxSymbols": "Must be no more than {{max}} characters",
       "smallImage": "Image must be at least 100 x 100 pixels"

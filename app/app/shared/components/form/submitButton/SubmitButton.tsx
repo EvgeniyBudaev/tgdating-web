@@ -8,7 +8,11 @@ import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
 import "./SubmitButton.scss";
 
-export const SubmitButton: FC = () => {
+type TProps = {
+  isEdit?: boolean;
+};
+
+export const SubmitButton: FC<TProps> = ({ isEdit }) => {
   const { pending } = useFormStatus();
   const { t } = useTranslation("index");
   const isLoading = pending;
@@ -31,7 +35,9 @@ export const SubmitButton: FC = () => {
       )}
       {!isLoading && (
         <span className="SubmitButton-Inner">
-          <Typography>{t("common.actions.save")}</Typography>
+          <Typography>
+            {!isEdit ? t("common.actions.register") : t("common.actions.save")}
+          </Typography>
           <Icon
             className="SubmitButton-Icon SubmitButton-Save-Icon"
             type="Save"

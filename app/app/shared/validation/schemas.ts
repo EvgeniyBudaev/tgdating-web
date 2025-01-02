@@ -1,7 +1,7 @@
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
 import { RefinementCtx, z } from "zod";
-import { zfd } from "zod-form-data";
+// import { zfd } from "zod-form-data";
 import { t } from "@/app/shared/i18next";
 import {
   EMPTY_FIELD_ERROR_MESSAGE,
@@ -24,11 +24,11 @@ const textOptionalSchema = (params?: TRawCreateParams) =>
       .nullish(),
   );
 
-export const numberOptionalSchema = zfd.numeric(
-  z
-    .number({ invalid_type_error: t("common.validation.invalidTypeNumber") })
-    .optional(),
-);
+// export const numberOptionalSchema = zfd.numeric(
+//   z
+//     .number({ invalid_type_error: t("common.validation.invalidTypeNumber") })
+//     .optional(),
+// );
 
 const numberPreprocess = (arg: unknown, ctx: RefinementCtx): unknown => {
   if (
@@ -65,19 +65,19 @@ const numberNotNegativeSchema = (params?: TRawCreateParams) =>
       .nonnegative({ message: t("common.validation.nonNegativeNumber") }),
   );
 
-const numberNonNegativeWithMaxOptionalSchema = (
-  max: number,
-  params?: TRawCreateParams,
-) =>
-  z.preprocess(
-    numberPreprocess,
-    z
-      .number({ ...NUMBER_TYPE_ERROR, ...params })
-      .int(t("common.validation.mustInteger"))
-      .nonnegative({ message: t("common.validation.nonNegativeNumber") })
-      .max(max, t("common.validation.lessOrEqualMaxNumber", { max: max }))
-      .optional(),
-  );
+// const numberNonNegativeWithMaxOptionalSchema = (
+//   max: number,
+//   params?: TRawCreateParams,
+// ) =>
+//   z.preprocess(
+//     numberPreprocess,
+//     z
+//       .number({ ...NUMBER_TYPE_ERROR, ...params })
+//       .int(t("common.validation.mustInteger"))
+//       .nonnegative({ message: t("common.validation.nonNegativeNumber") })
+//       .max(max, t("common.validation.lessOrEqualMaxNumber", { max: max }))
+//       .optional(),
+//   );
 
 const symbolsMaxSchema = (max: number, params?: TRawCreateParams) =>
   z
@@ -86,10 +86,10 @@ const symbolsMaxSchema = (max: number, params?: TRawCreateParams) =>
     .min(1, EMPTY_FIELD_ERROR_MESSAGE)
     .max(max, t("common.validation.maxSymbols", { max: max }));
 
-export const numberNonNegativeWithMaxHeightOptionalSchema =
-  numberNonNegativeWithMaxOptionalSchema(250);
-export const numberNonNegativeWithMaxWeightOptionalSchema =
-  numberNonNegativeWithMaxOptionalSchema(650);
+// export const numberNonNegativeWithMaxHeightOptionalSchema =
+//   numberNonNegativeWithMaxOptionalSchema(250);
+// export const numberNonNegativeWithMaxWeightOptionalSchema =
+//   numberNonNegativeWithMaxOptionalSchema(650);
 export const symbolsMaxDisplayNameSchema = symbolsMaxSchema(64);
 export const numberNonNegativeSchema = numberNotNegativeSchema();
 export const numberNonNegativeOptionalSchema =

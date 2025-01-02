@@ -15,6 +15,19 @@
     height: 50px;
     padding: 16px;
 
+    &-Control {
+      display: flex;
+      align-items: center;
+      color: $link_color;
+      z-index: 100;
+
+      &:hover,
+      &:active {
+        background-color: $link_active_color;
+        border-radius: $border-radius;
+      }
+    }
+
     &-Cancel {
       color: $link_color;
       cursor: pointer;
@@ -26,6 +39,18 @@
       &:hover,
       &:active {
         color: $link_color;
+        background-color: $link_active_color;
+        border-radius: $border-radius;
+      }
+    }
+
+    &-Title {
+      padding: 4px;
+      cursor: pointer;
+      z-index: 100;
+
+      &:hover,
+      &:active {
         background-color: $link_active_color;
         border-radius: $border-radius;
       }

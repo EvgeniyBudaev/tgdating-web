@@ -1,6 +1,7 @@
 "use client";
 
 import clsx from "clsx";
+import isNil from "lodash/isNil";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { FC, memo, useEffect, useMemo, useRef, useState } from "react";
@@ -79,7 +80,7 @@ const ProfileDetailPageComponent: FC<TProps> = ({
   }, [isSession, isExistUser]);
 
   const distance = useMemo(() => {
-    return profile?.navigator?.distance
+    return !isNil(profile?.navigator?.distance)
       ? getDistance(profile.navigator.distance, t)
       : undefined;
   }, [profile?.navigator, t]);

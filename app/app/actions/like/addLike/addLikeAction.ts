@@ -16,7 +16,11 @@ export async function addLikeAction(prevState: any, formData: FormData) {
   const resolver = addLikeFormSchema.safeParse(
     Object.fromEntries(formData.entries()),
   );
-
+  console.log("addLikeAction resolver.success: ", resolver.success);
+  console.log(
+    "addLikeAction resolver: ",
+    Object.fromEntries(formData.entries()),
+  );
   if (!resolver.success) {
     const errors = getErrorsResolver(resolver);
     return {
@@ -33,6 +37,8 @@ export async function addLikeAction(prevState: any, formData: FormData) {
       telegramInitDataCrypt: accessToken,
       ...formattedParams
     } = resolver.data;
+    console.log("addLikeAction accessToken: ", accessToken);
+    console.log("addLikeAction csrf: ", csrf);
     const checkCsrf = await checkCsrfToken(csrf);
     if (checkCsrf?.error) throw checkCsrf.error;
     // @ts-ignore

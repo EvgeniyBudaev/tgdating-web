@@ -1,0 +1,8 @@
+{
+  "common": {
+    "validation": {
+      "cyrillicEmail": "الحروف اللاتينية فقط",
+      "mustInteger": "يجب أن يكون عددا صحيحا"
+    }
+  }
+}

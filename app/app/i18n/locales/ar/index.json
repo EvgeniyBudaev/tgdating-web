@@ -1,0 +1,87 @@
+{
+  "common": {
+    "titles": {
+      "accountBlocked": "تم حظر الحساب",
+      "isEmptyUsername": "لم يتم تعيين اسم فريد في Telegram/الإعدادات/اسم المستخدم. يرجى تعيين اسم مستخدم ومحاولة تسجيل الدخول إلى التطبيق مرة أخرى. قد يستغرق تحديث البيانات في Telegram عدة دقائق",
+      "publicPhotos": "الصور العامة",
+      "required": "المطلوبة لملء",
+      "changeable": "يمكن تغييرها",
+      "filtersGeneral": "مرشحات عامة",
+      "age": "عمر",
+      "blockQuestion": "حظر حسابك؟",
+      "complaintQuestion": "حظر حسابك؟",
+      "deleteQuestion": "هل تريد حذف الحساب؟",
+      "freezeQuestion": "تجميد حسابك؟",
+      "online": "متصل",
+      "accountFrozen": "الحساب مجمد",
+      "accountDeleted": "تم حذف الحساب",
+      "isEmptyList": "لم يتم العثور على شخص واحد. حاول تغيير إعدادات الفلتر.",
+      "isNewLike": "هناك تعاطف! عرض في دردشة بوت",
+      "geoPositionExist": "تم تحديد الموقع الجغرافي"
+    },
+    "form": {
+      "field": {
+        "displayName": "اسم العرض",
+        "age": "عمر",
+        "description": "وصف",
+        "gender": "أرضية",
+        "searchGender": "مهتم",
+        "language": "لغة الواجهة"
+      }
+    },
+    "actions": {
+      "settings": "إعدادات",
+      "filter": "فلتر",
+      "block": "حاجز",
+      "no": "لا",
+      "yes": "نعم",
+      "complaint": "الإبلاغ والحظر",
+      "deleteProfile": "حذف الحساب",
+      "freezeProfile": "تجميد الحساب",
+      "editProfile": "تحرير الحساب",
+      "cancel": "يلغي",
+      "restoreProfile": "استرداد الحساب",
+      "main": "بيت",
+      "profile": "حساب تعريفي",
+      "back": "خلف",
+      "delete": "يمسح",
+      "loading": "تحميل",
+      "register": "يسجل",
+      "save": "يحفظ",
+      "saveChanges": "حفظ التغييرات"
+    },
+    "reductions": {
+      "km": "كم",
+      "m": "م"
+    },
+    "validation": {
+      "email": "البريد الإلكتروني غير صحيح",
+      "empty": "لا يمكن أن يكون الحقل فارغاً",
+      "onlyLetters": "الأحرف الصالحة: الحروف فقط",
+      "passwordNotMatch": "كلمات المرور غير متطابقة",
+      "wrongCharacter": "0-9, \"-\", \" \", \"+\", \"(\", \")\"  :الأحرف الصالحة",
+      "file": {
+        "expectedFile": "يمكنك فقط إرفاق ملف",
+        "maxSize": "الحد الأقصى لحجم الملف 50 ميجابايت",
+        "maxAmount": "الحد الأقصى لعدد الملفات 3"
+      },
+      "invalidTypeNumber": "يجب أن يكون رقما",
+      "nonNegativeNumber": "يجب أن يكون الرقم موجبًا",
+      "lessOrEqualMaxNumber": "يجب أن يكون أقل من أو يساوي {{max}}",
+      "maxSymbols": "يجب ألا يزيد عدد الأحرف عن {{max}} من الأحرف",
+      "smallImage": "يجب أن يكون حجم الصورة 100 × 100 بكسل على الأقل"
+    }
+  },
+  "errorBoundary": {
+    "common": {
+      "manyRequest": "طلبات كثيرة جدًا",
+      "unauthorized": "غير مصرح به عبر تطبيق Telegram",
+      "unexpectedError": "حدث خطأ غير متوقع"
+    }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "إعادة الإعجاب ستكون متاحة غدًا"
+    }
+  }
+}

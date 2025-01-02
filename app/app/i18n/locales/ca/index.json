@@ -1,0 +1,87 @@
+{
+  "common": {
+    "titles": {
+      "accountBlocked": "Compte bloquejat",
+      "isEmptyUsername": "No s'estableix un nom únic a Telegram/Configuració/Nom d'usuari. Si us plau, configureu un nom d'usuari i torneu a intentar iniciar sessió a l'aplicació. L'actualització de dades a Telegram pot trigar uns quants minuts",
+      "publicPhotos": "Fotos públiques",
+      "required": "obligada a omplir",
+      "changeable": "es pot canviar",
+      "filtersGeneral": "Filtres generals",
+      "age": "Edat",
+      "blockQuestion": "Bloquejar el teu compte?",
+      "complaintQuestion": "Bloquejar el teu compte?",
+      "deleteQuestion": "Vols suprimir el compte?",
+      "freezeQuestion": "Vols congelar el teu compte?",
+      "online": "En línia",
+      "accountFrozen": "Compte congelat",
+      "accountDeleted": "Compte suprimit",
+      "isEmptyList": "No es va trobar ni una sola persona. Proveu de canviar la configuració del filtre.",
+      "isNewLike": "Hi ha simpatia! Veure al xat bot",
+      "geoPositionExist": "Geolocalització determinada"
+    },
+    "form": {
+      "field": {
+        "displayName": "Nom de visualització",
+        "age": "Edat",
+        "description": "Descripció",
+        "gender": "Pis",
+        "searchGender": "Interessat",
+        "language": "Llenguatge de la interfície"
+      }
+    },
+    "actions": {
+      "settings": "Configuració",
+      "filter": "Filtre",
+      "block": "Bloc",
+      "no": "No",
+      "yes": "Sí",
+      "complaint": "Informar i bloquejar",
+      "deleteProfile": "Suprimeix el compte",
+      "freezeProfile": "Congela el compte",
+      "editProfile": "Edita el compte",
+      "cancel": "Cancel·la",
+      "restoreProfile": "Recuperar el compte",
+      "main": "A casa",
+      "profile": "Perfil",
+      "back": "Enrere",
+      "delete": "Suprimeix",
+      "loading": "Carregant",
+      "register": "Registra't",
+      "save": "Desa",
+      "saveChanges": "Desa els canvis"
+    },
+    "reductions": {
+      "km": "km",
+      "m": "m"
+    },
+    "validation": {
+      "email": "El correu electrònic és incorrecte",
+      "empty": "El camp no pot estar buit",
+      "onlyLetters": "Caràcters vàlids: només lletres",
+      "passwordNotMatch": "Les contrasenyes no coincideixen",
+      "wrongCharacter": "Caràcters vàlids: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
+      "file": {
+        "expectedFile": "Només podeu adjuntar un fitxer",
+        "maxSize": "Mida màxima del fitxer 50 MB",
+        "maxAmount": "Nombre màxim de fitxers 3"
+      },
+      "invalidTypeNumber": "Ha de ser un número",
+      "nonNegativeNumber": "El nombre ha de ser positiu",
+      "lessOrEqualMaxNumber": "Ha de ser inferior o igual a {{max}}",
+      "maxSymbols": "No ha de tenir més de {{max}} caràcters",
+      "smallImage": "La mida de la imatge ha de tenir almenys 100 x 100 píxels"
+    }
+  },
+  "errorBoundary": {
+    "common": {
+      "manyRequest": "Massa peticions",
+      "unauthorized": "No autoritzat mitjançant l'aplicació Telegram",
+      "unexpectedError": "S'ha produït un error inesperat"
+    }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "Demà estarà disponible Re-like"
+    }
+  }
+}

@@ -1,13 +1,45 @@
 "use server";
 
-import {checkLike} from "@/app/api/like/checkLike/domain";
-import type {TCommonResponseError} from "@/app/shared/types/error";
-import {getResponseError} from "@/app/shared/utils";
+import { checkLikeFormSchema } from "@/app/actions/like/checkLike/schemas";
+import { checkLike } from "@/app/api/like/checkLike/domain";
+import type { TCommonResponseError } from "@/app/shared/types/error";
+import { getErrorsResolver, getResponseError } from "@/app/shared/utils";
+import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
+import { addBlock } from "@/app/api/block/addBlock/domain";
 
-export async function checkLikeAction(telegramUserId: string) {
+export async function checkLikeAction(prevState: any, formData: FormData) {
+  const resolver = checkLikeFormSchema.safeParse(
+    Object.fromEntries(formData.entries()),
+  );
+  console.log("checkLikeAction resolver.success: ", resolver.success);
+  console.log(
+    "checkLikeAction resolver: ",
+    Object.fromEntries(formData.entries()),
+  );
+  if (!resolver.success) {
+    const errors = getErrorsResolver(resolver);
+    return {
+      data: undefined,
+      error: undefined,
+      errors: errors,
+      success: false,
+    };
+  }
+
   try {
-    console.log("checkLikeAction telegramUserId: ", telegramUserId);
-    const response = await checkLike({telegramUserId});
+    const {
+      csrf,
+      telegramInitDataCrypt: accessToken,
+      ...formattedParams
+    } = resolver.data;
+    const checkCsrf = await checkCsrfToken(csrf);
+    if (checkCsrf?.error) throw checkCsrf.error;
+    // @ts-ignore
+    const response = await checkLike(formattedParams, {
+      headers: {
+        Authorization: accessToken,
+      },
+    });
     return {
       data: response,
       error: undefined,
@@ -20,7 +52,7 @@ export async function checkLikeAction(telegramUserId: string) {
     if (errorResponse?.status === 403) throw error;
     const responseData: TCommonResponseError = await errorResponse.json();
     const { message: formError, fieldErrors } =
-    getResponseError(responseData) ?? {};
+      getResponseError(responseData) ?? {};
     return {
       data: undefined,
       error: formError,

@@ -2,18 +2,19 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { type FC, memo, type ReactNode, useEffect, useMemo } from "react";
+import "react-toastify/dist/ReactToastify.css";
+import { CheckLike } from "@/app/shared/components/сheckLike";
 import { Footer } from "@/app/shared/components/footer";
 import {
   AuthenticityTokenProvider,
   NavigatorProvider,
 } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useCheckLike, useNavigator, useTelegram } from "@/app/shared/hooks";
+import { useNavigator, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
+import { ToastContainer } from "@/app/uikit/components/toast/toastContainer";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./Layout.scss";
-import { ToastContainer } from "@/app/uikit/components/toast/toastContainer";
-import "react-toastify/dist/ReactToastify.css";
 
 type TProps = {
   children?: ReactNode;
@@ -26,9 +27,8 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const navigator = useNavigator({ lng });
-  const { isSession, user, theme } = useTelegram();
+  const { initDataCrypt, isSession, user, theme } = useTelegram();
   const telegramLanguageCode = user?.language_code;
-  useCheckLike({ telegramUserId: (user?.id ?? "").toString() });
 
   useEffect(() => {
     if (telegramLanguageCode && telegramLanguageCode !== lng) {
@@ -67,6 +67,13 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
           {isFooter && (
             <Footer isSession={isSession} lng={lng} theme={theme} user={user} />
           )}
+          <CheckLike
+            csrf={csrfToken}
+            initDataCrypt={initDataCrypt}
+            isSession={isSession}
+            lng={lng}
+            telegramUserId={(user?.id ?? "").toString()}
+          />
         </div>
       </NavigatorProvider>
     </AuthenticityTokenProvider>

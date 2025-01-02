@@ -202,7 +202,9 @@
       },
       "weight": {
         "minSize": "Must be more or equal to 40"
-      }
+      },
+      "cyrillicEmail": "Only Latin characters",
+      "mustInteger": "Must be an integer number"
     },
     "reductions": {
       "cm": "cm",

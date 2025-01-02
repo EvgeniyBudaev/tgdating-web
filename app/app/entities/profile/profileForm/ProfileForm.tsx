@@ -289,7 +289,7 @@ const ProfileFormComponent: FC<TProps> = ({
               </div>
             )}
             <div className="ProfileForm-Save">
-              <SubmitButton />
+              <SubmitButton isEdit={isEdit} />
             </div>
           </div>
         </Container>

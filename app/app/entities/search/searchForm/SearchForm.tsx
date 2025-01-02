@@ -30,6 +30,7 @@ import {
   SEARCH_BAR_SEARCH_GENDER_MAPPING,
   SEARCH_GENDER_MAPPING,
 } from "@/app/shared/mapping/searchGender";
+import { Gradient } from "@/app/uikit/components/gradient";
 import { Icon } from "@/app/uikit/components/icon";
 import { RangeSlider } from "@/app/uikit/components/rangeSlider";
 import { Select, type TSelectOption } from "@/app/uikit/components/select";
@@ -179,7 +180,8 @@ const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
           })}
         >
           <div className="SidebarContent-Header">
-            <form action={handleBack}>
+            <Gradient />
+            <form action={handleBack} className="SearchForm-Form">
               <button className="SidebarContent-Header-Save" type="submit">
                 <Icon
                   className="SidebarContent-Header-Cancel"
@@ -187,7 +189,9 @@ const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
                 />
               </button>
             </form>
-            <Typography>{t("common.titles.filtersGeneral")}</Typography>
+            <span className="SidebarContent-Header-Title">
+              <Typography>{t("common.titles.filtersGeneral")}</Typography>
+            </span>
             <div />
           </div>
           <div className="SidebarContent-List SearchForm-SidebarContent-List">
