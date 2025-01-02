@@ -44,6 +44,12 @@ sudo docker image ls
 sudo docker volume ls
 ```
 
+Запуск контейнеров
+
+```
+docker-compose up -d
+```
+
 STOP все контейнеры
 
 ```
@@ -200,4 +206,10 @@ sudo certbot certificates
 
 ```
 sudo certbot delete
+```
+
+Загрузка процессора в Linux
+
+```
+ps -aux --sort -pcpu
 ```

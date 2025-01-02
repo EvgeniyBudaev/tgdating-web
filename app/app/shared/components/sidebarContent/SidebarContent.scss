@@ -36,6 +36,18 @@
       width: 32px;
       z-index: 100;
 
+      &-Title {
+        padding: 4px;
+        cursor: pointer;
+        z-index: 100;
+
+        &:hover,
+        &:active {
+          background-color: $link_active_color;
+          border-radius: $border-radius;
+        }
+      }
+
       &:hover,
       &:active {
         color: $link_color;
@@ -44,20 +56,9 @@
       }
     }
 
-    &-Title {
-      padding: 4px;
-      cursor: pointer;
-      z-index: 100;
-
-      &:hover,
-      &:active {
-        background-color: $link_active_color;
-        border-radius: $border-radius;
-      }
-    }
-
     &-Save {
-      height: 24px;
+      display: flex;
+      align-items: center;
       padding: 0;
       font-weight: 700;
       color: $link_color;

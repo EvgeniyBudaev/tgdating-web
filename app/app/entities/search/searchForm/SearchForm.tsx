@@ -175,7 +175,7 @@ const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
         theme={theme}
       >
         <div
-          className={clsx("SidebarContent SearchForm-SidebarContent", {
+          className={clsx("SearchForm-SidebarContent SidebarContent", {
             ["theme-dark"]: theme === ETheme.Dark,
           })}
         >
@@ -187,6 +187,9 @@ const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
                   className="SidebarContent-Header-Cancel"
                   type="ArrowBack"
                 />
+                <span className="SidebarContent-Header-Cancel-Title">
+                  <Typography>{t("common.actions.saveChanges")}</Typography>
+                </span>
               </button>
             </form>
             <span className="SidebarContent-Header-Title">
@@ -194,8 +197,8 @@ const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
             </span>
             <div />
           </div>
-          <div className="SidebarContent-List SearchForm-SidebarContent-List">
-            <div className="SidebarContent-List-Item SearchForm-SidebarContent-List-Item">
+          <div className="SearchForm-SidebarContent-List SidebarContent-List ">
+            <div className="SearchForm-SidebarContent-List-Item SidebarContent-List-Item ">
               <RangeSlider
                 isShowTooltip={true}
                 label={t("common.titles.age")}

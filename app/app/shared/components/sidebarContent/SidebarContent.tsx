@@ -55,7 +55,7 @@ const SidebarContentComponent: FC<TProps> = ({
         <Gradient />
         <div className="SidebarContent-Header-Control" onClick={handleBack}>
           <Icon className="SidebarContent-Header-Cancel" type="ArrowBack" />
-          <span className="SidebarContent-Header-Title">
+          <span className="SidebarContent-Header-Cancel-Title">
             <Typography>{t("common.actions.saveChanges")}</Typography>
           </span>
         </div>

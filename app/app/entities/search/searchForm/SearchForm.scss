@@ -96,8 +96,16 @@
   }
 
   &.theme-dark {
-    #{$this}-SidebarContent {
+    & #{$this}-SidebarContent {
       background-color: $bg_color;
+    }
+
+    & #{$this}-SidebarContent-List-Item {
+      border: none;
+
+      &:hover {
+        background-color: transparent;
+      }
     }
   }
 }

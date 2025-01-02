@@ -1,0 +1,87 @@
+{
+  "common": {
+    "titles": {
+      "accountBlocked": "Račun blokiran",
+      "isEmptyUsername": "Jedinstveno ime nije postavljeno u Telegram/Postavke/Korisničko ime. Postavite korisničko ime i pokušajte se ponovno prijaviti u aplikaciju. Ažuriranje podataka u Telegramu može potrajati nekoliko minuta",
+      "publicPhotos": "Javne fotografije",
+      "required": "potrebno ispuniti",
+      "changeable": "može se promijeniti",
+      "filtersGeneral": "Opći filtri",
+      "age": "Dob",
+      "blockQuestion": "Blokirati svoj račun?",
+      "complaintQuestion": "Blokirati svoj račun?",
+      "deleteQuestion": "Izbrisati račun?",
+      "freezeQuestion": "Zamrznuti račun?",
+      "online": "Online",
+      "accountFrozen": "Račun zamrznut",
+      "accountDeleted": "Račun izbrisan",
+      "isEmptyList": "Niti jedna osoba nije pronađena. Pokušajte promijeniti postavke filtra.",
+      "isNewLike": "Postoji simpatija! Pogledaj u bot chatu",
+      "geoPositionExist": "Geolokacija određena"
+    },
+    "form": {
+      "field": {
+        "displayName": "Ime za prikaz",
+        "age": "Dob",
+        "description": "Opis",
+        "gender": "Kat",
+        "searchGender": "Zainteresirani",
+        "language": "Jezik sučelja"
+      }
+    },
+    "actions": {
+      "settings": "Postavke",
+      "filter": "Filter",
+      "block": "Blokirati",
+      "no": "Ne",
+      "yes": "Da",
+      "complaint": "Prijavi i blokiraj",
+      "deleteProfile": "Izbriši račun",
+      "freezeProfile": "Zamrzni račun",
+      "editProfile": "Uredi račun",
+      "cancel": "Otkazati",
+      "restoreProfile": "Oporavi račun",
+      "main": "Dom",
+      "profile": "Profil",
+      "back": "Nazad",
+      "delete": "Izbrisati",
+      "loading": "Učitavanje",
+      "register": "Registar",
+      "save": "Uštedjeti",
+      "saveChanges": "Spremite promjene"
+    },
+    "reductions": {
+      "km": "km",
+      "m": "m"
+    },
+    "validation": {
+      "email": "E-pošta je netočna",
+      "empty": "Polje ne može biti prazno",
+      "onlyLetters": "Važeći znakovi: samo slova",
+      "passwordNotMatch": "Lozinke se ne podudaraju",
+      "wrongCharacter": "Valjani znakovi: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
+      "file": {
+        "expectedFile": "Možete samo priložiti datoteku",
+        "maxSize": "Maksimalna veličina datoteke 50 MB",
+        "maxAmount": "Maksimalan broj datoteka 3"
+      },
+      "invalidTypeNumber": "Mora biti broj",
+      "nonNegativeNumber": "Broj mora biti pozitivan",
+      "lessOrEqualMaxNumber": "Mora biti manje od ili jednako {{max}}",
+      "maxSymbols": "Ne smije imati više od {{max}} znakova",
+      "smallImage": "Slika mora biti veličine najmanje 100 x 100 piksela"
+    }
+  },
+  "errorBoundary": {
+    "common": {
+      "manyRequest": "Previše zahtjeva",
+      "unauthorized": "Nije autoriziran putem aplikacije Telegram",
+      "unexpectedError": "Došlo je do neočekivane pogreške"
+    }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "Ponovno lajkanje bit će dostupno sutra"
+    }
+  }
+}
