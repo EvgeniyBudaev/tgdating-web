@@ -1,0 +1,87 @@
+{
+  "common": {
+    "titles": {
+      "accountBlocked": "Akun diblokir",
+      "isEmptyUsername": "Nama unik tidak diatur di Telegram/Pengaturan/Nama Pengguna. Silakan tetapkan nama pengguna dan coba masuk lagi ke aplikasi. Memperbarui data di Telegram mungkin memerlukan waktu beberapa menit",
+      "publicPhotos": "Foto publik",
+      "required": "diperlukan untuk diisi",
+      "changeable": "dapat diubah",
+      "filtersGeneral": "Filter umum",
+      "age": "Usia",
+      "blockQuestion": "Haruskah aku memblokir akunku?",
+      "complaintQuestion": "aruskah aku memblokir akunku?",
+      "deleteQuestion": "Hapus akun?",
+      "freezeQuestion": "Bekukan akun Anda?",
+      "online": "On line",
+      "accountFrozen": "Akun dibekukan",
+      "accountDeleted": "Akun dihapus",
+      "isEmptyList": "Tidak ada satu orang pun yang ditemukan. Coba ubah pengaturan filter Anda.",
+      "isNewLike": "Ada simpati! Lihat di obrolan bot",
+      "geoPositionExist": "Geolokasi ditentukan"
+    },
+    "form": {
+      "field": {
+        "displayName": "Nama tampilan",
+        "age": "Usia",
+        "description": "Keterangan",
+        "gender": "Lantai",
+        "searchGender": "Tertarik",
+        "language": "Bahasa antarmuka"
+      }
+    },
+    "actions": {
+      "settings": "Pengaturan",
+      "filter": "Menyaring",
+      "saveChanges": "Simpan perubahan",
+      "block": "Memblokir",
+      "no": "Tidak",
+      "yes": "Ya",
+      "complaint": "Laporkan dan blokir",
+      "deleteProfile": "Hapus akun",
+      "freezeProfile": "Bekukan akun",
+      "editProfile": "Sunting akun",
+      "cancel": "Membatalkan",
+      "restoreProfile": "Pulihkan akun",
+      "main": "Rumah",
+      "profile": "Profil",
+      "back": "Kembali",
+      "delete": "Menghapus",
+      "loading": "Memuat",
+      "register": "Daftar",
+      "save": "Menyimpan"
+    },
+    "reductions": {
+      "km": "km",
+      "m": "m"
+    },
+    "validation": {
+      "email": "Email salah",
+      "empty": "Bidang tidak boleh kosong",
+      "onlyLetters": "Karakter yang valid: hanya huruf",
+      "passwordNotMatch": "Kata sandi tidak cocok",
+      "wrongCharacter": "Karakter yang valid: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
+      "file": {
+        "expectedFile": "Anda hanya dapat melampirkan file",
+        "maxSize": "Ukuran file maksimum 50Mb",
+        "maxAmount": "Jumlah maksimum file 3"
+      },
+      "invalidTypeNumber": "Harus berupa angka",
+      "nonNegativeNumber": "Angkanya harus positif",
+      "lessOrEqualMaxNumber": "Harus kurang dari atau sama dengan {{max}}",
+      "maxSymbols": "Tidak boleh lebih dari {{max}} karakter",
+      "smallImage": "Gambar harus berukuran minimal 100 x 100 piksel"
+    }
+  },
+  "errorBoundary": {
+    "common": {
+      "manyRequest": "Terlalu banyak permintaan",
+      "unauthorized": "Tidak diotorisasi melalui aplikasi Telegram",
+      "unexpectedError": "Terjadi kesalahan yang tidak terduga"
+    }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "Suka ulang akan tersedia besok"
+    }
+  }
+}

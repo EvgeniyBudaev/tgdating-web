@@ -1,0 +1,87 @@
+{
+  "common": {
+    "titles": {
+      "accountBlocked": "החשבון נחסם",
+      "isEmptyUsername": "שם ייחודי לא מוגדר בטלגרם/הגדרות/שם משתמש. אנא הגדר שם משתמש ונסה להיכנס שוב לאפליקציה. עדכון הנתונים בטלגרם עשוי להימשך מספר דקות",
+      "publicPhotos": "תמונות ציבוריות",
+      "required": "נדרש למלא",
+      "changeable": "ניתן לשנות",
+      "filtersGeneral": "מסננים כלליים",
+      "age": "גִיל",
+      "blockQuestion": "לחסום את החשבון שלך?",
+      "complaintQuestion": "לחסום את החשבון שלך?",
+      "deleteQuestion": "למחוק חשבון?",
+      "freezeQuestion": "להקפיא את החשבון שלך?",
+      "online": "באינטרנט",
+      "accountFrozen": "החשבון הוקפא",
+      "accountDeleted": "החשבון נמחק",
+      "isEmptyList": "לא נמצא אדם אחד. נסה לשנות את הגדרות המסנן שלך.",
+      "isNewLike": "יש סימפטיה! הצג בצ'אט בוט",
+      "geoPositionExist": "מיקום גיאוגרפי נקבע"
+    },
+    "form": {
+      "field": {
+        "displayName": "שם תצוגה",
+        "age": "גִיל",
+        "description": "תֵאוּר",
+        "gender": "קוֹמָה",
+        "searchGender": "מעוניין",
+        "language": "שפת ממשק"
+      }
+    },
+    "actions": {
+      "settings": "הגדרות",
+      "filter": "לְסַנֵן",
+      "saveChanges": "שמור שינויים",
+      "block": "לַחסוֹם",
+      "no": "לֹא",
+      "yes": "כֵּן",
+      "complaint": "דווח וחסום",
+      "deleteProfile": "מחק חשבון",
+      "freezeProfile": "הקפאת חשבון",
+      "editProfile": "ערוך חשבון",
+      "cancel": "לְבַטֵל",
+      "restoreProfile": "שחזור חשבון",
+      "main": "בַּיִת",
+      "profile": "פּרוֹפִיל",
+      "back": "בְּחֲזָרָה",
+      "delete": "לִמְחוֹק",
+      "loading": "טְעִינָה",
+      "register": "לִרְשׁוֹם",
+      "save": "לְהַצִיל"
+    },
+    "reductions": {
+      "km": "ק\"מ",
+      "m": "מ"
+    },
+    "validation": {
+      "email": "האימייל שגוי",
+      "empty": "שדה לא יכול להיות ריק",
+      "onlyLetters": "תווים תקפים: אותיות בלבד",
+      "passwordNotMatch": "הסיסמאות אינן תואמות",
+      "wrongCharacter": "תווים חוקיים:0-9 , \"-\", \" \", \"+\", \"(\", \")\"",
+      "file": {
+        "expectedFile": "אתה יכול לצרף רק קובץ",
+        "maxSize": "גודל קובץ מקסימלי 50Mb",
+        "maxAmount": "מספר מקסימלי של קבצים 3"
+      },
+      "invalidTypeNumber": "חייב להיות מספר",
+      "nonNegativeNumber": "המספר חייב להיות חיובי",
+      "lessOrEqualMaxNumber": "חייב להיות קטן או שווה ל-{{max}}",
+      "maxSymbols": "חייב להיות לא יותר מ-{{max}} תווים",
+      "smallImage": "התמונה חייבת להיות בגודל של לפחות 100 על 100 פיקסלים"
+    }
+  },
+  "errorBoundary": {
+    "common": {
+      "manyRequest": "יותר מדי בקשות",
+      "unauthorized": "לא מורשה באמצעות אפליקציית טלגרם",
+      "unexpectedError": "אירעה שגיאה בלתי צפויה"
+    }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "לייק מחדש יהיה זמין מחר"
+    }
+  }
+}

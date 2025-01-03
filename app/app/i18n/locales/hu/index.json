@@ -1,0 +1,87 @@
+{
+  "common": {
+    "titles": {
+      "accountBlocked": "Fiók blokkolva",
+      "isEmptyUsername": "Nincs egyedi név beállítva a Telegram/Beállítások/Felhasználónév menüpontban. Kérjük, állítson be egy felhasználónevet, és próbáljon meg újra bejelentkezni az alkalmazásba. Az adatok frissítése a Telegramban több percig is eltarthat",
+      "publicPhotos": "Nyilvános fotók",
+      "required": "kitöltése kötelező",
+      "changeable": "lehet változtatni",
+      "filtersGeneral": "Általános szűrők",
+      "age": "Kor",
+      "blockQuestion": "Letiltja fiókját?",
+      "complaintQuestion": "Letiltja fiókját?",
+      "deleteQuestion": "Törli a fiókot?",
+      "freezeQuestion": "Lefagyasztjuk a fiókját?",
+      "online": "Online",
+      "accountFrozen": "A fiók lefagyott",
+      "accountDeleted": "Fiók törölve",
+      "isEmptyList": "Egyetlen embert sem találtak. Próbálja meg módosítani a szűrő beállításait.",
+      "isNewLike": "Együttérzés van! Megtekintés a bot chatben",
+      "geoPositionExist": "A földrajzi hely meghatározása"
+    },
+    "form": {
+      "field": {
+        "displayName": "Megjelenítési név",
+        "age": "Kor",
+        "description": "Leírás",
+        "gender": "Emelet",
+        "searchGender": "Érdekelt",
+        "language": "Interfész nyelve"
+      }
+    },
+    "actions": {
+      "settings": "Настройки",
+      "filter": "Szűrő",
+      "saveChanges": "Módosítások mentése",
+      "block": "Заблокировать",
+      "no": "Nem",
+      "yes": "Igen",
+      "complaint": "Jelentés és blokkolás",
+      "deleteProfile": "Fiók törlése",
+      "freezeProfile": "Fiók lefagyasztása",
+      "editProfile": "Fiók szerkesztése",
+      "cancel": "Mégse",
+      "restoreProfile": "Fiók helyreállítása",
+      "main": "Otthon",
+      "profile": "Profil",
+      "back": "Vissza",
+      "delete": "Töröl",
+      "loading": "Terhelés",
+      "register": "Nyilvántartás",
+      "save": "Megtakarítás"
+    },
+    "reductions": {
+      "km": "km",
+      "m": "m"
+    },
+    "validation": {
+      "email": "Az e-mail cím helytelen",
+      "empty": "A mező nem lehet üres",
+      "onlyLetters": "Érvényes karakterek: csak betűk",
+      "passwordNotMatch": "A jelszavak nem egyeznek",
+      "wrongCharacter": "Érvényes karakterek: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
+      "file": {
+        "expectedFile": "Csak fájlt csatolhat",
+        "maxSize": "Maximális fájlméret 50Mb",
+        "maxAmount": "Fájlok maximális száma 3"
+      },
+      "invalidTypeNumber": "Számnak kell lennie",
+      "nonNegativeNumber": "A számnak pozitívnak kell lennie",
+      "lessOrEqualMaxNumber": "Kisebbnek vagy egyenlőnek kell lennie, mint {{max}}",
+      "maxSymbols": "Nem lehet több, mint {{max}} karakter",
+      "smallImage": "A képnek legalább 100 x 100 pixel méretűnek kell lennie"
+    }
+  },
+  "errorBoundary": {
+    "common": {
+      "manyRequest": "Túl sok kérés",
+      "unauthorized": "Nem engedélyezett a Telegram alkalmazáson keresztül",
+      "unexpectedError": "Váratlan hiba történt"
+    }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "A re-like holnap lesz elérhető"
+    }
+  }
+}

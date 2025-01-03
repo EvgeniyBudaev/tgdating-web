@@ -1,7 +1,8 @@
 import { DEFAULT_LANGUAGE } from "@/app/shared/constants";
 
 export const fallbackLng = DEFAULT_LANGUAGE;
-export const languages = [fallbackLng, "en", "ar", "be", "ca", "cs", "de", "fi", "fr", "hr", "nl"];
+export const languages = [fallbackLng, "en", "ar", "be", "ca", "cs", "de", "fi", "fr", "he", "hr", "hu", "id",
+  "it", "nl"];
 export const cookieName = "i18next";
 export const defaultNS = "index";
 
