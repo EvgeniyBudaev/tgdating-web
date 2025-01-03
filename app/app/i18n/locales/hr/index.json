@@ -32,6 +32,7 @@
     "actions": {
       "settings": "Postavke",
       "filter": "Filter",
+      "saveChanges": "Spremite promjene",
       "block": "Blokirati",
       "no": "Ne",
       "yes": "Da",
@@ -47,8 +48,7 @@
       "delete": "Izbrisati",
       "loading": "Učitavanje",
       "register": "Registar",
-      "save": "Uštedjeti",
-      "saveChanges": "Spremite promjene"
+      "save": "Uštedjeti"
     },
     "reductions": {
       "km": "km",
@@ -62,7 +62,7 @@
       "wrongCharacter": "Valjani znakovi: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
       "file": {
         "expectedFile": "Možete samo priložiti datoteku",
-        "maxSize": "Maksimalna veličina datoteke 50 MB",
+        "maxSize": "Maksimalna veličina datoteke 50Mb",
         "maxAmount": "Maksimalan broj datoteka 3"
       },
       "invalidTypeNumber": "Mora biti broj",

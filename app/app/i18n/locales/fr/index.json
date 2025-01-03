@@ -1,0 +1,87 @@
+{
+  "common": {
+    "titles": {
+      "accountBlocked": "Compte bloqué",
+      "isEmptyUsername": "Un nom unique n'est pas défini dans Telegram/Settings/Username. Veuillez définir un nom d'utilisateur et essayez de vous connecter à nouveau à l'application. La mise à jour des données dans Telegram peut prendre plusieurs minutes",
+      "publicPhotos": "Photos publiques",
+      "required": "il est nécessaire de remplir",
+      "changeable": "peut être changé",
+      "filtersGeneral": "Filtres généraux",
+      "age": "Âge",
+      "blockQuestion": "Bloquer votre compte?",
+      "complaintQuestion": "Bloquer votre compte?",
+      "deleteQuestion": "Supprimer le compte?",
+      "freezeQuestion": "Geler votre compte?",
+      "online": "En ligne",
+      "accountFrozen": "Compte gelé",
+      "accountDeleted": "Compte supprimé",
+      "isEmptyList": "Pas une seule personne n’a été retrouvée. Essayez de modifier vos paramètres de filtre.",
+      "isNewLike": "Il y a de la sympathie ! Afficher dans le chat du robot",
+      "geoPositionExist": "Géolocalisation déterminée"
+    },
+    "form": {
+      "field": {
+        "displayName": "Nom d'affichage",
+        "age": "Âge",
+        "description": "Description",
+        "gender": "Sol",
+        "searchGender": "Intéressé",
+        "language": "Langue de l'interface"
+      }
+    },
+    "actions": {
+      "settings": "Paramètres",
+      "filter": "Filtre",
+      "saveChanges": "Enregistrer les modifications",
+      "block": "Bloc",
+      "no": "Non",
+      "yes": "Oui",
+      "complaint": "Signaler et bloquer",
+      "deleteProfile": "Supprimer le compte",
+      "freezeProfile": "Geler le compte",
+      "editProfile": "Modifier le compte",
+      "cancel": "Annuler",
+      "restoreProfile": "Récupérer le compte",
+      "main": "Maison",
+      "profile": "Profil",
+      "back": "Dos",
+      "delete": "Supprimer",
+      "loading": "Chargement",
+      "register": "Registre",
+      "save": "Sauvegarder"
+    },
+    "reductions": {
+      "km": "km",
+      "m": "m"
+    },
+    "validation": {
+      "email": "L'e-mail est incorrect",
+      "empty": "Le champ ne peut pas être vide",
+      "onlyLetters": "Caractères valides : lettres uniquement",
+      "passwordNotMatch": "Les mots de passe ne correspondent pas",
+      "wrongCharacter": "Caractères valides: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
+      "file": {
+        "expectedFile": "Vous ne pouvez joindre qu'un fichier",
+        "maxSize": "Taille maximale du fichier 50Mb",
+        "maxAmount": "Nombre maximum de fichiers 3"
+      },
+      "invalidTypeNumber": "Doit être un nombre",
+      "nonNegativeNumber": "Le nombre doit être positif",
+      "lessOrEqualMaxNumber": "Doit être inférieur ou égal à {{max}}",
+      "maxSymbols": "Ne doit pas contenir plus de {{max}} caractères",
+      "smallImage": "L'image doit avoir une taille d'au moins 100 x 100 pixels"
+    }
+  },
+  "errorBoundary": {
+    "common": {
+      "manyRequest": "Trop de demandes",
+      "unauthorized": "Non autorisé via l'application Telegram",
+      "unexpectedError": "Une erreur inattendue s'est produite"
+    }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "Re-like sera disponible demain"
+    }
+  }
+}

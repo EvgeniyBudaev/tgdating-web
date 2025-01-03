@@ -32,24 +32,17 @@ const CheckLikeComponent: FC<TProps> = ({csrf, initDataCrypt, isSession, lng, te
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
       const newLike = state.data;
-      let isNewLike = false;
       const now = dayjs().utc();
       const likeCreatedAt = dayjs(newLike.createdAt).utc();
       const differenceTime = now.diff(likeCreatedAt, "second");
 
       setLastLike((prev) => {
-        console.log("newLike.createdAt: ", newLike.createdAt);
-        console.log("prev?.createdAt: ", prev?.createdAt);
-        console.log(
-          "newLike.createdAt !== prev?.createdAt: ",
-          newLike.createdAt !== prev?.createdAt,
-        );
-        console.log("differenceTime: ", differenceTime);
-        if (newLike.createdAt !== prev?.createdAt && differenceTime < 20)
-          isNewLike = true;
+        if (newLike.createdAt !== prev?.createdAt && differenceTime < 20) {
+          setIsNewLike(true);
+        }
         return newLike;
       });
-      setIsNewLike(isNewLike);
+      setIsNewLike(false);
     }
   }, [lng, state?.data, state?.error, state.success, telegramUserId]);
 
@@ -65,7 +58,6 @@ const CheckLikeComponent: FC<TProps> = ({csrf, initDataCrypt, isSession, lng, te
 
   useEffect(() => {
     if (isNewLike) {
-      console.log("isNewLike: ", isNewLike);
       notification({
         title: t("common.titles.isNewLike"),
         type: "success",

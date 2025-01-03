@@ -22,7 +22,7 @@ module.exports = {
     default: ["JavascriptLexer"],
   },
   lineEnding: "auto",
-  locales: ["en", "ru", "ar", "be", "ca", "hr"],
+  locales: ["en", "ru", "ar", "be", "ca", "cs", "de", "fi", "fr", "hr", "nl"],
   namespaceSeparator: ":",
   output: "app/i18n/locales/$LOCALE/$NAMESPACE.json",
   input: ["app/**/*.{tsx,ts,js,jsx}"],

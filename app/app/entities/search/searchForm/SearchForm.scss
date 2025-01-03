@@ -46,7 +46,6 @@
   }
 
   & .SidebarContent {
-    $this: &;
     &-Header {
       background-color: $text_color;
       margin-bottom: 25px;

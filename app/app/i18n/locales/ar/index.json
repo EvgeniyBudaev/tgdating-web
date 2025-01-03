@@ -32,6 +32,7 @@
     "actions": {
       "settings": "إعدادات",
       "filter": "فلتر",
+      "saveChanges": "حفظ التغييرات",
       "block": "حاجز",
       "no": "لا",
       "yes": "نعم",
@@ -47,8 +48,7 @@
       "delete": "يمسح",
       "loading": "تحميل",
       "register": "يسجل",
-      "save": "يحفظ",
-      "saveChanges": "حفظ التغييرات"
+      "save": "يحفظ"
     },
     "reductions": {
       "km": "كم",

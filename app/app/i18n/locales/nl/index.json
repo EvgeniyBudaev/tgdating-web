@@ -1,0 +1,87 @@
+{
+  "common": {
+    "titles": {
+      "accountBlocked": "Account geblokkeerd",
+      "isEmptyUsername": "Er is geen unieke naam ingesteld in Telegram/Instellingen/Gebruikersnaam. Stel een gebruikersnaam in en probeer opnieuw in te loggen op de applicatie. Het bijwerken van gegevens in Telegram kan enkele minuten duren",
+      "publicPhotos": "Openbare foto's",
+      "required": "verplicht in te vullen",
+      "changeable": "kan worden gewijzigd",
+      "filtersGeneral": "Algemene filters",
+      "age": "Leeftijd",
+      "blockQuestion": "Uw account blokkeren?",
+      "complaintQuestion": "Uw account blokkeren?",
+      "deleteQuestion": "Account verwijderen?",
+      "freezeQuestion": "Uw account bevriezen?",
+      "online": "Online",
+      "accountFrozen": "Rekening bevroren",
+      "accountDeleted": "Account verwijderd",
+      "isEmptyList": "Er werd geen enkele persoon gevonden. Probeer uw filterinstellingen te wijzigen.",
+      "isNewLike": "Er is sympathie! Bekijk in botchat",
+      "geoPositionExist": "Geolocatie bepaald"
+    },
+    "form": {
+      "field": {
+        "displayName": "Weergavenaam",
+        "age": "Leeftijd",
+        "description": "Beschrijving",
+        "gender": "Vloer",
+        "searchGender": "Geïnteresseerd",
+        "language": "Interfacetaal"
+      }
+    },
+    "actions": {
+      "settings": "Instellingen",
+      "filter": "Filter",
+      "saveChanges": "Wijzigingen opslaan",
+      "block": "Blok",
+      "no": "Nee",
+      "yes": "Ja",
+      "complaint": "Rapporteren en blokkeren",
+      "deleteProfile": "Account verwijderen",
+      "freezeProfile": "Account bevriezen",
+      "editProfile": "Account bewerken",
+      "cancel": "Annuleren",
+      "restoreProfile": "Account herstellen",
+      "main": "Thuis",
+      "profile": "Profiel",
+      "back": "Rug",
+      "delete": "Verwijderen",
+      "loading": "Laden",
+      "register": "Register",
+      "save": "Redden"
+    },
+    "reductions": {
+      "km": "km",
+      "m": "m"
+    },
+    "validation": {
+      "email": "E-mail is onjuist",
+      "empty": "Veld mag niet leeg zijn",
+      "onlyLetters": "Geldige tekens: alleen letters",
+      "passwordNotMatch": "Wachtwoorden komen niet overeen",
+      "wrongCharacter": "Geldige tekens: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
+      "file": {
+        "expectedFile": "U kunt alleen een bestand bijvoegen",
+        "maxSize": "Maximale bestandsgrootte 50Mb",
+        "maxAmount": "Maximaal aantal bestanden 3"
+      },
+      "invalidTypeNumber": "Moet een getal zijn",
+      "nonNegativeNumber": "Het getal moet positief zijn",
+      "lessOrEqualMaxNumber": "Moet kleiner zijn dan of gelijk zijn aan {{max}}",
+      "maxSymbols": "Mag niet langer zijn dan {{max}} tekens",
+      "smallImage": "De afbeelding moet minimaal 100 x 100 pixels groot zijn"
+    }
+  },
+  "errorBoundary": {
+    "common": {
+      "manyRequest": "Te veel verzoeken",
+      "unauthorized": "Niet geautoriseerd via Telegram-applicatie",
+      "unexpectedError": "Er is een onverwachte fout opgetreden"
+    }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "Re-like is morgen beschikbaar"
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "common": {
+    "titles": {
+      "accountBlocked": "Konto gesperrt",
+      "isEmptyUsername": "In Telegram/Einstellungen/Benutzername ist kein eindeutiger Name festgelegt. Bitte legen Sie einen Benutzernamen fest und versuchen Sie erneut, sich bei der Anwendung anzumelden. Das Aktualisieren der Daten in Telegram kann mehrere Minuten dauern",
+      "publicPhotos": "Öffentliche Fotos",
+      "required": "zum Ausfüllen erforderlich",
+      "changeable": "kann geändert werden",
+      "filtersGeneral": "Allgemeine Filter",
+      "age": "Alter",
+      "blockQuestion": "Konto sperren?",
+      "complaintQuestion": "Konto sperren?",
+      "deleteQuestion": "Konto löschen?",
+      "freezeQuestion": "Konto einfrieren?",
+      "online": "Online",
+      "accountFrozen": "Konto eingefroren",
+      "accountDeleted": "Konto gelöscht",
+      "isEmptyList": "Es wurde keine einzige Person gefunden. Versuchen Sie, Ihre Filtereinstellungen zu ändern.",
+      "isNewLike": "Es gibt Mitgefühl! Im Bot-Chat ansehen",
+      "geoPositionExist": "Geolokalisierung bestimmt"
+    },
+    "form": {
+      "field": {
+        "displayName": "Anzeigename",
+        "age": "Alter",
+        "description": "Beschreibung",
+        "gender": "Boden",
+        "searchGender": "Interessiert",
+        "language": "Schnittstellensprache"
+      }
+    },
+    "actions": {
+      "settings": "Einstellungen",
+      "filter": "Filter",
+      "saveChanges": "Änderungen speichern",
+      "block": "Block",
+      "no": "Nein",
+      "yes": "Ja",
+      "complaint": "Melden und blockieren",
+      "deleteProfile": "Konto löschen",
+      "freezeProfile": "Konto einfrieren",
+      "editProfile": "Konto bearbeiten",
+      "cancel": "Stornieren",
+      "restoreProfile": "Konto wiederherstellen",
+      "main": "Heim",
+      "profile": "Profil",
+      "back": "Zurück",
+      "delete": "Löschen",
+      "loading": "Laden",
+      "register": "Registrieren",
+      "save": "Speichern"
+    },
+    "reductions": {
+      "km": "km",
+      "m": "m"
+    },
+    "validation": {
+      "email": "E-Mail ist falsch",
+      "empty": "Das Feld darf nicht leer sein",
+      "onlyLetters": "Gültige Zeichen: nur Buchstaben",
+      "passwordNotMatch": "Passwörter stimmen nicht überein",
+      "wrongCharacter": "Gültige Zeichen: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
+      "file": {
+        "expectedFile": "Sie können nur eine Datei anhängen",
+        "maxSize": "Maximale Dateigröße 50Mb",
+        "maxAmount": "Maximale Anzahl Dateien 3"
+      },
+      "invalidTypeNumber": "Muss eine Zahl sein",
+      "nonNegativeNumber": "Die Zahl muss positiv sein",
+      "lessOrEqualMaxNumber": "Muss kleiner oder gleich {{max}} sein",
+      "maxSymbols": "Darf nicht mehr als {{max}} Zeichen umfassen",
+      "smallImage": "Das Bild muss mindestens 100 x 100 Pixel groß sein"
+    }
+  },
+  "errorBoundary": {
+    "common": {
+      "manyRequest": "Zu viele Anfragen",
+      "unauthorized": "Nicht über Telegram-Anwendung autorisiert",
+      "unexpectedError": "Es ist ein unerwarteter Fehler aufgetreten"
+    }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "Re-like wird morgen verfügbar sein"
+    }
+  }
+}

@@ -32,6 +32,7 @@
     "actions": {
       "settings": "Configuració",
       "filter": "Filtre",
+      "saveChanges": "Desa els canvis",
       "block": "Bloc",
       "no": "No",
       "yes": "Sí",
@@ -47,8 +48,7 @@
       "delete": "Suprimeix",
       "loading": "Carregant",
       "register": "Registra't",
-      "save": "Desa",
-      "saveChanges": "Desa els canvis"
+      "save": "Desa"
     },
     "reductions": {
       "km": "km",
@@ -62,7 +62,7 @@
       "wrongCharacter": "Caràcters vàlids: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
       "file": {
         "expectedFile": "Només podeu adjuntar un fitxer",
-        "maxSize": "Mida màxima del fitxer 50 MB",
+        "maxSize": "Mida màxima del fitxer 50Mb",
         "maxAmount": "Nombre màxim de fitxers 3"
       },
       "invalidTypeNumber": "Ha de ser un número",

@@ -1,0 +1,87 @@
+{
+  "common": {
+    "titles": {
+      "accountBlocked": "Účet zablokován",
+      "isEmptyUsername": "V Telegram/Nastavení/Uživatelské jméno není nastaveno jedinečné jméno. Nastavte prosím uživatelské jméno a zkuste se znovu přihlásit do aplikace. Aktualizace dat v telegramu může trvat několik minut",
+      "publicPhotos": "Veřejné fotografie",
+      "required": "nutné vyplnit",
+      "changeable": "lze změnit",
+      "filtersGeneral": "Obecné filtry",
+      "age": "Stáří",
+      "blockQuestion": "Zablokovat svůj účet?",
+      "complaintQuestion": "Zablokovat svůj účet?",
+      "deleteQuestion": "Smazat účet?",
+      "freezeQuestion": "Zmrazit váš účet?",
+      "online": "Online",
+      "accountFrozen": "Účet zmrazen",
+      "accountDeleted": "Účet smazán",
+      "isEmptyList": "Nebyl nalezen jediný člověk. Zkuste změnit nastavení filtru.",
+      "isNewLike": "Jsou tam sympatie! Zobrazit v chatu robota",
+      "geoPositionExist": "Určena geolokace"
+    },
+    "form": {
+      "field": {
+        "displayName": "Zobrazovaný název",
+        "age": "Stáří",
+        "description": "Popis",
+        "gender": "Patro",
+        "searchGender": "Zájem",
+        "language": "Jazyk rozhraní"
+      }
+    },
+    "actions": {
+      "settings": "Nastavení",
+      "filter": "Filtr",
+      "saveChanges": "Uložte změny",
+      "block": "Blok",
+      "no": "Žádný",
+      "yes": "Ano",
+      "complaint": "Nahlásit a zablokovat",
+      "deleteProfile": "Smazat účet",
+      "freezeProfile": "Zmrazit účet",
+      "editProfile": "Upravit účet",
+      "cancel": "Zrušit",
+      "restoreProfile": "Obnovit účet",
+      "main": "Domov",
+      "profile": "Profil",
+      "back": "Zadní",
+      "delete": "Vymazat",
+      "loading": "Načítání",
+      "register": "Rejstřík",
+      "save": "Uložit"
+    },
+    "reductions": {
+      "km": "km",
+      "m": "m"
+    },
+    "validation": {
+      "email": "E-mail je nesprávný",
+      "empty": "Pole nemůže být prázdné",
+      "onlyLetters": "Platné znaky: pouze písmena",
+      "passwordNotMatch": "Hesla se neshodují",
+      "wrongCharacter": "Platné znaky: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
+      "file": {
+        "expectedFile": "Můžete pouze připojit soubor",
+        "maxSize": "Maximální velikost souboru 50Mb",
+        "maxAmount": "Maximální počet souborů 3"
+      },
+      "invalidTypeNumber": "Musí to být číslo",
+      "nonNegativeNumber": "Číslo musí být kladné",
+      "lessOrEqualMaxNumber": "Musí být menší nebo roven {{max}}",
+      "maxSymbols": "Nesmí mít více než {{max}} znaků",
+      "smallImage": "Изображение должно быть размером не менее 100 x 100 пикселей"
+    }
+  },
+  "errorBoundary": {
+    "common": {
+      "manyRequest": "Příliš mnoho požadavků",
+      "unauthorized": "Není autorizován prostřednictvím aplikace Telegram",
+      "unexpectedError": "Došlo k neočekávané chybě"
+    }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "Re-like bude k dispozici zítra"
+    }
+  }
+}

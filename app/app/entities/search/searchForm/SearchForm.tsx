@@ -198,7 +198,7 @@ const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
             <div />
           </div>
           <div className="SearchForm-SidebarContent-List SidebarContent-List ">
-            <div className="SearchForm-SidebarContent-List-Item SidebarContent-List-Item ">
+            <div className="SearchForm-SidebarContent-List-Item SidebarContent-List-Item">
               <RangeSlider
                 isShowTooltip={true}
                 label={t("common.titles.age")}
@@ -209,7 +209,7 @@ const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
                 value={ageRange}
               />
             </div>
-            <div className="SidebarContent-List-Item SearchForm-SidebarContent-List-Item">
+            <div className="SearchForm-SidebarContent-List-Item SidebarContent-List-Item">
               <Select
                 isSidebarOpen={isSidebarOpen.isSearchGender}
                 label={t("common.form.field.searchGender")}
