@@ -30,10 +30,10 @@
       }
     },
     "actions": {
-      "settings": "Настройки",
+      "settings": "Impostazioni",
       "filter": "Filtro",
       "saveChanges": "Salva modifiche",
-      "block": "Заблокировать",
+      "block": "Bloccare",
       "no": "No",
       "yes": "SÌ",
       "complaint": "Segnala e blocca",
