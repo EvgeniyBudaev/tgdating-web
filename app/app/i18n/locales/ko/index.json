@@ -1,0 +1,87 @@
+{
+  "common": {
+    "titles": {
+      "accountBlocked": "계정이 차단됨",
+      "isEmptyUsername": "Не задано уникальное имя в Телеграм/Настройки/Имя пользователя. Пожалуйста, установите имя пользователя и повторите попытку входа в приложение. Обновление данных в Телеграм может занять несколько минут",
+      "publicPhotos": "공개 사진",
+      "required": "작성하는 데 필요한",
+      "changeable": "변경될 수 있다",
+      "filtersGeneral": "일반 필터",
+      "age": "나이",
+      "blockQuestion": "계정을 차단하시겠습니까?",
+      "complaintQuestion": "계정을 차단하시겠습니까?",
+      "deleteQuestion": "계정을 삭제하시겠습니까?",
+      "freezeQuestion": "계정을 동결하시겠습니까?",
+      "online": "온라인",
+      "accountFrozen": "계정이 동결되었습니다",
+      "accountDeleted": "계정이 삭제되었습니다",
+      "isEmptyList": "한 사람도 발견되지 않았습니다. 필터 설정을 변경해 보세요.",
+      "isNewLike": "동정심이 있습니다! 봇 채팅에서 보기",
+      "geoPositionExist": "지리적 위치가 결정됨"
+    },
+    "form": {
+      "field": {
+        "displayName": "표시 이름",
+        "age": "나이",
+        "description": "설명",
+        "gender": "바닥",
+        "searchGender": "관심 있는",
+        "language": "인터페이스 언어"
+      }
+    },
+    "actions": {
+      "settings": "설정",
+      "filter": "필터",
+      "saveChanges": "변경사항 저장",
+      "block": "차단하다",
+      "no": "아니요",
+      "yes": "예",
+      "complaint": "신고 및 차단",
+      "deleteProfile": "계정 삭제",
+      "freezeProfile": "계정 동결",
+      "editProfile": "계정 수정",
+      "cancel": "취소",
+      "restoreProfile": "계정 복구",
+      "main": "집",
+      "profile": "윤곽",
+      "back": "뒤쪽에",
+      "delete": "삭제",
+      "loading": "로드 중",
+      "register": "Зарегистрироваться",
+      "save": "구하다"
+    },
+    "reductions": {
+      "km": "킬로미터",
+      "m": "중"
+    },
+    "validation": {
+      "email": "이메일이 잘못되었습니다",
+      "empty": "필드는 비워둘 수 없습니다",
+      "onlyLetters": "유효한 문자: 문자만 가능",
+      "passwordNotMatch": "비밀번호가 일치하지 않습니다.",
+      "wrongCharacter": "유효한 문자: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
+      "file": {
+        "expectedFile": "파일만 첨부 가능합니다",
+        "maxSize": "최대 파일 크기 50Mb",
+        "maxAmount": "최대 파일 수 3"
+      },
+      "invalidTypeNumber": "숫자여야 합니다",
+      "nonNegativeNumber": "숫자는 양수여야 합니다",
+      "lessOrEqualMaxNumber": "{{max}}보다 작거나 같아야 합니다",
+      "maxSymbols": "{{max}}자 이하여야 합니다",
+      "smallImage": "이미지 크기는 100x100픽셀 이상이어야 합니다"
+    }
+  },
+  "errorBoundary": {
+    "common": {
+      "manyRequest": "요청이 너무 많습니다",
+      "unauthorized": "텔레그램 애플리케이션을 통해 승인되지 않음",
+      "unexpectedError": "예상치 못한 오류가 발생했습니다"
+    }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "리라이크는 내일부터 가능합니다"
+    }
+  }
+}

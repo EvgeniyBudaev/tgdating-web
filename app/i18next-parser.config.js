@@ -37,6 +37,8 @@ module.exports = {
     "hu",
     "id",
     "it",
+    "kk",
+    "ko",
     "nl",
   ],
   namespaceSeparator: ":",
