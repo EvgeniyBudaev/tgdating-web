@@ -1,4 +1,4 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
 
 .UnauthorizedPage {
   position: relative;
@@ -7,7 +7,7 @@
   justify-content: center;
   height: 100%;
   width: 100%;
-  background-color: $secondary_bg_color;
+  background-color: colors.$secondary_bg_color;
 
   &-Inner {
     display: flex;
@@ -18,6 +18,6 @@
     display: flex;
     justify-content: center;
     margin-bottom: 8px;
-    color: $text_color;
+    color: colors.$text_color;
   }
 }

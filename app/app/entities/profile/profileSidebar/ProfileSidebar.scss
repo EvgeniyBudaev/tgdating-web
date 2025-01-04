@@ -1,9 +1,10 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
+@use "@/app/styles/constants" as constants;
 
 .ProfileSidebar {
   .SidebarContent {
     &-Header {
-      background-color: $bg_color;
+      background-color: colors.$bg_color;
       margin-bottom: 25px;
     }
 
@@ -12,14 +13,14 @@
 
       &:hover,
       &:active {
-        opacity: $opacity;
+        opacity: constants.$opacity;
       }
     }
 
     &-List {
-      background-color: $bg_color;
-      border-top: 1px solid $secondary_bg_color;
-      border-bottom: 1px solid $secondary_bg_color;
+      background-color: colors.$bg_color;
+      border-top: 1px solid colors.$secondary_bg_color;
+      border-bottom: 1px solid colors.$secondary_bg_color;
       padding: 0 0 0 16px;
 
       &-Item {
@@ -27,16 +28,16 @@
         align-items: center;
         justify-content: center;
         height: 50px;
-        border-bottom: 1px solid $secondary_bg_color;
+        border-bottom: 1px solid colors.$secondary_bg_color;
         cursor: pointer;
 
         &-Delete {
-          color: $color-red;
+          color: colors.$color-red;
         }
 
         &:hover,
         &:active {
-          opacity: $opacity;
+          opacity: constants.$opacity;
         }
       }
     }

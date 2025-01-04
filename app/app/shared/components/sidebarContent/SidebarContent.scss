@@ -1,10 +1,11 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
+@use "@/app/styles/constants" as constants;
 
 .SidebarContent {
   $this: &;
 
   &-Header {
-    background-color: $text_color;
+    background-color: colors.$text_color;
     margin-bottom: 25px;
     position: fixed;
     top: 0;
@@ -18,18 +19,18 @@
     &-Control {
       display: flex;
       align-items: center;
-      color: $link_color;
+      color: colors.$link_color;
       z-index: 100;
 
       &:hover,
       &:active {
-        background-color: $link_active_color;
-        border-radius: $border-radius;
+        background-color: colors.$link_active_color;
+        border-radius: constants.$border-radius;
       }
     }
 
     &-Cancel {
-      color: $link_color;
+      color: colors.$link_color;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
       height: 32px;
@@ -43,16 +44,16 @@
 
         &:hover,
         &:active {
-          background-color: $link_active_color;
-          border-radius: $border-radius;
+          background-color: colors.$link_active_color;
+          border-radius: constants.$border-radius;
         }
       }
 
       &:hover,
       &:active {
-        color: $link_color;
-        background-color: $link_active_color;
-        border-radius: $border-radius;
+        color: colors.$link_color;
+        background-color: colors.$link_active_color;
+        border-radius: constants.$border-radius;
       }
     }
 
@@ -61,22 +62,22 @@
       align-items: center;
       padding: 0;
       font-weight: 700;
-      color: $link_color;
+      color: colors.$link_color;
       cursor: pointer;
       border: none;
       background-color: transparent;
 
       &:hover,
       &:active {
-        color: $link_color;
-        background-color: $link_active_color;
-        border-radius: $border-radius;
+        color: colors.$link_color;
+        background-color: colors.$link_active_color;
+        border-radius: constants.$border-radius;
       }
     }
   }
 
   &-List {
-    background-color: $text_color;
+    background-color: colors.$text_color;
     margin-top: 75px;
     margin-bottom: 66px;
 
@@ -86,21 +87,21 @@
       justify-content: space-between;
       min-height: 50px;
       padding: 8px 16px;
-      border-bottom: 1px solid $text_color_not_active;
+      border-bottom: 1px solid colors.$text_color_not_active;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
       width: 100%;
-      color: $bg_color;
+      color: colors.$bg_color;
 
       &:hover,
       &:active {
-        color: $bg_color;
-        background-color: $link_color;
+        color: colors.$bg_color;
+        background-color: colors.$link_color;
       }
 
       &__isChecked {
         opacity: 1;
-        background-color: $link_color;
+        background-color: colors.$link_color;
       }
 
       &__isChecked .Icon {
@@ -115,21 +116,21 @@
     }
 
     &-Delete {
-      color: $color-red;
+      color: colors.$color-red;
     }
   }
 
   &.theme-dark {
     #{$this}-Header {
-      background-color: $bg_color;
+      background-color: colors.$bg_color;
     }
 
     #{$this}-List {
-      background-color: $bg_color;
+      background-color: colors.$bg_color;
 
       &-Item {
-        color: $text_color;
-        border-bottom: 1px solid $secondary_bg_color;
+        color: colors.$text_color;
+        border-bottom: 1px solid colors.$secondary_bg_color;
 
         &:last-child {
           border-bottom: none;
@@ -137,7 +138,7 @@
 
         &:hover,
         &:active {
-          color: $text_color;
+          color: colors.$text_color;
         }
       }
     }

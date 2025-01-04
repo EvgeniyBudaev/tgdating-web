@@ -1,4 +1,5 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
+@use "@/app/styles/constants" as constants;
 
 .Controls {
   $this: &;
@@ -16,7 +17,7 @@
     width: 64px;
     z-index: 100;
     margin-bottom: 16px;
-    border-radius: $border-radius;
+    border-radius: constants.$border-radius;
     cursor: pointer;
 
     &:last-child {
@@ -42,26 +43,26 @@
     z-index: 200;
     position: relative;
     border: 1px solid transparent;
-    border-radius: $border-radius;
+    border-radius: constants.$border-radius;
 
     &-Pink {
-      background-color: $color-pink;
+      background-color: colors.$color-pink;
       box-shadow:
-        0 0 25px $color-pink,
-        0 0 100px $color-pink,
-        0 0 150px $color-pink;
+        0 0 25px colors.$color-pink,
+        0 0 100px colors.$color-pink,
+        0 0 150px colors.$color-pink;
     }
 
     &-Green {
-      background-color: $color-green;
+      background-color: colors.$color-green;
       box-shadow:
-        0 0 25px $color-green,
-        0 0 100px $color-green,
-        0 0 150px $color-green;
+        0 0 25px colors.$color-green,
+        0 0 100px colors.$color-green,
+        0 0 150px colors.$color-green;
     }
 
     &__no-checked {
-      background-color: $color-green;
+      background-color: colors.$color-green;
     }
   }
 

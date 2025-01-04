@@ -1,4 +1,5 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
+@use "@/app/styles/constants" as constants;
 
 .Modal {
   &Header {
@@ -32,7 +33,7 @@
 
       svg {
         //fill: $color-dark-gray;
-        transition: all $transition;
+        transition: all constants.$transition;
       }
 
       &:hover {
@@ -59,13 +60,13 @@
 }
 
 .react-responsive-modal-overlay {
-  background: $bg_color;
+  background: colors.$bg_color;
 }
 
 .react-responsive-modal-modal {
   padding: 0;
   box-shadow: none;
   border: none;
-  background-color: $bg_color;
+  background-color: colors.$bg_color;
   overflow: visible;
 }

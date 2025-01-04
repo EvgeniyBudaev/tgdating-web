@@ -1,4 +1,5 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
+@use "@/app/styles/constants" as constants;
 
 .HeadlessPopover {
   position: relative;
@@ -17,7 +18,7 @@
     width: 100%;
     padding: 0;
     cursor: pointer;
-    transition: all $transition;
+    transition: all constants.$transition;
   }
 
   &-Trigger {
@@ -29,9 +30,9 @@
     z-index: 50;
     margin-top: 12px;
     width: 100%;
-    background-color: $secondary_bg_color;
-    border: 1px solid $secondary_bg_color;
-    border-radius: $border-radius;
+    background-color: colors.$secondary_bg_color;
+    border: 1px solid colors.$secondary_bg_color;
+    border-radius: constants.$border-radius;
 
     &__left {
       left: 0;
@@ -50,16 +51,16 @@
   &-PanelContent {
     position: relative;
     width: 100%;
-    transition: all $transition;
+    transition: all constants.$transition;
 
     &:hover {
-      border: 1px solid $secondary_bg_color;
+      border: 1px solid colors.$secondary_bg_color;
     }
   }
 
   &-Transition {
     &__enter {
-      transition: all $transition ease-out;
+      transition: all constants.$transition ease-out;
     }
 
     &__enterFrom {
@@ -73,7 +74,7 @@
     }
 
     &__leave {
-      transition: all $transition ease-in;
+      transition: all constants.$transition ease-in;
     }
 
     &__leaveFrom {
@@ -88,12 +89,12 @@
   }
 
   & .rdrCalendarWrapper {
-    background-color: $secondary_bg_color;
-    border-radius: $border-radius-lg;
+    background-color: colors.$secondary_bg_color;
+    border-radius: constants.$border-radius-lg;
   }
 
   & .rdrDay:not(.rdrDayPassive) .rdrDayNumber span {
-    color: $text_color;
+    color: colors.$text_color;
   }
 
   & .rdrDay.rdrDayPassive .rdrDayNumber span {
@@ -101,7 +102,7 @@
   }
 
   & .rdrDay.rdrDayDisabled {
-    background-color: $secondary_bg_color;
+    background-color: colors.$secondary_bg_color;
   }
 
   & .rdrDay.rdrDayDisabled:not(.rdrDayPassive) .rdrDayNumber span {
@@ -109,21 +110,21 @@
   }
 
   & .rdrMonthPicker {
-    background-color: $bg_color;
-    border-radius: $border-radius;
+    background-color: colors.$bg_color;
+    border-radius: constants.$border-radius;
   }
 
   & .rdrYearPicker {
-    background-color: $bg_color;
-    border-radius: $border-radius;
+    background-color: colors.$bg_color;
+    border-radius: constants.$border-radius;
   }
 
   & .rdrMonthAndYearPickers select {
-    color: $text_color;
+    color: colors.$text_color;
   }
 
   & .rdrMonthAndYearPickers select option {
-    color: $text_color;
-    background-color: $secondary_bg_color;
+    color: colors.$text_color;
+    background-color: colors.$secondary_bg_color;
   }
 }

@@ -1,4 +1,4 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
 
 .ProfileBlocked {
   position: relative;
@@ -7,9 +7,9 @@
   justify-content: center;
   height: 400px;
   width: 100%;
-  background-color: $secondary_bg_color;
+  background-color: colors.$secondary_bg_color;
 
   &-Title {
-    color: $text_color;
+    color: colors.$text_color;
   }
 }

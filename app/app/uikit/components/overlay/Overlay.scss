@@ -1,4 +1,4 @@
-@import "@/app/styles";
+@use "@/app/styles/constants" as constants;
 
 $opacity: 0.1;
 
@@ -24,14 +24,14 @@ $opacity: 0.1;
     background-color: #000;
     opacity: $opacity;
     visibility: visible;
-    transition: all $transition;
+    transition: all constants.$transition;
   }
 
   &.exit {
     background-color: #000;
     opacity: $opacity;
     visibility: visible;
-    transition: all $transition;
+    transition: all constants.$transition;
   }
 
   &.exit-active {

@@ -1,14 +1,19 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
+@use "@/app/styles/constants" as constants;
 
 .Button {
   position: relative;
   padding: 10px 30px;
   height: max-content;
   width: max-content;
-  color: $text_color;
-  background: linear-gradient(to right, $link_color, $link_active_color);
+  color: colors.$text_color;
+  background: linear-gradient(
+    to right,
+    colors.$link_color,
+    colors.$link_active_color
+  );
   border: 1px solid transparent;
-  border-radius: $border-radius;
+  border-radius: constants.$border-radius;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   overflow: hidden;
@@ -21,16 +26,16 @@
     align-items: center;
     z-index: 2;
     height: max-content;
-    transition: all $transition;
+    transition: all constants.$transition;
   }
 
   &:hover {
     background: linear-gradient(
       to right,
-      $link_color_hover,
-      $link_active_color_hover
+      colors.$link_color_hover,
+      colors.$link_active_color_hover
     );
-    color: $text_color;
+    color: colors.$text_color;
     z-index: 2;
   }
 
@@ -38,24 +43,24 @@
     cursor: not-allowed;
     background: linear-gradient(
       to right,
-      $link_color_hover,
-      $link_active_color_hover
+      colors.$link_color_hover,
+      colors.$link_active_color_hover
     );
   }
 
   &.Button__disabled {
-    color: $text_color;
-    background-color: $text_color_not_active;
-    border-color: $text_color;
+    color: colors.$text_color;
+    background-color: colors.$text_color_not_active;
+    border-color: colors.$text_color;
 
     &:active {
       transform: none;
     }
 
     &:hover {
-      color: $text_color;
-      background-color: $color-gray;
-      border-color: $text_color;
+      color: colors.$text_color;
+      background-color: colors.$color-gray;
+      border-color: colors.$text_color;
       cursor: not-allowed;
     }
   }

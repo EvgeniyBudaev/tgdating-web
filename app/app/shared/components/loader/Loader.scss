@@ -1,4 +1,4 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
 
 .Loader {
   position: absolute;
@@ -8,5 +8,5 @@
   justify-content: center;
   width: 100%;
   z-index: 200;
-  color: $link_color;
+  color: colors.$link_color;
 }

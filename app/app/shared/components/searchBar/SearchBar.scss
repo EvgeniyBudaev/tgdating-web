@@ -1,12 +1,13 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
+@use "@/app/styles/constants" as constants;
 
 .SearchBar {
   display: flex;
   align-items: center;
-  background-color: $bg_light_color;
+  background-color: colors.$bg_light_color;
   width: 200px;
   max-width: 100%;
-  border-radius: $border-radius-2xl;
+  border-radius: constants.$border-radius-2xl;
   padding: 8px;
 
   &-Icon {
@@ -16,6 +17,6 @@
   }
 
   &.theme-dark {
-    background-color: $secondary_bg_color;
+    background-color: colors.$secondary_bg_color;
   }
 }

@@ -1,4 +1,4 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
 
 /* ----- Открытие/закрытие Sidebar ----- */
 $delay: 0.3s;
@@ -11,7 +11,7 @@ $delay: 0.3s;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $bg_light_color;
+    background-color: colors.$bg_light_color;
     transition: all $delay ease;
 
     &:hover {
@@ -25,7 +25,7 @@ $delay: 0.3s;
     &Icon {
       padding: 8px;
       height: 16px;
-      color: $bg_color;
+      color: colors.$bg_color;
 
       svg {
         transform: rotate(-90deg);
@@ -80,8 +80,8 @@ $delay: 0.3s;
     bottom: 18px;
     height: max-content;
     width: 100%;
-    color: $bg_color;
-    background-color: $bg_light_color;
+    color: colors.$bg_color;
+    background-color: colors.$bg_light_color;
     padding: 16px;
     overflow: hidden;
     z-index: 100;
@@ -99,16 +99,16 @@ $delay: 0.3s;
 .theme-dark {
   .Accordion {
     &-Header {
-      background-color: $bg_color;
+      background-color: colors.$bg_color;
 
       &Icon {
-        color: $text_color;
+        color: colors.$text_color;
       }
     }
 
     &-Content {
-      color: $text_color;
-      background-color: $bg_color;
+      color: colors.$text_color;
+      background-color: colors.$bg_color;
     }
   }
 }

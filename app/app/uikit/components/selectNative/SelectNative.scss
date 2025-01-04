@@ -1,4 +1,4 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
 
 .SelectNative {
   width: 100%;
@@ -9,7 +9,7 @@
 
   &-IconDropdownIndicator {
     svg {
-      fill: $text_color;
+      fill: colors.$text_color;
     }
   }
 
@@ -22,7 +22,7 @@
   .SelectNative {
     &-IconDropdownIndicator {
       svg {
-        fill: $text_color;
+        fill: colors.$text_color;
       }
     }
   }

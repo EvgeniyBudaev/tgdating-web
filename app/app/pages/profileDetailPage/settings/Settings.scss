@@ -1,43 +1,44 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
+@use "@/app/styles/constants" as constants;
 
 .Settings {
   &-Header {
-    background-color: $bg_color;
+    background-color: colors.$bg_color;
     margin-bottom: 25px;
 
     &-Cancel {
-      color: $link_color;
+      color: colors.$link_color;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
 
       &:hover,
       &:active {
-        color: $link_active_color;
-        background-color: $color-gray;
-        border-radius: $border-radius;
+        color: colors.$link_active_color;
+        background-color: colors.$color-gray;
+        border-radius: constants.$border-radius;
       }
     }
 
     &-Save {
       font-weight: 700;
-      color: $link_color;
+      color: colors.$link_color;
       cursor: pointer;
       border: none;
-      background-color: $bg_color;
+      background-color: colors.$bg_color;
 
       &:hover,
       &:active {
-        color: $link_active_color;
-        background-color: $color-gray;
-        border-radius: $border-radius;
+        color: colors.$link_active_color;
+        background-color: colors.$color-gray;
+        border-radius: constants.$border-radius;
       }
     }
   }
 
   &-List {
-    background-color: $bg_color;
-    border-top: 1px solid $secondary_bg_color;
-    border-bottom: 1px solid $secondary_bg_color;
+    background-color: colors.$bg_color;
+    border-top: 1px solid colors.$secondary_bg_color;
+    border-bottom: 1px solid colors.$secondary_bg_color;
 
     &-Item {
       display: flex;
@@ -45,16 +46,16 @@
       justify-content: space-between;
       min-height: 50px;
       padding: 8px 16px;
-      border-bottom: 1px solid $secondary_bg_color;
+      border-bottom: 1px solid colors.$secondary_bg_color;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
       width: 100%;
-      color: $text_color_not_active;
+      color: colors.$text_color_not_active;
 
       &__isChecked {
         opacity: 1;
-        color: $text_color;
-        background-color: $color-gray;
+        color: colors.$text_color;
+        background-color: colors.$color-gray;
       }
 
       &__isChecked .Icon {
@@ -69,8 +70,8 @@
 
       &:hover,
       &:active {
-        color: $text_color;
-        background-color: $color-gray;
+        color: colors.$text_color;
+        background-color: colors.$color-gray;
       }
     }
   }

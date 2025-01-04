@@ -1,4 +1,5 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
+@use "@/app/styles/constants" as constants;
 
 $imageSize: 120px;
 
@@ -8,25 +9,25 @@ $imageSize: 120px;
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: 1px dashed $bg_color;
-  border-radius: $border-radius;
+  border: 1px dashed colors.$bg_color;
+  border-radius: constants.$border-radius;
   min-height: $imageSize;
   width: $imageSize;
-  background-color: $bg_light_color;
+  background-color: colors.$bg_light_color;
   cursor: pointer;
 
   &:hover,
   &:active {
-    opacity: $opacity;
-    transition: $transition;
+    opacity: constants.$opacity;
+    transition: constants.$transition;
   }
 
   &__isError {
-    border-color: $color-red;
+    border-color: colors.$color-red;
   }
 
   &.theme-dark {
-    border-color: $text_color;
-    background-color: $secondary_bg_color;
+    border-color: colors.$text_color;
+    background-color: colors.$secondary_bg_color;
   }
 }

@@ -1,4 +1,5 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
+@use "@/app/styles/constants" as constants;
 
 .SearchForm {
   $this: &;
@@ -19,7 +20,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: $link_color;
+    color: colors.$link_color;
     cursor: pointer;
     height: 34px;
     width: 34px;
@@ -27,7 +28,7 @@
 
     &:hover,
     &:active {
-      opacity: $opacity;
+      opacity: constants.$opacity;
     }
   }
 
@@ -39,7 +40,7 @@
     width: 24px;
 
     & svg {
-      fill: $link_color;
+      fill: colors.$link_color;
       height: 24px;
       width: 24px;
     }
@@ -47,7 +48,7 @@
 
   & .SidebarContent {
     &-Header {
-      background-color: $text_color;
+      background-color: colors.$text_color;
       margin-bottom: 25px;
       position: fixed;
       top: 0;
@@ -59,7 +60,7 @@
       padding: 16px;
 
       &-Cancel {
-        color: $link_color;
+        color: colors.$link_color;
         cursor: pointer;
         -webkit-tap-highlight-color: transparent;
         height: 32px;
@@ -68,14 +69,14 @@
 
         &:hover,
         &:active {
-          color: $link_color;
-          background-color: $link_active_color;
-          border-radius: $border-radius;
+          color: colors.$link_color;
+          background-color: colors.$link_active_color;
+          border-radius: constants.$border-radius;
         }
       }
 
       &-Title {
-        color: $text_color;
+        color: colors.$text_color;
         z-index: 100;
       }
     }
@@ -83,7 +84,7 @@
 
   & #{$this}-SidebarContent {
     height: 100vh;
-    background-color: $text_color;
+    background-color: colors.$text_color;
   }
 
   & #{$this}-SidebarContent-List-Item {
@@ -96,7 +97,7 @@
 
   &.theme-dark {
     & #{$this}-SidebarContent {
-      background-color: $bg_color;
+      background-color: colors.$bg_color;
     }
 
     & #{$this}-SidebarContent-List-Item {

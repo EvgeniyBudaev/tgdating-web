@@ -1,8 +1,9 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
+@use "@/app/styles/constants" as constants;
 
 .InputDate {
   $this: &;
-  color: $text_color;
+  color: colors.$text_color;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,23 +16,23 @@
   }
 
   &-Text {
-    background-color: $secondary_bg_color;
+    background-color: colors.$secondary_bg_color;
     display: flex;
     align-items: center;
     outline: none;
     padding: 9px 12px;
     border: 1px solid transparent;
-    border-top-left-radius: $border-radius;
-    border-top-right-radius: $border-radius;
+    border-top-left-radius: constants.$border-radius;
+    border-top-right-radius: constants.$border-radius;
     box-sizing: border-box;
   }
 
   &-Title {
-    color: $text_color;
+    color: colors.$text_color;
   }
 
   &-SubTitle {
-    color: $text_color;
+    color: colors.$text_color;
   }
 
   &-IconWrapper {
@@ -53,17 +54,17 @@
 
     &__isFilled {
       &:focus {
-        border: 1px solid $secondary_bg_color;
+        border: 1px solid colors.$secondary_bg_color;
         padding-right: 30px;
       }
     }
 
     &:focus {
-      border: 1px solid $secondary_bg_color;
+      border: 1px solid colors.$secondary_bg_color;
     }
 
     &__isPlaceholder {
-      color: $text_color;
+      color: colors.$text_color;
     }
   }
 
@@ -74,7 +75,7 @@
   }
 
   &-PostIcon {
-    background-color: $text_color;
+    background-color: colors.$text_color;
     cursor: pointer;
     height: 12px;
     position: absolute;
@@ -91,35 +92,35 @@
     right: 12px;
 
     path {
-      fill: $text_color;
+      fill: colors.$text_color;
     }
   }
 
   &__isFocused {
-    border-color: $link_color;
+    border-color: colors.$link_color;
   }
 
   &__isInvalid {
     .InputDate-Text,
     .InputDate-Text:hover {
-      border: 1px solid $color-red;
+      border: 1px solid colors.$color-red;
     }
 
     .InputDate-Text:focus {
-      border: 1px solid $secondary_bg_color;
+      border: 1px solid colors.$secondary_bg_color;
     }
 
     #{$this}-SubTitle,
     #{$this}-Title {
-      color: $color-red;
+      color: colors.$color-red;
     }
   }
 
   &__isError {
-    border-color: $color-red;
+    border-color: colors.$color-red;
 
     #{$this}-Text {
-      border-color: $color-red;
+      border-color: colors.$color-red;
     }
   }
 }

@@ -1,4 +1,5 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
+@use "@/app/styles/constants" as constants;
 
 $transition: 150ms;
 
@@ -18,7 +19,7 @@ $transition: 150ms;
     margin-bottom: 4px;
 
     #{$this}-Inner__error {
-      background-color: $color-red;
+      background-color: colors.$color-red;
     }
   }
 
@@ -32,21 +33,21 @@ $transition: 150ms;
   input:hover,
   textarea,
   textarea:hover {
-    background-color: $bg_light_color;
+    background-color: colors.$bg_light_color;
   }
 
   &__active {
     width: 100%;
 
     #{$this}-Inner__active {
-      background-color: $bg_light_color;
-      color: $bg_color;
+      background-color: colors.$bg_light_color;
+      color: colors.$bg_color;
 
       input,
       input:hover,
       textarea,
       textarea:hover {
-        background-color: $bg_light_color;
+        background-color: colors.$bg_light_color;
       }
     }
 
@@ -54,28 +55,28 @@ $transition: 150ms;
     input:-webkit-autofill.Input__active:hover,
     input:-webkit-autofill.Input__active:focus,
     input:-webkit-autofill.Input__active:active {
-      -webkit-box-shadow: 0 0 0 30px $bg_light_color inset !important;
+      -webkit-box-shadow: 0 0 0 30px colors.$bg_light_color inset !important;
     }
 
     input:-webkit-autofill {
-      background-color: $bg_light_color !important;
-      border: 1px solid $bg_light_color !important;
-      -webkit-text-fill-color: $bg_color;
+      background-color: colors.$bg_light_color !important;
+      border: 1px solid colors.$bg_light_color !important;
+      -webkit-text-fill-color: colors.$bg_color;
     }
 
     input:-webkit-autofill:focus {
-      background-color: $bg_light_color !important;
-      border: 1px solid $bg_light_color !important;
-      -webkit-text-fill-color: $bg_color;
+      background-color: colors.$bg_light_color !important;
+      border: 1px solid colors.$bg_light_color !important;
+      -webkit-text-fill-color: colors.$bg_color;
     }
 
     & textarea,
     & textarea:hover {
-      background-color: $bg_light_color;
+      background-color: colors.$bg_light_color;
     }
 
     #{$this}-Inner__active#{$this}-Inner__error {
-      background-color: $bg_light_color;
+      background-color: colors.$bg_light_color;
     }
   }
 
@@ -83,12 +84,12 @@ $transition: 150ms;
     cursor: default;
 
     .Input__disabled {
-      background-color: $text_color_not_active;
+      background-color: colors.$text_color_not_active;
     }
 
     input:hover,
     input {
-      background-color: $text_color_not_active;
+      background-color: colors.$text_color_not_active;
     }
   }
 
@@ -101,7 +102,7 @@ $transition: 150ms;
     position: absolute;
     bottom: -18px;
     left: 0;
-    color: $color-red;
+    color: colors.$color-red;
     transition: all $transition;
   }
 
@@ -110,21 +111,21 @@ $transition: 150ms;
     input:hover,
     textarea,
     textarea:hover {
-      background-color: $secondary_bg_color;
+      background-color: colors.$secondary_bg_color;
     }
 
     #{$this}__active {
       width: 100%;
 
       #{$this}-Inner__active {
-        background-color: $secondary_bg_color;
-        color: $text_color;
+        background-color: colors.$secondary_bg_color;
+        color: colors.$text_color;
 
         input,
         input:hover,
         textarea,
         textarea:hover {
-          background-color: $secondary_bg_color;
+          background-color: colors.$secondary_bg_color;
         }
       }
 
@@ -132,28 +133,28 @@ $transition: 150ms;
       input:-webkit-autofill.Input__active:hover,
       input:-webkit-autofill.Input__active:focus,
       input:-webkit-autofill.Input__active:active {
-        -webkit-box-shadow: 0 0 0 30px $secondary_bg_color inset !important;
+        -webkit-box-shadow: 0 0 0 30px colors.$secondary_bg_color inset !important;
       }
 
       input:-webkit-autofill {
-        background-color: $secondary_bg_color !important;
-        border: 1px solid $secondary_bg_color !important;
-        -webkit-text-fill-color: $text_color;
+        background-color: colors.$secondary_bg_color !important;
+        border: 1px solid colors.$secondary_bg_color !important;
+        -webkit-text-fill-color: colors.$text_color;
       }
 
       input:-webkit-autofill:focus {
-        background-color: $secondary_bg_color !important;
-        border: 1px solid $secondary_bg_color !important;
-        -webkit-text-fill-color: $text_color;
+        background-color: colors.$secondary_bg_color !important;
+        border: 1px solid colors.$secondary_bg_color !important;
+        -webkit-text-fill-color: colors.$text_color;
       }
 
       & textarea,
       & textarea:hover {
-        background-color: $bg_color;
+        background-color: colors.$bg_color;
       }
 
       #{$this}-Inner__active#{$this}-Inner__error {
-        background-color: $bg_color;
+        background-color: colors.$bg_color;
       }
     }
 
@@ -161,12 +162,12 @@ $transition: 150ms;
       cursor: default;
 
       .Input__disabled {
-        background-color: $color-gray;
+        background-color: colors.$color-gray;
       }
 
       input:hover,
       input {
-        background-color: $color-gray;
+        background-color: colors.$color-gray;
       }
     }
   }
@@ -178,20 +179,20 @@ $transition: 150ms;
   align-items: center;
   width: 100%;
   border: 1px solid transparent;
-  border-top-left-radius: $border-radius;
-  border-top-right-radius: $border-radius;
-  outline: $bg_light_color;
-  color: $bg_color;
-  background-color: $bg_light_color;
+  border-top-left-radius: constants.$border-radius;
+  border-top-right-radius: constants.$border-radius;
+  outline: colors.$bg_light_color;
+  color: colors.$bg_color;
+  background-color: colors.$bg_light_color;
 
   &__active {
-    border: 1px solid $link_color;
-    border-top-left-radius: $border-radius;
-    border-top-right-radius: $border-radius;
+    border: 1px solid colors.$link_color;
+    border-top-left-radius: constants.$border-radius;
+    border-top-right-radius: constants.$border-radius;
   }
 
   &__error {
-    border-color: $color-red;
+    border-color: colors.$color-red;
   }
 
   &:hover {
@@ -199,24 +200,24 @@ $transition: 150ms;
   }
 
   &#{$this}__error {
-    background-color: $bg_light_color;
+    background-color: colors.$bg_light_color;
 
     &:hover {
-      background-color: $bg_light_color;
+      background-color: colors.$bg_light_color;
       transition: background-color 0.25s ease;
     }
   }
 
   &.theme-dark {
-    outline: $secondary_bg_color;
-    color: $text_color;
-    background-color: $secondary_bg_color;
+    outline: colors.$secondary_bg_color;
+    color: colors.$text_color;
+    background-color: colors.$secondary_bg_color;
 
     &#{$this}__error {
-      background-color: $secondary_bg_color;
+      background-color: colors.$secondary_bg_color;
 
       &:hover {
-        background-color: $secondary_bg_color;
+        background-color: colors.$secondary_bg_color;
       }
     }
   }

@@ -1,4 +1,4 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
 
 .Distance {
   position: absolute;
@@ -7,9 +7,9 @@
   display: flex;
   align-items: center;
   z-index: 10;
-  color: $text_color;
+  color: colors.$text_color;
 
   &.theme-dark {
-    color: $text_color;
+    color: colors.$text_color;
   }
 }

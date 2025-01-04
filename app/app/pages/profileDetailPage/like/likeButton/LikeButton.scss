@@ -1,4 +1,4 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
 
 .LikeButton {
   display: flex;
@@ -8,6 +8,6 @@
   width: 100%;
 
   &-Icon__isLiked {
-    color: $color-red;
+    color: colors.$color-red;
   }
 }

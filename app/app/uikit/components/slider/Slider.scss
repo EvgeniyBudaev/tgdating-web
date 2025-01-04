@@ -1,4 +1,4 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
 
 .Slider {
   &-WrapperImage {
@@ -14,14 +14,14 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      background: $bg_color;
+      background: colors.$bg_color;
       z-index: 100;
       background: linear-gradient(
         transparent,
         transparent,
         transparent,
         transparent,
-        $bg_color
+        colors.$bg_color
       );
     }
   }
@@ -36,6 +36,6 @@
   }
 
   .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-    background: $text_color;
+    background: colors.$text_color;
   }
 }

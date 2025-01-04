@@ -1,4 +1,4 @@
-@import "./colors";
+@use "colors" as colors;
 
 /* -------------------- Global Styles -------------------- */
 
@@ -21,8 +21,8 @@ body {
 }
 
 body {
-  background-color: $bg_light_color;
-  color: $bg_color;
+  background-color: colors.$bg_light_color;
+  color: colors.$bg_color;
   margin: 0;
   padding: 0;
   position: relative;
@@ -30,15 +30,15 @@ body {
   flex-direction: column;
 
   .icon-dark {
-    fill: $bg_color;
+    fill: colors.$bg_color;
   }
 
   &.theme-dark {
-    background-color: $bg_color;
-    color: $text_color;
+    background-color: colors.$bg_color;
+    color: colors.$text_color;
 
     .icon-dark {
-      fill: $text_color;
+      fill: colors.$text_color;
     }
   }
 }

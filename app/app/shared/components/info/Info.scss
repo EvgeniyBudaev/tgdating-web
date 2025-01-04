@@ -1,4 +1,4 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
 
 .Info {
   position: absolute;
@@ -21,6 +21,6 @@
   &-Icon {
     height: 24px;
     width: 24px;
-    color: $link_color;
+    color: colors.$link_color;
   }
 }

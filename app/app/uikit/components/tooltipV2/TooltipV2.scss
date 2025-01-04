@@ -1,4 +1,4 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
 
 .TooltipV2 {
   $this: &;
@@ -21,7 +21,7 @@
     &Inner {
       background-color: rgb(42, 35, 70);
       border-radius: 4px;
-      color: $text_color;
+      color: colors.$text_color;
       padding: 16px 24px;
       width: 100%;
       box-shadow:

@@ -1,4 +1,4 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
 
 /* ----- Открытие/закрытие Sidebar ----- */
 $transition: 0.3s;
@@ -13,14 +13,14 @@ $transition: 0.3s;
   height: 100vh;
   overflow: auto;
   z-index: 300;
-  background-color: $bg_light_color;
+  background-color: colors.$bg_light_color;
 
   &-Content {
     position: relative;
   }
 
   &.theme-dark {
-    background-color: $secondary_bg_color;
+    background-color: colors.$secondary_bg_color;
   }
 
   &.enter {

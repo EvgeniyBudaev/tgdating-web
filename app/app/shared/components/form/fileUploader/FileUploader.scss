@@ -1,9 +1,9 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
 
 .FileUploader {
   &-ImageCropper-Error {
     display: flex;
     justify-content: center;
-    color: $color-red;
+    color: colors.$color-red;
   }
 }

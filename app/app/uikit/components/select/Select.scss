@@ -1,4 +1,5 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
+@use "@/app/styles/constants" as constants;
 
 .Select {
   $this: &;
@@ -13,11 +14,11 @@
   &-Header {
     display: flex;
     align-items: center;
-    color: $bg_color;
-    background-color: $bg_light_color;
+    color: colors.$bg_color;
+    background-color: colors.$bg_light_color;
     padding: 8px 16px;
     border: 1px solid transparent;
-    border-radius: $border-radius;
+    border-radius: constants.$border-radius;
     cursor: pointer;
 
     &Right {
@@ -35,14 +36,14 @@
 
   &__errors {
     #{$this}-Header {
-      border: 1px solid $color-red;
+      border: 1px solid colors.$color-red;
     }
   }
 
   &.theme-dark {
     #{$this}-Header {
-      color: $text_color;
-      background-color: $secondary_bg_color;
+      color: colors.$text_color;
+      background-color: colors.$secondary_bg_color;
     }
   }
 }

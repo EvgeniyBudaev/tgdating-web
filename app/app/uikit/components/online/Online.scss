@@ -1,4 +1,4 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
 
 .Online {
   position: absolute;
@@ -11,13 +11,13 @@
     height: 10px;
     width: 10px;
     border-radius: 50%;
-    background-color: $color-green;
+    background-color: colors.$color-green;
   }
 
   &-Message {
     display: inline-flex;
     align-items: center;
-    color: $color-green;
+    color: colors.$color-green;
     margin-left: 8px;
   }
 }

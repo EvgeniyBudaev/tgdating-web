@@ -1,4 +1,4 @@
-@import "@/app/styles";
+@use "@/app/styles/colors" as colors;
 
 .Heart {
   position: absolute;
@@ -11,6 +11,6 @@
   &-Icon {
     height: 16px;
     width: 16px;
-    color: $color-red;
+    color: colors.$color-red;
   }
 }
