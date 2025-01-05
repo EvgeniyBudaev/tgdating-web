@@ -8,14 +8,16 @@ services:
       - web-network
     build:
       context: ./app
-    restart: unless-stopped
-    ports:
-      - "3000:3000"
+    restart: always
+    #    ports:
+    #      - "127.0.0.1:3000:3000"
     environment:
-      - NEXT_PUBLIC_API_URL=http://backend:9000
+      - NEXT_PUBLIC_API_URL=http://gateway:80
       - NEXT_PUBLIC_NODE_ENV=production
       - NEXT_PUBLIC_YANDEX_API_KEY=my_yandex_api_key
       - NEXT_PUBLIC_CRYPTO_SECRET_KEY=my_crypto_secret_key
+      - NEXT_PUBLIC_DOMAIN_GET_LOCATION=my_get_location_url
+      - S3_BUCKET_PUBLIC_DOMAIN=my_s3_url
     volumes:
       - /app
       - /app/node_modules
@@ -31,7 +33,7 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
       - /etc/letsencrypt:/etc/letsencrypt
-    restart: unless-stopped
+    restart: always
 
 networks:
   web-network:

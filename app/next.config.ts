@@ -2,12 +2,14 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: [
-      "gateway",
-      "localhost",
-      "127.0.0.1",
-      "telegram-dating.com",
-      "e0b6f6c2-22bc-484f-ad97-2ec3367df512.selstorage.ru",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: process?.env?.S3_BUCKET_PUBLIC_DOMAIN ?? "",
+        port: "",
+        pathname: "/**",
+        search: "",
+      },
     ],
   },
 };

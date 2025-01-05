@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  redirect,
-  usePathname,
-  useRouter,
-  useSearchParams,
-} from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { type FC, memo, type ReactNode, useEffect, useMemo } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { CheckLike } from "@/app/shared/components/сheckLike";

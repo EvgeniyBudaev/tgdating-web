@@ -35,7 +35,6 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
     longitude: undefined,
     latitude: undefined,
   });
-
   const getLocationFromCoords = async ({
     longitude,
     latitude,
@@ -45,7 +44,7 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
   }) => {
     if (!longitude && !latitude) return undefined;
     try {
-      const url = `https://geocode-maps.yandex.ru/1.x/?apikey=${process.env.NEXT_PUBLIC_YANDEX_API_KEY}&geocode=${longitude},${latitude}&format=json&lang=${lng}`;
+      const url = `${process.env.NEXT_PUBLIC_DOMAIN_GET_LOCATION}/1.x/?apikey=${process.env.NEXT_PUBLIC_YANDEX_API_KEY}&geocode=${longitude},${latitude}&format=json&lang=${lng}`;
       const res = await fetch(url);
       const data = await res.json();
       const country =
