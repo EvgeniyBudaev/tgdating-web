@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 type TPosition = {
-  errorPosition?: GeolocationPositionError;
+  errorPosition?: unknown;
   isCoords: boolean;
   location?: string;
   latitude?: number;
@@ -13,7 +13,7 @@ type TPosition = {
 };
 
 export type TUseNavigatorResponse = {
-  errorPosition?: GeolocationPositionError;
+  errorPosition?: unknown;
   isCoords: boolean;
   location?: string;
   latitude?: number;
@@ -35,6 +35,7 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
     longitude: undefined,
     latitude: undefined,
   });
+
   const getLocationFromCoords = async ({
     longitude,
     latitude,
@@ -63,6 +64,7 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
         : t("common.titles.geoPositionExist");
       setPosition((prevState) => ({
         ...prevState,
+        errorPosition: undefined,
         isCoords: true,
         location,
         longitude,
@@ -71,6 +73,17 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
       return { location };
     } catch (error) {
       console.error("getLocationFromIp error: ", error);
+      if (error instanceof Error) {
+        setPosition((prevState) => ({
+          ...prevState,
+          errorPosition: error.message,
+        }));
+      } else {
+        setPosition((prevState) => ({
+          ...prevState,
+          errorPosition: t("errorBoundary.common.unexpectedError"),
+        }));
+      }
     }
   };
 
@@ -90,6 +103,10 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
         }
       },
       (error: GeolocationPositionError) => {
+        setPosition((prevState) => ({
+          ...prevState,
+          errorPosition: error.message,
+        }));
         console.error("getFromNavigator error: ", error);
       },
       {
@@ -107,12 +124,14 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
 
   return useMemo(() => {
     return {
+      errorPosition: position?.errorPosition,
       isCoords: position.isCoords,
       location: position?.location,
       latitude: position?.latitude,
       longitude: position?.longitude,
     };
   }, [
+    position?.errorPosition,
     position.isCoords,
     position?.location,
     position?.latitude,
