@@ -162,6 +162,7 @@ const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
         ["theme-dark"]: theme === ETheme.Dark,
       })}
     >
+      <Gradient />
       <div className="SearchForm-Header">
         <SearchBar theme={theme} title={searchBarTitle} />
         <div className="SearchForm-WrapperIcon" onClick={handleOpenSidebar}>

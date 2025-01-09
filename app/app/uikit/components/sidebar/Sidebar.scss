@@ -11,7 +11,7 @@ $transition: 0.3s;
   max-width: 100vw;
   width: 100%;
   height: 100vh;
-  overflow: auto;
+  overflow: hidden;
   z-index: 300;
   background-color: colors.$bg_light_color;
 

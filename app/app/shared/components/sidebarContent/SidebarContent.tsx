@@ -59,7 +59,6 @@ const SidebarContentComponent: FC<TProps> = ({
             <Typography>{t("common.actions.saveChanges")}</Typography>
           </span>
         </div>
-
         <div></div>
       </div>
       {options && (

@@ -9,6 +9,7 @@ import { Layout as LayoutComponent } from "@/app/shared/components/layout";
 import { COOKIE_CSRF_NAME } from "@/app/shared/constants";
 import { ELanguage } from "@/app/shared/enums";
 import { ClientOnly } from "@/app/uikit/components/clientOnly";
+import "@/app/styles/reset.css";
 import "@/app/styles/_index.scss";
 
 export const metadata: Metadata = {
@@ -32,7 +33,9 @@ export default async function RootLayout({
   return (
     <html lang={lng}>
       <head>
-        <meta name="viewport" content="viewport-fit=cover" />
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/*<meta name="viewport" content="viewport-fit=cover"/>*/}
         {isProduction && (
           <Script
             src="https://telegram.org/js/telegram-web-app.js"

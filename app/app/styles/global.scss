@@ -28,6 +28,8 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
+  // https://developer.mozilla.org/ru/docs/Web/CSS/overscroll-behavior
+  overscroll-behavior: none;
 
   .icon-dark {
     fill: colors.$bg_color;
@@ -64,4 +66,18 @@ h5,
 h6,
 p {
   margin: 0;
+}
+
+a,
+button,
+input[type="text"],
+input[type="submit"],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+button:focus {
+  outline: none;
 }

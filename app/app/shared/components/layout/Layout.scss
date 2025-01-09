@@ -1,5 +1,9 @@
+@use "@/app/styles/colors" as colors;
+
 .Layout {
   height: 100%;
+  position: relative;
+  z-index: 1;
 
   &-Content {
     height: 100%;
@@ -12,5 +16,19 @@
     opacity: 0;
     width: 0;
     height: 0;
+  }
+}
+
+.fixed-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: colors.$bg_light_color;
+  z-index: -1;
+
+  &.theme-dark {
+    background-color: colors.$bg_color;
   }
 }

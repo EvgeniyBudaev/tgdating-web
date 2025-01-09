@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { type FC, memo, type ReactNode, useEffect, useMemo } from "react";
 import "react-toastify/dist/ReactToastify.css";
@@ -61,8 +62,13 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   return (
     <AuthenticityTokenProvider value={csrfToken}>
       <NavigatorProvider value={navigator}>
-        <ToastContainer />
+        <div
+          className={clsx("fixed-background", {
+            ["theme-dark"]: theme === ETheme.Dark,
+          })}
+        />
         <div className="Layout">
+          <ToastContainer />
           <div className="Layout-Content">{children}</div>
           {isFooter && (
             <Footer isSession={isSession} lng={lng} theme={theme} user={user} />

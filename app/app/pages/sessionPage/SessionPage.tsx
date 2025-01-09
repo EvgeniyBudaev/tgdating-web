@@ -17,7 +17,6 @@ import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useCheckPermissions, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { Distance } from "@/app/uikit/components/distance";
-import { Gradient } from "@/app/uikit/components/gradient";
 import { Heart } from "@/app/uikit/components/heart";
 import { Online } from "@/app/uikit/components/online";
 import { Typography } from "@/app/uikit/components/typography";
@@ -74,7 +73,6 @@ const SessionPageComponent: FC<TProps> = ({
         ["theme-dark"]: theme === ETheme.Dark,
       })}
     >
-      <Gradient />
       {profileShortInfo && (
         <SearchForm
           lng={lng}

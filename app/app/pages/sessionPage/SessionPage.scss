@@ -2,6 +2,7 @@
 
 .SessionPage {
   $this: &;
+  position: relative;
   height: 100%;
 
   &-Inner {
@@ -9,6 +10,7 @@
     height: 100%;
     // background-color: $bg_light_color;
     z-index: 100;
+    padding-top: 80px;
 
     &::before {
       content: "";
@@ -32,7 +34,6 @@
   }
 
   &-IsEmpty {
-    padding-top: 16px;
     width: 100%;
   }
 
