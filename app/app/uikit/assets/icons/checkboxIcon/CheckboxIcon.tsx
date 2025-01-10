@@ -4,6 +4,7 @@ import { TIconProps } from "@/app/uikit/assets/icons/types";
 
 const Component: FC<TIconProps> = (props) => (
   <svg
+    data-testid={props.dataTestId}
     viewBox="0 0 10 8"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

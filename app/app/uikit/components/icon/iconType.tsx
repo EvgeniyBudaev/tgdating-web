@@ -332,7 +332,7 @@ export const iconTypes = new Map([
     (props: TIconProps) => (
       <SearchIcon
         key="SearchIcon"
-        dataTestId={props.dataTestId}
+        data-testid={props.dataTestId}
         height={props.height}
         width={props.width}
       />

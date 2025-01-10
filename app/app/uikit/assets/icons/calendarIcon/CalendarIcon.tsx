@@ -1,8 +1,14 @@
 import { memo, type FC } from "react";
 import type { TIconProps } from "../types";
 
-const Component: FC<TIconProps> = ({ height = 24, width = 24, ...props }) => (
+const Component: FC<TIconProps> = ({
+  dataTestId,
+  height = 24,
+  width = 24,
+  ...props
+}) => (
   <svg
+    data-testid={dataTestId}
     xmlns="http://www.w3.org/2000/svg"
     height={height}
     viewBox="0 -960 960 960"

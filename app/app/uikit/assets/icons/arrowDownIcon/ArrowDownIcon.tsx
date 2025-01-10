@@ -2,8 +2,14 @@ import { memo } from "react";
 import type { FC } from "react";
 import { TIconProps } from "@/app/uikit/assets/icons/types";
 
-const Component: FC<TIconProps> = ({ height = 8, width = 16, ...props }) => (
+const Component: FC<TIconProps> = ({
+  dataTestId,
+  height = 8,
+  width = 16,
+  ...props
+}) => (
   <svg
+    data-testid={dataTestId}
     fill="currentColor"
     height={height}
     width={width}
