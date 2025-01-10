@@ -3,9 +3,12 @@
     "titles": {
       "accountBlocked": "החשבון נחסם",
       "isEmptyUsername": "שם ייחודי לא מוגדר בטלגרם/הגדרות/שם משתמש. אנא הגדר שם משתמש ונסה להיכנס שוב לאפליקציה. עדכון הנתונים בטלגרם עשוי להימשך מספר דקות",
+      "editForm": "טופס עריכה",
+      "registrationForm": "טופס הרשמה",
       "publicPhotos": "תמונות ציבוריות",
       "required": "נדרש למלא",
       "changeable": "ניתן לשנות",
+      "options": "אפשרויות",
       "filtersGeneral": "מסננים כלליים",
       "age": "גִיל",
       "blockQuestion": "לחסום את החשבון שלך?",
@@ -30,7 +33,8 @@
       }
     },
     "actions": {
-      "settings": "הגדרות",
+      "cancel": "לְבַטֵל",
+      "editProfile": "ערוך חשבון",
       "filter": "לְסַנֵן",
       "saveChanges": "שמור שינויים",
       "block": "לַחסוֹם",
@@ -39,8 +43,7 @@
       "complaint": "דווח וחסום",
       "deleteProfile": "מחק חשבון",
       "freezeProfile": "הקפאת חשבון",
-      "editProfile": "ערוך חשבון",
-      "cancel": "לְבַטֵל",
+      "settings": "הגדרות",
       "restoreProfile": "שחזור חשבון",
       "main": "בַּיִת",
       "profile": "פּרוֹפִיל",

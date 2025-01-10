@@ -63,10 +63,7 @@ const FreezeComponent: FC<TProps> = ({ lng, telegramUserId }) => {
 
   return (
     <>
-      <div
-        className="DropDown-MenuItem DropDown-MenuItem-Warning"
-        onClick={handleFreeze}
-      >
+      <div onClick={handleFreeze}>
         <Typography>{t("common.actions.freezeProfile")}</Typography>
       </div>
       <Modal isOpen={isOpenModal} onCloseModal={closeModal}>

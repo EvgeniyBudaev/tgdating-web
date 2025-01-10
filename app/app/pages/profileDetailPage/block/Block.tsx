@@ -71,10 +71,7 @@ const BlockComponent: FC<TProps> = ({
 
   return (
     <>
-      <div
-        className="DropDown-MenuItem DropDown-MenuItem-Warning"
-        onClick={handleBlock}
-      >
+      <div onClick={handleBlock}>
         <Typography>{t("common.actions.block")}</Typography>
       </div>
       <Modal isOpen={isOpenModal} onCloseModal={closeModal}>

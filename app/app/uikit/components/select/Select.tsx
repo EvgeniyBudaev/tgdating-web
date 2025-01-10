@@ -66,7 +66,7 @@ export const Select: FC<TProps> = ({
           <div className="Select-Header-Value">
             <Typography>{headerTitle ?? "--"}</Typography>
           </div>
-          <Icon type="ArrowRight" />
+          <Icon type="ArrowRight" height={12} width={12} />
         </div>
       </div>
       {errors && (

@@ -1,0 +1,60 @@
+@use "@/app/styles/colors" as colors;
+@use "@/app/styles/constants" as constants;
+
+.SidebarContentListItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 50px;
+  padding: 8px 16px;
+  border-bottom: 1px solid colors.$text_color_not_active;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+  color: colors.$bg_color;
+
+  &:hover,
+  &:active {
+    color: colors.$bg_color;
+    background-color: colors.$link_color;
+  }
+
+  &__isChecked {
+    opacity: 1;
+    background-color: colors.$link_color;
+  }
+
+  &__isChecked .Icon {
+    height: 16px;
+    width: 16px;
+    margin-right: 16px;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &.theme-dark {
+    color: colors.$text_color;
+    border-bottom: 1px solid colors.$secondary_bg_color;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover,
+    &:active {
+      color: colors.$text_color;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .SidebarContentListItem {
+    $this: &;
+
+    &:hover:not(#{$this}__isChecked) {
+      background-color: transparent;
+    }
+  }
+}

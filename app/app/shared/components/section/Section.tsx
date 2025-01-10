@@ -12,7 +12,7 @@ import "./Section.scss";
 type TProps = {
   children?: ReactNode;
   className?: string;
-  title: string | ReactNode;
+  title?: string | ReactNode;
   subTitle?: string | ReactNode;
 };
 

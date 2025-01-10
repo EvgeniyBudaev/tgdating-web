@@ -1,14 +1,15 @@
 "use client";
 
 import clsx from "clsx";
-import { memo } from "react";
+import { memo, type ReactNode } from "react";
 import type { FC, MouseEventHandler } from "react";
 import { EColorText, EColorType } from "@/app/uikit/components/colors";
 import { TColor } from "@/app/uikit/components/colors/types";
 import { IconType, iconTypes } from "@/app/uikit/components/icon/iconType";
 import "./Icon.scss";
 
-const getIcon = (type: string) => iconTypes.get(type);
+const getIcon = (type: string): ((props: any) => JSX.Element) | undefined =>
+  iconTypes.get(type);
 
 type TProps = {
   className?: string;
@@ -16,7 +17,6 @@ type TProps = {
   dataTestId?: string;
   height?: number;
   onClick?: MouseEventHandler<HTMLDivElement>;
-  size?: number;
   type: IconType;
   width?: number;
 };
@@ -26,10 +26,9 @@ const IconComponent: FC<TProps> = ({
   color = EColorText.Dark,
   dataTestId = "uikit__icon",
   height,
-  width,
   onClick,
-  size,
   type,
+  width,
   ...rest
 }) => {
   const mainStyles = clsx(`${EColorType.Icon}-${color}`);
@@ -41,7 +40,7 @@ const IconComponent: FC<TProps> = ({
       onClick={onClick}
       {...rest}
     >
-      {getIcon(type)}
+      {getIcon(type)?.({ height, width })}
     </div>
   );
 };

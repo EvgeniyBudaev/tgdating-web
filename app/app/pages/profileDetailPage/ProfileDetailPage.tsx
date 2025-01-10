@@ -2,24 +2,18 @@
 
 import clsx from "clsx";
 import isNil from "lodash/isNil";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import { FC, memo, useEffect, useMemo, useRef, useState } from "react";
 import type { TProfileDetail } from "@/app/api/profile/getProfileDetail/types";
 import { ProfileSidebar } from "@/app/entities/profile/profileSidebar";
 import { useTranslation } from "@/app/i18n/client";
-import { Block } from "@/app/pages/profileDetailPage/block";
-import { Complaint } from "@/app/pages/profileDetailPage/complaint";
 import { Controls } from "@/app/pages/profileDetailPage/controls";
-import { Delete } from "@/app/pages/profileDetailPage/delete/Delete";
-import { Freeze } from "@/app/pages/profileDetailPage/freeze";
 import { getDistance } from "@/app/pages/profileDetailPage/utils";
 import { Container } from "@/app/shared/components/container";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useCheckPermissions, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { Accordion } from "@/app/uikit/components/accordion";
-import { DropDown } from "@/app/uikit/components/dropDown";
 import { Hamburger } from "@/app/uikit/components/hamburger";
 import { Icon } from "@/app/uikit/components/icon";
 import { Online } from "@/app/uikit/components/online";
@@ -51,7 +45,6 @@ const ProfileDetailPageComponent: FC<TProps> = ({
   useCheckPermissions({ lng });
   const { isSession, user, theme } = useTelegram();
   const { t } = useTranslation("index");
-  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
   const isSessionUser = Boolean(
@@ -93,14 +86,6 @@ const ProfileDetailPageComponent: FC<TProps> = ({
     setIsSidebarOpen(false);
   };
 
-  const handleToggleDropDown = () => {
-    setIsDropDownOpen((prev?: boolean) => !prev);
-  };
-
-  const handleCloseDropDown = () => {
-    setIsDropDownOpen(false);
-  };
-
   const handleToggleAccordion = () => {
     setIsAccordionOpen((prev?: boolean) => !prev);
   };
@@ -112,68 +97,16 @@ const ProfileDetailPageComponent: FC<TProps> = ({
       <>
         {!isAccordionOpen && (
           <>
-            <DropDown isCanClickOutside={false} theme={theme}>
-              <DropDown.Button onOpen={handleToggleDropDown}>
-                <Hamburger theme={theme} />
-              </DropDown.Button>
-              <DropDown.Panel isOpen={isDropDownOpen}>
-                <div className="DropDown-Menu">
-                  {!isSessionUser && (
-                    <Block
-                      blockedTelegramUserId={profile.telegramUserId}
-                      lng={lng}
-                      onCloseDropDown={handleCloseDropDown}
-                      telegramUserId={telegramUserId}
-                    />
-                  )}
-                  {!isSessionUser && (
-                    <Complaint
-                      criminalTelegramUserId={profile.telegramUserId}
-                      lng={lng}
-                      onCloseDropDown={handleCloseDropDown}
-                      telegramUserId={telegramUserId}
-                    />
-                  )}
-                  {isSessionUser && (
-                    <>
-                      <Delete lng={lng} telegramUserId={telegramUserId} />
-                      <Freeze lng={lng} telegramUserId={telegramUserId} />
-                    </>
-                  )}
-                </div>
-                <div className="DropDown-Menu">
-                  {isSessionUser && (
-                    <>
-                      {/*<Settings lng={lng} telegramUserId={telegramUserId} />*/}
-                      <Link
-                        className="DropDown-MenuItem"
-                        href={createPath({
-                          route: ERoutes.ProfileEdit,
-                          params: { telegramUserId: profile.telegramUserId },
-                        })}
-                        key={profile.telegramUserId}
-                        onClick={handleCloseDropDown}
-                      >
-                        <Typography>
-                          {t("common.actions.editProfile")}
-                        </Typography>
-                      </Link>
-                    </>
-                  )}
-                  <div
-                    className="DropDown-MenuItem DropDown-MenuItem-Cancel"
-                    onClick={handleCloseDropDown}
-                  >
-                    <Typography>{t("common.actions.cancel")}</Typography>
-                  </div>
-                </div>
-              </DropDown.Panel>
-            </DropDown>
+            <Hamburger onClick={handleOpenSidebar} theme={theme} />
             <ProfileSidebar
+              isSessionUser={isSessionUser}
               isSidebarOpen={isSidebarOpen}
+              lng={lng}
               onCloseSidebar={handleCloseSidebar}
               profile={profile}
               ref={sidebarRef}
+              telegramUserId={telegramUserId}
+              theme={theme}
             />
           </>
         )}

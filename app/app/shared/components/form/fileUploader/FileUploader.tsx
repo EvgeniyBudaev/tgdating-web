@@ -149,7 +149,12 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
         theme={theme}
         {...rest}
       />
-      <Modal isOpen={isOpenModal} onCloseModal={closeModal} theme={theme}>
+      <Modal
+        isOpen={isOpenModal}
+        onCloseModal={closeModal}
+        showCloseIcon={false}
+        theme={theme}
+      >
         {acceptedFiles?.[0] && (
           <ImageCropper
             error={errorImageCropper}

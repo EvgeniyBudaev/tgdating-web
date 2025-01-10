@@ -1,0 +1,11 @@
+{
+  "common": {
+    "titles": {
+      "appName": "Távirati társkeresés"
+    },
+    "actions": {
+      "editForm": "Добавь сюда перевод!!!",
+      "registrationForm": "Добавь сюда перевод!!!"
+    }
+  }
+}

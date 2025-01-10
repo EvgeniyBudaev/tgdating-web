@@ -127,7 +127,9 @@
       "edit": "Edit",
       "restore": "Restore account",
       "search": "Search",
-      "detailProfile": "Go to your profile"
+      "detailProfile": "Go to your profile",
+      "editForm": "Добавь сюда перевод!!!",
+      "registrationForm": "Добавь сюда перевод!!!"
     },
     "previews": {
       "defaultImage": "Default image",
@@ -163,7 +165,8 @@
       "properties": "Properties",
       "autocomplete": "auto detection",
       "noChanged": "can't be changed",
-      "canHidden": "it will be possible to hide"
+      "canHidden": "it will be possible to hide",
+      "appName": "Telegram dating"
     },
     "form": {
       "field": {

@@ -33,6 +33,10 @@ import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
 import { createPath } from "@/app/shared/utils";
 import { Info } from "@/app/shared/components/info";
 import { Gradient } from "@/app/uikit/components/gradient";
+import {
+  ETypographyVariant,
+  Typography,
+} from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
 import { notification } from "@/app/uikit/utils";
 import "./ProfileForm.scss";
@@ -121,23 +125,43 @@ const ProfileFormComponent: FC<TProps> = ({
 
   return (
     <>
-      <Gradient />
       <section
         className={clsx("ProfileForm", {
           ["theme-dark"]: theme === ETheme.Dark,
         })}
       >
+        <Gradient />
         <Form
           action={onSubmit}
           className="ProfileForm-Form"
           form={form}
           style={{ height: formHeightFormatted }}
         >
-          <Section
-            title={t("common.titles.publicPhotos")}
-            subTitle={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
-          >
+          <Section>
+            <div className="ProfileForm-Title">
+              {isEdit && (
+                <Typography variant={ETypographyVariant.TextB2Regular}>
+                  {t("common.titles.editForm")}
+                </Typography>
+              )}
+              {!isEdit && (
+                <Typography variant={ETypographyVariant.TextB2Regular}>
+                  {t("common.titles.registrationForm")}
+                </Typography>
+              )}
+            </div>
             <Field>
+              <div className="ProfileForm-FileUploader-Title">
+                <Typography>{t("common.titles.publicPhotos")}</Typography>
+                <>
+                  &nbsp;
+                  <Typography variant={ETypographyVariant.TextB4Regular}>
+                    (
+                    {`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
+                    )
+                  </Typography>
+                </>
+              </div>
               <FileUploader
                 accept={{
                   "image/avif": [".avif"],

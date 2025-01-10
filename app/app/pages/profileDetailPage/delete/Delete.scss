@@ -1,3 +1,5 @@
+@use "@/app/styles/colors" as colors;
+
 .Delete {
   &-Modal-Footer-Controls {
     display: flex;
@@ -6,5 +8,9 @@
 
   &-Modal-Footer-Cancel {
     margin-right: 8px;
+  }
+
+  &-Warning {
+    color: colors.$color-red;
   }
 }

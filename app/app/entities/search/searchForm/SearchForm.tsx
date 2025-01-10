@@ -25,7 +25,7 @@ import {
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage } from "@/app/shared/enums";
-import { useQueryURL, useTelegram } from "@/app/shared/hooks";
+import { useTelegram } from "@/app/shared/hooks";
 import {
   SEARCH_BAR_SEARCH_GENDER_MAPPING,
   SEARCH_GENDER_MAPPING,
@@ -35,7 +35,10 @@ import { Icon } from "@/app/uikit/components/icon";
 import { RangeSlider } from "@/app/uikit/components/rangeSlider";
 import { Select, type TSelectOption } from "@/app/uikit/components/select";
 import { Sidebar } from "@/app/uikit/components/sidebar";
-import { Typography } from "@/app/uikit/components/typography";
+import {
+  ETypographyVariant,
+  Typography,
+} from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./SearchForm.scss";
 
@@ -54,7 +57,6 @@ const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
     isGeneralFilters: false,
     isSearchGender: false,
   });
-  const { updateQueryURL } = useQueryURL({ lng });
   const defaultAgeRangeFrom = profileShortInfo?.ageFrom ?? DEFAULT_AGE_FROM;
   const defaultAgeRangeTo = profileShortInfo?.ageTo ?? DEFAULT_AGE_TO;
 
@@ -182,6 +184,11 @@ const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
         >
           <div className="SidebarContent-Header">
             <Gradient />
+            <div className="SidebarContent-Header-Title">
+              <Typography variant={ETypographyVariant.TextB2Regular}>
+                {t("common.titles.filtersGeneral")}
+              </Typography>
+            </div>
             <form action={handleBack} className="SearchForm-Form">
               <button className="SidebarContent-Header-Save" type="submit">
                 <Icon
@@ -193,14 +200,12 @@ const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
                 </span>
               </button>
             </form>
-            <span className="SidebarContent-Header-Title">
-              <Typography>{t("common.titles.filtersGeneral")}</Typography>
-            </span>
             <div />
           </div>
           <div className="SearchForm-SidebarContent-List SidebarContent-List ">
             <div className="SearchForm-SidebarContent-List-Item SidebarContent-List-Item">
               <RangeSlider
+                classes={{ root: "SearchForm-RangeSlider" }}
                 isShowTooltip={true}
                 label={t("common.titles.age")}
                 max={DEFAULT_AGE_TO}

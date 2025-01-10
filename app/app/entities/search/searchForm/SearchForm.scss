@@ -21,6 +21,10 @@
     justify-content: space-between;
   }
 
+  &-RangeSlider {
+    margin-top: 16px;
+  }
+
   &-WrapperIcon {
     display: flex;
     flex-direction: column;
@@ -48,42 +52,6 @@
       fill: colors.$link_color;
       height: 24px;
       width: 24px;
-    }
-  }
-
-  & .SidebarContent {
-    &-Header {
-      background-color: colors.$text_color;
-      margin-bottom: 25px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 50px;
-      padding: 16px;
-
-      &-Cancel {
-        color: colors.$link_color;
-        cursor: pointer;
-        -webkit-tap-highlight-color: transparent;
-        height: 32px;
-        width: 32px;
-        z-index: 100;
-
-        &:hover,
-        &:active {
-          color: colors.$link_color;
-          background-color: colors.$link_active_color;
-          border-radius: constants.$border-radius;
-        }
-      }
-
-      &-Title {
-        color: colors.$text_color;
-        z-index: 100;
-      }
     }
   }
 

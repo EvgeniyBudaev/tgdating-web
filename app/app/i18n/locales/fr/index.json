@@ -3,9 +3,12 @@
     "titles": {
       "accountBlocked": "Compte bloqué",
       "isEmptyUsername": "Un nom unique n'est pas défini dans Telegram/Settings/Username. Veuillez définir un nom d'utilisateur et essayez de vous connecter à nouveau à l'application. La mise à jour des données dans Telegram peut prendre plusieurs minutes",
+      "editForm": "Formulaire d'édition",
+      "registrationForm": "Formulaire d'inscription",
       "publicPhotos": "Photos publiques",
       "required": "il est nécessaire de remplir",
       "changeable": "peut être changé",
+      "options": "Possibilités",
       "filtersGeneral": "Filtres généraux",
       "age": "Âge",
       "blockQuestion": "Bloquer votre compte?",
@@ -30,7 +33,8 @@
       }
     },
     "actions": {
-      "settings": "Paramètres",
+      "cancel": "Annuler",
+      "editProfile": "Modifier le compte",
       "filter": "Filtre",
       "saveChanges": "Enregistrer les modifications",
       "block": "Bloc",
@@ -39,8 +43,7 @@
       "complaint": "Signaler et bloquer",
       "deleteProfile": "Supprimer le compte",
       "freezeProfile": "Geler le compte",
-      "editProfile": "Modifier le compte",
-      "cancel": "Annuler",
+      "settings": "Paramètres",
       "restoreProfile": "Récupérer le compte",
       "main": "Maison",
       "profile": "Profil",

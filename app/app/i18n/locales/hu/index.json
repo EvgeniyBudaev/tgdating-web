@@ -3,9 +3,12 @@
     "titles": {
       "accountBlocked": "Fiók blokkolva",
       "isEmptyUsername": "Nincs egyedi név beállítva a Telegram/Beállítások/Felhasználónév menüpontban. Kérjük, állítson be egy felhasználónevet, és próbáljon meg újra bejelentkezni az alkalmazásba. Az adatok frissítése a Telegramban több percig is eltarthat",
+      "editForm": "Űrlap szerkesztése",
+      "registrationForm": "Regisztrációs űrlap",
       "publicPhotos": "Nyilvános fotók",
       "required": "kitöltése kötelező",
       "changeable": "lehet változtatni",
+      "options": "Opciók",
       "filtersGeneral": "Általános szűrők",
       "age": "Kor",
       "blockQuestion": "Letiltja fiókját?",
@@ -30,7 +33,8 @@
       }
     },
     "actions": {
-      "settings": "Beállítások elemre",
+      "cancel": "Mégse",
+      "editProfile": "Fiók szerkesztése",
       "filter": "Szűrő",
       "saveChanges": "Módosítások mentése",
       "block": "Tömb",
@@ -39,8 +43,7 @@
       "complaint": "Jelentés és blokkolás",
       "deleteProfile": "Fiók törlése",
       "freezeProfile": "Fiók lefagyasztása",
-      "editProfile": "Fiók szerkesztése",
-      "cancel": "Mégse",
+      "settings": "Beállítások elemre",
       "restoreProfile": "Fiók helyreállítása",
       "main": "Otthon",
       "profile": "Profil",

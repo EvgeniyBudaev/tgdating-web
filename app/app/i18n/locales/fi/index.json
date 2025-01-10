@@ -3,9 +3,12 @@
     "titles": {
       "accountBlocked": "Tili estetty",
       "isEmptyUsername": "Yksilöllistä nimeä ei ole asetettu kohdassa Telegram/Settings/Username. Aseta käyttäjätunnus ja yritä kirjautua sovellukseen uudelleen. Tietojen päivittäminen Telegramissa voi kestää useita minuutteja",
+      "editForm": "Muokkauslomake",
+      "registrationForm": "Ilmoittautumislomake",
       "publicPhotos": "Julkisia kuvia",
       "required": "vaaditaan täyttämiseen",
       "changeable": "voidaan vaihtaa",
+      "options": "Vaihtoehdot",
       "filtersGeneral": "Yleiset suodattimet",
       "age": "Ikä",
       "blockQuestion": "Estä tilisi?",
@@ -30,7 +33,8 @@
       }
     },
     "actions": {
-      "settings": "Asetukset",
+      "cancel": "Peruuttaa",
+      "editProfile": "Muokkaa tiliä",
       "filter": "Suodattaa",
       "saveChanges": "Tallenna muutokset",
       "block": "Lohko",
@@ -39,8 +43,7 @@
       "complaint": "Ilmoita ja blokkaa",
       "deleteProfile": "Poista tili",
       "freezeProfile": "Jäädyttää tili",
-      "editProfile": "Muokkaa tiliä",
-      "cancel": "Peruuttaa",
+      "settings": "Asetukset",
       "restoreProfile": "Palauta tili",
       "main": "Kotiin",
       "profile": "Profiili",

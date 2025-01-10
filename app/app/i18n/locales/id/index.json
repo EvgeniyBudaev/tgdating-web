@@ -3,9 +3,12 @@
     "titles": {
       "accountBlocked": "Akun diblokir",
       "isEmptyUsername": "Nama unik tidak diatur di Telegram/Pengaturan/Nama Pengguna. Silakan tetapkan nama pengguna dan coba masuk lagi ke aplikasi. Memperbarui data di Telegram mungkin memerlukan waktu beberapa menit",
+      "editForm": "Formulir pengeditan",
+      "registrationForm": "Formulir pendaftaran",
       "publicPhotos": "Foto publik",
       "required": "diperlukan untuk diisi",
       "changeable": "dapat diubah",
+      "options": "Pilihan",
       "filtersGeneral": "Filter umum",
       "age": "Usia",
       "blockQuestion": "Haruskah aku memblokir akunku?",
@@ -30,7 +33,8 @@
       }
     },
     "actions": {
-      "settings": "Pengaturan",
+      "cancel": "Membatalkan",
+      "editProfile": "Sunting akun",
       "filter": "Menyaring",
       "saveChanges": "Simpan perubahan",
       "block": "Memblokir",
@@ -39,8 +43,7 @@
       "complaint": "Laporkan dan blokir",
       "deleteProfile": "Hapus akun",
       "freezeProfile": "Bekukan akun",
-      "editProfile": "Sunting akun",
-      "cancel": "Membatalkan",
+      "settings": "Pengaturan",
       "restoreProfile": "Pulihkan akun",
       "main": "Rumah",
       "profile": "Profil",

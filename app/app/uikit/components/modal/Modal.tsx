@@ -16,6 +16,7 @@ type TModalProps = {
   dataTestId?: string;
   isOpen: boolean;
   onCloseModal: () => void;
+  showCloseIcon?: boolean;
   size?: IModalSize;
   theme?: ETheme;
 };
@@ -26,6 +27,7 @@ export const Modal = ({
   dataTestId = "uikit__modal",
   isOpen,
   onCloseModal,
+  showCloseIcon,
   size = "medium",
   theme,
 }: TModalProps): JSX.Element => {
@@ -65,6 +67,7 @@ export const Modal = ({
       data-testid={dataTestId}
       onClose={onCloseModal}
       open={isOpen}
+      showCloseIcon={showCloseIcon}
       styles={styles}
     >
       <div className="Modal">{children}</div>

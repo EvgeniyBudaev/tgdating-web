@@ -1,6 +1,5 @@
 "use client";
 
-import isEmpty from "lodash/isEmpty";
 import { useEffect, useState } from "react";
 import WebAppSDK from "@twa-dev/sdk";
 import { type WebApp as WebAppTypes, type WebAppUser } from "@twa-dev/types";

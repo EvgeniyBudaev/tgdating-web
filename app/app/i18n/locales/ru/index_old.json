@@ -127,7 +127,9 @@
       "edit": "Редактировать",
       "restore": "Восстановить учетную запись",
       "search": "Поиск",
-      "detailProfile": "Перейти в свой профиль"
+      "detailProfile": "Перейти в свой профиль",
+      "editForm": "Добавь сюда перевод!!!",
+      "registrationForm": "Добавь сюда перевод!!!"
     },
     "previews": {
       "defaultImage": "Изображение по умолчанию",
@@ -163,7 +165,8 @@
       "properties": "Свойства",
       "autocomplete": "автоопределение",
       "noChanged": "нельзя изменить",
-      "canHidden": "можно будет скрыть"
+      "canHidden": "можно будет скрыть",
+      "appName": "Telegram знакомства"
     },
     "form": {
       "field": {

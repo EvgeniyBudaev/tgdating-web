@@ -1,0 +1,11 @@
+{
+  "common": {
+    "titles": {
+      "appName": "Cites de Telegram"
+    },
+    "actions": {
+      "editForm": "Добавь сюда перевод!!!",
+      "registrationForm": "Добавь сюда перевод!!!"
+    }
+  }
+}

@@ -3,9 +3,12 @@
     "titles": {
       "accountBlocked": "Compte bloquejat",
       "isEmptyUsername": "No s'estableix un nom únic a Telegram/Configuració/Nom d'usuari. Si us plau, configureu un nom d'usuari i torneu a intentar iniciar sessió a l'aplicació. L'actualització de dades a Telegram pot trigar uns quants minuts",
+      "editForm": "Formulari d'edició",
+      "registrationForm": "Formulari d'inscripció",
       "publicPhotos": "Fotos públiques",
       "required": "obligada a omplir",
       "changeable": "es pot canviar",
+      "options": "Opcions",
       "filtersGeneral": "Filtres generals",
       "age": "Edat",
       "blockQuestion": "Bloquejar el teu compte?",
@@ -30,7 +33,8 @@
       }
     },
     "actions": {
-      "settings": "Configuració",
+      "cancel": "Cancel·la",
+      "editProfile": "Edita el compte",
       "filter": "Filtre",
       "saveChanges": "Desa els canvis",
       "block": "Bloc",
@@ -39,8 +43,7 @@
       "complaint": "Informar i bloquejar",
       "deleteProfile": "Suprimeix el compte",
       "freezeProfile": "Congela el compte",
-      "editProfile": "Edita el compte",
-      "cancel": "Cancel·la",
+      "settings": "Configuració",
       "restoreProfile": "Recuperar el compte",
       "main": "A casa",
       "profile": "Perfil",

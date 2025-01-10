@@ -3,9 +3,12 @@
     "titles": {
       "accountBlocked": "تم حظر الحساب",
       "isEmptyUsername": "لم يتم تعيين اسم فريد في Telegram/الإعدادات/اسم المستخدم. يرجى تعيين اسم مستخدم ومحاولة تسجيل الدخول إلى التطبيق مرة أخرى. قد يستغرق تحديث البيانات في Telegram عدة دقائق",
+      "editForm": "نموذج التحرير",
+      "registrationForm": "استمارة التسجيل",
       "publicPhotos": "الصور العامة",
       "required": "المطلوبة لملء",
       "changeable": "يمكن تغييرها",
+      "options": "خيارات",
       "filtersGeneral": "مرشحات عامة",
       "age": "عمر",
       "blockQuestion": "حظر حسابك؟",
@@ -30,7 +33,8 @@
       }
     },
     "actions": {
-      "settings": "إعدادات",
+      "cancel": "يلغي",
+      "editProfile": "تحرير الحساب",
       "filter": "فلتر",
       "saveChanges": "حفظ التغييرات",
       "block": "حاجز",
@@ -39,8 +43,7 @@
       "complaint": "الإبلاغ والحظر",
       "deleteProfile": "حذف الحساب",
       "freezeProfile": "تجميد الحساب",
-      "editProfile": "تحرير الحساب",
-      "cancel": "يلغي",
+      "settings": "إعدادات",
       "restoreProfile": "استرداد الحساب",
       "main": "بيت",
       "profile": "حساب تعريفي",

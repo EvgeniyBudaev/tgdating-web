@@ -3,9 +3,12 @@
     "titles": {
       "accountBlocked": "Account geblokkeerd",
       "isEmptyUsername": "Er is geen unieke naam ingesteld in Telegram/Instellingen/Gebruikersnaam. Stel een gebruikersnaam in en probeer opnieuw in te loggen op de applicatie. Het bijwerken van gegevens in Telegram kan enkele minuten duren",
+      "editForm": "Formulier bewerken",
+      "registrationForm": "Registratieformulier",
       "publicPhotos": "Openbare foto's",
       "required": "verplicht in te vullen",
       "changeable": "kan worden gewijzigd",
+      "options": "Opties",
       "filtersGeneral": "Algemene filters",
       "age": "Leeftijd",
       "blockQuestion": "Uw account blokkeren?",
@@ -30,7 +33,8 @@
       }
     },
     "actions": {
-      "settings": "Instellingen",
+      "cancel": "Annuleren",
+      "editProfile": "Account bewerken",
       "filter": "Filter",
       "saveChanges": "Wijzigingen opslaan",
       "block": "Blok",
@@ -39,8 +43,7 @@
       "complaint": "Rapporteren en blokkeren",
       "deleteProfile": "Account verwijderen",
       "freezeProfile": "Account bevriezen",
-      "editProfile": "Account bewerken",
-      "cancel": "Annuleren",
+      "settings": "Instellingen",
       "restoreProfile": "Account herstellen",
       "main": "Thuis",
       "profile": "Profiel",

@@ -3,7 +3,9 @@
 import clsx from "clsx";
 import { type FC, type ReactNode, memo, useState } from "react";
 import { useTranslation } from "@/app/i18n/client";
-import { Gradient } from "@/app/uikit/components/gradient";
+import { SidebarContentHeader } from "@/app/shared/components/sidebarContent/sidebarContentHeader";
+import { SidebarContentList } from "@/app/shared/components/sidebarContent/sidebarContentList";
+import { SidebarContentListItem } from "@/app/shared/components/sidebarContent/sidebarContentListItem";
 import { Icon } from "@/app/uikit/components/icon";
 import type { TSelectOption } from "@/app/uikit/components/select";
 import { Typography } from "@/app/uikit/components/typography";
@@ -51,35 +53,27 @@ const SidebarContentComponent: FC<TProps> = ({
         ["theme-dark"]: theme === ETheme.Dark,
       })}
     >
-      <div className="SidebarContent-Header">
-        <Gradient />
-        <div className="SidebarContent-Header-Control" onClick={handleBack}>
-          <Icon className="SidebarContent-Header-Cancel" type="ArrowBack" />
-          <span className="SidebarContent-Header-Cancel-Title">
-            <Typography>{t("common.actions.saveChanges")}</Typography>
-          </span>
-        </div>
-        <div></div>
-      </div>
+      <SidebarContentHeader onClick={handleBack} theme={theme} title={title} />
       {options && (
-        <div className="SidebarContent-List">
+        <SidebarContentList theme={theme}>
           {(options ?? []).map((item) => {
             const isChecked =
               item.value.toString() === (checkedItem?.value ?? "").toString();
             return (
-              <div
-                className={clsx("SidebarContent-List-Item", classes?.item, {
-                  ["SidebarContent-List-Item__isChecked"]: isChecked,
-                })}
-                key={item.value}
+              <SidebarContentListItem
+                className={classes?.item}
+                isChecked={isChecked}
                 onClick={() => setCheckedItem(item)}
+                theme={theme}
               >
-                <Typography>{item.label}</Typography>
-                {isChecked && <Icon type="Checkbox" />}
-              </div>
+                <>
+                  <Typography>{item.label}</Typography>
+                  {isChecked && <Icon type="Checkbox" />}
+                </>
+              </SidebarContentListItem>
             );
           })}
-        </div>
+        </SidebarContentList>
       )}
     </div>
   );

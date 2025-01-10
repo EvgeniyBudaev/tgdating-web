@@ -3,9 +3,12 @@
     "titles": {
       "accountBlocked": "Račun blokiran",
       "isEmptyUsername": "Jedinstveno ime nije postavljeno u Telegram/Postavke/Korisničko ime. Postavite korisničko ime i pokušajte se ponovno prijaviti u aplikaciju. Ažuriranje podataka u Telegramu može potrajati nekoliko minuta",
+      "editForm": "Obrazac za uređivanje",
+      "registrationForm": "Obrazac za registraciju",
       "publicPhotos": "Javne fotografije",
       "required": "potrebno ispuniti",
       "changeable": "može se promijeniti",
+      "options": "Mogućnosti",
       "filtersGeneral": "Opći filtri",
       "age": "Dob",
       "blockQuestion": "Blokirati svoj račun?",
@@ -30,7 +33,8 @@
       }
     },
     "actions": {
-      "settings": "Postavke",
+      "cancel": "Otkazati",
+      "editProfile": "Uredi račun",
       "filter": "Filter",
       "saveChanges": "Spremite promjene",
       "block": "Blokirati",
@@ -39,8 +43,7 @@
       "complaint": "Prijavi i blokiraj",
       "deleteProfile": "Izbriši račun",
       "freezeProfile": "Zamrzni račun",
-      "editProfile": "Uredi račun",
-      "cancel": "Otkazati",
+      "settings": "Postavke",
       "restoreProfile": "Oporavi račun",
       "main": "Dom",
       "profile": "Profil",

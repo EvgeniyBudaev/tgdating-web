@@ -1,0 +1,11 @@
+@use "@/app/styles/colors" as colors;
+
+.SidebarContentList {
+  background-color: colors.$text_color;
+  margin-top: 100px;
+  margin-bottom: 66px;
+
+  &.theme-dark {
+    background-color: colors.$bg_color;
+  }
+}

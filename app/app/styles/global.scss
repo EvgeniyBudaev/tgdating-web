@@ -15,9 +15,16 @@ html {
   box-sizing: inherit;
 }
 
+html {
+  overflow: hidden;
+}
+
 html,
 body {
-  height: 100%;
+  // https://developer.mozilla.org/ru/docs/Web/CSS/overscroll-behavior
+  overscroll-behavior: none;
+  height: -webkit-fill-available;
+  min-height: 100%;
 }
 
 body {
@@ -28,8 +35,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  // https://developer.mozilla.org/ru/docs/Web/CSS/overscroll-behavior
-  overscroll-behavior: none;
+  overflow-x: hidden;
 
   .icon-dark {
     fill: colors.$bg_color;

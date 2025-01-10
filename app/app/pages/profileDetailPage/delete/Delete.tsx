@@ -62,10 +62,7 @@ const DeleteComponent: FC<TProps> = ({ lng, telegramUserId }) => {
 
   return (
     <>
-      <div
-        className="DropDown-MenuItem DropDown-MenuItem-Warning"
-        onClick={handleFreeze}
-      >
+      <div className="Delete-Warning" onClick={handleFreeze}>
         <Typography>{t("common.actions.deleteProfile")}</Typography>
       </div>
       <Modal isOpen={isOpenModal} onCloseModal={closeModal}>

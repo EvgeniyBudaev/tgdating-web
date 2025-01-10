@@ -3,9 +3,12 @@
     "titles": {
       "accountBlocked": "Účet zablokován",
       "isEmptyUsername": "V Telegram/Nastavení/Uživatelské jméno není nastaveno jedinečné jméno. Nastavte prosím uživatelské jméno a zkuste se znovu přihlásit do aplikace. Aktualizace dat v telegramu může trvat několik minut",
+      "editForm": "Editační formulář",
+      "registrationForm": "Registrační formulář",
       "publicPhotos": "Veřejné fotografie",
       "required": "nutné vyplnit",
       "changeable": "lze změnit",
+      "options": "Možnosti",
       "filtersGeneral": "Obecné filtry",
       "age": "Stáří",
       "blockQuestion": "Zablokovat svůj účet?",
@@ -30,7 +33,8 @@
       }
     },
     "actions": {
-      "settings": "Nastavení",
+      "cancel": "Zrušit",
+      "editProfile": "Upravit účet",
       "filter": "Filtr",
       "saveChanges": "Uložte změny",
       "block": "Blok",
@@ -39,8 +43,7 @@
       "complaint": "Nahlásit a zablokovat",
       "deleteProfile": "Smazat účet",
       "freezeProfile": "Zmrazit účet",
-      "editProfile": "Upravit účet",
-      "cancel": "Zrušit",
+      "settings": "Nastavení",
       "restoreProfile": "Obnovit účet",
       "main": "Domov",
       "profile": "Profil",
