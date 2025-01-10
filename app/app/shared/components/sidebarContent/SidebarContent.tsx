@@ -63,6 +63,7 @@ const SidebarContentComponent: FC<TProps> = ({
               <SidebarContentListItem
                 className={classes?.item}
                 isChecked={isChecked}
+                key={item.label}
                 onClick={() => setCheckedItem(item)}
                 theme={theme}
               >
