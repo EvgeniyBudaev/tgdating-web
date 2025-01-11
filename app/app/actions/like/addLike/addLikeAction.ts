@@ -66,7 +66,7 @@ export async function addLikeAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
-    console.log("addLikeAction errorResponse: ", errorResponse);
+    console.error("addLikeAction errorResponse: ", errorResponse);
     if (errorResponse?.status === 403) throw error;
     const responseData: TCommonResponseError = await errorResponse.json();
     const { message: formError, fieldErrors } =

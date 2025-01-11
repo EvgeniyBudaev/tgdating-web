@@ -5,13 +5,18 @@ import "./SidebarContentList.scss";
 
 type TProps = {
   children: ReactNode;
+  className?: string;
   theme?: ETheme;
 };
 
-const SidebarContentListComponent: FC<TProps> = ({ children, theme }) => {
+const SidebarContentListComponent: FC<TProps> = ({
+  children,
+  className,
+  theme,
+}) => {
   return (
     <div
-      className={clsx("SidebarContentList", {
+      className={clsx("SidebarContentList", className, {
         ["theme-dark"]: theme === ETheme.Dark,
       })}
     >

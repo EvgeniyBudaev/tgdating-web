@@ -34,9 +34,9 @@
     },
     "actions": {
       "cancel": "Cancel",
+      "buyPremium": "Buy Premium 1$/month",
       "editProfile": "Edit account",
       "filter": "Filter",
-      "saveChanges": "Save changes",
       "block": "Block",
       "no": "No",
       "yes": "Yes",
@@ -51,7 +51,8 @@
       "delete": "Delete",
       "loading": "Loading",
       "register": "Register",
-      "save": "Save"
+      "save": "Save",
+      "saveChanges": "Save changes"
     },
     "reductions": {
       "km": "km",

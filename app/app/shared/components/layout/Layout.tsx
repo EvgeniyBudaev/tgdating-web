@@ -2,7 +2,14 @@
 
 import clsx from "clsx";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { type FC, memo, type ReactNode, useEffect, useMemo } from "react";
+import {
+  type FC,
+  memo,
+  type ReactNode,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { CheckLike } from "@/app/shared/components/сheckLike";
 import { Footer } from "@/app/shared/components/footer";
@@ -16,6 +23,7 @@ import { createPath } from "@/app/shared/utils";
 import { ToastContainer } from "@/app/uikit/components/toast/toastContainer";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./Layout.scss";
+import { CheckPremium } from "@/app/shared/components/checkPremium";
 
 type TProps = {
   children?: ReactNode;
@@ -30,6 +38,8 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   const navigator = useNavigator({ lng });
   const { initDataCrypt, isSession, user, theme } = useTelegram();
   const telegramLanguageCode = user?.language_code;
+  const [isPremium, setIsPremium] = useState(false);
+  console.log("isPremium: ", isPremium);
 
   useEffect(() => {
     if (telegramLanguageCode && telegramLanguageCode !== lng) {
@@ -59,6 +69,10 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
     return pathname !== path;
   }, [lng, pathname]);
 
+  const handleCheckPremium = (isPremium: boolean) => {
+    setIsPremium(isPremium);
+  };
+
   return (
     <AuthenticityTokenProvider value={csrfToken}>
       <NavigatorProvider value={navigator}>
@@ -78,6 +92,11 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
             initDataCrypt={initDataCrypt}
             isSession={isSession}
             lng={lng}
+            telegramUserId={(user?.id ?? "").toString()}
+          />
+          <CheckPremium
+            isSession={isSession}
+            onLoad={handleCheckPremium}
             telegramUserId={(user?.id ?? "").toString()}
           />
         </div>

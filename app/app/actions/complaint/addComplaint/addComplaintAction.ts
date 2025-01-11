@@ -45,6 +45,7 @@ export async function addComplaintAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
+    console.error("addComplaintAction errorResponse: ", errorResponse);
     if (errorResponse?.status === 401 || errorResponse?.status === 403)
       throw error;
     const responseData: TCommonResponseError = await errorResponse.json();

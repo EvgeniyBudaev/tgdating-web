@@ -1,13 +1,13 @@
 "use server";
 
-import { addBlockFormSchema } from "@/app/actions/block/addBlock/schemas";
-import { addBlock } from "@/app/api/block/addBlock/domain";
+import { addPaymentFormSchema } from "@/app/actions/payment/schemas";
+import { addPayment } from "@/app/api/payment/addPayment/domain";
 import type { TCommonResponseError } from "@/app/shared/types/error";
 import { getResponseError, getErrorsResolver } from "@/app/shared/utils";
 import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
 
-export async function addBlockAction(prevState: any, formData: FormData) {
-  const resolver = addBlockFormSchema.safeParse(
+export async function addPaymentAction(prevState: any, formData: FormData) {
+  const resolver = addPaymentFormSchema.safeParse(
     Object.fromEntries(formData.entries()),
   );
 
@@ -30,7 +30,7 @@ export async function addBlockAction(prevState: any, formData: FormData) {
     const checkCsrf = await checkCsrfToken(csrf);
     if (checkCsrf?.error) throw checkCsrf.error;
     // @ts-ignore
-    const response = await addBlock(formattedParams, {
+    const response = await addPayment(formattedParams, {
       headers: {
         Authorization: accessToken,
       },
@@ -43,7 +43,7 @@ export async function addBlockAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
-    console.error("addBlockAction errorResponse: ", errorResponse);
+    console.error("addPaymentAction errorResponse: ", errorResponse);
     if (errorResponse?.status === 401 || errorResponse?.status === 403)
       throw error;
     const responseData: TCommonResponseError = await errorResponse.json();

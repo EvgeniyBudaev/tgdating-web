@@ -43,6 +43,7 @@ export async function deleteProfileAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
+    console.error("deleteProfileAction errorResponse: ", errorResponse);
     if (errorResponse?.status === 401 || errorResponse?.status === 403)
       throw error;
     const responseData: TCommonResponseError = await errorResponse.json();

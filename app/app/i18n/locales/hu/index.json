@@ -34,9 +34,9 @@
     },
     "actions": {
       "cancel": "Mégse",
+      "buyPremium": "Prémium vásárlás 1$/hó",
       "editProfile": "Fiók szerkesztése",
       "filter": "Szűrő",
-      "saveChanges": "Módosítások mentése",
       "block": "Tömb",
       "no": "Nem",
       "yes": "Igen",
@@ -51,7 +51,8 @@
       "delete": "Töröl",
       "loading": "Terhelés",
       "register": "Nyilvántartás",
-      "save": "Megtakarítás"
+      "save": "Megtakarítás",
+      "saveChanges": "Módosítások mentése"
     },
     "reductions": {
       "km": "km",

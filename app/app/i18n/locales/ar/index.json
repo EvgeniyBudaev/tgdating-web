@@ -34,9 +34,9 @@
     },
     "actions": {
       "cancel": "يلغي",
+      "buyPremium": "شراء قسط 1 دولار / شهر",
       "editProfile": "تحرير الحساب",
       "filter": "فلتر",
-      "saveChanges": "حفظ التغييرات",
       "block": "حاجز",
       "no": "لا",
       "yes": "نعم",
@@ -51,7 +51,8 @@
       "delete": "يمسح",
       "loading": "تحميل",
       "register": "يسجل",
-      "save": "يحفظ"
+      "save": "يحفظ",
+      "saveChanges": "حفظ التغييرات"
     },
     "reductions": {
       "km": "كم",

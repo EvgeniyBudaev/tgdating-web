@@ -34,9 +34,9 @@
     },
     "actions": {
       "cancel": "Otkazati",
+      "buyPremium": "Kupite Premium za 1$/mjesečno",
       "editProfile": "Uredi račun",
       "filter": "Filter",
-      "saveChanges": "Spremite promjene",
       "block": "Blokirati",
       "no": "Ne",
       "yes": "Da",
@@ -51,7 +51,8 @@
       "delete": "Izbrisati",
       "loading": "Učitavanje",
       "register": "Registar",
-      "save": "Uštedjeti"
+      "save": "Uštedjeti",
+      "saveChanges": "Spremite promjene"
     },
     "reductions": {
       "km": "km",

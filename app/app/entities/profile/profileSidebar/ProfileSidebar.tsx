@@ -8,6 +8,7 @@ import { useTranslation } from "@/app/i18n/client";
 import { Block } from "@/app/pages/profileDetailPage/block";
 import { Delete } from "@/app/pages/profileDetailPage/delete";
 import { Freeze } from "@/app/pages/profileDetailPage/freeze";
+import { Premium } from "@/app/pages/profileDetailPage/premium";
 import { SidebarContentHeader } from "@/app/shared/components/sidebarContent/sidebarContentHeader";
 import { SidebarContentList } from "@/app/shared/components/sidebarContent/sidebarContentList";
 import { SidebarContentListItem } from "@/app/shared/components/sidebarContent/sidebarContentListItem";
@@ -73,6 +74,11 @@ const ProfileSidebarComponent = forwardRef(
                     onCloseDropDown={onCloseSidebar}
                     telegramUserId={telegramUserId}
                   />
+                </SidebarContentListItem>
+              )}
+              {isSessionUser && (
+                <SidebarContentListItem theme={theme}>
+                  <Premium telegramUserId={telegramUserId} />
                 </SidebarContentListItem>
               )}
               {isSessionUser && (

@@ -52,7 +52,6 @@ export default async function RootLayout({
           <I18nContextProvider lng={lng}>
             <ClientOnly>
               <InitClient />
-
               <LayoutComponent lng={lng} csrfToken={csrfToken}>
                 {children}
               </LayoutComponent>

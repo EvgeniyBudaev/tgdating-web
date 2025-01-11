@@ -9,6 +9,7 @@ import { CalendarIcon } from "./calendarIcon";
 import { CheckIcon } from "./checkIcon";
 import { CheckboxIcon } from "./checkboxIcon";
 import { CloseIcon } from "./closeIcon";
+import { CrownIcon } from "./crownIcon";
 import { EditIcon } from "./editIcon";
 import { ExitIcon } from "./exitIcon";
 import { FilterIcon } from "./filterIcon";
@@ -40,6 +41,7 @@ export {
   CheckIcon,
   CheckboxIcon,
   CloseIcon,
+  CrownIcon,
   EditIcon,
   ExitIcon,
   FilterIcon,

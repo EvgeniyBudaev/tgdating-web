@@ -34,9 +34,9 @@
     },
     "actions": {
       "cancel": "Annuleren",
+      "buyPremium": "Koop Premium 1$/maand",
       "editProfile": "Account bewerken",
       "filter": "Filter",
-      "saveChanges": "Wijzigingen opslaan",
       "block": "Blok",
       "no": "Nee",
       "yes": "Ja",
@@ -51,7 +51,8 @@
       "delete": "Verwijderen",
       "loading": "Laden",
       "register": "Register",
-      "save": "Redden"
+      "save": "Redden",
+      "saveChanges": "Wijzigingen opslaan"
     },
     "reductions": {
       "km": "km",

@@ -31,6 +31,7 @@ import { RangeSlider } from "@/app/uikit/components/rangeSlider";
 import { Select, TSelectOption } from "@/app/uikit/components/select";
 import { Sidebar } from "@/app/uikit/components/sidebar";
 import { ETheme } from "@/app/uikit/enums/theme";
+import "./SearchFormSidebar.scss";
 
 type TProps = {
   isOpen: boolean;
@@ -129,56 +130,61 @@ const SearchFormSidebarComponent: FC<TProps> = ({
   };
 
   return (
-    <Sidebar isActive={isOpen} ref={sidebarRef} theme={theme}>
-      <div
-        className={clsx("SidebarContent", {
-          ["theme-dark"]: theme === ETheme.Dark,
-        })}
-      >
-        <form action={handleSubmit} className="SearchForm-Form">
-          <SidebarContentHeader
-            onClick={handleBack}
-            theme={theme}
-            title={t("common.titles.filtersGeneral")}
-          />
-          <input hidden={true} ref={buttonSubmitRef} type="submit" />
-        </form>
-        <SidebarContentList theme={theme}>
-          <SidebarContentListItem theme={theme}>
-            <RangeSlider
-              classes={{ root: "SearchForm-RangeSlider" }}
-              isShowTooltip={true}
-              label={t("common.titles.age")}
-              max={DEFAULT_AGE_TO}
-              min={DEFAULT_AGE_FROM}
-              onChange={setAgeRange}
-              step={1}
-              value={ageRange}
-            />
-          </SidebarContentListItem>
-          <SidebarContentListItem theme={theme}>
-            <Select
-              isSidebarOpen={isOpenSidebarSearchGender}
-              label={t("common.form.field.searchGender")}
-              headerTitle={
-                !isNil(searchGenderState) ? searchGenderState?.label : "--"
-              }
-              onHeaderClick={handleOpenSidebarSearchGender}
+    <div className="SearchFormSidebar">
+      <Sidebar isActive={isOpen} ref={sidebarRef} theme={theme}>
+        <div
+          className={clsx("SidebarContent", {
+            ["theme-dark"]: theme === ETheme.Dark,
+          })}
+        >
+          <form action={handleSubmit} className="SearchForm-Form">
+            <SidebarContentHeader
+              onClick={handleBack}
               theme={theme}
-            >
-              <SidebarContent
-                onSave={handleChangeSearchGender}
-                options={SEARCH_GENDER_MAPPING[lng]}
-                onCloseSidebar={handleCloseSidebarSearchGender}
-                selectedItem={searchGenderState}
-                theme={theme}
-                title={t("common.form.field.searchGender")}
+              title={t("common.titles.filtersGeneral")}
+            />
+            <input hidden={true} ref={buttonSubmitRef} type="submit" />
+          </form>
+          <SidebarContentList
+            className="SearchFormSidebar-SidebarContentList"
+            theme={theme}
+          >
+            <SidebarContentListItem theme={theme}>
+              <RangeSlider
+                classes={{ root: "SearchForm-RangeSlider" }}
+                isShowTooltip={true}
+                label={t("common.titles.age")}
+                max={DEFAULT_AGE_TO}
+                min={DEFAULT_AGE_FROM}
+                onChange={setAgeRange}
+                step={1}
+                value={ageRange}
               />
-            </Select>
-          </SidebarContentListItem>
-        </SidebarContentList>
-      </div>
-    </Sidebar>
+            </SidebarContentListItem>
+            <SidebarContentListItem theme={theme}>
+              <Select
+                isSidebarOpen={isOpenSidebarSearchGender}
+                label={t("common.form.field.searchGender")}
+                headerTitle={
+                  !isNil(searchGenderState) ? searchGenderState?.label : "--"
+                }
+                onHeaderClick={handleOpenSidebarSearchGender}
+                theme={theme}
+              >
+                <SidebarContent
+                  onSave={handleChangeSearchGender}
+                  options={SEARCH_GENDER_MAPPING[lng]}
+                  onCloseSidebar={handleCloseSidebarSearchGender}
+                  selectedItem={searchGenderState}
+                  theme={theme}
+                  title={t("common.form.field.searchGender")}
+                />
+              </Select>
+            </SidebarContentListItem>
+          </SidebarContentList>
+        </div>
+      </Sidebar>
+    </div>
   );
 };
 

@@ -34,9 +34,9 @@
     },
     "actions": {
       "cancel": "취소",
+      "buyPremium": "프리미엄 1$/월 구매",
       "editProfile": "계정 수정",
       "filter": "필터",
-      "saveChanges": "변경사항 저장",
       "block": "차단하다",
       "no": "아니요",
       "yes": "예",
@@ -51,7 +51,8 @@
       "delete": "삭제",
       "loading": "로드 중",
       "register": "등록하다",
-      "save": "구하다"
+      "save": "구하다",
+      "saveChanges": "변경사항 저장"
     },
     "reductions": {
       "km": "킬로미터",

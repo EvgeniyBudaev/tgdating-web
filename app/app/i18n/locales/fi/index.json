@@ -34,9 +34,9 @@
     },
     "actions": {
       "cancel": "Peruuttaa",
+      "buyPremium": "Osta Premium 1$/kk",
       "editProfile": "Muokkaa tiliä",
       "filter": "Suodattaa",
-      "saveChanges": "Tallenna muutokset",
       "block": "Lohko",
       "no": "Ei",
       "yes": "Kyllä",
@@ -51,7 +51,8 @@
       "delete": "Poistaa",
       "loading": "Ladataan",
       "register": "Rekisteröidy",
-      "save": "Tallentaa"
+      "save": "Tallentaa",
+      "saveChanges": "Tallenna muutokset"
     },
     "reductions": {
       "km": "km",

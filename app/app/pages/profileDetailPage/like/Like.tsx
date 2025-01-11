@@ -83,8 +83,6 @@ const LikeComponent: FC<TProps> = ({ lng, profile, telegramUserId }) => {
   };
 
   const handleSubmit = () => {
-    console.log("handleSubmit initDataCrypt: ", initDataCrypt);
-    console.log("handleSubmit csrf: ", csrf);
     if (profile) {
       const formDataDto = new FormData();
       if (canAddLike) {

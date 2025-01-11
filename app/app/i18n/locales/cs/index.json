@@ -34,9 +34,9 @@
     },
     "actions": {
       "cancel": "Zrušit",
+      "buyPremium": "Koupit Premium za 1$/měsíčně",
       "editProfile": "Upravit účet",
       "filter": "Filtr",
-      "saveChanges": "Uložte změny",
       "block": "Blok",
       "no": "Žádný",
       "yes": "Ano",
@@ -51,7 +51,8 @@
       "delete": "Vymazat",
       "loading": "Načítání",
       "register": "Rejstřík",
-      "save": "Uložit"
+      "save": "Uložit",
+      "saveChanges": "Uložte změny"
     },
     "reductions": {
       "km": "km",

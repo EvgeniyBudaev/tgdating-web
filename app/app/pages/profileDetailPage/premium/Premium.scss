@@ -1,0 +1,19 @@
+@use "@/app/styles/colors" as colors;
+
+.Premium {
+  width: 100%;
+
+  &-Form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &-Icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: colors.$color-gold;
+  }
+}

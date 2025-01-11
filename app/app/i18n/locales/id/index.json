@@ -34,9 +34,9 @@
     },
     "actions": {
       "cancel": "Membatalkan",
+      "buyPremium": "Beli Premium $1/bulan",
       "editProfile": "Sunting akun",
       "filter": "Menyaring",
-      "saveChanges": "Simpan perubahan",
       "block": "Memblokir",
       "no": "Tidak",
       "yes": "Ya",
@@ -51,7 +51,8 @@
       "delete": "Menghapus",
       "loading": "Memuat",
       "register": "Daftar",
-      "save": "Menyimpan"
+      "save": "Menyimpan",
+      "saveChanges": "Simpan perubahan"
     },
     "reductions": {
       "km": "km",

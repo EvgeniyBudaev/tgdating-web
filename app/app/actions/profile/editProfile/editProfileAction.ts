@@ -161,10 +161,10 @@ export async function editProfileAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
+    console.error("editProfileAction errorResponse: ", errorResponse);
     if (errorResponse?.status === 401 || errorResponse?.status === 403)
       throw error;
     const responseData: TCommonResponseError = await errorResponse.json();
-    console.log("editProfileAction errorResponseData: ", responseData);
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};
 

@@ -1,7 +1,7 @@
 "use server";
 
 import { restoreProfileFormSchema } from "@/app/actions/profile/restoreProfile/schemas";
-import {restoreProfile} from "@/app/api/profile/restoreProfile/domain";
+import { restoreProfile } from "@/app/api/profile/restoreProfile/domain";
 import { getErrorsResolver, getResponseError } from "@/app/shared/utils";
 import type { TCommonResponseError } from "@/app/shared/types/error";
 import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
@@ -43,6 +43,7 @@ export async function restoreProfileAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
+    console.error("restoreProfileAction errorResponse: ", errorResponse);
     if (errorResponse?.status === 403) throw error;
     const responseData: TCommonResponseError = await errorResponse.json();
     const { message: formError, fieldErrors } =

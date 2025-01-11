@@ -10,6 +10,7 @@ import {
   CheckIcon,
   CheckboxIcon,
   CloseIcon,
+  CrownIcon,
   EditIcon,
   ExitIcon,
   FilterIcon,
@@ -43,6 +44,7 @@ export type IconType =
   | "Check"
   | "Checkbox"
   | "Close"
+  | "Crown"
   | "Edit"
   | "Exit"
   | "Filter"
@@ -178,6 +180,17 @@ export const iconTypes = new Map([
     (props: TIconProps) => (
       <CloseIcon
         key="CloseIcon"
+        dataTestId={props.dataTestId}
+        height={props.height}
+        width={props.width}
+      />
+    ),
+  ],
+  [
+    "Crown",
+    (props: TIconProps) => (
+      <CrownIcon
+        key="CrownIcon"
         dataTestId={props.dataTestId}
         height={props.height}
         width={props.width}

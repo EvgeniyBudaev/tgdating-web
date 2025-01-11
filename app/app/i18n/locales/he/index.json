@@ -34,9 +34,9 @@
     },
     "actions": {
       "cancel": "לְבַטֵל",
+      "buyPremium": "קנה פרימיום 1$ לחודש",
       "editProfile": "ערוך חשבון",
       "filter": "לְסַנֵן",
-      "saveChanges": "שמור שינויים",
       "block": "לַחסוֹם",
       "no": "לֹא",
       "yes": "כֵּן",
@@ -51,7 +51,8 @@
       "delete": "לִמְחוֹק",
       "loading": "טְעִינָה",
       "register": "לִרְשׁוֹם",
-      "save": "לְהַצִיל"
+      "save": "לְהַצִיל",
+      "saveChanges": "שמור שינויים"
     },
     "reductions": {
       "km": "ק\"מ",

@@ -34,9 +34,9 @@
     },
     "actions": {
       "cancel": "Адмяніць",
+      "buyPremium": "Купіць Premium 1$/мес",
       "editProfile": "Рэдагаваць акаўнт",
       "filter": "Фільтр",
-      "saveChanges": "Захаваць змены",
       "block": "Заблакаваць",
       "no": "Не",
       "yes": "Так",
@@ -51,7 +51,8 @@
       "delete": "Выдаліць",
       "loading": "Загрузка",
       "register": "Зарэгістравацца",
-      "save": "Захаваць"
+      "save": "Захаваць",
+      "saveChanges": "Захаваць змены"
     },
     "reductions": {
       "km": "км",
