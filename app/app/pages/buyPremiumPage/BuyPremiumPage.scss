@@ -1,0 +1,42 @@
+@use "@/app/styles/colors" as colors;
+@use "@/app/styles/constants" as constants;
+
+.BuyPremiumPage {
+  &-ListImages {
+    display: flex;
+    justify-content: center;
+    padding-top: 32px;
+  }
+
+  &-Title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 24px 0;
+  }
+
+  &-ListTariffsWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-ListTariffs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    justify-content: center;
+    align-content: center;
+    max-width: 1000px;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  &-Controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

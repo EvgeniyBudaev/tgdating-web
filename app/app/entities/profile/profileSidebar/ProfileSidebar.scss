@@ -2,4 +2,7 @@
 @use "@/app/styles/constants" as constants;
 
 .ProfileSidebar {
+  &-Icon-Premium {
+    color: colors.$color-gold;
+  }
 }

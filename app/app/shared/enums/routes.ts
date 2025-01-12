@@ -8,4 +8,5 @@ export enum ERoutes {
   ProfileBlocked = "/telegram/:telegramUserId/blocked",
   ProfileDeleted = "/telegram/:telegramUserId/deleted",
   ProfileFrozen = "/telegram/:telegramUserId/frozen",
+  BuyPremium = "/telegram/:telegramUserId/premium/buy",
 }

@@ -10,7 +10,7 @@
     height: 100%;
     // background-color: $bg_light_color;
     z-index: 100;
-    padding-top: 80px;
+    padding-top: 66px;
 
     &::before {
       content: "";
@@ -34,6 +34,7 @@
   }
 
   &-IsEmpty {
+    padding-top: 16px;
     width: 100%;
   }
 

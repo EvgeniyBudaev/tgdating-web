@@ -6,6 +6,7 @@ import { type FC, memo, useActionState, useEffect } from "react";
 import { addBlockAction } from "@/app/actions/block/addBlock/addBlockAction";
 import { useTranslation } from "@/app/i18n/client";
 import { EBlockFormFields } from "@/app/actions/block/addBlock/enums";
+import { SidebarContentListItem } from "@/app/shared/components/sidebarContent/sidebarContentListItem";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
@@ -14,18 +15,20 @@ import { createPath } from "@/app/shared/utils";
 import { Button } from "@/app/uikit/components/button";
 import { Modal, useModalWindow } from "@/app/uikit/components/modal";
 import { Typography } from "@/app/uikit/components/typography";
+import { ETheme } from "@/app/uikit/enums/theme";
 
 type TProps = {
   blockedTelegramUserId: string;
   lng: ELanguage;
-  onCloseDropDown?: () => void;
   telegramUserId: string;
+  theme?: ETheme;
 };
 
 const BlockComponent: FC<TProps> = ({
   blockedTelegramUserId,
   lng,
   telegramUserId,
+  theme,
 }) => {
   const csrf = useAuthenticityTokenContext();
   const { closeModal, isOpenModal, openModal } = useModalWindow();
@@ -47,10 +50,6 @@ const BlockComponent: FC<TProps> = ({
     }
   }, [lng, state?.data, state?.error, state.success, telegramUserId]);
 
-  const handleBlock = () => {
-    openModal();
-  };
-
   const handleSubmit = (formData: FormData) => {
     if (isSession && blockedTelegramUserId) {
       const formDataDto = new FormData();
@@ -71,9 +70,9 @@ const BlockComponent: FC<TProps> = ({
 
   return (
     <>
-      <div onClick={handleBlock}>
+      <SidebarContentListItem onClick={openModal} theme={theme}>
         <Typography>{t("common.actions.block")}</Typography>
-      </div>
+      </SidebarContentListItem>
       <Modal isOpen={isOpenModal} onCloseModal={closeModal}>
         <Modal.Header align="center">
           <Typography>{t("common.titles.blockQuestion")}</Typography>
@@ -87,7 +86,7 @@ const BlockComponent: FC<TProps> = ({
             >
               <Typography>{t("common.actions.no")}</Typography>
             </Button>
-            <form action={handleSubmit} className="Block-Form">
+            <form action={handleSubmit}>
               <Button type="submit">
                 <Typography>{t("common.actions.yes")}</Typography>
               </Button>

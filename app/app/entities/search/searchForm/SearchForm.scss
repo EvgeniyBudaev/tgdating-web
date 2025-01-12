@@ -54,31 +54,4 @@
       width: 24px;
     }
   }
-
-  & #{$this}-SidebarContent {
-    height: 100vh;
-    background-color: colors.$text_color;
-  }
-
-  & #{$this}-SidebarContent-List-Item {
-    border: none;
-
-    &:hover {
-      background-color: transparent;
-    }
-  }
-
-  &.theme-dark {
-    & #{$this}-SidebarContent {
-      background-color: colors.$bg_color;
-    }
-
-    & #{$this}-SidebarContent-List-Item {
-      border: none;
-
-      &:hover {
-        background-color: transparent;
-      }
-    }
-  }
 }

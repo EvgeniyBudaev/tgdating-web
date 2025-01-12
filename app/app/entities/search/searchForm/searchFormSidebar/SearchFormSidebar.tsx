@@ -149,7 +149,10 @@ const SearchFormSidebarComponent: FC<TProps> = ({
             className="SearchFormSidebar-SidebarContentList"
             theme={theme}
           >
-            <SidebarContentListItem theme={theme}>
+            <SidebarContentListItem
+              className="SearchFormSidebar-SidebarContentListItem"
+              theme={theme}
+            >
               <RangeSlider
                 classes={{ root: "SearchForm-RangeSlider" }}
                 isShowTooltip={true}
@@ -161,7 +164,10 @@ const SearchFormSidebarComponent: FC<TProps> = ({
                 value={ageRange}
               />
             </SidebarContentListItem>
-            <SidebarContentListItem theme={theme}>
+            <SidebarContentListItem
+              className="SearchFormSidebar-SidebarContentListItem"
+              theme={theme}
+            >
               <Select
                 isSidebarOpen={isOpenSidebarSearchGender}
                 label={t("common.form.field.searchGender")}

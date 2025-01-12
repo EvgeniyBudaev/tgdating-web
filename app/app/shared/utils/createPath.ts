@@ -3,6 +3,7 @@ import { ERoutes } from "@/app/shared/enums";
 type TRoutes = ERoutes.Root | ERoutes.Unauthorized | ERoutes.ProfileAdd;
 
 type TRoutesWithParams =
+  | ERoutes.BuyPremium
   | ERoutes.Telegram
   | ERoutes.ProfileDetail
   | ERoutes.ProfileBlocked

@@ -4,6 +4,7 @@ import { type FC, memo, useActionState, useEffect } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { freezeProfileAction } from "@/app/actions/profile/freezeProfile/freezeProfileAction";
 import { EProfileFreezeFormFields } from "@/app/actions/profile/freezeProfile/enums";
+import { SidebarContentListItem } from "@/app/shared/components/sidebarContent/sidebarContentListItem";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
@@ -11,19 +12,22 @@ import { useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { Button } from "@/app/uikit/components/button";
 import { Modal, useModalWindow } from "@/app/uikit/components/modal";
+import { ETheme } from "@/app/uikit/enums/theme";
 import { Typography } from "@/app/uikit/components/typography";
 import "./Freeze.scss";
 
 type TProps = {
   lng: ELanguage;
   telegramUserId: string;
+  theme?: ETheme;
 };
 
-const FreezeComponent: FC<TProps> = ({ lng, telegramUserId }) => {
+const FreezeComponent: FC<TProps> = ({ lng, telegramUserId, theme }) => {
   const csrf = useAuthenticityTokenContext();
   const { closeModal, isOpenModal, openModal } = useModalWindow();
   const { t } = useTranslation("index");
   const { initDataCrypt, isSession } = useTelegram();
+
   const [state, formAction] = useActionState(
     freezeProfileAction,
     INITIAL_FORM_STATE,
@@ -39,10 +43,6 @@ const FreezeComponent: FC<TProps> = ({ lng, telegramUserId }) => {
       redirect(path);
     }
   }, [lng, state?.data, state?.error, state.success]);
-
-  const handleFreeze = () => {
-    openModal();
-  };
 
   const handleSubmit = (formData: FormData) => {
     if (isSession) {
@@ -63,10 +63,14 @@ const FreezeComponent: FC<TProps> = ({ lng, telegramUserId }) => {
 
   return (
     <>
-      <div onClick={handleFreeze}>
+      <SidebarContentListItem onClick={openModal} theme={theme}>
         <Typography>{t("common.actions.freezeProfile")}</Typography>
-      </div>
-      <Modal isOpen={isOpenModal} onCloseModal={closeModal}>
+      </SidebarContentListItem>
+      <Modal
+        isOpen={isOpenModal}
+        onCloseModal={closeModal}
+        showCloseIcon={false}
+      >
         <Modal.Header align="center">
           <Typography>{t("common.titles.freezeQuestion")}</Typography>
         </Modal.Header>
@@ -79,7 +83,7 @@ const FreezeComponent: FC<TProps> = ({ lng, telegramUserId }) => {
             >
               <Typography>{t("common.actions.no")}</Typography>
             </Button>
-            <form action={handleSubmit} className="Block-Form">
+            <form action={handleSubmit}>
               <Button type="submit">
                 <Typography>{t("common.actions.yes")}</Typography>
               </Button>

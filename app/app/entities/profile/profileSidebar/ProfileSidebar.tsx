@@ -1,22 +1,22 @@
 "use client";
 
 import clsx from "clsx";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { type ForwardedRef, forwardRef, memo } from "react";
 import type { TProfileDetail } from "@/app/api/profile/getProfileDetail/types";
 import { useTranslation } from "@/app/i18n/client";
 import { Block } from "@/app/pages/profileDetailPage/block";
 import { Delete } from "@/app/pages/profileDetailPage/delete";
 import { Freeze } from "@/app/pages/profileDetailPage/freeze";
-import { Premium } from "@/app/pages/profileDetailPage/premium";
 import { SidebarContentHeader } from "@/app/shared/components/sidebarContent/sidebarContentHeader";
 import { SidebarContentList } from "@/app/shared/components/sidebarContent/sidebarContentList";
 import { SidebarContentListItem } from "@/app/shared/components/sidebarContent/sidebarContentListItem";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { createPath } from "@/app/shared/utils";
 import { Sidebar } from "@/app/uikit/components/sidebar";
-import { ETheme } from "@/app/uikit/enums/theme";
+import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
+import { ETheme } from "@/app/uikit/enums/theme";
 import "./ProfileSidebar.scss";
 
 type TProps = {
@@ -45,6 +45,27 @@ const ProfileSidebarComponent = forwardRef(
     const { t } = useTranslation("index");
     const cancelButtonTitle = t("common.actions.cancel");
     const optionsTitle = t("common.titles.options");
+    const router = useRouter();
+
+    const handleRedirectBuyPremium = () => {
+      const path = createPath({
+        route: ERoutes.BuyPremium,
+        params: { telegramUserId: profile?.telegramUserId ?? "" },
+        lng,
+      });
+      router.push(path);
+      onCloseSidebar?.();
+    };
+
+    const handleRedirectEditProfile = () => {
+      const path = createPath({
+        route: ERoutes.ProfileEdit,
+        params: { telegramUserId: profile?.telegramUserId ?? "" },
+        lng,
+      });
+      router.push(path);
+      onCloseSidebar?.();
+    };
 
     return (
       <div className="ProfileSidebar">
@@ -67,42 +88,45 @@ const ProfileSidebarComponent = forwardRef(
             />
             <SidebarContentList theme={theme}>
               {!isSessionUser && (
-                <SidebarContentListItem theme={theme}>
-                  <Block
-                    blockedTelegramUserId={profile?.telegramUserId ?? ""}
-                    lng={lng}
-                    onCloseDropDown={onCloseSidebar}
-                    telegramUserId={telegramUserId}
-                  />
+                <Block
+                  blockedTelegramUserId={profile?.telegramUserId ?? ""}
+                  lng={lng}
+                  telegramUserId={telegramUserId}
+                  theme={theme}
+                />
+              )}
+              {isSessionUser && (
+                <SidebarContentListItem
+                  onClick={handleRedirectBuyPremium}
+                  theme={theme}
+                >
+                  <Typography>{t("common.actions.buyPremium")}</Typography>
+                  <div className="ProfileSidebar-Icon-Premium">
+                    <Icon type="Crown" />
+                  </div>
                 </SidebarContentListItem>
               )}
               {isSessionUser && (
-                <SidebarContentListItem theme={theme}>
-                  <Premium telegramUserId={telegramUserId} />
+                <SidebarContentListItem
+                  onClick={handleRedirectEditProfile}
+                  theme={theme}
+                >
+                  <Typography>{t("common.actions.editProfile")}</Typography>
                 </SidebarContentListItem>
               )}
               {isSessionUser && (
-                <SidebarContentListItem theme={theme}>
-                  <Link
-                    href={createPath({
-                      route: ERoutes.ProfileEdit,
-                      params: { telegramUserId: profile?.telegramUserId ?? "" },
-                    })}
-                    onClick={onCloseSidebar}
-                  >
-                    <Typography>{t("common.actions.editProfile")}</Typography>
-                  </Link>
-                </SidebarContentListItem>
+                <Freeze
+                  lng={lng}
+                  telegramUserId={telegramUserId}
+                  theme={theme}
+                />
               )}
               {isSessionUser && (
-                <SidebarContentListItem theme={theme}>
-                  <Freeze lng={lng} telegramUserId={telegramUserId} />
-                </SidebarContentListItem>
-              )}
-              {isSessionUser && (
-                <SidebarContentListItem theme={theme}>
-                  <Delete lng={lng} telegramUserId={telegramUserId} />
-                </SidebarContentListItem>
+                <Delete
+                  lng={lng}
+                  telegramUserId={telegramUserId}
+                  theme={theme}
+                />
               )}
             </SidebarContentList>
           </div>
