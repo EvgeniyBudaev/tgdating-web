@@ -5,14 +5,16 @@ import { useFormStatus } from "react-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/app/uikit/components/button";
 import { Icon } from "@/app/uikit/components/icon";
+import type { IconType } from "@/app/uikit/components/icon/iconType";
 import { Typography } from "@/app/uikit/components/typography";
 import "./SubmitButton.scss";
 
 type TProps = {
-  isEdit?: boolean;
+  iconType: IconType;
+  title: string;
 };
 
-export const SubmitButton: FC<TProps> = ({ isEdit }) => {
+export const SubmitButton: FC<TProps> = ({ iconType, title }) => {
   const { pending } = useFormStatus();
   const { t } = useTranslation("index");
   const isLoading = pending;
@@ -35,12 +37,10 @@ export const SubmitButton: FC<TProps> = ({ isEdit }) => {
       )}
       {!isLoading && (
         <span className="SubmitButton-Inner">
-          <Typography>
-            {!isEdit ? t("common.actions.register") : t("common.actions.save")}
-          </Typography>
+          <Typography>{title}</Typography>
           <Icon
             className="SubmitButton-Icon SubmitButton-Save-Icon"
-            type="Save"
+            type={iconType}
           />
         </span>
       )}

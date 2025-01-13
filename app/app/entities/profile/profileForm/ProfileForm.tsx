@@ -81,6 +81,9 @@ const ProfileFormComponent: FC<TProps> = ({
     tg,
     theme,
   } = useProfileAddOrEdit({ isEdit, lng, profile });
+  const titleSubmitButton = !isEdit
+    ? t("common.actions.register")
+    : t("common.actions.save");
   const schema = isEdit ? editProfileFormSchema : addProfileFormSchema;
 
   const form = useInitForm(
@@ -317,7 +320,7 @@ const ProfileFormComponent: FC<TProps> = ({
                 </div>
               )}
               <div className="ProfileForm-Save">
-                <SubmitButton isEdit={isEdit} />
+                <SubmitButton iconType="Save" title={titleSubmitButton} />
               </div>
             </div>
           </Container>

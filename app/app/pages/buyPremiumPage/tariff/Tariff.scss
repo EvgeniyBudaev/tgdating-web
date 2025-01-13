@@ -2,13 +2,14 @@
 @use "@/app/styles/constants" as constants;
 
 .Tariff {
-  background-color: colors.$secondary_bg_color;
+  background-color: colors.$text_color;
   border: 1px solid colors.$text_color;
   border-radius: constants.$border-radius-xl;
   cursor: pointer;
 
-  &:hover {
-    background-color: colors.$bg_color;
+  &:hover,
+  &:active {
+    background-color: colors.$link_color;
   }
 
   &-Inner {
@@ -26,5 +27,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  &.theme-dark {
+    background-color: colors.$secondary_bg_color;
+
+    &:hover,
+    &:active {
+      background-color: colors.$link_color;
+    }
   }
 }
