@@ -18,6 +18,8 @@ import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./ProfileSidebar.scss";
+import { SidebarContentControls } from "@/app/shared/components/sidebarContent/sidebarContentControls";
+import { Settings } from "@/app/pages/profileDetailPage/settings";
 
 type TProps = {
   isSessionUser: boolean;
@@ -80,16 +82,18 @@ const ProfileSidebarComponent = forwardRef(
               ["theme-dark"]: theme === ETheme.Dark,
             })}
           >
-            <SidebarContentHeader
-              cancelButtonTitle={cancelButtonTitle}
-              onClick={onCloseSidebar}
-              theme={theme}
-              title={optionsTitle}
-            />
+            <SidebarContentHeader theme={theme} title={optionsTitle} />
             <SidebarContentList theme={theme}>
               {!isSessionUser && (
                 <Block
                   blockedTelegramUserId={profile?.telegramUserId ?? ""}
+                  lng={lng}
+                  telegramUserId={telegramUserId}
+                  theme={theme}
+                />
+              )}
+              {isSessionUser && (
+                <Settings
                   lng={lng}
                   telegramUserId={telegramUserId}
                   theme={theme}
@@ -129,6 +133,11 @@ const ProfileSidebarComponent = forwardRef(
                 />
               )}
             </SidebarContentList>
+            <SidebarContentControls
+              onClick={onCloseSidebar}
+              theme={theme}
+              title={cancelButtonTitle}
+            />
           </div>
         </Sidebar>
       </div>

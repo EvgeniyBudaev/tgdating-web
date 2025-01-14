@@ -1,5 +1,6 @@
 @use "@/app/styles/colors" as colors;
 @use "@/app/styles/constants" as constants;
 
-.Settings {
+.SettingsSidebar {
+  $this: &;
 }

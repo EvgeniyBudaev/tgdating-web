@@ -44,6 +44,7 @@
 
     &#{$this}__isChecked {
       color: colors.$bg_color;
+      background-color: colors.$link_color;
     }
 
     &:last-child {

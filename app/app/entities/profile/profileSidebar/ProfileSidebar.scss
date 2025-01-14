@@ -3,6 +3,9 @@
 
 .ProfileSidebar {
   &-Icon-Premium {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: colors.$color-gold;
   }
 }

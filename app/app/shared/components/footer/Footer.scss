@@ -10,7 +10,7 @@
   align-items: center;
   width: 100%;
   overflow: hidden;
-  z-index: 200;
+  z-index: 100;
 
   &-Inner {
     display: flex;
@@ -34,7 +34,7 @@
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     color: colors.$bg_color;
-    background-color: colors.$text_color;
+    background-color: colors.$secondary_bg_light_color;
 
     &:hover {
       color: colors.$link_color;
@@ -63,7 +63,7 @@
   &.theme-dark {
     #{$this}-Item {
       color: colors.$text_color;
-      background-color: rgba(31, 41, 65, 1);
+      background-color: colors.$secondary_bg_color;
 
       &:hover {
         color: colors.$link_color;
