@@ -1,11 +1,22 @@
-$bg_color: rgba(32, 25, 50, 1); /* #201932 */
-$bg_light_color: rgba(245, 245, 245, 1); /* #F5F5F5 */
-$secondary_bg_color: rgba(42, 35, 70, 1); /* #2a2346 */
-$text_color: rgba(255, 255, 255, 1); /* #FFF */
+$bg_color: rgba(9, 9, 9, 1); /* #090909 */
+$bg_light_color: rgba(254, 250, 246, 1); /* #FEFAF6 */
+$secondary_bg_color: rgba(28, 28, 28, 1); /* #1C1C1C */
+$secondary_bg_light_color: rgba(247, 234, 228, 1); /* #F7EAE4 */
+$text_color: rgba(250, 250, 250, 1); /* #FAFAFA */
 $text_color_not_active: rgba(185, 185, 185, 1); /* #B9B9B9FF */
 
-$link_color: rgba(43, 190, 242, 1); /* #2BBEF2 */
-$link_active_color: rgba(26, 74, 125, 1); /* #1a4a7d */
+$link_color: rgba(
+  255,
+  122,
+  0,
+  1
+); /* #FF7A00 */ // rgba(43, 190, 242, 1); /* #2BBEF2 */
+$link_active_color: rgba(
+  255,
+  89,
+  0,
+  1
+); /* #FF5900 */ // rgba(26, 74, 125, 1); /* #1a4a7d */
 $link_color_hover: rgba(38, 140, 182, 1); /* #268CB6 */
 $link_active_color_hover: rgba(27, 59, 101, 1); /* #1B3B65 */
 
@@ -16,6 +27,10 @@ $color-light-red: rgba(251, 228, 227, 1); /* #FBE4E3 */
 $color-light-red-hover: rgba(250, 219, 218, 1); /* #FADBDA */
 
 $color-gray: rgba(93, 88, 106, 1); /* #5D586A */
+
+$color-grey-dark: rgba(59, 58, 58, 1); /* #3B3A3A */
+$color-grey: rgba(110, 110, 110, 1); /* #6E6E6E */
+$color-grey-medium: rgba(215, 215, 215, 1); /* #D7D7D7 */
 
 $color-green: rgba(2, 204, 130, 1); /* #02CC82 */
 

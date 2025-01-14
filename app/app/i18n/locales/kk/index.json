@@ -26,17 +26,10 @@
       "isNewLike": "Жанашырлық бар! Бот чатында көру",
       "geoPositionExist": "Геолокация анықталды"
     },
-    "form": {
-      "field": {
-        "displayName": "Көрсетілетін атау",
-        "age": "Жасы",
-        "description": "Сипаттама",
-        "gender": "Еден",
-        "searchGender": "Қызықтырады",
-        "language": "Интерфейс тілі"
-      }
-    },
     "actions": {
+      "register": "Зарегистрироваться",
+      "save": "Сақтау",
+      "apply": "Қолдану",
       "cancel": "Бас тарту",
       "buyPremium": "Premium сатып алыңыз",
       "editProfile": "Есептік жазбаны өңдеу",
@@ -53,10 +46,17 @@
       "profile": "Профиль",
       "back": "Артқа",
       "delete": "Жою",
-      "loading": "Жүктелуде",
-      "register": "Зарегистрироваться",
-      "save": "Сақтау",
-      "saveChanges": "Өзгерістерді сақтау"
+      "loading": "Жүктелуде"
+    },
+    "form": {
+      "field": {
+        "displayName": "Көрсетілетін атау",
+        "age": "Жасы",
+        "description": "Сипаттама",
+        "gender": "Еден",
+        "searchGender": "Қызықтырады",
+        "language": "Интерфейс тілі"
+      }
     },
     "reductions": {
       "km": "км",

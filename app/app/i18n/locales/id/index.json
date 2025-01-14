@@ -26,17 +26,10 @@
       "isNewLike": "Ada simpati! Lihat di obrolan bot",
       "geoPositionExist": "Geolokasi ditentukan"
     },
-    "form": {
-      "field": {
-        "displayName": "Nama tampilan",
-        "age": "Usia",
-        "description": "Keterangan",
-        "gender": "Lantai",
-        "searchGender": "Tertarik",
-        "language": "Bahasa antarmuka"
-      }
-    },
     "actions": {
+      "register": "Daftar",
+      "save": "Menyimpan",
+      "apply": "Menerapkan",
       "cancel": "Membatalkan",
       "buyPremium": "Beli Premium",
       "editProfile": "Sunting akun",
@@ -53,10 +46,17 @@
       "profile": "Profil",
       "back": "Kembali",
       "delete": "Menghapus",
-      "loading": "Memuat",
-      "register": "Daftar",
-      "save": "Menyimpan",
-      "saveChanges": "Simpan perubahan"
+      "loading": "Memuat"
+    },
+    "form": {
+      "field": {
+        "displayName": "Nama tampilan",
+        "age": "Usia",
+        "description": "Keterangan",
+        "gender": "Lantai",
+        "searchGender": "Tertarik",
+        "language": "Bahasa antarmuka"
+      }
     },
     "reductions": {
       "km": "km",

@@ -8,13 +8,22 @@
   color: colors.$text_color;
   overflow-x: hidden;
 
+  &-Header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
   &-Title {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-bottom: 16px;
     z-index: 200;
   }
 
@@ -23,6 +32,7 @@
 
   &-FileUploader-Title {
     margin-bottom: 4px;
+    color: colors.$bg_color;
   }
 
   &-Controls {
@@ -41,8 +51,7 @@
 
   &-Cancel {
     padding: 0 16px;
-    width: 152px;
-    height: 46px;
+    width: max-content;
   }
 
   &-Save {
@@ -51,5 +60,8 @@
   }
 
   &.theme-dark {
+    #{$this}-FileUploader-Title {
+      color: colors.$text_color;
+    }
   }
 }

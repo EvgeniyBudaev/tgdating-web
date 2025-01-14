@@ -114,7 +114,6 @@
     "actions": {
       "create": "Создать",
       "update": "Update",
-      "apply": "Apply",
       "like": "There is mutual sympathy! Start communicating with",
       "add": "Add",
       "exit": "Exit",
@@ -129,7 +128,8 @@
       "search": "Search",
       "detailProfile": "Go to your profile",
       "editForm": "Добавь сюда перевод!!!",
-      "registrationForm": "Добавь сюда перевод!!!"
+      "registrationForm": "Добавь сюда перевод!!!",
+      "saveChanges": "Save changes"
     },
     "previews": {
       "defaultImage": "Default image",

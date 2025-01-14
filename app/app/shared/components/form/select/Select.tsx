@@ -22,6 +22,7 @@ type TProps = {
   subLabel?: string;
   theme?: ETheme;
   title: string;
+  titleButton: string;
 };
 
 const SelectComponent: FC<TProps> = ({
@@ -38,6 +39,7 @@ const SelectComponent: FC<TProps> = ({
   subLabel,
   theme,
   title,
+  titleButton,
 }) => {
   const { control } = useFormContext();
   const {
@@ -81,6 +83,7 @@ const SelectComponent: FC<TProps> = ({
         selectedItem={selectedItem}
         theme={theme}
         title={title}
+        titleButton={titleButton}
       />
     </SelectUi>
   );

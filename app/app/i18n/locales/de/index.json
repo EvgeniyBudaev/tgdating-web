@@ -26,17 +26,10 @@
       "isNewLike": "Es gibt Mitgefühl! Im Bot-Chat ansehen",
       "geoPositionExist": "Geolokalisierung bestimmt"
     },
-    "form": {
-      "field": {
-        "displayName": "Anzeigename",
-        "age": "Alter",
-        "description": "Beschreibung",
-        "gender": "Boden",
-        "searchGender": "Interessiert",
-        "language": "Schnittstellensprache"
-      }
-    },
     "actions": {
+      "register": "Registrieren",
+      "save": "Speichern",
+      "apply": "Anwenden",
       "cancel": "Stornieren",
       "buyPremium": "Kaufen Sie Premium",
       "editProfile": "Konto bearbeiten",
@@ -53,10 +46,17 @@
       "profile": "Profil",
       "back": "Zurück",
       "delete": "Löschen",
-      "loading": "Laden",
-      "register": "Registrieren",
-      "save": "Speichern",
-      "saveChanges": "Änderungen speichern"
+      "loading": "Laden"
+    },
+    "form": {
+      "field": {
+        "displayName": "Anzeigename",
+        "age": "Alter",
+        "description": "Beschreibung",
+        "gender": "Boden",
+        "searchGender": "Interessiert",
+        "language": "Schnittstellensprache"
+      }
     },
     "reductions": {
       "km": "km",

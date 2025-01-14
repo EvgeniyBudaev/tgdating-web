@@ -17,6 +17,7 @@ $transition: 150ms;
     align-items: flex-end;
     pointer-events: none;
     margin-bottom: 4px;
+    color: colors.$bg_color;
 
     #{$this}-Inner__error {
       background-color: colors.$color-red;
@@ -33,21 +34,21 @@ $transition: 150ms;
   input:hover,
   textarea,
   textarea:hover {
-    background-color: colors.$bg_light_color;
+    background-color: colors.$secondary_bg_light_color;
   }
 
   &__active {
     width: 100%;
 
     #{$this}-Inner__active {
-      background-color: colors.$bg_light_color;
+      background-color: colors.$secondary_bg_light_color;
       color: colors.$bg_color;
 
       input,
       input:hover,
       textarea,
       textarea:hover {
-        background-color: colors.$bg_light_color;
+        background-color: colors.$secondary_bg_light_color;
       }
     }
 
@@ -55,28 +56,28 @@ $transition: 150ms;
     input:-webkit-autofill.Input__active:hover,
     input:-webkit-autofill.Input__active:focus,
     input:-webkit-autofill.Input__active:active {
-      -webkit-box-shadow: 0 0 0 30px colors.$bg_light_color inset !important;
+      -webkit-box-shadow: 0 0 0 30px colors.$secondary_bg_light_color inset !important;
     }
 
     input:-webkit-autofill {
-      background-color: colors.$bg_light_color !important;
-      border: 1px solid colors.$bg_light_color !important;
+      background-color: colors.$secondary_bg_light_color !important;
+      border: 1px solid colors.$secondary_bg_light_color !important;
       -webkit-text-fill-color: colors.$bg_color;
     }
 
     input:-webkit-autofill:focus {
-      background-color: colors.$bg_light_color !important;
-      border: 1px solid colors.$bg_light_color !important;
+      background-color: colors.$secondary_bg_light_color !important;
+      border: 1px solid colors.$secondary_bg_light_color !important;
       -webkit-text-fill-color: colors.$bg_color;
     }
 
     & textarea,
     & textarea:hover {
-      background-color: colors.$bg_light_color;
+      background-color: colors.$secondary_bg_light_color;
     }
 
     #{$this}-Inner__active#{$this}-Inner__error {
-      background-color: colors.$bg_light_color;
+      background-color: colors.$secondary_bg_light_color;
     }
   }
 
@@ -112,6 +113,10 @@ $transition: 150ms;
     textarea,
     textarea:hover {
       background-color: colors.$secondary_bg_color;
+    }
+
+    #{$this}-Label {
+      color: colors.$text_color;
     }
 
     #{$this}__active {
@@ -181,9 +186,9 @@ $transition: 150ms;
   border: 1px solid transparent;
   border-top-left-radius: constants.$border-radius;
   border-top-right-radius: constants.$border-radius;
-  outline: colors.$bg_light_color;
+  outline: colors.$secondary_bg_light_color;
   color: colors.$bg_color;
-  background-color: colors.$bg_light_color;
+  background-color: colors.$secondary_bg_light_color;
 
   &__active {
     border: 1px solid colors.$link_color;
@@ -200,10 +205,10 @@ $transition: 150ms;
   }
 
   &#{$this}__error {
-    background-color: colors.$bg_light_color;
+    background-color: colors.$secondary_bg_light_color;
 
     &:hover {
-      background-color: colors.$bg_light_color;
+      background-color: colors.$secondary_bg_light_color;
       transition: background-color 0.25s ease;
     }
   }

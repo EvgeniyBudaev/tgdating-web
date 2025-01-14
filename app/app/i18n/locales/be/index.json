@@ -26,17 +26,10 @@
       "isNewLike": "Ёсць сімпатыя! Прагляд у чаце бота",
       "geoPositionExist": "Геапапазіцыя вызначана"
     },
-    "form": {
-      "field": {
-        "displayName": "Імя для адлюстравання",
-        "age": "Узрост",
-        "description": "Апісанне",
-        "gender": "Пол",
-        "searchGender": "Цікавяць",
-        "language": "Мова інтэрфейсу"
-      }
-    },
     "actions": {
+      "register": "Зарэгістравацца",
+      "save": "Захаваць",
+      "apply": "Ужыць",
       "cancel": "Адмяніць",
       "buyPremium": "Купіць Premium",
       "editProfile": "Рэдагаваць акаўнт",
@@ -53,10 +46,17 @@
       "profile": "Профіль",
       "back": "Назад",
       "delete": "Выдаліць",
-      "loading": "Загрузка",
-      "register": "Зарэгістравацца",
-      "save": "Захаваць",
-      "saveChanges": "Захаваць змены"
+      "loading": "Загрузка"
+    },
+    "form": {
+      "field": {
+        "displayName": "Імя для адлюстравання",
+        "age": "Узрост",
+        "description": "Апісанне",
+        "gender": "Пол",
+        "searchGender": "Цікавяць",
+        "language": "Мова інтэрфейсу"
+      }
     },
     "reductions": {
       "km": "км",

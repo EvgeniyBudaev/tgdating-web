@@ -2,11 +2,13 @@
 @use "@/app/styles/constants" as constants;
 
 .SidebarContentListItem {
+  $this: &;
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 50px;
   padding: 8px 16px;
+  background-color: colors.$secondary_bg_light_color;
   border-bottom: 1px solid colors.$text_color_not_active;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -22,6 +24,7 @@
   &__isChecked {
     opacity: 1;
     background-color: colors.$link_color;
+    color: colors.$bg_color;
   }
 
   &__isChecked .Icon {
@@ -35,8 +38,13 @@
   }
 
   &.theme-dark {
-    color: colors.$text_color;
+    color: colors.$color-grey-medium;
+    background-color: colors.$bg_color;
     border-bottom: 1px solid colors.$secondary_bg_color;
+
+    &#{$this}__isChecked {
+      color: colors.$bg_color;
+    }
 
     &:last-child {
       border-bottom: none;
@@ -44,7 +52,7 @@
 
     &:hover,
     &:active {
-      color: colors.$text_color;
+      color: colors.$bg_color;
     }
   }
 }

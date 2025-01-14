@@ -26,17 +26,10 @@
       "isNewLike": "Il y a de la sympathie ! Afficher dans le chat du robot",
       "geoPositionExist": "Géolocalisation déterminée"
     },
-    "form": {
-      "field": {
-        "displayName": "Nom d'affichage",
-        "age": "Âge",
-        "description": "Description",
-        "gender": "Sol",
-        "searchGender": "Intéressé",
-        "language": "Langue de l'interface"
-      }
-    },
     "actions": {
+      "register": "Registre",
+      "save": "Sauvegarder",
+      "apply": "Appliquer",
       "cancel": "Annuler",
       "buyPremium": "Achetez Premium",
       "editProfile": "Modifier le compte",
@@ -53,10 +46,17 @@
       "profile": "Profil",
       "back": "Dos",
       "delete": "Supprimer",
-      "loading": "Chargement",
-      "register": "Registre",
-      "save": "Sauvegarder",
-      "saveChanges": "Enregistrer les modifications"
+      "loading": "Chargement"
+    },
+    "form": {
+      "field": {
+        "displayName": "Nom d'affichage",
+        "age": "Âge",
+        "description": "Description",
+        "gender": "Sol",
+        "searchGender": "Intéressé",
+        "language": "Langue de l'interface"
+      }
     },
     "reductions": {
       "km": "km",

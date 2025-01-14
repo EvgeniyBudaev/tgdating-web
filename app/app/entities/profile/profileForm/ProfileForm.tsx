@@ -133,7 +133,6 @@ const ProfileFormComponent: FC<TProps> = ({
           ["theme-dark"]: theme === ETheme.Dark,
         })}
       >
-        <Gradient />
         <Form
           action={onSubmit}
           className="ProfileForm-Form"
@@ -141,149 +140,159 @@ const ProfileFormComponent: FC<TProps> = ({
           style={{ height: formHeightFormatted }}
         >
           <Section>
-            <div className="ProfileForm-Title">
-              {isEdit && (
-                <Typography variant={ETypographyVariant.TextB2Regular}>
-                  {t("common.titles.editForm")}
-                </Typography>
-              )}
-              {!isEdit && (
-                <Typography variant={ETypographyVariant.TextB2Regular}>
-                  {t("common.titles.registrationForm")}
-                </Typography>
-              )}
-            </div>
-            <Field>
-              <div className="ProfileForm-FileUploader-Title">
-                <Typography>{t("common.titles.publicPhotos")}</Typography>
-                <>
-                  &nbsp;
-                  <Typography variant={ETypographyVariant.TextB4Regular}>
-                    (
-                    {`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
-                    )
+            <div className="ProfileForm-Header">
+              <div className="ProfileForm-Title">
+                {isEdit && (
+                  <Typography variant={ETypographyVariant.TextB2Regular}>
+                    {t("common.titles.editForm")}
                   </Typography>
-                </>
+                )}
+                {!isEdit && (
+                  <Typography variant={ETypographyVariant.TextB2Regular}>
+                    {t("common.titles.registrationForm")}
+                  </Typography>
+                )}
               </div>
-              <FileUploader
-                accept={{
-                  "image/avif": [".avif"],
-                  "image/jpeg": [".jpeg"],
-                  "image/jpg": [".jpg"],
-                  "image/png": [".png"],
-                  "image/webp": [".webp"],
-                }}
-                defaultImages={
-                  isEdit ? (profile?.images ?? undefined) : undefined
-                }
-                files={files ?? []}
-                // isLoading={fetcherFilesLoading}
-                lng={lng}
-                maxFiles={3}
-                // maxSize={1280 * 1280}
-                multiple={false}
-                name={EProfileAddFormFields.Image}
-                onAddFiles={onAddFiles}
-                onDeleteFile={onDeleteFile}
-                theme={theme}
-                type="file"
-              />
-            </Field>
-            <Field>
-              <Input
-                defaultValue={displayName}
-                label={t("common.form.field.displayName") ?? "Display name"}
-                subLabel={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
-                name={EProfileAddFormFields.DisplayName}
-                onFocus={handleFocus}
-                theme={theme}
-                type="text"
-              />
-            </Field>
-            <Field>
-              <Select
-                headerTitle={!isNil(age) ? age?.label : "--"}
-                isSidebarOpen={isSidebarOpen.isAge}
-                label={t("common.form.field.age")}
-                name={EProfileAddFormFields.Age}
-                onCloseSidebar={onCloseSidebar}
-                onHeaderClick={() =>
-                  setIsSidebarOpen((prev) => ({ ...prev, isAge: true }))
-                }
-                onSave={onChangeAge}
-                options={ageOptions}
-                selectedItem={age}
-                subLabel={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
-                theme={theme}
-                title={t("common.form.field.age")}
-              />
-            </Field>
-            <Field>
-              <Textarea
-                defaultValue={
-                  isEdit ? (profile?.description ?? undefined) : undefined
-                }
-                label={t("common.form.field.description") ?? "Description"}
-                maxLength={1000}
-                name={EProfileAddFormFields.Description}
-                onFocus={handleFocus}
-                theme={theme}
-                type="text"
-              />
-            </Field>
-            <Field>
-              <Select
-                headerTitle={!isNil(gender) ? gender?.label : "--"}
-                isSidebarOpen={isSidebarOpen.isGender}
-                label={t("common.form.field.gender")}
-                name={EProfileAddFormFields.Gender}
-                onCloseSidebar={onCloseSidebar}
-                onHeaderClick={() =>
-                  setIsSidebarOpen((prev) => ({ ...prev, isGender: true }))
-                }
-                onSave={onChangeGender}
-                options={GENDER_MAPPING[language]}
-                selectedItem={gender}
-                subLabel={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
-                theme={theme}
-                title={t("common.form.field.gender")}
-              />
-            </Field>
-            <Field>
-              <Select
-                headerTitle={!isNil(searchGender) ? searchGender?.label : "--"}
-                isSidebarOpen={isSidebarOpen.isSearchGender}
-                label={t("common.form.field.searchGender")}
-                name={EProfileAddFormFields.SearchGender}
-                onCloseSidebar={onCloseSidebar}
-                onHeaderClick={() =>
-                  setIsSidebarOpen((prev) => ({
-                    ...prev,
-                    isSearchGender: true,
-                  }))
-                }
-                onSave={onChangeSearchGender}
-                options={SEARCH_GENDER_MAPPING[language]}
-                selectedItem={searchGender}
-                theme={theme}
-                title={t("common.form.field.searchGender")}
-              />
-            </Field>
-            <Field>
-              <input
-                defaultValue={location}
-                name={EProfileAddFormFields.Location}
-                type="hidden"
-              />
-            </Field>
-            {/*<Field>*/}
-            {/*  <Checkbox*/}
-            {/*    checked={isLeftHand}*/}
-            {/*    label={t("common.form.field.isLeftHand")}*/}
-            {/*    name={EProfileAddFormFields.IsLeftHand}*/}
-            {/*    onChange={onChangeIsLeftHand}*/}
-            {/*  />*/}
-            {/*</Field>*/}
+              <Gradient />
+            </div>
+            <Container>
+              <Field>
+                <div className="ProfileForm-FileUploader-Title">
+                  <Typography>{t("common.titles.publicPhotos")}</Typography>
+                  <>
+                    &nbsp;
+                    <Typography variant={ETypographyVariant.TextB4Regular}>
+                      (
+                      {`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
+                      )
+                    </Typography>
+                  </>
+                </div>
+                <FileUploader
+                  accept={{
+                    "image/avif": [".avif"],
+                    "image/jpeg": [".jpeg"],
+                    "image/jpg": [".jpg"],
+                    "image/png": [".png"],
+                    "image/webp": [".webp"],
+                  }}
+                  defaultImages={
+                    isEdit ? (profile?.images ?? undefined) : undefined
+                  }
+                  files={files ?? []}
+                  // isLoading={fetcherFilesLoading}
+                  lng={lng}
+                  maxFiles={3}
+                  // maxSize={1280 * 1280}
+                  multiple={false}
+                  name={EProfileAddFormFields.Image}
+                  onAddFiles={onAddFiles}
+                  onDeleteFile={onDeleteFile}
+                  theme={theme}
+                  type="file"
+                />
+              </Field>
+              <Field>
+                <Input
+                  defaultValue={displayName}
+                  label={t("common.form.field.displayName") ?? "Display name"}
+                  subLabel={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
+                  name={EProfileAddFormFields.DisplayName}
+                  onFocus={handleFocus}
+                  theme={theme}
+                  type="text"
+                />
+              </Field>
+              <Field>
+                <Select
+                  headerTitle={!isNil(age) ? age?.label : "--"}
+                  isSidebarOpen={isSidebarOpen.isAge}
+                  label={t("common.form.field.age")}
+                  name={EProfileAddFormFields.Age}
+                  onCloseSidebar={onCloseSidebar}
+                  onHeaderClick={() =>
+                    setIsSidebarOpen((prev) => ({ ...prev, isAge: true }))
+                  }
+                  onSave={onChangeAge}
+                  options={ageOptions}
+                  selectedItem={age}
+                  subLabel={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
+                  theme={theme}
+                  title={t("common.form.field.age")}
+                  titleButton={t("common.actions.apply")}
+                />
+              </Field>
+              <Field>
+                <Textarea
+                  defaultValue={
+                    isEdit ? (profile?.description ?? undefined) : undefined
+                  }
+                  label={t("common.form.field.description") ?? "Description"}
+                  maxLength={1000}
+                  name={EProfileAddFormFields.Description}
+                  onFocus={handleFocus}
+                  theme={theme}
+                  type="text"
+                />
+              </Field>
+              <Field>
+                <Select
+                  headerTitle={!isNil(gender) ? gender?.label : "--"}
+                  isSidebarOpen={isSidebarOpen.isGender}
+                  label={t("common.form.field.gender")}
+                  name={EProfileAddFormFields.Gender}
+                  onCloseSidebar={onCloseSidebar}
+                  onHeaderClick={() =>
+                    setIsSidebarOpen((prev) => ({ ...prev, isGender: true }))
+                  }
+                  onSave={onChangeGender}
+                  options={GENDER_MAPPING[language]}
+                  selectedItem={gender}
+                  subLabel={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
+                  theme={theme}
+                  title={t("common.form.field.gender")}
+                  titleButton={t("common.actions.apply")}
+                />
+              </Field>
+              <Field>
+                <Select
+                  headerTitle={
+                    !isNil(searchGender) ? searchGender?.label : "--"
+                  }
+                  isSidebarOpen={isSidebarOpen.isSearchGender}
+                  label={t("common.form.field.searchGender")}
+                  name={EProfileAddFormFields.SearchGender}
+                  onCloseSidebar={onCloseSidebar}
+                  onHeaderClick={() =>
+                    setIsSidebarOpen((prev) => ({
+                      ...prev,
+                      isSearchGender: true,
+                    }))
+                  }
+                  onSave={onChangeSearchGender}
+                  options={SEARCH_GENDER_MAPPING[language]}
+                  selectedItem={searchGender}
+                  theme={theme}
+                  title={t("common.form.field.searchGender")}
+                  titleButton={t("common.actions.apply")}
+                />
+              </Field>
+              <Field>
+                <input
+                  defaultValue={location}
+                  name={EProfileAddFormFields.Location}
+                  type="hidden"
+                />
+              </Field>
+              {/*<Field>*/}
+              {/*  <Checkbox*/}
+              {/*    checked={isLeftHand}*/}
+              {/*    label={t("common.form.field.isLeftHand")}*/}
+              {/*    name={EProfileAddFormFields.IsLeftHand}*/}
+              {/*    onChange={onChangeIsLeftHand}*/}
+              {/*  />*/}
+              {/*</Field>*/}
+            </Container>
           </Section>
           <Container>
             <div

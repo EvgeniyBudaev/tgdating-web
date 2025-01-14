@@ -26,17 +26,10 @@
       "isNewLike": "Együttérzés van! Megtekintés a bot chatben",
       "geoPositionExist": "A földrajzi hely meghatározása"
     },
-    "form": {
-      "field": {
-        "displayName": "Megjelenítési név",
-        "age": "Kor",
-        "description": "Leírás",
-        "gender": "Emelet",
-        "searchGender": "Érdekelt",
-        "language": "Interfész nyelve"
-      }
-    },
     "actions": {
+      "register": "Nyilvántartás",
+      "save": "Megtakarítás",
+      "apply": "Alkalmazni",
       "cancel": "Mégse",
       "buyPremium": "Prémium vásárlás",
       "editProfile": "Fiók szerkesztése",
@@ -53,10 +46,17 @@
       "profile": "Profil",
       "back": "Vissza",
       "delete": "Töröl",
-      "loading": "Terhelés",
-      "register": "Nyilvántartás",
-      "save": "Megtakarítás",
-      "saveChanges": "Módosítások mentése"
+      "loading": "Terhelés"
+    },
+    "form": {
+      "field": {
+        "displayName": "Megjelenítési név",
+        "age": "Kor",
+        "description": "Leírás",
+        "gender": "Emelet",
+        "searchGender": "Érdekelt",
+        "language": "Interfész nyelve"
+      }
     },
     "reductions": {
       "km": "km",

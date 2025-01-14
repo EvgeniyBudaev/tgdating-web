@@ -26,17 +26,10 @@
       "isNewLike": "Есть симпатия! Просмотр в чате бота",
       "geoPositionExist": "Геопозиция определена"
     },
-    "form": {
-      "field": {
-        "displayName": "Имя для отображения",
-        "age": "Возраст",
-        "description": "Описание",
-        "gender": "Пол",
-        "searchGender": "Интересуют",
-        "language": "Язык интерфейса"
-      }
-    },
     "actions": {
+      "register": "Зарегистрироваться",
+      "save": "Сохранить",
+      "apply": "Применить",
       "cancel": "Отменить",
       "buyPremium": "Купить Premium",
       "editProfile": "Редактировать аккаунт",
@@ -53,10 +46,17 @@
       "profile": "Профиль",
       "back": "Назад",
       "delete": "Удалить",
-      "loading": "Загрузка",
-      "register": "Зарегистрироваться",
-      "save": "Сохранить",
-      "saveChanges": "Сохранить изменения"
+      "loading": "Загрузка"
+    },
+    "form": {
+      "field": {
+        "displayName": "Имя для отображения",
+        "age": "Возраст",
+        "description": "Описание",
+        "gender": "Пол",
+        "searchGender": "Интересуют",
+        "language": "Язык интерфейса"
+      }
     },
     "reductions": {
       "km": "км",

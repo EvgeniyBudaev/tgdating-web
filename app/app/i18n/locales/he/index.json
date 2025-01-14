@@ -26,17 +26,10 @@
       "isNewLike": "יש סימפטיה! הצג בצ'אט בוט",
       "geoPositionExist": "מיקום גיאוגרפי נקבע"
     },
-    "form": {
-      "field": {
-        "displayName": "שם תצוגה",
-        "age": "גִיל",
-        "description": "תֵאוּר",
-        "gender": "קוֹמָה",
-        "searchGender": "מעוניין",
-        "language": "שפת ממשק"
-      }
-    },
     "actions": {
+      "register": "לִרְשׁוֹם",
+      "save": "לְהַצִיל",
+      "apply": "לִפְנוֹת",
       "cancel": "לְבַטֵל",
       "buyPremium": "קנה פרימיום",
       "editProfile": "ערוך חשבון",
@@ -53,10 +46,17 @@
       "profile": "פּרוֹפִיל",
       "back": "בְּחֲזָרָה",
       "delete": "לִמְחוֹק",
-      "loading": "טְעִינָה",
-      "register": "לִרְשׁוֹם",
-      "save": "לְהַצִיל",
-      "saveChanges": "שמור שינויים"
+      "loading": "טְעִינָה"
+    },
+    "form": {
+      "field": {
+        "displayName": "שם תצוגה",
+        "age": "גִיל",
+        "description": "תֵאוּר",
+        "gender": "קוֹמָה",
+        "searchGender": "מעוניין",
+        "language": "שפת ממשק"
+      }
     },
     "reductions": {
       "km": "ק\"מ",

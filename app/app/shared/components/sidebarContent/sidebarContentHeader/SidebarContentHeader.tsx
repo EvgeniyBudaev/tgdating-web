@@ -4,7 +4,6 @@ import clsx from "clsx";
 import { type FC, memo } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { Gradient } from "@/app/uikit/components/gradient";
-import { Icon } from "@/app/uikit/components/icon";
 import {
   ETypographyVariant,
   Typography,
@@ -13,18 +12,11 @@ import { ETheme } from "@/app/uikit/enums/theme";
 import "./SidebarContentHeader.scss";
 
 type TProps = {
-  cancelButtonTitle?: string;
-  onClick?: () => void;
   theme?: ETheme;
   title: string;
 };
 
-const SidebarContentHeaderComponent: FC<TProps> = ({
-  cancelButtonTitle,
-  onClick,
-  theme,
-  title,
-}) => {
+const SidebarContentHeaderComponent: FC<TProps> = ({ theme, title }) => {
   const { t } = useTranslation("index");
 
   return (
@@ -39,15 +31,6 @@ const SidebarContentHeaderComponent: FC<TProps> = ({
           {title}
         </Typography>
       </div>
-      <div className="SidebarContentHeader-Control" onClick={onClick}>
-        <Icon className="SidebarContentHeader-Cancel" type="ArrowBack" />
-        <span className="SidebarContentHeader-Cancel-Title">
-          <Typography>
-            {cancelButtonTitle ?? t("common.actions.saveChanges")}
-          </Typography>
-        </span>
-      </div>
-      <div></div>
     </div>
   );
 };

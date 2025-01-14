@@ -1,4 +1,8 @@
+@use "@/app/styles/colors" as colors;
+
 .SearchFormSidebar {
+  $this: &;
+
   &-SidebarContentList {
     height: 100%;
     margin-bottom: 0;
@@ -6,6 +10,8 @@
   }
 
   &-SidebarContentListItem {
+    background-color: colors.$bg_light_color;
+
     &:hover {
       background-color: transparent;
     }

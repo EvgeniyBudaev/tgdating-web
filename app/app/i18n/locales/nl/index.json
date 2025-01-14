@@ -26,17 +26,10 @@
       "isNewLike": "Er is sympathie! Bekijk in botchat",
       "geoPositionExist": "Geolocatie bepaald"
     },
-    "form": {
-      "field": {
-        "displayName": "Weergavenaam",
-        "age": "Leeftijd",
-        "description": "Beschrijving",
-        "gender": "Vloer",
-        "searchGender": "Geïnteresseerd",
-        "language": "Interfacetaal"
-      }
-    },
     "actions": {
+      "register": "Register",
+      "save": "Redden",
+      "apply": "Toepassen",
       "cancel": "Annuleren",
       "buyPremium": "Koop Premium",
       "editProfile": "Account bewerken",
@@ -53,10 +46,17 @@
       "profile": "Profiel",
       "back": "Rug",
       "delete": "Verwijderen",
-      "loading": "Laden",
-      "register": "Register",
-      "save": "Redden",
-      "saveChanges": "Wijzigingen opslaan"
+      "loading": "Laden"
+    },
+    "form": {
+      "field": {
+        "displayName": "Weergavenaam",
+        "age": "Leeftijd",
+        "description": "Beschrijving",
+        "gender": "Vloer",
+        "searchGender": "Geïnteresseerd",
+        "language": "Interfacetaal"
+      }
     },
     "reductions": {
       "km": "km",

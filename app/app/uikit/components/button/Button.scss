@@ -5,15 +5,16 @@
   position: relative;
   padding: 10px 30px;
   height: max-content;
+  min-height: 46px;
   width: max-content;
-  color: colors.$text_color;
+  color: colors.$bg_color;
   background: linear-gradient(
     to right,
     colors.$link_color,
     colors.$link_active_color
   );
   border: 1px solid transparent;
-  border-radius: constants.$border-radius;
+  border-radius: 50px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   overflow: hidden;
@@ -32,25 +33,22 @@
   &:hover {
     background: linear-gradient(
       to right,
-      colors.$link_color_hover,
-      colors.$link_active_color_hover
+      colors.$secondary_bg_color,
+      colors.$bg_color
     );
-    color: colors.$text_color;
+    color: colors.$link_color;
     z-index: 2;
   }
 
   &.Button__loading {
     cursor: not-allowed;
-    background: linear-gradient(
-      to right,
-      colors.$link_color_hover,
-      colors.$link_active_color_hover
-    );
+    background: colors.$secondary_bg_color;
+    color: colors.$link_color;
   }
 
   &.Button__disabled {
-    color: colors.$text_color;
-    background-color: colors.$text_color_not_active;
+    background: colors.$secondary_bg_color;
+    color: colors.$link_color;
     border-color: colors.$text_color;
 
     &:active {
@@ -58,8 +56,8 @@
     }
 
     &:hover {
-      color: colors.$text_color;
-      background-color: colors.$color-gray;
+      background: colors.$secondary_bg_color;
+      color: colors.$link_color;
       border-color: colors.$text_color;
       cursor: not-allowed;
     }

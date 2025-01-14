@@ -26,17 +26,10 @@
       "isNewLike": "Hi ha simpatia! Veure al xat bot",
       "geoPositionExist": "Geolocalització determinada"
     },
-    "form": {
-      "field": {
-        "displayName": "Nom de visualització",
-        "age": "Edat",
-        "description": "Descripció",
-        "gender": "Pis",
-        "searchGender": "Interessat",
-        "language": "Llenguatge de la interfície"
-      }
-    },
     "actions": {
+      "register": "Registra't",
+      "save": "Desa",
+      "apply": "Aplicar",
       "cancel": "Cancel·la",
       "buyPremium": "Compra Premium",
       "editProfile": "Edita el compte",
@@ -53,10 +46,17 @@
       "profile": "Perfil",
       "back": "Enrere",
       "delete": "Suprimeix",
-      "loading": "Carregant",
-      "register": "Registra't",
-      "save": "Desa",
-      "saveChanges": "Desa els canvis"
+      "loading": "Carregant"
+    },
+    "form": {
+      "field": {
+        "displayName": "Nom de visualització",
+        "age": "Edat",
+        "description": "Descripció",
+        "gender": "Pis",
+        "searchGender": "Interessat",
+        "language": "Llenguatge de la interfície"
+      }
     },
     "reductions": {
       "km": "km",

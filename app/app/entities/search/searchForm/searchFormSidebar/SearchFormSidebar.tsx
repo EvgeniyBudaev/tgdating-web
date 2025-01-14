@@ -32,6 +32,7 @@ import { Select, TSelectOption } from "@/app/uikit/components/select";
 import { Sidebar } from "@/app/uikit/components/sidebar";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./SearchFormSidebar.scss";
+import { SidebarContentControls } from "@/app/shared/components/sidebarContent/sidebarContentControls";
 
 type TProps = {
   isOpen: boolean;
@@ -139,7 +140,6 @@ const SearchFormSidebarComponent: FC<TProps> = ({
         >
           <form action={handleSubmit} className="SearchForm-Form">
             <SidebarContentHeader
-              onClick={handleBack}
               theme={theme}
               title={t("common.titles.filtersGeneral")}
             />
@@ -184,10 +184,16 @@ const SearchFormSidebarComponent: FC<TProps> = ({
                   selectedItem={searchGenderState}
                   theme={theme}
                   title={t("common.form.field.searchGender")}
+                  titleButton={t("common.actions.apply")}
                 />
               </Select>
             </SidebarContentListItem>
           </SidebarContentList>
+          <SidebarContentControls
+            onClick={handleBack}
+            theme={theme}
+            title={t("common.actions.apply")}
+          />
         </div>
       </Sidebar>
     </div>

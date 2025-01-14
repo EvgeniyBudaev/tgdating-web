@@ -39,7 +39,7 @@ const SectionComponent: FC<TProps> = ({
           )}
         </span>
       </div>
-      <div className="Section-Container">{children}</div>
+      {children}
     </div>
   );
 };

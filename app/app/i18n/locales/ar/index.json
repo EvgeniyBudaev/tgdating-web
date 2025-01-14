@@ -26,17 +26,10 @@
       "isNewLike": "هناك تعاطف! عرض في دردشة بوت",
       "geoPositionExist": "تم تحديد الموقع الجغرافي"
     },
-    "form": {
-      "field": {
-        "displayName": "اسم العرض",
-        "age": "عمر",
-        "description": "وصف",
-        "gender": "أرضية",
-        "searchGender": "مهتم",
-        "language": "لغة الواجهة"
-      }
-    },
     "actions": {
+      "register": "يسجل",
+      "save": "يحفظ",
+      "apply": "يتقدم",
       "cancel": "يلغي",
       "buyPremium": "شراء بريميوم",
       "editProfile": "تحرير الحساب",
@@ -53,10 +46,17 @@
       "profile": "حساب تعريفي",
       "back": "خلف",
       "delete": "يمسح",
-      "loading": "تحميل",
-      "register": "يسجل",
-      "save": "يحفظ",
-      "saveChanges": "حفظ التغييرات"
+      "loading": "تحميل"
+    },
+    "form": {
+      "field": {
+        "displayName": "اسم العرض",
+        "age": "عمر",
+        "description": "وصف",
+        "gender": "أرضية",
+        "searchGender": "مهتم",
+        "language": "لغة الواجهة"
+      }
     },
     "reductions": {
       "km": "كم",

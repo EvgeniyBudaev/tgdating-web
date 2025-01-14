@@ -9,7 +9,8 @@
     },
     "actions": {
       "editForm": "Добавь сюда перевод!!!",
-      "registrationForm": "Добавь сюда перевод!!!"
+      "registrationForm": "Добавь сюда перевод!!!",
+      "saveChanges": "حفظ التغييرات"
     }
   }
 }

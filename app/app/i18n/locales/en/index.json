@@ -26,17 +26,10 @@
       "isNewLike": "There is sympathy! View in bot chat",
       "geoPositionExist": "Geoposition determined"
     },
-    "form": {
-      "field": {
-        "displayName": "Display name",
-        "age": "Age",
-        "description": "Description",
-        "gender": "Gender",
-        "searchGender": "Interest",
-        "language": "interface language"
-      }
-    },
     "actions": {
+      "register": "Register",
+      "save": "Save",
+      "apply": "Apply",
       "cancel": "Cancel",
       "buyPremium": "Buy Premium",
       "editProfile": "Edit account",
@@ -53,10 +46,17 @@
       "profile": "Profile",
       "back": "Back",
       "delete": "Delete",
-      "loading": "Loading",
-      "register": "Register",
-      "save": "Save",
-      "saveChanges": "Save changes"
+      "loading": "Loading"
+    },
+    "form": {
+      "field": {
+        "displayName": "Display name",
+        "age": "Age",
+        "description": "Description",
+        "gender": "Gender",
+        "searchGender": "Interest",
+        "language": "interface language"
+      }
     },
     "reductions": {
       "km": "km",

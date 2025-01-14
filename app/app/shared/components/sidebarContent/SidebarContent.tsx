@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import { type FC, type ReactNode, memo, useState } from "react";
 import { useTranslation } from "@/app/i18n/client";
+import { SidebarContentControls } from "@/app/shared/components/sidebarContent/sidebarContentControls";
 import { SidebarContentHeader } from "@/app/shared/components/sidebarContent/sidebarContentHeader";
 import { SidebarContentList } from "@/app/shared/components/sidebarContent/sidebarContentList";
 import { SidebarContentListItem } from "@/app/shared/components/sidebarContent/sidebarContentListItem";
@@ -25,6 +26,7 @@ type TProps = {
   selectedItem?: TSelectOption;
   theme?: ETheme;
   title: string;
+  titleButton: string;
 };
 
 const SidebarContentComponent: FC<TProps> = ({
@@ -36,6 +38,7 @@ const SidebarContentComponent: FC<TProps> = ({
   selectedItem,
   theme,
   title,
+  titleButton,
 }) => {
   const [checkedItem, setCheckedItem] = useState<TSelectOption | undefined>(
     selectedItem,
@@ -53,7 +56,7 @@ const SidebarContentComponent: FC<TProps> = ({
         ["theme-dark"]: theme === ETheme.Dark,
       })}
     >
-      <SidebarContentHeader onClick={handleBack} theme={theme} title={title} />
+      <SidebarContentHeader theme={theme} title={title} />
       {options && (
         <SidebarContentList theme={theme}>
           {(options ?? []).map((item) => {
@@ -76,6 +79,11 @@ const SidebarContentComponent: FC<TProps> = ({
           })}
         </SidebarContentList>
       )}
+      <SidebarContentControls
+        onClick={handleBack}
+        theme={theme}
+        title={titleButton}
+      />
     </div>
   );
 };

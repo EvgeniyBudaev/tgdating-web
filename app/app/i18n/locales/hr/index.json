@@ -26,17 +26,10 @@
       "isNewLike": "Postoji simpatija! Pogledaj u bot chatu",
       "geoPositionExist": "Geolokacija određena"
     },
-    "form": {
-      "field": {
-        "displayName": "Ime za prikaz",
-        "age": "Dob",
-        "description": "Opis",
-        "gender": "Kat",
-        "searchGender": "Zainteresirani",
-        "language": "Jezik sučelja"
-      }
-    },
     "actions": {
+      "register": "Registar",
+      "save": "Uštedjeti",
+      "apply": "primijeniti",
       "cancel": "Otkazati",
       "buyPremium": "Kupite Premium",
       "editProfile": "Uredi račun",
@@ -53,10 +46,17 @@
       "profile": "Profil",
       "back": "Nazad",
       "delete": "Izbrisati",
-      "loading": "Učitavanje",
-      "register": "Registar",
-      "save": "Uštedjeti",
-      "saveChanges": "Spremite promjene"
+      "loading": "Učitavanje"
+    },
+    "form": {
+      "field": {
+        "displayName": "Ime za prikaz",
+        "age": "Dob",
+        "description": "Opis",
+        "gender": "Kat",
+        "searchGender": "Zainteresirani",
+        "language": "Jezik sučelja"
+      }
     },
     "reductions": {
       "km": "km",

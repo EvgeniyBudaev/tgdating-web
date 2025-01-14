@@ -26,17 +26,10 @@
       "isNewLike": "Jsou tam sympatie! Zobrazit v chatu robota",
       "geoPositionExist": "Určena geolokace"
     },
-    "form": {
-      "field": {
-        "displayName": "Zobrazovaný název",
-        "age": "Stáří",
-        "description": "Popis",
-        "gender": "Patro",
-        "searchGender": "Zájem",
-        "language": "Jazyk rozhraní"
-      }
-    },
     "actions": {
+      "register": "Rejstřík",
+      "save": "Uložit",
+      "apply": "Použít",
       "cancel": "Zrušit",
       "buyPremium": "Koupit Premium",
       "editProfile": "Upravit účet",
@@ -53,10 +46,17 @@
       "profile": "Profil",
       "back": "Zadní",
       "delete": "Vymazat",
-      "loading": "Načítání",
-      "register": "Rejstřík",
-      "save": "Uložit",
-      "saveChanges": "Uložte změny"
+      "loading": "Načítání"
+    },
+    "form": {
+      "field": {
+        "displayName": "Zobrazovaný název",
+        "age": "Stáří",
+        "description": "Popis",
+        "gender": "Patro",
+        "searchGender": "Zájem",
+        "language": "Jazyk rozhraní"
+      }
     },
     "reductions": {
       "km": "km",

@@ -26,17 +26,10 @@
       "isNewLike": "C'è simpatia! Visualizza nella chat del bot",
       "geoPositionExist": "Geolocalizzazione determinata"
     },
-    "form": {
-      "field": {
-        "displayName": "Nome da visualizzare",
-        "age": "Età",
-        "description": "Descrizione",
-        "gender": "Pavimento",
-        "searchGender": "Interessato",
-        "language": "Linguaggio dell'interfaccia"
-      }
-    },
     "actions": {
+      "register": "Registro",
+      "save": "Salva",
+      "apply": "Fare domanda a",
       "cancel": "Cancellare",
       "buyPremium": "Acquista Premium",
       "editProfile": "Modifica account",
@@ -53,10 +46,17 @@
       "profile": "Profilo",
       "back": "Indietro",
       "delete": "Eliminare",
-      "loading": "Caricamento",
-      "register": "Registro",
-      "save": "Salva",
-      "saveChanges": "Salva modifiche"
+      "loading": "Caricamento"
+    },
+    "form": {
+      "field": {
+        "displayName": "Nome da visualizzare",
+        "age": "Età",
+        "description": "Descrizione",
+        "gender": "Pavimento",
+        "searchGender": "Interessato",
+        "language": "Linguaggio dell'interfaccia"
+      }
     },
     "reductions": {
       "km": "km",

@@ -9,13 +9,14 @@
   &-Label {
     width: 100%;
     margin-bottom: 4px;
+    color: colors.$bg_color;
   }
 
   &-Header {
     display: flex;
     align-items: center;
     color: colors.$bg_color;
-    background-color: colors.$bg_light_color;
+    background-color: colors.$secondary_bg_light_color;
     padding: 8px 16px;
     border: 1px solid transparent;
     border-radius: constants.$border-radius;
@@ -41,6 +42,10 @@
   }
 
   &.theme-dark {
+    #{$this}-Label {
+      color: colors.$text_color;
+    }
+
     #{$this}-Header {
       color: colors.$text_color;
       background-color: colors.$secondary_bg_color;

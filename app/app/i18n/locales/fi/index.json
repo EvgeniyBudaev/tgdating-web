@@ -26,17 +26,10 @@
       "isNewLike": "Sympatiaa on! Katso bot-chatissa",
       "geoPositionExist": "Maantieteellinen sijainti määritetty"
     },
-    "form": {
-      "field": {
-        "displayName": "Näyttönimi",
-        "age": "Ikä",
-        "description": "Kuvaus",
-        "gender": "Kerros",
-        "searchGender": "Kiinnostunut",
-        "language": "Käyttöliittymän kieli"
-      }
-    },
     "actions": {
+      "register": "Rekisteröidy",
+      "save": "Tallentaa",
+      "apply": "Käytä",
       "cancel": "Peruuttaa",
       "buyPremium": "Osta Premium",
       "editProfile": "Muokkaa tiliä",
@@ -53,10 +46,17 @@
       "profile": "Profiili",
       "back": "Takaisin",
       "delete": "Poistaa",
-      "loading": "Ladataan",
-      "register": "Rekisteröidy",
-      "save": "Tallentaa",
-      "saveChanges": "Tallenna muutokset"
+      "loading": "Ladataan"
+    },
+    "form": {
+      "field": {
+        "displayName": "Näyttönimi",
+        "age": "Ikä",
+        "description": "Kuvaus",
+        "gender": "Kerros",
+        "searchGender": "Kiinnostunut",
+        "language": "Käyttöliittymän kieli"
+      }
     },
     "reductions": {
       "km": "km",
