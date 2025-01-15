@@ -3,4 +3,18 @@
 
 .SettingsSidebar {
   $this: &;
+
+  &-SidebarContentList {
+    height: 100%;
+    margin-bottom: 0;
+    padding-bottom: 66px;
+  }
+
+  &-SidebarContentListItem {
+    background-color: colors.$bg_light_color;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
 }

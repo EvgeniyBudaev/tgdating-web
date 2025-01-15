@@ -7,4 +7,9 @@
   justify-content: center;
   width: 100%;
   z-index: 200;
+
+  &-Button {
+    padding: 0 16px;
+    width: max-content;
+  }
 }

@@ -9,15 +9,19 @@ import { ETheme } from "@/app/uikit/enums/theme";
 import "./SidebarContentControls.scss";
 
 type TProps = {
-  title?: string;
+  onCancel?: () => void;
   onClick?: () => void;
   theme?: ETheme;
+  title?: string;
+  typeButton?: "submit" | "reset" | "button";
 };
 
 const SidebarContentControlsComponent: FC<TProps> = ({
+  onCancel,
   onClick,
   theme,
   title,
+  typeButton,
 }) => {
   const { t } = useTranslation("index");
 
@@ -27,9 +31,18 @@ const SidebarContentControlsComponent: FC<TProps> = ({
         ["theme-dark"]: theme === ETheme.Dark,
       })}
     >
-      <Button onClick={onClick} type="button">
-        <Typography>{title}</Typography>
-      </Button>
+      {onCancel && (
+        <div className="SidebarContentControls-Button">
+          <Button onClick={onCancel} type="button">
+            <Typography>{t("common.actions.cancel")}</Typography>
+          </Button>
+        </div>
+      )}
+      <div className="SidebarContentControls-Button">
+        <Button onClick={onClick} type={typeButton ?? "button"}>
+          <Typography>{title}</Typography>
+        </Button>
+      </div>
     </div>
   );
 };

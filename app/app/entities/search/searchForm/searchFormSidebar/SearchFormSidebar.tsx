@@ -14,6 +14,7 @@ import { updateFilterAction } from "@/app/actions/filter/updateFilter/updateFilt
 import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/types";
 import { useTranslation } from "@/app/i18n/client";
 import { SidebarContent } from "@/app/shared/components/sidebarContent";
+import { SidebarContentControls } from "@/app/shared/components/sidebarContent/sidebarContentControls";
 import { SidebarContentHeader } from "@/app/shared/components/sidebarContent/sidebarContentHeader";
 import { SidebarContentList } from "@/app/shared/components/sidebarContent/sidebarContentList";
 import { SidebarContentListItem } from "@/app/shared/components/sidebarContent/sidebarContentListItem";
@@ -32,7 +33,6 @@ import { Select, TSelectOption } from "@/app/uikit/components/select";
 import { Sidebar } from "@/app/uikit/components/sidebar";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./SearchFormSidebar.scss";
-import { SidebarContentControls } from "@/app/shared/components/sidebarContent/sidebarContentControls";
 
 type TProps = {
   isOpen: boolean;
@@ -50,7 +50,6 @@ const SearchFormSidebarComponent: FC<TProps> = ({
   theme,
 }) => {
   const csrf = useAuthenticityTokenContext();
-  const buttonSubmitRef = useRef<HTMLInputElement | null>(null);
   const sidebarRef = useRef(null);
   const { initDataCrypt } = useTelegram();
   const { t } = useTranslation("index");
@@ -122,14 +121,6 @@ const SearchFormSidebarComponent: FC<TProps> = ({
     onCloseSidebar?.();
   };
 
-  const handleBack = () => {
-    // @ts-ignore
-    if ("click" in buttonSubmitRef.current) {
-      buttonSubmitRef.current && buttonSubmitRef.current.click();
-    }
-    return;
-  };
-
   return (
     <div className="SearchFormSidebar">
       <Sidebar isActive={isOpen} ref={sidebarRef} theme={theme}>
@@ -143,57 +134,56 @@ const SearchFormSidebarComponent: FC<TProps> = ({
               theme={theme}
               title={t("common.titles.filtersGeneral")}
             />
-            <input hidden={true} ref={buttonSubmitRef} type="submit" />
-          </form>
-          <SidebarContentList
-            className="SearchFormSidebar-SidebarContentList"
-            theme={theme}
-          >
-            <SidebarContentListItem
-              className="SearchFormSidebar-SidebarContentListItem"
+            <SidebarContentList
+              className="SearchFormSidebar-SidebarContentList"
               theme={theme}
             >
-              <RangeSlider
-                classes={{ root: "SearchForm-RangeSlider" }}
-                isShowTooltip={true}
-                label={t("common.titles.age")}
-                max={DEFAULT_AGE_TO}
-                min={DEFAULT_AGE_FROM}
-                onChange={setAgeRange}
-                step={1}
-                value={ageRange}
-              />
-            </SidebarContentListItem>
-            <SidebarContentListItem
-              className="SearchFormSidebar-SidebarContentListItem"
-              theme={theme}
-            >
-              <Select
-                isSidebarOpen={isOpenSidebarSearchGender}
-                label={t("common.form.field.searchGender")}
-                headerTitle={
-                  !isNil(searchGenderState) ? searchGenderState?.label : "--"
-                }
-                onHeaderClick={handleOpenSidebarSearchGender}
+              <SidebarContentListItem
+                className="SearchFormSidebar-SidebarContentListItem"
                 theme={theme}
               >
-                <SidebarContent
-                  onSave={handleChangeSearchGender}
-                  options={SEARCH_GENDER_MAPPING[lng]}
-                  onCloseSidebar={handleCloseSidebarSearchGender}
-                  selectedItem={searchGenderState}
-                  theme={theme}
-                  title={t("common.form.field.searchGender")}
-                  titleButton={t("common.actions.apply")}
+                <RangeSlider
+                  classes={{ root: "SearchForm-RangeSlider" }}
+                  isShowTooltip={true}
+                  label={t("common.titles.age")}
+                  max={DEFAULT_AGE_TO}
+                  min={DEFAULT_AGE_FROM}
+                  onChange={setAgeRange}
+                  step={1}
+                  value={ageRange}
                 />
-              </Select>
-            </SidebarContentListItem>
-          </SidebarContentList>
-          <SidebarContentControls
-            onClick={handleBack}
-            theme={theme}
-            title={t("common.actions.apply")}
-          />
+              </SidebarContentListItem>
+              <SidebarContentListItem
+                className="SearchFormSidebar-SidebarContentListItem"
+                theme={theme}
+              >
+                <Select
+                  isSidebarOpen={isOpenSidebarSearchGender}
+                  label={t("common.form.field.searchGender")}
+                  headerTitle={
+                    !isNil(searchGenderState) ? searchGenderState?.label : "--"
+                  }
+                  onHeaderClick={handleOpenSidebarSearchGender}
+                  theme={theme}
+                >
+                  <SidebarContent
+                    onSave={handleChangeSearchGender}
+                    options={SEARCH_GENDER_MAPPING[lng]}
+                    onCloseSidebar={handleCloseSidebarSearchGender}
+                    selectedItem={searchGenderState}
+                    theme={theme}
+                    title={t("common.form.field.searchGender")}
+                    titleButton={t("common.actions.apply")}
+                  />
+                </Select>
+              </SidebarContentListItem>
+            </SidebarContentList>
+            <SidebarContentControls
+              theme={theme}
+              title={t("common.actions.apply")}
+              typeButton="submit"
+            />
+          </form>
         </div>
       </Sidebar>
     </div>

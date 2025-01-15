@@ -87,13 +87,13 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
           {isFooter && (
             <Footer isSession={isSession} lng={lng} theme={theme} user={user} />
           )}
-          <CheckLike
-            csrf={csrfToken}
-            initDataCrypt={initDataCrypt}
-            isSession={isSession}
-            lng={lng}
-            telegramUserId={(user?.id ?? "").toString()}
-          />
+          {/*<CheckLike*/}
+          {/*  csrf={csrfToken}*/}
+          {/*  initDataCrypt={initDataCrypt}*/}
+          {/*  isSession={isSession}*/}
+          {/*  lng={lng}*/}
+          {/*  telegramUserId={(user?.id ?? "").toString()}*/}
+          {/*/>*/}
           <CheckPremium
             isSession={isSession}
             onLoad={handleCheckPremium}

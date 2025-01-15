@@ -2,7 +2,6 @@
 
 import clsx from "clsx";
 import { type FC, type ReactNode, memo, useState } from "react";
-import { useTranslation } from "@/app/i18n/client";
 import { SidebarContentControls } from "@/app/shared/components/sidebarContent/sidebarContentControls";
 import { SidebarContentHeader } from "@/app/shared/components/sidebarContent/sidebarContentHeader";
 import { SidebarContentList } from "@/app/shared/components/sidebarContent/sidebarContentList";
@@ -43,7 +42,6 @@ const SidebarContentComponent: FC<TProps> = ({
   const [checkedItem, setCheckedItem] = useState<TSelectOption | undefined>(
     selectedItem,
   );
-  const { t } = useTranslation("index");
 
   const handleBack = () => {
     onSave?.(checkedItem);

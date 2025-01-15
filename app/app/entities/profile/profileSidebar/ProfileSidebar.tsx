@@ -95,6 +95,7 @@ const ProfileSidebarComponent = forwardRef(
               {isSessionUser && (
                 <Settings
                   lng={lng}
+                  profile={profile}
                   telegramUserId={telegramUserId}
                   theme={theme}
                 />

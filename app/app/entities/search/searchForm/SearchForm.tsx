@@ -35,7 +35,7 @@ const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
   }, []);
 
   const handleCloseSidebar = useCallback(() => {
-    setIsSidebarOpen(true);
+    setIsSidebarOpen(false);
   }, []);
 
   return (
