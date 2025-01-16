@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import isNil from "lodash/isNil";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { type FC, memo, useActionState, useEffect, useState } from "react";
 import { addPaymentAction } from "@/app/actions/payment/addPaymentAction";
 import { EPaymentFormFields } from "@/app/actions/payment/enums";
@@ -31,6 +31,7 @@ type TProps = {
 
 const BuyPremiumPageComponent: FC<TProps> = ({ lng, telegramUserId }) => {
   const csrf = useAuthenticityTokenContext();
+  const router = useRouter();
   const { initDataCrypt, isSession, theme } = useTelegram();
   const { t } = useTranslation("index");
   const priceMonth = "3$";
@@ -55,7 +56,8 @@ const BuyPremiumPageComponent: FC<TProps> = ({ lng, telegramUserId }) => {
         params: { telegramUserId },
         lng: lng,
       });
-      redirect(path);
+      router.push(path);
+      router.refresh();
     }
   }, [lng, state?.data, state?.error, state.success, telegramUserId]);
 

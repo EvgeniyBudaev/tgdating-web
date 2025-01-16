@@ -20,6 +20,7 @@
       "deleteQuestion": "Выдаліць акаўнт?",
       "freezeQuestion": "Замарозіць акаўнт?",
       "online": "У сетцы",
+      "isHiddenAge": "Не паказваць узрост",
       "accountFrozen": "Акаўнт замарожаны",
       "accountDeleted": "Акаўнт выдалены",
       "isEmptyList": "Не знойдзена ніводнага чалавека. Паспрабуйце змяніць наладкі фільтра.",
@@ -54,8 +55,7 @@
         "age": "Узрост",
         "description": "Апісанне",
         "gender": "Пол",
-        "searchGender": "Цікавяць",
-        "language": "Мова інтэрфейсу"
+        "searchGender": "Цікавяць"
       }
     },
     "reductions": {

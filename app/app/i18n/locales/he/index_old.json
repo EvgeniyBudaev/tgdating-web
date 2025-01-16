@@ -7,6 +7,11 @@
       "editForm": "Добавь сюда перевод!!!",
       "registrationForm": "Добавь сюда перевод!!!",
       "saveChanges": "שמור שינויים"
+    },
+    "form": {
+      "field": {
+        "language": "שפת ממשק"
+      }
     }
   }
 }

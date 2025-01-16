@@ -20,6 +20,7 @@
       "deleteQuestion": "Eliminare l'account?",
       "freezeQuestion": "Congelare il tuo account?",
       "online": "In linea",
+      "isHiddenAge": "Non mostrare l'età",
       "accountFrozen": "Conto congelato",
       "accountDeleted": "Conto eliminato",
       "isEmptyList": "Non è stata trovata una sola persona. Prova a modificare le impostazioni del filtro.",
@@ -54,8 +55,7 @@
         "age": "Età",
         "description": "Descrizione",
         "gender": "Pavimento",
-        "searchGender": "Interessato",
-        "language": "Linguaggio dell'interfaccia"
+        "searchGender": "Interessato"
       }
     },
     "reductions": {

@@ -20,6 +20,7 @@
       "deleteQuestion": "Удалить аккаунт?",
       "freezeQuestion": "Заморозить аккаунт?",
       "online": "В сети",
+      "isHiddenAge": "Не показывать возраст",
       "accountFrozen": "Аккаунт заморожен",
       "accountDeleted": "Аккаунт удален",
       "isEmptyList": "Не найдено ни одного человека. Попробуйте изменить настройки фильтра.",
@@ -54,8 +55,7 @@
         "age": "Возраст",
         "description": "Описание",
         "gender": "Пол",
-        "searchGender": "Интересуют",
-        "language": "Язык интерфейса"
+        "searchGender": "Интересуют"
       }
     },
     "reductions": {

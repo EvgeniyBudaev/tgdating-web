@@ -20,6 +20,7 @@
       "deleteQuestion": "Supprimer le compte?",
       "freezeQuestion": "Geler votre compte?",
       "online": "En ligne",
+      "isHiddenAge": "Ne montre pas l'âge",
       "accountFrozen": "Compte gelé",
       "accountDeleted": "Compte supprimé",
       "isEmptyList": "Pas une seule personne n’a été retrouvée. Essayez de modifier vos paramètres de filtre.",
@@ -54,8 +55,7 @@
         "age": "Âge",
         "description": "Description",
         "gender": "Sol",
-        "searchGender": "Intéressé",
-        "language": "Langue de l'interface"
+        "searchGender": "Intéressé"
       }
     },
     "reductions": {

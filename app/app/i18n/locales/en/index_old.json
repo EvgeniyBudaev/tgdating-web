@@ -192,7 +192,8 @@
         },
         "location": "Location",
         "selectAge": "Select your age",
-        "isLeftHand": "Adapt to left hand"
+        "isLeftHand": "Adapt to left hand",
+        "language": "interface language"
       }
     },
     "title": {

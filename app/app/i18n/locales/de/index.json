@@ -20,6 +20,7 @@
       "deleteQuestion": "Konto löschen?",
       "freezeQuestion": "Konto einfrieren?",
       "online": "Online",
+      "isHiddenAge": "Alter nicht anzeigen",
       "accountFrozen": "Konto eingefroren",
       "accountDeleted": "Konto gelöscht",
       "isEmptyList": "Es wurde keine einzige Person gefunden. Versuchen Sie, Ihre Filtereinstellungen zu ändern.",
@@ -54,8 +55,7 @@
         "age": "Alter",
         "description": "Beschreibung",
         "gender": "Boden",
-        "searchGender": "Interessiert",
-        "language": "Schnittstellensprache"
+        "searchGender": "Interessiert"
       }
     },
     "reductions": {

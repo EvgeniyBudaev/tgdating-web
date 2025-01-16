@@ -10,11 +10,25 @@
     padding-bottom: 66px;
   }
 
-  &-SidebarContentListItem {
+  &-SidebarContentListItem.SidebarContentListItem {
     background-color: colors.$bg_light_color;
+    cursor: default;
 
-    &:hover {
+    &:hover,
+    &:active {
       background-color: transparent;
     }
+  }
+
+  &-Message {
+    background-color: colors.$secondary_bg_light_color;
+    box-shadow:
+      0 0 20px colors.$link_color,
+      0 0 0 colors.$link_color,
+      0 0 0 colors.$link_color;
+    padding: 4px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: constants.$border-radius;
   }
 }

@@ -38,7 +38,7 @@ export async function updateFilterAction(prevState: any, formData: FormData) {
     const checkCsrf = await checkCsrfToken(csrf);
     if (checkCsrf?.error) throw checkCsrf.error;
     const filterFormData = new FormData();
-    const telegramUserId = formattedParams.telegramUserId;
+    const telegramUserId = resolver.data.telegramUserId;
     filterFormData.append(
       EFilterUpdateFormFields.TelegramUserId,
       telegramUserId,

@@ -50,6 +50,8 @@ const ProfileDetailPageComponent: FC<TProps> = ({
   const isSessionUser = Boolean(
     profile?.telegramUserId && user?.id.toString() === profile.telegramUserId,
   );
+  const isHiddenAge =
+    !!profile?.status?.isHiddenAge && !!profile?.status?.isPremium;
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
 
   useEffect(() => {
@@ -123,7 +125,7 @@ const ProfileDetailPageComponent: FC<TProps> = ({
               <Typography variant={ETypographyVariant.TextH4Medium}>
                 {profile?.displayName}
               </Typography>
-              {profile?.age && (
+              {profile?.age && !isHiddenAge && (
                 <Typography variant={ETypographyVariant.TextH4Medium}>
                   , {profile?.age}
                 </Typography>

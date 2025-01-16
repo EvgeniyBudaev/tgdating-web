@@ -20,6 +20,7 @@
       "deleteQuestion": "Delete account?",
       "freezeQuestion": "Freeze account?",
       "online": "Online",
+      "isHiddenAge": "Don't show age",
       "accountFrozen": "Account frozen",
       "accountDeleted": "Account deleted",
       "isEmptyList": "No people found. Try changing your search settings.",
@@ -54,8 +55,7 @@
         "age": "Age",
         "description": "Description",
         "gender": "Gender",
-        "searchGender": "Interest",
-        "language": "interface language"
+        "searchGender": "Interest"
       }
     },
     "reductions": {

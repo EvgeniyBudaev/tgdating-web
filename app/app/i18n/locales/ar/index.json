@@ -20,6 +20,7 @@
       "deleteQuestion": "هل تريد حذف الحساب؟",
       "freezeQuestion": "تجميد حسابك؟",
       "online": "متصل",
+      "isHiddenAge": "لا تظهر العمر",
       "accountFrozen": "الحساب مجمد",
       "accountDeleted": "تم حذف الحساب",
       "isEmptyList": "لم يتم العثور على شخص واحد. حاول تغيير إعدادات الفلتر.",
@@ -54,8 +55,7 @@
         "age": "عمر",
         "description": "وصف",
         "gender": "أرضية",
-        "searchGender": "مهتم",
-        "language": "لغة الواجهة"
+        "searchGender": "مهتم"
       }
     },
     "reductions": {

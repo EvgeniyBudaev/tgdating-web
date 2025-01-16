@@ -11,6 +11,11 @@
       "editForm": "Добавь сюда перевод!!!",
       "registrationForm": "Добавь сюда перевод!!!",
       "saveChanges": "حفظ التغييرات"
+    },
+    "form": {
+      "field": {
+        "language": "لغة الواجهة"
+      }
     }
   }
 }

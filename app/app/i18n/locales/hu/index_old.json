@@ -7,6 +7,11 @@
       "editForm": "Добавь сюда перевод!!!",
       "registrationForm": "Добавь сюда перевод!!!",
       "saveChanges": "Módosítások mentése"
+    },
+    "form": {
+      "field": {
+        "language": "Interfész nyelve"
+      }
     }
   }
 }

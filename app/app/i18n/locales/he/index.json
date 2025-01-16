@@ -20,6 +20,7 @@
       "deleteQuestion": "למחוק חשבון?",
       "freezeQuestion": "להקפיא את החשבון שלך?",
       "online": "באינטרנט",
+      "isHiddenAge": "אל תראה גיל",
       "accountFrozen": "החשבון הוקפא",
       "accountDeleted": "החשבון נמחק",
       "isEmptyList": "לא נמצא אדם אחד. נסה לשנות את הגדרות המסנן שלך.",
@@ -54,8 +55,7 @@
         "age": "גִיל",
         "description": "תֵאוּר",
         "gender": "קוֹמָה",
-        "searchGender": "מעוניין",
-        "language": "שפת ממשק"
+        "searchGender": "מעוניין"
       }
     },
     "reductions": {

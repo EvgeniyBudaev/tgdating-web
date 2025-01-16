@@ -7,6 +7,11 @@
       "editForm": "Добавь сюда перевод!!!",
       "registrationForm": "Добавь сюда перевод!!!",
       "saveChanges": "Enregistrer les modifications"
+    },
+    "form": {
+      "field": {
+        "language": "Langue de l'interface"
+      }
     }
   }
 }

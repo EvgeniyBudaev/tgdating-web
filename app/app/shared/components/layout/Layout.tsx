@@ -16,6 +16,7 @@ import { Footer } from "@/app/shared/components/footer";
 import {
   AuthenticityTokenProvider,
   NavigatorProvider,
+  PremiumProvider,
 } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useNavigator, useTelegram } from "@/app/shared/hooks";
@@ -76,30 +77,37 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   return (
     <AuthenticityTokenProvider value={csrfToken}>
       <NavigatorProvider value={navigator}>
-        <div
-          className={clsx("fixed-background", {
-            ["theme-dark"]: theme === ETheme.Dark,
-          })}
-        />
-        <div className="Layout">
-          <ToastContainer />
-          <div className="Layout-Content">{children}</div>
-          {isFooter && (
-            <Footer isSession={isSession} lng={lng} theme={theme} user={user} />
-          )}
-          {/*<CheckLike*/}
-          {/*  csrf={csrfToken}*/}
-          {/*  initDataCrypt={initDataCrypt}*/}
-          {/*  isSession={isSession}*/}
-          {/*  lng={lng}*/}
-          {/*  telegramUserId={(user?.id ?? "").toString()}*/}
-          {/*/>*/}
-          <CheckPremium
-            isSession={isSession}
-            onLoad={handleCheckPremium}
-            telegramUserId={(user?.id ?? "").toString()}
+        <PremiumProvider value={{ isPremium }}>
+          <div
+            className={clsx("fixed-background", {
+              ["theme-dark"]: theme === ETheme.Dark,
+            })}
           />
-        </div>
+          <div className="Layout">
+            <ToastContainer />
+            <div className="Layout-Content">{children}</div>
+            {isFooter && (
+              <Footer
+                isSession={isSession}
+                lng={lng}
+                theme={theme}
+                user={user}
+              />
+            )}
+            {/*<CheckLike*/}
+            {/*  csrf={csrfToken}*/}
+            {/*  initDataCrypt={initDataCrypt}*/}
+            {/*  isSession={isSession}*/}
+            {/*  lng={lng}*/}
+            {/*  telegramUserId={(user?.id ?? "").toString()}*/}
+            {/*/>*/}
+            <CheckPremium
+              isSession={isSession}
+              onLoad={handleCheckPremium}
+              telegramUserId={(user?.id ?? "").toString()}
+            />
+          </div>
+        </PremiumProvider>
       </NavigatorProvider>
     </AuthenticityTokenProvider>
   );

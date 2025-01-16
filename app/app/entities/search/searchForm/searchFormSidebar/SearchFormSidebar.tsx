@@ -63,7 +63,7 @@ const SearchFormSidebarComponent: FC<TProps> = ({
     defaultAgeRangeFrom,
     defaultAgeRangeTo,
   ]);
-  const [state, formAction] = useActionState(
+  const [_, formAction] = useActionState(
     updateFilterAction,
     INITIAL_FORM_STATE,
   );

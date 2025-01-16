@@ -8,6 +8,11 @@ import {
   NavigatorProvider,
   useNavigatorContext,
 } from "./navigatorContext";
+import {
+  PremiumContext,
+  PremiumProvider,
+  usePremiumContext,
+} from "./premiumContext";
 
 export {
   AuthenticityTokenContext,
@@ -16,4 +21,7 @@ export {
   NavigatorContext,
   NavigatorProvider,
   useNavigatorContext,
+  PremiumContext,
+  PremiumProvider,
+  usePremiumContext,
 };

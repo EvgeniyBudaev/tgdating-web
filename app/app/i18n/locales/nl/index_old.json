@@ -7,6 +7,11 @@
       "editForm": "Добавь сюда перевод!!!",
       "registrationForm": "Добавь сюда перевод!!!",
       "saveChanges": "Wijzigingen opslaan"
+    },
+    "form": {
+      "field": {
+        "language": "Interfacetaal"
+      }
     }
   }
 }

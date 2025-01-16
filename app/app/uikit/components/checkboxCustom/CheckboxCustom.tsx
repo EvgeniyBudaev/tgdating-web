@@ -33,6 +33,7 @@ const CheckboxCustomComponent: FC<TProps> = ({
     <div
       className={clsx("CheckboxCustom", {
         ["CheckboxCustom__isChecked"]: checked,
+        ["theme-dark"]: theme === ETheme.Dark,
       })}
       data-testid={dataTestId}
       onClick={handleChange}

@@ -20,6 +20,7 @@
       "deleteQuestion": "Vols suprimir el compte?",
       "freezeQuestion": "Vols congelar el teu compte?",
       "online": "En línia",
+      "isHiddenAge": "No mostris l'edat",
       "accountFrozen": "Compte congelat",
       "accountDeleted": "Compte suprimit",
       "isEmptyList": "No es va trobar ni una sola persona. Proveu de canviar la configuració del filtre.",
@@ -54,8 +55,7 @@
         "age": "Edat",
         "description": "Descripció",
         "gender": "Pis",
-        "searchGender": "Interessat",
-        "language": "Llenguatge de la interfície"
+        "searchGender": "Interessat"
       }
     },
     "reductions": {

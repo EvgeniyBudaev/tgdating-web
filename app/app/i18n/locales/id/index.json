@@ -20,6 +20,7 @@
       "deleteQuestion": "Hapus akun?",
       "freezeQuestion": "Bekukan akun Anda?",
       "online": "On line",
+      "isHiddenAge": "Jangan tunjukkan usia",
       "accountFrozen": "Akun dibekukan",
       "accountDeleted": "Akun dihapus",
       "isEmptyList": "Tidak ada satu orang pun yang ditemukan. Coba ubah pengaturan filter Anda.",
@@ -54,8 +55,7 @@
         "age": "Usia",
         "description": "Keterangan",
         "gender": "Lantai",
-        "searchGender": "Tertarik",
-        "language": "Bahasa antarmuka"
+        "searchGender": "Tertarik"
       }
     },
     "reductions": {

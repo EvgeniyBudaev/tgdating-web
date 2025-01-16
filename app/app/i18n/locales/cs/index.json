@@ -20,6 +20,7 @@
       "deleteQuestion": "Smazat účet?",
       "freezeQuestion": "Zmrazit váš účet?",
       "online": "Online",
+      "isHiddenAge": "Nezobrazovat věk",
       "accountFrozen": "Účet zmrazen",
       "accountDeleted": "Účet smazán",
       "isEmptyList": "Nebyl nalezen jediný člověk. Zkuste změnit nastavení filtru.",
@@ -54,8 +55,7 @@
         "age": "Stáří",
         "description": "Popis",
         "gender": "Patro",
-        "searchGender": "Zájem",
-        "language": "Jazyk rozhraní"
+        "searchGender": "Zájem"
       }
     },
     "reductions": {

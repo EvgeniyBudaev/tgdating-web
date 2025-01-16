@@ -20,6 +20,7 @@
       "deleteQuestion": "Poistetaanko tili?",
       "freezeQuestion": "Jäädyttääkö tilisi?",
       "online": "verkossa",
+      "isHiddenAge": "Älä näytä ikää",
       "accountFrozen": "Tili jäädytetty",
       "accountDeleted": "Tili poistettu",
       "isEmptyList": "Yhtään henkilöä ei löytynyt. Yritä muuttaa suodatinasetuksiasi.",
@@ -54,8 +55,7 @@
         "age": "Ikä",
         "description": "Kuvaus",
         "gender": "Kerros",
-        "searchGender": "Kiinnostunut",
-        "language": "Käyttöliittymän kieli"
+        "searchGender": "Kiinnostunut"
       }
     },
     "reductions": {
