@@ -19,7 +19,7 @@ const ButtonLinkComponent: FC<TProps> = ({ className, children, href }) => {
         route: href as any,
       })}
     >
-      <span>{children}</span>
+      {children}
     </Link>
   );
 };

@@ -17,6 +17,7 @@
     "@popperjs/core": "^2.11.8",
     "@twa-dev/sdk": "^8.0.1",
     "@twa-dev/types": "^8.0.1",
+    "@tx666/masonry": "^0.1.0",
     "accept-language": "^3.0.20",
     "clsx": "^2.1.1",
     "crypto-js": "^4.2.0",

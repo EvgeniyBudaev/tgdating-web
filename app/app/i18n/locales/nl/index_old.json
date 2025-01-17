@@ -1,8 +1,5 @@
 {
   "common": {
-    "titles": {
-      "appName": "Telegram-datering"
-    },
     "actions": {
       "editForm": "Добавь сюда перевод!!!",
       "registrationForm": "Добавь сюда перевод!!!",

@@ -1,8 +1,5 @@
 {
   "common": {
-    "titles": {
-      "appName": "Rencontres par télégramme"
-    },
     "actions": {
       "editForm": "Добавь сюда перевод!!!",
       "registrationForm": "Добавь сюда перевод!!!",

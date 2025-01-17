@@ -121,9 +121,9 @@ const SettingsSidebarComponent: FC<TProps> = ({
       );
       formDataDto.append(
         EUpdateSettingsFormFields.TelegramInitDataCrypt,
-        initDataCrypt,
+        initDataCrypt ?? "",
       );
-      formDataDto.append(EUpdateSettingsFormFields.Csrf, csrf);
+      formDataDto.append(EUpdateSettingsFormFields.Csrf, csrf ?? "");
       // @ts-ignore
       formAction(formDataDto);
     }

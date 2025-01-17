@@ -9,4 +9,7 @@ export enum ERoutes {
   ProfileDeleted = "/telegram/:telegramUserId/deleted",
   ProfileFrozen = "/telegram/:telegramUserId/frozen",
   BuyPremium = "/telegram/:telegramUserId/premium/buy",
+  Started = "/started",
+  Agreement = "/agreement",
+  Policy = "/policy",
 }

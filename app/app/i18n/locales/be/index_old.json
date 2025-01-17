@@ -1,8 +1,5 @@
 {
   "common": {
-    "titles": {
-      "appName": "Telegram знаёмства"
-    },
     "actions": {
       "editForm": "Добавь сюда перевод!!!",
       "registrationForm": "Добавь сюда перевод!!!",

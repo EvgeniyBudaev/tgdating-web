@@ -4,9 +4,6 @@
       "cyrillicEmail": "الحروف اللاتينية فقط",
       "mustInteger": "يجب أن يكون عددا صحيحا"
     },
-    "titles": {
-      "appName": "المواعدة برقية"
-    },
     "actions": {
       "editForm": "Добавь сюда перевод!!!",
       "registrationForm": "Добавь сюда перевод!!!",

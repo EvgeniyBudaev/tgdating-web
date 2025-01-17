@@ -1,8 +1,5 @@
 {
   "common": {
-    "titles": {
-      "appName": "Incontri su Telegram"
-    },
     "actions": {
       "editForm": "Добавь сюда перевод!!!",
       "registrationForm": "Добавь сюда перевод!!!",

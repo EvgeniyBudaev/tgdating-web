@@ -40,7 +40,6 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   const { initDataCrypt, isSession, user, theme } = useTelegram();
   const telegramLanguageCode = user?.language_code;
   const [isPremium, setIsPremium] = useState(false);
-  console.log("isPremium: ", isPremium);
 
   useEffect(() => {
     if (telegramLanguageCode && telegramLanguageCode !== lng) {
@@ -63,11 +62,23 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   }, [theme]);
 
   const isFooter = useMemo(() => {
-    const path = createPath({
+    const pathProfileAdd = createPath({
       route: ERoutes.ProfileAdd,
       lng,
     });
-    return pathname !== path;
+    const pathStarted = createPath({
+      route: ERoutes.Started,
+      lng,
+    });
+    const pathAgreement = createPath({
+      route: ERoutes.Agreement,
+      lng,
+    });
+    return (
+      pathname !== pathProfileAdd &&
+      pathname !== pathStarted &&
+      pathname !== pathAgreement
+    );
   }, [lng, pathname]);
 
   const handleCheckPremium = (isPremium: boolean) => {

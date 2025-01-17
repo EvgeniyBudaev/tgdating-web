@@ -1,8 +1,5 @@
 {
   "common": {
-    "titles": {
-      "appName": "텔레그램 데이트"
-    },
     "actions": {
       "editForm": "Добавь сюда перевод!!!",
       "registrationForm": "Добавь сюда перевод!!!",

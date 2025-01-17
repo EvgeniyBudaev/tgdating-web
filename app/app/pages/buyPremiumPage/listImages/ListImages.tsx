@@ -1,6 +1,6 @@
+import Image from "next/image";
 import { type FC } from "react";
 import "./ListImages.scss";
-import Image from "next/image";
 
 export const ListImages: FC = () => {
   const list = [

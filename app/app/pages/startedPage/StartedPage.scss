@@ -1,0 +1,18 @@
+@use "@/app/styles/colors" as colors;
+@use "@/app/styles/constants" as constants;
+
+.StartedPage {
+  padding: 66px 0 24px;
+
+  &-Header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 0 24px;
+    color: colors.$link_color;
+  }
+
+  &-Button {
+    width: 100%;
+  }
+}

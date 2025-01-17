@@ -1,8 +1,5 @@
 {
   "common": {
-    "titles": {
-      "appName": "Kencan Telegram"
-    },
     "actions": {
       "editForm": "Добавь сюда перевод!!!",
       "registrationForm": "Добавь сюда перевод!!!",

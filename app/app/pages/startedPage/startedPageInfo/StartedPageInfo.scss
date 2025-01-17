@@ -1,0 +1,17 @@
+@use "@/app/styles/colors" as colors;
+
+.StartedPageInfo {
+  margin-bottom: 24px;
+
+  &-Block {
+    margin-bottom: 16px;
+  }
+
+  &-Link {
+    color: colors.$link_color;
+
+    &:hover {
+      color: colors.$link_active_color;
+    }
+  }
+}

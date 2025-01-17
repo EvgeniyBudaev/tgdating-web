@@ -165,8 +165,7 @@
       "properties": "Properties",
       "autocomplete": "auto detection",
       "noChanged": "can't be changed",
-      "canHidden": "it will be possible to hide",
-      "appName": "Telegram dating"
+      "canHidden": "it will be possible to hide"
     },
     "form": {
       "field": {

@@ -165,8 +165,7 @@
       "properties": "Свойства",
       "autocomplete": "автоопределение",
       "noChanged": "нельзя изменить",
-      "canHidden": "можно будет скрыть",
-      "appName": "Telegram знакомства"
+      "canHidden": "можно будет скрыть"
     },
     "form": {
       "field": {
