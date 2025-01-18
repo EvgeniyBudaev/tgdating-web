@@ -1,7 +1,6 @@
 "use client";
 
 import { type FC, memo } from "react";
-import { useTranslation } from "@/app/i18n/client";
 import { Container } from "@/app/shared/components/container";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { createPath } from "@/app/shared/utils";
@@ -17,8 +16,6 @@ type TProps = {
 };
 
 const AgreementPageComponent: FC<TProps> = ({ lng }) => {
-  const { t } = useTranslation("index");
-
   return (
     <section className="AgreementPage">
       <Container>

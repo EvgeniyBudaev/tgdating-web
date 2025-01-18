@@ -74,10 +74,15 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
       route: ERoutes.Agreement,
       lng,
     });
+    const pathPolicy = createPath({
+      route: ERoutes.Policy,
+      lng,
+    });
     return (
       pathname !== pathProfileAdd &&
       pathname !== pathStarted &&
-      pathname !== pathAgreement
+      pathname !== pathAgreement &&
+      pathname !== pathPolicy
     );
   }, [lng, pathname]);
 
