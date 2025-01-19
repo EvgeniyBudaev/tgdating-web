@@ -16,6 +16,8 @@ type TProps = {
   tariff: ETariff;
   theme?: ETheme;
   title: string;
+  titlePopular?: string;
+  value?: ETariff;
 };
 
 const TariffComponent: FC<TProps> = ({
@@ -24,6 +26,8 @@ const TariffComponent: FC<TProps> = ({
   tariff,
   theme,
   title,
+  titlePopular,
+  value,
 }) => {
   const handleChange = () => {
     onChange?.(tariff);
@@ -31,10 +35,20 @@ const TariffComponent: FC<TProps> = ({
 
   return (
     <div
-      className={clsx("Tariff", { ["theme-dark"]: theme === ETheme.Dark })}
+      className={clsx("Tariff", {
+        ["Tariff__isChecked"]: value === tariff,
+        ["theme-dark"]: theme === ETheme.Dark,
+      })}
       onClick={handleChange}
     >
       <div className="Tariff-Inner">
+        {titlePopular && (
+          <div className="Tariff-Popular">
+            <Typography variant={ETypographyVariant.TextB4Regular}>
+              {titlePopular}
+            </Typography>
+          </div>
+        )}
         <div className="Tariff-Title">
           <Typography variant={ETypographyVariant.TextB2Regular}>
             {title}

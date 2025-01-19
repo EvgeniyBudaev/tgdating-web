@@ -32,7 +32,7 @@ const ButtonComponent: FC<IButtonProps> = ({
       type={type}
       {...rest}
     >
-      <span>{children}</span>
+      {children}
     </button>
   );
 };

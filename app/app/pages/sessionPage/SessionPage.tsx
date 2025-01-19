@@ -39,7 +39,6 @@ const SessionPageComponent: FC<TProps> = ({
   profileList,
   profileShortInfo,
 }) => {
-  useCheckPermissions({ lng });
   const navigator = useNavigatorContext();
   const { isSession, user, theme } = useTelegram();
   const { t } = useTranslation("index");
@@ -65,7 +64,7 @@ const SessionPageComponent: FC<TProps> = ({
         }),
       );
     }
-  }, [isSession, isExistUser, profileShortInfo?.telegramUserId, user?.id]);
+  }, [isSession, isExistUser, lng, profileShortInfo?.telegramUserId, user?.id]);
 
   return (
     <div

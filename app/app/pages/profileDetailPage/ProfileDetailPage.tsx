@@ -42,7 +42,6 @@ const ProfileDetailPageComponent: FC<TProps> = ({
   profile,
   telegramUserId,
 }) => {
-  useCheckPermissions({ lng });
   const { isSession, user, theme } = useTelegram();
   const { t } = useTranslation("index");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

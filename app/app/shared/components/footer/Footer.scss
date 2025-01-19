@@ -60,6 +60,15 @@
     }
   }
 
+  &-Icon-Crown {
+    position: absolute;
+    top: 2px;
+    right: 50%;
+    transform: translateX(50%);
+    height: 16px;
+    width: 16px;
+  }
+
   &.theme-dark {
     #{$this}-Item {
       color: colors.$text_color;

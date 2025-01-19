@@ -15,13 +15,20 @@ import { ETheme } from "@/app/uikit/enums/theme";
 import "./Footer.scss";
 
 type TProps = {
+  isPremium: boolean;
   isSession: boolean;
   lng: ELanguage;
   theme: ETheme;
   user: TTelegramUser;
 };
 
-const FooterComponent: FC<TProps> = ({ isSession, lng, theme, user }) => {
+const FooterComponent: FC<TProps> = ({
+  isPremium,
+  isSession,
+  lng,
+  theme,
+  user,
+}) => {
   const navigator = useNavigatorContext();
   const router = useRouter();
   const pathname = usePathname();
@@ -105,6 +112,7 @@ const FooterComponent: FC<TProps> = ({ isSession, lng, theme, user }) => {
           href={pathOptions.profileDetailPath}
           pathname={pathname}
         >
+          {isPremium && <Icon className="Footer-Icon-Crown" type="Crown" />}
           <Icon className="Footer-Item-Icon" type="Person" />
           <Typography>{t("common.actions.profile")}</Typography>
         </NavLink>

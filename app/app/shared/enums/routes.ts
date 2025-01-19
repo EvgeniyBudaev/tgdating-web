@@ -12,4 +12,5 @@ export enum ERoutes {
   Started = "/started",
   Agreement = "/agreement",
   Policy = "/policy",
+  Offer = "/offer",
 }

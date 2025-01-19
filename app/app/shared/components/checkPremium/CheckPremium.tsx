@@ -1,3 +1,5 @@
+"use client";
+
 import { type FC, memo, useEffect } from "react";
 import { checkPremium } from "@/app/api/payment/checkPremium/domain";
 

@@ -2,14 +2,25 @@
 @use "@/app/styles/constants" as constants;
 
 .StartedPage {
-  padding: 66px 0 24px;
+  padding: 50px 0 16px;
+  height: 100vh;
 
   &-Header {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin: 0 0 24px;
+    margin: 0 0 16px;
     color: colors.$link_color;
+  }
+
+  &-Controls {
+    position: fixed;
+    left: 0;
+    bottom: 24px;
+    padding: 0 16px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
   &-Button {

@@ -12,7 +12,6 @@ type TProps = {
 };
 
 const MainPageComponent: FC<TProps> = ({ lng }) => {
-  useCheckPermissions({ lng });
   const { user } = useTelegram();
 
   useEffect(() => {

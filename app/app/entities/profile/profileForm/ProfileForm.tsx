@@ -54,7 +54,6 @@ const ProfileFormComponent: FC<TProps> = ({
   lng,
   profile,
 }) => {
-  useCheckPermissions({ lng });
   const { t } = useTranslation("index");
   const {
     age,

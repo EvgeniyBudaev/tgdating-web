@@ -13,13 +13,18 @@ import {
   Typography,
 } from "@/app/uikit/components/typography";
 import "./StartedPage.scss";
+import { CheckProfileExists } from "@/app/shared/components/checkProfileExists";
+import { useCheckPermissions, useTelegram } from "@/app/shared/hooks";
 
 type TProps = {
   lng: ELanguage;
 };
 
 const StartedPageComponent: FC<TProps> = ({ lng }) => {
+  const { user } = useTelegram();
   const { t } = useTranslation("index");
+  const telegramUserId = (user?.id ?? "").toString();
+  useCheckPermissions({ lng });
 
   return (
     <section className="StartedPage">
@@ -31,15 +36,17 @@ const StartedPageComponent: FC<TProps> = ({ lng }) => {
         </div>
         <ImagesGrid />
         <StartedPageInfo lng={lng} />
-        <ButtonLink
-          className="StartedPage-Button"
-          href={createPath({
-            route: ERoutes.ProfileAdd,
-            lng,
-          })}
-        >
-          <Typography>{t("common.titles.getStarted")}</Typography>
-        </ButtonLink>
+        <div className="StartedPage-Controls">
+          <ButtonLink
+            className="StartedPage-Button"
+            href={createPath({
+              route: ERoutes.ProfileAdd,
+              lng,
+            })}
+          >
+            <Typography>{t("common.titles.getStarted")}</Typography>
+          </ButtonLink>
+        </div>
       </Container>
     </section>
   );

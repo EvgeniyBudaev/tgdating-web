@@ -1,10 +1,10 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { type FC, memo } from "react";
 import { Container } from "@/app/shared/components/container";
-import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { createPath } from "@/app/shared/utils";
-import { ButtonLink } from "@/app/uikit/components/button/buttonLink";
+import { ELanguage } from "@/app/shared/enums";
+import { Button } from "@/app/uikit/components/button";
 import {
   ETypographyVariant,
   Typography,
@@ -16,6 +16,12 @@ type TProps = {
 };
 
 const PolicyPageComponent: FC<TProps> = ({ lng }) => {
+  const router = useRouter();
+
+  const handleBack = () => {
+    router.back();
+  };
+
   return (
     <section className="PolicyPage">
       <Container>
@@ -712,19 +718,15 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="PolicyPage-Control">
-          <ButtonLink
-            className="PolicyPage-Button"
-            href={createPath({
-              route: ERoutes.Started,
-              lng,
-            })}
-          >
+          <Button className="PolicyPage-Button" onClick={handleBack}>
             <Typography>OK</Typography>
-          </ButtonLink>
+          </Button>
         </div>
       </Container>
     </section>
   );
 };
+
+PolicyPageComponent.displayName = "PolicyPage";
 
 export const PolicyPage = memo(PolicyPageComponent);

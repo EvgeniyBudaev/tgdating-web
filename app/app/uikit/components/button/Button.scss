@@ -24,15 +24,6 @@
   z-index: 2;
   transition: all 0.3s;
 
-  & span {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    z-index: 2;
-    height: max-content;
-    transition: all constants.$transition;
-  }
-
   &:hover {
     background: linear-gradient(
       to right,

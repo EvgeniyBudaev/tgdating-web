@@ -6,7 +6,8 @@ type TRoutes =
   | ERoutes.ProfileAdd
   | ERoutes.Started
   | ERoutes.Agreement
-  | ERoutes.Policy;
+  | ERoutes.Policy
+  | ERoutes.Offer;
 
 type TRoutesWithParams =
   | ERoutes.BuyPremium

@@ -1,37 +1,33 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { type FC, memo, useEffect } from "react";
 import { checkProfileExists } from "@/app/api/profile/checkProfile/domain";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useTelegram } from "@/app/shared/hooks/useTelegram";
 import { createPath } from "@/app/shared/utils";
 
 type TProps = {
   lng: ELanguage;
+  telegramUserId: string;
 };
 
-type TUseCheckPermissions = (props: TProps) => void;
-
-export const useCheckPermissions: TUseCheckPermissions = (props) => {
-  const { lng } = props;
+const CheckProfileExistsComponent: FC<TProps> = ({ lng, telegramUserId }) => {
   const router = useRouter();
-  const { user } = useTelegram();
-  const telegramUserId = (user?.id ?? "").toString();
 
-  // Check authorization in telegram
   useEffect(() => {
     const checkExists = async () => {
       try {
         const response = await checkProfileExists({
           telegramUserId: telegramUserId,
         });
+        console.log("response.isExists: ", response.isExists);
         if (response.isExists) {
           const path = createPath({
             route: ERoutes.Telegram,
             params: { telegramUserId },
             lng: lng,
           });
+          console.log("path: ", path);
           router.push(path);
           router.refresh();
         }
@@ -49,4 +45,10 @@ export const useCheckPermissions: TUseCheckPermissions = (props) => {
     };
     telegramUserId && checkExists();
   }, [lng, telegramUserId]);
+
+  return <></>;
 };
+
+CheckProfileExistsComponent.displayName = "CheckProfileExists";
+
+export const CheckProfileExists = memo(CheckProfileExistsComponent);

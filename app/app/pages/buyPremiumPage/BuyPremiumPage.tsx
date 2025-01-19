@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import isNil from "lodash/isNil";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { type FC, memo, useActionState, useEffect, useState } from "react";
 import { addPaymentAction } from "@/app/actions/payment/addPaymentAction";
 import { EPaymentFormFields } from "@/app/actions/payment/enums";
@@ -23,6 +23,8 @@ import {
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./BuyPremiumPage.scss";
 import { TARIFF_MAPPING } from "@/app/shared/mapping/tariff";
+import { Button } from "@/app/uikit/components/button";
+import Link from "next/link";
 
 type TProps = {
   lng: ELanguage;
@@ -41,8 +43,9 @@ const BuyPremiumPageComponent: FC<TProps> = ({ lng, telegramUserId }) => {
   const priceYear = "1$";
   const tariffYear = t("common.titles.premiumTariffYear");
   const titleSubmitButton = t("common.actions.buyPremium");
+  const titlePopular = t("common.titles.mostPopular");
 
-  const [tariff, setTariff] = useState<ETariff | undefined>();
+  const [tariff, setTariff] = useState<ETariff | undefined>(ETariff.Year);
 
   const [state, formAction] = useActionState(
     addPaymentAction,
@@ -63,6 +66,18 @@ const BuyPremiumPageComponent: FC<TProps> = ({ lng, telegramUserId }) => {
 
   const handleChangeTariff = (tariff: ETariff) => {
     setTariff(tariff);
+  };
+
+  const handleCancel = () => {
+    const path = createPath({
+      route: ERoutes.ProfileDetail,
+      params: {
+        telegramUserId: telegramUserId,
+        viewedTelegramUserId: telegramUserId,
+      },
+      lng: lng,
+    });
+    redirect(path);
   };
 
   const handleSubmit = () => {
@@ -109,6 +124,7 @@ const BuyPremiumPageComponent: FC<TProps> = ({ lng, telegramUserId }) => {
               tariff={ETariff.Month}
               theme={theme}
               title={tariffMonth}
+              value={tariff}
             />
             <Tariff
               onChange={handleChangeTariff}
@@ -116,6 +132,8 @@ const BuyPremiumPageComponent: FC<TProps> = ({ lng, telegramUserId }) => {
               tariff={ETariff.Year}
               theme={theme}
               title={tariffYear}
+              titlePopular={titlePopular}
+              value={tariff}
             />
             <Tariff
               onChange={handleChangeTariff}
@@ -123,14 +141,57 @@ const BuyPremiumPageComponent: FC<TProps> = ({ lng, telegramUserId }) => {
               tariff={ETariff.ThreeMonths}
               theme={theme}
               title={tariffThreeMonths}
+              value={tariff}
             />
           </div>
         </div>
         <form action={handleSubmit} className="BuyPremiumPage-Form">
           <div className="BuyPremiumPage-Controls">
+            <Button
+              className="BuyPremiumPage-Controls-Cancel"
+              onClick={handleCancel}
+              type="button"
+            >
+              <Typography>{t("common.actions.cancel")}</Typography>
+            </Button>
             <SubmitButton iconType="Credit" title={titleSubmitButton} />
           </div>
         </form>
+        <div className="BuyPremiumPage-Footer">
+          <div className="BuyPremiumPage-Footer-Item">
+            <Link
+              className="BuyPremiumPage-Footer-Link"
+              href={createPath({
+                route: ERoutes.Agreement,
+                lng,
+              })}
+            >
+              <Typography>{t("common.titles.userAgreement")}&nbsp;</Typography>
+            </Link>
+          </div>
+          <div className="BuyPremiumPage-Footer-Item">
+            <Link
+              className="BuyPremiumPage-Footer-Link"
+              href={createPath({
+                route: ERoutes.Policy,
+                lng,
+              })}
+            >
+              <Typography>{t("common.titles.privacyPolicyMain")}</Typography>
+            </Link>
+          </div>
+          <div className="BuyPremiumPage-Footer-Item">
+            <Link
+              className="BuyPremiumPage-Footer-Link"
+              href={createPath({
+                route: ERoutes.Offer,
+                lng,
+              })}
+            >
+              <Typography>{t("common.titles.publicOffer")}</Typography>
+            </Link>
+          </div>
+        </div>
       </Container>
     </section>
   );

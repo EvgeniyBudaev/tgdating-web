@@ -16,7 +16,7 @@
     justify-content: center;
     height: 24px;
     width: 24px;
-    border: 1px solid colors.$color-gold-hover;
+    border: 1px solid colors.$link_color;
     border-radius: constants.$border-radius;
     background-color: transparent;
   }
@@ -27,7 +27,7 @@
     opacity: 0;
     height: 20px;
     width: 20px;
-    color: colors.$color-gold-hover;
+    color: colors.$link_color;
     transform: translateY(-5px);
     transition:
       opacity 0.128s ease-in-out,

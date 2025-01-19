@@ -6,23 +6,23 @@ export const ImagesGrid: FC = () => {
   const list = [
     { src: "/assets/images/girl1.jpg" },
     { src: "/assets/images/boy1.jpg" },
-    { src: "/assets/images/girl2.jpg" },
+    { src: "/assets/images/girl11.jpg" },
     { src: "/assets/images/boy4.jpg" },
-    { src: "/assets/images/girl3.jpg" },
-    { src: "/assets/images/boy3.jpg" },
-    { src: "/assets/images/girl4.jpg" },
+    { src: "/assets/images/girl9.jpg" },
     { src: "/assets/images/boy2.jpg" },
-    { src: "/assets/images/boy5.jpg" },
+    { src: "/assets/images/girl3.jpg" },
+    { src: "/assets/images/boy8.jpg" },
     { src: "/assets/images/girl6.jpg" },
     { src: "/assets/images/boy6.jpg" },
     { src: "/assets/images/boy7.jpg" },
+    { src: "/assets/images/boy3.jpg" },
   ];
 
   const columns = {
-    xs: 3,
-    sm: 3,
-    md: 3,
-    lg: 3,
+    xs: 4,
+    sm: 4,
+    md: 4,
+    lg: 4,
     xl: 5,
     xxl: 5,
   };
