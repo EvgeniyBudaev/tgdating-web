@@ -31,4 +31,14 @@
     border: 1px solid transparent;
     border-radius: constants.$border-radius;
   }
+
+  &.theme-dark {
+    & #{$this}-SidebarContentListItem.SidebarContentListItem {
+      background-color: colors.$bg_color;
+    }
+
+    #{$this}-Message {
+      background-color: colors.$secondary_bg_color;
+    }
+  }
 }

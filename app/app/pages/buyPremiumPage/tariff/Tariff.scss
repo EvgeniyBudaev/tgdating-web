@@ -48,10 +48,5 @@
 
   &.theme-dark {
     background-color: colors.$secondary_bg_color;
-
-    &:hover,
-    &:active {
-      background-color: colors.$link_color;
-    }
   }
 }

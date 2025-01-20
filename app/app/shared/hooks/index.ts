@@ -9,6 +9,7 @@ import { useNavigator } from "@/app/shared/hooks/useNavigator";
 import { useInitDayjs } from "@/app/shared/hooks/useInitDayjs";
 import { useProxyUrl } from "@/app/shared/hooks/useProxyUrl";
 import { useScroll } from "@/app/shared/hooks/useScroll";
+import { useTariff } from "@/app/shared/hooks/useTariff";
 import { useTelegram } from "@/app/shared/hooks/useTelegram";
 import { useTranslatedData } from "@/app/shared/hooks/useTranslatedData";
 import { useQueryURL } from "@/app/shared/hooks/useQueryURL";
@@ -25,6 +26,7 @@ export {
   useInitDayjs,
   useProxyUrl,
   useScroll,
+  useTariff,
   useTelegram,
   useTranslatedData,
   useQueryURL,

@@ -2,6 +2,7 @@
 
 import clsx from "clsx";
 import isNil from "lodash/isNil";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   type FC,
@@ -29,11 +30,10 @@ import { useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { CheckboxCustom } from "@/app/uikit/components/checkboxCustom";
 import { Sidebar } from "@/app/uikit/components/sidebar";
+import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
 import { notification } from "@/app/uikit/utils";
 import "./SettingsSidebar.scss";
-import Link from "next/link";
-import { Typography } from "@/app/uikit/components/typography";
 
 type TProps = {
   isOpen: boolean;
@@ -130,7 +130,7 @@ const SettingsSidebarComponent: FC<TProps> = ({
   };
 
   return (
-    <div className="SettingsSidebar">
+    <>
       <Sidebar isActive={isOpen} ref={sidebarRef} theme={theme}>
         <div
           className={clsx("SettingsSidebar", {
@@ -180,7 +180,7 @@ const SettingsSidebarComponent: FC<TProps> = ({
           </form>
         </div>
       </Sidebar>
-    </div>
+    </>
   );
 };
 

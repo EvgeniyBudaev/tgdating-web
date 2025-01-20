@@ -1,0 +1,13 @@
+.BuyPremiumForm {
+  &-Controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  &-Controls-Cancel {
+    margin-right: 16px;
+  }
+}

@@ -28,7 +28,7 @@ type TUseTelegram = () => TUseTelegramResponse;
 export const useTelegram: TUseTelegram = () => {
   const telegram = typeof window !== "undefined" ? WebAppSDK : undefined;
   //const colorScheme = (telegram?.colorScheme as ETheme) ?? ETheme.Dark;
-  const colorScheme = ETheme.Light;
+  const colorScheme = ETheme.Dark;
   const [tg, setTg] = useState<WebAppTypes | undefined>();
   const [initDataCrypt, setInitDataCrypt] = useState<string | undefined>();
   const [queryId, setQueryId] = useState<string | null>(null);
@@ -46,7 +46,7 @@ export const useTelegram: TUseTelegram = () => {
       "query_id=AAHLJYNkAwAAAMslg2SmBRVR&user=%7B%22id%22%3A8128767435%2C%22first_name%22%3A%22SE%22%2C%22last_name%22%3A%22407%22%2C%22username%22%3A%22se407%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2FN17I-yNEo0GwYXKEot91PO35WfuXNDpHU0Usv591SKUxmvNZp6OxM1OK-3ogVQcY.svg%22%7D&auth_date=1736343640&signature=XRKghfEJcl6pCOJTm-JY_RWKl38peacL_YfbiXpWgd8aDkLDD-dnLclj4GxrqfW6PIWcHVhpyn3y2t3gn__jDA&hash=2b4a9f7c148c15b9eff92a9c3bfb56c9ae658942570184b8e2e2e23fe08a8f3c",
   };
 
-  const tgMock = mockData1;
+  const tgMock = mockData2;
   // For test without telegram auth
   useEffect(() => {
     const params = tgMock.initData;

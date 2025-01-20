@@ -9,6 +9,12 @@
   max-width: 220px;
   width: 100%;
 
+  &-Wrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+  }
+
   &-Image {
     width: 40px;
     height: 40px;

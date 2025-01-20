@@ -2,8 +2,6 @@
 
 import clsx from "clsx";
 import isEmpty from "lodash/isEmpty";
-import Image from "next/image";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import { type FC, memo, useEffect } from "react";
 import type { TProfileList } from "@/app/api/profile/getProfileList/types";
@@ -11,14 +9,12 @@ import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/ty
 import { useTranslation } from "@/app/i18n/client";
 import { SearchForm } from "@/app/entities/search/searchForm";
 import { getDistance } from "@/app/pages/profileDetailPage/utils";
+import { SessionImage } from "@/app/pages/sessionPage/sessionImage";
 import { Container } from "@/app/shared/components/container";
-import { useNavigatorContext } from "@/app/shared/context";
+import { useNavigatorContext, usePremiumContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useCheckPermissions, useTelegram } from "@/app/shared/hooks";
+import { useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
-import { Distance } from "@/app/uikit/components/distance";
-import { Heart } from "@/app/uikit/components/heart";
-import { Online } from "@/app/uikit/components/online";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
 import { notification } from "@/app/uikit/utils";
@@ -40,8 +36,11 @@ const SessionPageComponent: FC<TProps> = ({
   profileShortInfo,
 }) => {
   const navigator = useNavigatorContext();
+  const premium = usePremiumContext();
+  const isPremium = premium?.isPremium;
   const { isSession, user, theme } = useTelegram();
   const { t } = useTranslation("index");
+  const telegramUserId = (user?.id ?? "").toString();
 
   useEffect(() => {
     if (isManyRequest) {
@@ -90,53 +89,25 @@ const SessionPageComponent: FC<TProps> = ({
         )}
         {!isEmpty(profileList?.content) && (
           <div className="SessionPage-List">
-            {(profileList?.content ?? []).map((item) => {
+            {(profileList?.content ?? []).map((item, index) => {
+              const isBlurImage = index > -1 && !isPremium;
               const distance = item?.distance
                 ? getDistance(item.distance, t)
                 : undefined;
+              console.log("index: ", index);
+              console.log("Session isPremium: ", isPremium);
+              console.log("isBlurImage: ", isBlurImage);
               return (
-                <Link
-                  href={{
-                    pathname: createPath({
-                      route: ERoutes.ProfileDetail,
-                      params: {
-                        telegramUserId: user?.id ?? "",
-                        viewedTelegramUserId: item.telegramUserId,
-                      },
-                      lng: lng,
-                    }),
-                    query: {
-                      ...(navigator?.latitude
-                        ? { latitude: navigator?.latitude.toString() }
-                        : {}),
-                      ...(navigator?.longitude
-                        ? { longitude: navigator?.longitude.toString() }
-                        : {}),
-                    },
-                  }}
+                <SessionImage
+                  distance={distance}
+                  image={item}
+                  isBlur={isBlurImage}
                   key={item.telegramUserId}
-                >
-                  <div
-                    className="SessionPage-WrapperImage"
-                    key={item.telegramUserId}
-                  >
-                    <Online
-                      classes={{ root: "SessionPage-Online" }}
-                      isOnline={item.isOnline}
-                    />
-                    <Heart isLiked={item.isLiked} />
-                    <Distance distance={distance} theme={theme} />
-                    <Image
-                      alt=""
-                      className="SessionPage-Image"
-                      priority={true}
-                      height={120}
-                      width={150}
-                      src={item.url}
-                      quality={100}
-                    />
-                  </div>
-                </Link>
+                  lng={lng}
+                  telegramUserId={telegramUserId}
+                  theme={theme}
+                  viewedTelegramUserId={item.telegramUserId}
+                />
               );
             })}
           </div>

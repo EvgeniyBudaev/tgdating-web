@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { checkProfileExists } from "@/app/api/profile/checkProfile/domain";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
@@ -15,6 +15,7 @@ type TUseCheckPermissions = (props: TProps) => void;
 
 export const useCheckPermissions: TUseCheckPermissions = (props) => {
   const { lng } = props;
+  const pathname = usePathname();
   const router = useRouter();
   const { user } = useTelegram();
   const telegramUserId = (user?.id ?? "").toString();
@@ -26,21 +27,21 @@ export const useCheckPermissions: TUseCheckPermissions = (props) => {
         const response = await checkProfileExists({
           telegramUserId: telegramUserId,
         });
-        if (response.isExists) {
-          const path = createPath({
-            route: ERoutes.Telegram,
-            params: { telegramUserId },
-            lng: lng,
-          });
-          router.push(path);
+        const pathTelegram = createPath({
+          route: ERoutes.Telegram,
+          params: { telegramUserId },
+          lng: lng,
+        });
+        if (response.isExists && pathname !== pathTelegram) {
+          router.push(pathTelegram);
           router.refresh();
         }
-        if (!response.isExists) {
-          const path = createPath({
-            route: ERoutes.Started,
-            lng: lng,
-          });
-          router.push(path);
+        const pathStarted = createPath({
+          route: ERoutes.Started,
+          lng,
+        });
+        if (!response.isExists && pathname !== pathStarted) {
+          router.push(pathStarted);
           router.refresh();
         }
       } catch (error) {

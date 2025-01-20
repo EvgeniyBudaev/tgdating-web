@@ -6,6 +6,7 @@ import { ImagesGrid } from "@/app/pages/startedPage/imagesGrid";
 import { StartedPageInfo } from "@/app/pages/startedPage/startedPageInfo";
 import { Container } from "@/app/shared/components/container";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
+import { useCheckPermissions } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { ButtonLink } from "@/app/uikit/components/button/buttonLink";
 import {
@@ -13,17 +14,13 @@ import {
   Typography,
 } from "@/app/uikit/components/typography";
 import "./StartedPage.scss";
-import { CheckProfileExists } from "@/app/shared/components/checkProfileExists";
-import { useCheckPermissions, useTelegram } from "@/app/shared/hooks";
 
 type TProps = {
   lng: ELanguage;
 };
 
 const StartedPageComponent: FC<TProps> = ({ lng }) => {
-  const { user } = useTelegram();
   const { t } = useTranslation("index");
-  const telegramUserId = (user?.id ?? "").toString();
   useCheckPermissions({ lng });
 
   return (

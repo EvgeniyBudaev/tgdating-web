@@ -179,6 +179,7 @@ const SearchFormSidebarComponent: FC<TProps> = ({
               </SidebarContentListItem>
             </SidebarContentList>
             <SidebarContentControls
+              onCancel={onCloseSidebar}
               theme={theme}
               title={t("common.actions.apply")}
               typeButton="submit"

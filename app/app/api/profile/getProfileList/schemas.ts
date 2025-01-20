@@ -7,7 +7,7 @@ export const getProfileListParamsSchema = z.object({
   longitude: z.string().nullish(),
 });
 
-const profileListItemSchema = z.object({
+export const profileListItemSchema = z.object({
   telegramUserId: z.string(),
   distance: z.number().nullish(),
   url: z.string(),

@@ -22,19 +22,21 @@ export const ListImages: FC = () => {
   ];
 
   return (
-    <div className="ListImages">
-      {list.map((url) => (
-        <Image
-          alt=""
-          className="ListImages-Image"
-          key={url}
-          src={url}
-          priority={true}
-          height={36}
-          width={36}
-          quality={100}
-        />
-      ))}
+    <div className="ListImages-Wrapper">
+      <div className="ListImages">
+        {list.map((url) => (
+          <Image
+            alt=""
+            className="ListImages-Image"
+            key={url}
+            src={url}
+            priority={true}
+            height={36}
+            width={36}
+            quality={100}
+          />
+        ))}
+      </div>
     </div>
   );
 };
