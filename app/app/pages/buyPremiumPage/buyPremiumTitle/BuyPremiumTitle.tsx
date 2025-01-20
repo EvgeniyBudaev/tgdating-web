@@ -10,7 +10,7 @@ export const BuyPremiumTitle: FC = () => {
   const { t } = useTranslation("index");
 
   return (
-    <div className="BuyPremiumPage">
+    <div className="BuyPremiumTitle">
       <Typography variant={ETypographyVariant.TextH4Medium}>
         {t("common.titles.premiumNow")}
       </Typography>

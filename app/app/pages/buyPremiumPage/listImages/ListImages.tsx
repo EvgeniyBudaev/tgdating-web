@@ -1,8 +1,15 @@
+"use client";
+
+import clsx from "clsx";
 import Image from "next/image";
 import { type FC } from "react";
 import "./ListImages.scss";
 
-export const ListImages: FC = () => {
+type TProps = {
+  className?: string;
+};
+
+export const ListImages: FC<TProps> = ({ className }) => {
   const list = [
     "/assets/images/girl1.jpg",
     "/assets/images/boy1.jpg",
@@ -22,7 +29,7 @@ export const ListImages: FC = () => {
   ];
 
   return (
-    <div className="ListImages-Wrapper">
+    <div className={clsx(className, "ListImages-Wrapper")}>
       <div className="ListImages">
         {list.map((url) => (
           <Image

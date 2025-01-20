@@ -6,4 +6,5 @@ export const checkPremiumParamsSchema = z.object({
 
 export const checkPremiumSchema = z.object({
   isPremium: z.boolean(),
+  availableUntil: z.string(),
 });

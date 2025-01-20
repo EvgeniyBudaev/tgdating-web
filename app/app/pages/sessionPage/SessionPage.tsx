@@ -2,6 +2,7 @@
 
 import clsx from "clsx";
 import isEmpty from "lodash/isEmpty";
+import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
 import { type FC, memo, useEffect } from "react";
 import type { TProfileList } from "@/app/api/profile/getProfileList/types";
@@ -11,7 +12,7 @@ import { SearchForm } from "@/app/entities/search/searchForm";
 import { getDistance } from "@/app/pages/profileDetailPage/utils";
 import { SessionImage } from "@/app/pages/sessionPage/sessionImage";
 import { Container } from "@/app/shared/components/container";
-import { useNavigatorContext, usePremiumContext } from "@/app/shared/context";
+import { usePremiumContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
@@ -35,7 +36,6 @@ const SessionPageComponent: FC<TProps> = ({
   profileList,
   profileShortInfo,
 }) => {
-  const navigator = useNavigatorContext();
   const premium = usePremiumContext();
   const isPremium = premium?.isPremium;
   const { isSession, user, theme } = useTelegram();
@@ -90,13 +90,10 @@ const SessionPageComponent: FC<TProps> = ({
         {!isEmpty(profileList?.content) && (
           <div className="SessionPage-List">
             {(profileList?.content ?? []).map((item, index) => {
-              const isBlurImage = index > -1 && !isPremium;
-              const distance = item?.distance
+              const isBlurImage = index > 36 && !isPremium;
+              const distance = !isNil(item?.distance)
                 ? getDistance(item.distance, t)
                 : undefined;
-              console.log("index: ", index);
-              console.log("Session isPremium: ", isPremium);
-              console.log("isBlurImage: ", isBlurImage);
               return (
                 <SessionImage
                   distance={distance}

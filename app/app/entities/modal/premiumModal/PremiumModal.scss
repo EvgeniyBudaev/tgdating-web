@@ -1,14 +1,16 @@
 .PremiumModal {
-  &-Content {
-    &-Title {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 24px 0;
-    }
+  &-Title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 24px 0;
+  }
 
-    &-ListTariffs {
-      max-width: 300px;
-    }
+  &-ListImages.ListImages-Wrapper {
+    padding-top: 0;
+  }
+
+  &-ListTariffs {
+    max-width: 300px;
   }
 }

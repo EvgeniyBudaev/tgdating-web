@@ -40,20 +40,17 @@ const PremiumModalComponent: FC<TProps> = ({
       onCloseModal={onCloseModal}
       showCloseIcon={showCloseIcon}
     >
-      <Modal.Header></Modal.Header>
       <Modal.Content>
         <Container>
-          <ListImages />
+          <ListImages className="PremiumModal-ListImages" />
           <BuyPremiumTitle />
           <ListTariffs
-            className="PremiumModal-Content-ListTariffs"
+            className="PremiumModal-ListTariffs"
             onChange={onChangeTariff}
             tariff={tariff}
             theme={theme}
           />
         </Container>
-      </Modal.Content>
-      <Modal.Footer>
         <BuyPremiumForm
           lng={lng}
           onCancel={onCloseModal}
@@ -61,7 +58,7 @@ const PremiumModalComponent: FC<TProps> = ({
           telegramUserId={telegramUserId}
         />
         <BuyPremiumFooter lng={lng} />
-      </Modal.Footer>
+      </Modal.Content>
     </Modal>
   );
 };

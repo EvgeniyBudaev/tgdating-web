@@ -48,6 +48,14 @@ body {
     .icon-dark {
       fill: colors.$text_color;
     }
+
+    .react-responsive-modal-overlay {
+      background: colors.$bg_color;
+    }
+
+    .react-responsive-modal-modal {
+      background-color: colors.$bg_color;
+    }
   }
 }
 

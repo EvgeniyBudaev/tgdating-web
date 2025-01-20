@@ -8,9 +8,12 @@ import { useTranslation } from "@/app/i18n/client";
 import { Block } from "@/app/pages/profileDetailPage/block";
 import { Delete } from "@/app/pages/profileDetailPage/delete";
 import { Freeze } from "@/app/pages/profileDetailPage/freeze";
+import { Settings } from "@/app/pages/profileDetailPage/settings";
+import { SidebarContentControls } from "@/app/shared/components/sidebarContent/sidebarContentControls";
 import { SidebarContentHeader } from "@/app/shared/components/sidebarContent/sidebarContentHeader";
 import { SidebarContentList } from "@/app/shared/components/sidebarContent/sidebarContentList";
 import { SidebarContentListItem } from "@/app/shared/components/sidebarContent/sidebarContentListItem";
+import { usePremiumContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { createPath } from "@/app/shared/utils";
 import { Sidebar } from "@/app/uikit/components/sidebar";
@@ -18,8 +21,6 @@ import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./ProfileSidebar.scss";
-import { SidebarContentControls } from "@/app/shared/components/sidebarContent/sidebarContentControls";
-import { Settings } from "@/app/pages/profileDetailPage/settings";
 
 type TProps = {
   isSessionUser: boolean;
@@ -44,6 +45,7 @@ const ProfileSidebarComponent = forwardRef(
     }: TProps,
     ref: ForwardedRef<HTMLDivElement>,
   ): JSX.Element => {
+    const premium = usePremiumContext();
     const { t } = useTranslation("index");
     const cancelButtonTitle = t("common.actions.cancel");
     const optionsTitle = t("common.titles.options");
@@ -105,7 +107,15 @@ const ProfileSidebarComponent = forwardRef(
                   onClick={handleRedirectBuyPremium}
                   theme={theme}
                 >
-                  <Typography>{t("common.actions.buyPremium")}</Typography>
+                  <div>
+                    <div>
+                      <Typography>{t("common.actions.buyPremium")}</Typography>
+                    </div>
+                    <div>
+                      <Typography>{t("common.actions.buyPremium")}</Typography>
+                    </div>
+                  </div>
+
                   <div className="ProfileSidebar-Icon-Premium">
                     <Icon type="Crown" />
                   </div>
