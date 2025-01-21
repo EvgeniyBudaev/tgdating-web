@@ -17,9 +17,9 @@ import { ETheme } from "@/app/uikit/enums/theme";
 import "./SessionImage.scss";
 
 type TProps = {
-  distance: string | undefined;
+  distance?: string;
   image: TProfileListItem;
-  isBlur: boolean;
+  isBlur?: boolean;
   lng: ELanguage;
   telegramUserId: string;
   theme: ETheme;
@@ -29,7 +29,7 @@ type TProps = {
 const SessionImageComponent: FC<TProps> = ({
   distance,
   image,
-  isBlur,
+  isBlur = false,
   lng,
   telegramUserId,
   theme,

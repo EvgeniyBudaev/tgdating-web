@@ -14,7 +14,7 @@ type TProps = {
 const ButtonLinkComponent: FC<TProps> = ({ className, children, href }) => {
   return (
     <Link
-      className={clsx("Button", className)}
+      className={clsx(className, "Button")}
       href={createPath({
         route: href as any,
       })}

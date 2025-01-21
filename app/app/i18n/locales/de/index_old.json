@@ -9,6 +9,9 @@
       "field": {
         "language": "Schnittstellensprache"
       }
+    },
+    "titles": {
+      "validUntil": "Добавь сюда перевод!!!"
     }
   }
 }

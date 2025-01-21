@@ -53,7 +53,8 @@
 
     &:hover,
     &:active {
-      color: colors.$link_color;
+      color: colors.$bg_color;
+      background-color: colors.$link_color;
     }
   }
 }

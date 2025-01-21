@@ -9,6 +9,7 @@ import { BuyPremiumTitle } from "@/app/pages/buyPremiumPage/buyPremiumTitle";
 import { ListImages } from "@/app/pages/buyPremiumPage/listImages";
 import { ListTariffs } from "@/app/pages/buyPremiumPage/listTariffs";
 import { Container } from "@/app/shared/components/container";
+import { SidebarContentHeader } from "@/app/shared/components/sidebarContent/sidebarContentHeader";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useTariff, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
@@ -42,6 +43,7 @@ const BuyPremiumPageComponent: FC<TProps> = ({ lng, telegramUserId }) => {
         ["theme-dark"]: theme === ETheme.Dark,
       })}
     >
+      <SidebarContentHeader theme={theme} title="Premium" />
       <Container>
         <ListImages />
         <BuyPremiumTitle />

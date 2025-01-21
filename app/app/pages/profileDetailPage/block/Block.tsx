@@ -73,7 +73,11 @@ const BlockComponent: FC<TProps> = ({
       <SidebarContentListItem onClick={openModal} theme={theme}>
         <Typography>{t("common.actions.block")}</Typography>
       </SidebarContentListItem>
-      <Modal isOpen={isOpenModal} onCloseModal={closeModal}>
+      <Modal
+        isOpen={isOpenModal}
+        onCloseModal={closeModal}
+        showCloseIcon={false}
+      >
         <Modal.Header align="center">
           <Typography>{t("common.titles.blockQuestion")}</Typography>
         </Modal.Header>

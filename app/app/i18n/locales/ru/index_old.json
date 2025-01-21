@@ -165,7 +165,8 @@
       "properties": "Свойства",
       "autocomplete": "автоопределение",
       "noChanged": "нельзя изменить",
-      "canHidden": "можно будет скрыть"
+      "canHidden": "можно будет скрыть",
+      "validUntil": "действует до"
     },
     "form": {
       "field": {

@@ -25,6 +25,7 @@ import { ToastContainer } from "@/app/uikit/components/toast/toastContainer";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./Layout.scss";
 import { CheckPremium } from "@/app/shared/components/checkPremium";
+import type { TCheckPremium } from "@/app/api/payment/checkPremium/types";
 
 type TProps = {
   children?: ReactNode;
@@ -39,8 +40,8 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   const navigator = useNavigator({ lng });
   const { initDataCrypt, isSession, user, theme } = useTelegram();
   const telegramLanguageCode = user?.language_code;
-  const [isPremium, setIsPremium] = useState(false);
-  console.log("isPremium: ", isPremium);
+  const [premium, setPremium] = useState<TCheckPremium>(null);
+  console.log("isPremium: ", premium?.isPremium);
 
   useEffect(() => {
     if (telegramLanguageCode && telegramLanguageCode !== lng) {
@@ -98,14 +99,14 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
     );
   }, [lng, pathname, user]);
 
-  const handleCheckPremium = (isPremium: boolean) => {
-    setIsPremium(isPremium);
+  const handleCheckPremium = (premium: TCheckPremium) => {
+    setPremium(premium);
   };
 
   return (
     <AuthenticityTokenProvider value={csrfToken}>
       <NavigatorProvider value={navigator}>
-        <PremiumProvider value={{ isPremium }}>
+        <PremiumProvider value={premium}>
           <div
             className={clsx("fixed-background", {
               ["theme-dark"]: theme === ETheme.Dark,
@@ -116,7 +117,7 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
             <div className="Layout-Content">{children}</div>
             {isFooter && (
               <Footer
-                isPremium={isPremium}
+                isPremium={premium?.isPremium}
                 isSession={isSession}
                 lng={lng}
                 theme={theme}

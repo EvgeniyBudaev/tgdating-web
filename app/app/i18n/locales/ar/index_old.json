@@ -13,6 +13,9 @@
       "field": {
         "language": "لغة الواجهة"
       }
+    },
+    "titles": {
+      "validUntil": "قسط صالح حتى عام"
     }
   }
 }

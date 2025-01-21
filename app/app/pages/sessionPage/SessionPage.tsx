@@ -37,7 +37,6 @@ const SessionPageComponent: FC<TProps> = ({
   profileShortInfo,
 }) => {
   const premium = usePremiumContext();
-  const isPremium = premium?.isPremium;
   const { isSession, user, theme } = useTelegram();
   const { t } = useTranslation("index");
   const telegramUserId = (user?.id ?? "").toString();
@@ -88,26 +87,28 @@ const SessionPageComponent: FC<TProps> = ({
           </Container>
         )}
         {!isEmpty(profileList?.content) && (
-          <div className="SessionPage-List">
-            {(profileList?.content ?? []).map((item, index) => {
-              const isBlurImage = index > 36 && !isPremium;
-              const distance = !isNil(item?.distance)
-                ? getDistance(item.distance, t)
-                : undefined;
-              return (
-                <SessionImage
-                  distance={distance}
-                  image={item}
-                  isBlur={isBlurImage}
-                  key={item.telegramUserId}
-                  lng={lng}
-                  telegramUserId={telegramUserId}
-                  theme={theme}
-                  viewedTelegramUserId={item.telegramUserId}
-                />
-              );
-            })}
-          </div>
+          <>
+            <div className="SessionPage-List">
+              {(profileList?.content ?? []).map((item, index) => {
+                const isBlurImage = index > 36 && !premium?.isPremium;
+                const distance = !isNil(item?.distance)
+                  ? getDistance(item.distance, t)
+                  : undefined;
+                return (
+                  <SessionImage
+                    distance={distance}
+                    image={item}
+                    isBlur={isBlurImage}
+                    key={item.telegramUserId}
+                    lng={lng}
+                    telegramUserId={telegramUserId}
+                    theme={theme}
+                    viewedTelegramUserId={item.telegramUserId}
+                  />
+                );
+              })}
+            </div>
+          </>
         )}
       </div>
     </div>

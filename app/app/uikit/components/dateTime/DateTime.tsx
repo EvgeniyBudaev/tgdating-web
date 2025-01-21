@@ -7,6 +7,7 @@ import {
   TIME_FORMAT,
 } from "@/app/uikit/components/dateTime/constants";
 import { useDayjs } from "@/app/uikit/components/dateTime/hooks";
+import { Typography } from "@/app/uikit/components/typography";
 import "./DateTime.scss";
 
 type TProps = {
@@ -33,17 +34,21 @@ const DateTimeComponent: FC<TProps> = ({
   return (
     <div className={clsx("DateTime", className)} data-testid={dataTestId}>
       <div className={clsx("DateTime-Date", classes?.date)}>
-        {isUtc
-          ? dayjs(value)
-              .utc()
-              .format(dateFormat ?? DATE_FORMAT)
-          : dayjs(value).format(dateFormat ?? DATE_FORMAT)}
+        <Typography>
+          {isUtc
+            ? dayjs(value)
+                .utc()
+                .format(dateFormat ?? DATE_FORMAT)
+            : dayjs(value).format(dateFormat ?? DATE_FORMAT)}
+        </Typography>
       </div>
       {isTime && (
         <div className={clsx("DateTime-Time", classes?.time)}>
-          {isUtc
-            ? dayjs(value).utc().format(TIME_FORMAT)
-            : dayjs(value).format(TIME_FORMAT)}
+          <Typography>
+            {isUtc
+              ? dayjs(value).utc().format(TIME_FORMAT)
+              : dayjs(value).format(TIME_FORMAT)}
+          </Typography>
         </div>
       )}
     </div>

@@ -15,7 +15,7 @@ import { ETheme } from "@/app/uikit/enums/theme";
 import "./Footer.scss";
 
 type TProps = {
-  isPremium: boolean;
+  isPremium?: boolean;
   isSession: boolean;
   lng: ELanguage;
   theme: ETheme;

@@ -9,6 +9,9 @@
       "field": {
         "language": "Jazyk rozhraní"
       }
+    },
+    "titles": {
+      "validUntil": "Добавь сюда перевод!!!"
     }
   }
 }

@@ -1,3 +1,5 @@
+import { BlockedListPage } from "@/app/pages/blockedListPage";
+
 export enum ERoutes {
   Root = "/",
   Telegram = "/telegram/:telegramUserId/list",
@@ -13,4 +15,5 @@ export enum ERoutes {
   Agreement = "/agreement",
   Policy = "/policy",
   Offer = "/offer",
+  BlockedList = "/telegram/:telegramUserId/blockedList",
 }

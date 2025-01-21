@@ -1,0 +1,42 @@
+@use "@/app/styles/colors" as colors;
+
+.BlockedListImage {
+  $this: &;
+
+  &__isBlur {
+    cursor: pointer;
+    filter: grayscale(100%);
+  }
+
+  &-WrapperImage {
+    position: relative;
+    height: 120px;
+    width: 100%;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      background: linear-gradient(
+        transparent,
+        transparent,
+        transparent,
+        transparent,
+        rgb(32, 25, 50)
+      );
+    }
+  }
+
+  &-Image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &-PremiumModal {
+    height: 100%;
+  }
+}

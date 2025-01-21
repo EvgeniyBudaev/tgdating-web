@@ -2,6 +2,21 @@
 @use "@/app/styles/constants" as constants;
 
 .ProfileSidebar {
+  &-SubTitle {
+    display: flex;
+    align-items: center;
+    color: colors.$color-grey;
+  }
+
+  &-DateTime {
+    display: flex;
+    align-items: center;
+
+    & .DateTime-Date {
+      margin-right: 4px;
+    }
+  }
+
   &-Icon-Premium {
     display: flex;
     align-items: center;

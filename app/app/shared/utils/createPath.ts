@@ -16,7 +16,8 @@ type TRoutesWithParams =
   | ERoutes.ProfileBlocked
   | ERoutes.ProfileDeleted
   | ERoutes.ProfileFrozen
-  | ERoutes.ProfileEdit;
+  | ERoutes.ProfileEdit
+  | ERoutes.BlockedList;
 
 type TCreatePathProps =
   | { route: TRoutes; lng?: string }

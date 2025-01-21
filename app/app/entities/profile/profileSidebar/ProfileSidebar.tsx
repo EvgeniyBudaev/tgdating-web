@@ -16,8 +16,9 @@ import { SidebarContentListItem } from "@/app/shared/components/sidebarContent/s
 import { usePremiumContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { createPath } from "@/app/shared/utils";
-import { Sidebar } from "@/app/uikit/components/sidebar";
+import { DateTime } from "@/app/uikit/components/dateTime";
 import { Icon } from "@/app/uikit/components/icon";
+import { Sidebar } from "@/app/uikit/components/sidebar";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./ProfileSidebar.scss";
@@ -71,6 +72,16 @@ const ProfileSidebarComponent = forwardRef(
       onCloseSidebar?.();
     };
 
+    const handleRedirectBlockedList = () => {
+      const path = createPath({
+        route: ERoutes.BlockedList,
+        params: { telegramUserId: profile?.telegramUserId ?? "" },
+        lng,
+      });
+      router.push(path);
+      onCloseSidebar?.();
+    };
+
     return (
       <div className="ProfileSidebar">
         <Sidebar
@@ -111,14 +122,32 @@ const ProfileSidebarComponent = forwardRef(
                     <div>
                       <Typography>{t("common.actions.buyPremium")}</Typography>
                     </div>
-                    <div>
-                      <Typography>{t("common.actions.buyPremium")}</Typography>
-                    </div>
+                    {premium?.isPremium && (
+                      <div className="ProfileSidebar-SubTitle">
+                        <div>
+                          <Typography>
+                            Premium {t("common.titles.validityPeriod")}&nbsp;
+                          </Typography>
+                        </div>
+                        <DateTime
+                          className="ProfileSidebar-DateTime"
+                          isUtc={false}
+                          value={premium?.availableUntil}
+                        />
+                      </div>
+                    )}
                   </div>
-
                   <div className="ProfileSidebar-Icon-Premium">
                     <Icon type="Crown" />
                   </div>
+                </SidebarContentListItem>
+              )}
+              {isSessionUser && (
+                <SidebarContentListItem
+                  onClick={handleRedirectBlockedList}
+                  theme={theme}
+                >
+                  <Typography>{t("common.actions.blockedList")}</Typography>
                 </SidebarContentListItem>
               )}
               {isSessionUser && (

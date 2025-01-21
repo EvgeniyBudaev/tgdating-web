@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { useState, useEffect, type FC, type ReactNode } from "react";
+import { useState, useEffect, type FC, type ReactNode, useRef } from "react";
 import { default as ReactModal } from "react-responsive-modal";
 import { Icon } from "@/app/uikit/components/icon";
 import "react-responsive-modal/styles.css";
@@ -10,8 +10,13 @@ import "./Modal.scss";
 
 type IModalSize = "medium";
 
+type TClasses = {
+  modal?: string;
+};
+
 type TModalProps = {
   children?: ReactNode;
+  classes?: TClasses;
   className?: string;
   dataTestId?: string;
   isOpen: boolean;
@@ -23,6 +28,7 @@ type TModalProps = {
 
 export const Modal = ({
   children,
+  classes,
   className,
   dataTestId = "uikit__modal",
   isOpen,
@@ -31,6 +37,7 @@ export const Modal = ({
   size = "medium",
   theme,
 }: TModalProps): JSX.Element => {
+  const modalRef = useRef<HTMLElement | null>(null);
   const defaultClassNames = {
     modal: clsx("ModalDefault", className, {
       ["theme-dark"]: theme === ETheme.Dark,
@@ -50,6 +57,9 @@ export const Modal = ({
       setStyles(_styles);
       document.body.classList.add("Modal__open");
       document.body.style.paddingRight = `${scrollbarWidth}px`;
+      // @ts-ignore
+      modalRef.current &&
+        modalRef.current?.scrollTo({ x: 0, y: 0, animated: false });
     }
 
     return () => {
@@ -67,10 +77,11 @@ export const Modal = ({
       data-testid={dataTestId}
       onClose={onCloseModal}
       open={isOpen}
+      initialFocusRef={modalRef}
       showCloseIcon={showCloseIcon}
       styles={styles}
     >
-      <div className="Modal">{children}</div>
+      <div className={clsx(classes?.modal, "Modal")}>{children}</div>
     </ReactModal>
   );
 };

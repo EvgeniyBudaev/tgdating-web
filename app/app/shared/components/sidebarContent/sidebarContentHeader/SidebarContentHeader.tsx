@@ -2,7 +2,6 @@
 
 import clsx from "clsx";
 import { type FC, memo } from "react";
-import { useTranslation } from "@/app/i18n/client";
 import { Gradient } from "@/app/uikit/components/gradient";
 import {
   ETypographyVariant,
@@ -17,8 +16,6 @@ type TProps = {
 };
 
 const SidebarContentHeaderComponent: FC<TProps> = ({ theme, title }) => {
-  const { t } = useTranslation("index");
-
   return (
     <div
       className={clsx("SidebarContentHeader", {

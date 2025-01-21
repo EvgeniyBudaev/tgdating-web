@@ -9,6 +9,9 @@
       "field": {
         "language": "Interfész nyelve"
       }
+    },
+    "titles": {
+      "validUntil": "Добавь сюда перевод!!!"
     }
   }
 }

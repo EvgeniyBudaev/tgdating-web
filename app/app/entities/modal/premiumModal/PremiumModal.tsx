@@ -1,7 +1,6 @@
 "use client";
 
 import { type FC, memo } from "react";
-import { useTranslation } from "@/app/i18n/client";
 import { BuyPremiumFooter } from "@/app/pages/buyPremiumPage/buyPremiumFooter";
 import { BuyPremiumForm } from "@/app/pages/buyPremiumPage/buyPremiumForm";
 import { BuyPremiumTitle } from "@/app/pages/buyPremiumPage/buyPremiumTitle";
@@ -14,7 +13,12 @@ import { Modal } from "@/app/uikit/components/modal";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./PremiumModal.scss";
 
+type TClasses = {
+  modal?: string;
+};
+
 type TProps = {
+  classes?: TClasses;
   isOpenModal: boolean;
   lng: ELanguage;
   onCloseModal: () => void;
@@ -24,6 +28,7 @@ type TProps = {
 };
 
 const PremiumModalComponent: FC<TProps> = ({
+  classes,
   isOpenModal,
   lng,
   onCloseModal,
@@ -32,10 +37,10 @@ const PremiumModalComponent: FC<TProps> = ({
   theme,
 }) => {
   const { onChangeTariff, tariff } = useTariff();
-  const { t } = useTranslation("index");
 
   return (
     <Modal
+      classes={classes}
       isOpen={isOpenModal}
       onCloseModal={onCloseModal}
       showCloseIcon={showCloseIcon}

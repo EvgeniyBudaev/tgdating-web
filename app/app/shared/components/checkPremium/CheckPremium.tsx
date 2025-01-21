@@ -1,12 +1,13 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { type FC, memo, useEffect } from "react";
 import { checkPremium } from "@/app/api/payment/checkPremium/domain";
-import { usePathname } from "next/navigation";
+import type { TCheckPremium } from "@/app/api/payment/checkPremium/types";
 
 type TProps = {
   isSession: boolean;
-  onLoad: (isPremium: boolean) => void;
+  onLoad: (premium: TCheckPremium) => void;
   telegramUserId: string;
 };
 
@@ -20,7 +21,7 @@ const CheckPremiumComponent: FC<TProps> = ({
   useEffect(() => {
     const getPremium = async () => {
       const premium = await checkPremium({ telegramUserId: telegramUserId });
-      onLoad(premium.isPremium);
+      onLoad(premium);
     };
     if (isSession) {
       getPremium();
