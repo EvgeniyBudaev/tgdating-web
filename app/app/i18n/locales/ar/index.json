@@ -1,6 +1,7 @@
 {
   "common": {
     "titles": {
+      "unblockQuestion": "إلغاء حظر حسابك؟",
       "accountBlocked": "تم حظر الحساب",
       "isEmptyUsername": "لم يتم تعيين اسم فريد في Telegram/الإعدادات/اسم المستخدم. يرجى تعيين اسم مستخدم ومحاولة تسجيل الدخول إلى التطبيق مرة أخرى. قد يستغرق تحديث البيانات في Telegram عدة دقائق",
       "editForm": "نموذج التحرير",
@@ -13,7 +14,7 @@
       "filtersGeneral": "مرشحات عامة",
       "age": "عمر",
       "blockedList": "القائمة المحظورة",
-      "isEmptyList": "لم يتم العثور على شخص واحد. حاول تغيير إعدادات الفلتر.",
+      "isEmptyBlockedList": "القائمة فارغة",
       "userAgreement": "اتفاقية المستخدم",
       "privacyPolicyMain": "سياسة الخصوصية",
       "publicOffer": "العرض العام",
@@ -31,6 +32,7 @@
       "isHiddenAge": "لا تظهر العمر",
       "accountFrozen": "الحساب مجمد",
       "accountDeleted": "تم حذف الحساب",
+      "isEmptyList": "لم يتم العثور على شخص واحد. حاول تغيير إعدادات الفلتر.",
       "appName": "المواعدة برقية",
       "getStarted": "يبدأ",
       "remember": "تذكر أنه يمكن للأشخاص التظاهر بأنهم آخرون على الإنترنت.",
@@ -43,6 +45,8 @@
       "geoPositionExist": "تم تحديد الموقع الجغرافي"
     },
     "actions": {
+      "no": "لا",
+      "yes": "نعم",
       "register": "يسجل",
       "save": "يحفظ",
       "apply": "يتقدم",
@@ -52,8 +56,6 @@
       "editProfile": "تحرير الحساب",
       "filter": "فلتر",
       "block": "حاجز",
-      "no": "لا",
-      "yes": "نعم",
       "complaint": "الإبلاغ والحظر",
       "deleteProfile": "حذف الحساب",
       "freezeProfile": "تجميد الحساب",

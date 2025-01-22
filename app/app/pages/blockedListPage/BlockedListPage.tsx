@@ -45,7 +45,7 @@ const BlockedListPageComponent: FC<TProps> = ({
         {isEmpty(blockedList?.content) && (
           <Container>
             <div className="BlockedListPage-IsEmpty">
-              <Typography>{t("common.titles.isEmptyList")}</Typography>
+              <Typography>{t("common.titles.isEmptyBlockedList")}</Typography>
             </div>
           </Container>
         )}
@@ -53,12 +53,12 @@ const BlockedListPageComponent: FC<TProps> = ({
           <>
             <div className="BlockedListPage-List">
               {(blockedList?.content ?? []).map((item, index) => {
-                const isBlurImage = !premium?.isPremium;
+                const isBlur = !premium?.isPremium;
                 return (
                   <BlockedListImage
                     blockedTelegramUserId={item.blockedTelegramUserId}
                     imageUrl={item.url}
-                    isBlur={isBlurImage}
+                    isBlur={false}
                     key={item.blockedTelegramUserId}
                     lng={lng}
                     telegramUserId={telegramUserId}

@@ -1,6 +1,7 @@
 {
   "common": {
     "titles": {
+      "unblockQuestion": "Sbloccare il tuo account?",
       "accountBlocked": "Conto bloccato",
       "isEmptyUsername": "Non è impostato un nome univoco in Telegram/Impostazioni/Nome utente. Imposta un nome utente e prova ad accedere nuovamente all'applicazione. L'aggiornamento dei dati in Telegram potrebbe richiedere diversi minuti",
       "editForm": "Modulo di modifica",
@@ -13,7 +14,7 @@
       "filtersGeneral": "Filtri generali",
       "age": "Età",
       "blockedList": "Elenco bloccato",
-      "isEmptyList": "Non è stata trovata una sola persona. Prova a modificare le impostazioni del filtro.",
+      "isEmptyBlockedList": "L'elenco è vuoto",
       "userAgreement": "contratto d'uso",
       "privacyPolicyMain": "politica sulla riservatezza",
       "publicOffer": "offerta pubblica",
@@ -31,6 +32,7 @@
       "isHiddenAge": "Non mostrare l'età",
       "accountFrozen": "Conto congelato",
       "accountDeleted": "Conto eliminato",
+      "isEmptyList": "Non è stata trovata una sola persona. Prova a modificare le impostazioni del filtro.",
       "appName": "Incontri su Telegram",
       "getStarted": "Inizio",
       "remember": "Ricorda che le persone possono fingere di essere altre su Internet.",
@@ -43,6 +45,8 @@
       "geoPositionExist": "Geolocalizzazione determinata"
     },
     "actions": {
+      "no": "No",
+      "yes": "SÌ",
       "register": "Registro",
       "save": "Salva",
       "apply": "Fare domanda a",
@@ -52,8 +56,6 @@
       "editProfile": "Modifica account",
       "filter": "Filtro",
       "block": "Bloccare",
-      "no": "No",
-      "yes": "SÌ",
       "complaint": "Segnala e blocca",
       "deleteProfile": "Elimina account",
       "freezeProfile": "Congelare il conto",

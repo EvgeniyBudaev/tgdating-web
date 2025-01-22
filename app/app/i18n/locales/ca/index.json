@@ -1,6 +1,7 @@
 {
   "common": {
     "titles": {
+      "unblockQuestion": "Vols desbloquejar el teu compte?",
       "accountBlocked": "Compte bloquejat",
       "isEmptyUsername": "No s'estableix un nom únic a Telegram/Configuració/Nom d'usuari. Si us plau, configureu un nom d'usuari i torneu a intentar iniciar sessió a l'aplicació. L'actualització de dades a Telegram pot trigar uns quants minuts",
       "editForm": "Formulari d'edició",
@@ -13,7 +14,7 @@
       "filtersGeneral": "Filtres generals",
       "age": "Edat",
       "blockedList": "Llista bloquejada",
-      "isEmptyList": "No es va trobar ni una sola persona. Proveu de canviar la configuració del filtre.",
+      "isEmptyBlockedList": "La llista està buida",
       "userAgreement": "acord d'usuari",
       "privacyPolicyMain": "política de privadesa",
       "publicOffer": "oferta pública",
@@ -31,6 +32,7 @@
       "isHiddenAge": "No mostris l'edat",
       "accountFrozen": "Compte congelat",
       "accountDeleted": "Compte suprimit",
+      "isEmptyList": "No es va trobar ni una sola persona. Proveu de canviar la configuració del filtre.",
       "appName": "Cites de Telegram",
       "getStarted": "Comença",
       "remember": "Recordeu que les persones poden fingir ser altres a Internet.",
@@ -43,6 +45,8 @@
       "geoPositionExist": "Geolocalització determinada"
     },
     "actions": {
+      "no": "No",
+      "yes": "Sí",
       "register": "Registra't",
       "save": "Desa",
       "apply": "Aplicar",
@@ -52,8 +56,6 @@
       "editProfile": "Edita el compte",
       "filter": "Filtre",
       "block": "Bloc",
-      "no": "No",
-      "yes": "Sí",
       "complaint": "Informar i bloquejar",
       "deleteProfile": "Suprimeix el compte",
       "freezeProfile": "Congela el compte",

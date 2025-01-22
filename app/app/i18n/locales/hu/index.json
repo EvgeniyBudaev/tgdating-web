@@ -1,6 +1,7 @@
 {
   "common": {
     "titles": {
+      "unblockQuestion": "Feloldja a fiók letiltását?",
       "accountBlocked": "Fiók blokkolva",
       "isEmptyUsername": "Nincs egyedi név beállítva a Telegram/Beállítások/Felhasználónév menüpontban. Kérjük, állítson be egy felhasználónevet, és próbáljon meg újra bejelentkezni az alkalmazásba. Az adatok frissítése a Telegramban több percig is eltarthat",
       "editForm": "Űrlap szerkesztése",
@@ -13,7 +14,7 @@
       "filtersGeneral": "Általános szűrők",
       "age": "Kor",
       "blockedList": "Letiltott lista",
-      "isEmptyList": "Egyetlen embert sem találtak. Próbálja meg módosítani a szűrő beállításait.",
+      "isEmptyBlockedList": "A lista üres!",
       "userAgreement": "felhasználói szerződés",
       "privacyPolicyMain": "adatvédelmi szabályzat",
       "publicOffer": "nyilvános ajánlat",
@@ -31,6 +32,7 @@
       "isHiddenAge": "Ne mutasd az életkort",
       "accountFrozen": "A fiók lefagyott",
       "accountDeleted": "Fiók törölve",
+      "isEmptyList": "Egyetlen embert sem találtak. Próbálja meg módosítani a szűrő beállításait.",
       "appName": "Távirati társkeresés",
       "getStarted": "Kezdődik",
       "remember": "Ne feledje, hogy az emberek úgy tesznek, mintha mások lennének az interneten.",
@@ -43,6 +45,8 @@
       "geoPositionExist": "A földrajzi hely meghatározása"
     },
     "actions": {
+      "no": "Nem",
+      "yes": "Igen",
       "register": "Nyilvántartás",
       "save": "Megtakarítás",
       "apply": "Alkalmazni",
@@ -52,8 +56,6 @@
       "editProfile": "Fiók szerkesztése",
       "filter": "Szűrő",
       "block": "Tömb",
-      "no": "Nem",
-      "yes": "Igen",
       "complaint": "Jelentés és blokkolás",
       "deleteProfile": "Fiók törlése",
       "freezeProfile": "Fiók lefagyasztása",

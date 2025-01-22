@@ -1,6 +1,7 @@
 {
   "common": {
     "titles": {
+      "unblockQuestion": "Unblock this account?",
       "accountBlocked": "Account blocked",
       "isEmptyUsername": "A unique name has not been set in Telegram/Settings/Username. Please set a username and try logging in to the app again. It may take a few minutes to update your Telegram data",
       "editForm": "Editing form",
@@ -13,7 +14,7 @@
       "filtersGeneral": "General filters",
       "age": "Age",
       "blockedList": "Blocked list",
-      "isEmptyList": "No people found. Try changing your search settings.",
+      "isEmptyBlockedList": "The list is empty",
       "userAgreement": "user agreement",
       "privacyPolicyMain": "privacy policy",
       "publicOffer": "public offer",
@@ -31,6 +32,7 @@
       "isHiddenAge": "Don't show age",
       "accountFrozen": "Account frozen",
       "accountDeleted": "Account deleted",
+      "isEmptyList": "No people found. Try changing your search settings.",
       "appName": "Telegram dating",
       "getStarted": "Get started",
       "remember": "Remember that people can pretend to be others on the Internet.",
@@ -43,6 +45,8 @@
       "geoPositionExist": "Geoposition determined"
     },
     "actions": {
+      "no": "No",
+      "yes": "Yes",
       "register": "Register",
       "save": "Save",
       "apply": "Apply",
@@ -52,8 +56,6 @@
       "editProfile": "Edit account",
       "filter": "Filter",
       "block": "Block",
-      "no": "No",
-      "yes": "Yes",
       "complaint": "Complain and block",
       "deleteProfile": "Delete account",
       "freezeProfile": "Freeze account",

@@ -1,6 +1,7 @@
 {
   "common": {
     "titles": {
+      "unblockQuestion": "Deblokirati svoj račun?",
       "accountBlocked": "Račun blokiran",
       "isEmptyUsername": "Jedinstveno ime nije postavljeno u Telegram/Postavke/Korisničko ime. Postavite korisničko ime i pokušajte se ponovno prijaviti u aplikaciju. Ažuriranje podataka u Telegramu može potrajati nekoliko minuta",
       "editForm": "Obrazac za uređivanje",
@@ -13,7 +14,7 @@
       "filtersGeneral": "Opći filtri",
       "age": "Dob",
       "blockedList": "Popis blokiranih",
-      "isEmptyList": "Niti jedna osoba nije pronađena. Pokušajte promijeniti postavke filtra.",
+      "isEmptyBlockedList": "Popis je prazan",
       "userAgreement": "korisnički ugovor",
       "privacyPolicyMain": "politika privatnosti",
       "publicOffer": "javna ponuda",
@@ -31,6 +32,7 @@
       "isHiddenAge": "Ne pokazuj godine",
       "accountFrozen": "Račun zamrznut",
       "accountDeleted": "Račun izbrisan",
+      "isEmptyList": "Niti jedna osoba nije pronađena. Pokušajte promijeniti postavke filtra.",
       "appName": "Telegram upoznavanje",
       "getStarted": "Početi",
       "remember": "Ne zaboravite da se ljudi na internetu mogu pretvarati da su drugi.",
@@ -43,6 +45,8 @@
       "geoPositionExist": "Geolokacija određena"
     },
     "actions": {
+      "no": "Ne",
+      "yes": "Da",
       "register": "Registar",
       "save": "Uštedjeti",
       "apply": "primijeniti",
@@ -52,8 +56,6 @@
       "editProfile": "Uredi račun",
       "filter": "Filter",
       "block": "Blokirati",
-      "no": "Ne",
-      "yes": "Da",
       "complaint": "Prijavi i blokiraj",
       "deleteProfile": "Izbriši račun",
       "freezeProfile": "Zamrzni račun",

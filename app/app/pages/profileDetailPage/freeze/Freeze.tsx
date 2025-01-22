@@ -42,7 +42,7 @@ const FreezeComponent: FC<TProps> = ({ lng, telegramUserId, theme }) => {
       });
       redirect(path);
     }
-  }, [lng, state?.data, state?.error, state.success]);
+  }, [lng, state]);
 
   const handleSubmit = (formData: FormData) => {
     if (isSession) {

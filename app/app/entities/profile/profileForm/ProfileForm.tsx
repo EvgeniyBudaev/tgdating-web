@@ -222,19 +222,6 @@ const ProfileFormComponent: FC<TProps> = ({
                 />
               </Field>
               <Field>
-                <Textarea
-                  defaultValue={
-                    isEdit ? (profile?.description ?? undefined) : undefined
-                  }
-                  label={t("common.form.field.description") ?? "Description"}
-                  maxLength={1000}
-                  name={EProfileAddFormFields.Description}
-                  onFocus={handleFocus}
-                  theme={theme}
-                  type="text"
-                />
-              </Field>
-              <Field>
                 <Select
                   headerTitle={!isNil(gender) ? gender?.label : "--"}
                   isSidebarOpen={isSidebarOpen.isGender}
@@ -274,6 +261,19 @@ const ProfileFormComponent: FC<TProps> = ({
                   theme={theme}
                   title={t("common.form.field.searchGender")}
                   titleButton={t("common.actions.apply")}
+                />
+              </Field>
+              <Field>
+                <Textarea
+                  defaultValue={
+                    isEdit ? (profile?.description ?? undefined) : undefined
+                  }
+                  label={t("common.form.field.description") ?? "Description"}
+                  maxLength={1000}
+                  name={EProfileAddFormFields.Description}
+                  onFocus={handleFocus}
+                  theme={theme}
+                  type="text"
                 />
               </Field>
               <Field>

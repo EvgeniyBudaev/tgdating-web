@@ -1,6 +1,7 @@
 {
   "common": {
     "titles": {
+      "unblockQuestion": "Buka blokir akun Anda?",
       "accountBlocked": "Akun diblokir",
       "isEmptyUsername": "Nama unik tidak diatur di Telegram/Pengaturan/Nama Pengguna. Silakan tetapkan nama pengguna dan coba masuk lagi ke aplikasi. Memperbarui data di Telegram mungkin memerlukan waktu beberapa menit",
       "editForm": "Formulir pengeditan",
@@ -13,7 +14,7 @@
       "filtersGeneral": "Filter umum",
       "age": "Usia",
       "blockedList": "Daftar yang diblokir",
-      "isEmptyList": "Tidak ada satu orang pun yang ditemukan. Coba ubah pengaturan filter Anda.",
+      "isEmptyBlockedList": "Daftarnya kosong",
       "userAgreement": "persetujuan pengguna",
       "privacyPolicyMain": "kebijakan Privasi",
       "publicOffer": "penawaran umum",
@@ -31,6 +32,7 @@
       "isHiddenAge": "Jangan tunjukkan usia",
       "accountFrozen": "Akun dibekukan",
       "accountDeleted": "Akun dihapus",
+      "isEmptyList": "Tidak ada satu orang pun yang ditemukan. Coba ubah pengaturan filter Anda.",
       "appName": "Kencan Telegram",
       "getStarted": "Mulai",
       "remember": "Ingatlah bahwa orang bisa berpura-pura menjadi orang lain di Internet.",
@@ -43,6 +45,8 @@
       "geoPositionExist": "Geolokasi ditentukan"
     },
     "actions": {
+      "no": "Tidak",
+      "yes": "Ya",
       "register": "Daftar",
       "save": "Menyimpan",
       "apply": "Menerapkan",
@@ -52,8 +56,6 @@
       "editProfile": "Sunting akun",
       "filter": "Menyaring",
       "block": "Memblokir",
-      "no": "Tidak",
-      "yes": "Ya",
       "complaint": "Laporkan dan blokir",
       "deleteProfile": "Hapus akun",
       "freezeProfile": "Bekukan akun",

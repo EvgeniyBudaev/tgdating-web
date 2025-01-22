@@ -1,6 +1,7 @@
 {
   "common": {
     "titles": {
+      "unblockQuestion": "Konto entsperren?",
       "accountBlocked": "Konto gesperrt",
       "isEmptyUsername": "In Telegram/Einstellungen/Benutzername ist kein eindeutiger Name festgelegt. Bitte legen Sie einen Benutzernamen fest und versuchen Sie erneut, sich bei der Anwendung anzumelden. Das Aktualisieren der Daten in Telegram kann mehrere Minuten dauern",
       "editForm": "Bearbeitungsformular",
@@ -13,7 +14,7 @@
       "filtersGeneral": "Allgemeine Filter",
       "age": "Alter",
       "blockedList": "Sperrliste",
-      "isEmptyList": "Es wurde keine einzige Person gefunden. Versuchen Sie, Ihre Filtereinstellungen zu ändern.",
+      "isEmptyBlockedList": "Die Liste ist leer",
       "userAgreement": "nutzungsvereinbarung",
       "privacyPolicyMain": "datenschutzrichtlinie",
       "publicOffer": "öffentliches Angebot",
@@ -31,6 +32,7 @@
       "isHiddenAge": "Alter nicht anzeigen",
       "accountFrozen": "Konto eingefroren",
       "accountDeleted": "Konto gelöscht",
+      "isEmptyList": "Es wurde keine einzige Person gefunden. Versuchen Sie, Ihre Filtereinstellungen zu ändern.",
       "appName": "Telegram dating",
       "getStarted": "Beginnen",
       "remember": "Denken Sie daran, dass Menschen im Internet so tun können, als wären sie andere.",
@@ -43,6 +45,8 @@
       "geoPositionExist": "Geolokalisierung bestimmt"
     },
     "actions": {
+      "no": "Nein",
+      "yes": "Ja",
       "register": "Registrieren",
       "save": "Speichern",
       "apply": "Anwenden",
@@ -52,8 +56,6 @@
       "editProfile": "Konto bearbeiten",
       "filter": "Filter",
       "block": "Block",
-      "no": "Nein",
-      "yes": "Ja",
       "complaint": "Melden und blockieren",
       "deleteProfile": "Konto löschen",
       "freezeProfile": "Konto einfrieren",

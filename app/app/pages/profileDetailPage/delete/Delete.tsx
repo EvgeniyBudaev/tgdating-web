@@ -40,7 +40,7 @@ const DeleteComponent: FC<TProps> = ({ lng, telegramUserId, theme }) => {
       });
       redirect(path);
     }
-  }, [lng, state?.data, state?.error, state.success, telegramUserId]);
+  }, [lng, state, telegramUserId]);
 
   const handleSubmit = (formData: FormData) => {
     if (isSession) {

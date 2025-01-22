@@ -1,6 +1,7 @@
 {
   "common": {
     "titles": {
+      "unblockQuestion": "Odblokovat svůj účet?",
       "accountBlocked": "Účet zablokován",
       "isEmptyUsername": "V Telegram/Nastavení/Uživatelské jméno není nastaveno jedinečné jméno. Nastavte prosím uživatelské jméno a zkuste se znovu přihlásit do aplikace. Aktualizace dat v telegramu může trvat několik minut",
       "editForm": "Editační formulář",
@@ -13,7 +14,7 @@
       "filtersGeneral": "Obecné filtry",
       "age": "Stáří",
       "blockedList": "Seznam blokovaných",
-      "isEmptyList": "Nebyl nalezen jediný člověk. Zkuste změnit nastavení filtru.",
+      "isEmptyBlockedList": "Seznam je prázdný",
       "userAgreement": "uživatelská smlouva",
       "privacyPolicyMain": "zásady ochrany osobních údajů",
       "publicOffer": "veřejná nabídka",
@@ -31,6 +32,7 @@
       "isHiddenAge": "Nezobrazovat věk",
       "accountFrozen": "Účet zmrazen",
       "accountDeleted": "Účet smazán",
+      "isEmptyList": "Nebyl nalezen jediný člověk. Zkuste změnit nastavení filtru.",
       "appName": "Telegramová seznamka",
       "getStarted": "Začít",
       "remember": "Pamatujte, že lidé mohou na internetu předstírat, že jsou jiní.",
@@ -43,6 +45,8 @@
       "geoPositionExist": "Určena geolokace"
     },
     "actions": {
+      "no": "Žádný",
+      "yes": "Ano",
       "register": "Rejstřík",
       "save": "Uložit",
       "apply": "Použít",
@@ -52,8 +56,6 @@
       "editProfile": "Upravit účet",
       "filter": "Filtr",
       "block": "Blok",
-      "no": "Žádný",
-      "yes": "Ano",
       "complaint": "Nahlásit a zablokovat",
       "deleteProfile": "Smazat účet",
       "freezeProfile": "Zmrazit účet",

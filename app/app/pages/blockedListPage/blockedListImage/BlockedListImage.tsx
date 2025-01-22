@@ -8,6 +8,7 @@ import { ELanguage } from "@/app/shared/enums";
 import { useModalWindow } from "@/app/uikit/components/modal";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./BlockedListImage.scss";
+import { UnblockModal } from "@/app/entities/modal/unblockModal";
 
 type TProps = {
   blockedTelegramUserId: string;
@@ -52,12 +53,21 @@ const BlockedListImageComponent: FC<TProps> = ({
       </div>
       {isBlur && (
         <PremiumModal
-          classes={{ modal: "BlockedListImage-PremiumModal" }}
+          classes={{ modal: "BlockedListImage-Modal" }}
           isOpenModal={isOpenModal}
           lng={lng}
           onCloseModal={closeModal}
           telegramUserId={telegramUserId}
           theme={theme}
+        />
+      )}
+      {!isBlur && (
+        <UnblockModal
+          blockedTelegramUserId={blockedTelegramUserId}
+          isOpenModal={isOpenModal}
+          lng={lng}
+          onCloseModal={closeModal}
+          telegramUserId={telegramUserId}
         />
       )}
     </>

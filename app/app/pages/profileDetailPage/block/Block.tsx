@@ -48,7 +48,7 @@ const BlockComponent: FC<TProps> = ({
       });
       redirect(path);
     }
-  }, [lng, state?.data, state?.error, state.success, telegramUserId]);
+  }, [lng, state, telegramUserId]);
 
   const handleSubmit = (formData: FormData) => {
     if (isSession && blockedTelegramUserId) {

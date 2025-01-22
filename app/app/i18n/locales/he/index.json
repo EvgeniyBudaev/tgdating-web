@@ -1,6 +1,7 @@
 {
   "common": {
     "titles": {
+      "unblockQuestion": "לבטל את חסימת החשבון שלך?",
       "accountBlocked": "החשבון נחסם",
       "isEmptyUsername": "שם ייחודי לא מוגדר בטלגרם/הגדרות/שם משתמש. אנא הגדר שם משתמש ונסה להיכנס שוב לאפליקציה. עדכון הנתונים בטלגרם עשוי להימשך מספר דקות",
       "editForm": "טופס עריכה",
@@ -13,7 +14,7 @@
       "filtersGeneral": "מסננים כלליים",
       "age": "גִיל",
       "blockedList": "רשימה חסומה",
-      "isEmptyList": "לא נמצא אדם אחד. נסה לשנות את הגדרות המסנן שלך.",
+      "isEmptyBlockedList": "הרשימה ריקה",
       "userAgreement": "הסכם משתמש",
       "privacyPolicyMain": "מדיניות פרטיות",
       "publicOffer": "הצעה לציבור",
@@ -31,6 +32,7 @@
       "isHiddenAge": "אל תראה גיל",
       "accountFrozen": "החשבון הוקפא",
       "accountDeleted": "החשבון נמחק",
+      "isEmptyList": "לא נמצא אדם אחד. נסה לשנות את הגדרות המסנן שלך.",
       "appName": "היכרויות בטלגרם",
       "getStarted": "לְהַתְחִיל",
       "remember": "זכור שאנשים יכולים להעמיד פנים שהם אחרים באינטרנט.",
@@ -43,6 +45,8 @@
       "geoPositionExist": "מיקום גיאוגרפי נקבע"
     },
     "actions": {
+      "no": "לֹא",
+      "yes": "כֵּן",
       "register": "לִרְשׁוֹם",
       "save": "לְהַצִיל",
       "apply": "לִפְנוֹת",
@@ -52,8 +56,6 @@
       "editProfile": "ערוך חשבון",
       "filter": "לְסַנֵן",
       "block": "לַחסוֹם",
-      "no": "לֹא",
-      "yes": "כֵּן",
       "complaint": "דווח וחסום",
       "deleteProfile": "מחק חשבון",
       "freezeProfile": "הקפאת חשבון",

@@ -1,6 +1,7 @@
 {
   "common": {
     "titles": {
+      "unblockQuestion": "Poistetaanko tilisi esto?",
       "accountBlocked": "Tili estetty",
       "isEmptyUsername": "Yksilöllistä nimeä ei ole asetettu kohdassa Telegram/Settings/Username. Aseta käyttäjätunnus ja yritä kirjautua sovellukseen uudelleen. Tietojen päivittäminen Telegramissa voi kestää useita minuutteja",
       "editForm": "Muokkauslomake",
@@ -13,7 +14,7 @@
       "filtersGeneral": "Yleiset suodattimet",
       "age": "Ikä",
       "blockedList": "Estetty lista",
-      "isEmptyList": "Yhtään henkilöä ei löytynyt. Yritä muuttaa suodatinasetuksiasi.",
+      "isEmptyBlockedList": "Lista on tyhjä",
       "userAgreement": "käyttösopimus",
       "privacyPolicyMain": "tietosuojakäytäntö",
       "publicOffer": "julkinen tarjous",
@@ -31,6 +32,7 @@
       "isHiddenAge": "Älä näytä ikää",
       "accountFrozen": "Tili jäädytetty",
       "accountDeleted": "Tili poistettu",
+      "isEmptyList": "Yhtään henkilöä ei löytynyt. Yritä muuttaa suodatinasetuksiasi.",
       "appName": "Telegram-treffit",
       "getStarted": "Alkaa",
       "remember": "Muista, että ihmiset voivat teeskennellä olevansa muita Internetissä.",
@@ -43,6 +45,8 @@
       "geoPositionExist": "Maantieteellinen sijainti määritetty"
     },
     "actions": {
+      "no": "Ei",
+      "yes": "Kyllä",
       "register": "Rekisteröidy",
       "save": "Tallentaa",
       "apply": "Käytä",
@@ -52,8 +56,6 @@
       "editProfile": "Muokkaa tiliä",
       "filter": "Suodattaa",
       "block": "Lohko",
-      "no": "Ei",
-      "yes": "Kyllä",
       "complaint": "Ilmoita ja blokkaa",
       "deleteProfile": "Poista tili",
       "freezeProfile": "Jäädyttää tili",

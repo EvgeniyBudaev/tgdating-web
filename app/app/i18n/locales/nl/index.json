@@ -1,6 +1,7 @@
 {
   "common": {
     "titles": {
+      "unblockQuestion": "Uw account deblokkeren?",
       "accountBlocked": "Account geblokkeerd",
       "isEmptyUsername": "Er is geen unieke naam ingesteld in Telegram/Instellingen/Gebruikersnaam. Stel een gebruikersnaam in en probeer opnieuw in te loggen op de applicatie. Het bijwerken van gegevens in Telegram kan enkele minuten duren",
       "editForm": "Formulier bewerken",
@@ -13,7 +14,7 @@
       "filtersGeneral": "Algemene filters",
       "age": "Leeftijd",
       "blockedList": "Geblokkeerde lijst",
-      "isEmptyList": "Er werd geen enkele persoon gevonden. Probeer uw filterinstellingen te wijzigen.",
+      "isEmptyBlockedList": "De lijst is leeg",
       "userAgreement": "gebruikersovereenkomst",
       "privacyPolicyMain": "privacybeleid",
       "publicOffer": "openbaar aanbod",
@@ -31,6 +32,7 @@
       "isHiddenAge": "Laat geen leeftijd zien",
       "accountFrozen": "Rekening bevroren",
       "accountDeleted": "Account verwijderd",
+      "isEmptyList": "Er werd geen enkele persoon gevonden. Probeer uw filterinstellingen te wijzigen.",
       "appName": "Telegram-datering",
       "getStarted": "Beginnen",
       "remember": "Houd er rekening mee dat mensen zich op internet kunnen voordoen als anderen.",
@@ -43,6 +45,8 @@
       "geoPositionExist": "Geolocatie bepaald"
     },
     "actions": {
+      "no": "Nee",
+      "yes": "Ja",
       "register": "Register",
       "save": "Redden",
       "apply": "Toepassen",
@@ -52,8 +56,6 @@
       "editProfile": "Account bewerken",
       "filter": "Filter",
       "block": "Blok",
-      "no": "Nee",
-      "yes": "Ja",
       "complaint": "Rapporteren en blokkeren",
       "deleteProfile": "Account verwijderen",
       "freezeProfile": "Account bevriezen",
