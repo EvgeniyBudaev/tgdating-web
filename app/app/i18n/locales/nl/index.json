@@ -30,6 +30,7 @@
       "freezeQuestion": "Uw account bevriezen?",
       "online": "Online",
       "isHiddenAge": "Laat geen leeftijd zien",
+      "interfaceLanguage": "Interfacetaal",
       "accountFrozen": "Rekening bevroren",
       "accountDeleted": "Account verwijderd",
       "isEmptyList": "Er werd geen enkele persoon gevonden. Probeer uw filterinstellingen te wijzigen.",
@@ -71,9 +72,9 @@
       "field": {
         "displayName": "Weergavenaam",
         "age": "Leeftijd",
-        "description": "Beschrijving",
         "gender": "Vloer",
-        "searchGender": "Geïnteresseerd"
+        "searchGender": "Geïnteresseerd",
+        "description": "Beschrijving"
       }
     },
     "reductions": {

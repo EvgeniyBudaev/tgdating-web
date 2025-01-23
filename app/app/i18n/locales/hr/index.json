@@ -30,6 +30,7 @@
       "freezeQuestion": "Zamrznuti račun?",
       "online": "Online",
       "isHiddenAge": "Ne pokazuj godine",
+      "interfaceLanguage": "Jezik sučelja",
       "accountFrozen": "Račun zamrznut",
       "accountDeleted": "Račun izbrisan",
       "isEmptyList": "Niti jedna osoba nije pronađena. Pokušajte promijeniti postavke filtra.",
@@ -71,9 +72,9 @@
       "field": {
         "displayName": "Ime za prikaz",
         "age": "Dob",
-        "description": "Opis",
         "gender": "Kat",
-        "searchGender": "Zainteresirani"
+        "searchGender": "Zainteresirani",
+        "description": "Opis"
       }
     },
     "reductions": {

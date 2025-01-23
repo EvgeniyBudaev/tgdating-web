@@ -58,7 +58,7 @@ const BlockedListPageComponent: FC<TProps> = ({
                   <BlockedListImage
                     blockedTelegramUserId={item.blockedTelegramUserId}
                     imageUrl={item.url}
-                    isBlur={false}
+                    isBlur={isBlur}
                     key={item.blockedTelegramUserId}
                     lng={lng}
                     telegramUserId={telegramUserId}

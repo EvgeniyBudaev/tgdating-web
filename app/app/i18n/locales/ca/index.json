@@ -30,6 +30,7 @@
       "freezeQuestion": "Vols congelar el teu compte?",
       "online": "En línia",
       "isHiddenAge": "No mostris l'edat",
+      "interfaceLanguage": "Llenguatge de la interfície",
       "accountFrozen": "Compte congelat",
       "accountDeleted": "Compte suprimit",
       "isEmptyList": "No es va trobar ni una sola persona. Proveu de canviar la configuració del filtre.",
@@ -71,9 +72,9 @@
       "field": {
         "displayName": "Nom de visualització",
         "age": "Edat",
-        "description": "Descripció",
         "gender": "Pis",
-        "searchGender": "Interessat"
+        "searchGender": "Interessat",
+        "description": "Descripció"
       }
     },
     "reductions": {

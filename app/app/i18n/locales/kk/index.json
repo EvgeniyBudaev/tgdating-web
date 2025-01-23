@@ -30,6 +30,7 @@
       "freezeQuestion": "Есептік жазбаңызды тоқтатасыз ба?",
       "online": "Онлайн",
       "isHiddenAge": "Жасыңызды көрсетпеңіз",
+      "interfaceLanguage": "Интерфейс тілі",
       "accountFrozen": "Есептік жазба жабылды",
       "accountDeleted": "Есептік жазба жойылды",
       "isEmptyList": "Бірде-бір адам табылмады. Сүзгі параметрлерін өзгертіп көріңіз.",
@@ -71,9 +72,9 @@
       "field": {
         "displayName": "Көрсетілетін атау",
         "age": "Жасы",
-        "description": "Сипаттама",
         "gender": "Еден",
-        "searchGender": "Қызықтырады"
+        "searchGender": "Қызықтырады",
+        "description": "Сипаттама"
       }
     },
     "reductions": {

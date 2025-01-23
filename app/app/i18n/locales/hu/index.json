@@ -30,6 +30,7 @@
       "freezeQuestion": "Lefagyasztjuk a fiókját?",
       "online": "Online",
       "isHiddenAge": "Ne mutasd az életkort",
+      "interfaceLanguage": "Interfész nyelve",
       "accountFrozen": "A fiók lefagyott",
       "accountDeleted": "Fiók törölve",
       "isEmptyList": "Egyetlen embert sem találtak. Próbálja meg módosítani a szűrő beállításait.",
@@ -71,9 +72,9 @@
       "field": {
         "displayName": "Megjelenítési név",
         "age": "Kor",
-        "description": "Leírás",
         "gender": "Emelet",
-        "searchGender": "Érdekelt"
+        "searchGender": "Érdekelt",
+        "description": "Leírás"
       }
     },
     "reductions": {

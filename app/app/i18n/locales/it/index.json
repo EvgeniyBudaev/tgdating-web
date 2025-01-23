@@ -30,6 +30,7 @@
       "freezeQuestion": "Congelare il tuo account?",
       "online": "In linea",
       "isHiddenAge": "Non mostrare l'età",
+      "interfaceLanguage": "Linguaggio dell'interfaccia",
       "accountFrozen": "Conto congelato",
       "accountDeleted": "Conto eliminato",
       "isEmptyList": "Non è stata trovata una sola persona. Prova a modificare le impostazioni del filtro.",
@@ -71,9 +72,9 @@
       "field": {
         "displayName": "Nome da visualizzare",
         "age": "Età",
-        "description": "Descrizione",
         "gender": "Pavimento",
-        "searchGender": "Interessato"
+        "searchGender": "Interessato",
+        "description": "Descrizione"
       }
     },
     "reductions": {

@@ -30,6 +30,7 @@
       "freezeQuestion": "Freeze account?",
       "online": "Online",
       "isHiddenAge": "Don't show age",
+      "interfaceLanguage": "Interface language",
       "accountFrozen": "Account frozen",
       "accountDeleted": "Account deleted",
       "isEmptyList": "No people found. Try changing your search settings.",
@@ -71,9 +72,9 @@
       "field": {
         "displayName": "Display name",
         "age": "Age",
-        "description": "Description",
         "gender": "Gender",
-        "searchGender": "Interest"
+        "searchGender": "Interest",
+        "description": "Description"
       }
     },
     "reductions": {

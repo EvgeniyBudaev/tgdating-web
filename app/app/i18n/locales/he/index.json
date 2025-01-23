@@ -30,6 +30,7 @@
       "freezeQuestion": "להקפיא את החשבון שלך?",
       "online": "באינטרנט",
       "isHiddenAge": "אל תראה גיל",
+      "interfaceLanguage": "שפת ממשק",
       "accountFrozen": "החשבון הוקפא",
       "accountDeleted": "החשבון נמחק",
       "isEmptyList": "לא נמצא אדם אחד. נסה לשנות את הגדרות המסנן שלך.",
@@ -71,9 +72,9 @@
       "field": {
         "displayName": "שם תצוגה",
         "age": "גִיל",
-        "description": "תֵאוּר",
         "gender": "קוֹמָה",
-        "searchGender": "מעוניין"
+        "searchGender": "מעוניין",
+        "description": "תֵאוּר"
       }
     },
     "reductions": {

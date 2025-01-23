@@ -8,7 +8,9 @@ import {
   type FC,
   memo,
   useActionState,
+  useCallback,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from "react";
@@ -16,6 +18,7 @@ import { EUpdateSettingsFormFields } from "@/app/actions/settings/update/enums";
 import { updateSettingsAction } from "@/app/actions/settings/update/updateSettingsAction";
 import type { TProfileDetail } from "@/app/api/profile/getProfileDetail/types";
 import { useTranslation } from "@/app/i18n/client";
+import { SidebarContent } from "@/app/shared/components/sidebarContent";
 import { SidebarContentControls } from "@/app/shared/components/sidebarContent/sidebarContentControls";
 import { SidebarContentHeader } from "@/app/shared/components/sidebarContent/sidebarContentHeader";
 import { SidebarContentList } from "@/app/shared/components/sidebarContent/sidebarContentList";
@@ -27,8 +30,10 @@ import {
 } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useTelegram } from "@/app/shared/hooks";
+import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
 import { createPath } from "@/app/shared/utils";
 import { CheckboxCustom } from "@/app/uikit/components/checkboxCustom";
+import { Select, TSelectOption } from "@/app/uikit/components/select";
 import { Sidebar } from "@/app/uikit/components/sidebar";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
@@ -62,7 +67,22 @@ const SettingsSidebarComponent: FC<TProps> = ({
   const [isHiddenAge, setIsHiddenAge] = useState(
     profile?.status?.isHiddenAge ?? false,
   );
+  const [isOpenSidebarLanguage, setIsOpenSidebarLanguage] = useState(false);
   const [isShowMessage, setIsShowMessage] = useState(false);
+
+  const languageDefault = useMemo(() => {
+    return LANGUAGE_MAPPING[lng].find((item) => item.value === lng);
+  }, [lng]);
+
+  const [languageState, setLanguageState] = useState<TSelectOption | undefined>(
+    languageDefault,
+  );
+
+  const languageSelected = useMemo(() => {
+    return LANGUAGE_MAPPING[lng].find(
+      (item) => item.value === languageState?.value,
+    );
+  }, [lng, languageState]);
 
   const [state, formAction] = useActionState(
     updateSettingsAction,
@@ -99,6 +119,21 @@ const SettingsSidebarComponent: FC<TProps> = ({
       });
     }
   }, [lng, state, telegramUserId]);
+
+  const handleOpenSidebarLanguage = useCallback(() => {
+    setIsOpenSidebarLanguage(true);
+  }, []);
+
+  const handleCloseSidebarLanguage = useCallback(() => {
+    setIsOpenSidebarLanguage(false);
+  }, []);
+
+  const handleChangeLanguage = (value?: TSelectOption) => {
+    if (value) {
+      value && setLanguageState(value);
+      handleCloseSidebarLanguage();
+    }
+  };
 
   const handleChangeHiddenAge = (value: boolean) => {
     if (profile?.status?.isPremium) {
@@ -169,6 +204,28 @@ const SettingsSidebarComponent: FC<TProps> = ({
                     <Typography>Доступно с Premium</Typography>
                   </Link>
                 )}
+              </SidebarContentListItem>
+              <SidebarContentListItem
+                className="SettingsSidebar-SidebarContentListItem"
+                theme={theme}
+              >
+                <Select
+                  isSidebarOpen={isOpenSidebarLanguage}
+                  label={t("common.titles.interfaceLanguage")}
+                  headerTitle={languageSelected.label}
+                  onHeaderClick={handleOpenSidebarLanguage}
+                  theme={theme}
+                >
+                  <SidebarContent
+                    onSave={handleChangeLanguage}
+                    options={LANGUAGE_MAPPING[lng]}
+                    onCloseSidebar={handleCloseSidebarLanguage}
+                    selectedItem={languageState}
+                    theme={theme}
+                    title={t("common.titles.interfaceLanguage")}
+                    titleButton={t("common.actions.apply")}
+                  />
+                </Select>
               </SidebarContentListItem>
             </SidebarContentList>
             <SidebarContentControls

@@ -30,6 +30,7 @@
       "freezeQuestion": "تجميد حسابك؟",
       "online": "متصل",
       "isHiddenAge": "لا تظهر العمر",
+      "interfaceLanguage": "لغة الواجهة",
       "accountFrozen": "الحساب مجمد",
       "accountDeleted": "تم حذف الحساب",
       "isEmptyList": "لم يتم العثور على شخص واحد. حاول تغيير إعدادات الفلتر.",
@@ -71,9 +72,9 @@
       "field": {
         "displayName": "اسم العرض",
         "age": "عمر",
-        "description": "وصف",
         "gender": "أرضية",
-        "searchGender": "مهتم"
+        "searchGender": "مهتم",
+        "description": "وصف"
       }
     },
     "reductions": {

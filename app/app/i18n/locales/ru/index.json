@@ -30,6 +30,7 @@
       "freezeQuestion": "Заморозить аккаунт?",
       "online": "В сети",
       "isHiddenAge": "Не показывать возраст",
+      "interfaceLanguage": "Язык интерфейса",
       "accountFrozen": "Аккаунт заморожен",
       "accountDeleted": "Аккаунт удален",
       "isEmptyList": "Не найдено ни одного человека. Попробуйте изменить настройки фильтра.",
@@ -71,9 +72,9 @@
       "field": {
         "displayName": "Имя для отображения",
         "age": "Возраст",
-        "description": "Описание",
         "gender": "Пол",
-        "searchGender": "Интересуют"
+        "searchGender": "Интересуют",
+        "description": "Описание"
       }
     },
     "reductions": {

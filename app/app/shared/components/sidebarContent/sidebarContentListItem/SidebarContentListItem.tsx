@@ -20,7 +20,7 @@ const SidebarContentListItemComponent: FC<TProps> = ({
 }) => {
   return (
     <div
-      className={clsx("SidebarContentListItem", className, {
+      className={clsx(className, "SidebarContentListItem", {
         ["theme-dark"]: theme === ETheme.Dark,
         ["SidebarContentListItem__isChecked"]: isChecked,
       })}

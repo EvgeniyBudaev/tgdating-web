@@ -30,6 +30,7 @@
       "freezeQuestion": "Konto einfrieren?",
       "online": "Online",
       "isHiddenAge": "Alter nicht anzeigen",
+      "interfaceLanguage": "Schnittstellensprache",
       "accountFrozen": "Konto eingefroren",
       "accountDeleted": "Konto gelöscht",
       "isEmptyList": "Es wurde keine einzige Person gefunden. Versuchen Sie, Ihre Filtereinstellungen zu ändern.",
@@ -71,9 +72,9 @@
       "field": {
         "displayName": "Anzeigename",
         "age": "Alter",
-        "description": "Beschreibung",
         "gender": "Boden",
-        "searchGender": "Interessiert"
+        "searchGender": "Interessiert",
+        "description": "Beschreibung"
       }
     },
     "reductions": {

@@ -1,3 +1,5 @@
+"use client";
+
 import clsx from "clsx";
 import isNil from "lodash/isNil";
 import {
@@ -27,6 +29,7 @@ import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage } from "@/app/shared/enums";
 import { useTelegram } from "@/app/shared/hooks";
+import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
 import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
 import { RangeSlider } from "@/app/uikit/components/rangeSlider";
 import { Select, TSelectOption } from "@/app/uikit/components/select";
@@ -168,7 +171,7 @@ const SearchFormSidebarComponent: FC<TProps> = ({
                 >
                   <SidebarContent
                     onSave={handleChangeSearchGender}
-                    options={SEARCH_GENDER_MAPPING[lng]}
+                    options={LANGUAGE_MAPPING[lng]}
                     onCloseSidebar={handleCloseSidebarSearchGender}
                     selectedItem={searchGenderState}
                     theme={theme}

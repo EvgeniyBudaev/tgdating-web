@@ -26,9 +26,9 @@ const ListTariffsComponent: FC<TProps> = ({
   const tariffFree = t("common.titles.premiumTariffFree");
   const priceMonth = "3$";
   const tariffMonth = t("common.titles.premiumTariffMonth");
-  const priceThreeMonths = "2$";
+  const priceThreeMonths = "6$";
   const tariffThreeMonths = t("common.titles.premiumTariffThreeMonths");
-  const priceYear = "1$";
+  const priceYear = "12$";
   const tariffYear = t("common.titles.premiumTariffYear");
   const titlePopular = t("common.titles.mostPopular");
 

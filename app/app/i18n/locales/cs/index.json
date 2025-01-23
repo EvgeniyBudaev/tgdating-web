@@ -30,6 +30,7 @@
       "freezeQuestion": "Zmrazit váš účet?",
       "online": "Online",
       "isHiddenAge": "Nezobrazovat věk",
+      "interfaceLanguage": "Jazyk rozhraní",
       "accountFrozen": "Účet zmrazen",
       "accountDeleted": "Účet smazán",
       "isEmptyList": "Nebyl nalezen jediný člověk. Zkuste změnit nastavení filtru.",
@@ -71,9 +72,9 @@
       "field": {
         "displayName": "Zobrazovaný název",
         "age": "Stáří",
-        "description": "Popis",
         "gender": "Patro",
-        "searchGender": "Zájem"
+        "searchGender": "Zájem",
+        "description": "Popis"
       }
     },
     "reductions": {

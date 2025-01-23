@@ -30,6 +30,7 @@
       "freezeQuestion": "Bekukan akun Anda?",
       "online": "On line",
       "isHiddenAge": "Jangan tunjukkan usia",
+      "interfaceLanguage": "Bahasa antarmuka",
       "accountFrozen": "Akun dibekukan",
       "accountDeleted": "Akun dihapus",
       "isEmptyList": "Tidak ada satu orang pun yang ditemukan. Coba ubah pengaturan filter Anda.",
@@ -71,9 +72,9 @@
       "field": {
         "displayName": "Nama tampilan",
         "age": "Usia",
-        "description": "Keterangan",
         "gender": "Lantai",
-        "searchGender": "Tertarik"
+        "searchGender": "Tertarik",
+        "description": "Keterangan"
       }
     },
     "reductions": {
