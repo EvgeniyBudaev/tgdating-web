@@ -9,10 +9,10 @@ import {
   useNavigatorContext,
 } from "./navigatorContext";
 import {
-  PremiumContext,
-  PremiumProvider,
-  usePremiumContext,
-} from "./premiumContext";
+  ShortInfoContext,
+  ShortInfoProvider,
+  useShortInfoContext,
+} from "./shortInfoContext";
 
 export {
   AuthenticityTokenContext,
@@ -21,7 +21,7 @@ export {
   NavigatorContext,
   NavigatorProvider,
   useNavigatorContext,
-  PremiumContext,
-  PremiumProvider,
-  usePremiumContext,
+  ShortInfoContext,
+  ShortInfoProvider,
+  useShortInfoContext,
 };

@@ -14,6 +14,7 @@ import { Button } from "@/app/uikit/components/button";
 import { Modal, useModalWindow } from "@/app/uikit/components/modal";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
+import { notification } from "@/app/uikit/utils";
 import "./Delete.scss";
 
 type TProps = {
@@ -39,6 +40,12 @@ const DeleteComponent: FC<TProps> = ({ lng, telegramUserId, theme }) => {
         lng: lng,
       });
       redirect(path);
+    }
+    if (!isNil(state?.error)) {
+      notification({
+        title: state?.error,
+        type: "error",
+      });
     }
   }, [lng, state, telegramUserId]);
 

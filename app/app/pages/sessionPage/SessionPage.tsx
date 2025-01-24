@@ -12,7 +12,7 @@ import { SearchForm } from "@/app/entities/search/searchForm";
 import { getDistance } from "@/app/pages/profileDetailPage/utils";
 import { SessionImage } from "@/app/pages/sessionPage/sessionImage";
 import { Container } from "@/app/shared/components/container";
-import { usePremiumContext } from "@/app/shared/context";
+import { useShortInfoContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
@@ -36,7 +36,7 @@ const SessionPageComponent: FC<TProps> = ({
   profileList,
   profileShortInfo,
 }) => {
-  const premium = usePremiumContext();
+  const shortInfo = useShortInfoContext();
   const { isSession, user, theme } = useTelegram();
   const { t } = useTranslation("index");
   const telegramUserId = (user?.id ?? "").toString();
@@ -90,7 +90,7 @@ const SessionPageComponent: FC<TProps> = ({
           <>
             <div className="SessionPage-List">
               {(profileList?.content ?? []).map((item, index) => {
-                const isBlurImage = index > 36 && !premium?.isPremium;
+                const isBlurImage = index > 36 && !shortInfo?.isPremium;
                 const distance = !isNil(item?.distance)
                   ? getDistance(item.distance, t)
                   : undefined;

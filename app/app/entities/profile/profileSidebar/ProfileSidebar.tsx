@@ -13,7 +13,7 @@ import { SidebarContentControls } from "@/app/shared/components/sidebarContent/s
 import { SidebarContentHeader } from "@/app/shared/components/sidebarContent/sidebarContentHeader";
 import { SidebarContentList } from "@/app/shared/components/sidebarContent/sidebarContentList";
 import { SidebarContentListItem } from "@/app/shared/components/sidebarContent/sidebarContentListItem";
-import { usePremiumContext } from "@/app/shared/context";
+import { useShortInfoContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { createPath } from "@/app/shared/utils";
 import { DateTime } from "@/app/uikit/components/dateTime";
@@ -46,7 +46,7 @@ const ProfileSidebarComponent = forwardRef(
     }: TProps,
     ref: ForwardedRef<HTMLDivElement>,
   ): JSX.Element => {
-    const premium = usePremiumContext();
+    const shortInfo = useShortInfoContext();
     const { t } = useTranslation("index");
     const cancelButtonTitle = t("common.actions.cancel");
     const optionsTitle = t("common.titles.options");
@@ -122,7 +122,7 @@ const ProfileSidebarComponent = forwardRef(
                     <div>
                       <Typography>{t("common.actions.buyPremium")}</Typography>
                     </div>
-                    {premium?.isPremium && (
+                    {shortInfo?.isPremium && (
                       <div className="ProfileSidebar-SubTitle">
                         <div>
                           <Typography>
@@ -132,7 +132,7 @@ const ProfileSidebarComponent = forwardRef(
                         <DateTime
                           className="ProfileSidebar-DateTime"
                           isUtc={false}
-                          value={premium?.availableUntil}
+                          value={shortInfo?.availableUntil}
                         />
                       </div>
                     )}

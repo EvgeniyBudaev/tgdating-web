@@ -11,12 +11,14 @@ import {
   useState,
 } from "react";
 import "react-toastify/dist/ReactToastify.css";
+import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/types";
 import { CheckLike } from "@/app/shared/components/сheckLike";
+import { CheckShortInfo } from "@/app/shared/components/checkShortInfo";
 import { Footer } from "@/app/shared/components/footer";
 import {
   AuthenticityTokenProvider,
   NavigatorProvider,
-  PremiumProvider,
+  ShortInfoProvider,
 } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useNavigator, useTelegram } from "@/app/shared/hooks";
@@ -24,8 +26,6 @@ import { createPath } from "@/app/shared/utils";
 import { ToastContainer } from "@/app/uikit/components/toast/toastContainer";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./Layout.scss";
-import { CheckPremium } from "@/app/shared/components/checkPremium";
-import type { TCheckPremium } from "@/app/api/payment/checkPremium/types";
 
 type TProps = {
   children?: ReactNode;
@@ -39,9 +39,9 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   const router = useRouter();
   const navigator = useNavigator({ lng });
   const { initDataCrypt, isSession, user, theme } = useTelegram();
-  const telegramLanguageCode = user?.language_code;
-  const [premium, setPremium] = useState<TCheckPremium>(null);
-  console.log("isPremium: ", premium?.isPremium);
+  const [shortInfo, setShortInfo] = useState<TProfileShortInfo>(null);
+  console.log("shortInfo: ", shortInfo);
+  const telegramLanguageCode = shortInfo.languageCode;
 
   useEffect(() => {
     if (telegramLanguageCode && telegramLanguageCode !== lng) {
@@ -99,14 +99,14 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
     );
   }, [lng, pathname, user]);
 
-  const handleCheckPremium = (premium: TCheckPremium) => {
-    setPremium(premium);
+  const handleCheckShortInfo = (shortInfo: TProfileShortInfo) => {
+    setShortInfo(shortInfo);
   };
 
   return (
     <AuthenticityTokenProvider value={csrfToken}>
       <NavigatorProvider value={navigator}>
-        <PremiumProvider value={premium}>
+        <ShortInfoProvider value={shortInfo}>
           <div
             className={clsx("fixed-background", {
               ["theme-dark"]: theme === ETheme.Dark,
@@ -117,7 +117,7 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
             <div className="Layout-Content">{children}</div>
             {isFooter && (
               <Footer
-                isPremium={premium?.isPremium}
+                isPremium={shortInfo?.isPremium}
                 isSession={isSession}
                 lng={lng}
                 theme={theme}
@@ -131,13 +131,13 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
             {/*  lng={lng}*/}
             {/*  telegramUserId={(user?.id ?? "").toString()}*/}
             {/*/>*/}
-            <CheckPremium
+            <CheckShortInfo
               isSession={isSession}
-              onLoad={handleCheckPremium}
+              onLoad={handleCheckShortInfo}
               telegramUserId={(user?.id ?? "").toString()}
             />
           </div>
-        </PremiumProvider>
+        </ShortInfoProvider>
       </NavigatorProvider>
     </AuthenticityTokenProvider>
   );

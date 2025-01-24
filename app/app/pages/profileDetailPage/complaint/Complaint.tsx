@@ -15,6 +15,7 @@ import { createPath } from "@/app/shared/utils";
 import { Button } from "@/app/uikit/components/button";
 import { Modal, useModalWindow } from "@/app/uikit/components/modal";
 import { Typography } from "@/app/uikit/components/typography";
+import { notification } from "@/app/uikit/utils";
 
 type TProps = {
   criminalTelegramUserId: string;
@@ -46,7 +47,13 @@ const ComplaintComponent: FC<TProps> = ({
       });
       redirect(path);
     }
-  }, [lng, state?.data, state?.error, state.success, telegramUserId]);
+    if (!isNil(state?.error)) {
+      notification({
+        title: state?.error,
+        type: "error",
+      });
+    }
+  }, [lng, state, telegramUserId]);
 
   const handleBlock = () => {
     openModal();

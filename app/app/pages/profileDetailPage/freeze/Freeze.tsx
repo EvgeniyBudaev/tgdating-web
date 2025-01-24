@@ -14,6 +14,7 @@ import { Button } from "@/app/uikit/components/button";
 import { Modal, useModalWindow } from "@/app/uikit/components/modal";
 import { ETheme } from "@/app/uikit/enums/theme";
 import { Typography } from "@/app/uikit/components/typography";
+import { notification } from "@/app/uikit/utils";
 import "./Freeze.scss";
 
 type TProps = {
@@ -42,7 +43,13 @@ const FreezeComponent: FC<TProps> = ({ lng, telegramUserId, theme }) => {
       });
       redirect(path);
     }
-  }, [lng, state]);
+    if (!isNil(state?.error)) {
+      notification({
+        title: state?.error,
+        type: "error",
+      });
+    }
+  }, [lng, state, telegramUserId]);
 
   const handleSubmit = (formData: FormData) => {
     if (isSession) {
