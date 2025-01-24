@@ -34,12 +34,8 @@ async function loaderProfileList(params: TLoader) {
         ...(searchParams?.longitude && { longitude: searchParams?.longitude }),
       };
       const profileListResponse = await getProfileList(query);
-      const profileShortInfoResponse = await getProfileShortInfo({
-        telegramUserId,
-      });
       return {
         profileList: profileListResponse,
-        profileShortInfo: profileShortInfoResponse,
         isExistUser: true,
         isManyRequest: false,
         isUnauthorized: false,
@@ -47,7 +43,6 @@ async function loaderProfileList(params: TLoader) {
     }
     return {
       profileList: undefined,
-      profileShortInfo: undefined,
       isExistUser: false,
       isManyRequest: false,
       isUnauthorized: false,
@@ -62,7 +57,6 @@ async function loaderProfileList(params: TLoader) {
     if (errorResponse?.status === 401) {
       return {
         profileList: undefined,
-        profileShortInfo: undefined,
         isExistUser: true,
         isManyRequest: false,
         isUnauthorized: true,
@@ -71,7 +65,6 @@ async function loaderProfileList(params: TLoader) {
     if (errorResponse?.status === 404) {
       return {
         profileList: undefined,
-        profileShortInfo: undefined,
         isExistUser: false,
         isManyRequest: false,
         isUnauthorized: false,
@@ -80,7 +73,6 @@ async function loaderProfileList(params: TLoader) {
     if (errorResponse?.status === 429) {
       return {
         profileList: undefined,
-        profileShortInfo: undefined,
         isExistUser: true,
         isManyRequest: true,
         isUnauthorized: false,
@@ -132,30 +124,12 @@ export default async function ProfileListRoute({
     );
   }
 
-  if (data?.profileShortInfo?.isFrozen) {
-    redirect(
-      createPath({
-        route: ERoutes.ProfileDeleted,
-        params: { telegramUserId: telegramUserId },
-      }),
-    );
-  }
-
-  if (data?.profileShortInfo?.isBlocked) {
-    redirect(
-      createPath({
-        route: ERoutes.ProfileBlocked,
-        params: { telegramUserId: telegramUserId },
-      }),
-    );
-  }
   return (
     <SessionPage
       isExistUser={data.isExistUser}
       isManyRequest={data.isManyRequest}
       lng={language}
       profileList={data?.profileList}
-      profileShortInfo={data?.profileShortInfo}
     />
   );
 }

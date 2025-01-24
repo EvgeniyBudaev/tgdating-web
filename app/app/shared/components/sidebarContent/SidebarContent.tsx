@@ -78,6 +78,7 @@ const SidebarContentComponent: FC<TProps> = ({
         </SidebarContentList>
       )}
       <SidebarContentControls
+        onCancel={onCloseSidebar}
         onClick={handleBack}
         theme={theme}
         title={titleButton}

@@ -6,7 +6,6 @@ import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
 import { type FC, memo, useEffect } from "react";
 import type { TProfileList } from "@/app/api/profile/getProfileList/types";
-import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/types";
 import { useTranslation } from "@/app/i18n/client";
 import { SearchForm } from "@/app/entities/search/searchForm";
 import { getDistance } from "@/app/pages/profileDetailPage/utils";
@@ -26,7 +25,6 @@ type TProps = {
   isManyRequest: boolean;
   lng: ELanguage;
   profileList?: TProfileList;
-  profileShortInfo?: TProfileShortInfo;
 };
 
 const SessionPageComponent: FC<TProps> = ({
@@ -34,7 +32,6 @@ const SessionPageComponent: FC<TProps> = ({
   isManyRequest,
   lng,
   profileList,
-  profileShortInfo,
 }) => {
   const shortInfo = useShortInfoContext();
   const { isSession, user, theme } = useTelegram();
@@ -51,10 +48,23 @@ const SessionPageComponent: FC<TProps> = ({
   }, [isManyRequest]);
 
   useEffect(() => {
-    if (
-      !isExistUser ||
-      (isSession && user?.id.toString() !== profileShortInfo?.telegramUserId)
-    ) {
+    if (shortInfo?.isFrozen) {
+      redirect(
+        createPath({
+          route: ERoutes.ProfileDeleted,
+          params: { telegramUserId: telegramUserId },
+        }),
+      );
+    }
+    if (shortInfo?.isBlocked) {
+      redirect(
+        createPath({
+          route: ERoutes.ProfileBlocked,
+          params: { telegramUserId: telegramUserId },
+        }),
+      );
+    }
+    if (!isExistUser) {
       return redirect(
         createPath({
           route: ERoutes.Started,
@@ -62,7 +72,7 @@ const SessionPageComponent: FC<TProps> = ({
         }),
       );
     }
-  }, [isSession, isExistUser, lng, profileShortInfo?.telegramUserId, user?.id]);
+  }, [isSession, isExistUser, lng, shortInfo, user?.id]);
 
   return (
     <div
@@ -70,12 +80,8 @@ const SessionPageComponent: FC<TProps> = ({
         ["theme-dark"]: theme === ETheme.Dark,
       })}
     >
-      {profileShortInfo && (
-        <SearchForm
-          lng={lng}
-          profileShortInfo={profileShortInfo}
-          theme={theme}
-        />
+      {shortInfo && (
+        <SearchForm lng={lng} profileShortInfo={shortInfo} theme={theme} />
       )}
       <div className="SessionPage-Inner">
         <div className="SessionPage-Background" />

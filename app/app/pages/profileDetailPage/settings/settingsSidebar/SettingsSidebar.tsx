@@ -29,7 +29,7 @@ import {
   useNavigatorContext,
 } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useTelegram } from "@/app/shared/hooks";
+import { useLanguage, useTelegram } from "@/app/shared/hooks";
 import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
 import { createPath } from "@/app/shared/utils";
 import { CheckboxCustom } from "@/app/uikit/components/checkboxCustom";
@@ -58,6 +58,8 @@ const SettingsSidebarComponent: FC<TProps> = ({
   theme,
 }) => {
   const csrf = useAuthenticityTokenContext();
+  const { language, onChangeLanguage } = useLanguage();
+  lng = language;
   const navigator = useNavigatorContext();
   const router = useRouter();
   const sidebarRef = useRef(null);
@@ -83,6 +85,10 @@ const SettingsSidebarComponent: FC<TProps> = ({
       (item) => item.value === languageState?.value,
     );
   }, [lng, languageState]);
+  console.log("language: ", language);
+  console.log("lng", lng);
+  console.log("languageState", languageState);
+  console.log("languageSelected", languageSelected);
 
   const [state, formAction] = useActionState(
     updateSettingsAction,
@@ -128,9 +134,10 @@ const SettingsSidebarComponent: FC<TProps> = ({
     setIsOpenSidebarLanguage(false);
   }, []);
 
-  const handleChangeLanguage = (value?: TSelectOption) => {
-    if (value) {
-      value && setLanguageState(value);
+  const handleChangeLanguage = async (option?: TSelectOption) => {
+    if (option) {
+      setLanguageState(option);
+      await onChangeLanguage(option.value as ELanguage);
       handleCloseSidebarLanguage();
     }
   };
@@ -218,7 +225,7 @@ const SettingsSidebarComponent: FC<TProps> = ({
                 >
                   <SidebarContent
                     onSave={handleChangeLanguage}
-                    options={LANGUAGE_MAPPING[lng]}
+                    options={LANGUAGE_MAPPING[languageState?.value]}
                     onCloseSidebar={handleCloseSidebarLanguage}
                     selectedItem={languageState}
                     theme={theme}

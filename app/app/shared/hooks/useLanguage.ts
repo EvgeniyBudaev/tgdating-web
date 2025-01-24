@@ -1,10 +1,11 @@
 import dayjs from "dayjs";
-import { useTranslation } from "react-i18next";
 import { useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { ELanguage } from "@/app/shared/enums";
 
 type TUseLanguage = () => {
-  onChangeLanguage: (locale: ELanguage) => void;
+  language: ELanguage;
+  onChangeLanguage: (locale: ELanguage) => Promise<void>;
 };
 
 export const useLanguage: TUseLanguage = () => {
@@ -19,6 +20,7 @@ export const useLanguage: TUseLanguage = () => {
   );
 
   return {
+    language: i18n.language as ELanguage,
     onChangeLanguage,
   };
 };

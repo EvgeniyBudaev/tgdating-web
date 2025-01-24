@@ -41,7 +41,7 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   const { initDataCrypt, isSession, user, theme } = useTelegram();
   const [shortInfo, setShortInfo] = useState<TProfileShortInfo>(null);
   console.log("shortInfo: ", shortInfo);
-  const telegramLanguageCode = shortInfo.languageCode;
+  const telegramLanguageCode = shortInfo?.languageCode ?? user?.language_code;
 
   useEffect(() => {
     if (telegramLanguageCode && telegramLanguageCode !== lng) {
