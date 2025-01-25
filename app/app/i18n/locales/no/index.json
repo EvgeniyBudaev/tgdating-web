@@ -1,0 +1,114 @@
+{
+  "common": {
+    "titles": {
+      "unblockQuestion": "Vil du oppheve blokkeringen av kontoen din?",
+      "accountBlocked": "Konto blokkert",
+      "isEmptyUsername": "Et unikt navn er ikke satt i Telegram/Innstillinger/Brukernavn. Angi et brukernavn og prøv å logge på applikasjonen igjen. Oppdatering av data i Telegram kan ta flere minutter",
+      "editForm": "Redigeringsskjema",
+      "registrationForm": "Registreringsskjema",
+      "publicPhotos": "Offentlige bilder",
+      "required": "nødvendig å fylle ut",
+      "changeable": "kan endres",
+      "interfaceLanguage": "Grensesnittspråk",
+      "options": "Alternativer",
+      "validityPeriod": "gyldighetsperiode",
+      "filtersGeneral": "Generelle filtre!",
+      "age": "Alder",
+      "blockedList": "Blokkert liste",
+      "isEmptyBlockedList": "Listen er tom",
+      "userAgreement": "brukeravtale",
+      "privacyPolicyMain": "personvernerklæring",
+      "publicOffer": "offentlig tilbud",
+      "premiumNow": "Premium nå!",
+      "premiumTariffFree": "14 dager Premium gratis",
+      "premiumTariffMonth": "1 måned Premium",
+      "premiumTariffThreeMonths": "3 måneder Premium",
+      "premiumTariffYear": "1 års Premium",
+      "mostPopular": "mest populære",
+      "blockQuestion": "Blokkere kontoen din?",
+      "complaintQuestion": "Blokkere kontoen din?",
+      "deleteQuestion": "Vil du slette kontoen?",
+      "freezeQuestion": "Fryse kontoen din?",
+      "online": "Online",
+      "isHiddenAge": "Ikke vis alder",
+      "accountFrozen": "Konto fryst",
+      "accountDeleted": "Konto slettet",
+      "isEmptyList": "Ikke en eneste person ble funnet. Prøv å endre filterinnstillingene.",
+      "appName": "Telegram dating",
+      "getStarted": "Begynne",
+      "remember": "Husk at folk kan late som om de er andre på Internett.",
+      "notRequestPersonal": "Boten ber ikke om personlige data og identifiserer ikke brukere som bruker noen dokumenter.",
+      "doYouFindLove": "Ønsker du å finne kjærlighet, nye venner eller bare enkel kommunikasjon?",
+      "byContinuing": "Ved å fortsette godtar du",
+      "and": "og",
+      "privacyPolicy": "personvernerklæring",
+      "isNewLike": "Det er sympati! Se i botchat",
+      "geoPositionExist": "Geolokalisering bestemt"
+    },
+    "actions": {
+      "no": "Ingen",
+      "yes": "Ja",
+      "register": "Register",
+      "save": "Spare",
+      "apply": "Søke",
+      "cancel": "Kansellere",
+      "buyPremium": "Kjøp Premium",
+      "blockedList": "Blokkert liste",
+      "editProfile": "Rediger konto",
+      "filter": "Filter",
+      "block": "Blokkere",
+      "complaint": "Rapporter og blokker",
+      "deleteProfile": "Slett konto",
+      "freezeProfile": "Frys konto",
+      "settings": "Innstillinger",
+      "restoreProfile": "Gjenopprett konto",
+      "main": "Hjem",
+      "profile": "Profil",
+      "back": "Tilbake",
+      "delete": "Slett",
+      "loading": "Laster"
+    },
+    "form": {
+      "field": {
+        "displayName": "Visningsnavn",
+        "age": "Alder",
+        "gender": "Gulv",
+        "searchGender": "Interessert",
+        "description": "Beskrivelse"
+      }
+    },
+    "reductions": {
+      "km": "km",
+      "m": "m"
+    },
+    "validation": {
+      "email": "E-post er feil",
+      "empty": "Feltet kan ikke være tomt",
+      "onlyLetters": "Gyldige tegn: kun bokstaver",
+      "passwordNotMatch": "Passord stemmer ikke",
+      "wrongCharacter": "Gyldige tegn: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
+      "file": {
+        "expectedFile": "Du kan bare legge ved en fil",
+        "maxSize": "Maksimal filstørrelse 50 Mb",
+        "maxAmount": "Maksimalt antall filer 3"
+      },
+      "invalidTypeNumber": "Må være et tall",
+      "nonNegativeNumber": "Tallet må være positivt",
+      "lessOrEqualMaxNumber": "Må være mindre enn eller lik {{max}}",
+      "maxSymbols": "Må ikke være mer enn {{max}} tegn",
+      "smallImage": "Bildet må ha en størrelse på minst 100 x 100 piksler"
+    }
+  },
+  "errorBoundary": {
+    "common": {
+      "manyRequest": "For mange forespørsler",
+      "unauthorized": "Ikke autorisert via Telegram-applikasjon",
+      "unexpectedError": "Det oppstod en uventet feil"
+    }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "Re-like vil være tilgjengelig i morgen"
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "common": {
+    "titles": {
+      "unblockQuestion": "Розблокувати обліковий запис?",
+      "accountBlocked": "Обліковий запис заблоковано",
+      "isEmptyUsername": "Не встановлено унікальне ім'я в Телеграм/Налаштування/Ім'я користувача. Будь ласка, встановіть ім'я користувача та повторіть спробу входу до програми. Оновлення даних у Телеграм може зайняти кілька хвилин",
+      "editForm": "Форма редагування",
+      "registrationForm": "Форма реєстрації",
+      "publicPhotos": "Публічне фото",
+      "required": "обов'язково до заповнення",
+      "changeable": "можна буде змінити",
+      "interfaceLanguage": "Мова інтерфейсу",
+      "options": "Опції",
+      "validityPeriod": "срок действия",
+      "filtersGeneral": "Загальні фільтри",
+      "age": "Вік",
+      "blockedList": "Список заблокованих",
+      "isEmptyBlockedList": "Список порожній",
+      "userAgreement": "користувальницька угода",
+      "privacyPolicyMain": "політика конфіденційності",
+      "publicOffer": "публічна оферта",
+      "premiumNow": "Premium зараз!",
+      "premiumTariffFree": "14 днів Premium безкоштовно",
+      "premiumTariffMonth": "1 місяць Premium",
+      "premiumTariffThreeMonths": "3 місяці Premium",
+      "premiumTariffYear": "1 рік Premium",
+      "mostPopular": "найпопулярніший",
+      "blockQuestion": "Заблокувати обліковий запис?",
+      "complaintQuestion": "Заблокувати обліковий запис?",
+      "deleteQuestion": "Видалити обліковий запис?",
+      "freezeQuestion": "Заморозити обліковий запис?",
+      "online": "У мережі",
+      "isHiddenAge": "Не показувати вік",
+      "accountFrozen": "Акаунт заморожено",
+      "accountDeleted": "Обліковий запис видалено",
+      "isEmptyList": "Не знайдено жодної людини. Спробуйте змінити параметри фільтра.",
+      "appName": "Telegram знайомства",
+      "getStarted": "Почати",
+      "remember": "Пам'ятайте, що в інтернеті люди можуть видавати себе за інших.",
+      "notRequestPersonal": "Робот не запитує особисті дані та не ідентифікує користувачів за будь-якими документами.",
+      "doYouFindLove": "Хочете знайти своє кохання, нових друзів чи просто легке спілкування?",
+      "byContinuing": "Продовжуючи, ви приймаєте",
+      "and": "і",
+      "privacyPolicy": "політику конфіденційності",
+      "isNewLike": "Є симпатія! Перегляд у чаті бота",
+      "geoPositionExist": "Геопозицію визначено"
+    },
+    "actions": {
+      "no": "Ні",
+      "yes": "Так",
+      "register": "Зареєструватись",
+      "save": "Зберегти",
+      "apply": "Застосувати",
+      "cancel": "Скасувати",
+      "buyPremium": "Придбати Premium",
+      "blockedList": "Список заблокованих",
+      "editProfile": "Редагувати обліковий запис",
+      "filter": "Фільтр",
+      "block": "Заблокувати",
+      "complaint": "Поскаржитись та заблокувати",
+      "deleteProfile": "Видалити обліковий запис",
+      "freezeProfile": "Заморозити обліковий запис",
+      "settings": "Налаштування",
+      "restoreProfile": "Відновити обліковий запис",
+      "main": "Головна",
+      "profile": "Профіль",
+      "back": "Назад",
+      "delete": "Видалити",
+      "loading": "Завантаження"
+    },
+    "form": {
+      "field": {
+        "displayName": "Ім'я для відображення",
+        "age": "Вік",
+        "gender": "Підлога",
+        "searchGender": "Цікавлять",
+        "description": "Описание"
+      }
+    },
+    "reductions": {
+      "km": "км",
+      "m": "м"
+    },
+    "validation": {
+      "email": "Email вказано неправильно",
+      "empty": "Поле не може бути порожнім",
+      "onlyLetters": "Допустимі символи: тільки літери",
+      "passwordNotMatch": "Паролі не збігаються",
+      "wrongCharacter": "Допустимі символи: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
+      "file": {
+        "expectedFile": "Прикріпити можна лише файл",
+        "maxSize": "Максимальний розмір файлу 50Mb",
+        "maxAmount": "Максимальна кількість файлів 3"
+      },
+      "invalidTypeNumber": "Має бути числом",
+      "nonNegativeNumber": "Число має бути позитивним",
+      "lessOrEqualMaxNumber": "Має бути менше або одно {{max}}",
+      "maxSymbols": "Має бути не більше {{max}} символів",
+      "smallImage": "Зображення повинно бути не менше 100 x 100 пікселів."
+    }
+  },
+  "errorBoundary": {
+    "common": {
+      "manyRequest": "Забагато запитів",
+      "unauthorized": "Не авторизовані через Telegram додаток",
+      "unexpectedError": "Сталася непередбачена помилка"
+    }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "Добавь сюда перевод!!!"
+    }
+  }
+}

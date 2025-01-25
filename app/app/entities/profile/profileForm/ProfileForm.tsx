@@ -40,6 +40,7 @@ import {
 import { ETheme } from "@/app/uikit/enums/theme";
 import { notification } from "@/app/uikit/utils";
 import "./ProfileForm.scss";
+import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
 
 type TProps = {
   isEdit?: boolean;
@@ -65,12 +66,14 @@ const ProfileFormComponent: FC<TProps> = ({
     isSidebarOpen,
     setIsSidebarOpen,
     language,
+    languageState,
     location,
     navigator,
     onAddFiles,
     onChangeAge,
     onChangeIsLeftHand,
     onChangeGender,
+    onChangeLanguage,
     onChangeSearchGender,
     onCloseSidebar,
     onDeleteFile,
@@ -258,8 +261,30 @@ const ProfileFormComponent: FC<TProps> = ({
                   onSave={onChangeSearchGender}
                   options={SEARCH_GENDER_MAPPING[language]}
                   selectedItem={searchGender}
+                  subLabel={`${t("common.titles.changeable")}`}
                   theme={theme}
                   title={t("common.form.field.searchGender")}
+                  titleButton={t("common.actions.apply")}
+                />
+              </Field>
+              <Field>
+                <Select
+                  headerTitle={
+                    !isNil(languageState) ? languageState?.label : "--"
+                  }
+                  isSidebarOpen={isSidebarOpen.isLanguage}
+                  label={t("common.titles.interfaceLanguage")}
+                  name={EProfileAddFormFields.TelegramLanguageCode}
+                  onCloseSidebar={onCloseSidebar}
+                  onHeaderClick={() =>
+                    setIsSidebarOpen((prev) => ({ ...prev, isLanguage: true }))
+                  }
+                  onSave={onChangeLanguage}
+                  options={LANGUAGE_MAPPING[language]}
+                  selectedItem={languageState}
+                  subLabel={`${t("common.titles.changeable")}`}
+                  theme={theme}
+                  title={t("common.titles.interfaceLanguage")}
                   titleButton={t("common.actions.apply")}
                 />
               </Field>

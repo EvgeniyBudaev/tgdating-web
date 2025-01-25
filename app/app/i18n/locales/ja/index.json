@@ -1,0 +1,114 @@
+{
+  "common": {
+    "titles": {
+      "unblockQuestion": "アカウントのブロックを解除しますか?",
+      "accountBlocked": "アカウントがブロックされました",
+      "isEmptyUsername": "Telegram/設定/ユーザー名に固有の名前が設定されていません。ユーザー名を設定し、アプリケーションへのログインを再試行してください。 Telegram のデータの更新には数分かかる場合があります",
+      "editForm": "フォームの編集",
+      "registrationForm": "登録フォーム",
+      "publicPhotos": "公開写真",
+      "required": "記入する必要があります",
+      "changeable": "変更できます",
+      "interfaceLanguage": "インターフェース言語",
+      "options": "オプション",
+      "validityPeriod": "срок действия",
+      "filtersGeneral": "一般的なフィルター",
+      "age": "年",
+      "blockedList": "ブロックリスト",
+      "isEmptyBlockedList": "リストは空です",
+      "userAgreement": "ユーザー同意書",
+      "privacyPolicyMain": "プライバシーポリシー",
+      "publicOffer": "公募",
+      "premiumNow": "今ならプレミアム！",
+      "premiumTariffFree": "14 日間プレミアム無料",
+      "premiumTariffMonth": "1ヶ月プレミアム",
+      "premiumTariffThreeMonths": "3ヶ月プレミアム",
+      "premiumTariffYear": "1年間のプレミアム",
+      "mostPopular": "最も人気のある",
+      "blockQuestion": "アカウントをブロックしますか?",
+      "complaintQuestion": "アカウントをブロックしますか?",
+      "deleteQuestion": "アカウントを削除しますか?",
+      "freezeQuestion": "アカウントを凍結しますか?",
+      "online": "オンライン",
+      "isHiddenAge": "年齢を表さない",
+      "accountFrozen": "アカウントが凍結されました",
+      "accountDeleted": "アカウントが削除されました",
+      "isEmptyList": "人は一人も見つかりませんでした。フィルター設定を変更してみてください。",
+      "appName": "電報デート",
+      "getStarted": "始める",
+      "remember": "インターネット上では他人になりすますことができることを忘れないでください。",
+      "notRequestPersonal": "ボットは個人データを要求せず、文書を使用してユーザーを識別することもありません。",
+      "doYouFindLove": "恋愛、新しい友達、それともただの簡単なコミュニケーションを見つけたいですか?",
+      "byContinuing": "続行すると同意します",
+      "and": "そして",
+      "privacyPolicy": "プライバシーポリシー",
+      "isNewLike": "共感があるよ！ボットチャットで表示",
+      "geoPositionExist": "地理位置情報が決定されました"
+    },
+    "actions": {
+      "no": "いいえ",
+      "yes": "はい",
+      "register": "登録する",
+      "save": "保存",
+      "apply": "適用する",
+      "cancel": "キャンセル",
+      "buyPremium": "プレミアムを購入する",
+      "blockedList": "ブロックリスト",
+      "editProfile": "アカウントの編集",
+      "filter": "フィルター",
+      "block": "ブロック",
+      "complaint": "報告してブロックする",
+      "deleteProfile": "アカウントを削除する",
+      "freezeProfile": "アカウントを凍結する",
+      "settings": "設定",
+      "restoreProfile": "アカウントを回復する",
+      "main": "家",
+      "profile": "プロフィール",
+      "back": "戻る",
+      "delete": "消去",
+      "loading": "読み込み中"
+    },
+    "form": {
+      "field": {
+        "displayName": "表示名",
+        "age": "年",
+        "gender": "床",
+        "searchGender": "興味がある",
+        "description": "説明"
+      }
+    },
+    "reductions": {
+      "km": "km",
+      "m": "m"
+    },
+    "validation": {
+      "email": "メールが間違っています",
+      "empty": "フィールドを空にすることはできません",
+      "onlyLetters": "有効な文字: 文字のみ",
+      "passwordNotMatch": "パスワードが一致しません",
+      "wrongCharacter": "有効な文字: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
+      "file": {
+        "expectedFile": "ファイルのみ添付可能です",
+        "maxSize": "最大ファイルサイズ 50Mb",
+        "maxAmount": "最大ファイル数 3"
+      },
+      "invalidTypeNumber": "数字でなければなりません",
+      "nonNegativeNumber": "数値は正でなければなりません",
+      "lessOrEqualMaxNumber": "{{max}}以下である必要があります",
+      "maxSymbols": "{{max}} 文字以下にしてください",
+      "smallImage": "画像のサイズは少なくとも 100 x 100 ピクセルである必要があります"
+    }
+  },
+  "errorBoundary": {
+    "common": {
+      "manyRequest": "リクエストが多すぎます",
+      "unauthorized": "Telegram アプリケーション経由では承認されていません",
+      "unexpectedError": "予期しないエラーが発生しました"
+    }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "明日から再いいねが可能になります"
+    }
+  }
+}

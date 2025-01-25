@@ -1,0 +1,114 @@
+{
+  "common": {
+    "titles": {
+      "unblockQuestion": "Avblockera ditt konto?",
+      "accountBlocked": "Kontot spärrat",
+      "isEmptyUsername": "Ett unikt namn anges inte i Telegram/Inställningar/Användarnamn. Vänligen ange ett användarnamn och försök att logga in på applikationen igen. Uppdatering av data i Telegram kan ta flera minuter",
+      "editForm": "Redigeringsformulär",
+      "registrationForm": "Anmälningsblankett",
+      "publicPhotos": "Offentliga foton",
+      "required": "krävs att fylla i",
+      "changeable": "kan ändras",
+      "interfaceLanguage": "Gränssnittsspråk",
+      "options": "Alternativ",
+      "validityPeriod": "срок действия",
+      "filtersGeneral": "Allmänna filter",
+      "age": "Åldras",
+      "blockedList": "Blockerad lista",
+      "isEmptyBlockedList": "Listan är tom",
+      "userAgreement": "användaravtal",
+      "privacyPolicyMain": "sekretesspolicy",
+      "publicOffer": "offentligt erbjudande",
+      "premiumNow": "Premium nu!",
+      "premiumTariffFree": "14 dagar Premium gratis",
+      "premiumTariffMonth": "1 månad Premium",
+      "premiumTariffThreeMonths": "3 månader Premium",
+      "premiumTariffYear": "1 år Premium",
+      "mostPopular": "mest populära",
+      "blockQuestion": "Blockera ditt konto?",
+      "complaintQuestion": "Blockera ditt konto?",
+      "deleteQuestion": "Ta bort konto?",
+      "freezeQuestion": "Frysa ditt konto?",
+      "online": "Online",
+      "isHiddenAge": "Visa inte ålder",
+      "accountFrozen": "Konto fryst",
+      "accountDeleted": "Kontot raderat",
+      "isEmptyList": "Inte en enda person hittades. Prova att ändra dina filterinställningar.",
+      "appName": "Telegramdejting",
+      "getStarted": "Börja",
+      "remember": "Kom ihåg att människor kan låtsas vara andra på Internet.",
+      "notRequestPersonal": "Boten begär inte personlig information och identifierar inte användare med några dokument.",
+      "doYouFindLove": "Vill du hitta kärlek, nya vänner eller bara enkel kommunikation?",
+      "byContinuing": "Genom att fortsätta accepterar du",
+      "and": "och",
+      "privacyPolicy": "sekretesspolicy",
+      "isNewLike": "Det finns sympati! Visa i botchatt",
+      "geoPositionExist": "Geolokalisering fastställd"
+    },
+    "actions": {
+      "no": "Inga",
+      "yes": "Ja",
+      "register": "Register",
+      "save": "Spara",
+      "apply": "Tillämpas",
+      "cancel": "Avboka",
+      "buyPremium": "Köp Premium",
+      "blockedList": "Blockerad lista",
+      "editProfile": "Redigera konto",
+      "filter": "Filtrera",
+      "block": "Blockera",
+      "complaint": "Rapportera och blockera",
+      "deleteProfile": "Ta bort konto",
+      "freezeProfile": "Frys konto",
+      "settings": "Inställningar",
+      "restoreProfile": "Återställ konto",
+      "main": "Hem",
+      "profile": "Profil",
+      "back": "Tillbaka",
+      "delete": "Radera",
+      "loading": "Belastning"
+    },
+    "form": {
+      "field": {
+        "displayName": "Visningsnamn",
+        "age": "Åldras",
+        "gender": "Golv",
+        "searchGender": "Intresserad",
+        "description": "Beskrivning"
+      }
+    },
+    "reductions": {
+      "km": "km",
+      "m": "m"
+    },
+    "validation": {
+      "email": "E-postadressen är felaktig",
+      "empty": "Fältet får inte vara tomt",
+      "onlyLetters": "Giltiga tecken: endast bokstäver",
+      "passwordNotMatch": "Lösenord matchar inte",
+      "wrongCharacter": "Giltiga tecken: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
+      "file": {
+        "expectedFile": "Du kan bara bifoga en fil",
+        "maxSize": "Maximal filstorlek 50Mb",
+        "maxAmount": "Maximalt antal filer 3"
+      },
+      "invalidTypeNumber": "Måste vara ett nummer",
+      "nonNegativeNumber": "Siffran måste vara positiv",
+      "lessOrEqualMaxNumber": "Måste vara mindre än eller lika med {{max}}",
+      "maxSymbols": "Får inte vara mer än {{max}} tecken",
+      "smallImage": "Bilden måste vara minst 100 x 100 pixlar stor"
+    }
+  },
+  "errorBoundary": {
+    "common": {
+      "manyRequest": "För många förfrågningar",
+      "unauthorized": "Ej auktoriserad via Telegram-applikation",
+      "unexpectedError": "Ett oväntat fel inträffade"
+    }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "Re-like kommer att finnas tillgänglig imorgon"
+    }
+  }
+}

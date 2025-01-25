@@ -9,6 +9,7 @@
       "publicPhotos": "Публичные фото",
       "required": "обязательно к заполнению",
       "changeable": "можно будет изменить",
+      "interfaceLanguage": "Язык интерфейса",
       "options": "Опции",
       "validityPeriod": "срок действия",
       "filtersGeneral": "Общие фильтры",
@@ -30,7 +31,6 @@
       "freezeQuestion": "Заморозить аккаунт?",
       "online": "В сети",
       "isHiddenAge": "Не показывать возраст",
-      "interfaceLanguage": "Язык интерфейса",
       "accountFrozen": "Аккаунт заморожен",
       "accountDeleted": "Аккаунт удален",
       "isEmptyList": "Не найдено ни одного человека. Попробуйте изменить настройки фильтра.",
@@ -108,7 +108,7 @@
   },
   "pages": {
     "profile": {
-      "doubleLike": "Повторный лайк будет доступен завтра"
+      "doubleLike": "Повторний лайк буде доступний завтра"
     }
   }
 }

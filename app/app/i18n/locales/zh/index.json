@@ -1,0 +1,114 @@
+{
+  "common": {
+    "titles": {
+      "unblockQuestion": "解锁您的帐户吗？",
+      "accountBlocked": "帐户被封锁",
+      "isEmptyUsername": "电报/设置/用户名中未设置唯一名称。请设置用户名并尝试再次登录该应用程序。在 Telegram 中更新数据可能需要几分钟",
+      "editForm": "编辑表格",
+      "registrationForm": "登记表",
+      "publicPhotos": "公开照片",
+      "required": "需要填写",
+      "changeable": "可以改变",
+      "interfaceLanguage": "界面语言",
+      "options": "选项",
+      "validityPeriod": "有效期",
+      "filtersGeneral": "通用过滤器",
+      "age": "年龄",
+      "blockedList": "阻止列表",
+      "isEmptyBlockedList": "列表为空",
+      "userAgreement": "用户协议",
+      "privacyPolicyMain": "隐私政策",
+      "publicOffer": "公开发售",
+      "premiumNow": "现在溢价！",
+      "premiumTariffFree": "14 天免费高级版",
+      "premiumTariffMonth": "1 个月高级版",
+      "premiumTariffThreeMonths": "3个月保费",
+      "premiumTariffYear": "1 年保费",
+      "mostPopular": "最受欢迎",
+      "blockQuestion": "封锁你的账户？",
+      "complaintQuestion": "封锁你的账户？",
+      "deleteQuestion": "删除帐户？",
+      "freezeQuestion": "冻结你的账户？",
+      "online": "在线的",
+      "isHiddenAge": "不暴露年龄",
+      "accountFrozen": "账户被冻结",
+      "accountDeleted": "帐户已删除",
+      "isEmptyList": "没有找到一个人。尝试更改您的过滤器设置。",
+      "appName": "电报约会",
+      "getStarted": "开始",
+      "remember": "请记住，人们可以冒充互联网上的其他人。",
+      "notRequestPersonal": "该机器人不会请求个人数据，也不会使用任何文档来识别用户。",
+      "doYouFindLove": "您想寻找爱情、新朋友还是只是简单的沟通？",
+      "byContinuing": "继续即表示您接受",
+      "and": "和",
+      "privacyPolicy": "隐私政策",
+      "isNewLike": "有同情心！在机器人聊天中查看",
+      "geoPositionExist": "地理位置确定"
+    },
+    "actions": {
+      "no": "不",
+      "yes": "是的",
+      "register": "登记",
+      "save": "节省",
+      "apply": "申请",
+      "cancel": "取消",
+      "buyPremium": "购买溢价",
+      "blockedList": "阻止列表",
+      "editProfile": "编辑帐户",
+      "filter": "筛选",
+      "block": "堵塞",
+      "complaint": "举报并屏蔽",
+      "deleteProfile": "删除帐户",
+      "freezeProfile": "冻结账户",
+      "settings": "设置",
+      "restoreProfile": "恢复帐户",
+      "main": "家",
+      "profile": "轮廓",
+      "back": "后退",
+      "delete": "删除",
+      "loading": "加载中"
+    },
+    "form": {
+      "field": {
+        "displayName": "显示名称",
+        "age": "年龄",
+        "gender": "地面",
+        "searchGender": "感兴趣的",
+        "description": "描述"
+      }
+    },
+    "reductions": {
+      "km": "km",
+      "m": "m"
+    },
+    "validation": {
+      "email": "电子邮件不正确",
+      "empty": "字段不能为空",
+      "onlyLetters": "有效字符：仅限字母",
+      "passwordNotMatch": "密码不匹配",
+      "wrongCharacter": "有效字符： 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
+      "file": {
+        "expectedFile": "您只能附加一个文件",
+        "maxSize": "最大文件大小 50Mb",
+        "maxAmount": "最大文件数 3"
+      },
+      "invalidTypeNumber": "必须是一个数字",
+      "nonNegativeNumber": "数字必须为正数",
+      "lessOrEqualMaxNumber": "必须小于或等于 {{max}}",
+      "maxSymbols": "不得超过 {{max}} 个字符",
+      "smallImage": "图像大小必须至少为 100 x 100 像素"
+    }
+  },
+  "errorBoundary": {
+    "common": {
+      "manyRequest": "请求太多",
+      "unauthorized": "未通过 Telegram 应用程序授权",
+      "unexpectedError": "发生意外错误"
+    }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "明天即可重新点赞"
+    }
+  }
+}

@@ -9,6 +9,7 @@
       "publicPhotos": "공개 사진",
       "required": "작성하는 데 필요한",
       "changeable": "변경될 수 있다",
+      "interfaceLanguage": "인터페이스 언어",
       "options": "옵션",
       "validityPeriod": "유효기간",
       "filtersGeneral": "일반 필터",
@@ -30,7 +31,6 @@
       "freezeQuestion": "계정을 동결하시겠습니까?",
       "online": "온라인",
       "isHiddenAge": "나이를 표시하지 마세요",
-      "interfaceLanguage": "인터페이스 언어",
       "accountFrozen": "계정이 동결되었습니다",
       "accountDeleted": "계정이 삭제되었습니다",
       "isEmptyList": "한 사람도 발견되지 않았습니다. 필터 설정을 변경해 보세요.",
@@ -78,8 +78,8 @@
       }
     },
     "reductions": {
-      "km": "킬로미터",
-      "m": "중"
+      "km": "km",
+      "m": "m"
     },
     "validation": {
       "email": "이메일이 잘못되었습니다",

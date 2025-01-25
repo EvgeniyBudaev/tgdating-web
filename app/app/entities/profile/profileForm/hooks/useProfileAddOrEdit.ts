@@ -3,7 +3,7 @@
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
 import { redirect } from "next/navigation";
-import { useEffect, useState, useActionState } from "react";
+import { useEffect, useState, useActionState, useMemo } from "react";
 import { addProfileAction } from "@/app/actions/profile/addProfile/addProfileAction";
 import { editProfileAction } from "@/app/actions/profile/editProfile/editProfileAction";
 import type { TProfile } from "@/app/api/profile/getProfile/types";
@@ -14,7 +14,7 @@ import { scrollToFirstErrorField } from "@/app/shared/components/form/form/utils
 import {
   DEFAULT_AGE_FROM,
   DEFAULT_AGE_TO,
-  DEFAULT_DISTANCE,
+  DEFAULT_DISTANCE, DEFAULT_LANGUAGE,
   DEFAULT_PAGE,
   DEFAULT_PAGE_SIZE,
 } from "@/app/shared/constants";
@@ -35,6 +35,7 @@ import { createPath } from "@/app/shared/utils";
 import type { TSelectOption } from "@/app/uikit/components/select";
 import { DEFAULT_AGE } from "@/app/uikit/constants";
 import { ETheme } from "@/app/uikit/enums/theme";
+import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
 
 type TProps = {
   isEdit?: boolean;
@@ -51,28 +52,42 @@ type TUseProfileEditResponse = {
   gender: TSelectOption | undefined;
   isEdit: boolean;
   isLeftHand: boolean;
-  isSidebarOpen: { isAge: boolean; isGender: boolean; isSearchGender: boolean };
+  isSidebarOpen: {
+    isAge: boolean;
+    isGender: boolean;
+    isLanguage: boolean;
+    isSearchGender: boolean;
+  };
   setIsSidebarOpen: (
     value:
       | ((prevState: {
           isAge: boolean;
           isGender: boolean;
+          isLanguage: boolean;
           isSearchGender: boolean;
         }) => {
           isAge: boolean;
           isGender: boolean;
+          isLanguage: boolean;
           isSearchGender: boolean;
         })
-      | { isAge: boolean; isGender: boolean; isSearchGender: boolean },
+      | {
+          isAge: boolean;
+          isGender: boolean;
+          isLanguage: boolean;
+          isSearchGender: boolean;
+        },
   ) => void;
   language: ELanguage;
+  languageState: TSelectOption | undefined;
   location: string | undefined;
   navigator: TUseNavigatorResponse | null;
   onAddFiles: ((acceptedFiles: TFile[], files: TFile[]) => void) | undefined;
-  onChangeAge(value?: TSelectOption): void;
+  onChangeAge(option?: TSelectOption): void;
   onChangeIsLeftHand?: (value: boolean) => void;
-  onChangeGender(value?: TSelectOption): void;
-  onChangeSearchGender(value?: TSelectOption): void;
+  onChangeGender(option?: TSelectOption): void;
+  onChangeLanguage(option?: TSelectOption): Promise<void>;
+  onChangeSearchGender(option?: TSelectOption): void;
   onCloseSidebar(): void;
   onDeleteFile(file: TFile, files: TFile[]): void;
   onSubmit(formData: FormData): void;
@@ -130,9 +145,20 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   const [searchGender, setSearchGender] = useState<TSelectOption | undefined>(
     searchGenderDefault,
   );
+  const languageDefault: TSelectOption | undefined = useMemo(() => {
+    return LANGUAGE_MAPPING[lng].find((item: {label: string; value: string;}) => {
+      return item.value === lng;
+    });
+  }, [lng]);
+  const [languageState, setLanguageState] = useState<TSelectOption | undefined>(
+    languageDefault,
+  );
+  console.log("languageDefault: ", languageDefault);
+  console.log("languageState: ", languageState);
   const [isSidebarOpen, setIsSidebarOpen] = useState({
     isAge: false,
     isGender: false,
+    isLanguage: false,
     isSearchGender: false,
   });
   const [files, setFiles] = useState<TFile[] | null>(null);
@@ -189,6 +215,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
           ? { longitude: navigator.longitude.toString() }
           : {}),
       };
+      const lang = languageState?.value ?? lng;
       const path = createPath(
         {
           route: ERoutes.ProfileDetail,
@@ -196,7 +223,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
             telegramUserId: user?.id.toString() ?? "",
             viewedTelegramUserId: state.data.telegramUserId,
           },
-          lng: lng,
+          lng: lang.toString(),
         },
         query,
       );
@@ -205,6 +232,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   }, [
     isEdit,
     lng,
+    languageState,
     navigator?.latitude,
     navigator?.longitude,
     user,
@@ -215,10 +243,11 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   // Profile Add
   useEffect(() => {
     if (!isEdit && !isNil(state?.data) && state.success && !state?.error) {
+      const lang = languageState?.value ?? lng;
       const path = createPath({
         route: ERoutes.Telegram,
         params: { telegramUserId: (user?.id ?? "").toString() },
-        lng: lng,
+        lng: lang.toString(),
       });
       redirect(path);
     }
@@ -238,27 +267,35 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     setIsSidebarOpen({
       isAge: false,
       isGender: false,
+      isLanguage: false,
       isSearchGender: false,
     });
   };
 
-  const handleChangeAge = (value?: TSelectOption) => {
-    if (value) {
-      value && setAge(value);
+  const handleChangeAge = (option?: TSelectOption) => {
+    if (option) {
+      setAge(option);
       handleCloseSidebar();
     }
   };
 
-  const handleChangeGender = (value?: TSelectOption) => {
-    if (value) {
-      value && setGender(value);
+  const handleChangeGender = (option?: TSelectOption) => {
+    if (option) {
+      setGender(option);
       handleCloseSidebar();
     }
   };
 
-  const handleChangeSearchGender = (value?: TSelectOption) => {
-    if (value) {
-      value && setSearchGender(value);
+  const handleChangeSearchGender = (option?: TSelectOption) => {
+    if (option) {
+      setSearchGender(option);
+      handleCloseSidebar();
+    }
+  };
+
+  const handleChangeLanguage = async (option?: TSelectOption) => {
+    if (option) {
+      setLanguageState(option);
       handleCloseSidebar();
     }
   };
@@ -318,9 +355,11 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       user?.last_name ?? "",
     );
     formDataDto.append(EProfileAddFormFields.TelegramQueryId, queryId ?? "");
+    const lang = languageState?.value ?? lng;
     formDataDto.append(
       EProfileAddFormFields.TelegramLanguageCode,
-      user?.language_code ?? "ru",
+      //user?.language_code ?? "ru",
+      lang.toString()
     );
     formDataDto.append(
       EProfileAddFormFields.TelegramAllowsWriteToPm,
@@ -364,12 +403,14 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     isSidebarOpen,
     setIsSidebarOpen,
     language,
+    languageState,
     location,
     navigator,
     onAddFiles,
     onChangeAge: handleChangeAge,
     onChangeIsLeftHand: handleChangeIsLeftHand,
     onChangeGender: handleChangeGender,
+    onChangeLanguage: handleChangeLanguage,
     onChangeSearchGender: handleChangeSearchGender,
     onCloseSidebar: handleCloseSidebar,
     onDeleteFile: handleDeleteFile,

@@ -50,7 +50,7 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
         `/${telegramLanguageCode}`,
       );
       const url = `${updatedPathname}?${searchParams}`;
-      router.push(telegramLanguageCode);
+      //router.replace(telegramLanguageCode);
     }
   }, [telegramLanguageCode]);
 

@@ -1,0 +1,114 @@
+{
+  "common": {
+    "titles": {
+      "unblockQuestion": "Desbloquear sua conta?",
+      "accountBlocked": "Conta bloqueada",
+      "isEmptyUsername": "Um nome exclusivo não está definido em Telegram/Configurações/Nome de usuário. Defina um nome de usuário e tente fazer login no aplicativo novamente. A atualização de dados no Telegram pode levar vários minutos",
+      "editForm": "Editando formulário",
+      "registrationForm": "Formulário de inscrição",
+      "publicPhotos": "Fotos públicas",
+      "required": "obrigado a preencher",
+      "changeable": "pode ser alterado",
+      "interfaceLanguage": "Idioma da interface",
+      "options": "Opções",
+      "validityPeriod": "período de validade",
+      "filtersGeneral": "Filtros gerais",
+      "age": "Idade",
+      "blockedList": "Lista bloqueada",
+      "isEmptyBlockedList": "A lista está vazia",
+      "userAgreement": "acordo do usuário",
+      "privacyPolicyMain": "política de privacidade",
+      "publicOffer": "oferta pública",
+      "premiumNow": "Prêmio agora!",
+      "premiumTariffFree": "14 dias Premium grátis",
+      "premiumTariffMonth": "1 mês Premium",
+      "premiumTariffThreeMonths": "3 meses Premium",
+      "premiumTariffYear": "Prêmio de 1 ano",
+      "mostPopular": "mais popular",
+      "blockQuestion": "Bloquear sua conta?",
+      "complaintQuestion": "Bloquear sua conta?",
+      "deleteQuestion": "Excluir conta?",
+      "freezeQuestion": "Congelar sua conta?",
+      "online": "On-line",
+      "isHiddenAge": "Não mostre a idade",
+      "accountFrozen": "Conta congelada",
+      "accountDeleted": "Conta excluída",
+      "isEmptyList": "Nem uma única pessoa foi encontrada. Tente alterar as configurações do filtro.",
+      "appName": "Namoro por telegrama",
+      "getStarted": "Começar",
+      "remember": "Lembre-se de que as pessoas podem fingir ser outras na Internet.",
+      "notRequestPersonal": "O bot não solicita dados pessoais e não identifica usuários por meio de nenhum documento.",
+      "doYouFindLove": "Você quer encontrar o amor, novos amigos ou apenas uma comunicação fácil?",
+      "byContinuing": "Ao continuar você aceita",
+      "and": "e",
+      "privacyPolicy": "política de privacidade",
+      "isNewLike": "Existe simpatia! Ver no chat do bot",
+      "geoPositionExist": "Geolocalização determinada"
+    },
+    "actions": {
+      "no": "Não",
+      "yes": "Sim",
+      "register": "Cadastre-se",
+      "save": "Salvar",
+      "apply": "Aplicar",
+      "cancel": "Cancelar",
+      "buyPremium": "Comprar Premium",
+      "blockedList": "Lista bloqueada",
+      "editProfile": "Editar conta",
+      "filter": "Filtro",
+      "block": "Bloquear",
+      "complaint": "Denunciar e bloquear",
+      "deleteProfile": "Excluir conta",
+      "freezeProfile": "Congelar conta",
+      "settings": "Configurações",
+      "restoreProfile": "Recuperar conta",
+      "main": "Lar",
+      "profile": "Perfil",
+      "back": "Voltar",
+      "delete": "Excluir",
+      "loading": "Carregando"
+    },
+    "form": {
+      "field": {
+        "displayName": "Nome de exibição",
+        "age": "Idade",
+        "gender": "Chão",
+        "searchGender": "Interessado",
+        "description": "Descrição"
+      }
+    },
+    "reductions": {
+      "km": "km",
+      "m": "m"
+    },
+    "validation": {
+      "email": "O e-mail está incorreto",
+      "empty": "O campo não pode ficar vazio",
+      "onlyLetters": "Caracteres válidos: apenas letras",
+      "passwordNotMatch": "As senhas não coincidem",
+      "wrongCharacter": "Caracteres válidos: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
+      "file": {
+        "expectedFile": "Você só pode anexar um arquivo",
+        "maxSize": "Tamanho máximo do arquivo 50 MB",
+        "maxAmount": "Número máximo de arquivos 3"
+      },
+      "invalidTypeNumber": "Deve ser um número",
+      "nonNegativeNumber": "O número deve ser positivo",
+      "lessOrEqualMaxNumber": "Deve ser menor ou igual a {{max}}",
+      "maxSymbols": "Não deve ter mais do que {{max}} caracteres",
+      "smallImage": "A imagem deve ter pelo menos 100 x 100 pixels de tamanho"
+    }
+  },
+  "errorBoundary": {
+    "common": {
+      "manyRequest": "Muitos pedidos",
+      "unauthorized": "Não autorizado via aplicativo Telegram",
+      "unexpectedError": "Ocorreu um erro inesperado"
+    }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "Re-like estará disponível amanhã"
+    }
+  }
+}

@@ -9,6 +9,7 @@ export const languages = [
   "ca",
   "cs",
   "de",
+  "es",
   "fi",
   "fr",
   "he",
@@ -16,9 +17,15 @@ export const languages = [
   "hu",
   "id",
   "it",
+  "ja",
   "kk",
   "ko",
   "nl",
+  "no",
+  "pt",
+  "sv",
+  "uk",
+  "zh",
 ];
 export const cookieName = "i18next";
 export const defaultNS = "index";
