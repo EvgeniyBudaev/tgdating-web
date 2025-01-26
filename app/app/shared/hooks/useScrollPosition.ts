@@ -1,14 +1,29 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 export const useScrollPosition = () => {
   const pathname = usePathname();
+  const [hasScroll, setHasScroll] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (document.body.scrollTop > 0) {
+        setHasScroll(true);
+      } else {
+        setHasScroll(false);
+      }
+    };
+    document.body.addEventListener("scroll", handleScroll);
+    return () => {
+      document.body.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useLayoutEffect(() => {
     restoreScrollPosition();
-    return () => saveScrollPosition();
+    //return () => saveScrollPosition();
   }, [pathname]);
 
   const saveScrollPosition = () => {
@@ -25,5 +40,11 @@ export const useScrollPosition = () => {
     }
   };
 
-  return {};
+  const getScrollPosition = () => {
+    return sessionStorage.getItem("tg_scrollPosition");
+  };
+
+  const scrollUp = () => document.body.scrollTo(0, 0);
+
+  return { saveScrollPosition, hasScroll, scrollUp };
 };

@@ -138,6 +138,12 @@ const searchGenderOptionsUk = [
   { label: "дівчата", value: ESearchGender.Woman },
 ];
 
+const searchGenderOptionsZh = [
+  { label: "全部", value: ESearchGender.All },
+  { label: "伙计们", value: ESearchGender.Man },
+  { label: "女孩们", value: ESearchGender.Woman },
+];
+
 export const SEARCH_GENDER_MAPPING = {
   [ELanguage.Ru]: searchGenderOptionsRu,
   [ELanguage.En]: searchGenderOptionsEn,
@@ -157,11 +163,12 @@ export const SEARCH_GENDER_MAPPING = {
   [ELanguage.Ja]: searchGenderOptionsJa,
   [ELanguage.Kk]: searchGenderOptionsKk,
   [ELanguage.Ko]: searchGenderOptionsKo,
-  [ELanguage.Ko]: searchGenderOptionsKo,
+  [ELanguage.Nl]: searchGenderOptionsNl,
   [ELanguage.No]: searchGenderOptionsNo,
   [ELanguage.Pt]: searchGenderOptionsPt,
   [ELanguage.Sv]: searchGenderOptionsSv,
   [ELanguage.Uk]: searchGenderOptionsUk,
+  [ELanguage.Zh]: searchGenderOptionsZh,
 };
 
 const searchBarSearchGenderOptionsRu = [

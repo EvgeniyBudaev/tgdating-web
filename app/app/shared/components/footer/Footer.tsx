@@ -9,6 +9,7 @@ import { useNavigatorContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import type { TTelegramUser } from "@/app/shared/hooks/useTelegram";
 import { createPath } from "@/app/shared/utils";
+import { useScrollPosition } from "@/app/shared/hooks";
 import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
@@ -32,6 +33,7 @@ const FooterComponent: FC<TProps> = ({
   const navigator = useNavigatorContext();
   const router = useRouter();
   const pathname = usePathname();
+  const { hasScroll, saveScrollPosition, scrollUp } = useScrollPosition();
   const { t } = useTranslation("index");
 
   const pathOptions = useMemo(() => {
@@ -88,6 +90,15 @@ const FooterComponent: FC<TProps> = ({
     };
   }, [lng, pathname, user]);
 
+  const isScrollUpShowButton =
+    hasScroll &&
+    pathname ===
+      createPath({
+        route: ERoutes.Telegram,
+        params: { telegramUserId: (user?.id ?? "").toString() },
+        lng,
+      });
+
   const handleBack = () => {
     router.back();
   };
@@ -104,7 +115,7 @@ const FooterComponent: FC<TProps> = ({
         <NavLink
           className="Footer-Item"
           activeClassName="Footer-Item__isActive"
-          href={`${pathOptions.telegramUserIdListPath}#9528767435`}
+          href={pathOptions.telegramUserIdListPath}
           pathname={pathname}
         >
           <Icon className="Footer-Item-Icon" type="Home" />
@@ -114,6 +125,7 @@ const FooterComponent: FC<TProps> = ({
           className="Footer-Item"
           activeClassName="Footer-Item__isActive"
           href={pathOptions.profileDetailPath}
+          onClick={saveScrollPosition}
           pathname={pathname}
         >
           {isPremium && <Icon className="Footer-Icon-Crown" type="Crown" />}
@@ -124,6 +136,12 @@ const FooterComponent: FC<TProps> = ({
           <Icon className="Footer-Item-Icon" type="Undo" />
           <Typography>{t("common.actions.back")}</Typography>
         </div>
+        {isScrollUpShowButton && (
+          <div className="Footer-Item" onClick={scrollUp}>
+            <Icon className="Footer-Item-Icon" type="ArrowUp" />
+            <Typography>{t("common.actions.up")}</Typography>
+          </div>
+        )}
       </div>
     </div>
   );

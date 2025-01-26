@@ -4,6 +4,7 @@ import { ArrowDownIcon } from "./arrowDownIcon";
 import { ArrowForwardIOSIcon } from "./arrowForwardIOSIcon";
 import { ArrowLeftIcon } from "./arrowLeftIcon";
 import { ArrowRightIcon } from "./arrowRightIcon";
+import { ArrowUpIcon } from "./arrowUpIcon";
 import { AttentionIcon } from "./attentionIcon";
 import { CalendarIcon } from "./calendarIcon";
 import { CheckIcon } from "./checkIcon";
@@ -37,6 +38,7 @@ export {
   ArrowForwardIOSIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
+  ArrowUpIcon,
   AttentionIcon,
   CalendarIcon,
   CheckIcon,

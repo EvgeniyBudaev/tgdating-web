@@ -2,12 +2,13 @@
 
 import clsx from "clsx";
 import Link from "next/link";
-import type { FC, PropsWithChildren } from "react";
+import type { FC, MouseEvent, PropsWithChildren } from "react";
 
 type TProps = {
   activeClassName?: string;
   className?: string;
   href: string;
+  onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
   pathname: string;
 } & PropsWithChildren;
 
@@ -16,6 +17,7 @@ export const NavLink: FC<TProps> = ({
   children,
   className,
   href,
+  onClick,
   pathname,
 }) => {
   const removeQueryParams = (url: string): string => {
@@ -32,6 +34,7 @@ export const NavLink: FC<TProps> = ({
         `${pathname === cleanHref ? activeClassName : ""}`,
       )}
       href={href}
+      onClick={onClick}
     >
       {children}
     </Link>

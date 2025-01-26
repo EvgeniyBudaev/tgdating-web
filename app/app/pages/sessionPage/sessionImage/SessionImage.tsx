@@ -15,6 +15,7 @@ import { useModalWindow } from "@/app/uikit/components/modal";
 import { Online } from "@/app/uikit/components/online";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./SessionImage.scss";
+import { useScrollPosition } from "@/app/shared/hooks";
 
 type TProps = {
   distance?: string;
@@ -37,6 +38,7 @@ const SessionImageComponent: FC<TProps> = ({
 }) => {
   const { closeModal, isOpenModal, openModal } = useModalWindow();
   const navigator = useNavigatorContext();
+  const { saveScrollPosition } = useScrollPosition();
 
   const handleOpenModal = () => {
     isBlur && openModal();
@@ -90,6 +92,7 @@ const SessionImageComponent: FC<TProps> = ({
         },
       }}
       key={telegramUserId}
+      onClick={saveScrollPosition}
     >
       {renderImage({ isBlur })}
     </Link>

@@ -5,6 +5,7 @@ import {
   ArrowForwardIOSIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
+  ArrowUpIcon,
   AttentionIcon,
   CalendarIcon,
   CheckIcon,
@@ -40,6 +41,7 @@ export type IconType =
   | "ArrowForwardIOS"
   | "ArrowLeft"
   | "ArrowRight"
+  | "ArrowUp"
   | "Attention"
   | "Calendar"
   | "Check"
@@ -127,6 +129,17 @@ export const iconTypes = new Map([
     (props: TIconProps) => (
       <ArrowRightIcon
         key="ArrowRightIcon"
+        dataTestId={props.dataTestId}
+        height={props.height}
+        width={props.width}
+      />
+    ),
+  ],
+  [
+    "ArrowUp",
+    (props: TIconProps) => (
+      <ArrowUpIcon
+        key="ArrowUpIcon"
         dataTestId={props.dataTestId}
         height={props.height}
         width={props.width}
