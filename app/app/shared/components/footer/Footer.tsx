@@ -39,11 +39,13 @@ const FooterComponent: FC<TProps> = ({
       route: ERoutes.ProfileAdd,
       lng,
     });
+
     const pathProfileEdit = createPath({
       route: ERoutes.ProfileEdit,
       params: { telegramUserId: (user?.id ?? "").toString() },
       lng,
     });
+
     const telegramUserIdListPath = createPath(
       {
         route: ERoutes.Telegram,
@@ -59,6 +61,7 @@ const FooterComponent: FC<TProps> = ({
           : {}),
       },
     );
+
     const profileDetailPath = createPath(
       {
         route: ERoutes.ProfileDetail,
@@ -77,6 +80,7 @@ const FooterComponent: FC<TProps> = ({
           : {}),
       },
     );
+
     return {
       isFooter: pathname !== pathProfileAdd && pathname !== pathProfileEdit,
       telegramUserIdListPath,
@@ -100,7 +104,7 @@ const FooterComponent: FC<TProps> = ({
         <NavLink
           className="Footer-Item"
           activeClassName="Footer-Item__isActive"
-          href={pathOptions.telegramUserIdListPath}
+          href={`${pathOptions.telegramUserIdListPath}#9528767435`}
           pathname={pathname}
         >
           <Icon className="Footer-Item-Icon" type="Home" />

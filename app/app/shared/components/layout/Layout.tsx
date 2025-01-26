@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   type FC,
   memo,
@@ -34,23 +34,33 @@ type TProps = {
 };
 
 const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const router = useRouter();
   const navigator = useNavigator({ lng });
+  const pathname = usePathname();
+  const router = useRouter();
   const { initDataCrypt, isSession, user, theme } = useTelegram();
   const [shortInfo, setShortInfo] = useState<TProfileShortInfo>(null);
-  console.log("shortInfo: ", shortInfo);
-  const telegramLanguageCode = shortInfo?.languageCode ?? user?.language_code;
+  //console.log("shortInfo: ", shortInfo);
+  const telegramLanguageCode = shortInfo?.languageCode;
 
   useEffect(() => {
     if (telegramLanguageCode && telegramLanguageCode !== lng) {
-      const updatedPathname = pathname.replace(
-        `/${lng}`,
-        `/${telegramLanguageCode}`,
+      const path = createPath(
+        {
+          route: ERoutes.Telegram,
+          params: { telegramUserId: (user?.id ?? "").toString() },
+          lng: telegramLanguageCode,
+        },
+        {
+          ...(navigator?.latitude
+            ? { latitude: navigator?.latitude.toString() }
+            : {}),
+          ...(navigator?.longitude
+            ? { longitude: navigator?.longitude.toString() }
+            : {}),
+        },
       );
-      const url = `${updatedPathname}?${searchParams}`;
-      //router.replace(telegramLanguageCode);
+      router.push(path);
+      router.refresh();
     }
   }, [telegramLanguageCode]);
 

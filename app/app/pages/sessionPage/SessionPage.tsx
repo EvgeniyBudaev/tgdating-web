@@ -13,7 +13,7 @@ import { SessionImage } from "@/app/pages/sessionPage/sessionImage";
 import { Container } from "@/app/shared/components/container";
 import { useShortInfoContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useTelegram } from "@/app/shared/hooks";
+import { useScrollPosition, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
@@ -33,6 +33,7 @@ const SessionPageComponent: FC<TProps> = ({
   lng,
   profileList,
 }) => {
+  useScrollPosition();
   const shortInfo = useShortInfoContext();
   const { isSession, user, theme } = useTelegram();
   const { t } = useTranslation("index");
@@ -73,6 +74,157 @@ const SessionPageComponent: FC<TProps> = ({
       );
     }
   }, [isSession, isExistUser, lng, shortInfo, user?.id]);
+
+  const list = [
+    { url: "/assets/images/girl1.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy1.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl2.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy2.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl3.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy3.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl4.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy4.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl5.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy5.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl6.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy6.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl7.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy7.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl8.jpg", isOnline: false, isLiked: false },
+
+    { url: "/assets/images/girl1.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy1.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl2.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy2.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl3.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy3.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl4.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy4.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl5.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy5.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl6.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy6.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl7.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy7.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl8.jpg", isOnline: false, isLiked: false },
+
+    { url: "/assets/images/girl1.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy1.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl2.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy2.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl3.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy3.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl4.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy4.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl5.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy5.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl6.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy6.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl7.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy7.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl8.jpg", isOnline: false, isLiked: false },
+
+    { url: "/assets/images/girl1.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy1.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl2.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy2.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl3.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy3.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl4.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy4.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl5.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy5.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl6.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy6.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl7.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy7.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl8.jpg", isOnline: false, isLiked: false },
+
+    { url: "/assets/images/girl1.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy1.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl2.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy2.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl3.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy3.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl4.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy4.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl5.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy5.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl6.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy6.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl7.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy7.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl8.jpg", isOnline: false, isLiked: false },
+
+    { url: "/assets/images/girl1.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy1.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl2.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy2.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl3.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy3.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl4.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy4.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl5.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy5.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl6.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy6.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl7.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy7.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl8.jpg", isOnline: false, isLiked: false },
+
+    { url: "/assets/images/girl1.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy1.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl2.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy2.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl3.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy3.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl4.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy4.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl5.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy5.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl6.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy6.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl7.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy7.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl8.jpg", isOnline: false, isLiked: false },
+
+    { url: "/assets/images/girl1.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy1.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl2.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy2.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl3.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy3.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl4.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy4.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl5.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy5.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl6.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy6.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl7.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy7.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl8.jpg", isOnline: false, isLiked: false },
+
+    { url: "/assets/images/girl1.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy1.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl2.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy2.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl3.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy3.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl4.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy4.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl5.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy5.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl6.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/boy6.jpg", isOnline: false, isLiked: false },
+    {
+      url: "/assets/images/girl7.jpg",
+      isOnline: false,
+      isLiked: false,
+      telegramUserId: "9528767435",
+    },
+    { url: "/assets/images/boy7.jpg", isOnline: false, isLiked: false },
+    { url: "/assets/images/girl8.jpg", isOnline: false, isLiked: false },
+  ];
 
   return (
     <div
@@ -116,6 +268,20 @@ const SessionPageComponent: FC<TProps> = ({
             </div>
           </>
         )}
+        <div className="SessionPage-List">
+          {list.map((item, index) => (
+            <SessionImage
+              distance={100}
+              image={item}
+              isBlur={false}
+              key={`${item}-${index}`}
+              lng={lng}
+              telegramUserId={telegramUserId}
+              theme={theme}
+              viewedTelegramUserId={"9528767435"}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

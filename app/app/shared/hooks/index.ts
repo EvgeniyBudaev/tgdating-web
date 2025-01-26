@@ -7,6 +7,7 @@ import { useLanguage } from "@/app/shared/hooks/useLanguage";
 import { useMounted } from "@/app/shared/hooks/useMounted";
 import { useNavigator } from "@/app/shared/hooks/useNavigator";
 import { useInitDayjs } from "@/app/shared/hooks/useInitDayjs";
+import { useScrollPosition } from "@/app/shared/hooks/useScrollPosition";
 import { useProxyUrl } from "@/app/shared/hooks/useProxyUrl";
 import { useScroll } from "@/app/shared/hooks/useScroll";
 import { useTariff } from "@/app/shared/hooks/useTariff";
@@ -24,6 +25,7 @@ export {
   useMounted,
   useNavigator,
   useInitDayjs,
+  useScrollPosition,
   useProxyUrl,
   useScroll,
   useTariff,
