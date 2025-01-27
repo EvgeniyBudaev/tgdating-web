@@ -44,7 +44,7 @@ const CheckLikeComponent: FC<TProps> = ({csrf, initDataCrypt, isSession, lng, te
       });
       setIsNewLike(false);
     }
-  }, [lng, state?.data, state?.error, state.success, telegramUserId]);
+  }, [lng, state, telegramUserId]);
 
   useEffect(() => {
     const intervalId = setInterval(async () => {

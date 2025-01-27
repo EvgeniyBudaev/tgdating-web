@@ -28,7 +28,7 @@ type TUseTelegram = () => TUseTelegramResponse;
 export const useTelegram: TUseTelegram = () => {
   const telegram = typeof window !== "undefined" ? WebAppSDK : undefined;
   //const colorScheme = (telegram?.colorScheme as ETheme) ?? ETheme.Dark;
-  const colorScheme = ETheme.Light;
+  const colorScheme = ETheme.Dark;
   const [tg, setTg] = useState<WebAppTypes | undefined>();
   const [initDataCrypt, setInitDataCrypt] = useState<string | undefined>();
   const [queryId, setQueryId] = useState<string | null>(null);

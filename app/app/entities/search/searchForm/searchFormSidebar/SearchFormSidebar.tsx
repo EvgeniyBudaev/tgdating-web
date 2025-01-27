@@ -29,7 +29,7 @@ import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage } from "@/app/shared/enums";
 import { useTelegram } from "@/app/shared/hooks";
-import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
+import { getSearchGenderByLocale } from "@/app/shared/mapping/searchGender";
 import { RangeSlider } from "@/app/uikit/components/rangeSlider";
 import { Select, TSelectOption } from "@/app/uikit/components/select";
 import { Sidebar } from "@/app/uikit/components/sidebar";
@@ -71,7 +71,7 @@ const SearchFormSidebarComponent: FC<TProps> = ({
   );
 
   const searchGenderDefault = useMemo(() => {
-    return SEARCH_GENDER_MAPPING[lng].find(
+    return getSearchGenderByLocale(lng).find(
       (item) => item.value === profileShortInfo?.searchGender,
     );
   }, [lng, profileShortInfo?.searchGender]);
@@ -124,7 +124,11 @@ const SearchFormSidebarComponent: FC<TProps> = ({
   };
 
   return (
-    <div className="SearchFormSidebar">
+    <div
+      className={clsx("SearchFormSidebar", {
+        ["theme-dark"]: theme === ETheme.Dark,
+      })}
+    >
       <Sidebar isActive={isOpen} ref={sidebarRef} theme={theme}>
         <div
           className={clsx("SidebarContent", {
@@ -170,7 +174,7 @@ const SearchFormSidebarComponent: FC<TProps> = ({
                 >
                   <SidebarContent
                     onSave={handleChangeSearchGender}
-                    options={SEARCH_GENDER_MAPPING[lng]}
+                    options={getSearchGenderByLocale(lng)}
                     onCloseSidebar={handleCloseSidebarSearchGender}
                     selectedItem={searchGenderState}
                     theme={theme}

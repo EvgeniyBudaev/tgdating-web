@@ -17,7 +17,6 @@
 
   &:hover,
   &:active {
-    color: colors.$bg_color;
     background-color: colors.$link_color;
   }
 
@@ -38,13 +37,13 @@
   }
 
   &.theme-dark {
-    color: colors.$color-grey-medium;
     background-color: colors.$bg_color;
+    color: colors.$color-grey-medium;
     border-bottom: 1px solid colors.$secondary_bg_color;
 
     &#{$this}__isChecked {
-      color: colors.$bg_color;
       background-color: colors.$link_color;
+      color: colors.$bg_color;
     }
 
     &:last-child {
@@ -53,7 +52,6 @@
 
     &:hover,
     &:active {
-      color: colors.$bg_color;
       background-color: colors.$link_color;
     }
   }

@@ -43,10 +43,12 @@ export async function unblockAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
-    console.error("unblockAction errorResponse: ", errorResponse);
-    if (errorResponse?.status === 401 || errorResponse?.status === 403)
+    if (errorResponse?.status === 401 || errorResponse?.status === 403) {
+      console.log("unblockAction error status: ", errorResponse?.status);
       throw error;
+    }
     const responseData: TCommonResponseError = await errorResponse.json();
+    console.log("unblockAction error: ", responseData);
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};
     return {

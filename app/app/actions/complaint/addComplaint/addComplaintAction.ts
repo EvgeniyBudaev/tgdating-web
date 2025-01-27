@@ -45,10 +45,12 @@ export async function addComplaintAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
-    console.error("addComplaintAction errorResponse: ", errorResponse);
-    if (errorResponse?.status === 401 || errorResponse?.status === 403)
+    if (errorResponse?.status === 401 || errorResponse?.status === 403) {
+      console.log("addComplaintAction error status: ", errorResponse?.status);
       throw error;
+    }
     const responseData: TCommonResponseError = await errorResponse.json();
+    console.log("addComplaintAction error: ", responseData);
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};
     return {

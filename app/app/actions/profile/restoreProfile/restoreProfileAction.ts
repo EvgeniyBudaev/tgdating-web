@@ -43,9 +43,12 @@ export async function restoreProfileAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
-    console.error("restoreProfileAction errorResponse: ", errorResponse);
-    if (errorResponse?.status === 403) throw error;
+    if (errorResponse?.status === 401 || errorResponse?.status === 403) {
+      console.log("restoreProfileAction error status: ", errorResponse?.status);
+      throw error;
+    }
     const responseData: TCommonResponseError = await errorResponse.json();
+    console.log("restoreProfileAction error: ", responseData);
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};
     return {

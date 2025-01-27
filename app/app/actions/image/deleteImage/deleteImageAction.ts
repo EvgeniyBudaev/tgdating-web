@@ -55,9 +55,12 @@ export async function deleteImageAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
-    console.error("deleteImageAction errorResponse: ", errorResponse);
-    if (errorResponse?.status === 403) throw error;
+    if (errorResponse?.status === 401 || errorResponse?.status === 403) {
+      console.log("deleteImageAction error status: ", errorResponse?.status);
+      throw error;
+    }
     const responseData: TCommonResponseError = await errorResponse.json();
+    console.log("deleteImageAction error: ", responseData);
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};
     return {

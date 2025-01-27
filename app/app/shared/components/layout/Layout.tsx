@@ -38,7 +38,7 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   const pathname = usePathname();
   const router = useRouter();
   const { initDataCrypt, isSession, user, theme } = useTelegram();
-  const [shortInfo, setShortInfo] = useState<TProfileShortInfo>(null);
+  const [shortInfo, setShortInfo] = useState<TProfileShortInfo | null>(null);
   //console.log("shortInfo: ", shortInfo);
   const telegramLanguageCode = shortInfo?.languageCode;
 
@@ -143,6 +143,7 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
             {/*/>*/}
             <CheckShortInfo
               isSession={isSession}
+              lng={lng}
               onLoad={handleCheckShortInfo}
               telegramUserId={(user?.id ?? "").toString()}
             />

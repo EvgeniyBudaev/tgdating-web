@@ -144,31 +144,59 @@ const searchGenderOptionsZh = [
   { label: "女孩们", value: ESearchGender.Woman },
 ];
 
-export const SEARCH_GENDER_MAPPING = {
-  [ELanguage.Ru]: searchGenderOptionsRu,
-  [ELanguage.En]: searchGenderOptionsEn,
-  [ELanguage.Ar]: searchGenderOptionsAr,
-  [ELanguage.Be]: searchGenderOptionsBe,
-  [ELanguage.Ca]: searchGenderOptionsCa,
-  [ELanguage.Cs]: searchGenderOptionsCs,
-  [ELanguage.De]: searchGenderOptionsDe,
-  [ELanguage.Es]: searchGenderOptionsEs,
-  [ELanguage.Fi]: searchGenderOptionsFi,
-  [ELanguage.Fr]: searchGenderOptionsFr,
-  [ELanguage.He]: searchGenderOptionsHe,
-  [ELanguage.Hr]: searchGenderOptionsHr,
-  [ELanguage.Hu]: searchGenderOptionsHu,
-  [ELanguage.Id]: searchGenderOptionsId,
-  [ELanguage.It]: searchGenderOptionsIt,
-  [ELanguage.Ja]: searchGenderOptionsJa,
-  [ELanguage.Kk]: searchGenderOptionsKk,
-  [ELanguage.Ko]: searchGenderOptionsKo,
-  [ELanguage.Nl]: searchGenderOptionsNl,
-  [ELanguage.No]: searchGenderOptionsNo,
-  [ELanguage.Pt]: searchGenderOptionsPt,
-  [ELanguage.Sv]: searchGenderOptionsSv,
-  [ELanguage.Uk]: searchGenderOptionsUk,
-  [ELanguage.Zh]: searchGenderOptionsZh,
+export const getSearchGenderByLocale = (lng: ELanguage) => {
+  switch (lng) {
+    case ELanguage.Ru:
+      return searchGenderOptionsRu;
+    case ELanguage.En:
+      return searchGenderOptionsEn;
+    case ELanguage.Ar:
+      return searchGenderOptionsAr;
+    case ELanguage.Be:
+      return searchGenderOptionsBe;
+    case ELanguage.Ca:
+      return searchGenderOptionsCa;
+    case ELanguage.Cs:
+      return searchGenderOptionsCs;
+    case ELanguage.De:
+      return searchGenderOptionsDe;
+    case ELanguage.Es:
+      return searchGenderOptionsEs;
+    case ELanguage.Fi:
+      return searchGenderOptionsFi;
+    case ELanguage.Fr:
+      return searchGenderOptionsFr;
+    case ELanguage.He:
+      return searchGenderOptionsHe;
+    case ELanguage.Hr:
+      return searchGenderOptionsHr;
+    case ELanguage.Hu:
+      return searchGenderOptionsHu;
+    case ELanguage.Id:
+      return searchGenderOptionsId;
+    case ELanguage.It:
+      return searchGenderOptionsIt;
+    case ELanguage.Ja:
+      return searchGenderOptionsJa;
+    case ELanguage.Kk:
+      return searchGenderOptionsKk;
+    case ELanguage.Ko:
+      return searchGenderOptionsKo;
+    case ELanguage.Nl:
+      return searchGenderOptionsNl;
+    case ELanguage.No:
+      return searchGenderOptionsNo;
+    case ELanguage.Pt:
+      return searchGenderOptionsPt;
+    case ELanguage.Sv:
+      return searchGenderOptionsSv;
+    case ELanguage.Uk:
+      return searchGenderOptionsUk;
+    case ELanguage.Zh:
+      return searchGenderOptionsZh;
+    default:
+      return searchGenderOptionsEn;
+  }
 };
 
 const searchBarSearchGenderOptionsRu = [
@@ -315,29 +343,57 @@ const searchBarSearchGenderOptionsZh = [
   { label: "所有附近的人", value: ESearchGender.All },
 ];
 
-export const SEARCH_BAR_SEARCH_GENDER_MAPPING = {
-  [ELanguage.Ru]: searchBarSearchGenderOptionsRu,
-  [ELanguage.En]: searchBarSearchGenderOptionsEn,
-  [ELanguage.Ar]: searchBarSearchGenderOptionsAr,
-  [ELanguage.Be]: searchBarSearchGenderOptionsBe,
-  [ELanguage.Ca]: searchBarSearchGenderOptionsCa,
-  [ELanguage.Cs]: searchBarSearchGenderOptionsCs,
-  [ELanguage.De]: searchBarSearchGenderOptionsDe,
-  [ELanguage.Es]: searchBarSearchGenderOptionsEs,
-  [ELanguage.Fi]: searchBarSearchGenderOptionsFi,
-  [ELanguage.Fi]: searchBarSearchGenderOptionsFr,
-  [ELanguage.He]: searchBarSearchGenderOptionsHe,
-  [ELanguage.Hr]: searchBarSearchGenderOptionsHr,
-  [ELanguage.Hu]: searchBarSearchGenderOptionsHu,
-  [ELanguage.Id]: searchBarSearchGenderOptionsId,
-  [ELanguage.It]: searchBarSearchGenderOptionsIt,
-  [ELanguage.Ja]: searchBarSearchGenderOptionsJa,
-  [ELanguage.Kk]: searchBarSearchGenderOptionsKk,
-  [ELanguage.Ko]: searchBarSearchGenderOptionsKo,
-  [ELanguage.Nl]: searchBarSearchGenderOptionsNl,
-  [ELanguage.No]: searchBarSearchGenderOptionsNo,
-  [ELanguage.Pt]: searchBarSearchGenderOptionsPt,
-  [ELanguage.Sv]: searchBarSearchGenderOptionsSv,
-  [ELanguage.Uk]: searchBarSearchGenderOptionsUk,
-  [ELanguage.Zh]: searchBarSearchGenderOptionsZh,
+export const getSearchBarSearchGenderByLocale = (lng: ELanguage) => {
+  switch (lng) {
+    case ELanguage.Ru:
+      return searchBarSearchGenderOptionsRu;
+    case ELanguage.En:
+      return searchBarSearchGenderOptionsEn;
+    case ELanguage.Ar:
+      return searchBarSearchGenderOptionsAr;
+    case ELanguage.Be:
+      return searchBarSearchGenderOptionsBe;
+    case ELanguage.Ca:
+      return searchBarSearchGenderOptionsCa;
+    case ELanguage.Cs:
+      return searchBarSearchGenderOptionsCs;
+    case ELanguage.De:
+      return searchBarSearchGenderOptionsDe;
+    case ELanguage.Es:
+      return searchBarSearchGenderOptionsEs;
+    case ELanguage.Fi:
+      return searchBarSearchGenderOptionsFi;
+    case ELanguage.Fr:
+      return searchBarSearchGenderOptionsFr;
+    case ELanguage.He:
+      return searchBarSearchGenderOptionsHe;
+    case ELanguage.Hr:
+      return searchBarSearchGenderOptionsHr;
+    case ELanguage.Hu:
+      return searchBarSearchGenderOptionsHu;
+    case ELanguage.Id:
+      return searchBarSearchGenderOptionsId;
+    case ELanguage.It:
+      return searchBarSearchGenderOptionsIt;
+    case ELanguage.Ja:
+      return searchBarSearchGenderOptionsJa;
+    case ELanguage.Kk:
+      return searchBarSearchGenderOptionsKk;
+    case ELanguage.Ko:
+      return searchBarSearchGenderOptionsKo;
+    case ELanguage.Nl:
+      return searchBarSearchGenderOptionsNl;
+    case ELanguage.No:
+      return searchBarSearchGenderOptionsNo;
+    case ELanguage.Pt:
+      return searchBarSearchGenderOptionsPt;
+    case ELanguage.Sv:
+      return searchBarSearchGenderOptionsSv;
+    case ELanguage.Uk:
+      return searchBarSearchGenderOptionsUk;
+    case ELanguage.Zh:
+      return searchBarSearchGenderOptionsZh;
+    default:
+      return searchBarSearchGenderOptionsEn;
+  }
 };

@@ -23,7 +23,7 @@ html,
 body {
   // https://developer.mozilla.org/ru/docs/Web/CSS/overscroll-behavior
   overscroll-behavior: none;
-  height: -webkit-fill-available;
+  height: 100%;
   min-height: 100%;
 }
 

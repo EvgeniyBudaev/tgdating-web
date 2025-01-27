@@ -59,6 +59,7 @@ export const Modal = ({
       document.body.style.paddingRight = `${scrollbarWidth}px`;
       // @ts-ignore
       modalRef.current &&
+        // @ts-ignore
         modalRef.current?.scrollTo({ x: 0, y: 0, animated: false });
     }
 

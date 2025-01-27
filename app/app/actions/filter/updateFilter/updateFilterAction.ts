@@ -73,9 +73,12 @@ export async function updateFilterAction(prevState: any, formData: FormData) {
     };
   } catch (error) {
     const errorResponse = error as Response;
-    console.error("updateFilterAction errorResponse: ", errorResponse);
-    if (errorResponse?.status === 403) throw error;
+    if (errorResponse?.status === 401 || errorResponse?.status === 403) {
+      console.log("updateFilterAction error status: ", errorResponse?.status);
+      throw error;
+    }
     const responseData: TCommonResponseError = await errorResponse.json();
+    console.log("updateFilterAction error: ", responseData);
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};
     return {

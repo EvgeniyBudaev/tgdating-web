@@ -28,8 +28,8 @@ import { SubmitButton } from "@/app/shared/components/form/submitButton";
 import { Section } from "@/app/shared/components/section";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useCheckPermissions } from "@/app/shared/hooks";
-import { GENDER_MAPPING } from "@/app/shared/mapping/gender";
-import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
+import { getGenderByLocale } from "@/app/shared/mapping/gender";
+import { getSearchGenderByLocale } from "@/app/shared/mapping/searchGender";
 import { createPath } from "@/app/shared/utils";
 import { Info } from "@/app/shared/components/info";
 import { Gradient } from "@/app/uikit/components/gradient";
@@ -235,7 +235,7 @@ const ProfileFormComponent: FC<TProps> = ({
                     setIsSidebarOpen((prev) => ({ ...prev, isGender: true }))
                   }
                   onSave={onChangeGender}
-                  options={GENDER_MAPPING[language]}
+                  options={getGenderByLocale(language)}
                   selectedItem={gender}
                   subLabel={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
                   theme={theme}
@@ -259,7 +259,7 @@ const ProfileFormComponent: FC<TProps> = ({
                     }))
                   }
                   onSave={onChangeSearchGender}
-                  options={SEARCH_GENDER_MAPPING[language]}
+                  options={getSearchGenderByLocale(language)}
                   selectedItem={searchGender}
                   subLabel={`${t("common.titles.changeable")}`}
                   theme={theme}

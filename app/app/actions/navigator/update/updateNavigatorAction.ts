@@ -45,9 +45,15 @@ export async function updateNavigatorAction(
     };
   } catch (error) {
     const errorResponse = error as Response;
-    console.error("updateNavigatorAction errorResponse: ", errorResponse);
-    if (errorResponse?.status === 403) throw error;
+    if (errorResponse?.status === 401 || errorResponse?.status === 403) {
+      console.log(
+        "updateNavigatorAction error status: ",
+        errorResponse?.status,
+      );
+      throw error;
+    }
     const responseData: TCommonResponseError = await errorResponse.json();
+    console.log("updateNavigatorAction error: ", responseData);
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};
     return {

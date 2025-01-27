@@ -7,7 +7,7 @@ import { SearchFormSidebar } from "@/app/entities/search/searchForm/searchFormSi
 import { useTranslation } from "@/app/i18n/client";
 import { SearchBar } from "@/app/shared/components/searchBar";
 import { ELanguage } from "@/app/shared/enums";
-import { SEARCH_BAR_SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
+import { getSearchBarSearchGenderByLocale } from "@/app/shared/mapping/searchGender";
 import { Gradient } from "@/app/uikit/components/gradient";
 import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
@@ -25,7 +25,7 @@ const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const searchBarTitle = useMemo(() => {
-    return SEARCH_BAR_SEARCH_GENDER_MAPPING[lng].find(
+    return getSearchBarSearchGenderByLocale(lng).find(
       (item) => item.value === profileShortInfo?.searchGender,
     )?.label;
   }, [lng, profileShortInfo?.searchGender]);

@@ -120,29 +120,57 @@ const genderOptionsZh = [
   { label: "女性", value: EGender.Woman },
 ];
 
-export const GENDER_MAPPING = {
-  [ELanguage.Ru]: genderOptionsRu,
-  [ELanguage.En]: genderOptionsEn,
-  [ELanguage.Ar]: genderOptionsAr,
-  [ELanguage.Be]: genderOptionsBe,
-  [ELanguage.Ca]: genderOptionsCa,
-  [ELanguage.Cs]: genderOptionsCs,
-  [ELanguage.De]: genderOptionsDe,
-  [ELanguage.Es]: genderOptionsEs,
-  [ELanguage.Fi]: genderOptionsFi,
-  [ELanguage.Fr]: genderOptionsFr,
-  [ELanguage.He]: genderOptionsHe,
-  [ELanguage.Hr]: genderOptionsHr,
-  [ELanguage.Hu]: genderOptionsHu,
-  [ELanguage.Id]: genderOptionsId,
-  [ELanguage.It]: genderOptionsIt,
-  [ELanguage.Ja]: genderOptionsJa,
-  [ELanguage.Kk]: genderOptionsKk,
-  [ELanguage.Ko]: genderOptionsKo,
-  [ELanguage.Nl]: genderOptionsNl,
-  [ELanguage.No]: genderOptionsNo,
-  [ELanguage.Pt]: genderOptionsPt,
-  [ELanguage.Sv]: genderOptionsSv,
-  [ELanguage.Uk]: genderOptionsUk,
-  [ELanguage.Zh]: genderOptionsZh,
+export const getGenderByLocale = (lng: ELanguage) => {
+  switch (lng) {
+    case ELanguage.Ru:
+      return genderOptionsRu;
+    case ELanguage.En:
+      return genderOptionsEn;
+    case ELanguage.Ar:
+      return genderOptionsAr;
+    case ELanguage.Be:
+      return genderOptionsBe;
+    case ELanguage.Ca:
+      return genderOptionsCa;
+    case ELanguage.Cs:
+      return genderOptionsCs;
+    case ELanguage.De:
+      return genderOptionsDe;
+    case ELanguage.Es:
+      return genderOptionsEs;
+    case ELanguage.Fi:
+      return genderOptionsFi;
+    case ELanguage.Fr:
+      return genderOptionsFr;
+    case ELanguage.He:
+      return genderOptionsHe;
+    case ELanguage.Hr:
+      return genderOptionsHr;
+    case ELanguage.Hu:
+      return genderOptionsHu;
+    case ELanguage.Id:
+      return genderOptionsId;
+    case ELanguage.It:
+      return genderOptionsIt;
+    case ELanguage.Ja:
+      return genderOptionsJa;
+    case ELanguage.Kk:
+      return genderOptionsKk;
+    case ELanguage.Ko:
+      return genderOptionsKo;
+    case ELanguage.Nl:
+      return genderOptionsNl;
+    case ELanguage.No:
+      return genderOptionsNo;
+    case ELanguage.Pt:
+      return genderOptionsPt;
+    case ELanguage.Sv:
+      return genderOptionsSv;
+    case ELanguage.Uk:
+      return genderOptionsUk;
+    case ELanguage.Zh:
+      return genderOptionsZh;
+    default:
+      return genderOptionsEn;
+  }
 };

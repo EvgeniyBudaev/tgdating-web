@@ -36,7 +36,15 @@ export async function getProfileShortInfoAction(
     };
   } catch (error) {
     const errorResponse = error as Response;
+    if (errorResponse?.status === 401 || errorResponse?.status === 403) {
+      console.log(
+        "getProfileShortInfoAction error status: ",
+        errorResponse?.status,
+      );
+      throw error;
+    }
     const responseData: TCommonResponseError = await errorResponse.json();
+    console.log("getProfileShortInfoAction error: ", responseData);
     const { message: formError, fieldErrors } =
       getResponseError(responseData) ?? {};
     return {

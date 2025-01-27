@@ -14,7 +14,8 @@ import { scrollToFirstErrorField } from "@/app/shared/components/form/form/utils
 import {
   DEFAULT_AGE_FROM,
   DEFAULT_AGE_TO,
-  DEFAULT_DISTANCE, DEFAULT_LANGUAGE,
+  DEFAULT_DISTANCE,
+  DEFAULT_LANGUAGE,
   DEFAULT_PAGE,
   DEFAULT_PAGE_SIZE,
 } from "@/app/shared/constants";
@@ -28,8 +29,8 @@ import { EGender, ESearchGender } from "@/app/shared/enums/form";
 import { useFiles, useFormErrors, useTelegram } from "@/app/shared/hooks";
 import type { TUseTelegramResponse } from "@/app/shared/hooks/useTelegram";
 import type { TUseNavigatorResponse } from "@/app/shared/hooks/useNavigator";
-import { GENDER_MAPPING } from "@/app/shared/mapping/gender";
-import { SEARCH_GENDER_MAPPING } from "@/app/shared/mapping/searchGender";
+import { getGenderByLocale } from "@/app/shared/mapping/gender";
+import { getSearchGenderByLocale } from "@/app/shared/mapping/searchGender";
 import type { TFile } from "@/app/shared/types/file";
 import { createPath } from "@/app/shared/utils";
 import type { TSelectOption } from "@/app/uikit/components/select";
@@ -126,17 +127,17 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     : undefined;
   const genderDefault = isEdit
     ? (
-        GENDER_MAPPING[language] as Array<{ label: string; value: EGender }>
+        getGenderByLocale(language) as Array<{ label: string; value: EGender }>
       ).find((item) => item.value === profile?.gender)
     : undefined;
   const searchGenderDefault = isEdit
     ? (
-        SEARCH_GENDER_MAPPING[language] as Array<{
+        getSearchGenderByLocale(language) as Array<{
           label: string;
           value: ESearchGender;
         }>
       ).find((item) => item.value === profile?.filter?.searchGender)
-    : SEARCH_GENDER_MAPPING[language][0];
+    : getSearchGenderByLocale(language)[0];
   const [age, setAge] = useState<TSelectOption | undefined>(ageDefault);
   const [gender, setGender] = useState<TSelectOption | undefined>(
     genderDefault,
@@ -146,15 +147,15 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     searchGenderDefault,
   );
   const languageDefault: TSelectOption | undefined = useMemo(() => {
-    return LANGUAGE_MAPPING[lng].find((item: {label: string; value: string;}) => {
-      return item.value === lng;
-    });
+    return LANGUAGE_MAPPING[lng].find(
+      (item: { label: string; value: string }) => {
+        return item.value === lng;
+      },
+    );
   }, [lng]);
   const [languageState, setLanguageState] = useState<TSelectOption | undefined>(
     languageDefault,
   );
-  console.log("languageDefault: ", languageDefault);
-  console.log("languageState: ", languageState);
   const [isSidebarOpen, setIsSidebarOpen] = useState({
     isAge: false,
     isGender: false,
@@ -359,7 +360,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     formDataDto.append(
       EProfileAddFormFields.TelegramLanguageCode,
       //user?.language_code ?? "ru",
-      lang.toString()
+      lang.toString(),
     );
     formDataDto.append(
       EProfileAddFormFields.TelegramAllowsWriteToPm,
