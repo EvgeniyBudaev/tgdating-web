@@ -46,7 +46,6 @@ export const useProfileEditAccess = (props: TProfileEditPageProps) => {
     if (!isExistUser) {
       const path = createPath({
         route: ERoutes.Started,
-        params: { telegramUserId },
         lng,
       });
       router.push(path);
@@ -70,7 +69,6 @@ export const useProfileEditAccess = (props: TProfileEditPageProps) => {
     if (isUnauthorized) {
       const path = createPath({
         route: ERoutes.Unauthorized,
-        params: { telegramUserId },
         lng,
       });
       router.push(path);

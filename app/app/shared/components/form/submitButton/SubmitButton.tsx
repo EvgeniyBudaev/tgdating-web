@@ -16,7 +16,6 @@ type TProps = {
 
 export const SubmitButton: FC<TProps> = ({
   iconType,
-  postfixIconSubmit,
   title,
 }) => {
   const { pending } = useFormStatus();

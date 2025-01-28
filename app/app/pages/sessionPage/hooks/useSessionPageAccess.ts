@@ -57,7 +57,6 @@ export const useSessionPageAccess = (
     if (!isExistUser) {
       const path = createPath({
         route: ERoutes.Started,
-        params: { telegramUserId },
         lng,
       });
       router.push(path);
