@@ -29,12 +29,17 @@
     margin-left: 8px;
     padding: 4px;
     border-radius: constants.$border-radius;
-    width: 64px;
+    min-width: 64px;
+    width: max-content;
     height: 64px;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     color: colors.$bg_color;
     background-color: colors.$secondary_bg_light_color;
+
+    #{$this}-Icon-Crown {
+      color: colors.$link_color;
+    }
 
     &:hover {
       color: colors.$link_color;
@@ -73,6 +78,10 @@
     #{$this}-Item {
       color: colors.$text_color;
       background-color: colors.$secondary_bg_color;
+
+      #{$this}-Icon-Crown {
+        color: colors.$link_color;
+      }
 
       &:hover {
         color: colors.$link_color;

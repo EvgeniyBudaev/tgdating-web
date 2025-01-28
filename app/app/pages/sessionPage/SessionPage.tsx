@@ -3,76 +3,27 @@
 import clsx from "clsx";
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
-import { redirect } from "next/navigation";
-import { type FC, memo, useEffect } from "react";
-import type { TProfileList } from "@/app/api/profile/getProfileList/types";
+import { type FC, memo } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { SearchForm } from "@/app/entities/search/searchForm";
 import { getDistance } from "@/app/pages/profileDetailPage/utils";
+import { useSessionPageAccess } from "@/app/pages/sessionPage/hooks";
 import { SessionImage } from "@/app/pages/sessionPage/sessionImage";
+import type { TSessionPageProps } from "@/app/pages/sessionPage/types";
 import { Container } from "@/app/shared/components/container";
 import { useShortInfoContext } from "@/app/shared/context";
-import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useTelegram } from "@/app/shared/hooks";
-import { createPath } from "@/app/shared/utils";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
-import { notification } from "@/app/uikit/utils";
 import "./SessionPage.scss";
 
-type TProps = {
-  isExistUser: boolean;
-  isManyRequest: boolean;
-  lng: ELanguage;
-  profileList?: TProfileList;
-};
-
-const SessionPageComponent: FC<TProps> = ({
-  isExistUser,
-  isManyRequest,
-  lng,
-  profileList,
-}) => {
+const SessionPageComponent: FC<TSessionPageProps> = (props) => {
+  const { lng, profileList, telegramUserId } = props;
   const shortInfo = useShortInfoContext();
-  const { isSession, user, theme } = useTelegram();
+  const { theme } = useTelegram();
   const { t } = useTranslation("index");
-  const telegramUserId = (user?.id ?? "").toString();
 
-  useEffect(() => {
-    if (isManyRequest) {
-      notification({
-        title: t("errorBoundary.common.manyRequest"),
-        type: "error",
-      });
-    }
-  }, [isManyRequest]);
-
-  useEffect(() => {
-    if (shortInfo?.isFrozen) {
-      redirect(
-        createPath({
-          route: ERoutes.ProfileDeleted,
-          params: { telegramUserId: telegramUserId },
-        }),
-      );
-    }
-    if (shortInfo?.isBlocked) {
-      redirect(
-        createPath({
-          route: ERoutes.ProfileBlocked,
-          params: { telegramUserId: telegramUserId },
-        }),
-      );
-    }
-    if (!isExistUser) {
-      return redirect(
-        createPath({
-          route: ERoutes.Started,
-          lng,
-        }),
-      );
-    }
-  }, [isSession, isExistUser, lng, shortInfo, user?.id]);
+  useSessionPageAccess(props);
 
   return (
     <div

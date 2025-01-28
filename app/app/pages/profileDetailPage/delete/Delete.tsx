@@ -1,5 +1,7 @@
+"use client";
+
 import isNil from "lodash/isNil";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { type FC, memo, useActionState, useEffect } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { deleteProfileAction } from "@/app/actions/profile/deleteProfile/deleteProfileAction";
@@ -26,8 +28,9 @@ type TProps = {
 const DeleteComponent: FC<TProps> = ({ lng, telegramUserId, theme }) => {
   const csrf = useAuthenticityTokenContext();
   const { closeModal, isOpenModal, openModal } = useModalWindow();
-  const { t } = useTranslation("index");
+  const router = useRouter();
   const { initDataCrypt, isSession } = useTelegram();
+  const { t } = useTranslation("index");
   const [state, formAction] = useActionState(
     deleteProfileAction,
     INITIAL_FORM_STATE,
@@ -36,10 +39,11 @@ const DeleteComponent: FC<TProps> = ({ lng, telegramUserId, theme }) => {
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
       const path = createPath({
-        route: ERoutes.ProfileAdd,
+        route: ERoutes.Started,
         lng: lng,
       });
-      redirect(path);
+      router.push(path);
+      router.refresh();
     }
     if (!isNil(state?.error)) {
       notification({

@@ -2,7 +2,7 @@
 
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState, useActionState, useMemo } from "react";
 import { addProfileAction } from "@/app/actions/profile/addProfile/addProfileAction";
 import { editProfileAction } from "@/app/actions/profile/editProfile/editProfileAction";
@@ -15,7 +15,6 @@ import {
   DEFAULT_AGE_FROM,
   DEFAULT_AGE_TO,
   DEFAULT_DISTANCE,
-  DEFAULT_LANGUAGE,
   DEFAULT_PAGE,
   DEFAULT_PAGE_SIZE,
 } from "@/app/shared/constants";
@@ -30,13 +29,13 @@ import { useFiles, useFormErrors, useTelegram } from "@/app/shared/hooks";
 import type { TUseTelegramResponse } from "@/app/shared/hooks/useTelegram";
 import type { TUseNavigatorResponse } from "@/app/shared/hooks/useNavigator";
 import { getGenderByLocale } from "@/app/shared/mapping/gender";
+import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
 import { getSearchGenderByLocale } from "@/app/shared/mapping/searchGender";
 import type { TFile } from "@/app/shared/types/file";
 import { createPath } from "@/app/shared/utils";
 import type { TSelectOption } from "@/app/uikit/components/select";
 import { DEFAULT_AGE } from "@/app/uikit/constants";
 import { ETheme } from "@/app/uikit/enums/theme";
-import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
 
 type TProps = {
   isEdit?: boolean;
@@ -113,6 +112,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   const formErrors = useFormErrors({ errors: state.errors });
   const csrf = useAuthenticityTokenContext();
   const navigator = useNavigatorContext();
+  const router = useRouter();
   const telegram = useTelegram();
   const { initDataCrypt, user, theme, queryId } = telegram;
   const language = lng as ELanguage;
@@ -204,7 +204,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
         //   route: ERoutes.Unauthorized,
         //   lng: lng,
         // });
-        // redirect(path);
       }
     }
     if (isEdit && !isNil(state?.data) && state.success && !state?.error) {
@@ -228,7 +227,8 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
         },
         query,
       );
-      redirect(path);
+      router.push(path);
+      router.refresh();
     }
   }, [
     isEdit,
@@ -250,7 +250,8 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
         params: { telegramUserId: (user?.id ?? "").toString() },
         lng: lang.toString(),
       });
-      redirect(path);
+      router.push(path);
+      router.refresh();
     }
   }, [isEdit, lng, state]);
 

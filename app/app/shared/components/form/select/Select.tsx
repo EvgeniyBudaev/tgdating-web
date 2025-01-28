@@ -1,4 +1,6 @@
-import { type FC, memo, useCallback } from "react";
+"use client";
+
+import { type FC, memo, type ReactNode, useCallback } from "react";
 import { useController, useFormContext } from "react-hook-form";
 import { SidebarContent } from "@/app/shared/components/sidebarContent";
 import { useFieldError } from "@/app/shared/hooks";
@@ -18,6 +20,7 @@ type TProps = {
   onHeaderClick?: () => void;
   onSave?: (value?: TSelectOption) => void;
   options?: TSelectOption[];
+  postfixIconSubmit?: ReactNode | ReactNode[];
   selectedItem?: TSelectOption;
   subLabel?: string;
   theme?: ETheme;
@@ -35,6 +38,7 @@ const SelectComponent: FC<TProps> = ({
   onSave,
   onCloseSidebar,
   options,
+  postfixIconSubmit,
   selectedItem,
   subLabel,
   theme,
@@ -80,6 +84,7 @@ const SelectComponent: FC<TProps> = ({
         onSave={handleChange}
         options={options}
         onCloseSidebar={onCloseSidebar}
+        postfixIconSubmit={postfixIconSubmit}
         selectedItem={selectedItem}
         theme={theme}
         title={title}

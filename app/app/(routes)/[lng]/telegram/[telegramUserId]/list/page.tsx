@@ -1,9 +1,6 @@
-import { redirect } from "next/navigation";
 import { getProfileList } from "@/app/api/profile/getProfileList/domain";
-import { getProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/domain";
 import { SessionPage } from "@/app/pages/sessionPage";
-import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { createPath } from "@/app/shared/utils";
+import { ELanguage } from "@/app/shared/enums";
 
 export const dynamic = "force-dynamic";
 
@@ -116,20 +113,14 @@ export default async function ProfileListRoute({
     searchParams: query ?? {},
   });
 
-  if (data?.isUnauthorized) {
-    redirect(
-      createPath({
-        route: ERoutes.Unauthorized,
-      }),
-    );
-  }
-
   return (
     <SessionPage
       isExistUser={data.isExistUser}
       isManyRequest={data.isManyRequest}
+      isUnauthorized={data?.isUnauthorized}
       lng={language}
       profileList={data?.profileList}
+      telegramUserId={telegramUserId}
     />
   );
 }

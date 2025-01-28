@@ -1,5 +1,7 @@
+"use client";
+
 import isNil from "lodash/isNil";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { type FC, memo, useActionState, useEffect } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { freezeProfileAction } from "@/app/actions/profile/freezeProfile/freezeProfileAction";
@@ -26,8 +28,9 @@ type TProps = {
 const FreezeComponent: FC<TProps> = ({ lng, telegramUserId, theme }) => {
   const csrf = useAuthenticityTokenContext();
   const { closeModal, isOpenModal, openModal } = useModalWindow();
-  const { t } = useTranslation("index");
+  const router = useRouter();
   const { initDataCrypt, isSession } = useTelegram();
+  const { t } = useTranslation("index");
 
   const [state, formAction] = useActionState(
     freezeProfileAction,
@@ -41,7 +44,8 @@ const FreezeComponent: FC<TProps> = ({ lng, telegramUserId, theme }) => {
         params: { telegramUserId: telegramUserId },
         lng: lng,
       });
-      redirect(path);
+      router.push(path);
+      router.refresh();
     }
     if (!isNil(state?.error)) {
       notification({

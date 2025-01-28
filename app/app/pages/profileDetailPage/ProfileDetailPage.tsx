@@ -2,17 +2,16 @@
 
 import clsx from "clsx";
 import isNil from "lodash/isNil";
-import { redirect } from "next/navigation";
-import { FC, memo, useEffect, useMemo, useRef, useState } from "react";
-import type { TProfileDetail } from "@/app/api/profile/getProfileDetail/types";
+import { type FC, memo, useMemo, useRef, useState } from "react";
 import { ProfileSidebar } from "@/app/entities/profile/profileSidebar";
 import { useTranslation } from "@/app/i18n/client";
 import { Controls } from "@/app/pages/profileDetailPage/controls";
+import { useProfileDetailAccess } from "@/app/pages/profileDetailPage/hooks";
+import type { TProfileDetailPageProps } from "@/app/pages/profileDetailPage/types";
 import { getDistance } from "@/app/pages/profileDetailPage/utils";
 import { Container } from "@/app/shared/components/container";
-import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useCheckPermissions, useTelegram } from "@/app/shared/hooks";
-import { createPath } from "@/app/shared/utils";
+import { Loader } from "@/app/shared/components/loader";
+import { useTelegram } from "@/app/shared/hooks";
 import { Accordion } from "@/app/uikit/components/accordion";
 import { Hamburger } from "@/app/uikit/components/hamburger";
 import { Icon } from "@/app/uikit/components/icon";
@@ -23,26 +22,12 @@ import {
   Typography,
 } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
-import { notification } from "@/app/uikit/utils";
 import "./ProfileDetailPage.scss";
 
-type TProps = {
-  isExistUser: boolean;
-  isManyRequest: boolean;
-  lng: ELanguage;
-  profile?: TProfileDetail;
-  telegramUserId: string;
-  viewedTelegramUserId: string;
-};
-
-const ProfileDetailPageComponent: FC<TProps> = ({
-  isExistUser,
-  isManyRequest,
-  lng,
-  profile,
-  telegramUserId,
-}) => {
-  const { isSession, user, theme } = useTelegram();
+const ProfileDetailPageComponent: FC<TProfileDetailPageProps> = (props) => {
+  const { isBlocked, isExistUser, isFrozen, lng, profile, telegramUserId } =
+    props;
+  const { user, theme } = useTelegram();
   const { t } = useTranslation("index");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
@@ -53,25 +38,7 @@ const ProfileDetailPageComponent: FC<TProps> = ({
     !!profile?.status?.isHiddenAge && !!profile?.status?.isPremium;
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
 
-  useEffect(() => {
-    if (isManyRequest) {
-      notification({
-        title: t("errorBoundary.common.manyRequest"),
-        type: "error",
-      });
-    }
-  }, [isManyRequest]);
-
-  useEffect(() => {
-    if (isSession && !isExistUser) {
-      return redirect(
-        createPath({
-          route: ERoutes.ProfileAdd,
-          lng,
-        }),
-      );
-    }
-  }, [isSession, isExistUser]);
+  useProfileDetailAccess(props);
 
   const distance = useMemo(() => {
     return !isNil(profile?.navigator?.distance)
@@ -90,6 +57,8 @@ const ProfileDetailPageComponent: FC<TProps> = ({
   const handleToggleAccordion = () => {
     setIsAccordionOpen((prev?: boolean) => !prev);
   };
+
+  if (isBlocked || !isExistUser || isFrozen) return <Loader />;
 
   return (
     profile &&

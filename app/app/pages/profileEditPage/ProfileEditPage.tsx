@@ -1,28 +1,19 @@
+"use client";
+
 import { memo, type FC } from "react";
-import type { TProfile } from "@/app/api/profile/getProfile/types";
 import { ProfileForm } from "@/app/entities/profile/profileForm";
-import { ELanguage } from "@/app/shared/enums";
+import type { TProfileEditPageProps } from "@/app/pages/profileEditPage/types";
 import { ClientOnly } from "@/app/uikit/components/clientOnly";
+import { useProfileEditAccess } from "@/app/pages/profileEditPage/useProfileEditAccess";
 
-type TProps = {
-  isManyRequest: boolean;
-  lng: ELanguage;
-  profile?: TProfile;
-};
+const ProfileEditPageComponent: FC<TProfileEditPageProps> = (props) => {
+  const { lng, profile } = props;
 
-const ProfileEditPageComponent: FC<TProps> = ({
-  isManyRequest,
-  lng,
-  profile,
-}) => {
+  useProfileEditAccess(props);
+
   return (
     <ClientOnly>
-      <ProfileForm
-        isEdit={true}
-        isManyRequest={isManyRequest}
-        lng={lng}
-        profile={profile}
-      />
+      <ProfileForm isEdit={true} lng={lng} profile={profile} />
     </ClientOnly>
   );
 };

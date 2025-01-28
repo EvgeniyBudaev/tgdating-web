@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { type FC, memo } from "react";
+import { type FC, memo, type ReactNode } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { Button } from "@/app/uikit/components/button";
 import { Typography } from "@/app/uikit/components/typography";
@@ -11,6 +11,7 @@ import "./SidebarContentControls.scss";
 type TProps = {
   onCancel?: () => void;
   onClick?: () => void;
+  postfixIconSubmit?: ReactNode | ReactNode[];
   theme?: ETheme;
   title?: string;
   typeButton?: "submit" | "reset" | "button";
@@ -19,6 +20,7 @@ type TProps = {
 const SidebarContentControlsComponent: FC<TProps> = ({
   onCancel,
   onClick,
+  postfixIconSubmit,
   theme,
   title,
   typeButton,
@@ -41,6 +43,7 @@ const SidebarContentControlsComponent: FC<TProps> = ({
       <div className="SidebarContentControls-Button">
         <Button onClick={onClick} type={typeButton ?? "button"}>
           <Typography>{title}</Typography>
+          {postfixIconSubmit}
         </Button>
       </div>
     </div>

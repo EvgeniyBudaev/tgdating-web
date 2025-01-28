@@ -45,7 +45,7 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
     ref: ForwardedRef<HTMLDivElement>,
   ): JSX.Element => {
     const ASPECT_RATIO = 1;
-    const MIN_DIMENSION = 100;
+    const MIN_DIMENSION = 200;
     const [crop, setCrop] = useState<Crop>();
     const [imageSrc, setImageSrc] = useState("");
     const [isLoading, setIsLoading] = useState(false);

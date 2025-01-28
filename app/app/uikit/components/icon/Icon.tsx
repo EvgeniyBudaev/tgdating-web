@@ -35,7 +35,7 @@ const IconComponent: FC<TProps> = ({
 
   return (
     <div
-      className={clsx("Icon", className, mainStyles)}
+      className={clsx(className, "Icon", mainStyles)}
       data-testid={dataTestId}
       onClick={onClick}
       {...rest}

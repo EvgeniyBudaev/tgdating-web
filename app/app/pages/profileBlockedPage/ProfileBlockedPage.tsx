@@ -1,6 +1,6 @@
 "use client";
 
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { type FC, memo, useEffect } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
@@ -14,6 +14,7 @@ type TProps = {
 };
 
 const ProfileBlockedPageComponent: FC<TProps> = ({ isBlocked, lng }) => {
+  const router = useRouter();
   const { t } = useTranslation("index");
   const { user } = useTelegram();
 
@@ -24,7 +25,8 @@ const ProfileBlockedPageComponent: FC<TProps> = ({ isBlocked, lng }) => {
         params: { telegramUserId: (user?.id ?? "").toString() },
         lng: lng,
       });
-      redirect(path);
+      router.push(path);
+      router.refresh();
     }
   }, [isBlocked]);
 

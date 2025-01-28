@@ -22,6 +22,7 @@ type TProps = {
   options?: TSelectOption[];
   onCloseSidebar?: () => void;
   onSave?: (value?: TSelectOption) => void;
+  postfixIconSubmit?: ReactNode | ReactNode[];
   selectedItem?: TSelectOption;
   theme?: ETheme;
   title: string;
@@ -34,6 +35,7 @@ const SidebarContentComponent: FC<TProps> = ({
   onSave,
   options,
   onCloseSidebar,
+  postfixIconSubmit,
   selectedItem,
   theme,
   title,
@@ -80,6 +82,7 @@ const SidebarContentComponent: FC<TProps> = ({
       <SidebarContentControls
         onCancel={onCloseSidebar}
         onClick={handleBack}
+        postfixIconSubmit={postfixIconSubmit}
         theme={theme}
         title={titleButton}
       />

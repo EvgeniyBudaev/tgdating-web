@@ -1,7 +1,7 @@
 "use client";
 
 import isNil from "lodash/isNil";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { type FC, memo, useActionState, useEffect } from "react";
 import { addComplaintAction } from "@/app/actions/complaint/addComplaint/addComplaintAction";
 import { useTranslation } from "@/app/i18n/client";
@@ -31,6 +31,7 @@ const ComplaintComponent: FC<TProps> = ({
 }) => {
   const csrf = useAuthenticityTokenContext();
   const { closeModal, isOpenModal, openModal } = useModalWindow();
+  const router = useRouter();
   const { initDataCrypt, isSession } = useTelegram();
   const { t } = useTranslation("index");
   const [state, formAction] = useActionState(
@@ -45,7 +46,8 @@ const ComplaintComponent: FC<TProps> = ({
         params: { telegramUserId },
         lng: lng,
       });
-      redirect(path);
+      router.push(path);
+      router.refresh();
     }
     if (!isNil(state?.error)) {
       notification({

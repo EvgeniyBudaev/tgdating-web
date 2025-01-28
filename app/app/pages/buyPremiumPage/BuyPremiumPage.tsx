@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { type FC, memo } from "react";
 import { BuyPremiumFooter } from "@/app/pages/buyPremiumPage/buyPremiumFooter";
 import { BuyPremiumForm } from "@/app/pages/buyPremiumPage/buyPremiumForm";
@@ -22,8 +22,9 @@ type TProps = {
 };
 
 const BuyPremiumPageComponent: FC<TProps> = ({ lng, telegramUserId }) => {
-  const { onChangeTariff, tariff } = useTariff();
+  const router = useRouter();
   const { theme } = useTelegram();
+  const { onChangeTariff, tariff } = useTariff();
 
   const handleCancel = () => {
     const path = createPath({
@@ -34,7 +35,8 @@ const BuyPremiumPageComponent: FC<TProps> = ({ lng, telegramUserId }) => {
       },
       lng: lng,
     });
-    redirect(path);
+    router.push(path);
+    router.refresh();
   };
 
   return (

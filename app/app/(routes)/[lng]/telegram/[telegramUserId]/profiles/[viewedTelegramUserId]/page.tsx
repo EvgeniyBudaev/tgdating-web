@@ -1,8 +1,6 @@
-import { redirect } from "next/navigation";
 import { getProfileDetail } from "@/app/api/profile/getProfileDetail/domain";
 import { ProfileDetailPage } from "@/app/pages/profileDetailPage";
-import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { createPath } from "@/app/shared/utils";
+import { ELanguage } from "@/app/shared/enums";
 
 export const dynamic = "force-dynamic";
 
@@ -91,45 +89,13 @@ export default async function ProfileDetailRoute({
     searchParams: query ?? {},
   });
 
-  if (data?.isUnauthorized || !data?.isExistUser) {
-    redirect(
-      createPath({
-        route: ERoutes.Unauthorized,
-      }),
-    );
-  }
-
-  if (data?.profile?.status?.isBlocked) {
-    redirect(
-      createPath({
-        route: ERoutes.ProfileBlocked,
-        params: { telegramUserId: telegramUserId },
-      }),
-    );
-  }
-
-  if (data?.profile?.status?.isFrozen) {
-    redirect(
-      createPath({
-        route: ERoutes.ProfileDeleted,
-        params: { telegramUserId: telegramUserId },
-      }),
-    );
-  }
-
-  if (data?.profile?.block?.isBlocked) {
-    redirect(
-      createPath({
-        route: ERoutes.ProfileBlocked,
-        params: { telegramUserId: telegramUserId },
-      }),
-    );
-  }
-
   return (
     <ProfileDetailPage
+      isBlocked={data?.profile?.block?.isBlocked}
       isExistUser={data.isExistUser}
+      isFrozen={data?.profile?.status?.isFrozen}
       isManyRequest={data.isManyRequest}
+      isUnauthorized={data?.isUnauthorized}
       lng={language}
       profile={data?.profile}
       telegramUserId={telegramUserId}

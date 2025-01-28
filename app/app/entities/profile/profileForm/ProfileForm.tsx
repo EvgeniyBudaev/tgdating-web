@@ -41,20 +41,15 @@ import { ETheme } from "@/app/uikit/enums/theme";
 import { notification } from "@/app/uikit/utils";
 import "./ProfileForm.scss";
 import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
+import { Icon } from "@/app/uikit/components/icon";
 
 type TProps = {
   isEdit?: boolean;
-  isManyRequest?: boolean;
   lng: ELanguage;
   profile?: TProfile;
 };
 
-const ProfileFormComponent: FC<TProps> = ({
-  isEdit,
-  isManyRequest,
-  lng,
-  profile,
-}) => {
+const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
   const { t } = useTranslation("index");
   const {
     age,
@@ -98,15 +93,6 @@ const ProfileFormComponent: FC<TProps> = ({
   const { formHeight, isKeyboardOpen } = useDetectKeyboardOpen();
   const [focusedEvent, setFocusedEvent] = useState<FocusEvent<HTMLElement>>();
   const formHeightFormatted = isKeyboardOpen ? `${formHeight}px` : "100%";
-
-  useEffect(() => {
-    if (isManyRequest) {
-      notification({
-        title: t("errorBoundary.common.manyRequest"),
-        type: "error",
-      });
-    }
-  }, [isManyRequest]);
 
   useEffect(() => {
     if (isKeyboardOpen && focusedEvent) {
@@ -211,17 +197,17 @@ const ProfileFormComponent: FC<TProps> = ({
                   isSidebarOpen={isSidebarOpen.isAge}
                   label={t("common.form.field.age")}
                   name={EProfileAddFormFields.Age}
-                  onCloseSidebar={onCloseSidebar}
                   onHeaderClick={() =>
                     setIsSidebarOpen((prev) => ({ ...prev, isAge: true }))
                   }
                   onSave={onChangeAge}
                   options={ageOptions}
+                  postfixIconSubmit={<Icon type="Undo" />}
                   selectedItem={age}
                   subLabel={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
                   theme={theme}
                   title={t("common.form.field.age")}
-                  titleButton={t("common.actions.apply")}
+                  titleButton={t("common.actions.back")}
                 />
               </Field>
               <Field>
@@ -230,17 +216,17 @@ const ProfileFormComponent: FC<TProps> = ({
                   isSidebarOpen={isSidebarOpen.isGender}
                   label={t("common.form.field.gender")}
                   name={EProfileAddFormFields.Gender}
-                  onCloseSidebar={onCloseSidebar}
                   onHeaderClick={() =>
                     setIsSidebarOpen((prev) => ({ ...prev, isGender: true }))
                   }
                   onSave={onChangeGender}
                   options={getGenderByLocale(language)}
+                  postfixIconSubmit={<Icon type="Undo" />}
                   selectedItem={gender}
                   subLabel={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
                   theme={theme}
                   title={t("common.form.field.gender")}
-                  titleButton={t("common.actions.apply")}
+                  titleButton={t("common.actions.back")}
                 />
               </Field>
               <Field>
@@ -251,7 +237,6 @@ const ProfileFormComponent: FC<TProps> = ({
                   isSidebarOpen={isSidebarOpen.isSearchGender}
                   label={t("common.form.field.searchGender")}
                   name={EProfileAddFormFields.SearchGender}
-                  onCloseSidebar={onCloseSidebar}
                   onHeaderClick={() =>
                     setIsSidebarOpen((prev) => ({
                       ...prev,
@@ -260,11 +245,12 @@ const ProfileFormComponent: FC<TProps> = ({
                   }
                   onSave={onChangeSearchGender}
                   options={getSearchGenderByLocale(language)}
+                  postfixIconSubmit={<Icon type="Undo" />}
                   selectedItem={searchGender}
                   subLabel={`${t("common.titles.changeable")}`}
                   theme={theme}
                   title={t("common.form.field.searchGender")}
-                  titleButton={t("common.actions.apply")}
+                  titleButton={t("common.actions.back")}
                 />
               </Field>
               <Field>
@@ -275,17 +261,17 @@ const ProfileFormComponent: FC<TProps> = ({
                   isSidebarOpen={isSidebarOpen.isLanguage}
                   label={t("common.titles.interfaceLanguage")}
                   name={EProfileAddFormFields.TelegramLanguageCode}
-                  onCloseSidebar={onCloseSidebar}
                   onHeaderClick={() =>
                     setIsSidebarOpen((prev) => ({ ...prev, isLanguage: true }))
                   }
                   onSave={onChangeLanguage}
                   options={LANGUAGE_MAPPING[language]}
+                  postfixIconSubmit={<Icon type="Undo" />}
                   selectedItem={languageState}
                   subLabel={`${t("common.titles.changeable")}`}
                   theme={theme}
                   title={t("common.titles.interfaceLanguage")}
-                  titleButton={t("common.actions.apply")}
+                  titleButton={t("common.actions.back")}
                 />
               </Field>
               <Field>

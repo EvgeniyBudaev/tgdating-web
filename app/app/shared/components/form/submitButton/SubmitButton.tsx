@@ -14,7 +14,11 @@ type TProps = {
   title: string;
 };
 
-export const SubmitButton: FC<TProps> = ({ iconType, title }) => {
+export const SubmitButton: FC<TProps> = ({
+  iconType,
+  postfixIconSubmit,
+  title,
+}) => {
   const { pending } = useFormStatus();
   const { t } = useTranslation("index");
   const isLoading = pending;

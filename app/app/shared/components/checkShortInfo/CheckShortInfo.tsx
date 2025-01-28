@@ -1,7 +1,7 @@
 "use client";
 
 import isNil from "lodash/isNil";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { type FC, memo, useActionState, useEffect, useRef } from "react";
 import { EGetProfileShortInfoFields } from "@/app/actions/profile/getProfileShortInfo/enums";
 import { getProfileShortInfoAction } from "@/app/actions/profile/getProfileShortInfo/getProfileShortInfoAction";
@@ -9,7 +9,6 @@ import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/ty
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import { ELanguage } from "@/app/shared/enums";
 import { useNavigator } from "@/app/shared/hooks";
-// import { notification } from "@/app/uikit/utils";
 import "./CheckShortInfo.scss";
 
 type TProps = {
@@ -32,17 +31,12 @@ const CheckShortInfoComponent: FC<TProps> = ({
   const navigator = useNavigator({ lng });
   const pathname = usePathname();
   const buttonSubmitRef = useRef<HTMLInputElement | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
       onLoad(state.data);
     }
-    // if (!isNil(state?.error)) {
-    //   notification({
-    //     title: state?.error,
-    //     type: "error",
-    //   });
-    // }
   }, [lng, state, telegramUserId]);
 
   useEffect(() => {

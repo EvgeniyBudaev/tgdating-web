@@ -30,6 +30,7 @@ import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage } from "@/app/shared/enums";
 import { useTelegram } from "@/app/shared/hooks";
 import { getSearchGenderByLocale } from "@/app/shared/mapping/searchGender";
+import { Icon } from "@/app/uikit/components/icon";
 import { RangeSlider } from "@/app/uikit/components/rangeSlider";
 import { Select, TSelectOption } from "@/app/uikit/components/select";
 import { Sidebar } from "@/app/uikit/components/sidebar";
@@ -175,11 +176,11 @@ const SearchFormSidebarComponent: FC<TProps> = ({
                   <SidebarContent
                     onSave={handleChangeSearchGender}
                     options={getSearchGenderByLocale(lng)}
-                    onCloseSidebar={handleCloseSidebarSearchGender}
+                    postfixIconSubmit={<Icon type="Undo" />}
                     selectedItem={searchGenderState}
                     theme={theme}
                     title={t("common.form.field.searchGender")}
-                    titleButton={t("common.actions.apply")}
+                    titleButton={t("common.actions.back")}
                   />
                 </Select>
               </SidebarContentListItem>

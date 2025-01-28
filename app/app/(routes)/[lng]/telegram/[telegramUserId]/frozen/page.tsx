@@ -1,5 +1,4 @@
 import { getProfileDetail } from "@/app/api/profile/getProfileDetail/domain";
-import { ProfileBlocked } from "@/app/entities/profile/profileBlocked";
 import { ProfileFreezePage } from "@/app/pages/profileFreezePage";
 import { ELanguage } from "@/app/shared/enums";
 
@@ -40,13 +39,10 @@ export default async function ProfileFrozenRoute({
   const language = lng as ELanguage;
   const data = await loaderProfileFrozen({ telegramUserId });
 
-  if (data?.profile?.status?.isBlocked) {
-    return <ProfileBlocked />;
-  }
-
   return (
     <ProfileFreezePage
-      isDeleted={data?.profile?.status?.isFrozen}
+      isBlocked={data?.profile?.status?.isBlocked}
+      isFrozen={data?.profile?.status?.isFrozen}
       lng={language}
       telegramUserId={telegramUserId}
     />
