@@ -22,27 +22,27 @@ const ListTariffsComponent: FC<TProps> = ({
   theme,
 }) => {
   const { t } = useTranslation("index");
-  const priceFree = "0$";
-  const tariffFree = t("common.titles.premiumTariffFree");
-  const priceMonth = "3$";
+  // const priceFree = "0$";
+  // const tariffFree = t("common.titles.premiumTariffFree");
+  const priceMonth = "1$";
   const tariffMonth = t("common.titles.premiumTariffMonth");
-  const priceThreeMonths = "6$";
+  const priceThreeMonths = "2$";
   const tariffThreeMonths = t("common.titles.premiumTariffThreeMonths");
-  const priceYear = "12$";
+  const priceYear = "6$";
   const tariffYear = t("common.titles.premiumTariffYear");
   const titlePopular = t("common.titles.mostPopular");
 
   return (
     <div className={clsx(className, "ListTariffs-Wrapper")}>
       <div className="ListTariffs">
-        <Tariff
-          onChange={onChange}
-          price={priceFree}
-          tariff={ETariff.Free}
-          theme={theme}
-          title={tariffFree}
-          value={tariff}
-        />
+        {/*<Tariff*/}
+        {/*  onChange={onChange}*/}
+        {/*  price={priceFree}*/}
+        {/*  tariff={ETariff.Free}*/}
+        {/*  theme={theme}*/}
+        {/*  title={tariffFree}*/}
+        {/*  value={tariff}*/}
+        {/*/>*/}
         <Tariff
           onChange={onChange}
           price={priceMonth}

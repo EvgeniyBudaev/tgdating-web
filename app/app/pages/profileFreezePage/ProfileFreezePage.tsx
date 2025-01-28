@@ -16,6 +16,7 @@ import { ERoutes } from "@/app/shared/enums";
 import { useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { Button } from "@/app/uikit/components/button";
+import { ButtonLink } from "@/app/uikit/components/button/buttonLink";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./ProfileFreezePage.scss";
@@ -91,6 +92,19 @@ const ProfileFreezePageComponent: FC<TProfileFreezePageProps> = (props) => {
               <Typography>{t("common.actions.restoreProfile")}</Typography>
             </Button>
           </form>
+        )}
+        {!isSessionUser && (
+          <ButtonLink
+            href={createPath({
+              route: ERoutes.Telegram,
+              params: {
+                telegramUserId,
+              },
+              lng,
+            })}
+          >
+            <Typography>OK</Typography>
+          </ButtonLink>
         )}
       </div>
     </div>

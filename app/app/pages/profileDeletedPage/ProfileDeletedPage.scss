@@ -1,0 +1,22 @@
+.ProfileDeletedPage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+  &-Inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-Title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+
+  &.theme-dark {
+  }
+}

@@ -2,13 +2,16 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/types";
 import { useTranslation } from "@/app/i18n/client";
 import type { TSessionPageProps } from "@/app/pages/sessionPage/types";
 import { ERoutes } from "@/app/shared/enums";
 import { createPath } from "@/app/shared/utils";
 import { notification } from "@/app/uikit/utils";
 
-export const useSessionPageAccess = (props: TSessionPageProps) => {
+export const useSessionPageAccess = (
+  props: TSessionPageProps & { shortInfo: TProfileShortInfo | null },
+) => {
   const {
     isExistUser,
     isManyRequest,
@@ -41,22 +44,26 @@ export const useSessionPageAccess = (props: TSessionPageProps) => {
     }
     if (shortInfo?.isFrozen) {
       const path = createPath({
-        route: ERoutes.ProfileDeleted,
+        route: ERoutes.ProfileFrozen,
         params: { telegramUserId },
         lng,
       });
       router.push(path);
       router.refresh();
     }
+  }, [lng, shortInfo, telegramUserId]);
+
+  useEffect(() => {
     if (!isExistUser) {
       const path = createPath({
         route: ERoutes.Started,
+        params: { telegramUserId },
         lng,
       });
       router.push(path);
       router.refresh();
     }
-  }, [isExistUser, lng, shortInfo, telegramUserId]);
+  }, [isExistUser]);
 
   useEffect(() => {
     if (isUnauthorized) {

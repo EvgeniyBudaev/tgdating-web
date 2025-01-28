@@ -25,7 +25,7 @@ const SessionPageComponent: FC<TSessionPageProps> = (props) => {
   const { theme } = useTelegram();
   const { t } = useTranslation("index");
 
-  useSessionPageAccess(props);
+  useSessionPageAccess({ ...props, shortInfo });
 
   if (
     shortInfo?.isBlocked ||
