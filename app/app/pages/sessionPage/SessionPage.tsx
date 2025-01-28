@@ -11,6 +11,7 @@ import { useSessionPageAccess } from "@/app/pages/sessionPage/hooks";
 import { SessionImage } from "@/app/pages/sessionPage/sessionImage";
 import type { TSessionPageProps } from "@/app/pages/sessionPage/types";
 import { Container } from "@/app/shared/components/container";
+import { Loader } from "@/app/shared/components/loader";
 import { useShortInfoContext } from "@/app/shared/context";
 import { useTelegram } from "@/app/shared/hooks";
 import { Typography } from "@/app/uikit/components/typography";
@@ -18,12 +19,21 @@ import { ETheme } from "@/app/uikit/enums/theme";
 import "./SessionPage.scss";
 
 const SessionPageComponent: FC<TSessionPageProps> = (props) => {
-  const { lng, profileList, telegramUserId } = props;
+  const { isExistUser, isUnauthorized, lng, profileList, telegramUserId } =
+    props;
   const shortInfo = useShortInfoContext();
   const { theme } = useTelegram();
   const { t } = useTranslation("index");
 
   useSessionPageAccess(props);
+
+  if (
+    shortInfo?.isBlocked ||
+    shortInfo?.isFrozen ||
+    !isExistUser ||
+    isUnauthorized
+  )
+    return <Loader />;
 
   return (
     <div

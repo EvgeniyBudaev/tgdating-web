@@ -30,29 +30,18 @@ export const useSessionPageAccess = (props: TSessionPageProps) => {
   }, [isManyRequest]);
 
   useEffect(() => {
-    if (isUnauthorized) {
+    if (shortInfo?.isBlocked) {
       const path = createPath({
-        route: ERoutes.Unauthorized,
-        lng,
-      });
-      router.push(path);
-      router.refresh();
-    }
-  }, [isUnauthorized]);
-
-  useEffect(() => {
-    if (shortInfo?.isFrozen) {
-      const path = createPath({
-        route: ERoutes.ProfileDeleted,
+        route: ERoutes.ProfileBlocked,
         params: { telegramUserId },
         lng,
       });
       router.push(path);
       router.refresh();
     }
-    if (shortInfo?.isBlocked) {
+    if (shortInfo?.isFrozen) {
       const path = createPath({
-        route: ERoutes.ProfileBlocked,
+        route: ERoutes.ProfileDeleted,
         params: { telegramUserId },
         lng,
       });
@@ -68,4 +57,15 @@ export const useSessionPageAccess = (props: TSessionPageProps) => {
       router.refresh();
     }
   }, [isExistUser, lng, shortInfo, telegramUserId]);
+
+  useEffect(() => {
+    if (isUnauthorized) {
+      const path = createPath({
+        route: ERoutes.Unauthorized,
+        lng,
+      });
+      router.push(path);
+      router.refresh();
+    }
+  }, [isUnauthorized]);
 };

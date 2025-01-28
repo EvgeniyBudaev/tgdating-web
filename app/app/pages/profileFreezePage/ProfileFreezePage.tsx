@@ -9,6 +9,7 @@ import { restoreProfileAction } from "@/app/actions/profile/restoreProfile/resto
 import { useTranslation } from "@/app/i18n/client";
 import { useProfileFreezeAccess } from "@/app/pages/profileFreezePage/hooks";
 import type { TProfileFreezePageProps } from "@/app/pages/profileFreezePage/types";
+import { Loader } from "@/app/shared/components/loader";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ERoutes } from "@/app/shared/enums";
@@ -20,7 +21,7 @@ import { ETheme } from "@/app/uikit/enums/theme";
 import "./ProfileFreezePage.scss";
 
 const ProfileFreezePageComponent: FC<TProfileFreezePageProps> = (props) => {
-  const { lng, telegramUserId } = props;
+  const { isBlocked, isFrozen, lng, telegramUserId } = props;
   const csrf = useAuthenticityTokenContext();
   const router = useRouter();
   const { initDataCrypt, isSession, user, theme } = useTelegram();
@@ -66,6 +67,8 @@ const ProfileFreezePageComponent: FC<TProfileFreezePageProps> = (props) => {
       formAction(formDataDto);
     }
   };
+
+  if (isBlocked || !isFrozen) return <Loader />;
 
   return (
     <div
