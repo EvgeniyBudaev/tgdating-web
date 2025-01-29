@@ -1,26 +1,28 @@
 "use client";
 
 import isNil from "lodash/isNil";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { type FC, memo, useActionState, useEffect, useRef } from "react";
 import { EGetProfileShortInfoFields } from "@/app/actions/profile/getProfileShortInfo/enums";
 import { getProfileShortInfoAction } from "@/app/actions/profile/getProfileShortInfo/getProfileShortInfoAction";
 import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/types";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import { ELanguage } from "@/app/shared/enums";
-import { useNavigator } from "@/app/shared/hooks";
+import type { TUseNavigatorResponse } from "@/app/shared/hooks/useNavigator";
 import "./CheckShortInfo.scss";
 
 type TProps = {
   isSession: boolean;
   lng: ELanguage;
-  onLoad: (shortInfo: TProfileShortInfo) => void;
+  navigator?: TUseNavigatorResponse;
+  onLoad?: (shortInfo: TProfileShortInfo) => void;
   telegramUserId: string;
 };
 
 const CheckShortInfoComponent: FC<TProps> = ({
   isSession,
   lng,
+  navigator,
   onLoad,
   telegramUserId,
 }) => {
@@ -28,14 +30,12 @@ const CheckShortInfoComponent: FC<TProps> = ({
     getProfileShortInfoAction,
     INITIAL_FORM_STATE,
   );
-  const navigator = useNavigator({ lng });
   const pathname = usePathname();
   const buttonSubmitRef = useRef<HTMLInputElement | null>(null);
-  const router = useRouter();
 
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
-      onLoad(state.data);
+      onLoad?.(state.data);
     }
   }, [lng, state, telegramUserId]);
 
@@ -60,7 +60,7 @@ const CheckShortInfoComponent: FC<TProps> = ({
         );
       navigator?.longitude &&
         formDataDto.append(
-          EGetProfileShortInfoFields.Latitude,
+          EGetProfileShortInfoFields.Longitude,
           navigator.longitude.toString(),
         );
       // @ts-ignore
