@@ -14,7 +14,6 @@ import { EAddLikeFormFields } from "@/app/actions/like/addLike/enum";
 import { EUpdateLikeFormFields } from "@/app/actions/like/updateLike/enum";
 import { updateLikeAction } from "@/app/actions/like/updateLike/updateLikeAction";
 import type { TProfileDetail } from "@/app/api/profile/getProfileDetail/types";
-import { useTranslation } from "@/app/i18n/client";
 import { LikeButton } from "@/app/pages/profileDetailPage/like/likeButton";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
 import { useAuthenticityTokenContext } from "@/app/shared/context";
@@ -32,16 +31,11 @@ type TProps = {
 
 const LikeComponent: FC<TProps> = ({ lng, profile, telegramUserId }) => {
   const csrf = useAuthenticityTokenContext();
-  const { initDataCrypt } = useTelegram();
+  const { initDataCrypt, theme } = useTelegram();
   const isLiked = profile?.like?.isLiked;
   const { dayjs } = useDayjs();
   const buttonSubmitRef = useRef<HTMLInputElement | null>(null);
-  const { t } = useTranslation("index");
   const [isShowTooltipHeart, setIsShowTooltipHeart] = useState(false);
-
-  const message = isShowTooltipHeart
-    ? t("pages.profile.doubleLike")
-    : undefined;
 
   const canAddLike = useMemo(() => {
     return isNil(profile?.like?.id);
@@ -82,6 +76,10 @@ const LikeComponent: FC<TProps> = ({ lng, profile, telegramUserId }) => {
       return;
     }
     setIsShowTooltipHeart(true);
+  };
+
+  const handleCloseTooltip = () => {
+    setIsShowTooltipHeart(false);
   };
 
   const handleSubmit = () => {
@@ -151,12 +149,14 @@ const LikeComponent: FC<TProps> = ({ lng, profile, telegramUserId }) => {
     <form
       action={handleSubmit}
       className="Like-Form"
-      style={{ justifyContent: !message ? "flex-end" : "center" }}
+      style={{ justifyContent: !isShowTooltipHeart ? "flex-end" : "center" }}
     >
       <LikeButton
         isLiked={isLiked}
-        message={message}
+        isShowTooltipHeart={isShowTooltipHeart}
         onClick={handleHeartClick}
+        onCloseTooltip={handleCloseTooltip}
+        theme={theme}
       />
       <input hidden={true} ref={buttonSubmitRef} type="submit" />
     </form>

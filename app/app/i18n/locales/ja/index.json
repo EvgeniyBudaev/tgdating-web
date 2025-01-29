@@ -25,14 +25,15 @@
       "premiumTariffThreeMonths": "3ヶ月プレミアム",
       "premiumTariffYear": "1年間のプレミアム",
       "mostPopular": "最も人気のある",
+      "accountDeleted": "アカウントが削除されました",
       "blockQuestion": "アカウントをブロックしますか?",
       "complaintQuestion": "アカウントをブロックしますか?",
       "deleteQuestion": "アカウントを削除しますか?",
       "freezeQuestion": "アカウントを凍結しますか?",
+      "doubleLike": "明日から再いいねが可能になります",
       "online": "オンライン",
       "isHiddenAge": "年齢を表さない",
       "accountFrozen": "アカウントが凍結されました",
-      "accountDeleted": "アカウントが削除されました",
       "isEmptyList": "人は一人も見つかりませんでした。フィルター設定を変更してみてください。",
       "appName": "電報デート",
       "getStarted": "始める",
@@ -105,11 +106,6 @@
       "manyRequest": "リクエストが多すぎます",
       "unauthorized": "Telegram アプリケーション経由では承認されていません",
       "unexpectedError": "予期しないエラーが発生しました"
-    }
-  },
-  "pages": {
-    "profile": {
-      "doubleLike": "明日から再いいねが可能になります"
     }
   }
 }

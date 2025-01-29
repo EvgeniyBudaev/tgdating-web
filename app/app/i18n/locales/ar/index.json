@@ -25,14 +25,15 @@
       "premiumTariffThreeMonths": "قسط 3 أشهر",
       "premiumTariffYear": "قسط 1 سنة",
       "mostPopular": "الأكثر شعبية",
+      "accountDeleted": "تم حذف الحساب",
       "blockQuestion": "حظر حسابك؟",
       "complaintQuestion": "حظر حسابك؟",
       "deleteQuestion": "هل تريد حذف الحساب؟",
       "freezeQuestion": "تجميد حسابك؟",
+      "doubleLike": "إعادة الإعجاب ستكون متاحة غدًا",
       "online": "متصل",
       "isHiddenAge": "لا تظهر العمر",
       "accountFrozen": "الحساب مجمد",
-      "accountDeleted": "تم حذف الحساب",
       "isEmptyList": "لم يتم العثور على شخص واحد. حاول تغيير إعدادات الفلتر.",
       "appName": "المواعدة برقية",
       "getStarted": "يبدأ",
@@ -105,11 +106,6 @@
       "manyRequest": "طلبات كثيرة جدًا",
       "unauthorized": "غير مصرح به عبر تطبيق Telegram",
       "unexpectedError": "حدث خطأ غير متوقع"
-    }
-  },
-  "pages": {
-    "profile": {
-      "doubleLike": "إعادة الإعجاب ستكون متاحة غدًا"
     }
   }
 }

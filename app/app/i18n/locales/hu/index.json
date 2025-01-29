@@ -25,14 +25,15 @@
       "premiumTariffThreeMonths": "3 hónap prémium",
       "premiumTariffYear": "1 év prémium",
       "mostPopular": "legnépszerűbb",
+      "accountDeleted": "Fiók törölve",
       "blockQuestion": "Letiltja fiókját?",
       "complaintQuestion": "Letiltja fiókját?",
       "deleteQuestion": "Törli a fiókot?",
       "freezeQuestion": "Lefagyasztjuk a fiókját?",
+      "doubleLike": "A re-like holnap lesz elérhető",
       "online": "Online",
       "isHiddenAge": "Ne mutasd az életkort",
       "accountFrozen": "A fiók lefagyott",
-      "accountDeleted": "Fiók törölve",
       "isEmptyList": "Egyetlen embert sem találtak. Próbálja meg módosítani a szűrő beállításait.",
       "appName": "Távirati társkeresés",
       "getStarted": "Kezdődik",
@@ -105,11 +106,6 @@
       "manyRequest": "Túl sok kérés",
       "unauthorized": "Nem engedélyezett a Telegram alkalmazáson keresztül",
       "unexpectedError": "Váratlan hiba történt"
-    }
-  },
-  "pages": {
-    "profile": {
-      "doubleLike": "A re-like holnap lesz elérhető"
     }
   }
 }

@@ -17,5 +17,10 @@
     "titles": {
       "validUntil": "قسط صالح حتى عام"
     }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "إعادة الإعجاب ستكون متاحة غدًا"
+    }
   }
 }

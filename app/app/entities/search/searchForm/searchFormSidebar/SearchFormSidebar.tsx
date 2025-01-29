@@ -174,13 +174,13 @@ const SearchFormSidebarComponent: FC<TProps> = ({
                   theme={theme}
                 >
                   <SidebarContent
+                    onCloseSidebar={handleCloseSidebarSearchGender}
                     onSave={handleChangeSearchGender}
                     options={getSearchGenderByLocale(lng)}
-                    postfixIconSubmit={<Icon type="Undo" />}
                     selectedItem={searchGenderState}
                     theme={theme}
                     title={t("common.form.field.searchGender")}
-                    titleButton={t("common.actions.back")}
+                    titleButton={t("common.actions.apply")}
                   />
                 </Select>
               </SidebarContentListItem>

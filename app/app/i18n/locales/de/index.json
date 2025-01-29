@@ -25,14 +25,15 @@
       "premiumTariffThreeMonths": "3 Monate Premium",
       "premiumTariffYear": "1 Jahr Premium",
       "mostPopular": "am beliebtesten",
+      "accountDeleted": "Konto gelöscht",
       "blockQuestion": "Konto sperren?",
       "complaintQuestion": "Konto sperren?",
       "deleteQuestion": "Konto löschen?",
       "freezeQuestion": "Konto einfrieren?",
+      "doubleLike": "Re-like wird morgen verfügbar sein",
       "online": "Online",
       "isHiddenAge": "Alter nicht anzeigen",
       "accountFrozen": "Konto eingefroren",
-      "accountDeleted": "Konto gelöscht",
       "isEmptyList": "Es wurde keine einzige Person gefunden. Versuchen Sie, Ihre Filtereinstellungen zu ändern.",
       "appName": "Telegram dating",
       "getStarted": "Beginnen",
@@ -105,11 +106,6 @@
       "manyRequest": "Zu viele Anfragen",
       "unauthorized": "Nicht über Telegram-Anwendung autorisiert",
       "unexpectedError": "Es ist ein unerwarteter Fehler aufgetreten"
-    }
-  },
-  "pages": {
-    "profile": {
-      "doubleLike": "Re-like wird morgen verfügbar sein"
     }
   }
 }

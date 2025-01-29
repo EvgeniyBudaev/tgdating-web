@@ -19,9 +19,8 @@
     z-index: 10;
 
     &Inner {
-      background-color: rgb(42, 35, 70);
+      background-color: colors.$secondary_bg_light_color;
       border-radius: 4px;
-      color: colors.$text_color;
       padding: 16px 24px;
       width: 100%;
       box-shadow:
@@ -74,5 +73,9 @@
     #{$this}-Arrow {
       left: 0;
     }
+  }
+
+  &-ElementInner.theme-dark {
+    background-color: colors.$secondary_bg_color;
   }
 }

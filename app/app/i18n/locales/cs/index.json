@@ -25,14 +25,15 @@
       "premiumTariffThreeMonths": "3 měsíce Premium",
       "premiumTariffYear": "1 rok Premium",
       "mostPopular": "nejoblíbenější",
+      "accountDeleted": "Účet smazán",
       "blockQuestion": "Zablokovat svůj účet?",
       "complaintQuestion": "Zablokovat svůj účet?",
       "deleteQuestion": "Smazat účet?",
       "freezeQuestion": "Zmrazit váš účet?",
+      "doubleLike": "Re-like bude k dispozici zítra",
       "online": "Online",
       "isHiddenAge": "Nezobrazovat věk",
       "accountFrozen": "Účet zmrazen",
-      "accountDeleted": "Účet smazán",
       "isEmptyList": "Nebyl nalezen jediný člověk. Zkuste změnit nastavení filtru.",
       "appName": "Telegramová seznamka",
       "getStarted": "Začít",
@@ -105,11 +106,6 @@
       "manyRequest": "Příliš mnoho požadavků",
       "unauthorized": "Není autorizován prostřednictvím aplikace Telegram",
       "unexpectedError": "Došlo k neočekávané chybě"
-    }
-  },
-  "pages": {
-    "profile": {
-      "doubleLike": "Re-like bude k dispozici zítra"
     }
   }
 }

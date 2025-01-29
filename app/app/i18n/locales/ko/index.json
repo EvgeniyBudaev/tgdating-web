@@ -25,14 +25,15 @@
       "premiumTariffThreeMonths": "3개월 프리미엄",
       "premiumTariffYear": "1년 프리미엄",
       "mostPopular": "가장 인기있는",
+      "accountDeleted": "계정이 삭제되었습니다",
       "blockQuestion": "계정을 차단하시겠습니까?",
       "complaintQuestion": "계정을 차단하시겠습니까?",
       "deleteQuestion": "계정을 삭제하시겠습니까?",
       "freezeQuestion": "계정을 동결하시겠습니까?",
+      "doubleLike": "리라이크는 내일부터 가능합니다",
       "online": "온라인",
       "isHiddenAge": "나이를 표시하지 마세요",
       "accountFrozen": "계정이 동결되었습니다",
-      "accountDeleted": "계정이 삭제되었습니다",
       "isEmptyList": "한 사람도 발견되지 않았습니다. 필터 설정을 변경해 보세요.",
       "appName": "텔레그램 데이트",
       "getStarted": "시작하다",
@@ -105,11 +106,6 @@
       "manyRequest": "요청이 너무 많습니다",
       "unauthorized": "텔레그램 애플리케이션을 통해 승인되지 않음",
       "unexpectedError": "예상치 못한 오류가 발생했습니다"
-    }
-  },
-  "pages": {
-    "profile": {
-      "doubleLike": "리라이크는 내일부터 가능합니다"
     }
   }
 }

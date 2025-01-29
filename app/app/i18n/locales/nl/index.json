@@ -25,14 +25,15 @@
       "premiumTariffThreeMonths": "3 maanden premie",
       "premiumTariffYear": "1 jaar premie",
       "mostPopular": "meest populair",
+      "accountDeleted": "Account verwijderd",
       "blockQuestion": "Uw account blokkeren?",
       "complaintQuestion": "Uw account blokkeren?",
       "deleteQuestion": "Account verwijderen?",
       "freezeQuestion": "Uw account bevriezen?",
+      "doubleLike": "Re-like is morgen beschikbaar",
       "online": "Online",
       "isHiddenAge": "Laat geen leeftijd zien",
       "accountFrozen": "Rekening bevroren",
-      "accountDeleted": "Account verwijderd",
       "isEmptyList": "Er werd geen enkele persoon gevonden. Probeer uw filterinstellingen te wijzigen.",
       "appName": "Telegram-datering",
       "getStarted": "Beginnen",
@@ -105,11 +106,6 @@
       "manyRequest": "Te veel verzoeken",
       "unauthorized": "Niet geautoriseerd via Telegram-applicatie",
       "unexpectedError": "Er is een onverwachte fout opgetreden"
-    }
-  },
-  "pages": {
-    "profile": {
-      "doubleLike": "Re-like is morgen beschikbaar"
     }
   }
 }

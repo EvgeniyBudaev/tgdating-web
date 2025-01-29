@@ -25,14 +25,15 @@
       "premiumTariffThreeMonths": "3 månader Premium",
       "premiumTariffYear": "1 år Premium",
       "mostPopular": "mest populära",
+      "accountDeleted": "Kontot raderat",
       "blockQuestion": "Blockera ditt konto?",
       "complaintQuestion": "Blockera ditt konto?",
       "deleteQuestion": "Ta bort konto?",
       "freezeQuestion": "Frysa ditt konto?",
+      "doubleLike": "Re-like kommer att finnas tillgänglig imorgon",
       "online": "Online",
       "isHiddenAge": "Visa inte ålder",
       "accountFrozen": "Konto fryst",
-      "accountDeleted": "Kontot raderat",
       "isEmptyList": "Inte en enda person hittades. Prova att ändra dina filterinställningar.",
       "appName": "Telegramdejting",
       "getStarted": "Börja",
@@ -105,11 +106,6 @@
       "manyRequest": "För många förfrågningar",
       "unauthorized": "Ej auktoriserad via Telegram-applikation",
       "unexpectedError": "Ett oväntat fel inträffade"
-    }
-  },
-  "pages": {
-    "profile": {
-      "doubleLike": "Re-like kommer att finnas tillgänglig imorgon"
     }
   }
 }

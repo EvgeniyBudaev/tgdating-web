@@ -25,14 +25,15 @@
       "premiumTariffThreeMonths": "3 חודשים פרימיום",
       "premiumTariffYear": "שנה פרימיום",
       "mostPopular": "הפופולרי ביותר",
+      "accountDeleted": "החשבון נמחק",
       "blockQuestion": "לחסום את החשבון שלך?",
       "complaintQuestion": "לחסום את החשבון שלך?",
       "deleteQuestion": "למחוק חשבון?",
       "freezeQuestion": "להקפיא את החשבון שלך?",
+      "doubleLike": "לייק מחדש יהיה זמין מחר",
       "online": "באינטרנט",
       "isHiddenAge": "אל תראה גיל",
       "accountFrozen": "החשבון הוקפא",
-      "accountDeleted": "החשבון נמחק",
       "isEmptyList": "לא נמצא אדם אחד. נסה לשנות את הגדרות המסנן שלך.",
       "appName": "היכרויות בטלגרם",
       "getStarted": "לְהַתְחִיל",
@@ -105,11 +106,6 @@
       "manyRequest": "יותר מדי בקשות",
       "unauthorized": "לא מורשה באמצעות אפליקציית טלגרם",
       "unexpectedError": "אירעה שגיאה בלתי צפויה"
-    }
-  },
-  "pages": {
-    "profile": {
-      "doubleLike": "לייק מחדש יהיה זמין מחר"
     }
   }
 }

@@ -25,14 +25,15 @@
       "premiumTariffThreeMonths": "Prima de 3 meses",
       "premiumTariffYear": "Prima de 1 año",
       "mostPopular": "más popular",
+      "accountDeleted": "Cuenta eliminada",
       "blockQuestion": "¿Bloquear tu cuenta?",
       "complaintQuestion": "¿Bloquear tu cuenta?",
       "deleteQuestion": "¿Eliminar cuenta?",
       "freezeQuestion": "¿Congelar tu cuenta?",
+      "doubleLike": "Volver a me gusta estará disponible mañana",
       "online": "En línea",
       "isHiddenAge": "No mostrar edad",
       "accountFrozen": "Cuenta congelada",
-      "accountDeleted": "Cuenta eliminada",
       "isEmptyList": "No se encontró ni una sola persona. Intente cambiar la configuración de su filtro.",
       "appName": "Citas por telegrama",
       "getStarted": "Comenzar",
@@ -105,11 +106,6 @@
       "manyRequest": "Demasiadas solicitudes",
       "unauthorized": "No autorizado a través de la aplicación Telegram",
       "unexpectedError": "Ocurrió un error inesperado"
-    }
-  },
-  "pages": {
-    "profile": {
-      "doubleLike": "Volver a me gusta estará disponible mañana"
     }
   }
 }

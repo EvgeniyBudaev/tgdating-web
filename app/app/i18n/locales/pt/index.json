@@ -25,14 +25,15 @@
       "premiumTariffThreeMonths": "3 meses Premium",
       "premiumTariffYear": "Prêmio de 1 ano",
       "mostPopular": "mais popular",
+      "accountDeleted": "Conta excluída",
       "blockQuestion": "Bloquear sua conta?",
       "complaintQuestion": "Bloquear sua conta?",
       "deleteQuestion": "Excluir conta?",
       "freezeQuestion": "Congelar sua conta?",
+      "doubleLike": "Re-like estará disponível amanhã",
       "online": "On-line",
       "isHiddenAge": "Não mostre a idade",
       "accountFrozen": "Conta congelada",
-      "accountDeleted": "Conta excluída",
       "isEmptyList": "Nem uma única pessoa foi encontrada. Tente alterar as configurações do filtro.",
       "appName": "Namoro por telegrama",
       "getStarted": "Começar",
@@ -105,11 +106,6 @@
       "manyRequest": "Muitos pedidos",
       "unauthorized": "Não autorizado via aplicativo Telegram",
       "unexpectedError": "Ocorreu um erro inesperado"
-    }
-  },
-  "pages": {
-    "profile": {
-      "doubleLike": "Re-like estará disponível amanhã"
     }
   }
 }

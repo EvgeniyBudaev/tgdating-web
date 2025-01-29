@@ -25,14 +25,15 @@
       "premiumTariffThreeMonths": "Premio di 3 mesi",
       "premiumTariffYear": "Premio per 1 anno",
       "mostPopular": "più popolare",
+      "accountDeleted": "Conto eliminato",
       "blockQuestion": "Bloccare il tuo account?",
       "complaintQuestion": "Bloccare il tuo account?",
       "deleteQuestion": "Eliminare l'account?",
       "freezeQuestion": "Congelare il tuo account?",
+      "doubleLike": "Re-like sarà disponibile domani",
       "online": "In linea",
       "isHiddenAge": "Non mostrare l'età",
       "accountFrozen": "Conto congelato",
-      "accountDeleted": "Conto eliminato",
       "isEmptyList": "Non è stata trovata una sola persona. Prova a modificare le impostazioni del filtro.",
       "appName": "Incontri su Telegram",
       "getStarted": "Inizio",
@@ -105,11 +106,6 @@
       "manyRequest": "Troppe richieste",
       "unauthorized": "Non autorizzato tramite l'applicazione Telegram",
       "unexpectedError": "Si è verificato un errore imprevisto"
-    }
-  },
-  "pages": {
-    "profile": {
-      "doubleLike": "Re-like sarà disponibile domani"
     }
   }
 }

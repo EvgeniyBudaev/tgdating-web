@@ -13,5 +13,10 @@
     "titles": {
       "validUntil": "Добавь сюда перевод!!!"
     }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "Suka ulang akan tersedia besok"
+    }
   }
 }

@@ -25,14 +25,15 @@
       "premiumTariffThreeMonths": "Premi 3 bulan",
       "premiumTariffYear": "Premi 1 tahun",
       "mostPopular": "paling populer",
+      "accountDeleted": "Akun dihapus",
       "blockQuestion": "Haruskah aku memblokir akunku?",
       "complaintQuestion": "aruskah aku memblokir akunku?",
       "deleteQuestion": "Hapus akun?",
       "freezeQuestion": "Bekukan akun Anda?",
+      "doubleLike": "Suka ulang akan tersedia besok",
       "online": "On line",
       "isHiddenAge": "Jangan tunjukkan usia",
       "accountFrozen": "Akun dibekukan",
-      "accountDeleted": "Akun dihapus",
       "isEmptyList": "Tidak ada satu orang pun yang ditemukan. Coba ubah pengaturan filter Anda.",
       "appName": "Kencan Telegram",
       "getStarted": "Mulai",
@@ -105,11 +106,6 @@
       "manyRequest": "Terlalu banyak permintaan",
       "unauthorized": "Tidak diotorisasi melalui aplikasi Telegram",
       "unexpectedError": "Terjadi kesalahan yang tidak terduga"
-    }
-  },
-  "pages": {
-    "profile": {
-      "doubleLike": "Suka ulang akan tersedia besok"
     }
   }
 }

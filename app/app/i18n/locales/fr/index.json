@@ -25,14 +25,15 @@
       "premiumTariffThreeMonths": "3 mois de prime",
       "premiumTariffYear": "Prime d'un an",
       "mostPopular": "le plus populaire",
+      "accountDeleted": "Compte supprimé",
       "blockQuestion": "Bloquer votre compte?",
       "complaintQuestion": "Bloquer votre compte?",
       "deleteQuestion": "Supprimer le compte?",
       "freezeQuestion": "Geler votre compte?",
+      "doubleLike": "Re-like sera disponible demain",
       "online": "En ligne",
       "isHiddenAge": "Ne montre pas l'âge",
       "accountFrozen": "Compte gelé",
-      "accountDeleted": "Compte supprimé",
       "isEmptyList": "Pas une seule personne n’a été retrouvée. Essayez de modifier vos paramètres de filtre.",
       "appName": "Rencontres par télégramme",
       "getStarted": "Commencer",
@@ -105,11 +106,6 @@
       "manyRequest": "Trop de demandes",
       "unauthorized": "Non autorisé via l'application Telegram",
       "unexpectedError": "Une erreur inattendue s'est produite"
-    }
-  },
-  "pages": {
-    "profile": {
-      "doubleLike": "Re-like sera disponible demain"
     }
   }
 }

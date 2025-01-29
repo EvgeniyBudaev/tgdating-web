@@ -13,5 +13,10 @@
     "titles": {
       "validUntil": "Добавь сюда перевод!!!"
     }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "Re-like sera disponible demain"
+    }
   }
 }

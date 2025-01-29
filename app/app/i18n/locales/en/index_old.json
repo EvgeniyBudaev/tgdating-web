@@ -108,6 +108,9 @@
       "title": "Registration",
       "haveAccount": "Have an account?",
       "enter": "Enter"
+    },
+    "profile": {
+      "doubleLike": "Re-like will be available tomorrow"
     }
   },
   "common": {

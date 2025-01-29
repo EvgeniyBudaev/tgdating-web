@@ -11,6 +11,7 @@ import type {
 } from "@/app/uikit/components/tooltipV2/types";
 import { getTooltipOffset } from "@/app/uikit/components/tooltipV2/utils";
 import "./TooltipV2.scss";
+import { ETheme } from "@/app/uikit/enums/theme";
 
 const TooltipV2Component: FC<TTooltipProps> = ({
   children,
@@ -20,8 +21,10 @@ const TooltipV2Component: FC<TTooltipProps> = ({
   isVisible = false,
   message,
   modifiers,
+  onClose,
   placement = "right",
-  timerDelay = 2000,
+  timerDelay = 1000,
+  theme,
   showTimerDelay = 0,
 }) => {
   const [referenceElement, setReferenceElement] =
@@ -58,7 +61,16 @@ const TooltipV2Component: FC<TTooltipProps> = ({
   ];
 
   useEffect(() => {
-    const listener = () => setVisible(false);
+    if (isVisible) {
+      setVisible(true);
+    }
+  }, [isVisible]);
+
+  useEffect(() => {
+    const listener = () => {
+      setVisible(false);
+      onClose?.();
+    };
     document.addEventListener("scroll", listener);
     return () => document.removeEventListener("scroll", listener);
   }, []);
@@ -99,6 +111,7 @@ const TooltipV2Component: FC<TTooltipProps> = ({
       clearTimeout(showTimer);
       setShowTimer((prev) => undefined);
       setVisible(false);
+      onClose?.();
     }, timerDelay);
     setTimer(newTimer);
   };
@@ -113,7 +126,9 @@ const TooltipV2Component: FC<TTooltipProps> = ({
       className={clsx("TooltipV2-Wrapper", classes?.root)}
     >
       <div
-        className={clsx("TooltipV2", classes?.referenceElement)}
+        className={clsx("TooltipV2", classes?.referenceElement, {
+          ["theme-dark"]: theme === ETheme.Dark,
+        })}
         data-testid="tooltip__ref-element"
         onMouseOver={handleMouseOver}
         onMouseLeave={handleMouseLeave}
@@ -128,7 +143,9 @@ const TooltipV2Component: FC<TTooltipProps> = ({
           message &&
           ReactDOM.createPortal(
             <div
-              className={clsx("TooltipV2-Element", classes?.popperElement)}
+              className={clsx("TooltipV2-Element", classes?.popperElement, {
+                ["theme-dark"]: theme === ETheme.Dark,
+              })}
               data-testid={`${DATA_TEST_ID}__popper-element`}
               onClick={handleInnerClick}
               onMouseOver={handleMouseOver}
@@ -143,6 +160,9 @@ const TooltipV2Component: FC<TTooltipProps> = ({
                 className={clsx(
                   "TooltipV2-ElementInner",
                   classes?.popperContent,
+                  {
+                    ["theme-dark"]: theme === ETheme.Dark,
+                  },
                 )}
                 data-testid={`${DATA_TEST_ID}__popper-content`}
               >

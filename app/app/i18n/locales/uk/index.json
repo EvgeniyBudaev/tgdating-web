@@ -25,14 +25,15 @@
       "premiumTariffThreeMonths": "3 місяці Premium",
       "premiumTariffYear": "1 рік Premium",
       "mostPopular": "найпопулярніший",
+      "accountDeleted": "Обліковий запис видалено",
       "blockQuestion": "Заблокувати обліковий запис?",
       "complaintQuestion": "Заблокувати обліковий запис?",
       "deleteQuestion": "Видалити обліковий запис?",
       "freezeQuestion": "Заморозити обліковий запис?",
+      "doubleLike": "Повторний лайк буде доступний завтра",
       "online": "У мережі",
       "isHiddenAge": "Не показувати вік",
       "accountFrozen": "Акаунт заморожено",
-      "accountDeleted": "Обліковий запис видалено",
       "isEmptyList": "Не знайдено жодної людини. Спробуйте змінити параметри фільтра.",
       "appName": "Telegram знайомства",
       "getStarted": "Почати",
@@ -105,11 +106,6 @@
       "manyRequest": "Забагато запитів",
       "unauthorized": "Не авторизовані через Telegram додаток",
       "unexpectedError": "Сталася непередбачена помилка"
-    }
-  },
-  "pages": {
-    "profile": {
-      "doubleLike": "Добавь сюда перевод!!!"
     }
   }
 }

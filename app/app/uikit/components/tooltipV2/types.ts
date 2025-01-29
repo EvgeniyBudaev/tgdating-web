@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { PopperProps } from "react-popper";
+import { ETheme } from "@/app/uikit/enums/theme";
 
 export type TModifiers = PopperProps<any>["modifiers"];
 export type TPlacement = PopperProps<any>["placement"];
@@ -21,7 +22,9 @@ export type TTooltipProps = {
   isVisible?: boolean;
   message: ReactNode;
   modifiers?: TModifiers;
+  onClose?: () => void;
   placement?: TPlacement;
   timerDelay?: number;
+  theme?: ETheme;
   showTimerDelay?: number;
 };

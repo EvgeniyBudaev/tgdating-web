@@ -25,14 +25,15 @@
       "premiumTariffThreeMonths": "3 айлық премиум",
       "premiumTariffYear": "1 жылдық премиум",
       "mostPopular": "ең танымал",
+      "accountDeleted": "Есептік жазба жойылды",
       "blockQuestion": "Есептік жазбаңызды бұғаттау керек пе?",
       "complaintQuestion": "Есептік жазбаңызды бұғаттау керек пе?",
       "deleteQuestion": "Есептік жазбаны жою керек пе?",
       "freezeQuestion": "Есептік жазбаңызды тоқтатасыз ба?",
+      "doubleLike": "Қайта лайк ертең қол жетімді болады",
       "online": "Онлайн",
       "isHiddenAge": "Жасыңызды көрсетпеңіз",
       "accountFrozen": "Есептік жазба жабылды",
-      "accountDeleted": "Есептік жазба жойылды",
       "isEmptyList": "Бірде-бір адам табылмады. Сүзгі параметрлерін өзгертіп көріңіз.",
       "appName": "Telegram танысу",
       "getStarted": "БАСТА",
@@ -105,11 +106,6 @@
       "manyRequest": "Өтініштер тым көп",
       "unauthorized": "Telegram қолданбасы арқылы рұқсат етілмеген",
       "unexpectedError": "Күтпеген қате орын алды"
-    }
-  },
-  "pages": {
-    "profile": {
-      "doubleLike": "Қайта лайк ертең қол жетімді болады"
     }
   }
 }

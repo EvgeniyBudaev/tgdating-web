@@ -25,14 +25,15 @@
       "premiumTariffThreeMonths": "3 месяца Premium",
       "premiumTariffYear": "1 год Premium",
       "mostPopular": "самый популярный",
+      "accountDeleted": "Аккаунт удален",
       "blockQuestion": "Заблокировать аккаунт?",
       "complaintQuestion": "Заблокировать аккаунт?",
       "deleteQuestion": "Удалить аккаунт?",
       "freezeQuestion": "Заморозить аккаунт?",
+      "doubleLike": "Повторный лайк будет доступен завтра",
       "online": "В сети",
       "isHiddenAge": "Не показывать возраст",
       "accountFrozen": "Аккаунт заморожен",
-      "accountDeleted": "Аккаунт удален",
       "isEmptyList": "Не найдено ни одного человека. Попробуйте изменить настройки фильтра.",
       "appName": "Telegram знакомства",
       "getStarted": "Начать",
@@ -105,11 +106,6 @@
       "manyRequest": "Слишком много запросов",
       "unauthorized": "Не авторизованы через Telegram приложение",
       "unexpectedError": "Произошла непредвиденная ошибка"
-    }
-  },
-  "pages": {
-    "profile": {
-      "doubleLike": "Повторний лайк буде доступний завтра"
     }
   }
 }

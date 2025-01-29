@@ -13,5 +13,10 @@
     "titles": {
       "validUntil": "Добавь сюда перевод!!!"
     }
+  },
+  "pages": {
+    "profile": {
+      "doubleLike": "리라이크는 내일부터 가능합니다"
+    }
   }
 }

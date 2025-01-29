@@ -17,8 +17,9 @@
 
     &-Button {
       position: relative;
-      height: 70px;
-      width: 70px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       margin-left: 16px;
     }
 
@@ -26,8 +27,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 70px;
-      width: 70px;
+      height: 64px;
+      width: 64px;
       border-radius: constants.$border-radius;
       cursor: pointer;
     }

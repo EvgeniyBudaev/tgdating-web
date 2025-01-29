@@ -25,14 +25,15 @@
       "premiumTariffThreeMonths": "3 mesos Premium",
       "premiumTariffYear": "1 any Premium",
       "mostPopular": "més popular",
+      "accountDeleted": "Compte suprimit",
       "blockQuestion": "Bloquejar el teu compte?",
       "complaintQuestion": "Bloquejar el teu compte?",
       "deleteQuestion": "Vols suprimir el compte?",
       "freezeQuestion": "Vols congelar el teu compte?",
+      "doubleLike": "Demà estarà disponible Re-like",
       "online": "En línia",
       "isHiddenAge": "No mostris l'edat",
       "accountFrozen": "Compte congelat",
-      "accountDeleted": "Compte suprimit",
       "isEmptyList": "No es va trobar ni una sola persona. Proveu de canviar la configuració del filtre.",
       "appName": "Cites de Telegram",
       "getStarted": "Comença",
@@ -105,11 +106,6 @@
       "manyRequest": "Massa peticions",
       "unauthorized": "No autoritzat mitjançant l'aplicació Telegram",
       "unexpectedError": "S'ha produït un error inesperat"
-    }
-  },
-  "pages": {
-    "profile": {
-      "doubleLike": "Demà estarà disponible Re-like"
     }
   }
 }

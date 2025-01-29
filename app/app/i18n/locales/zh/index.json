@@ -25,14 +25,15 @@
       "premiumTariffThreeMonths": "3个月保费",
       "premiumTariffYear": "1 年保费",
       "mostPopular": "最受欢迎",
+      "accountDeleted": "帐户已删除",
       "blockQuestion": "封锁你的账户？",
       "complaintQuestion": "封锁你的账户？",
       "deleteQuestion": "删除帐户？",
       "freezeQuestion": "冻结你的账户？",
+      "doubleLike": "明天即可重新点赞",
       "online": "在线的",
       "isHiddenAge": "不暴露年龄",
       "accountFrozen": "账户被冻结",
-      "accountDeleted": "帐户已删除",
       "isEmptyList": "没有找到一个人。尝试更改您的过滤器设置。",
       "appName": "电报约会",
       "getStarted": "开始",
@@ -105,11 +106,6 @@
       "manyRequest": "请求太多",
       "unauthorized": "未通过 Telegram 应用程序授权",
       "unexpectedError": "发生意外错误"
-    }
-  },
-  "pages": {
-    "profile": {
-      "doubleLike": "明天即可重新点赞"
     }
   }
 }

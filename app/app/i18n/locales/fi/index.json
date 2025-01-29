@@ -25,14 +25,15 @@
       "premiumTariffThreeMonths": "3kk Premium",
       "premiumTariffYear": "1 vuoden Premium",
       "mostPopular": "suosituin",
+      "accountDeleted": "Tili poistettu",
       "blockQuestion": "Estä tilisi?",
       "complaintQuestion": "Estä tilisi?",
       "deleteQuestion": "Poistetaanko tili?",
       "freezeQuestion": "Jäädyttääkö tilisi?",
+      "doubleLike": "Uudelleentykkäys on saatavilla huomenna",
       "online": "verkossa",
       "isHiddenAge": "Älä näytä ikää",
       "accountFrozen": "Tili jäädytetty",
-      "accountDeleted": "Tili poistettu",
       "isEmptyList": "Yhtään henkilöä ei löytynyt. Yritä muuttaa suodatinasetuksiasi.",
       "appName": "Telegram-treffit",
       "getStarted": "Alkaa",
@@ -105,11 +106,6 @@
       "manyRequest": "Liikaa pyyntöjä",
       "unauthorized": "Ei valtuutettu Telegram-sovelluksen kautta",
       "unexpectedError": "Tapahtui odottamaton virhe"
-    }
-  },
-  "pages": {
-    "profile": {
-      "doubleLike": "Uudelleentykkäys on saatavilla huomenna"
     }
   }
 }

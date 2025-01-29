@@ -35,6 +35,7 @@ const FooterComponent: FC<TProps> = ({
   const pathname = usePathname();
   const { hasScroll, saveScrollPosition, scrollUp } = useScrollPosition();
   const { t } = useTranslation("index");
+  const telegramUserId = (user?.id ?? "").toString();
 
   const pathOptions = useMemo(() => {
     const pathProfileAdd = createPath({
@@ -44,14 +45,14 @@ const FooterComponent: FC<TProps> = ({
 
     const pathProfileEdit = createPath({
       route: ERoutes.ProfileEdit,
-      params: { telegramUserId: (user?.id ?? "").toString() },
+      params: { telegramUserId },
       lng,
     });
 
     const telegramUserIdListPath = createPath(
       {
         route: ERoutes.Telegram,
-        params: { telegramUserId: (user?.id ?? "").toString() },
+        params: { telegramUserId },
         lng,
       },
       {
@@ -68,8 +69,8 @@ const FooterComponent: FC<TProps> = ({
       {
         route: ERoutes.ProfileDetail,
         params: {
-          telegramUserId: (user?.id ?? "").toString(),
-          viewedTelegramUserId: (user?.id ?? "").toString(),
+          telegramUserId,
+          viewedTelegramUserId: telegramUserId,
         },
         lng: lng,
       },
@@ -83,19 +84,30 @@ const FooterComponent: FC<TProps> = ({
       },
     );
 
+    const profileFrozenPath = createPath({
+      route: ERoutes.ProfileFrozen,
+      params: {
+        telegramUserId,
+      },
+      lng: lng,
+    });
+
     return {
-      isFooter: pathname !== pathProfileAdd && pathname !== pathProfileEdit,
+      isFooter:
+        pathname !== pathProfileAdd &&
+        pathname !== pathProfileEdit &&
+        pathname !== profileFrozenPath,
       telegramUserIdListPath,
       profileDetailPath,
     };
-  }, [lng, pathname, user]);
+  }, [lng, pathname, telegramUserId, user]);
 
   const isScrollUpShowButton =
     hasScroll &&
     pathname ===
       createPath({
         route: ERoutes.Telegram,
-        params: { telegramUserId: (user?.id ?? "").toString() },
+        params: { telegramUserId },
         lng,
       });
 

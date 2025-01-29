@@ -197,17 +197,17 @@ const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
                   isSidebarOpen={isSidebarOpen.isAge}
                   label={t("common.form.field.age")}
                   name={EProfileAddFormFields.Age}
+                  onCloseSidebar={onCloseSidebar}
                   onHeaderClick={() =>
                     setIsSidebarOpen((prev) => ({ ...prev, isAge: true }))
                   }
                   onSave={onChangeAge}
                   options={ageOptions}
-                  postfixIconSubmit={<Icon type="Undo" />}
                   selectedItem={age}
                   subLabel={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
                   theme={theme}
                   title={t("common.form.field.age")}
-                  titleButton={t("common.actions.back")}
+                  titleButton={t("common.actions.apply")}
                 />
               </Field>
               <Field>
@@ -216,17 +216,17 @@ const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
                   isSidebarOpen={isSidebarOpen.isGender}
                   label={t("common.form.field.gender")}
                   name={EProfileAddFormFields.Gender}
+                  onCloseSidebar={onCloseSidebar}
                   onHeaderClick={() =>
                     setIsSidebarOpen((prev) => ({ ...prev, isGender: true }))
                   }
                   onSave={onChangeGender}
                   options={getGenderByLocale(language)}
-                  postfixIconSubmit={<Icon type="Undo" />}
                   selectedItem={gender}
                   subLabel={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
                   theme={theme}
                   title={t("common.form.field.gender")}
-                  titleButton={t("common.actions.back")}
+                  titleButton={t("common.actions.apply")}
                 />
               </Field>
               <Field>
@@ -237,6 +237,7 @@ const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
                   isSidebarOpen={isSidebarOpen.isSearchGender}
                   label={t("common.form.field.searchGender")}
                   name={EProfileAddFormFields.SearchGender}
+                  onCloseSidebar={onCloseSidebar}
                   onHeaderClick={() =>
                     setIsSidebarOpen((prev) => ({
                       ...prev,
@@ -245,12 +246,11 @@ const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
                   }
                   onSave={onChangeSearchGender}
                   options={getSearchGenderByLocale(language)}
-                  postfixIconSubmit={<Icon type="Undo" />}
                   selectedItem={searchGender}
                   subLabel={`${t("common.titles.changeable")}`}
                   theme={theme}
                   title={t("common.form.field.searchGender")}
-                  titleButton={t("common.actions.back")}
+                  titleButton={t("common.actions.apply")}
                 />
               </Field>
               <Field>
@@ -261,17 +261,17 @@ const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
                   isSidebarOpen={isSidebarOpen.isLanguage}
                   label={t("common.titles.interfaceLanguage")}
                   name={EProfileAddFormFields.TelegramLanguageCode}
+                  onCloseSidebar={onCloseSidebar}
                   onHeaderClick={() =>
                     setIsSidebarOpen((prev) => ({ ...prev, isLanguage: true }))
                   }
                   onSave={onChangeLanguage}
                   options={LANGUAGE_MAPPING[language]}
-                  postfixIconSubmit={<Icon type="Undo" />}
                   selectedItem={languageState}
                   subLabel={`${t("common.titles.changeable")}`}
                   theme={theme}
                   title={t("common.titles.interfaceLanguage")}
-                  titleButton={t("common.actions.back")}
+                  titleButton={t("common.actions.apply")}
                 />
               </Field>
               <Field>
