@@ -25,6 +25,7 @@
       "premiumTariffThreeMonths": "3ヶ月プレミアム",
       "premiumTariffYear": "1年間のプレミアム",
       "mostPopular": "最も人気のある",
+      "invalidBrowser": "お使いのデバイスではサポートされていません。モバイルデバイスを使用してログインをお試しください。",
       "accountDeleted": "アカウントが削除されました",
       "blockQuestion": "アカウントをブロックしますか?",
       "complaintQuestion": "アカウントをブロックしますか?",

@@ -1,5 +1,6 @@
 "use client";
 
+import Bowser from "bowser";
 import clsx from "clsx";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -34,6 +35,11 @@ type TProps = {
 };
 
 const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
+  let isValidBrowser = false;
+  if (typeof window !== "undefined") {
+    const browserParsed = Bowser.getParser(window.navigator.userAgent);
+    isValidBrowser = browserParsed.getOSName().toLowerCase() === "macos";
+  }
   const navigator = useNavigator({ lng });
   const pathname = usePathname();
   const router = useRouter();
@@ -112,6 +118,8 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   const handleCheckShortInfo = (shortInfo: TProfileShortInfo) => {
     setShortInfo(shortInfo);
   };
+
+  if (!isValidBrowser) return <>{children}</>;
 
   return (
     <AuthenticityTokenProvider value={csrfToken}>

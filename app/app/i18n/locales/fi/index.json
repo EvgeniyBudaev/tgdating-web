@@ -25,6 +25,7 @@
       "premiumTariffThreeMonths": "3kk Premium",
       "premiumTariffYear": "1 vuoden Premium",
       "mostPopular": "suosituin",
+      "invalidBrowser": "Laitteesi ei tue. Yritä kirjautua sisään mobiililaitteellasi.",
       "accountDeleted": "Tili poistettu",
       "blockQuestion": "Estä tilisi?",
       "complaintQuestion": "Estä tilisi?",

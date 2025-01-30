@@ -1,5 +1,6 @@
 "use client";
 
+import Bowser from "bowser";
 import { useRouter } from "next/navigation";
 import { type FC, memo, useEffect } from "react";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
@@ -12,11 +13,27 @@ type TProps = {
 };
 
 const MainPageComponent: FC<TProps> = ({ lng }) => {
+  let isValidBrowser = false;
+  if (typeof window !== "undefined") {
+    const browserParsed = Bowser.getParser(window.navigator.userAgent);
+    isValidBrowser = browserParsed.getOSName().toLowerCase() !== "macos";
+  }
   const router = useRouter();
   const { user } = useTelegram();
 
   useEffect(() => {
-    if (user?.id) {
+    if (!isValidBrowser) {
+      const path = createPath({
+        route: ERoutes.Browser,
+        lng,
+      });
+      router.push(path);
+      router.refresh();
+    }
+  }, [isValidBrowser]);
+
+  useEffect(() => {
+    if (user?.id && isValidBrowser) {
       const path = createPath({
         route: ERoutes.Telegram,
         params: { telegramUserId: (user?.id ?? "").toString() },
@@ -25,9 +42,9 @@ const MainPageComponent: FC<TProps> = ({ lng }) => {
       router.push(path);
       router.refresh();
     }
-  }, [lng, user?.id]);
+  }, [lng, user?.id, isValidBrowser]);
 
-  return <span></span>;
+  return <></>;
 };
 
 MainPageComponent.displayName = "MainPage";

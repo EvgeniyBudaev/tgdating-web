@@ -16,4 +16,5 @@ export enum ERoutes {
   Policy = "/policy",
   Offer = "/offer",
   BlockedList = "/telegram/:telegramUserId/blockedList",
+  Browser = "/browser",
 }

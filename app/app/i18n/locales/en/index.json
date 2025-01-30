@@ -25,6 +25,7 @@
       "premiumTariffThreeMonths": "3 months Premium",
       "premiumTariffYear": "1 year Premium",
       "mostPopular": "most popular",
+      "invalidBrowser": "Not supported on your device. Please try logging in using your mobile device.",
       "accountDeleted": "Account deleted",
       "blockQuestion": "Block account?",
       "complaintQuestion": "Block account?",

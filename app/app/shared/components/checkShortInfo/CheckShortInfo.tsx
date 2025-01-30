@@ -14,7 +14,7 @@ import "./CheckShortInfo.scss";
 type TProps = {
   isSession: boolean;
   lng: ELanguage;
-  navigator?: TUseNavigatorResponse;
+  navigator?: TUseNavigatorResponse | null;
   onLoad?: (shortInfo: TProfileShortInfo) => void;
   telegramUserId: string;
 };
