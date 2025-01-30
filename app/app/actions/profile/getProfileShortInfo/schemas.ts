@@ -8,6 +8,10 @@ export const getProfileShortInfoFormSchema = zfd.formData({
     .string()
     .trim()
     .min(1, EMPTY_FIELD_ERROR_MESSAGE),
+  [EGetProfileShortInfoFields.CountryCode]: z
+    .string()
+    .trim()
+    .min(1, EMPTY_FIELD_ERROR_MESSAGE),
   [EGetProfileShortInfoFields.Latitude]: z.string().nullish(),
   [EGetProfileShortInfoFields.Longitude]: z.string().nullish(),
 });

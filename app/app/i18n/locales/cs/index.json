@@ -99,7 +99,7 @@
       "nonNegativeNumber": "Číslo musí být kladné",
       "lessOrEqualMaxNumber": "Musí být menší nebo roven {{max}}",
       "maxSymbols": "Nesmí mít více než {{max}} znaků",
-      "smallImage": "Изображение должно быть размером не менее 100 x 100 пикселей"
+      "smallImage": "Изображение должно быть размером не менее 200 x 200 пикселей"
     }
   },
   "errorBoundary": {

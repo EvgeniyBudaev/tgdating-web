@@ -5,6 +5,7 @@ import { ELanguage } from "@/app/shared/enums";
 export const dynamic = "force-dynamic";
 
 type TSearchParamsLoader = {
+  countryCode?: string;
   latitude?: string;
   longitude?: string;
 };
@@ -16,13 +17,16 @@ type TLoader = {
 };
 
 async function loaderProfileDetail(params: TLoader) {
-  const { telegramUserId, viewedTelegramUserId, searchParams } = params;
+  const { lng, telegramUserId, viewedTelegramUserId, searchParams } = params;
   try {
     const profileDetailResponse = await getProfileDetail({
       telegramUserId: telegramUserId,
       viewedTelegramUserId: viewedTelegramUserId,
-      latitude: searchParams?.latitude ?? "",
-      longitude: searchParams?.longitude ?? "",
+      ...(searchParams?.latitude && { latitude: searchParams?.latitude }),
+      ...(searchParams?.longitude && { longitude: searchParams?.longitude }),
+      ...(searchParams?.countryCode && {
+        countryCode: searchParams?.countryCode ?? lng,
+      }),
     });
     return {
       profile: profileDetailResponse,

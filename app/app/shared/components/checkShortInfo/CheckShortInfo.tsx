@@ -1,12 +1,12 @@
 "use client";
 
 import isNil from "lodash/isNil";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { type FC, memo, useActionState, useEffect, useRef } from "react";
 import { EGetProfileShortInfoFields } from "@/app/actions/profile/getProfileShortInfo/enums";
 import { getProfileShortInfoAction } from "@/app/actions/profile/getProfileShortInfo/getProfileShortInfoAction";
 import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/types";
-import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
+import { COUNTRY_CODE, INITIAL_FORM_STATE } from "@/app/shared/constants";
 import { ELanguage } from "@/app/shared/enums";
 import type { TUseNavigatorResponse } from "@/app/shared/hooks/useNavigator";
 import "./CheckShortInfo.scss";
@@ -32,6 +32,8 @@ const CheckShortInfoComponent: FC<TProps> = ({
   );
   const pathname = usePathname();
   const buttonSubmitRef = useRef<HTMLInputElement | null>(null);
+  const searchParams = useSearchParams();
+  const params = new URLSearchParams(searchParams.toString());
 
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
@@ -53,6 +55,10 @@ const CheckShortInfoComponent: FC<TProps> = ({
         EGetProfileShortInfoFields.TelegramUserId,
         telegramUserId,
       );
+      const countryCode =
+        navigator?.countryCode ?? params.get(COUNTRY_CODE) ?? lng;
+      countryCode &&
+        formDataDto.append(EGetProfileShortInfoFields.CountryCode, countryCode);
       navigator?.latitude &&
         formDataDto.append(
           EGetProfileShortInfoFields.Latitude,

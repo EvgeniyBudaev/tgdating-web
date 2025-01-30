@@ -99,7 +99,7 @@
       "nonNegativeNumber": "El nombre ha de ser positiu",
       "lessOrEqualMaxNumber": "Ha de ser inferior o igual a {{max}}",
       "maxSymbols": "No ha de tenir més de {{max}} caràcters",
-      "smallImage": "La mida de la imatge ha de tenir almenys 100 x 100 píxels"
+      "smallImage": "La mida de la imatge ha de tenir almenys 200 x 200 píxels"
     }
   },
   "errorBoundary": {

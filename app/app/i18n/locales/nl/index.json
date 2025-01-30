@@ -99,7 +99,7 @@
       "nonNegativeNumber": "Het getal moet positief zijn",
       "lessOrEqualMaxNumber": "Moet kleiner zijn dan of gelijk zijn aan {{max}}",
       "maxSymbols": "Mag niet langer zijn dan {{max}} tekens",
-      "smallImage": "De afbeelding moet minimaal 100 x 100 pixels groot zijn"
+      "smallImage": "De afbeelding moet minimaal 200 x 200 pixels groot zijn"
     }
   },
   "errorBoundary": {

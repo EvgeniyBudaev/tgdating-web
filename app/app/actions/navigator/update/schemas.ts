@@ -9,6 +9,10 @@ export const updateNavigatorFormSchema = zfd.formData({
     .string()
     .trim()
     .min(1, EMPTY_FIELD_ERROR_MESSAGE),
+  [ENavigatorUpdateFormFields.CountryCode]: z
+    .string()
+    .trim()
+    .min(1, EMPTY_FIELD_ERROR_MESSAGE),
   [ENavigatorUpdateFormFields.Latitude]: z
     .string()
     .trim()

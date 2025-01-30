@@ -25,7 +25,7 @@ import {
   DEFAULT_AGE_TO,
   DEFAULT_SEARCH_GENDER,
 } from "@/app/shared/constants";
-import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
+import { INITIAL_FORM_STATE } from "@/app/shared/constants";
 import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage } from "@/app/shared/enums";
 import { useTelegram } from "@/app/shared/hooks";

@@ -2,7 +2,7 @@
 
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState, useActionState, useMemo } from "react";
 import { addProfileAction } from "@/app/actions/profile/addProfile/addProfileAction";
 import { editProfileAction } from "@/app/actions/profile/editProfile/editProfileAction";
@@ -12,13 +12,14 @@ import { EProfileEditFormFields } from "@/app/actions/profile/editProfile/enums"
 import type { TState } from "@/app/shared/components/form/form/types";
 import { scrollToFirstErrorField } from "@/app/shared/components/form/form/utils";
 import {
+  COUNTRY_CODE,
   DEFAULT_AGE_FROM,
   DEFAULT_AGE_TO,
   DEFAULT_DISTANCE,
   DEFAULT_PAGE,
   DEFAULT_PAGE_SIZE,
 } from "@/app/shared/constants";
-import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
+import { INITIAL_FORM_STATE } from "@/app/shared/constants";
 import {
   useAuthenticityTokenContext,
   useNavigatorContext,
@@ -113,6 +114,8 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   const csrf = useAuthenticityTokenContext();
   const navigator = useNavigatorContext();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const params = new URLSearchParams(searchParams.toString());
   const telegram = useTelegram();
   const { initDataCrypt, user, theme, queryId } = telegram;
   const language = lng as ELanguage;
@@ -207,6 +210,8 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       }
     }
     if (isEdit && !isNil(state?.data) && state.success && !state?.error) {
+      const countryCode =
+        navigator?.countryCode ?? params.get(COUNTRY_CODE) ?? lng;
       const query = {
         ...(navigator?.latitude
           ? { latitude: navigator.latitude.toString() }
@@ -214,6 +219,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
         ...(navigator?.longitude
           ? { longitude: navigator.longitude.toString() }
           : {}),
+        countryCode,
       };
       const lang = languageState?.value ?? lng;
       const path = createPath(
@@ -230,26 +236,31 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       router.push(path);
       router.refresh();
     }
-  }, [
-    isEdit,
-    lng,
-    languageState,
-    navigator?.latitude,
-    navigator?.longitude,
-    user,
-    profile,
-    state,
-  ]);
+  }, [isEdit, lng, languageState, navigator, user, profile, state]);
 
   // Profile Add
   useEffect(() => {
     if (!isEdit && !isNil(state?.data) && state.success && !state?.error) {
+      const countryCode =
+        navigator?.countryCode ?? params.get(COUNTRY_CODE) ?? lng;
       const lang = languageState?.value ?? lng;
-      const path = createPath({
-        route: ERoutes.Telegram,
-        params: { telegramUserId: (user?.id ?? "").toString() },
-        lng: lang.toString(),
-      });
+      const query = {
+        ...(navigator?.latitude
+          ? { latitude: navigator.latitude.toString() }
+          : {}),
+        ...(navigator?.longitude
+          ? { longitude: navigator.longitude.toString() }
+          : {}),
+        countryCode,
+      };
+      const path = createPath(
+        {
+          route: ERoutes.Telegram,
+          params: { telegramUserId: (user?.id ?? "").toString() },
+          lng: lang.toString(),
+        },
+        query,
+      );
       router.push(path);
       router.refresh();
     }
@@ -358,6 +369,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     );
     formDataDto.append(EProfileAddFormFields.TelegramQueryId, queryId ?? "");
     const lang = languageState?.value ?? lng;
+    const countryCode = navigator?.countryCode ?? lang.toString();
     formDataDto.append(
       EProfileAddFormFields.TelegramLanguageCode,
       //user?.language_code ?? "ru",
@@ -371,6 +383,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       EProfileAddFormFields.TelegramInitDataCrypt,
       initDataCrypt ?? "",
     );
+    formDataDto.append(EProfileAddFormFields.CountryCode, countryCode);
     formDataDto.append(EProfileAddFormFields.Latitude, latitude);
     formDataDto.append(EProfileAddFormFields.Longitude, longitude);
     formDataDto.append(EProfileAddFormFields.AgeFrom, ageFrom);

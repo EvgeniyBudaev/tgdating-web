@@ -99,7 +99,7 @@
       "nonNegativeNumber": "数値は正でなければなりません",
       "lessOrEqualMaxNumber": "{{max}}以下である必要があります",
       "maxSymbols": "{{max}} 文字以下にしてください",
-      "smallImage": "画像のサイズは少なくとも 100 x 100 ピクセルである必要があります"
+      "smallImage": "画像のサイズは少なくとも 200 x 200 ピクセルである必要があります"
     }
   },
   "errorBoundary": {

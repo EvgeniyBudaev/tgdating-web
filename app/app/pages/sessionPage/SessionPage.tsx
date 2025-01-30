@@ -57,7 +57,8 @@ const SessionPageComponent: FC<TSessionPageProps> = (props) => {
           <>
             <div className="SessionPage-List">
               {(profileList?.content ?? []).map((item, index) => {
-                const isBlurImage = index > 36 && !shortInfo?.isPremium;
+                //const isBlurImage = index > 36 && !shortInfo?.isPremium;
+                const isBlurImage = false;
                 const distance = !isNil(item?.distance)
                   ? getDistance(item.distance, t)
                   : undefined;

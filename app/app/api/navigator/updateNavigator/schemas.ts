@@ -2,6 +2,7 @@ import { z } from "zod";
 
 export const updateNavigatorParamsSchema = z.object({
   telegramUserId: z.string(),
+  countryCode: z.string().nullish(),
   latitude: z.string().nullish(),
   longitude: z.string().nullish(),
 });

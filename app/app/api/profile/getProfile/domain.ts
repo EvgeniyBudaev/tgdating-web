@@ -1,12 +1,14 @@
 import { fetchApi, TApiFunction } from "@/app/api";
-import type { TProfileParams, TProfile } from "@/app/api/profile/getProfile/types";
+import type {
+  TProfileParams,
+  TProfile,
+} from "@/app/api/profile/getProfile/types";
 import { EFormMethods } from "@/app/shared/enums";
 
-export const getProfile: TApiFunction<TProfileParams, TProfile> = (
-  params,
-) => {
+export const getProfile: TApiFunction<TProfileParams, TProfile> = (params) => {
   const { telegramUserId } = params;
   const queryParams = {
+    ...(params?.countryCode && { countryCode: params?.countryCode }),
     ...(params?.latitude && { latitude: params?.latitude }),
     ...(params?.longitude && { longitude: params?.longitude }),
   };

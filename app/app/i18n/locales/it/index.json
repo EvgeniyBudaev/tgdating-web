@@ -99,7 +99,7 @@
       "nonNegativeNumber": "Il numero deve essere positivo",
       "lessOrEqualMaxNumber": "Deve essere inferiore o uguale a {{max}}",
       "maxSymbols": "Non deve contenere più di {{max}} caratteri",
-      "smallImage": "L'immagine deve avere una dimensione minima di 100 x 100 pixel"
+      "smallImage": "L'immagine deve avere una dimensione minima di 200 x 200 pixel"
     }
   },
   "errorBoundary": {

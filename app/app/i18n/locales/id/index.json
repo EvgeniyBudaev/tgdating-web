@@ -99,7 +99,7 @@
       "nonNegativeNumber": "Angkanya harus positif",
       "lessOrEqualMaxNumber": "Harus kurang dari atau sama dengan {{max}}",
       "maxSymbols": "Tidak boleh lebih dari {{max}} karakter",
-      "smallImage": "Gambar harus berukuran minimal 100 x 100 piksel"
+      "smallImage": "Gambar harus berukuran minimal 200 x 200 piksel"
     }
   },
   "errorBoundary": {

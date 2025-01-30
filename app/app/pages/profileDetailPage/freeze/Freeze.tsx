@@ -7,7 +7,7 @@ import { useTranslation } from "@/app/i18n/client";
 import { freezeProfileAction } from "@/app/actions/profile/freezeProfile/freezeProfileAction";
 import { EProfileFreezeFormFields } from "@/app/actions/profile/freezeProfile/enums";
 import { SidebarContentListItem } from "@/app/shared/components/sidebarContent/sidebarContentListItem";
-import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
+import { INITIAL_FORM_STATE } from "@/app/shared/constants";
 import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useTelegram } from "@/app/shared/hooks";

@@ -99,7 +99,7 @@
       "nonNegativeNumber": "Broj mora biti pozitivan",
       "lessOrEqualMaxNumber": "Mora biti manje od ili jednako {{max}}",
       "maxSymbols": "Ne smije imati više od {{max}} znakova",
-      "smallImage": "Slika mora biti veličine najmanje 100 x 100 piksela"
+      "smallImage": "Slika mora biti veličine najmanje 200 x 200 piksela"
     }
   },
   "errorBoundary": {

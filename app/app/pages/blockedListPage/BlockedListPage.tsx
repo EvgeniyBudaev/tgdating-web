@@ -53,7 +53,8 @@ const BlockedListPageComponent: FC<TProps> = ({
           <>
             <div className="BlockedListPage-List">
               {(blockedList?.content ?? []).map((item, index) => {
-                const isBlur = !shortInfo?.isPremium;
+                // const isBlur = !shortInfo?.isPremium;
+                const isBlur = false;
                 return (
                   <BlockedListImage
                     blockedTelegramUserId={item.blockedTelegramUserId}

@@ -7,7 +7,7 @@ import { useTranslation } from "@/app/i18n/client";
 import { deleteProfileAction } from "@/app/actions/profile/deleteProfile/deleteProfileAction";
 import { EProfileDeleteFormFields } from "@/app/actions/profile/deleteProfile/enums";
 import { SidebarContentListItem } from "@/app/shared/components/sidebarContent/sidebarContentListItem";
-import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
+import { INITIAL_FORM_STATE } from "@/app/shared/constants";
 import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useTelegram } from "@/app/shared/hooks";

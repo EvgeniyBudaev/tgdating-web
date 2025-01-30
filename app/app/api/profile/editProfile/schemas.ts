@@ -21,6 +21,7 @@ export const editProfileParamsSchema = zfd.formData({
   telegramLanguageCode: zfd.text(),
   telegramAllowsWriteToPm: zfd.text(),
   telegramQueryId: zfd.text(),
+  countryCode: zfd.text(),
   latitude: zfd.text(),
   longitude: zfd.text(),
   ageFrom: zfd.text(),

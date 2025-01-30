@@ -7,7 +7,7 @@ import { addPaymentAction } from "@/app/actions/payment/addPaymentAction";
 import { EPaymentFormFields } from "@/app/actions/payment/enums";
 import { useTranslation } from "@/app/i18n/client";
 import { SubmitButton } from "@/app/shared/components/form/submitButton";
-import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
+import { INITIAL_FORM_STATE } from "@/app/shared/constants";
 import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage, ERoutes, ETariff } from "@/app/shared/enums";
 import { useTelegram } from "@/app/shared/hooks";

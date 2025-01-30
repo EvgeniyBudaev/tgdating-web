@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { type FC, memo, useMemo } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { NavLink } from "@/app/shared/components/navLink";
@@ -14,6 +14,7 @@ import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./Footer.scss";
+import { COUNTRY_CODE } from "@/app/shared/constants";
 
 type TProps = {
   isPremium?: boolean;
@@ -33,6 +34,8 @@ const FooterComponent: FC<TProps> = ({
   const navigator = useNavigatorContext();
   const router = useRouter();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const params = new URLSearchParams(searchParams.toString());
   const { hasScroll, saveScrollPosition, scrollUp } = useScrollPosition();
   const { t } = useTranslation("index");
   const telegramUserId = (user?.id ?? "").toString();
@@ -62,6 +65,7 @@ const FooterComponent: FC<TProps> = ({
         ...(navigator?.longitude
           ? { longitude: navigator?.longitude.toString() }
           : {}),
+        countryCode: navigator?.countryCode ?? params.get(COUNTRY_CODE) ?? lng,
       },
     );
 
@@ -72,7 +76,7 @@ const FooterComponent: FC<TProps> = ({
           telegramUserId,
           viewedTelegramUserId: telegramUserId,
         },
-        lng: lng,
+        lng,
       },
       {
         ...(navigator?.latitude
@@ -81,6 +85,7 @@ const FooterComponent: FC<TProps> = ({
         ...(navigator?.longitude
           ? { longitude: navigator?.longitude.toString() }
           : {}),
+        countryCode: navigator?.countryCode ?? params.get(COUNTRY_CODE) ?? lng,
       },
     );
 
@@ -89,7 +94,7 @@ const FooterComponent: FC<TProps> = ({
       params: {
         telegramUserId,
       },
-      lng: lng,
+      lng,
     });
 
     return {

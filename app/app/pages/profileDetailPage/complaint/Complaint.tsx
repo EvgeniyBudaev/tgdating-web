@@ -6,7 +6,7 @@ import { type FC, memo, useActionState, useEffect } from "react";
 import { addComplaintAction } from "@/app/actions/complaint/addComplaint/addComplaintAction";
 import { useTranslation } from "@/app/i18n/client";
 import { EComplaintFormFields } from "@/app/actions/complaint/addComplaint/enums";
-import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
+import { INITIAL_FORM_STATE } from "@/app/shared/constants";
 import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { EComplaint } from "@/app/shared/enums/form";

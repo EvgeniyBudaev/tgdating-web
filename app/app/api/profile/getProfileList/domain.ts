@@ -11,6 +11,7 @@ export const getProfileList: TApiFunction<
 > = (params) => {
   const queryParams = {
     ...params,
+    ...(params?.countryCode && { countryCode: params?.countryCode }),
     ...(params?.latitude && { latitude: params?.latitude }),
     ...(params?.longitude && { longitude: params?.longitude }),
   };

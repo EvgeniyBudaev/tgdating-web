@@ -16,6 +16,8 @@ import { Online } from "@/app/uikit/components/online";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./SessionImage.scss";
 import { useScrollPosition } from "@/app/shared/hooks";
+import { useSearchParams } from "next/navigation";
+import { COUNTRY_CODE } from "@/app/shared/constants";
 
 type TProps = {
   distance?: string;
@@ -38,6 +40,8 @@ const SessionImageComponent: FC<TProps> = ({
 }) => {
   const { closeModal, isOpenModal, openModal } = useModalWindow();
   const navigator = useNavigatorContext();
+  const searchParams = useSearchParams();
+  const params = new URLSearchParams(searchParams.toString());
   const { saveScrollPosition } = useScrollPosition();
 
   const handleOpenModal = () => {
@@ -89,6 +93,8 @@ const SessionImageComponent: FC<TProps> = ({
           ...(navigator?.longitude
             ? { longitude: navigator?.longitude.toString() }
             : {}),
+          countryCode:
+            navigator?.countryCode ?? params.get(COUNTRY_CODE) ?? lng,
         },
       }}
       key={telegramUserId}

@@ -3,6 +3,7 @@ import { paginationSchema } from "@/app/api/pagination/schemas";
 
 export const getProfileListParamsSchema = z.object({
   telegramUserId: z.string(),
+  countryCode: z.string().nullish(),
   latitude: z.string().nullish(),
   longitude: z.string().nullish(),
 });

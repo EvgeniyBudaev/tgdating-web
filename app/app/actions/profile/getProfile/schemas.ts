@@ -8,6 +8,10 @@ export const getProfileFormSchema = zfd.formData({
     .string()
     .trim()
     .min(1, EMPTY_FIELD_ERROR_MESSAGE),
+  [EFormFields.CountryCode]: z
+    .string()
+    .trim()
+    .min(1, EMPTY_FIELD_ERROR_MESSAGE),
   [EFormFields.Latitude]: z.string().nullish(),
   [EFormFields.Longitude]: z.string().nullish(),
 });

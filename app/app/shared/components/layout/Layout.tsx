@@ -1,8 +1,7 @@
 "use client";
 
-import Bowser from "bowser";
 import clsx from "clsx";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
   type FC,
   memo,
@@ -22,11 +21,12 @@ import {
   ShortInfoProvider,
 } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useNavigator, useTelegram } from "@/app/shared/hooks";
+import { useBrowser, useNavigator, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { ToastContainer } from "@/app/uikit/components/toast/toastContainer";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./Layout.scss";
+import { COUNTRY_CODE } from "@/app/shared/constants";
 
 type TProps = {
   children?: ReactNode;
@@ -35,21 +35,20 @@ type TProps = {
 };
 
 const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
-  let isValidBrowser = false;
-  if (typeof window !== "undefined") {
-    const browserParsed = Bowser.getParser(window.navigator.userAgent);
-    isValidBrowser = browserParsed.getOSName().toLowerCase() === "macos";
-  }
+  const { isValidBrowser } = useBrowser();
   const navigator = useNavigator({ lng });
   const pathname = usePathname();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const params = new URLSearchParams(searchParams.toString());
   const { initDataCrypt, isSession, user, theme } = useTelegram();
   const [shortInfo, setShortInfo] = useState<TProfileShortInfo | null>(null);
-  //console.log("shortInfo: ", shortInfo);
-  const telegramLanguageCode = shortInfo?.languageCode;
+  const telegramLanguageCode = shortInfo?.languageCode ?? user?.language_code;
 
   useEffect(() => {
     if (telegramLanguageCode && telegramLanguageCode !== lng) {
+      const countryCode =
+        navigator?.countryCode ?? params.get(COUNTRY_CODE) ?? lng;
       const path = createPath(
         {
           route: ERoutes.Telegram,
@@ -63,6 +62,7 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
           ...(navigator?.longitude
             ? { longitude: navigator?.longitude.toString() }
             : {}),
+          countryCode,
         },
       );
       router.push(path);
@@ -144,13 +144,13 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
             )}
             {user?.id && (
               <>
-                <CheckLike
-                  csrf={csrfToken}
-                  initDataCrypt={initDataCrypt}
-                  isSession={isSession}
-                  lng={lng}
-                  telegramUserId={user.id.toString()}
-                />
+                {/*<CheckLike*/}
+                {/*  csrf={csrfToken}*/}
+                {/*  initDataCrypt={initDataCrypt}*/}
+                {/*  isSession={isSession}*/}
+                {/*  lng={lng}*/}
+                {/*  telegramUserId={user.id.toString()}*/}
+                {/*/>*/}
                 <CheckShortInfo
                   isSession={isSession}
                   lng={lng}

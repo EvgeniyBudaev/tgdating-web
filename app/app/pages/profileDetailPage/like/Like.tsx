@@ -15,7 +15,7 @@ import { EUpdateLikeFormFields } from "@/app/actions/like/updateLike/enum";
 import { updateLikeAction } from "@/app/actions/like/updateLike/updateLikeAction";
 import type { TProfileDetail } from "@/app/api/profile/getProfileDetail/types";
 import { LikeButton } from "@/app/pages/profileDetailPage/like/likeButton";
-import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
+import { INITIAL_FORM_STATE } from "@/app/shared/constants";
 import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage } from "@/app/shared/enums";
 import { useTelegram } from "@/app/shared/hooks";

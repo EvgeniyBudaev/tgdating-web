@@ -12,6 +12,7 @@ export const getProfileDetail: TApiFunction<
   const { viewedTelegramUserId } = params;
   const queryParams = {
     ...(params?.telegramUserId && { telegramUserId: params?.telegramUserId }),
+    ...(params?.countryCode && { countryCode: params?.countryCode }),
     ...(params?.latitude && { latitude: params?.latitude }),
     ...(params?.longitude && { longitude: params?.longitude }),
   };

@@ -11,6 +11,7 @@ type TSearchParamsLoader = {
   ageTo?: string;
   searchGender?: string;
   telegramUserId?: string;
+  countryCode?: string;
   distance?: string;
   latitude?: string;
   longitude?: string;
@@ -29,6 +30,9 @@ async function loaderProfileList(params: TLoader) {
         telegramUserId: telegramUserId,
         ...(searchParams?.latitude && { latitude: searchParams?.latitude }),
         ...(searchParams?.longitude && { longitude: searchParams?.longitude }),
+        ...(searchParams?.countryCode && {
+          countryCode: searchParams?.countryCode,
+        }),
       };
       const profileListResponse = await getProfileList(query);
       return {

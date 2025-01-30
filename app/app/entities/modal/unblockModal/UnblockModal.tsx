@@ -13,7 +13,7 @@ import { createPath } from "@/app/shared/utils";
 import { Button } from "@/app/uikit/components/button";
 import { Modal } from "@/app/uikit/components/modal";
 import { Typography } from "@/app/uikit/components/typography";
-import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
+import { INITIAL_FORM_STATE } from "@/app/shared/constants";
 import "./UnblockModal.scss";
 
 type TProps = {

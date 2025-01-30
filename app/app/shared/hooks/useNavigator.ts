@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 type TPosition = {
+  countryCode?: string;
   errorPosition?: unknown;
   isCoords: boolean;
   location?: string;
@@ -13,6 +14,7 @@ type TPosition = {
 };
 
 export type TUseNavigatorResponse = {
+  countryCode?: string;
   errorPosition?: unknown;
   isCoords: boolean;
   location?: string;
@@ -29,6 +31,7 @@ type TUseNavigator = (props: TProps) => TUseNavigatorResponse;
 export const useNavigator: TUseNavigator = ({ lng }) => {
   const { t } = useTranslation("index");
   const [position, setPosition] = useState<TPosition>({
+    countryCode: undefined,
     errorPosition: undefined,
     isCoords: false,
     location: undefined,
@@ -52,6 +55,11 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
         data?.response?.GeoObjectCollection?.featureMember?.[0]?.GeoObject
           ?.metaDataProperty?.GeocoderMetaData?.AddressDetails?.Country
           ?.CountryName;
+      const countryCode: string = (
+        data?.response?.GeoObjectCollection?.featureMember?.[0]?.GeoObject
+          ?.metaDataProperty?.GeocoderMetaData?.AddressDetails?.Country
+          ?.CountryNameCode ?? ""
+      ).toLowerCase();
       const city =
         data?.response?.GeoObjectCollection?.featureMember?.[0]?.GeoObject
           ?.metaDataProperty?.GeocoderMetaData?.AddressDetails?.Country
@@ -64,6 +72,7 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
         : t("common.titles.geoPositionExist");
       setPosition((prevState) => ({
         ...prevState,
+        countryCode,
         errorPosition: undefined,
         isCoords: true,
         location,
@@ -124,6 +133,7 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
 
   return useMemo(() => {
     return {
+      countryCode: position?.countryCode,
       errorPosition: position?.errorPosition,
       isCoords: position.isCoords,
       location: position?.location,
@@ -131,6 +141,8 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
       longitude: position?.longitude,
     };
   }, [
+    lng,
+    position?.countryCode,
     position?.errorPosition,
     position.isCoords,
     position?.location,

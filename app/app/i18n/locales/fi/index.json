@@ -99,7 +99,7 @@
       "nonNegativeNumber": "Numeron on oltava positiivinen",
       "lessOrEqualMaxNumber": "On oltava pienempi tai yhtä suuri kuin {{max}}",
       "maxSymbols": "Saa olla enintään {{max}} merkkiä",
-      "smallImage": "Kuvan on oltava kooltaan vähintään 100 x 100 pikseliä"
+      "smallImage": "Kuvan on oltava kooltaan vähintään 200 x 200 pikseliä"
     }
   },
   "errorBoundary": {

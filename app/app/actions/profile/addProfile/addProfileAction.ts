@@ -102,6 +102,10 @@ export async function addProfileAction(prevState: any, formData: FormData) {
       EProfileAddFormFields.TelegramQueryId,
       mapperParams.profileForm.telegramQueryId,
     );
+    profileFormData.append(
+      EProfileAddFormFields.CountryCode,
+      mapperParams.profileForm.countryCode,
+    );
     if (
       !isNil(mapperParams.profileForm?.latitude) &&
       !isEmpty(mapperParams.profileForm?.latitude)

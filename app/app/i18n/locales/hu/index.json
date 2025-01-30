@@ -99,7 +99,7 @@
       "nonNegativeNumber": "A számnak pozitívnak kell lennie",
       "lessOrEqualMaxNumber": "Kisebbnek vagy egyenlőnek kell lennie, mint {{max}}",
       "maxSymbols": "Nem lehet több, mint {{max}} karakter",
-      "smallImage": "A képnek legalább 100 x 100 pixel méretűnek kell lennie"
+      "smallImage": "A képnek legalább 200 x 200 pixel méretűnek kell lennie"
     }
   },
   "errorBoundary": {

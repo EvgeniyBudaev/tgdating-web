@@ -16,5 +16,13 @@ export const PROXY_URL = "";
 export const SEARCH_GENDER = "searchGender";
 export const SESSION_ID = "telegramUserId";
 export const SIZE = "size";
+export const COUNTRY_CODE = "countryCode";
 
 export const COOKIE_CSRF_NAME = "tgCsrfServer";
+
+export const INITIAL_FORM_STATE = {
+  data: undefined,
+  error: undefined,
+  errors: undefined,
+  success: false,
+};

@@ -3,13 +3,12 @@
 import clsx from "clsx";
 import isNil from "lodash/isNil";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   type FC,
   memo,
   useActionState,
   useEffect,
-
   useRef,
   useState,
 } from "react";
@@ -21,7 +20,7 @@ import { SidebarContentControls } from "@/app/shared/components/sidebarContent/s
 import { SidebarContentHeader } from "@/app/shared/components/sidebarContent/sidebarContentHeader";
 import { SidebarContentList } from "@/app/shared/components/sidebarContent/sidebarContentList";
 import { SidebarContentListItem } from "@/app/shared/components/sidebarContent/sidebarContentListItem";
-import { INITIAL_FORM_STATE } from "@/app/shared/constants/form";
+import { COUNTRY_CODE, INITIAL_FORM_STATE } from "@/app/shared/constants";
 import {
   useAuthenticityTokenContext,
   useNavigatorContext,
@@ -58,6 +57,8 @@ const SettingsSidebarComponent: FC<TProps> = ({
   const navigator = useNavigatorContext();
   const router = useRouter();
   const sidebarRef = useRef(null);
+  const searchParams = useSearchParams();
+  const params = new URLSearchParams(searchParams.toString());
   const { initDataCrypt, isSession } = useTelegram();
   const { t } = useTranslation("index");
 
@@ -73,6 +74,8 @@ const SettingsSidebarComponent: FC<TProps> = ({
 
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
+      const countryCode =
+        navigator?.countryCode ?? params.get(COUNTRY_CODE) ?? lng;
       const path = createPath(
         {
           route: ERoutes.ProfileDetail,
@@ -89,6 +92,7 @@ const SettingsSidebarComponent: FC<TProps> = ({
           ...(navigator?.longitude
             ? { longitude: navigator?.longitude.toString() }
             : {}),
+          countryCode,
         },
       );
       router.push(path);

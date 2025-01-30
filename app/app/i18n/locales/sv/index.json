@@ -99,7 +99,7 @@
       "nonNegativeNumber": "Siffran måste vara positiv",
       "lessOrEqualMaxNumber": "Måste vara mindre än eller lika med {{max}}",
       "maxSymbols": "Får inte vara mer än {{max}} tecken",
-      "smallImage": "Bilden måste vara minst 100 x 100 pixlar stor"
+      "smallImage": "Bilden måste vara minst 200 x 200 pixlar stor"
     }
   },
   "errorBoundary": {

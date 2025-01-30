@@ -99,7 +99,7 @@
       "nonNegativeNumber": "数字必须为正数",
       "lessOrEqualMaxNumber": "必须小于或等于 {{max}}",
       "maxSymbols": "不得超过 {{max}} 个字符",
-      "smallImage": "图像大小必须至少为 100 x 100 像素"
+      "smallImage": "图像大小必须至少为 200 x 200 像素"
     }
   },
   "errorBoundary": {

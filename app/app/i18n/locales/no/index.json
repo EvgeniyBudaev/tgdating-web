@@ -99,7 +99,7 @@
       "nonNegativeNumber": "Tallet må være positivt",
       "lessOrEqualMaxNumber": "Må være mindre enn eller lik {{max}}",
       "maxSymbols": "Må ikke være mer enn {{max}} tegn",
-      "smallImage": "Bildet må ha en størrelse på minst 100 x 100 piksler"
+      "smallImage": "Bildet må ha en størrelse på minst 200 x 200 piksler"
     }
   },
   "errorBoundary": {

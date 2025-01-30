@@ -14,12 +14,18 @@ import {
   Typography,
 } from "@/app/uikit/components/typography";
 import "./StartedPage.scss";
+import {useNavigatorContext} from "@/app/shared/context";
+import {useSearchParams} from "next/navigation";
+import {COUNTRY_CODE} from "@/app/shared/constants";
 
 type TProps = {
   lng: ELanguage;
 };
 
 const StartedPageComponent: FC<TProps> = ({ lng }) => {
+  const navigator = useNavigatorContext();
+  const searchParams = useSearchParams();
+  const params = new URLSearchParams(searchParams.toString());
   const { t } = useTranslation("index");
   useCheckPermissions({ lng });
 
@@ -39,6 +45,14 @@ const StartedPageComponent: FC<TProps> = ({ lng }) => {
             href={createPath({
               route: ERoutes.ProfileAdd,
               lng,
+            }, {
+              ...(navigator?.latitude
+                ? { latitude: navigator.latitude.toString() }
+                : {}),
+              ...(navigator?.longitude
+                ? { longitude: navigator.longitude.toString() }
+                : {}),
+              countryCode: navigator?.countryCode ?? params.get(COUNTRY_CODE) ?? lng,
             })}
           >
             <Typography>{t("common.titles.getStarted")}</Typography>
