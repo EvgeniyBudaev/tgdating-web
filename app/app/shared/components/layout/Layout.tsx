@@ -43,12 +43,12 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   const params = new URLSearchParams(searchParams.toString());
   const { initDataCrypt, isSession, user, theme } = useTelegram();
   const [shortInfo, setShortInfo] = useState<TProfileShortInfo | null>(null);
-  const telegramLanguageCode = shortInfo?.languageCode ?? user?.language_code;
   const countryCode = navigator?.countryCode ?? params.get(COUNTRY_CODE);
   const countryName = navigator?.countryName ?? params.get(COUNTRY_NAME);
   const city = navigator?.city ?? params.get(CITY);
 
   useEffect(() => {
+    const telegramLanguageCode = shortInfo?.languageCode ?? user?.language_code;
     if (telegramLanguageCode && telegramLanguageCode !== lng) {
       const path = createPath(
         {
@@ -71,7 +71,7 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
       router.push(path);
       router.refresh();
     }
-  }, [telegramLanguageCode]);
+  }, [lng, shortInfo, user]);
 
   useEffect(() => {
     if (theme === ETheme.Dark) {

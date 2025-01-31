@@ -25,9 +25,6 @@ const MainPageComponent: FC<TProps> = ({ lng }) => {
       router.push(path);
       router.refresh();
     }
-  }, [isValidBrowser]);
-
-  useEffect(() => {
     if (user?.id && isValidBrowser) {
       const path = createPath({
         route: ERoutes.Telegram,
@@ -37,7 +34,7 @@ const MainPageComponent: FC<TProps> = ({ lng }) => {
       router.push(path);
       router.refresh();
     }
-  }, [lng, user?.id, isValidBrowser]);
+  }, [lng, user, isValidBrowser]);
 
   return <></>;
 };
