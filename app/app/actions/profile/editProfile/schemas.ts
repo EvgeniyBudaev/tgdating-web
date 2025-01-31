@@ -11,11 +11,9 @@ import {
 } from "@/app/shared/validation";
 import {
   numberNonNegativeOptionalSchema,
-  numberNonNegativeSchema,
   stringOptionalSchema,
   symbolsMaxDisplayNameSchema,
 } from "@/app/shared/validation/schemas";
-import { EProfileAddFormFields } from "@/app/actions/profile/addProfile/enums";
 
 export const editProfileFormSchema = zfd
   .formData({
@@ -79,10 +77,9 @@ export const editProfileFormSchema = zfd
       .string()
       .trim()
       .min(1, EMPTY_FIELD_ERROR_MESSAGE),
-    [EProfileEditFormFields.CountryCode]: z
-      .string()
-      .trim()
-      .min(1, EMPTY_FIELD_ERROR_MESSAGE),
+    [EProfileEditFormFields.CountryCode]: stringOptionalSchema,
+    [EProfileEditFormFields.CountryName]: stringOptionalSchema,
+    [EProfileEditFormFields.City]: stringOptionalSchema,
     [EProfileEditFormFields.Latitude]: numberNonNegativeOptionalSchema,
     [EProfileEditFormFields.Longitude]: numberNonNegativeOptionalSchema,
     [EProfileEditFormFields.AgeFrom]: z
@@ -105,7 +102,7 @@ export const editProfileFormSchema = zfd
       .string()
       .trim()
       .min(1, EMPTY_FIELD_ERROR_MESSAGE),
-    [EProfileAddFormFields.Csrf]: z
+    [EProfileEditFormFields.Csrf]: z
       .string()
       .trim()
       .min(1, EMPTY_FIELD_ERROR_MESSAGE),

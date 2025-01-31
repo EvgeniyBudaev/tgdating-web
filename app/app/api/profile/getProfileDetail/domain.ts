@@ -13,6 +13,8 @@ export const getProfileDetail: TApiFunction<
   const queryParams = {
     ...(params?.telegramUserId && { telegramUserId: params?.telegramUserId }),
     ...(params?.countryCode && { countryCode: params?.countryCode }),
+    ...(params?.countryName && { countryName: params?.countryName }),
+    ...(params?.city && { city: params?.city }),
     ...(params?.latitude && { latitude: params?.latitude }),
     ...(params?.longitude && { longitude: params?.longitude }),
   };

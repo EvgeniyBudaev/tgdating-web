@@ -13,7 +13,7 @@ import { SidebarContentControls } from "@/app/shared/components/sidebarContent/s
 import { SidebarContentHeader } from "@/app/shared/components/sidebarContent/sidebarContentHeader";
 import { SidebarContentList } from "@/app/shared/components/sidebarContent/sidebarContentList";
 import { SidebarContentListItem } from "@/app/shared/components/sidebarContent/sidebarContentListItem";
-import { COUNTRY_CODE } from "@/app/shared/constants";
+import { CITY, COUNTRY_CODE, COUNTRY_NAME } from "@/app/shared/constants";
 import { useNavigatorContext, useShortInfoContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { createPath } from "@/app/shared/utils";
@@ -55,6 +55,9 @@ const ProfileSidebarComponent = forwardRef(
     const cancelButtonTitle = t("common.actions.cancel");
     const optionsTitle = t("common.titles.options");
     const router = useRouter();
+    const countryCode = navigator?.countryCode ?? params.get(COUNTRY_CODE);
+    const countryName = navigator?.countryName ?? params.get(COUNTRY_NAME);
+    const city = navigator?.city ?? params.get(CITY);
 
     const handleRedirectBuyPremium = () => {
       const path = createPath({
@@ -67,8 +70,6 @@ const ProfileSidebarComponent = forwardRef(
     };
 
     const handleRedirectEditProfile = () => {
-      const countryCode =
-        navigator?.countryCode ?? params.get(COUNTRY_CODE) ?? lng;
       const query = {
         ...(navigator?.latitude
           ? { latitude: navigator.latitude.toString() }
@@ -77,6 +78,8 @@ const ProfileSidebarComponent = forwardRef(
           ? { longitude: navigator.longitude.toString() }
           : {}),
         countryCode,
+        countryName,
+        city,
       };
       const path = createPath(
         {

@@ -6,6 +6,8 @@ export const dynamic = "force-dynamic";
 
 type TSearchParamsLoader = {
   countryCode?: string;
+  countryName?: string;
+  city?: string;
   latitude?: string;
   longitude?: string;
 };
@@ -25,6 +27,10 @@ async function loaderProfileEdit(params: TLoader) {
       ...(searchParams?.countryCode && {
         countryCode: searchParams?.countryCode,
       }),
+      ...(searchParams?.countryName && {
+        countryName: searchParams?.countryName,
+      }),
+      ...(searchParams?.city && { city: searchParams?.city }),
     });
     return {
       profile: profileResponse,

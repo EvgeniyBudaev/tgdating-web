@@ -5,6 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { type FC, memo, useMemo } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { NavLink } from "@/app/shared/components/navLink";
+import { CITY, COUNTRY_CODE, COUNTRY_NAME } from "@/app/shared/constants";
 import { useNavigatorContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import type { TTelegramUser } from "@/app/shared/hooks/useTelegram";
@@ -14,7 +15,6 @@ import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./Footer.scss";
-import { COUNTRY_CODE } from "@/app/shared/constants";
 
 type TProps = {
   isPremium?: boolean;
@@ -39,6 +39,9 @@ const FooterComponent: FC<TProps> = ({
   const { hasScroll, saveScrollPosition, scrollUp } = useScrollPosition();
   const { t } = useTranslation("index");
   const telegramUserId = (user?.id ?? "").toString();
+  const countryCode = navigator?.countryCode ?? params.get(COUNTRY_CODE);
+  const countryName = navigator?.countryName ?? params.get(COUNTRY_NAME);
+  const city = navigator?.city ?? params.get(CITY);
 
   const pathOptions = useMemo(() => {
     const pathProfileAdd = createPath({
@@ -65,7 +68,9 @@ const FooterComponent: FC<TProps> = ({
         ...(navigator?.longitude
           ? { longitude: navigator?.longitude.toString() }
           : {}),
-        countryCode: navigator?.countryCode ?? params.get(COUNTRY_CODE) ?? lng,
+        countryCode,
+        countryName,
+        city,
       },
     );
 
@@ -85,7 +90,9 @@ const FooterComponent: FC<TProps> = ({
         ...(navigator?.longitude
           ? { longitude: navigator?.longitude.toString() }
           : {}),
-        countryCode: navigator?.countryCode ?? params.get(COUNTRY_CODE) ?? lng,
+        countryCode,
+        countryName,
+        city,
       },
     );
 

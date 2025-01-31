@@ -101,10 +101,21 @@ export async function editProfileAction(prevState: any, formData: FormData) {
       EProfileEditFormFields.TelegramQueryId,
       mapperParams.profileForm.telegramQueryId,
     );
-    profileFormData.append(
-      EProfileEditFormFields.CountryCode,
-      mapperParams.profileForm.countryCode,
-    );
+    mapperParams.profileForm?.countryCode &&
+      profileFormData.append(
+        EProfileEditFormFields.CountryCode,
+        mapperParams.profileForm.countryCode,
+      );
+    mapperParams.profileForm?.countryName &&
+      profileFormData.append(
+        EProfileEditFormFields.CountryName,
+        mapperParams.profileForm.countryName,
+      );
+    mapperParams.profileForm?.city &&
+      profileFormData.append(
+        EProfileEditFormFields.City,
+        mapperParams.profileForm.city,
+      );
     if (
       !isNil(mapperParams.profileForm.latitude) &&
       !isEmpty(mapperParams.profileForm.latitude)

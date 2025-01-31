@@ -20,7 +20,12 @@ import { SidebarContentControls } from "@/app/shared/components/sidebarContent/s
 import { SidebarContentHeader } from "@/app/shared/components/sidebarContent/sidebarContentHeader";
 import { SidebarContentList } from "@/app/shared/components/sidebarContent/sidebarContentList";
 import { SidebarContentListItem } from "@/app/shared/components/sidebarContent/sidebarContentListItem";
-import { COUNTRY_CODE, INITIAL_FORM_STATE } from "@/app/shared/constants";
+import {
+  CITY,
+  COUNTRY_CODE,
+  COUNTRY_NAME,
+  INITIAL_FORM_STATE,
+} from "@/app/shared/constants";
 import {
   useAuthenticityTokenContext,
   useNavigatorContext,
@@ -61,6 +66,9 @@ const SettingsSidebarComponent: FC<TProps> = ({
   const params = new URLSearchParams(searchParams.toString());
   const { initDataCrypt, isSession } = useTelegram();
   const { t } = useTranslation("index");
+  const countryCode = navigator?.countryCode ?? params.get(COUNTRY_CODE);
+  const countryName = navigator?.countryName ?? params.get(COUNTRY_NAME);
+  const city = navigator?.city ?? params.get(CITY);
 
   const [isHiddenAge, setIsHiddenAge] = useState(
     profile?.status?.isHiddenAge ?? false,
@@ -74,8 +82,6 @@ const SettingsSidebarComponent: FC<TProps> = ({
 
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
-      const countryCode =
-        navigator?.countryCode ?? params.get(COUNTRY_CODE) ?? lng;
       const path = createPath(
         {
           route: ERoutes.ProfileDetail,
@@ -93,6 +99,8 @@ const SettingsSidebarComponent: FC<TProps> = ({
             ? { longitude: navigator?.longitude.toString() }
             : {}),
           countryCode,
+          countryName,
+          city,
         },
       );
       router.push(path);

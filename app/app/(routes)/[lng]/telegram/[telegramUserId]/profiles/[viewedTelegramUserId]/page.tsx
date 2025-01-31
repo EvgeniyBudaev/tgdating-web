@@ -6,6 +6,8 @@ export const dynamic = "force-dynamic";
 
 type TSearchParamsLoader = {
   countryCode?: string;
+  countryName?: string;
+  city?: string;
   latitude?: string;
   longitude?: string;
 };
@@ -17,7 +19,7 @@ type TLoader = {
 };
 
 async function loaderProfileDetail(params: TLoader) {
-  const { lng, telegramUserId, viewedTelegramUserId, searchParams } = params;
+  const { telegramUserId, viewedTelegramUserId, searchParams } = params;
   try {
     const profileDetailResponse = await getProfileDetail({
       telegramUserId: telegramUserId,
@@ -25,8 +27,12 @@ async function loaderProfileDetail(params: TLoader) {
       ...(searchParams?.latitude && { latitude: searchParams?.latitude }),
       ...(searchParams?.longitude && { longitude: searchParams?.longitude }),
       ...(searchParams?.countryCode && {
-        countryCode: searchParams?.countryCode ?? lng,
+        countryCode: searchParams?.countryCode,
       }),
+      ...(searchParams?.countryName && {
+        countryName: searchParams?.countryName,
+      }),
+      ...(searchParams?.city && { city: searchParams?.city }),
     });
     return {
       profile: profileDetailResponse,

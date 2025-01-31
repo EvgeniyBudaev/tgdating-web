@@ -12,7 +12,9 @@ import { EProfileEditFormFields } from "@/app/actions/profile/editProfile/enums"
 import type { TState } from "@/app/shared/components/form/form/types";
 import { scrollToFirstErrorField } from "@/app/shared/components/form/form/utils";
 import {
+  CITY,
   COUNTRY_CODE,
+  COUNTRY_NAME,
   DEFAULT_AGE_FROM,
   DEFAULT_AGE_TO,
   DEFAULT_DISTANCE,
@@ -192,6 +194,9 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     value: DEFAULT_AGE_FROM + i,
     label: (DEFAULT_AGE_FROM + i).toString(),
   }));
+  const countryCode = navigator?.countryCode ?? params.get(COUNTRY_CODE);
+  const countryName = navigator?.countryName ?? params.get(COUNTRY_NAME);
+  const city = navigator?.city ?? params.get(CITY);
 
   const { onAddFiles, onDeleteFile } = useFiles({
     fieldName: EProfileAddFormFields.Image,
@@ -210,8 +215,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       }
     }
     if (isEdit && !isNil(state?.data) && state.success && !state?.error) {
-      const countryCode =
-        navigator?.countryCode ?? params.get(COUNTRY_CODE) ?? lng;
       const query = {
         ...(navigator?.latitude
           ? { latitude: navigator.latitude.toString() }
@@ -220,6 +223,8 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
           ? { longitude: navigator.longitude.toString() }
           : {}),
         countryCode,
+        countryName,
+        city,
       };
       const lang = languageState?.value ?? lng;
       const path = createPath(
@@ -241,8 +246,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   // Profile Add
   useEffect(() => {
     if (!isEdit && !isNil(state?.data) && state.success && !state?.error) {
-      const countryCode =
-        navigator?.countryCode ?? params.get(COUNTRY_CODE) ?? lng;
       const lang = languageState?.value ?? lng;
       const query = {
         ...(navigator?.latitude
@@ -252,6 +255,8 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
           ? { longitude: navigator.longitude.toString() }
           : {}),
         countryCode,
+        countryName,
+        city,
       };
       const path = createPath(
         {
@@ -369,7 +374,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     );
     formDataDto.append(EProfileAddFormFields.TelegramQueryId, queryId ?? "");
     const lang = languageState?.value ?? lng;
-    const countryCode = navigator?.countryCode ?? lang.toString();
     formDataDto.append(
       EProfileAddFormFields.TelegramLanguageCode,
       //user?.language_code ?? "ru",
@@ -384,6 +388,8 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       initDataCrypt ?? "",
     );
     formDataDto.append(EProfileAddFormFields.CountryCode, countryCode);
+    formDataDto.append(EProfileAddFormFields.CountryName, countryName);
+    formDataDto.append(EProfileAddFormFields.City, city);
     formDataDto.append(EProfileAddFormFields.Latitude, latitude);
     formDataDto.append(EProfileAddFormFields.Longitude, longitude);
     formDataDto.append(EProfileAddFormFields.AgeFrom, ageFrom);

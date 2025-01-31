@@ -17,6 +17,8 @@ export const SEARCH_GENDER = "searchGender";
 export const SESSION_ID = "telegramUserId";
 export const SIZE = "size";
 export const COUNTRY_CODE = "countryCode";
+export const COUNTRY_NAME = "countryName";
+export const CITY = "city";
 
 export const COOKIE_CSRF_NAME = "tgCsrfServer";
 

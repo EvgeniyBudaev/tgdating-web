@@ -9,6 +9,8 @@ export const getProfile: TApiFunction<TProfileParams, TProfile> = (params) => {
   const { telegramUserId } = params;
   const queryParams = {
     ...(params?.countryCode && { countryCode: params?.countryCode }),
+    ...(params?.countryName && { countryName: params?.countryName }),
+    ...(params?.city && { city: params?.city }),
     ...(params?.latitude && { latitude: params?.latitude }),
     ...(params?.longitude && { longitude: params?.longitude }),
   };

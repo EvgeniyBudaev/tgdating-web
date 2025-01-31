@@ -1,10 +1,13 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { type FC, memo } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { ImagesGrid } from "@/app/pages/startedPage/imagesGrid";
 import { StartedPageInfo } from "@/app/pages/startedPage/startedPageInfo";
 import { Container } from "@/app/shared/components/container";
+import { CITY, COUNTRY_CODE, COUNTRY_NAME } from "@/app/shared/constants";
+import { useNavigatorContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useCheckPermissions } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
@@ -14,9 +17,6 @@ import {
   Typography,
 } from "@/app/uikit/components/typography";
 import "./StartedPage.scss";
-import {useNavigatorContext} from "@/app/shared/context";
-import {useSearchParams} from "next/navigation";
-import {COUNTRY_CODE} from "@/app/shared/constants";
 
 type TProps = {
   lng: ELanguage;
@@ -28,6 +28,9 @@ const StartedPageComponent: FC<TProps> = ({ lng }) => {
   const params = new URLSearchParams(searchParams.toString());
   const { t } = useTranslation("index");
   useCheckPermissions({ lng });
+  const countryCode = navigator?.countryCode ?? params.get(COUNTRY_CODE);
+  const countryName = navigator?.countryName ?? params.get(COUNTRY_NAME);
+  const city = navigator?.city ?? params.get(CITY);
 
   return (
     <section className="StartedPage">
@@ -42,18 +45,23 @@ const StartedPageComponent: FC<TProps> = ({ lng }) => {
         <div className="StartedPage-Controls">
           <ButtonLink
             className="StartedPage-Button"
-            href={createPath({
-              route: ERoutes.ProfileAdd,
-              lng,
-            }, {
-              ...(navigator?.latitude
-                ? { latitude: navigator.latitude.toString() }
-                : {}),
-              ...(navigator?.longitude
-                ? { longitude: navigator.longitude.toString() }
-                : {}),
-              countryCode: navigator?.countryCode ?? params.get(COUNTRY_CODE) ?? lng,
-            })}
+            href={createPath(
+              {
+                route: ERoutes.ProfileAdd,
+                lng,
+              },
+              {
+                ...(navigator?.latitude
+                  ? { latitude: navigator.latitude.toString() }
+                  : {}),
+                ...(navigator?.longitude
+                  ? { longitude: navigator.longitude.toString() }
+                  : {}),
+                countryCode,
+                countryName,
+                city,
+              },
+            )}
           >
             <Typography>{t("common.titles.getStarted")}</Typography>
           </ButtonLink>

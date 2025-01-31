@@ -7,6 +7,8 @@ import { statusSchema } from "@/app/api/status/schemas";
 export const getProfileParamsSchema = z.object({
   telegramUserId: z.string(),
   countryCode: z.string().nullish(),
+  countryName: z.string().nullish(),
+  city: z.string().nullish(),
   latitude: z.string().nullish(),
   longitude: z.string().nullish(),
 });

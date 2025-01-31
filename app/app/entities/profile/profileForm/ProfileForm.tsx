@@ -42,7 +42,7 @@ import { notification } from "@/app/uikit/utils";
 import "./ProfileForm.scss";
 import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
 import { Icon } from "@/app/uikit/components/icon";
-import { COUNTRY_CODE } from "@/app/shared/constants";
+import { CITY, COUNTRY_CODE, COUNTRY_NAME } from "@/app/shared/constants";
 import { useSearchParams } from "next/navigation";
 
 type TProps = {
@@ -97,6 +97,9 @@ const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
   const params = new URLSearchParams(searchParams.toString());
   const [focusedEvent, setFocusedEvent] = useState<FocusEvent<HTMLElement>>();
   const formHeightFormatted = isKeyboardOpen ? `${formHeight}px` : "100%";
+  const countryCode = navigator?.countryCode ?? params.get(COUNTRY_CODE);
+  const countryName = navigator?.countryName ?? params.get(COUNTRY_NAME);
+  const city = navigator?.city ?? params.get(CITY);
 
   useEffect(() => {
     if (isKeyboardOpen && focusedEvent) {
@@ -337,10 +340,9 @@ const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
                         ...(navigator?.longitude
                           ? { longitude: navigator?.longitude.toString() }
                           : {}),
-                        countryCode:
-                          navigator?.countryCode ??
-                          params.get(COUNTRY_CODE) ??
-                          lng,
+                        countryCode,
+                        countryName,
+                        city,
                       },
                     )}
                   />

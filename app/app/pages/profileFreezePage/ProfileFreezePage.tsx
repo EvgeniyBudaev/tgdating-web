@@ -10,7 +10,12 @@ import { useTranslation } from "@/app/i18n/client";
 import { useProfileFreezeAccess } from "@/app/pages/profileFreezePage/hooks";
 import type { TProfileFreezePageProps } from "@/app/pages/profileFreezePage/types";
 import { Loader } from "@/app/shared/components/loader";
-import { COUNTRY_CODE, INITIAL_FORM_STATE } from "@/app/shared/constants";
+import {
+  CITY,
+  COUNTRY_CODE,
+  COUNTRY_NAME,
+  INITIAL_FORM_STATE,
+} from "@/app/shared/constants";
 import {
   useAuthenticityTokenContext,
   useNavigatorContext,
@@ -36,6 +41,10 @@ const ProfileFreezePageComponent: FC<TProfileFreezePageProps> = (props) => {
   const isSessionUser = Boolean(
     telegramUserId && user?.id.toString() === telegramUserId,
   );
+  const countryCode = navigator?.countryCode ?? params.get(COUNTRY_CODE);
+  const countryName = navigator?.countryName ?? params.get(COUNTRY_NAME);
+  const city = navigator?.city ?? params.get(CITY);
+
   const [state, formAction] = useActionState(
     restoreProfileAction,
     INITIAL_FORM_STATE,
@@ -45,8 +54,6 @@ const ProfileFreezePageComponent: FC<TProfileFreezePageProps> = (props) => {
 
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
-      const countryCode =
-        navigator?.countryCode ?? params.get(COUNTRY_CODE) ?? lng;
       const query = {
         ...(navigator?.latitude
           ? { latitude: navigator.latitude.toString() }
@@ -55,6 +62,8 @@ const ProfileFreezePageComponent: FC<TProfileFreezePageProps> = (props) => {
           ? { longitude: navigator.longitude.toString() }
           : {}),
         countryCode,
+        countryName,
+        city,
       };
       const path = createPath(
         {

@@ -6,6 +6,8 @@ import { useTranslation } from "react-i18next";
 
 type TPosition = {
   countryCode?: string;
+  countryName?: string;
+  city?: string;
   errorPosition?: unknown;
   isCoords: boolean;
   location?: string;
@@ -15,6 +17,8 @@ type TPosition = {
 
 export type TUseNavigatorResponse = {
   countryCode?: string;
+  countryName?: string;
+  city?: string;
   errorPosition?: unknown;
   isCoords: boolean;
   location?: string;
@@ -32,6 +36,8 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
   const { t } = useTranslation("index");
   const [position, setPosition] = useState<TPosition>({
     countryCode: undefined,
+    countryName: undefined,
+    city: undefined,
     errorPosition: undefined,
     isCoords: false,
     location: undefined,
@@ -51,28 +57,31 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
       const url = `${process.env.NEXT_PUBLIC_DOMAIN_GET_LOCATION}/1.x/?apikey=${process.env.NEXT_PUBLIC_YANDEX_API_KEY}&geocode=${longitude},${latitude}&format=json&lang=${lng}`;
       const res = await fetch(url);
       const data = await res.json();
-      const country =
+      const countryName: string =
         data?.response?.GeoObjectCollection?.featureMember?.[0]?.GeoObject
           ?.metaDataProperty?.GeocoderMetaData?.AddressDetails?.Country
-          ?.CountryName;
+          ?.CountryName ?? "";
       const countryCode: string = (
         data?.response?.GeoObjectCollection?.featureMember?.[0]?.GeoObject
           ?.metaDataProperty?.GeocoderMetaData?.AddressDetails?.Country
           ?.CountryNameCode ?? ""
       ).toLowerCase();
-      const city =
+      const city: string =
         data?.response?.GeoObjectCollection?.featureMember?.[0]?.GeoObject
           ?.metaDataProperty?.GeocoderMetaData?.AddressDetails?.Country
           ?.AdministrativeArea?.SubAdministrativeArea?.Locality?.LocalityName ??
         data?.response?.GeoObjectCollection?.featureMember?.[0]?.GeoObject
           ?.metaDataProperty?.GeocoderMetaData?.AddressDetails?.Country
-          ?.AdministrativeArea?.AdministrativeAreaName;
-      const location = country
-        ? `${country}` + (city && `, ${city}`)
+          ?.AdministrativeArea?.AdministrativeAreaName ??
+        "";
+      const location = countryName
+        ? `${countryName}` + (city && `, ${city}`)
         : t("common.titles.geoPositionExist");
       setPosition((prevState) => ({
         ...prevState,
         countryCode,
+        countryName,
+        city,
         errorPosition: undefined,
         isCoords: true,
         location,
@@ -134,19 +143,13 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
   return useMemo(() => {
     return {
       countryCode: position?.countryCode,
+      countryName: position?.countryName,
+      city: position?.city,
       errorPosition: position?.errorPosition,
       isCoords: position.isCoords,
       location: position?.location,
       latitude: position?.latitude,
       longitude: position?.longitude,
     };
-  }, [
-    lng,
-    position?.countryCode,
-    position?.errorPosition,
-    position.isCoords,
-    position?.location,
-    position?.latitude,
-    position?.longitude,
-  ]);
+  }, [lng, position]);
 };

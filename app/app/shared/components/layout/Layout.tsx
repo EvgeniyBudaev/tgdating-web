@@ -15,6 +15,7 @@ import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/ty
 import { CheckLike } from "@/app/shared/components/сheckLike";
 import { CheckShortInfo } from "@/app/shared/components/checkShortInfo";
 import { Footer } from "@/app/shared/components/footer";
+import { CITY, COUNTRY_CODE, COUNTRY_NAME } from "@/app/shared/constants";
 import {
   AuthenticityTokenProvider,
   NavigatorProvider,
@@ -26,7 +27,6 @@ import { createPath } from "@/app/shared/utils";
 import { ToastContainer } from "@/app/uikit/components/toast/toastContainer";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./Layout.scss";
-import { COUNTRY_CODE } from "@/app/shared/constants";
 
 type TProps = {
   children?: ReactNode;
@@ -44,11 +44,12 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   const { initDataCrypt, isSession, user, theme } = useTelegram();
   const [shortInfo, setShortInfo] = useState<TProfileShortInfo | null>(null);
   const telegramLanguageCode = shortInfo?.languageCode ?? user?.language_code;
+  const countryCode = navigator?.countryCode ?? params.get(COUNTRY_CODE);
+  const countryName = navigator?.countryName ?? params.get(COUNTRY_NAME);
+  const city = navigator?.city ?? params.get(CITY);
 
   useEffect(() => {
     if (telegramLanguageCode && telegramLanguageCode !== lng) {
-      const countryCode =
-        navigator?.countryCode ?? params.get(COUNTRY_CODE) ?? lng;
       const path = createPath(
         {
           route: ERoutes.Telegram,
@@ -63,6 +64,8 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
             ? { longitude: navigator?.longitude.toString() }
             : {}),
           countryCode,
+          countryName,
+          city,
         },
       );
       router.push(path);

@@ -6,7 +6,12 @@ import { type FC, memo, useActionState, useEffect, useRef } from "react";
 import { EGetProfileShortInfoFields } from "@/app/actions/profile/getProfileShortInfo/enums";
 import { getProfileShortInfoAction } from "@/app/actions/profile/getProfileShortInfo/getProfileShortInfoAction";
 import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/types";
-import { COUNTRY_CODE, INITIAL_FORM_STATE } from "@/app/shared/constants";
+import {
+  CITY,
+  COUNTRY_CODE,
+  COUNTRY_NAME,
+  INITIAL_FORM_STATE,
+} from "@/app/shared/constants";
 import { ELanguage } from "@/app/shared/enums";
 import type { TUseNavigatorResponse } from "@/app/shared/hooks/useNavigator";
 import "./CheckShortInfo.scss";
@@ -34,6 +39,9 @@ const CheckShortInfoComponent: FC<TProps> = ({
   const buttonSubmitRef = useRef<HTMLInputElement | null>(null);
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams.toString());
+  const countryCode = navigator?.countryCode ?? params.get(COUNTRY_CODE);
+  const countryName = navigator?.countryName ?? params.get(COUNTRY_NAME);
+  const city = navigator?.city ?? params.get(CITY);
 
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
@@ -55,10 +63,11 @@ const CheckShortInfoComponent: FC<TProps> = ({
         EGetProfileShortInfoFields.TelegramUserId,
         telegramUserId,
       );
-      const countryCode =
-        navigator?.countryCode ?? params.get(COUNTRY_CODE) ?? lng;
       countryCode &&
         formDataDto.append(EGetProfileShortInfoFields.CountryCode, countryCode);
+      countryName &&
+        formDataDto.append(EGetProfileShortInfoFields.CountryName, countryName);
+      city && formDataDto.append(EGetProfileShortInfoFields.City, city);
       navigator?.latitude &&
         formDataDto.append(
           EGetProfileShortInfoFields.Latitude,
