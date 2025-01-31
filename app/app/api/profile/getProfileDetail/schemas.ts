@@ -21,10 +21,11 @@ export const profileDetailSchema = z.object({
   telegramUserId: z.string(),
   displayName: z.string(),
   age: z.number(),
-  location: z.string().nullish(),
   description: z.string().nullish(),
   navigator: z
     .object({
+      countryName: z.string().nullish(),
+      city: z.string().nullish(),
       distance: z.number().nullish(),
     })
     .nullish(),

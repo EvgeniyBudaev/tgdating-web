@@ -102,6 +102,9 @@ type TSearchParams = Promise<{
   searchGender?: string;
   telegramUserId?: string;
   distance?: string;
+  countryCode?: string;
+  countryName?: string;
+  city?: string;
   latitude?: string;
   longitude?: string;
 }>;

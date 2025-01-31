@@ -3,7 +3,6 @@ export enum EProfileAddFormFields {
   Age = "age",
   Gender = "gender",
   SearchGender = "searchGender",
-  Location = "location",
   Description = "description",
   Image = "image",
   TelegramUserID = "telegramUserId",

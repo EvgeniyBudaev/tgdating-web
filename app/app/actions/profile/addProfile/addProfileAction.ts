@@ -56,11 +56,6 @@ export async function addProfileAction(prevState: any, formData: FormData) {
         EProfileAddFormFields.SearchGender,
         mapperParams.profileForm.searchGender,
       );
-    mapperParams.profileForm?.location &&
-      profileFormData.append(
-        EProfileAddFormFields.Location,
-        mapperParams.profileForm.location,
-      );
     mapperParams.profileForm?.description &&
       profileFormData.append(
         EProfileAddFormFields.Description,

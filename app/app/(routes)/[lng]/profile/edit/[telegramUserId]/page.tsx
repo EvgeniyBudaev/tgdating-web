@@ -73,14 +73,30 @@ type TParams = Promise<{
   telegramUserId: string;
 }>;
 
+type TSearchParams = Promise<{
+  countryCode?: string;
+  countryName?: string;
+  city?: string;
+  latitude?: string;
+  longitude?: string;
+}>;
+
+type TProps = {
+  params: TParams;
+  searchParams?: TSearchParams;
+};
+
 export default async function ProfileEditRoute({
   params,
-}: {
-  params: TParams;
-}) {
+  searchParams,
+}: TProps) {
   const { lng, telegramUserId } = await params;
+  const query = await searchParams;
   const language = lng as ELanguage;
-  const data = await loaderProfileEdit({ telegramUserId });
+  const data = await loaderProfileEdit({
+    telegramUserId,
+    searchParams: query ?? {},
+  });
 
   return (
     <ProfileEditPage

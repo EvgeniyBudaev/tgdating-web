@@ -55,11 +55,6 @@ export async function editProfileAction(prevState: any, formData: FormData) {
         EProfileEditFormFields.SearchGender,
         mapperParams.profileForm.searchGender,
       );
-    mapperParams.profileForm?.location &&
-      profileFormData.append(
-        EProfileEditFormFields.Location,
-        mapperParams.profileForm.location,
-      );
     mapperParams.profileForm?.description &&
       profileFormData.append(
         EProfileEditFormFields.Description,

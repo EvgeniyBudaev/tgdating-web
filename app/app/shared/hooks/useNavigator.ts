@@ -10,7 +10,6 @@ type TPosition = {
   city?: string;
   errorPosition?: unknown;
   isCoords: boolean;
-  location?: string;
   latitude?: number;
   longitude?: number;
 };
@@ -21,7 +20,6 @@ export type TUseNavigatorResponse = {
   city?: string;
   errorPosition?: unknown;
   isCoords: boolean;
-  location?: string;
   latitude?: number;
   longitude?: number;
 };
@@ -40,7 +38,6 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
     city: undefined,
     errorPosition: undefined,
     isCoords: false,
-    location: undefined,
     longitude: undefined,
     latitude: undefined,
   });
@@ -74,9 +71,6 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
           ?.metaDataProperty?.GeocoderMetaData?.AddressDetails?.Country
           ?.AdministrativeArea?.AdministrativeAreaName ??
         "";
-      const location = countryName
-        ? `${countryName}` + (city && `, ${city}`)
-        : t("common.titles.geoPositionExist");
       setPosition((prevState) => ({
         ...prevState,
         countryCode,
@@ -84,11 +78,10 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
         city,
         errorPosition: undefined,
         isCoords: true,
-        location,
         longitude,
         latitude,
       }));
-      return { location };
+      return {};
     } catch (error) {
       console.error("getLocationFromIp error: ", error);
       if (error instanceof Error) {
@@ -147,7 +140,6 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
       city: position?.city,
       errorPosition: position?.errorPosition,
       isCoords: position.isCoords,
-      location: position?.location,
       latitude: position?.latitude,
       longitude: position?.longitude,
     };

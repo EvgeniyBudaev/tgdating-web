@@ -42,7 +42,7 @@ const ProfileDetailPageComponent: FC<TProfileDetailPageProps> = (props) => {
 
   const distance = useMemo(() => {
     return !isNil(profile?.navigator?.distance)
-      ? getDistance(profile.navigator.distance, t)
+      ? getDistance(profile?.navigator.distance, t)
       : undefined;
   }, [profile?.navigator, t]);
 
@@ -118,10 +118,19 @@ const ProfileDetailPageComponent: FC<TProfileDetailPageProps> = (props) => {
                 {!isSessionUser && distance && (
                   <Typography>{distance}</Typography>
                 )}
-                {profile?.location && (
+                {distance && (
                   <div className="ProfileDetailPage-Location">
                     {!isSessionUser && distance && <span>,&nbsp;</span>}
-                    <Typography>{profile?.location}&nbsp;</Typography>
+                    {profile?.navigator?.countryName && (
+                      <Typography>
+                        {profile?.navigator?.countryName}
+                        {profile?.navigator?.city && <span>,</span>}
+                        &nbsp;
+                      </Typography>
+                    )}
+                    {profile?.navigator?.city && (
+                      <Typography>{profile?.navigator?.city}&nbsp;</Typography>
+                    )}
                     <Icon
                       className="ProfileDetailPage-Icon"
                       height={16}

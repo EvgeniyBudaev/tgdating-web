@@ -61,9 +61,9 @@ const ProfileFreezePageComponent: FC<TProfileFreezePageProps> = (props) => {
         ...(navigator?.longitude
           ? { longitude: navigator.longitude.toString() }
           : {}),
-        countryCode,
-        countryName,
-        city,
+        ...(countryCode && { countryCode: countryCode }),
+        ...(countryName && { countryName: countryName }),
+        ...(city && { city: city }),
       };
       const path = createPath(
         {

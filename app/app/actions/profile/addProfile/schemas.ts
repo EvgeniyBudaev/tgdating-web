@@ -36,7 +36,6 @@ export const addProfileFormSchema = zfd.formData({
     ESearchGender.Woman,
     ESearchGender.All,
   ]),
-  [EProfileAddFormFields.Location]: stringOptionalSchema,
   [EProfileAddFormFields.Description]: stringOptionalSchema,
   [EProfileAddFormFields.Image]: imageFileSchema,
   [EProfileAddFormFields.TelegramUserID]: z

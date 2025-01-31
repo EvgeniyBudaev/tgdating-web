@@ -64,7 +64,6 @@ const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
     setIsSidebarOpen,
     language,
     languageState,
-    location,
     navigator,
     onAddFiles,
     onChangeAge,
@@ -294,13 +293,6 @@ const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
                   type="text"
                 />
               </Field>
-              <Field>
-                <input
-                  defaultValue={location}
-                  name={EProfileAddFormFields.Location}
-                  type="hidden"
-                />
-              </Field>
               {/*<Field>*/}
               {/*  <Checkbox*/}
               {/*    checked={isLeftHand}*/}
@@ -340,9 +332,9 @@ const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
                         ...(navigator?.longitude
                           ? { longitude: navigator?.longitude.toString() }
                           : {}),
-                        countryCode,
-                        countryName,
-                        city,
+                        ...(countryCode && { countryCode: countryCode }),
+                        ...(countryName && { countryName: countryName }),
+                        ...(city && { city: city }),
                       },
                     )}
                   />

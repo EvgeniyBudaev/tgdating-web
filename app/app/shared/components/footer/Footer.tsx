@@ -68,9 +68,9 @@ const FooterComponent: FC<TProps> = ({
         ...(navigator?.longitude
           ? { longitude: navigator?.longitude.toString() }
           : {}),
-        countryCode,
-        countryName,
-        city,
+        ...(countryCode && { countryCode: countryCode }),
+        ...(countryName && { countryName: countryName }),
+        ...(city && { city: city }),
       },
     );
 
@@ -90,9 +90,9 @@ const FooterComponent: FC<TProps> = ({
         ...(navigator?.longitude
           ? { longitude: navigator?.longitude.toString() }
           : {}),
-        countryCode,
-        countryName,
-        city,
+        ...(countryCode && { countryCode: countryCode }),
+        ...(countryName && { countryName: countryName }),
+        ...(city && { city: city }),
       },
     );
 

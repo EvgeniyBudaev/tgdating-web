@@ -18,7 +18,6 @@ export const getProfileSchema = z.object({
   displayName: z.string(),
   age: z.number(),
   gender: z.string(),
-  location: z.string().nullish(),
   description: z.string().nullish(),
   navigator: navigatorSchema.nullish(),
   filter: filterSchema.nullish(),

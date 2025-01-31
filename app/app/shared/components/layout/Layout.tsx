@@ -63,9 +63,9 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
           ...(navigator?.longitude
             ? { longitude: navigator?.longitude.toString() }
             : {}),
-          countryCode,
-          countryName,
-          city,
+          ...(countryCode && { countryCode: countryCode }),
+          ...(countryName && { countryName: countryName }),
+          ...(city && { city: city }),
         },
       );
       router.push(path);

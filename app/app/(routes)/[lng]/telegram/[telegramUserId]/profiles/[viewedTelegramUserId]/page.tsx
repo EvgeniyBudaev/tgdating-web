@@ -77,6 +77,9 @@ type TParams = Promise<{
 }>;
 
 type TSearchParams = Promise<{
+  countryCode?: string;
+  countryName?: string;
+  city?: string;
   latitude?: string;
   longitude?: string;
 }>;

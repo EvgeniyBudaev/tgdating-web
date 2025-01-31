@@ -83,7 +83,6 @@ type TUseProfileEditResponse = {
   ) => void;
   language: ELanguage;
   languageState: TSelectOption | undefined;
-  location: string | undefined;
   navigator: TUseNavigatorResponse | null;
   onAddFiles: ((acceptedFiles: TFile[], files: TFile[]) => void) | undefined;
   onChangeAge(option?: TSelectOption): void;
@@ -121,9 +120,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   const telegram = useTelegram();
   const { initDataCrypt, user, theme, queryId } = telegram;
   const language = lng as ELanguage;
-  const location = isEdit
-    ? (navigator?.location ?? profile?.location ?? undefined)
-    : (navigator?.location ?? undefined);
   const ageDefault = isEdit
     ? {
         label: (profile?.age ?? DEFAULT_AGE).toString(),
@@ -222,9 +218,9 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
         ...(navigator?.longitude
           ? { longitude: navigator.longitude.toString() }
           : {}),
-        countryCode,
-        countryName,
-        city,
+        ...(countryCode && { countryCode: countryCode }),
+        ...(countryName && { countryName: countryName }),
+        ...(city && { city: city }),
       };
       const lang = languageState?.value ?? lng;
       const path = createPath(
@@ -254,9 +250,9 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
         ...(navigator?.longitude
           ? { longitude: navigator.longitude.toString() }
           : {}),
-        countryCode,
-        countryName,
-        city,
+        ...(countryCode && { countryCode: countryCode }),
+        ...(countryName && { countryName: countryName }),
+        ...(city && { city: city }),
       };
       const path = createPath(
         {
@@ -328,7 +324,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     const description = formData.get(
       EProfileAddFormFields.Description,
     ) as string;
-    const location = formData.get(EProfileAddFormFields.Location);
     formDataDto.append(
       EProfileAddFormFields.DisplayName,
       (displayName ?? "").toString().trim(),
@@ -336,10 +331,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     formDataDto.append(
       EProfileAddFormFields.Description,
       (description ?? "").toString(),
-    );
-    formDataDto.append(
-      EProfileAddFormFields.Location,
-      (location ?? "").toString(),
     );
     (files ?? []).forEach((file) => {
       formDataDto.append(EProfileAddFormFields.Image, file);
@@ -387,9 +378,9 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       EProfileAddFormFields.TelegramInitDataCrypt,
       initDataCrypt ?? "",
     );
-    formDataDto.append(EProfileAddFormFields.CountryCode, countryCode);
-    formDataDto.append(EProfileAddFormFields.CountryName, countryName);
-    formDataDto.append(EProfileAddFormFields.City, city);
+    formDataDto.append(EProfileAddFormFields.CountryCode, countryCode ?? "");
+    formDataDto.append(EProfileAddFormFields.CountryName, countryName ?? "");
+    formDataDto.append(EProfileAddFormFields.City, city ?? "");
     formDataDto.append(EProfileAddFormFields.Latitude, latitude);
     formDataDto.append(EProfileAddFormFields.Longitude, longitude);
     formDataDto.append(EProfileAddFormFields.AgeFrom, ageFrom);
@@ -425,7 +416,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     setIsSidebarOpen,
     language,
     languageState,
-    location,
     navigator,
     onAddFiles,
     onChangeAge: handleChangeAge,

@@ -45,7 +45,6 @@ export const editProfileFormSchema = zfd
       ESearchGender.All,
       "",
     ]),
-    [EProfileEditFormFields.Location]: stringOptionalSchema,
     [EProfileEditFormFields.Description]: stringOptionalSchema,
     [EProfileEditFormFields.Image]: z.union([
       z.literal(null),

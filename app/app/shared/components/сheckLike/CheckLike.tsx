@@ -6,7 +6,7 @@ import {useTranslation} from "react-i18next";
 import {checkLikeAction} from "@/app/actions/like/checkLike/checkLikeAction";
 import type {TLike} from "@/app/api/like/types";
 import {ECheckLikeFormFields} from "@/app/actions/like/checkLike/enum";
-import {INITIAL_FORM_STATE} from "@/app/shared/constants/form";
+import {INITIAL_FORM_STATE} from "@/app/shared/constants";
 import {ELanguage} from "@/app/shared/enums";
 import {useDayjs} from "@/app/uikit/components/dateTime/hooks";
 import {notification} from "@/app/uikit/utils";
@@ -23,7 +23,7 @@ type TProps = {
 const CheckLikeComponent: FC<TProps> = ({csrf, initDataCrypt, isSession, lng, telegramUserId}) => {
   const [state, formAction] = useActionState(checkLikeAction, INITIAL_FORM_STATE);
   const buttonSubmitRef = useRef<HTMLInputElement | null>(null);
-  const [lastLike, setLastLike] = useState<TLike | null>(null);
+  const [_, setLastLike] = useState<TLike | null>(null);
   const [isNewLike, setIsNewLike] = useState(false);
   const DURATION = 10000;
   const { dayjs } = useDayjs();
