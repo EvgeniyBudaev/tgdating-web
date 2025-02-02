@@ -93,6 +93,11 @@ const ProfileSidebarComponent = forwardRef(
       router.push(path);
     };
 
+    const handleRedirectHelp = () => {
+      const url = "https://t.me/wefatehelp";
+      window.open(url, "_blank", "noopener,noreferrer");
+    };
+
     const handleRedirectBlockedList = () => {
       const path = createPath({
         route: ERoutes.BlockedList,
@@ -177,6 +182,14 @@ const ProfileSidebarComponent = forwardRef(
                   theme={theme}
                 >
                   <Typography>{t("common.actions.editProfile")}</Typography>
+                </SidebarContentListItem>
+              )}
+              {isSessionUser && (
+                <SidebarContentListItem
+                  onClick={handleRedirectHelp}
+                  theme={theme}
+                >
+                  <Typography>{t("common.actions.help")}</Typography>
                 </SidebarContentListItem>
               )}
               {isSessionUser && (
