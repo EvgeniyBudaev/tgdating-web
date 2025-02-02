@@ -3,5 +3,11 @@
     "profile": {
       "doubleLike": "Volver a me gusta estará disponible mañana"
     }
+  },
+  "common": {
+    "titles": {
+      "validityPeriod": "período de validez",
+      "geoPositionExist": "Geolocalización determinada"
+    }
   }
 }

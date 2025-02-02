@@ -10,8 +10,8 @@
       "required": "nødvendig å fylle ut",
       "changeable": "kan endres",
       "interfaceLanguage": "Grensesnittspråk",
+      "measurement": "Måleenheter",
       "options": "Alternativer",
-      "validityPeriod": "gyldighetsperiode",
       "filtersGeneral": "Generelle filtre!",
       "age": "Alder",
       "blockedList": "Blokkert liste",
@@ -44,8 +44,7 @@
       "byContinuing": "Ved å fortsette godtar du",
       "and": "og",
       "privacyPolicy": "personvernerklæring",
-      "isNewLike": "Det er sympati! Se i botchat",
-      "geoPositionExist": "Geolokalisering bestemt"
+      "isNewLike": "Det er sympati! Se i botchat"
     },
     "actions": {
       "no": "Ingen",
@@ -54,10 +53,10 @@
       "save": "Spare",
       "apply": "Søke",
       "cancel": "Kansellere",
-      "buyPremium": "Kjøp Premium",
       "blockedList": "Blokkert liste",
       "editProfile": "Rediger konto",
       "filter": "Filter",
+      "buyPremium": "Kjøp Premium",
       "block": "Blokkere",
       "complaint": "Rapporter og blokker",
       "deleteProfile": "Slett konto",
@@ -81,6 +80,8 @@
       }
     },
     "reductions": {
+      "mi": "mi",
+      "ft": "ft",
       "km": "km",
       "m": "m"
     },

@@ -10,8 +10,8 @@
       "required": "абавязкова да запаўнення",
       "changeable": "можна будзе змяніць",
       "interfaceLanguage": "Мова інтэрфейсу",
+      "measurement": "Адзінкі вымярэння",
       "options": "Опцыі",
-      "validityPeriod": "тэрмін дзеяння",
       "filtersGeneral": "Агульныя фільтры",
       "age": "Узрост",
       "blockedList": "Спіс заблакаваных",
@@ -44,8 +44,7 @@
       "byContinuing": "Працягваючы, вы прымаеце",
       "and": "і",
       "privacyPolicy": "палітыку прыватнасці",
-      "isNewLike": "Ёсць сімпатыя! Прагляд у чаце бота",
-      "geoPositionExist": "Геапапазіцыя вызначана"
+      "isNewLike": "Ёсць сімпатыя! Прагляд у чаце бота"
     },
     "actions": {
       "no": "Не",
@@ -54,10 +53,10 @@
       "save": "Захаваць",
       "apply": "Ужыць",
       "cancel": "Адмяніць",
-      "buyPremium": "Купіць Premium",
       "blockedList": "Спіс заблакаваных",
       "editProfile": "Рэдагаваць акаўнт",
       "filter": "Фільтр",
+      "buyPremium": "Купіць Premium",
       "block": "Заблакаваць",
       "complaint": "Паскардзіцца і заблакаваць",
       "deleteProfile": "Выдаліць акаўнт",
@@ -81,6 +80,8 @@
       }
     },
     "reductions": {
+      "mi": "ми",
+      "ft": "фт",
       "km": "км",
       "m": "м"
     },

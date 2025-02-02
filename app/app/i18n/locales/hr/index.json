@@ -10,8 +10,8 @@
       "required": "potrebno ispuniti",
       "changeable": "može se promijeniti",
       "interfaceLanguage": "Jezik sučelja",
+      "measurement": "Mjerne jedinice",
       "options": "Mogućnosti",
-      "validityPeriod": "rok valjanosti",
       "filtersGeneral": "Opći filtri",
       "age": "Dob",
       "blockedList": "Popis blokiranih",
@@ -44,8 +44,7 @@
       "byContinuing": "Nastavkom prihvaćate",
       "and": "i",
       "privacyPolicy": "politika privatnosti",
-      "isNewLike": "Postoji simpatija! Pogledaj u bot chatu",
-      "geoPositionExist": "Geolokacija određena"
+      "isNewLike": "Postoji simpatija! Pogledaj u bot chatu"
     },
     "actions": {
       "no": "Ne",
@@ -54,10 +53,10 @@
       "save": "Uštedjeti",
       "apply": "primijeniti",
       "cancel": "Otkazati",
-      "buyPremium": "Kupite Premium",
       "blockedList": "Popis blokiranih",
       "editProfile": "Uredi račun",
       "filter": "Filter",
+      "buyPremium": "Kupite Premium",
       "block": "Blokirati",
       "complaint": "Prijavi i blokiraj",
       "deleteProfile": "Izbriši račun",
@@ -81,6 +80,8 @@
       }
     },
     "reductions": {
+      "mi": "mi",
+      "ft": "ft",
       "km": "km",
       "m": "m"
     },

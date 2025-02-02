@@ -3,5 +3,11 @@
     "profile": {
       "doubleLike": "Добавь сюда перевод!!!"
     }
+  },
+  "common": {
+    "titles": {
+      "validityPeriod": "срок действия",
+      "geoPositionExist": "Геопозицію визначено"
+    }
   }
 }

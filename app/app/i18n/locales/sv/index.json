@@ -10,8 +10,8 @@
       "required": "krävs att fylla i",
       "changeable": "kan ändras",
       "interfaceLanguage": "Gränssnittsspråk",
+      "measurement": "Måttenheter",
       "options": "Alternativ",
-      "validityPeriod": "срок действия",
       "filtersGeneral": "Allmänna filter",
       "age": "Åldras",
       "blockedList": "Blockerad lista",
@@ -44,8 +44,7 @@
       "byContinuing": "Genom att fortsätta accepterar du",
       "and": "och",
       "privacyPolicy": "sekretesspolicy",
-      "isNewLike": "Det finns sympati! Visa i botchatt",
-      "geoPositionExist": "Geolokalisering fastställd"
+      "isNewLike": "Det finns sympati! Visa i botchatt"
     },
     "actions": {
       "no": "Inga",
@@ -54,10 +53,10 @@
       "save": "Spara",
       "apply": "Tillämpas",
       "cancel": "Avboka",
-      "buyPremium": "Köp Premium",
       "blockedList": "Blockerad lista",
       "editProfile": "Redigera konto",
       "filter": "Filtrera",
+      "buyPremium": "Köp Premium",
       "block": "Blockera",
       "complaint": "Rapportera och blockera",
       "deleteProfile": "Ta bort konto",
@@ -81,6 +80,8 @@
       }
     },
     "reductions": {
+      "mi": "mi",
+      "ft": "ft",
       "km": "km",
       "m": "m"
     },

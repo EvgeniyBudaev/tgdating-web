@@ -11,7 +11,9 @@
       }
     },
     "titles": {
-      "validUntil": "Добавь сюда перевод!!!"
+      "validUntil": "Добавь сюда перевод!!!",
+      "validityPeriod": "voimassaoloaika",
+      "geoPositionExist": "Maantieteellinen sijainti määritetty"
     }
   },
   "pages": {

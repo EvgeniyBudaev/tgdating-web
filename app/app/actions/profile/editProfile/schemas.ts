@@ -4,7 +4,7 @@ import { z } from "zod";
 import { zfd } from "zod-form-data";
 import { fileSchema, MAX_FILE_SIZE } from "@/app/api/upload";
 import { EProfileEditFormFields } from "@/app/actions/profile/editProfile/enums";
-import { EGender, ESearchGender } from "@/app/shared/enums/form";
+import { EGender, EMeasurement, ESearchGender } from "@/app/shared/enums/form";
 import {
   EMPTY_FIELD_ERROR_MESSAGE,
   FILE_MAX_SIZE_MESSAGE,
@@ -106,6 +106,10 @@ export const editProfileFormSchema = zfd
       .trim()
       .min(1, EMPTY_FIELD_ERROR_MESSAGE),
     [EProfileEditFormFields.IsImages]: z.string().trim().nullish(),
+    [EProfileEditFormFields.Measurement]: z.enum([
+      EMeasurement.Metric,
+      EMeasurement.American,
+    ]),
   })
   .superRefine(({ isImages, image }, ctx) => {
     if (

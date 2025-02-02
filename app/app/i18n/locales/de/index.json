@@ -10,8 +10,8 @@
       "required": "zum Ausfüllen erforderlich",
       "changeable": "kann geändert werden",
       "interfaceLanguage": "Schnittstellensprache",
+      "measurement": "Maßeinheiten",
       "options": "Optionen",
-      "validityPeriod": "gültigkeitsdauer",
       "filtersGeneral": "Allgemeine Filter",
       "age": "Alter",
       "blockedList": "Sperrliste",
@@ -44,8 +44,7 @@
       "byContinuing": "Indem Sie fortfahren, akzeptieren Sie",
       "and": "und",
       "privacyPolicy": "datenschutzrichtlinie",
-      "isNewLike": "Es gibt Mitgefühl! Im Bot-Chat ansehen",
-      "geoPositionExist": "Geolokalisierung bestimmt"
+      "isNewLike": "Es gibt Mitgefühl! Im Bot-Chat ansehen"
     },
     "actions": {
       "no": "Nein",
@@ -54,10 +53,10 @@
       "save": "Speichern",
       "apply": "Anwenden",
       "cancel": "Stornieren",
-      "buyPremium": "Kaufen Sie Premium",
       "blockedList": "Sperrliste",
       "editProfile": "Konto bearbeiten",
       "filter": "Filter",
+      "buyPremium": "Kaufen Sie Premium",
       "block": "Block",
       "complaint": "Melden und blockieren",
       "deleteProfile": "Konto löschen",
@@ -81,6 +80,8 @@
       }
     },
     "reductions": {
+      "mi": "mi",
+      "ft": "ft",
       "km": "km",
       "m": "m"
     },

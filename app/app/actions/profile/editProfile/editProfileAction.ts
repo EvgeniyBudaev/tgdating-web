@@ -153,6 +153,10 @@ export async function editProfileAction(prevState: any, formData: FormData) {
       EProfileEditFormFields.IsImages,
       mapperParams.profileForm.isImages,
     );
+    profileFormData.append(
+      EProfileEditFormFields.Measurement,
+      mapperParams.profileForm.measurement,
+    );
 
     const response = await editProfile(
       profileFormData as unknown as TEditProfileParams,

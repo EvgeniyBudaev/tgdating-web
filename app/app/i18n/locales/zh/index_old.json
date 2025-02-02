@@ -3,5 +3,11 @@
     "profile": {
       "doubleLike": "明天即可重新点赞"
     }
+  },
+  "common": {
+    "titles": {
+      "validityPeriod": "有效期",
+      "geoPositionExist": "地理位置确定"
+    }
   }
 }

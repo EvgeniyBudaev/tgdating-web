@@ -2,6 +2,7 @@ import { z } from "zod";
 import { imageSchema } from "@/app/api/image";
 import { likeSchema } from "@/app/api/like/schemas";
 import { statusSchema } from "@/app/api/status/schemas";
+import { settingsSchema } from "@/app/api/settings/schemas";
 
 export const profileDetailParamsSchema = z.object({
   telegramUserId: z.string(),
@@ -30,6 +31,7 @@ export const profileDetailSchema = z.object({
     })
     .nullish(),
   status: statusSchema.nullish(),
+  settings: settingsSchema.nullish(),
   block: blockSchema.nullish(),
   like: likeSchema.nullish(),
   images: imageSchema.array().nullish(),

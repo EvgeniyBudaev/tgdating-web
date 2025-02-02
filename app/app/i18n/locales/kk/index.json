@@ -10,8 +10,8 @@
       "required": "толтыру қажет",
       "changeable": "өзгертуге болады",
       "interfaceLanguage": "Интерфейс тілі",
+      "measurement": "Өлшем бірліктері",
       "options": "Параметрлер",
-      "validityPeriod": "жарамдылық мерзімі",
       "filtersGeneral": "Жалпы сүзгілер",
       "age": "Жасы",
       "blockedList": "Блокталған тізім",
@@ -44,8 +44,7 @@
       "byContinuing": "Жалғастыру арқылы сіз қабылдайсыз",
       "and": "және dfgd",
       "privacyPolicy": "құпиялылық саясаты",
-      "isNewLike": "Жанашырлық бар! Бот чатында көру",
-      "geoPositionExist": "Геолокация анықталды"
+      "isNewLike": "Жанашырлық бар! Бот чатында көру"
     },
     "actions": {
       "no": "Жоқ",
@@ -54,10 +53,10 @@
       "save": "Сақтау",
       "apply": "Қолдану",
       "cancel": "Бас тарту",
-      "buyPremium": "Premium сатып алыңыз",
       "blockedList": "Блокталған тізім",
       "editProfile": "Есептік жазбаны өңдеу",
       "filter": "Сүзгі",
+      "buyPremium": "Premium сатып алыңыз",
       "block": "Блоктау",
       "complaint": "Есеп беру және блоктау",
       "deleteProfile": "Есептік жазбаны жою",
@@ -81,6 +80,8 @@
       }
     },
     "reductions": {
+      "mi": "ми",
+      "ft": "фт",
       "km": "км",
       "m": "м"
     },

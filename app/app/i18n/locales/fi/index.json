@@ -10,8 +10,8 @@
       "required": "vaaditaan täyttämiseen",
       "changeable": "voidaan vaihtaa",
       "interfaceLanguage": "Käyttöliittymän kieli",
+      "measurement": "Mittayksiköt",
       "options": "Vaihtoehdot",
-      "validityPeriod": "voimassaoloaika",
       "filtersGeneral": "Yleiset suodattimet",
       "age": "Ikä",
       "blockedList": "Estetty lista",
@@ -44,8 +44,7 @@
       "byContinuing": "Jatkamalla hyväksyt",
       "and": "ja",
       "privacyPolicy": "tietosuojakäytäntö",
-      "isNewLike": "Sympatiaa on! Katso bot-chatissa",
-      "geoPositionExist": "Maantieteellinen sijainti määritetty"
+      "isNewLike": "Sympatiaa on! Katso bot-chatissa"
     },
     "actions": {
       "no": "Ei",
@@ -54,10 +53,10 @@
       "save": "Tallentaa",
       "apply": "Käytä",
       "cancel": "Peruuttaa",
-      "buyPremium": "Osta Premium",
       "blockedList": "Estetty lista",
       "editProfile": "Muokkaa tiliä",
       "filter": "Suodattaa",
+      "buyPremium": "Osta Premium",
       "block": "Lohko",
       "complaint": "Ilmoita ja blokkaa",
       "deleteProfile": "Poista tili",
@@ -81,6 +80,8 @@
       }
     },
     "reductions": {
+      "mi": "mi",
+      "ft": "ft",
       "km": "km",
       "m": "m"
     },

@@ -26,4 +26,5 @@ export enum EProfileEditFormFields {
   IsLeftHand = "isLeftHand",
   Csrf = "csrf",
   IsImages = "isImages",
+  Measurement = "measurement",
 }

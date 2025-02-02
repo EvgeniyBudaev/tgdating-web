@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { EMeasurement } from "@/app/shared/enums/form";
 
 export const getProfileShortInfoParamsSchema = z.object({
   telegramUserId: z.string(),
@@ -22,4 +23,5 @@ export const profileShortInfoSchema = z.object({
   page: z.number(),
   size: z.number(),
   languageCode: z.string(),
+  measurement: z.enum([EMeasurement.Metric, EMeasurement.American]),
 });

@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
+import { useSearchParams } from "next/navigation";
 import { type FC, type FocusEvent, memo, useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { TProfile } from "@/app/api/profile/getProfile/types";
@@ -26,9 +27,11 @@ import { Select } from "@/app/shared/components/form/select";
 import { Textarea } from "@/app/shared/components/form/textarea";
 import { SubmitButton } from "@/app/shared/components/form/submitButton";
 import { Section } from "@/app/shared/components/section";
+import { CITY, COUNTRY_CODE, COUNTRY_NAME } from "@/app/shared/constants";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useCheckPermissions } from "@/app/shared/hooks";
 import { getGenderByLocale } from "@/app/shared/mapping/gender";
+import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
+import { getMeasurementByLocale } from "@/app/shared/mapping/measurement";
 import { getSearchGenderByLocale } from "@/app/shared/mapping/searchGender";
 import { createPath } from "@/app/shared/utils";
 import { Info } from "@/app/shared/components/info";
@@ -38,12 +41,7 @@ import {
   Typography,
 } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
-import { notification } from "@/app/uikit/utils";
 import "./ProfileForm.scss";
-import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
-import { Icon } from "@/app/uikit/components/icon";
-import { CITY, COUNTRY_CODE, COUNTRY_NAME } from "@/app/shared/constants";
-import { useSearchParams } from "next/navigation";
 
 type TProps = {
   isEdit?: boolean;
@@ -64,12 +62,14 @@ const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
     setIsSidebarOpen,
     language,
     languageState,
+    measurement,
     navigator,
     onAddFiles,
     onChangeAge,
     onChangeIsLeftHand,
     onChangeGender,
     onChangeLanguage,
+    onChangeMeasurement,
     onChangeSearchGender,
     onCloseSidebar,
     onDeleteFile,
@@ -277,6 +277,28 @@ const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
                   subLabel={`${t("common.titles.changeable")}`}
                   theme={theme}
                   title={t("common.titles.interfaceLanguage")}
+                  titleButton={t("common.actions.apply")}
+                />
+              </Field>
+              <Field>
+                <Select
+                  headerTitle={!isNil(measurement) ? measurement?.label : "--"}
+                  isSidebarOpen={isSidebarOpen.isMeasurement}
+                  label={t("common.titles.measurement")}
+                  name={EProfileAddFormFields.Measurement}
+                  onCloseSidebar={onCloseSidebar}
+                  onHeaderClick={() =>
+                    setIsSidebarOpen((prev) => ({
+                      ...prev,
+                      isMeasurement: true,
+                    }))
+                  }
+                  onSave={onChangeMeasurement}
+                  options={getMeasurementByLocale(language)}
+                  selectedItem={measurement}
+                  subLabel={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
+                  theme={theme}
+                  title={t("common.titles.measurement")}
                   titleButton={t("common.actions.apply")}
                 />
               </Field>

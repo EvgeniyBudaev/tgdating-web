@@ -3,5 +3,11 @@
     "profile": {
       "doubleLike": "明日から再いいねが可能になります"
     }
+  },
+  "common": {
+    "titles": {
+      "validityPeriod": "срок действия",
+      "geoPositionExist": "地理位置情報が決定されました"
+    }
   }
 }

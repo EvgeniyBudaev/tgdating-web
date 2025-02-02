@@ -10,8 +10,8 @@
       "required": "需要填写",
       "changeable": "可以改变",
       "interfaceLanguage": "界面语言",
+      "measurement": "测量单位",
       "options": "选项",
-      "validityPeriod": "有效期",
       "filtersGeneral": "通用过滤器",
       "age": "年龄",
       "blockedList": "阻止列表",
@@ -44,8 +44,7 @@
       "byContinuing": "继续即表示您接受",
       "and": "和",
       "privacyPolicy": "隐私政策",
-      "isNewLike": "有同情心！在机器人聊天中查看",
-      "geoPositionExist": "地理位置确定"
+      "isNewLike": "有同情心！在机器人聊天中查看"
     },
     "actions": {
       "no": "不",
@@ -54,10 +53,10 @@
       "save": "节省",
       "apply": "申请",
       "cancel": "取消",
-      "buyPremium": "购买溢价",
       "blockedList": "阻止列表",
       "editProfile": "编辑帐户",
       "filter": "筛选",
+      "buyPremium": "购买溢价",
       "block": "堵塞",
       "complaint": "举报并屏蔽",
       "deleteProfile": "删除帐户",
@@ -81,6 +80,8 @@
       }
     },
     "reductions": {
+      "mi": "mi",
+      "ft": "ft",
       "km": "km",
       "m": "m"
     },

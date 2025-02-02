@@ -10,8 +10,8 @@
       "required": "kitöltése kötelező",
       "changeable": "lehet változtatni",
       "interfaceLanguage": "Interfész nyelve",
+      "measurement": "Mértékegységek",
       "options": "Opciók",
-      "validityPeriod": "érvényességi ideje",
       "filtersGeneral": "Általános szűrők",
       "age": "Kor",
       "blockedList": "Letiltott lista",
@@ -44,8 +44,7 @@
       "byContinuing": "A folytatással elfogadod",
       "and": "és",
       "privacyPolicy": "adatvédelmi szabályzat",
-      "isNewLike": "Együttérzés van! Megtekintés a bot chatben",
-      "geoPositionExist": "A földrajzi hely meghatározása"
+      "isNewLike": "Együttérzés van! Megtekintés a bot chatben"
     },
     "actions": {
       "no": "Nem",
@@ -54,10 +53,10 @@
       "save": "Megtakarítás",
       "apply": "Alkalmazni",
       "cancel": "Mégse",
-      "buyPremium": "Prémium vásárlás",
       "blockedList": "Letiltott lista",
       "editProfile": "Fiók szerkesztése",
       "filter": "Szűrő",
+      "buyPremium": "Prémium vásárlás",
       "block": "Tömb",
       "complaint": "Jelentés és blokkolás",
       "deleteProfile": "Fiók törlése",
@@ -81,6 +80,8 @@
       }
     },
     "reductions": {
+      "mi": "mi",
+      "ft": "ft",
       "km": "km",
       "m": "m"
     },

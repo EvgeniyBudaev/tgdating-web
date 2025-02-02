@@ -1,7 +1,6 @@
 "use client";
 
 import clsx from "clsx";
-import isNil from "lodash/isNil";
 import { type FC, memo, useMemo, useRef, useState } from "react";
 import { ProfileSidebar } from "@/app/entities/profile/profileSidebar";
 import { useTranslation } from "@/app/i18n/client";
@@ -11,6 +10,7 @@ import type { TProfileDetailPageProps } from "@/app/pages/profileDetailPage/type
 import { getDistance } from "@/app/pages/profileDetailPage/utils";
 import { Container } from "@/app/shared/components/container";
 import { Loader } from "@/app/shared/components/loader";
+import { useShortInfoContext } from "@/app/shared/context";
 import { useTelegram } from "@/app/shared/hooks";
 import { Accordion } from "@/app/uikit/components/accordion";
 import { Hamburger } from "@/app/uikit/components/hamburger";
@@ -27,6 +27,7 @@ import "./ProfileDetailPage.scss";
 const ProfileDetailPageComponent: FC<TProfileDetailPageProps> = (props) => {
   const { isBlocked, isExistUser, isFrozen, lng, profile, telegramUserId } =
     props;
+  const shortInfo = useShortInfoContext();
   const { user, theme } = useTelegram();
   const { t } = useTranslation("index");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -41,9 +42,11 @@ const ProfileDetailPageComponent: FC<TProfileDetailPageProps> = (props) => {
   useProfileDetailAccess(props);
 
   const distance = useMemo(() => {
-    return !isNil(profile?.navigator?.distance)
-      ? getDistance(profile?.navigator.distance, t)
-      : undefined;
+    return getDistance({
+      value: profile?.navigator?.distance,
+      t,
+      measurement: shortInfo?.measurement,
+    });
   }, [profile?.navigator, t]);
 
   const handleOpenSidebar = () => {

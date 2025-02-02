@@ -10,8 +10,8 @@
       "required": "작성하는 데 필요한",
       "changeable": "변경될 수 있다",
       "interfaceLanguage": "인터페이스 언어",
+      "measurement": "측정 단위",
       "options": "옵션",
-      "validityPeriod": "유효기간",
       "filtersGeneral": "일반 필터",
       "age": "나이",
       "blockedList": "차단 목록",
@@ -44,8 +44,7 @@
       "byContinuing": "계속하면 동의하게 됩니다.",
       "and": "그리고 dfgd",
       "privacyPolicy": "개인 정보 보호 정책",
-      "isNewLike": "동정심이 있습니다! 봇 채팅에서 보기",
-      "geoPositionExist": "지리적 위치가 결정됨"
+      "isNewLike": "동정심이 있습니다! 봇 채팅에서 보기"
     },
     "actions": {
       "no": "아니요",
@@ -54,10 +53,10 @@
       "save": "구하다",
       "apply": "적용하다",
       "cancel": "취소",
-      "buyPremium": "프리미엄 구매",
       "blockedList": "차단 목록",
       "editProfile": "계정 수정",
       "filter": "필터",
+      "buyPremium": "프리미엄 구매",
       "block": "차단하다",
       "complaint": "신고 및 차단",
       "deleteProfile": "계정 삭제",
@@ -81,6 +80,8 @@
       }
     },
     "reductions": {
+      "mi": "mi",
+      "ft": "ft",
       "km": "km",
       "m": "m"
     },

@@ -10,8 +10,8 @@
       "required": "記入する必要があります",
       "changeable": "変更できます",
       "interfaceLanguage": "インターフェース言語",
+      "measurement": "測定単位",
       "options": "オプション",
-      "validityPeriod": "срок действия",
       "filtersGeneral": "一般的なフィルター",
       "age": "年",
       "blockedList": "ブロックリスト",
@@ -44,8 +44,7 @@
       "byContinuing": "続行すると同意します",
       "and": "そして",
       "privacyPolicy": "プライバシーポリシー",
-      "isNewLike": "共感があるよ！ボットチャットで表示",
-      "geoPositionExist": "地理位置情報が決定されました"
+      "isNewLike": "共感があるよ！ボットチャットで表示"
     },
     "actions": {
       "no": "いいえ",
@@ -54,10 +53,10 @@
       "save": "保存",
       "apply": "適用する",
       "cancel": "キャンセル",
-      "buyPremium": "プレミアムを購入する",
       "blockedList": "ブロックリスト",
       "editProfile": "アカウントの編集",
       "filter": "フィルター",
+      "buyPremium": "プレミアムを購入する",
       "block": "ブロック",
       "complaint": "報告してブロックする",
       "deleteProfile": "アカウントを削除する",
@@ -81,6 +80,8 @@
       }
     },
     "reductions": {
+      "mi": "mi",
+      "ft": "ft",
       "km": "km",
       "m": "m"
     },

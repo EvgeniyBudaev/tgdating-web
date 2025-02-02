@@ -10,8 +10,8 @@
       "required": "נדרש למלא",
       "changeable": "ניתן לשנות",
       "interfaceLanguage": "שפת ממשק",
+      "measurement": "יחידות מדידה",
       "options": "אפשרויות",
-      "validityPeriod": "תקופת תוקף",
       "filtersGeneral": "מסננים כלליים",
       "age": "גִיל",
       "blockedList": "רשימה חסומה",
@@ -44,8 +44,7 @@
       "byContinuing": "על ידי המשך אתה מקבל",
       "and": "ו",
       "privacyPolicy": "מדיניות הפרטיות",
-      "isNewLike": "יש סימפטיה! הצג בצ'אט בוט",
-      "geoPositionExist": "מיקום גיאוגרפי נקבע"
+      "isNewLike": "יש סימפטיה! הצג בצ'אט בוט"
     },
     "actions": {
       "no": "לֹא",
@@ -54,10 +53,10 @@
       "save": "לְהַצִיל",
       "apply": "לִפְנוֹת",
       "cancel": "לְבַטֵל",
-      "buyPremium": "קנה פרימיום",
       "blockedList": "רשימה חסומה",
       "editProfile": "ערוך חשבון",
       "filter": "לְסַנֵן",
+      "buyPremium": "קנה פרימיום",
       "block": "לַחסוֹם",
       "complaint": "דווח וחסום",
       "deleteProfile": "מחק חשבון",
@@ -81,8 +80,10 @@
       }
     },
     "reductions": {
-      "km": "ק\"מ",
-      "m": "מ"
+      "mi": "mi",
+      "ft": "ft",
+      "km": "km",
+      "m": "m"
     },
     "validation": {
       "email": "האימייל שגוי",

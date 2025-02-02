@@ -10,8 +10,8 @@
       "required": "required to fill",
       "changeable": "can be changed",
       "interfaceLanguage": "Interface language",
+      "measurement": "Units of measurement",
       "options": "Options",
-      "validityPeriod": "validity period",
       "filtersGeneral": "General filters",
       "age": "Age",
       "blockedList": "Blocked list",
@@ -44,8 +44,7 @@
       "byContinuing": "By continuing you accept",
       "and": "and",
       "privacyPolicy": "privacy policy",
-      "isNewLike": "There is sympathy! View in bot chat",
-      "geoPositionExist": "Geoposition determined"
+      "isNewLike": "There is sympathy! View in bot chat"
     },
     "actions": {
       "no": "No",
@@ -54,10 +53,10 @@
       "save": "Save",
       "apply": "Apply",
       "cancel": "Cancel",
-      "buyPremium": "Buy Premium",
       "blockedList": "Blocked list",
       "editProfile": "Edit account",
       "filter": "Filter",
+      "buyPremium": "Buy Premium",
       "block": "Block",
       "complaint": "Complain and block",
       "deleteProfile": "Delete account",
@@ -81,6 +80,8 @@
       }
     },
     "reductions": {
+      "mi": "mi",
+      "ft": "ft",
       "km": "km",
       "m": "m"
     },

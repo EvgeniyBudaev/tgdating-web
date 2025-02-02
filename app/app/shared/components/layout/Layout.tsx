@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import {
   type FC,
   memo,
@@ -15,7 +15,6 @@ import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/ty
 import { CheckLike } from "@/app/shared/components/сheckLike";
 import { CheckShortInfo } from "@/app/shared/components/checkShortInfo";
 import { Footer } from "@/app/shared/components/footer";
-import { CITY, COUNTRY_CODE, COUNTRY_NAME } from "@/app/shared/constants";
 import {
   AuthenticityTokenProvider,
   NavigatorProvider,
@@ -38,40 +37,8 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   const { isValidBrowser } = useBrowser();
   const navigator = useNavigator({ lng });
   const pathname = usePathname();
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const params = new URLSearchParams(searchParams.toString());
   const { initDataCrypt, isSession, user, theme } = useTelegram();
   const [shortInfo, setShortInfo] = useState<TProfileShortInfo | null>(null);
-  const countryCode = navigator?.countryCode ?? params.get(COUNTRY_CODE);
-  const countryName = navigator?.countryName ?? params.get(COUNTRY_NAME);
-  const city = navigator?.city ?? params.get(CITY);
-
-  useEffect(() => {
-    const telegramLanguageCode = shortInfo?.languageCode ?? user?.language_code;
-    if (telegramLanguageCode && telegramLanguageCode !== lng) {
-      const path = createPath(
-        {
-          route: ERoutes.Telegram,
-          params: { telegramUserId: (user?.id ?? "").toString() },
-          lng: telegramLanguageCode,
-        },
-        {
-          ...(navigator?.latitude
-            ? { latitude: navigator?.latitude.toString() }
-            : {}),
-          ...(navigator?.longitude
-            ? { longitude: navigator?.longitude.toString() }
-            : {}),
-          ...(countryCode && { countryCode: countryCode }),
-          ...(countryName && { countryName: countryName }),
-          ...(city && { city: city }),
-        },
-      );
-      router.push(path);
-      router.refresh();
-    }
-  }, [lng, shortInfo, user]);
 
   useEffect(() => {
     if (theme === ETheme.Dark) {

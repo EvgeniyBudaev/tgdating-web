@@ -10,8 +10,8 @@
       "required": "obligada a omplir",
       "changeable": "es pot canviar",
       "interfaceLanguage": "Llenguatge de la interfície",
+      "measurement": "Unitats de mesura",
       "options": "Opcions",
-      "validityPeriod": "període de validesa",
       "filtersGeneral": "Filtres generals",
       "age": "Edat",
       "blockedList": "Llista bloquejada",
@@ -44,8 +44,7 @@
       "byContinuing": "En continuar, acceptes",
       "and": "i",
       "privacyPolicy": "política de privadesa",
-      "isNewLike": "Hi ha simpatia! Veure al xat bot",
-      "geoPositionExist": "Geolocalització determinada"
+      "isNewLike": "Hi ha simpatia! Veure al xat bot"
     },
     "actions": {
       "no": "No",
@@ -54,10 +53,10 @@
       "save": "Desa",
       "apply": "Aplicar",
       "cancel": "Cancel·la",
-      "buyPremium": "Compra Premium",
       "blockedList": "Llista bloquejada",
       "editProfile": "Edita el compte",
       "filter": "Filtre",
+      "buyPremium": "Compra Premium",
       "block": "Bloc",
       "complaint": "Informar i bloquejar",
       "deleteProfile": "Suprimeix el compte",
@@ -81,6 +80,8 @@
       }
     },
     "reductions": {
+      "mi": "mi",
+      "ft": "ft",
       "km": "km",
       "m": "m"
     },

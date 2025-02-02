@@ -3,5 +3,11 @@
     "profile": {
       "doubleLike": "Re-like kommer att finnas tillgänglig imorgon"
     }
+  },
+  "common": {
+    "titles": {
+      "validityPeriod": "срок действия",
+      "geoPositionExist": "Geolokalisering fastställd"
+    }
   }
 }

@@ -4,6 +4,7 @@ import { fileSchema } from "@/app/api/upload/schemas";
 import { imageSchema } from "@/app/api/image/schemas";
 import { navigatorSchema } from "@/app/api/navigator/updateNavigator/schemas";
 import { filterSchema } from "@/app/api/filter/schemas";
+import { settingsSchema } from "@/app/api/settings/schemas";
 import { statusSchema } from "@/app/api/status/schemas";
 
 export const editProfileParamsSchema = zfd.formData({
@@ -31,6 +32,7 @@ export const editProfileParamsSchema = zfd.formData({
   page: zfd.text(),
   size: zfd.text(),
   isImages: zfd.text(),
+  measurement: zfd.text(),
 });
 
 export const editProfileSchema = z.object({
@@ -42,5 +44,6 @@ export const editProfileSchema = z.object({
   navigator: navigatorSchema.nullish(),
   filter: filterSchema.nullish(),
   status: statusSchema.nullish(),
+  settings: settingsSchema.nullish(),
   images: imageSchema.array().nullish(),
 });

@@ -2,7 +2,6 @@
 
 import clsx from "clsx";
 import isEmpty from "lodash/isEmpty";
-import isNil from "lodash/isNil";
 import { type FC, memo } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { SearchForm } from "@/app/entities/search/searchForm";
@@ -59,9 +58,11 @@ const SessionPageComponent: FC<TSessionPageProps> = (props) => {
               {(profileList?.content ?? []).map((item, index) => {
                 //const isBlurImage = index > 36 && !shortInfo?.isPremium;
                 const isBlurImage = false;
-                const distance = !isNil(item?.distance)
-                  ? getDistance(item.distance, t)
-                  : undefined;
+                const distance = getDistance({
+                  value: item.distance,
+                  t,
+                  measurement: shortInfo?.measurement,
+                });
                 return (
                   <SessionImage
                     distance={distance}

@@ -10,8 +10,8 @@
       "required": "nutné vyplnit",
       "changeable": "lze změnit",
       "interfaceLanguage": "Jazyk rozhraní",
+      "measurement": "Jednotky měření",
       "options": "Možnosti",
-      "validityPeriod": "doba platnosti",
       "filtersGeneral": "Obecné filtry",
       "age": "Stáří",
       "blockedList": "Seznam blokovaných",
@@ -44,8 +44,7 @@
       "byContinuing": "Pokračováním přijímáte",
       "and": "a",
       "privacyPolicy": "zásady ochrany osobních údajů",
-      "isNewLike": "Jsou tam sympatie! Zobrazit v chatu robota",
-      "geoPositionExist": "Určena geolokace"
+      "isNewLike": "Jsou tam sympatie! Zobrazit v chatu robota"
     },
     "actions": {
       "no": "Žádný",
@@ -54,10 +53,10 @@
       "save": "Uložit",
       "apply": "Použít",
       "cancel": "Zrušit",
-      "buyPremium": "Koupit Premium",
       "blockedList": "Seznam blokovaných",
       "editProfile": "Upravit účet",
       "filter": "Filtr",
+      "buyPremium": "Koupit Premium",
       "block": "Blok",
       "complaint": "Nahlásit a zablokovat",
       "deleteProfile": "Smazat účet",
@@ -81,6 +80,8 @@
       }
     },
     "reductions": {
+      "mi": "mi",
+      "ft": "ft",
       "km": "km",
       "m": "m"
     },

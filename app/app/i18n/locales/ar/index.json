@@ -10,8 +10,8 @@
       "required": "المطلوبة لملء",
       "changeable": "يمكن تغييرها",
       "interfaceLanguage": "لغة الواجهة",
+      "measurement": "وحدات القياس",
       "options": "خيارات",
-      "validityPeriod": "فترة الصلاحية",
       "filtersGeneral": "مرشحات عامة",
       "age": "عمر",
       "blockedList": "القائمة المحظورة",
@@ -44,8 +44,7 @@
       "byContinuing": "من خلال الاستمرار فإنك تقبل",
       "and": "و",
       "privacyPolicy": "سياسة الخصوصية",
-      "isNewLike": "هناك تعاطف! عرض في دردشة بوت",
-      "geoPositionExist": "تم تحديد الموقع الجغرافي"
+      "isNewLike": "هناك تعاطف! عرض في دردشة بوت"
     },
     "actions": {
       "no": "لا",
@@ -54,10 +53,10 @@
       "save": "يحفظ",
       "apply": "يتقدم",
       "cancel": "يلغي",
-      "buyPremium": "شراء بريميوم",
       "blockedList": "القائمة المحظورة",
       "editProfile": "تحرير الحساب",
       "filter": "فلتر",
+      "buyPremium": "شراء بريميوم",
       "block": "حاجز",
       "complaint": "الإبلاغ والحظر",
       "deleteProfile": "حذف الحساب",
@@ -81,8 +80,10 @@
       }
     },
     "reductions": {
-      "km": "كم",
-      "m": "م"
+      "mi": "mi",
+      "ft": "ft",
+      "km": "km",
+      "m": "m"
     },
     "validation": {
       "email": "البريد الإلكتروني غير صحيح",

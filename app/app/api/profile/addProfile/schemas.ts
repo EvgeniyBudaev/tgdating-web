@@ -26,6 +26,7 @@ export const addProfileParamsSchema = zfd.formData({
   distance: zfd.text(),
   page: zfd.text(),
   size: zfd.text(),
+  measurement: zfd.text(),
 });
 
 export const profileSchema = z.object({

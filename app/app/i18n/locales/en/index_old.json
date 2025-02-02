@@ -169,7 +169,9 @@
       "autocomplete": "auto detection",
       "noChanged": "can't be changed",
       "canHidden": "it will be possible to hide",
-      "validUntil": "valid until"
+      "validUntil": "valid until",
+      "validityPeriod": "validity period",
+      "geoPositionExist": "Geoposition determined"
     },
     "form": {
       "field": {

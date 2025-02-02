@@ -39,6 +39,7 @@ import { createPath } from "@/app/shared/utils";
 import type { TSelectOption } from "@/app/uikit/components/select";
 import { DEFAULT_AGE } from "@/app/uikit/constants";
 import { ETheme } from "@/app/uikit/enums/theme";
+import { getMeasurementByLocale } from "@/app/shared/mapping/measurement";
 
 type TProps = {
   isEdit?: boolean;
@@ -59,6 +60,7 @@ type TUseProfileEditResponse = {
     isAge: boolean;
     isGender: boolean;
     isLanguage: boolean;
+    isMeasurement: boolean;
     isSearchGender: boolean;
   };
   setIsSidebarOpen: (
@@ -67,32 +69,37 @@ type TUseProfileEditResponse = {
           isAge: boolean;
           isGender: boolean;
           isLanguage: boolean;
+          isMeasurement: boolean;
           isSearchGender: boolean;
         }) => {
           isAge: boolean;
           isGender: boolean;
           isLanguage: boolean;
+          isMeasurement: boolean;
           isSearchGender: boolean;
         })
       | {
           isAge: boolean;
           isGender: boolean;
           isLanguage: boolean;
+          isMeasurement: boolean;
           isSearchGender: boolean;
         },
   ) => void;
   language: ELanguage;
   languageState: TSelectOption | undefined;
+  measurement: TSelectOption | undefined;
   navigator: TUseNavigatorResponse | null;
-  onAddFiles: ((acceptedFiles: TFile[], files: TFile[]) => void) | undefined;
-  onChangeAge(option?: TSelectOption): void;
+  onAddFiles?: ((acceptedFiles: TFile[], files: TFile[]) => void) | undefined;
+  onChangeAge?: (option?: TSelectOption) => void;
   onChangeIsLeftHand?: (value: boolean) => void;
-  onChangeGender(option?: TSelectOption): void;
-  onChangeLanguage(option?: TSelectOption): Promise<void>;
-  onChangeSearchGender(option?: TSelectOption): void;
-  onCloseSidebar(): void;
-  onDeleteFile(file: TFile, files: TFile[]): void;
-  onSubmit(formData: FormData): void;
+  onChangeGender?: (option?: TSelectOption) => void;
+  onChangeLanguage?: (option?: TSelectOption) => Promise<void>;
+  onChangeMeasurement?: (option?: TSelectOption) => void;
+  onChangeSearchGender?: (option?: TSelectOption) => void;
+  onCloseSidebar?: () => void;
+  onDeleteFile?: (file: TFile, files: TFile[]) => void;
+  onSubmit?: (formData: FormData) => void;
   searchGender: TSelectOption | undefined;
   state: TState;
   tg: TUseTelegramResponse | null;
@@ -147,6 +154,17 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   const [searchGender, setSearchGender] = useState<TSelectOption | undefined>(
     searchGenderDefault,
   );
+  const measurementDefault = isEdit
+    ? (
+        getMeasurementByLocale(language) as Array<{
+          label: string;
+          value: ESearchGender;
+        }>
+      ).find((item) => item.value === profile?.settings?.measurement)
+    : getMeasurementByLocale(language)[0];
+  const [measurement, setMeasurement] = useState<TSelectOption | undefined>(
+    measurementDefault,
+  );
   const languageDefault: TSelectOption | undefined = useMemo(() => {
     return LANGUAGE_MAPPING[lng].find(
       (item: { label: string; value: string }) => {
@@ -161,6 +179,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     isAge: false,
     isGender: false,
     isLanguage: false,
+    isMeasurement: false,
     isSearchGender: false,
   });
   const [files, setFiles] = useState<TFile[] | null>(null);
@@ -282,6 +301,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       isAge: false,
       isGender: false,
       isLanguage: false,
+      isMeasurement: false,
       isSearchGender: false,
     });
   };
@@ -303,6 +323,13 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   const handleChangeSearchGender = (option?: TSelectOption) => {
     if (option) {
       setSearchGender(option);
+      handleCloseSidebar();
+    }
+  };
+
+  const handleChangeMeasurement = (option?: TSelectOption) => {
+    if (option) {
+      setMeasurement(option);
       handleCloseSidebar();
     }
   };
@@ -389,6 +416,10 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     formDataDto.append(EProfileAddFormFields.Page, page);
     formDataDto.append(EProfileAddFormFields.Size, size);
     formDataDto.append(EProfileAddFormFields.IsLeftHand, isLeftHand.toString());
+    formDataDto.append(
+      EProfileAddFormFields.Measurement,
+      (measurement?.value ?? "").toString(),
+    );
     formDataDto.append(EProfileAddFormFields.Csrf, csrf ?? "");
     if (isEdit) {
       if (
@@ -416,12 +447,14 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     setIsSidebarOpen,
     language,
     languageState,
+    measurement,
     navigator,
     onAddFiles,
     onChangeAge: handleChangeAge,
     onChangeIsLeftHand: handleChangeIsLeftHand,
     onChangeGender: handleChangeGender,
     onChangeLanguage: handleChangeLanguage,
+    onChangeMeasurement: handleChangeMeasurement,
     onChangeSearchGender: handleChangeSearchGender,
     onCloseSidebar: handleCloseSidebar,
     onDeleteFile: handleDeleteFile,

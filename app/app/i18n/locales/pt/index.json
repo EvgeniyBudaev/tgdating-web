@@ -10,8 +10,8 @@
       "required": "obrigado a preencher",
       "changeable": "pode ser alterado",
       "interfaceLanguage": "Idioma da interface",
+      "measurement": "Unidades de medida",
       "options": "Opções",
-      "validityPeriod": "período de validade",
       "filtersGeneral": "Filtros gerais",
       "age": "Idade",
       "blockedList": "Lista bloqueada",
@@ -44,8 +44,7 @@
       "byContinuing": "Ao continuar você aceita",
       "and": "e",
       "privacyPolicy": "política de privacidade",
-      "isNewLike": "Existe simpatia! Ver no chat do bot",
-      "geoPositionExist": "Geolocalização determinada"
+      "isNewLike": "Existe simpatia! Ver no chat do bot"
     },
     "actions": {
       "no": "Não",
@@ -54,10 +53,10 @@
       "save": "Salvar",
       "apply": "Aplicar",
       "cancel": "Cancelar",
-      "buyPremium": "Comprar Premium",
       "blockedList": "Lista bloqueada",
       "editProfile": "Editar conta",
       "filter": "Filtro",
+      "buyPremium": "Comprar Premium",
       "block": "Bloquear",
       "complaint": "Denunciar e bloquear",
       "deleteProfile": "Excluir conta",
@@ -81,6 +80,8 @@
       }
     },
     "reductions": {
+      "mi": "mi",
+      "ft": "ft",
       "km": "km",
       "m": "m"
     },

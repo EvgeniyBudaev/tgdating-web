@@ -169,7 +169,9 @@
       "autocomplete": "автоопределение",
       "noChanged": "нельзя изменить",
       "canHidden": "можно будет скрыть",
-      "validUntil": "действует до"
+      "validUntil": "действует до",
+      "validityPeriod": "срок действия",
+      "geoPositionExist": "Геопозиция определена"
     },
     "form": {
       "field": {

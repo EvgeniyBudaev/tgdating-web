@@ -15,7 +15,9 @@
       }
     },
     "titles": {
-      "validUntil": "قسط صالح حتى عام"
+      "validUntil": "قسط صالح حتى عام",
+      "validityPeriod": "فترة الصلاحية",
+      "geoPositionExist": "تم تحديد الموقع الجغرافي"
     }
   },
   "pages": {

@@ -3,7 +3,7 @@ import { z } from "zod";
 import { zfd } from "zod-form-data";
 import { imageFileSchema } from "@/app/api/upload";
 import { EProfileAddFormFields } from "@/app/actions/profile/addProfile/enums";
-import { EGender, ESearchGender } from "@/app/shared/enums/form";
+import { EGender, EMeasurement, ESearchGender } from "@/app/shared/enums/form";
 import { EMPTY_FIELD_ERROR_MESSAGE } from "@/app/shared/validation";
 import {
   numberNonNegativeOptionalSchema,
@@ -87,6 +87,10 @@ export const addProfileFormSchema = zfd.formData({
     .trim()
     .min(1, EMPTY_FIELD_ERROR_MESSAGE),
   [EProfileAddFormFields.IsLeftHand]: z.string(),
+  [EProfileAddFormFields.Measurement]: z.enum([
+    EMeasurement.Metric,
+    EMeasurement.American,
+  ]),
   [EProfileAddFormFields.Csrf]: z
     .string()
     .trim()

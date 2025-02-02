@@ -154,6 +154,10 @@ export async function addProfileAction(prevState: any, formData: FormData) {
       EProfileAddFormFields.IsLeftHand,
       mapperParams.profileForm.isLeftHand,
     );
+    profileFormData.append(
+      EProfileAddFormFields.Measurement,
+      mapperParams.profileForm.measurement,
+    );
 
     const response = await addProfile(
       profileFormData as unknown as TAddProfileParams,

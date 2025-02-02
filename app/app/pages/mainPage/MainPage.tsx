@@ -2,16 +2,14 @@
 
 import { useRouter } from "next/navigation";
 import { type FC, memo, useEffect } from "react";
-import { ELanguage, ERoutes } from "@/app/shared/enums";
+import type { TMainPageProps } from "@/app/pages/mainPage/types";
+import { ERoutes } from "@/app/shared/enums";
 import { useBrowser, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import "./MainPage.scss";
 
-type TProps = {
-  lng: ELanguage;
-};
-
-const MainPageComponent: FC<TProps> = ({ lng }) => {
+const MainPageComponent: FC<TMainPageProps> = (props) => {
+  const { lng } = props;
   const { isValidBrowser } = useBrowser();
   const router = useRouter();
   const { user } = useTelegram();

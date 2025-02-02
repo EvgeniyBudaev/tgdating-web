@@ -10,8 +10,8 @@
       "required": "verplicht in te vullen",
       "changeable": "kan worden gewijzigd",
       "interfaceLanguage": "Interfacetaal",
+      "measurement": "Maateenheden",
       "options": "Opties",
-      "validityPeriod": "geldigheidsduur",
       "filtersGeneral": "Algemene filters",
       "age": "Leeftijd",
       "blockedList": "Geblokkeerde lijst",
@@ -44,8 +44,7 @@
       "byContinuing": "Door verder te gaan, accepteert u",
       "and": "en dfgd",
       "privacyPolicy": "privacybeleid",
-      "isNewLike": "Er is sympathie! Bekijk in botchat",
-      "geoPositionExist": "Geolocatie bepaald"
+      "isNewLike": "Er is sympathie! Bekijk in botchat"
     },
     "actions": {
       "no": "Nee",
@@ -54,10 +53,10 @@
       "save": "Redden",
       "apply": "Toepassen",
       "cancel": "Annuleren",
-      "buyPremium": "Koop Premium",
       "blockedList": "Geblokkeerde lijst",
       "editProfile": "Account bewerken",
       "filter": "Filter",
+      "buyPremium": "Koop Premium",
       "block": "Blok",
       "complaint": "Rapporteren en blokkeren",
       "deleteProfile": "Account verwijderen",
@@ -81,6 +80,8 @@
       }
     },
     "reductions": {
+      "mi": "mi",
+      "ft": "ft",
       "km": "km",
       "m": "m"
     },

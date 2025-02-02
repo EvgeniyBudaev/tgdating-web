@@ -10,8 +10,8 @@
       "required": "diperlukan untuk diisi",
       "changeable": "dapat diubah",
       "interfaceLanguage": "Bahasa antarmuka",
+      "measurement": "Satuan pengukuran",
       "options": "Pilihan",
-      "validityPeriod": "masa berlaku",
       "filtersGeneral": "Filter umum",
       "age": "Usia",
       "blockedList": "Daftar yang diblokir",
@@ -44,8 +44,7 @@
       "byContinuing": "Dengan melanjutkan Anda menerima",
       "and": "dan dfgd",
       "privacyPolicy": "kebijakan privasi",
-      "isNewLike": "Ada simpati! Lihat di obrolan bot",
-      "geoPositionExist": "Geolokasi ditentukan"
+      "isNewLike": "Ada simpati! Lihat di obrolan bot"
     },
     "actions": {
       "no": "Tidak",
@@ -54,10 +53,10 @@
       "save": "Menyimpan",
       "apply": "Menerapkan",
       "cancel": "Membatalkan",
-      "buyPremium": "Beli Premium",
       "blockedList": "Daftar yang diblokir",
       "editProfile": "Sunting akun",
       "filter": "Menyaring",
+      "buyPremium": "Beli Premium",
       "block": "Memblokir",
       "complaint": "Laporkan dan blokir",
       "deleteProfile": "Hapus akun",
@@ -81,6 +80,8 @@
       }
     },
     "reductions": {
+      "mi": "mi",
+      "ft": "ft",
       "km": "km",
       "m": "m"
     },

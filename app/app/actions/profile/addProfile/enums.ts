@@ -24,5 +24,6 @@ export enum EProfileAddFormFields {
   Page = "page",
   Size = "size",
   IsLeftHand = "isLeftHand",
+  Measurement = "measurement",
   Csrf = "csrf",
 }

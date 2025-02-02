@@ -10,8 +10,8 @@
       "required": "обов'язково до заповнення",
       "changeable": "можна буде змінити",
       "interfaceLanguage": "Мова інтерфейсу",
+      "measurement": "Одиниці виміру",
       "options": "Опції",
-      "validityPeriod": "срок действия",
       "filtersGeneral": "Загальні фільтри",
       "age": "Вік",
       "blockedList": "Список заблокованих",
@@ -44,8 +44,7 @@
       "byContinuing": "Продовжуючи, ви приймаєте",
       "and": "і",
       "privacyPolicy": "політику конфіденційності",
-      "isNewLike": "Є симпатія! Перегляд у чаті бота",
-      "geoPositionExist": "Геопозицію визначено"
+      "isNewLike": "Є симпатія! Перегляд у чаті бота"
     },
     "actions": {
       "no": "Ні",
@@ -54,10 +53,10 @@
       "save": "Зберегти",
       "apply": "Застосувати",
       "cancel": "Скасувати",
-      "buyPremium": "Придбати Premium",
       "blockedList": "Список заблокованих",
       "editProfile": "Редагувати обліковий запис",
       "filter": "Фільтр",
+      "buyPremium": "Придбати Premium",
       "block": "Заблокувати",
       "complaint": "Поскаржитись та заблокувати",
       "deleteProfile": "Видалити обліковий запис",
@@ -81,8 +80,10 @@
       }
     },
     "reductions": {
-      "km": "км",
-      "m": "м"
+      "mi": "mi",
+      "ft": "ft",
+      "km": "km",
+      "m": "m"
     },
     "validation": {
       "email": "Email вказано неправильно",

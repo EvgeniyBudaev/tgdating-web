@@ -11,7 +11,9 @@
       }
     },
     "titles": {
-      "validUntil": "Добавь сюда перевод!!!"
+      "validUntil": "Добавь сюда перевод!!!",
+      "validityPeriod": "유효기간",
+      "geoPositionExist": "지리적 위치가 결정됨"
     }
   },
   "pages": {

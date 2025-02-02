@@ -2,6 +2,7 @@ import { z } from "zod";
 import { filterSchema } from "@/app/api/filter/schemas";
 import { imageSchema } from "@/app/api/image";
 import { navigatorSchema } from "@/app/api/navigator/updateNavigator/schemas";
+import { settingsSchema } from "@/app/api/settings/schemas";
 import { statusSchema } from "@/app/api/status/schemas";
 
 export const getProfileParamsSchema = z.object({
@@ -22,5 +23,6 @@ export const getProfileSchema = z.object({
   navigator: navigatorSchema.nullish(),
   filter: filterSchema.nullish(),
   status: statusSchema.nullish(),
+  settings: settingsSchema.nullish(),
   images: imageSchema.array().nullish(),
 });

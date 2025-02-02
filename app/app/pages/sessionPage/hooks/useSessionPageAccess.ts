@@ -1,11 +1,13 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/types";
 import { useTranslation } from "@/app/i18n/client";
 import type { TSessionPageProps } from "@/app/pages/sessionPage/types";
+import { CITY, COUNTRY_CODE, COUNTRY_NAME } from "@/app/shared/constants";
 import { ERoutes } from "@/app/shared/enums";
+import { useNavigator, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { notification } from "@/app/uikit/utils";
 
@@ -20,7 +22,14 @@ export const useSessionPageAccess = (
     shortInfo,
     telegramUserId,
   } = props;
+  const navigator = useNavigator({ lng });
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const params = new URLSearchParams(searchParams.toString());
+  const countryCode = navigator?.countryCode ?? params.get(COUNTRY_CODE);
+  const countryName = navigator?.countryName ?? params.get(COUNTRY_NAME);
+  const city = navigator?.city ?? params.get(CITY);
+  const { user } = useTelegram();
   const { t } = useTranslation("index");
 
   useEffect(() => {
@@ -74,4 +83,30 @@ export const useSessionPageAccess = (
       router.refresh();
     }
   }, [isUnauthorized]);
+
+  useEffect(() => {
+    if (shortInfo && shortInfo?.languageCode !== lng) {
+      const path = createPath(
+        {
+          route: ERoutes.Telegram,
+          params: { telegramUserId: (user?.id ?? "").toString() },
+          lng: shortInfo.languageCode,
+        },
+        {
+          ...(navigator?.latitude
+            ? { latitude: navigator?.latitude.toString() }
+            : {}),
+          ...(navigator?.longitude
+            ? { longitude: navigator?.longitude.toString() }
+            : {}),
+          ...(countryCode && { countryCode: countryCode }),
+          ...(countryName && { countryName: countryName }),
+          ...(city && { city: city }),
+        },
+      );
+      console.log("path: ", path);
+      router.push(path);
+      router.refresh();
+    }
+  }, [lng, shortInfo, user]);
 };

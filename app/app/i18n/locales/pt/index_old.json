@@ -3,5 +3,11 @@
     "profile": {
       "doubleLike": "Re-like estará disponível amanhã"
     }
+  },
+  "common": {
+    "titles": {
+      "validityPeriod": "período de validade",
+      "geoPositionExist": "Geolocalização determinada"
+    }
   }
 }
