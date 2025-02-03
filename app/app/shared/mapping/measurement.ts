@@ -56,6 +56,11 @@ const measurementOptionsHe = [
   { label: "אֲמֶרִיקָאִי", value: EMeasurement.American },
 ];
 
+const measurementOptionsHi = [
+  { label: "मीट्रिक", value: EMeasurement.Metric },
+  { label: "अमेरिकी", value: EMeasurement.American },
+];
+
 const measurementOptionsHr = [
   { label: "metrički", value: EMeasurement.Metric },
   { label: "američki", value: EMeasurement.American },
@@ -145,6 +150,8 @@ export const getMeasurementByLocale = (lng: ELanguage) => {
       return measurementOptionsFr;
     case ELanguage.He:
       return measurementOptionsHe;
+    case ELanguage.Hi:
+      return measurementOptionsHi;
     case ELanguage.Hr:
       return measurementOptionsHr;
     case ELanguage.Hu:

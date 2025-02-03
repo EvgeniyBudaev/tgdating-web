@@ -55,6 +55,11 @@ const genderOptionsHe = [
   { label: "נְקֵבָה", value: EGender.Woman },
 ];
 
+const genderOptionsHi = [
+  { label: "पुरुष", value: EGender.Man },
+  { label: "महिला", value: EGender.Woman },
+];
+
 const genderOptionsHr = [
   { label: "muški", value: EGender.Man },
   { label: "žena", value: EGender.Woman },
@@ -144,6 +149,8 @@ export const getGenderByLocale = (lng: ELanguage) => {
       return genderOptionsFr;
     case ELanguage.He:
       return genderOptionsHe;
+    case ELanguage.Hi:
+      return genderOptionsHi;
     case ELanguage.Hr:
       return genderOptionsHr;
     case ELanguage.Hu:

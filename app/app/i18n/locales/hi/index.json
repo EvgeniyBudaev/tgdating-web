@@ -1,0 +1,114 @@
+{
+  "common": {
+    "titles": {
+      "unblockQuestion": "अपना खाता अनब्लॉक करें?",
+      "accountBlocked": "खाता ब्लॉक कर दिया गया",
+      "isEmptyUsername": "टेलीग्राम/सेटिंग्स/उपयोगकर्ता नाम में कोई अद्वितीय नाम सेट नहीं है। कृपया एक उपयोगकर्ता नाम सेट करें और एप्लिकेशन में फिर से लॉगिन करने का प्रयास करें। टेलीग्राम में डेटा अपडेट करने में कई मिनट लग सकते हैं",
+      "editForm": "संपादन प्रपत्र",
+      "registrationForm": "पंजीकरण फॉर्म",
+      "publicPhotos": "सार्वजनिक तस्वीरें",
+      "required": "भरना आवश्यक है",
+      "changeable": "बदला जा सकता है",
+      "interfaceLanguage": "इंटरफ़ेस भाषा",
+      "measurement": "माप की इकाइयां",
+      "options": "विकल्प",
+      "filtersGeneral": "सामान्य फ़िल्टर",
+      "age": "आयु",
+      "blockedList": "अवरुद्ध सूची",
+      "isEmptyBlockedList": "सूची खाली है",
+      "userAgreement": "उपयोगकर्ता का समझौता",
+      "privacyPolicyMain": "गोपनीयता नीति",
+      "publicOffer": "सार्वजनिक प्रस्ताव",
+      "premiumNow": "अभी प्रीमियम!",
+      "premiumTariffFree": "14 दिन का प्रीमियम निःशुल्क",
+      "premiumTariffMonth": "1 महीने का प्रीमियम",
+      "premiumTariffThreeMonths": "3 महीने का प्रीमियम",
+      "premiumTariffYear": "1 वर्ष का प्रीमियम",
+      "mostPopular": "सबसे लोकप्रिय",
+      "invalidBrowser": "आपके डिवाइस पर समर्थित नहीं है. कृपया अपने मोबाइल डिवाइस का उपयोग करके लॉग इन करने का प्रयास करें।",
+      "accountDeleted": "खाता हटा दिया गया",
+      "blockQuestion": "अपना खाता ब्लॉक करें?",
+      "complaintQuestion": "अपना खाता ब्लॉक करें?",
+      "deleteQuestion": "खाता हटा दो?",
+      "freezeQuestion": "अपना खाता फ़्रीज़ करें?",
+      "doubleLike": "री-लाइक कल उपलब्ध होगा",
+      "online": "ऑनलाइन",
+      "isHiddenAge": "उम्र मत दिखाओ",
+      "accountFrozen": "खाता फ़्रीज़ कर दिया गया",
+      "isEmptyList": "एक भी व्यक्ति नहीं मिला. अपनी फ़िल्टर सेटिंग बदलने का प्रयास करें.",
+      "appName": "टेलीग्राम डेटिंग",
+      "getStarted": "शुरू",
+      "remember": "याद रखें कि लोग इंटरनेट पर दूसरे होने का दिखावा कर सकते हैं।",
+      "notRequestPersonal": "बॉट व्यक्तिगत डेटा का अनुरोध नहीं करता है और किसी दस्तावेज़ का उपयोग करने वाले उपयोगकर्ताओं की पहचान नहीं करता है।",
+      "doYouFindLove": "क्या आप प्यार, नए दोस्त या बस आसान संचार पाना चाहते हैं?",
+      "byContinuing": "जारी रखते हुए आप स्वीकार करें",
+      "and": "और",
+      "privacyPolicy": "गोपनीयता नीति",
+      "isNewLike": "सहानुभूति है! बॉट चैट में देखें"
+    },
+    "actions": {
+      "no": "नहीं",
+      "yes": "हाँ",
+      "register": "पंजीकरण करवाना",
+      "save": "बचाना",
+      "apply": "आवेदन करना",
+      "cancel": "रद्द करना",
+      "blockedList": "अवरुद्ध सूची",
+      "editProfile": "खाता संपादित करें",
+      "help": "मदद",
+      "filter": "फ़िल्टर",
+      "buyPremium": "प्रीमियम खरीदें",
+      "block": "अवरोध पैदा करना",
+      "complaint": "रिपोर्ट करें और ब्लॉक करें",
+      "deleteProfile": "खाता हटा दो",
+      "freezeProfile": "खाता फ़्रीज़ करें",
+      "settings": "सेटिंग्स",
+      "restoreProfile": "खाते की वसूली",
+      "main": "घर",
+      "profile": "प्रोफ़ाइल",
+      "back": "पीछे",
+      "up": "ऊपर",
+      "delete": "मिटाना",
+      "loading": "लोड हो रहा है"
+    },
+    "form": {
+      "field": {
+        "displayName": "प्रदर्शित होने वाला नाम",
+        "age": "आयु",
+        "gender": "ज़मीन",
+        "searchGender": "इच्छुक",
+        "description": "विवरण"
+      }
+    },
+    "reductions": {
+      "mi": "mi",
+      "ft": "ft",
+      "km": "km",
+      "m": "m"
+    },
+    "validation": {
+      "email": "ईमेल ग़लत है",
+      "empty": "फ़ील्ड खाली नहीं हो सकती",
+      "onlyLetters": "मान्य वर्ण: केवल अक्षर",
+      "passwordNotMatch": "पासवर्ड मेल नहीं खाते",
+      "wrongCharacter": "मान्य पात्र: 0-9, \"-\", \" \", \"+\", \"(\", \")\"",
+      "file": {
+        "expectedFile": "आप केवल एक फ़ाइल संलग्न कर सकते हैं",
+        "maxSize": "अधिकतम फ़ाइल आकार 50Mb",
+        "maxAmount": "फाइलों की अधिकतम संख्या 3"
+      },
+      "invalidTypeNumber": "एक संख्या होनी चाहिए",
+      "nonNegativeNumber": "संख्या धनात्मक होनी चाहिए",
+      "lessOrEqualMaxNumber": "{{max}} से कम या उसके बराबर होना चाहिए",
+      "maxSymbols": "{{max}} वर्णों से अधिक नहीं होना चाहिए",
+      "smallImage": "छवि का आकार कम से कम 200 x 200 पिक्सेल होना चाहिए"
+    }
+  },
+  "errorBoundary": {
+    "common": {
+      "manyRequest": "बहुत सारे अनुरोध",
+      "unauthorized": "टेलीग्राम एप्लिकेशन के माध्यम से अधिकृत नहीं है",
+      "unexpectedError": "एक अप्रत्याशित त्रुटि हुई"
+    }
+  }
+}

@@ -13,6 +13,7 @@ export const languages = [
   "fi",
   "fr",
   "he",
+  "hi",
   "hr",
   "hu",
   "id",

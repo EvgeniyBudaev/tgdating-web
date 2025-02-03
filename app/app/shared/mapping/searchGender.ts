@@ -66,6 +66,12 @@ const searchGenderOptionsHe = [
   { label: "בנות", value: ESearchGender.Woman },
 ];
 
+const searchGenderOptionsHi = [
+  { label: "सभी", value: ESearchGender.All },
+  { label: "दोस्तो", value: ESearchGender.Man },
+  { label: "लड़कियाँ", value: ESearchGender.Woman },
+];
+
 const searchGenderOptionsHr = [
   { label: "sve", value: ESearchGender.All },
   { label: "momci", value: ESearchGender.Man },
@@ -168,6 +174,8 @@ export const getSearchGenderByLocale = (lng: ELanguage) => {
       return searchGenderOptionsFr;
     case ELanguage.He:
       return searchGenderOptionsHe;
+    case ELanguage.Hi:
+      return searchGenderOptionsHi;
     case ELanguage.Hr:
       return searchGenderOptionsHr;
     case ELanguage.Hu:
@@ -263,6 +271,12 @@ const searchBarSearchGenderOptionsHe = [
   { label: "חבר'ה בקרבת מקום", value: ESearchGender.Man },
   { label: "בנות בקרבת מקום", value: ESearchGender.Woman },
   { label: "כל האנשים בסביבה", value: ESearchGender.All },
+];
+
+const searchBarSearchGenderOptionsHi = [
+  { label: "आस-पास के लोग", value: ESearchGender.Man },
+  { label: "आस-पास की लड़कियाँ", value: ESearchGender.Woman },
+  { label: "आस-पास के सभी लोग", value: ESearchGender.All },
 ];
 
 const searchBarSearchGenderOptionsHr = [
@@ -367,6 +381,8 @@ export const getSearchBarSearchGenderByLocale = (lng: ELanguage) => {
       return searchBarSearchGenderOptionsFr;
     case ELanguage.He:
       return searchBarSearchGenderOptionsHe;
+    case ELanguage.Hi:
+      return searchBarSearchGenderOptionsHi;
     case ELanguage.Hr:
       return searchBarSearchGenderOptionsHr;
     case ELanguage.Hu:

@@ -10,6 +10,7 @@ export enum ELanguage {
   Fi = "fi",
   Fr = "fr",
   He = "he",
+  Hi = "hi",
   Hr = "hr",
   Hu = "hu",
   Id = "id",

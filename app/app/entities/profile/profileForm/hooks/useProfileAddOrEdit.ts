@@ -27,19 +27,19 @@ import {
   useNavigatorContext,
 } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { EGender, ESearchGender } from "@/app/shared/enums/form";
+import { EGender, EMeasurement, ESearchGender } from "@/app/shared/enums/form";
 import { useFiles, useFormErrors, useTelegram } from "@/app/shared/hooks";
 import type { TUseTelegramResponse } from "@/app/shared/hooks/useTelegram";
 import type { TUseNavigatorResponse } from "@/app/shared/hooks/useNavigator";
 import { getGenderByLocale } from "@/app/shared/mapping/gender";
 import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
+import { getMeasurementByLocale } from "@/app/shared/mapping/measurement";
 import { getSearchGenderByLocale } from "@/app/shared/mapping/searchGender";
 import type { TFile } from "@/app/shared/types/file";
 import { createPath } from "@/app/shared/utils";
 import type { TSelectOption } from "@/app/uikit/components/select";
 import { DEFAULT_AGE } from "@/app/uikit/constants";
 import { ETheme } from "@/app/uikit/enums/theme";
-import { getMeasurementByLocale } from "@/app/shared/mapping/measurement";
 
 type TProps = {
   isEdit?: boolean;
@@ -158,7 +158,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     ? (
         getMeasurementByLocale(language) as Array<{
           label: string;
-          value: ESearchGender;
+          value: EMeasurement;
         }>
       ).find((item) => item.value === profile?.settings?.measurement)
     : getMeasurementByLocale(language)[0];
