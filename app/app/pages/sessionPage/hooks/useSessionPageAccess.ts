@@ -6,8 +6,9 @@ import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/ty
 import { useTranslation } from "@/app/i18n/client";
 import type { TSessionPageProps } from "@/app/pages/sessionPage/types";
 import { CITY, COUNTRY_CODE, COUNTRY_NAME } from "@/app/shared/constants";
+import { useNavigatorContext } from "@/app/shared/context";
 import { ERoutes } from "@/app/shared/enums";
-import { useNavigator, useTelegram } from "@/app/shared/hooks";
+import { useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { notification } from "@/app/uikit/utils";
 
@@ -22,7 +23,7 @@ export const useSessionPageAccess = (
     shortInfo,
     telegramUserId,
   } = props;
-  const navigator = useNavigator({ lng });
+  const navigator = useNavigatorContext();
   const router = useRouter();
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams.toString());

@@ -1,16 +1,17 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 import type { TMainPageProps } from "@/app/pages/mainPage/types";
 import { CITY, COUNTRY_CODE, COUNTRY_NAME } from "@/app/shared/constants";
-import { useNavigator, useTelegram } from "@/app/shared/hooks";
-import { useEffect } from "react";
-import { createPath } from "@/app/shared/utils";
+import { useNavigatorContext } from "@/app/shared/context";
 import { ERoutes } from "@/app/shared/enums";
+import { useTelegram } from "@/app/shared/hooks";
+import { createPath } from "@/app/shared/utils";
 
 export const useMainPageAccess = (props: TMainPageProps) => {
   const { lng } = props;
-  const navigator = useNavigator({ lng });
+  const navigator = useNavigatorContext();
   const router = useRouter();
   const { user } = useTelegram();
   const searchParams = useSearchParams();

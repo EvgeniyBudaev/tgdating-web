@@ -4,12 +4,12 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import type { TProfileDetailPageProps } from "@/app/pages/profileDetailPage/types";
+import { CITY, COUNTRY_CODE, COUNTRY_NAME } from "@/app/shared/constants";
+import { useNavigatorContext, useShortInfoContext } from "@/app/shared/context";
 import { ERoutes } from "@/app/shared/enums";
-import { useNavigator, useTelegram } from "@/app/shared/hooks";
+import { useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { notification } from "@/app/uikit/utils";
-import { CITY, COUNTRY_CODE, COUNTRY_NAME } from "@/app/shared/constants";
-import { useShortInfoContext } from "@/app/shared/context";
 
 export const useProfileDetailAccess = (props: TProfileDetailPageProps) => {
   const {
@@ -22,7 +22,7 @@ export const useProfileDetailAccess = (props: TProfileDetailPageProps) => {
     telegramUserId,
     viewedTelegramUserId,
   } = props;
-  const navigator = useNavigator({ lng });
+  const navigator = useNavigatorContext();
   const router = useRouter();
   const shortInfo = useShortInfoContext();
   const searchParams = useSearchParams();

@@ -14,15 +14,7 @@ type TPosition = {
   longitude?: number;
 };
 
-export type TUseNavigatorResponse = {
-  countryCode?: string;
-  countryName?: string;
-  city?: string;
-  errorPosition?: unknown;
-  isCoords: boolean;
-  latitude?: number;
-  longitude?: number;
-};
+export type TUseNavigatorResponse = TPosition;
 
 type TProps = {
   lng: string;
