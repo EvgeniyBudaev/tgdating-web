@@ -2,7 +2,7 @@
 
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState, useActionState, useMemo } from "react";
 import { addProfileAction } from "@/app/actions/profile/addProfile/addProfileAction";
 import { editProfileAction } from "@/app/actions/profile/editProfile/editProfileAction";
@@ -12,9 +12,6 @@ import { EProfileEditFormFields } from "@/app/actions/profile/editProfile/enums"
 import type { TState } from "@/app/shared/components/form/form/types";
 import { scrollToFirstErrorField } from "@/app/shared/components/form/form/utils";
 import {
-  CITY,
-  COUNTRY_CODE,
-  COUNTRY_NAME,
   DEFAULT_AGE_FROM,
   DEFAULT_AGE_TO,
   DEFAULT_DISTANCE,
@@ -22,15 +19,16 @@ import {
   DEFAULT_PAGE_SIZE,
 } from "@/app/shared/constants";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants";
-import {
-  useAuthenticityTokenContext,
-  useNavigatorContext,
-} from "@/app/shared/context";
+import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { EGender, EMeasurement, ESearchGender } from "@/app/shared/enums/form";
-import { useFiles, useFormErrors, useTelegram } from "@/app/shared/hooks";
+import {
+  useFiles,
+  useFormErrors,
+  useNavigatorQuery,
+  useTelegram,
+} from "@/app/shared/hooks";
 import type { TUseTelegramResponse } from "@/app/shared/hooks/useTelegram";
-import type { TUseNavigatorResponse } from "@/app/shared/hooks/useNavigator";
 import { getGenderByLocale } from "@/app/shared/mapping/gender";
 import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
 import { getMeasurementByLocale } from "@/app/shared/mapping/measurement";
@@ -89,7 +87,6 @@ type TUseProfileEditResponse = {
   language: ELanguage;
   languageState: TSelectOption | undefined;
   measurement: TSelectOption | undefined;
-  navigator: TUseNavigatorResponse | null;
   onAddFiles?: ((acceptedFiles: TFile[], files: TFile[]) => void) | undefined;
   onChangeAge?: (option?: TSelectOption) => void;
   onChangeIsLeftHand?: (value: boolean) => void;
@@ -120,10 +117,8 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   );
   const formErrors = useFormErrors({ errors: state.errors });
   const csrf = useAuthenticityTokenContext();
-  const navigator = useNavigatorContext();
+  const { query } = useNavigatorQuery();
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const params = new URLSearchParams(searchParams.toString());
   const telegram = useTelegram();
   const { initDataCrypt, user, theme, queryId } = telegram;
   const language = lng as ELanguage;
@@ -198,8 +193,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   const distance = isEdit
     ? (profile?.filter?.distance?.toString() ?? DEFAULT_DISTANCE.toString())
     : DEFAULT_DISTANCE.toString();
-  const latitude = navigator?.latitude?.toString() ?? "";
-  const longitude = navigator?.longitude?.toString() ?? "";
   const fio =
     user?.first_name && user?.last_name
       ? `${user?.first_name} ${user?.last_name}`
@@ -209,9 +202,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     value: DEFAULT_AGE_FROM + i,
     label: (DEFAULT_AGE_FROM + i).toString(),
   }));
-  const countryCode = navigator?.countryCode ?? params.get(COUNTRY_CODE);
-  const countryName = navigator?.countryName ?? params.get(COUNTRY_NAME);
-  const city = navigator?.city ?? params.get(CITY);
 
   const { onAddFiles, onDeleteFile } = useFiles({
     fieldName: EProfileAddFormFields.Image,
@@ -230,17 +220,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       }
     }
     if (isEdit && !isNil(state?.data) && state.success && !state?.error) {
-      const query = {
-        ...(navigator?.latitude
-          ? { latitude: navigator.latitude.toString() }
-          : {}),
-        ...(navigator?.longitude
-          ? { longitude: navigator.longitude.toString() }
-          : {}),
-        ...(countryCode && { countryCode: countryCode }),
-        ...(countryName && { countryName: countryName }),
-        ...(city && { city: city }),
-      };
       const lang = languageState?.value ?? lng;
       const path = createPath(
         {
@@ -262,17 +241,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
   useEffect(() => {
     if (!isEdit && !isNil(state?.data) && state.success && !state?.error) {
       const lang = languageState?.value ?? lng;
-      const query = {
-        ...(navigator?.latitude
-          ? { latitude: navigator.latitude.toString() }
-          : {}),
-        ...(navigator?.longitude
-          ? { longitude: navigator.longitude.toString() }
-          : {}),
-        ...(countryCode && { countryCode: countryCode }),
-        ...(countryName && { countryName: countryName }),
-        ...(city && { city: city }),
-      };
       const path = createPath(
         {
           route: ERoutes.Telegram,
@@ -405,11 +373,17 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       EProfileAddFormFields.TelegramInitDataCrypt,
       initDataCrypt ?? "",
     );
-    formDataDto.append(EProfileAddFormFields.CountryCode, countryCode ?? "");
-    formDataDto.append(EProfileAddFormFields.CountryName, countryName ?? "");
-    formDataDto.append(EProfileAddFormFields.City, city ?? "");
-    formDataDto.append(EProfileAddFormFields.Latitude, latitude);
-    formDataDto.append(EProfileAddFormFields.Longitude, longitude);
+    formDataDto.append(
+      EProfileAddFormFields.CountryCode,
+      query?.countryCode ?? "",
+    );
+    formDataDto.append(
+      EProfileAddFormFields.CountryName,
+      query?.countryName ?? "",
+    );
+    formDataDto.append(EProfileAddFormFields.City, query?.city ?? "");
+    formDataDto.append(EProfileAddFormFields.Latitude, query?.latitude ?? "");
+    formDataDto.append(EProfileAddFormFields.Longitude, query?.longitude ?? "");
     formDataDto.append(EProfileAddFormFields.AgeFrom, ageFrom);
     formDataDto.append(EProfileAddFormFields.AgeTo, ageTo);
     formDataDto.append(EProfileAddFormFields.Distance, distance);
@@ -448,7 +422,6 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
     language,
     languageState,
     measurement,
-    navigator,
     onAddFiles,
     onChangeAge: handleChangeAge,
     onChangeIsLeftHand: handleChangeIsLeftHand,

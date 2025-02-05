@@ -21,7 +21,7 @@ import {
   ShortInfoProvider,
 } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useBrowser, useNavigator, useTelegram } from "@/app/shared/hooks";
+import { useBrowser, useStore, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { ToastContainer } from "@/app/uikit/components/toast/toastContainer";
 import { ETheme } from "@/app/uikit/enums/theme";
@@ -35,8 +35,8 @@ type TProps = {
 
 const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   const { isValidBrowser } = useBrowser();
-  const navigator = useNavigator({ lng });
   const pathname = usePathname();
+  const navigator = useStore((state) => state.navigator);
   const { initDataCrypt, isSession, user, theme } = useTelegram();
   const [shortInfo, setShortInfo] = useState<TProfileShortInfo | null>(null);
 
@@ -114,13 +114,13 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
             )}
             {user?.id && (
               <>
-                <CheckLike
-                  csrf={csrfToken}
-                  initDataCrypt={initDataCrypt}
-                  isSession={isSession}
-                  lng={lng}
-                  telegramUserId={user.id.toString()}
-                />
+                {/*<CheckLike*/}
+                {/*  csrf={csrfToken}*/}
+                {/*  initDataCrypt={initDataCrypt}*/}
+                {/*  isSession={isSession}*/}
+                {/*  lng={lng}*/}
+                {/*  telegramUserId={user.id.toString()}*/}
+                {/*/>*/}
                 <CheckShortInfo
                   isSession={isSession}
                   lng={lng}

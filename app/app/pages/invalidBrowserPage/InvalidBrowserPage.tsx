@@ -29,9 +29,11 @@ const InvalidBrowserPageComponent: FC<TProps> = (props) => {
     >
       <div className="InvalidBrowserPage-Inner">
         <Container>
-          <Typography variant={ETypographyVariant.TextB2Regular}>
-            {t("common.titles.invalidBrowser")}
-          </Typography>
+          <div className="InvalidBrowserPage-Text">
+            <Typography variant={ETypographyVariant.TextB2Regular}>
+              {t("common.titles.invalidBrowser")}
+            </Typography>
+          </div>
         </Container>
       </div>
     </section>

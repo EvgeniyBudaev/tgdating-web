@@ -35,6 +35,7 @@
       "online": "Online",
       "isHiddenAge": "Ne pokazuj godine",
       "accountFrozen": "Račun zamrznut",
+      "invalidLocation": "Vašu lokaciju nije bilo moguće utvrditi. Omogućite geolokaciju na svom uređaju i ponovno se prijavite u aplikaciju.",
       "isEmptyList": "Niti jedna osoba nije pronađena. Pokušajte promijeniti postavke filtra.",
       "appName": "Telegram upoznavanje",
       "getStarted": "Početi",

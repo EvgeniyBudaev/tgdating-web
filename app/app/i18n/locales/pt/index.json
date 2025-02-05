@@ -35,6 +35,7 @@
       "online": "On-line",
       "isHiddenAge": "Não mostre a idade",
       "accountFrozen": "Conta congelada",
+      "invalidLocation": "Não foi possível determinar sua localização. Ative a geolocalização no seu dispositivo e faça login novamente no aplicativo.",
       "isEmptyList": "Nem uma única pessoa foi encontrada. Tente alterar as configurações do filtro.",
       "appName": "Namoro por telegrama",
       "getStarted": "Começar",

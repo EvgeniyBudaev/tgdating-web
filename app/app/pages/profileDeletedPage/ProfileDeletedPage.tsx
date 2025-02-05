@@ -5,7 +5,7 @@ import { type FC, memo } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import type { TProfileDeletedPageProps } from "@/app/pages/profileDeletedPage/types";
 import { ERoutes } from "@/app/shared/enums";
-import { useTelegram } from "@/app/shared/hooks";
+import { useNavigatorQuery, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { ButtonLink } from "@/app/uikit/components/button/buttonLink";
 import { Typography } from "@/app/uikit/components/typography";
@@ -14,6 +14,7 @@ import "./ProfileDeletedPage.scss";
 
 const ProfileDeletedPageComponent: FC<TProfileDeletedPageProps> = (props) => {
   const { lng, telegramUserId } = props;
+  const { query } = useNavigatorQuery();
   const { theme } = useTelegram();
   const { t } = useTranslation("index");
 
@@ -28,13 +29,16 @@ const ProfileDeletedPageComponent: FC<TProfileDeletedPageProps> = (props) => {
           <Typography>{t("common.titles.accountDeleted")}</Typography>
         </div>
         <ButtonLink
-          href={createPath({
-            route: ERoutes.Telegram,
-            params: {
-              telegramUserId,
+          href={createPath(
+            {
+              route: ERoutes.Telegram,
+              params: {
+                telegramUserId,
+              },
+              lng,
             },
-            lng,
-          })}
+            query,
+          )}
         >
           <Typography>OK</Typography>
         </ButtonLink>

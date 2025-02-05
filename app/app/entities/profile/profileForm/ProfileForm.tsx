@@ -3,7 +3,6 @@
 import clsx from "clsx";
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
-import { useSearchParams } from "next/navigation";
 import { type FC, type FocusEvent, memo, useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { TProfile } from "@/app/api/profile/getProfile/types";
@@ -27,8 +26,8 @@ import { Select } from "@/app/shared/components/form/select";
 import { Textarea } from "@/app/shared/components/form/textarea";
 import { SubmitButton } from "@/app/shared/components/form/submitButton";
 import { Section } from "@/app/shared/components/section";
-import { CITY, COUNTRY_CODE, COUNTRY_NAME } from "@/app/shared/constants";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
+import { useNavigatorQuery } from "@/app/shared/hooks";
 import { getGenderByLocale } from "@/app/shared/mapping/gender";
 import { LANGUAGE_MAPPING } from "@/app/shared/mapping/language";
 import { getMeasurementByLocale } from "@/app/shared/mapping/measurement";
@@ -63,7 +62,6 @@ const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
     language,
     languageState,
     measurement,
-    navigator,
     onAddFiles,
     onChangeAge,
     onChangeIsLeftHand,
@@ -92,13 +90,9 @@ const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
   );
 
   const { formHeight, isKeyboardOpen } = useDetectKeyboardOpen();
-  const searchParams = useSearchParams();
-  const params = new URLSearchParams(searchParams.toString());
+  const { query } = useNavigatorQuery();
   const [focusedEvent, setFocusedEvent] = useState<FocusEvent<HTMLElement>>();
   const formHeightFormatted = isKeyboardOpen ? `${formHeight}px` : "100%";
-  const countryCode = navigator?.countryCode ?? params.get(COUNTRY_CODE);
-  const countryName = navigator?.countryName ?? params.get(COUNTRY_NAME);
-  const city = navigator?.city ?? params.get(CITY);
 
   useEffect(() => {
     if (isKeyboardOpen && focusedEvent) {
@@ -112,10 +106,6 @@ const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
   const handleFocus = (event: FocusEvent<HTMLElement>) => {
     setFocusedEvent(event);
   };
-
-  if (isEdit && navigator?.errorPosition) {
-    return <ErrorBoundary message={"errorBoundary.common.geoPositionError"} />;
-  }
 
   if (tg?.user && isEmpty(tg.user?.username))
     return <Info message={t("common.titles.isEmptyUsername")} />;
@@ -323,6 +313,9 @@ const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
               {/*    onChange={onChangeIsLeftHand}*/}
               {/*  />*/}
               {/*</Field>*/}
+              <div>
+                <pre>query: {JSON.stringify(query, null, 2)}</pre>
+              </div>
             </Container>
           </Section>
           <Container>
@@ -347,17 +340,7 @@ const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
                         },
                         lng: lng,
                       },
-                      {
-                        ...(navigator?.latitude
-                          ? { latitude: navigator?.latitude.toString() }
-                          : {}),
-                        ...(navigator?.longitude
-                          ? { longitude: navigator?.longitude.toString() }
-                          : {}),
-                        ...(countryCode && { countryCode: countryCode }),
-                        ...(countryName && { countryName: countryName }),
-                        ...(city && { city: city }),
-                      },
+                      query,
                     )}
                   />
                 </div>

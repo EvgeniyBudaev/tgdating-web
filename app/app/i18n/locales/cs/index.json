@@ -35,6 +35,7 @@
       "online": "Online",
       "isHiddenAge": "Nezobrazovat věk",
       "accountFrozen": "Účet zmrazen",
+      "invalidLocation": "Vaši polohu se nepodařilo určit. Povolte na svém zařízení geolokaci a přihlaste se zpět do aplikace.",
       "isEmptyList": "Nebyl nalezen jediný člověk. Zkuste změnit nastavení filtru.",
       "appName": "Telegramová seznamka",
       "getStarted": "Začít",

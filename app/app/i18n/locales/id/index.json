@@ -35,6 +35,7 @@
       "online": "On line",
       "isHiddenAge": "Jangan tunjukkan usia",
       "accountFrozen": "Akun dibekukan",
+      "invalidLocation": "ДLokasi Anda tidak dapat ditentukan. Harap aktifkan geolokasi di perangkat Anda dan masuk kembali ke aplikasi.",
       "isEmptyList": "Tidak ada satu orang pun yang ditemukan. Coba ubah pengaturan filter Anda.",
       "appName": "Kencan Telegram",
       "getStarted": "Mulai",

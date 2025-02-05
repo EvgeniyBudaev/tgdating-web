@@ -11,6 +11,8 @@ import {
   COUNTRY_CODE,
   COUNTRY_NAME,
   INITIAL_FORM_STATE,
+  LATITUDE,
+  LONGITUDE,
 } from "@/app/shared/constants";
 import { ELanguage } from "@/app/shared/enums";
 import type { TUseNavigatorResponse } from "@/app/shared/hooks/useNavigator";
@@ -39,9 +41,12 @@ const CheckShortInfoComponent: FC<TProps> = ({
   const buttonSubmitRef = useRef<HTMLInputElement | null>(null);
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams.toString());
-  const countryCode = navigator?.countryCode ?? params.get(COUNTRY_CODE);
-  const countryName = navigator?.countryName ?? params.get(COUNTRY_NAME);
-  const city = navigator?.city ?? params.get(CITY);
+
+  const latitude = params.get(LATITUDE);
+  const longitude = params.get(LONGITUDE);
+  const countryCode = params.get(COUNTRY_CODE);
+  const countryName = params.get(COUNTRY_NAME);
+  const city = params.get(CITY);
 
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
@@ -68,15 +73,15 @@ const CheckShortInfoComponent: FC<TProps> = ({
       countryName &&
         formDataDto.append(EGetProfileShortInfoFields.CountryName, countryName);
       city && formDataDto.append(EGetProfileShortInfoFields.City, city);
-      navigator?.latitude &&
+      latitude &&
         formDataDto.append(
           EGetProfileShortInfoFields.Latitude,
-          navigator.latitude.toString(),
+          latitude.toString(),
         );
-      navigator?.longitude &&
+      longitude &&
         formDataDto.append(
           EGetProfileShortInfoFields.Longitude,
-          navigator.longitude.toString(),
+          longitude.toString(),
         );
       // @ts-ignore
       formAction(formDataDto);

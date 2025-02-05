@@ -35,6 +35,7 @@
       "online": "En línia",
       "isHiddenAge": "No mostris l'edat",
       "accountFrozen": "Compte congelat",
+      "invalidLocation": "No s'ha pogut determinar la teva ubicació. Activa la geolocalització al teu dispositiu i torna a iniciar sessió a l'aplicació.",
       "isEmptyList": "No es va trobar ni una sola persona. Proveu de canviar la configuració del filtre.",
       "appName": "Cites de Telegram",
       "getStarted": "Comença",

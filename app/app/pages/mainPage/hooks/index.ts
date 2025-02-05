@@ -1,3 +1,3 @@
-import { useMainPageAccess } from "./useMainPageAccess";
+import { useMainPage } from "./useMainPage";
 
-export { useMainPageAccess };
+export { useMainPage };

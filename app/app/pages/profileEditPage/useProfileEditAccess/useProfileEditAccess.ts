@@ -4,9 +4,10 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import type { TProfileEditPageProps } from "@/app/pages/profileEditPage/types";
-import { notification } from "@/app/uikit/utils";
-import { createPath } from "@/app/shared/utils";
 import { ERoutes } from "@/app/shared/enums";
+import { useNavigatorQuery } from "@/app/shared/hooks";
+import { createPath } from "@/app/shared/utils";
+import { notification } from "@/app/uikit/utils";
 
 export const useProfileEditAccess = (props: TProfileEditPageProps) => {
   const {
@@ -18,6 +19,7 @@ export const useProfileEditAccess = (props: TProfileEditPageProps) => {
     lng,
     telegramUserId,
   } = props;
+  const { query } = useNavigatorQuery();
   const router = useRouter();
   const { t } = useTranslation("index");
 
@@ -32,11 +34,14 @@ export const useProfileEditAccess = (props: TProfileEditPageProps) => {
 
   useEffect(() => {
     if (isBlocked) {
-      const path = createPath({
-        route: ERoutes.ProfileBlocked,
-        params: { telegramUserId },
-        lng,
-      });
+      const path = createPath(
+        {
+          route: ERoutes.ProfileBlocked,
+          params: { telegramUserId },
+          lng,
+        },
+        query,
+      );
       router.push(path);
       router.refresh();
     }
@@ -44,10 +49,13 @@ export const useProfileEditAccess = (props: TProfileEditPageProps) => {
 
   useEffect(() => {
     if (!isExistUser) {
-      const path = createPath({
-        route: ERoutes.Started,
-        lng,
-      });
+      const path = createPath(
+        {
+          route: ERoutes.Started,
+          lng,
+        },
+        query,
+      );
       router.push(path);
       router.refresh();
     }
@@ -55,11 +63,14 @@ export const useProfileEditAccess = (props: TProfileEditPageProps) => {
 
   useEffect(() => {
     if (isFrozen) {
-      const path = createPath({
-        route: ERoutes.ProfileFrozen,
-        params: { telegramUserId },
-        lng,
-      });
+      const path = createPath(
+        {
+          route: ERoutes.ProfileFrozen,
+          params: { telegramUserId },
+          lng,
+        },
+        query,
+      );
       router.push(path);
       router.refresh();
     }

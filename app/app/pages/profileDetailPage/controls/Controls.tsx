@@ -4,7 +4,7 @@ import { memo, type FC } from "react";
 import type { TProfileDetail } from "@/app/api/profile/getProfileDetail/types";
 import { Like } from "@/app/pages/profileDetailPage/like";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useQueryURL } from "@/app/shared/hooks";
+import { useNavigatorQuery, useQueryURL } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { Icon } from "@/app/uikit/components/icon";
 import "./Controls.scss";
@@ -16,6 +16,7 @@ type TProps = {
 };
 
 const ControlsComponent: FC<TProps> = ({ lng, profile, telegramUserId }) => {
+  const { query } = useNavigatorQuery();
   const { getQuery } = useQueryURL({ lng });
   const params = getQuery();
 
@@ -25,7 +26,7 @@ const ControlsComponent: FC<TProps> = ({ lng, profile, telegramUserId }) => {
       params: { telegramUserId },
       lng: lng,
     },
-    params,
+    query,
   );
 
   return (

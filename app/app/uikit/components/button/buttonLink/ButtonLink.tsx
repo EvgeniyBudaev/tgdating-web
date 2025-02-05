@@ -2,7 +2,6 @@ import clsx from "clsx";
 import Link from "next/link";
 import { memo } from "react";
 import type { FC, ReactNode } from "react";
-import { createPath } from "@/app/shared/utils";
 import "../Button.scss";
 
 type TProps = {
@@ -13,12 +12,7 @@ type TProps = {
 
 const ButtonLinkComponent: FC<TProps> = ({ className, children, href }) => {
   return (
-    <Link
-      className={clsx(className, "Button")}
-      href={createPath({
-        route: href as any,
-      })}
-    >
+    <Link className={clsx(className, "Button")} href={href}>
       {children}
     </Link>
   );

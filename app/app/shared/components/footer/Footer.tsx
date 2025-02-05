@@ -5,12 +5,10 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { type FC, memo, useMemo } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { NavLink } from "@/app/shared/components/navLink";
-import { CITY, COUNTRY_CODE, COUNTRY_NAME } from "@/app/shared/constants";
-import { useNavigatorContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import type { TTelegramUser } from "@/app/shared/hooks/useTelegram";
 import { createPath } from "@/app/shared/utils";
-import { useScrollPosition } from "@/app/shared/hooks";
+import { useNavigatorQuery, useScrollPosition } from "@/app/shared/hooks";
 import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
@@ -31,7 +29,7 @@ const FooterComponent: FC<TProps> = ({
   theme,
   user,
 }) => {
-  const navigator = useNavigatorContext();
+  const { query } = useNavigatorQuery();
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -39,21 +37,24 @@ const FooterComponent: FC<TProps> = ({
   const { hasScroll, saveScrollPosition, scrollUp } = useScrollPosition();
   const { t } = useTranslation("index");
   const telegramUserId = (user?.id ?? "").toString();
-  const countryCode = navigator?.countryCode ?? params.get(COUNTRY_CODE);
-  const countryName = navigator?.countryName ?? params.get(COUNTRY_NAME);
-  const city = navigator?.city ?? params.get(CITY);
 
   const pathOptions = useMemo(() => {
-    const pathProfileAdd = createPath({
-      route: ERoutes.ProfileAdd,
-      lng,
-    });
+    const pathProfileAdd = createPath(
+      {
+        route: ERoutes.ProfileAdd,
+        lng,
+      },
+      query,
+    );
 
-    const pathProfileEdit = createPath({
-      route: ERoutes.ProfileEdit,
-      params: { telegramUserId },
-      lng,
-    });
+    const pathProfileEdit = createPath(
+      {
+        route: ERoutes.ProfileEdit,
+        params: { telegramUserId },
+        lng,
+      },
+      query,
+    );
 
     const telegramUserIdListPath = createPath(
       {
@@ -61,17 +62,7 @@ const FooterComponent: FC<TProps> = ({
         params: { telegramUserId },
         lng,
       },
-      {
-        ...(navigator?.latitude
-          ? { latitude: navigator?.latitude.toString() }
-          : {}),
-        ...(navigator?.longitude
-          ? { longitude: navigator?.longitude.toString() }
-          : {}),
-        ...(countryCode && { countryCode: countryCode }),
-        ...(countryName && { countryName: countryName }),
-        ...(city && { city: city }),
-      },
+      query,
     );
 
     const profileDetailPath = createPath(
@@ -83,45 +74,76 @@ const FooterComponent: FC<TProps> = ({
         },
         lng,
       },
-      {
-        ...(navigator?.latitude
-          ? { latitude: navigator?.latitude.toString() }
-          : {}),
-        ...(navigator?.longitude
-          ? { longitude: navigator?.longitude.toString() }
-          : {}),
-        ...(countryCode && { countryCode: countryCode }),
-        ...(countryName && { countryName: countryName }),
-        ...(city && { city: city }),
-      },
+      query,
     );
 
-    const profileFrozenPath = createPath({
-      route: ERoutes.ProfileFrozen,
-      params: {
-        telegramUserId,
+    const profileFrozenPath = createPath(
+      {
+        route: ERoutes.ProfileFrozen,
+        params: {
+          telegramUserId,
+        },
+        lng,
       },
+      query,
+    );
+
+    const browserPath = createPath({
+      route: ERoutes.Browser,
       lng,
     });
 
+    const rootPath = createPath({
+      route: ERoutes.Root,
+      lng,
+    });
+
+    const mainPath = createPath(
+      {
+        route: ERoutes.Main,
+        params: {
+          telegramUserId,
+        },
+        lng,
+      },
+      query,
+    );
+
+    const startedPath = createPath(
+      {
+        route: ERoutes.Started,
+        lng,
+      },
+      query,
+    );
+
+    const fullPath = params.size > 0 ? `${pathname}?${params}` : pathname;
+
     return {
       isFooter:
-        pathname !== pathProfileAdd &&
-        pathname !== pathProfileEdit &&
-        pathname !== profileFrozenPath,
+        fullPath !== pathProfileAdd &&
+        fullPath !== pathProfileEdit &&
+        fullPath !== profileFrozenPath &&
+        fullPath !== browserPath &&
+        fullPath !== rootPath &&
+        fullPath !== mainPath &&
+        fullPath !== startedPath,
       telegramUserIdListPath,
       profileDetailPath,
     };
-  }, [lng, pathname, telegramUserId, user]);
+  }, [lng, params, pathname, telegramUserId, user]);
 
   const isScrollUpShowButton =
     hasScroll &&
     pathname ===
-      createPath({
-        route: ERoutes.Telegram,
-        params: { telegramUserId },
-        lng,
-      });
+      createPath(
+        {
+          route: ERoutes.Telegram,
+          params: { telegramUserId },
+          lng,
+        },
+        query,
+      );
 
   const handleBack = () => {
     router.back();

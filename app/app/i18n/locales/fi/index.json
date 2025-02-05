@@ -35,6 +35,7 @@
       "online": "verkossa",
       "isHiddenAge": "Älä näytä ikää",
       "accountFrozen": "Tili jäädytetty",
+      "invalidLocation": "Sijaintiasi ei voitu määrittää. Ota maantieteellinen sijainti käyttöön laitteessasi ja kirjaudu takaisin sovellukseen.",
       "isEmptyList": "Yhtään henkilöä ei löytynyt. Yritä muuttaa suodatinasetuksiasi.",
       "appName": "Telegram-treffit",
       "getStarted": "Alkaa",

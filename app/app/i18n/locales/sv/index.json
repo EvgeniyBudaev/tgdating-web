@@ -35,6 +35,7 @@
       "online": "Online",
       "isHiddenAge": "Visa inte ålder",
       "accountFrozen": "Konto fryst",
+      "invalidLocation": "Det gick inte att fastställa din plats. Aktivera geolokalisering på din enhet och logga in i appen igen.",
       "isEmptyList": "Inte en enda person hittades. Prova att ändra dina filterinställningar.",
       "appName": "Telegramdejting",
       "getStarted": "Börja",

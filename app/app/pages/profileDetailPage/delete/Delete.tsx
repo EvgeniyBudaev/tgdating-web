@@ -10,7 +10,7 @@ import { SidebarContentListItem } from "@/app/shared/components/sidebarContent/s
 import { INITIAL_FORM_STATE } from "@/app/shared/constants";
 import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useTelegram } from "@/app/shared/hooks";
+import { useNavigatorQuery, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { Button } from "@/app/uikit/components/button";
 import { Modal, useModalWindow } from "@/app/uikit/components/modal";
@@ -28,6 +28,7 @@ type TProps = {
 const DeleteComponent: FC<TProps> = ({ lng, telegramUserId, theme }) => {
   const csrf = useAuthenticityTokenContext();
   const { closeModal, isOpenModal, openModal } = useModalWindow();
+  const { query } = useNavigatorQuery();
   const router = useRouter();
   const { initDataCrypt, isSession } = useTelegram();
   const { t } = useTranslation("index");
@@ -38,10 +39,13 @@ const DeleteComponent: FC<TProps> = ({ lng, telegramUserId, theme }) => {
 
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
-      const path = createPath({
-        route: ERoutes.Started,
-        lng: lng,
-      });
+      const path = createPath(
+        {
+          route: ERoutes.Started,
+          lng: lng,
+        },
+        query,
+      );
       router.push(path);
       router.refresh();
     }

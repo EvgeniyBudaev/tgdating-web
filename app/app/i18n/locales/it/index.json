@@ -35,6 +35,7 @@
       "online": "In linea",
       "isHiddenAge": "Non mostrare l'età",
       "accountFrozen": "Conto congelato",
+      "invalidLocation": "Non è stato possibile determinare la tua posizione. Abilita la geolocalizzazione sul tuo dispositivo e accedi nuovamente all'app.",
       "isEmptyList": "Non è stata trovata una sola persona. Prova a modificare le impostazioni del filtro.",
       "appName": "Incontri su Telegram",
       "getStarted": "Inizio",

@@ -20,6 +20,7 @@ sudo systemctl restart postgresql
 
 Docker
 Войти в контейнер
+
 ```
 docker exec -it <container-name> /bin/bash
 docker exec -it postgres /bin/bash
@@ -227,40 +228,51 @@ rm -rf name_directory
 ```
 
 Удаление файла
+
 ```
 rm -f name_file
 ```
 
 Postgres. Backup
+
 ```
-docker exec -it postgres sh 
+docker exec -it postgres sh
 или docker exec -it postgres /bin/bash
 psql -U postgres -d tgbot;
 \l это если хотим узнать какие БД существуют
 select * from dating.profiles;
 select * from dating.profile_images;
 select * from dating.profile_filters;
+select * from dating.profile_navigators;
 ```
 
 Dump with pg_dump
+
 ```
 docker exec -i pg_container_name sh -c "PGPASSWORD=pg_password pg_dump --username pg_usernamepg_db_name" > ./dump_`date +%Y-%m-%d_%H_%M_%S`.sql
 ```
+
 или
+
 ```
 docker exec -i pg_container_name /bin/bash -c "PGPASSWORD=pg_password pg_dump --username pg_username pg_db_name" > ./dump_`date +%Y-%m-%d_%H_%M_%S`.sql
 ```
 
 Restore with psql
 Предварительно удаляем схемы
+
 ```
 docker exec -i pg_container_name sh -c "PGPASSWORD=pg_password psql --username pg_username pg_db_name -c 'DROP SCHEMA IF EXISTS pg_schema_name CASCADE;'"
 ```
+
 Делаем восстановление
+
 ```
 docker exec -i pg_container_name sh -c "PGPASSWORD=pg_password psql --username pg_username pg_db_name" < ./dump.sql
 ```
+
 или
+
 ```
 docker exec -i pg_container_name /bin/bash -c "PGPASSWORD=pg_password psql --username pg_username pg_db_name" < ./dump.sql
 ```

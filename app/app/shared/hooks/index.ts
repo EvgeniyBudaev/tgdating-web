@@ -9,10 +9,12 @@ import { useLanguage } from "@/app/shared/hooks/useLanguage";
 import { useMounted } from "@/app/shared/hooks/useMounted";
 import { useMountEffect } from "@/app/shared/hooks/useMountEffect";
 import { useNavigator } from "@/app/shared/hooks/useNavigator";
+import { useNavigatorQuery } from "@/app/shared/hooks/useNavigatorQuery";
 import { useInitDayjs } from "@/app/shared/hooks/useInitDayjs";
 import { useScrollPosition } from "@/app/shared/hooks/useScrollPosition";
 import { useProxyUrl } from "@/app/shared/hooks/useProxyUrl";
 import { useScroll } from "@/app/shared/hooks/useScroll";
+import { useStore } from "@/app/shared/hooks/useStore";
 import { useTariff } from "@/app/shared/hooks/useTariff";
 import { useTelegram } from "@/app/shared/hooks/useTelegram";
 import { useTranslatedData } from "@/app/shared/hooks/useTranslatedData";
@@ -30,10 +32,12 @@ export {
   useMounted,
   useMountEffect,
   useNavigator,
+  useNavigatorQuery,
   useInitDayjs,
   useScrollPosition,
   useProxyUrl,
   useScroll,
+  useStore,
   useTariff,
   useTelegram,
   useTranslatedData,

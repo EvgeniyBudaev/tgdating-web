@@ -35,6 +35,7 @@
       "online": "Online",
       "isHiddenAge": "Laat geen leeftijd zien",
       "accountFrozen": "Rekening bevroren",
+      "invalidLocation": "Uw locatie kan niet worden bepaald. Schakel geolocatie in op uw apparaat en log opnieuw in op de app.",
       "isEmptyList": "Er werd geen enkele persoon gevonden. Probeer uw filterinstellingen te wijzigen.",
       "appName": "Telegram-datering",
       "getStarted": "Beginnen",

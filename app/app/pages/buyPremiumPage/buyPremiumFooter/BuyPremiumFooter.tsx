@@ -4,6 +4,7 @@ import Link from "next/link";
 import { type FC, memo } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
+import { useNavigatorQuery } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { Typography } from "@/app/uikit/components/typography";
 import "./BuyPremiumFooter.scss";
@@ -13,6 +14,7 @@ type TProps = {
 };
 
 const BuyPremiumFooterComponent: FC<TProps> = ({ lng }) => {
+  const { query } = useNavigatorQuery();
   const { t } = useTranslation("index");
 
   return (
@@ -20,10 +22,13 @@ const BuyPremiumFooterComponent: FC<TProps> = ({ lng }) => {
       <div className="BuyPremiumFooter-Item">
         <Link
           className="BuyPremiumFooter-Link"
-          href={createPath({
-            route: ERoutes.Agreement,
-            lng,
-          })}
+          href={createPath(
+            {
+              route: ERoutes.Agreement,
+              lng,
+            },
+            query,
+          )}
         >
           <Typography>{t("common.titles.userAgreement")}&nbsp;</Typography>
         </Link>
@@ -31,10 +36,13 @@ const BuyPremiumFooterComponent: FC<TProps> = ({ lng }) => {
       <div className="BuyPremiumFooter-Item">
         <Link
           className="BuyPremiumFooter-Link"
-          href={createPath({
-            route: ERoutes.Policy,
-            lng,
-          })}
+          href={createPath(
+            {
+              route: ERoutes.Policy,
+              lng,
+            },
+            query,
+          )}
         >
           <Typography>{t("common.titles.privacyPolicyMain")}</Typography>
         </Link>
@@ -42,10 +50,13 @@ const BuyPremiumFooterComponent: FC<TProps> = ({ lng }) => {
       <div className="BuyPremiumFooter-Item">
         <Link
           className="BuyPremiumFooter-Link"
-          href={createPath({
-            route: ERoutes.Offer,
-            lng,
-          })}
+          href={createPath(
+            {
+              route: ERoutes.Offer,
+              lng,
+            },
+            query,
+          )}
         >
           <Typography>{t("common.titles.publicOffer")}</Typography>
         </Link>

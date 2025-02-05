@@ -11,6 +11,7 @@ type TRoutes =
   | ERoutes.Offer;
 
 type TRoutesWithParams =
+  | ERoutes.Main
   | ERoutes.BuyPremium
   | ERoutes.Telegram
   | ERoutes.ProfileDetail

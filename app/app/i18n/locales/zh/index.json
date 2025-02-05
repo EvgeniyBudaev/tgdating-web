@@ -35,6 +35,7 @@
       "online": "在线的",
       "isHiddenAge": "不暴露年龄",
       "accountFrozen": "账户被冻结",
+      "invalidLocation": "无法确定您的位置。请在您的设备上启用地理定位并重新登录应用程序。",
       "isEmptyList": "没有找到一个人。尝试更改您的过滤器设置。",
       "appName": "电报约会",
       "getStarted": "开始",

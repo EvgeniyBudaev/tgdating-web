@@ -5,14 +5,17 @@ import type {
 } from "@/app/api/navigator/updateNavigator/types";
 import { EFormMethods } from "@/app/shared/enums";
 
-export const updateNavigator: TApiFunction<TUpdateNavigatorParams, TNavigator> = (
+export const updateNavigator: TApiFunction<
+  TUpdateNavigatorParams,
+  TNavigator
+> = (
   params,
-  options,
+  //options,
 ) => {
   const url = `/api/v1/profiles/navigators`;
   return fetchApi<TNavigator>(url, {
     method: EFormMethods.Put,
     body: params,
-    headers: options?.headers,
+    //headers: options?.headers,
   });
 };

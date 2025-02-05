@@ -1,14 +1,12 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/types";
 import { useTranslation } from "@/app/i18n/client";
 import type { TSessionPageProps } from "@/app/pages/sessionPage/types";
-import { CITY, COUNTRY_CODE, COUNTRY_NAME } from "@/app/shared/constants";
-import { useNavigatorContext } from "@/app/shared/context";
 import { ERoutes } from "@/app/shared/enums";
-import { useTelegram } from "@/app/shared/hooks";
+import { useNavigatorQuery, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { notification } from "@/app/uikit/utils";
 
@@ -23,13 +21,8 @@ export const useSessionPageAccess = (
     shortInfo,
     telegramUserId,
   } = props;
-  const navigator = useNavigatorContext();
+  const { query } = useNavigatorQuery();
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const params = new URLSearchParams(searchParams.toString());
-  const countryCode = navigator?.countryCode ?? params.get(COUNTRY_CODE);
-  const countryName = navigator?.countryName ?? params.get(COUNTRY_NAME);
-  const city = navigator?.city ?? params.get(CITY);
   const { user } = useTelegram();
   const { t } = useTranslation("index");
 
@@ -44,35 +37,44 @@ export const useSessionPageAccess = (
 
   useEffect(() => {
     if (shortInfo?.isBlocked) {
-      const path = createPath({
-        route: ERoutes.ProfileBlocked,
-        params: { telegramUserId },
-        lng,
-      });
+      const path = createPath(
+        {
+          route: ERoutes.ProfileBlocked,
+          params: { telegramUserId },
+          lng,
+        },
+        query,
+      );
       router.push(path);
       router.refresh();
     }
     if (shortInfo?.isFrozen) {
-      const path = createPath({
-        route: ERoutes.ProfileFrozen,
-        params: { telegramUserId },
-        lng,
-      });
+      const path = createPath(
+        {
+          route: ERoutes.ProfileFrozen,
+          params: { telegramUserId },
+          lng,
+        },
+        query,
+      );
       router.push(path);
       router.refresh();
     }
-  }, [lng, shortInfo, telegramUserId]);
+  }, [lng, shortInfo, telegramUserId, query]);
 
   useEffect(() => {
     if (!isExistUser) {
-      const path = createPath({
-        route: ERoutes.Started,
-        lng,
-      });
+      const path = createPath(
+        {
+          route: ERoutes.Started,
+          lng,
+        },
+        query,
+      );
       router.push(path);
       router.refresh();
     }
-  }, [isExistUser]);
+  }, [isExistUser, lng, query]);
 
   useEffect(() => {
     if (isUnauthorized) {
@@ -93,21 +95,10 @@ export const useSessionPageAccess = (
           params: { telegramUserId: (user?.id ?? "").toString() },
           lng: shortInfo.languageCode,
         },
-        {
-          ...(navigator?.latitude
-            ? { latitude: navigator?.latitude.toString() }
-            : {}),
-          ...(navigator?.longitude
-            ? { longitude: navigator?.longitude.toString() }
-            : {}),
-          ...(countryCode && { countryCode: countryCode }),
-          ...(countryName && { countryName: countryName }),
-          ...(city && { city: city }),
-        },
+        query,
       );
-      console.log("path: ", path);
       router.push(path);
       router.refresh();
     }
-  }, [lng, shortInfo, user]);
+  }, [lng, shortInfo, user, query]);
 };

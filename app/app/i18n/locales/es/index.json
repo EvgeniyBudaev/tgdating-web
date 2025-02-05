@@ -35,6 +35,7 @@
       "online": "En línea",
       "isHiddenAge": "No mostrar edad",
       "accountFrozen": "Cuenta congelada",
+      "invalidLocation": "No se pudo determinar su ubicación. Habilite la geolocalización en su dispositivo y vuelva a iniciar sesión en la aplicación.",
       "isEmptyList": "No se encontró ni una sola persona. Intente cambiar la configuración de su filtro.",
       "appName": "Citas por telegrama",
       "getStarted": "Comenzar",

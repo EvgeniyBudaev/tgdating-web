@@ -35,6 +35,7 @@
       "online": "Online",
       "isHiddenAge": "Ne mutasd az életkort",
       "accountFrozen": "A fiók lefagyott",
+      "invalidLocation": "A tartózkodási helyét nem sikerült meghatározni. Kérjük, engedélyezze a földrajzi helymeghatározást eszközén, és jelentkezzen be újra az alkalmazásba.",
       "isEmptyList": "Egyetlen embert sem találtak. Próbálja meg módosítani a szűrő beállításait.",
       "appName": "Távirati társkeresés",
       "getStarted": "Kezdődik",

@@ -21,7 +21,7 @@ import {
   useNavigatorContext,
 } from "@/app/shared/context";
 import { ERoutes } from "@/app/shared/enums";
-import { useTelegram } from "@/app/shared/hooks";
+import { useNavigatorQuery, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { Button } from "@/app/uikit/components/button";
 import { ButtonLink } from "@/app/uikit/components/button/buttonLink";
@@ -32,18 +32,13 @@ import "./ProfileFreezePage.scss";
 const ProfileFreezePageComponent: FC<TProfileFreezePageProps> = (props) => {
   const { isBlocked, isFrozen, lng, telegramUserId } = props;
   const csrf = useAuthenticityTokenContext();
-  const navigator = useNavigatorContext();
+  const { query } = useNavigatorQuery();
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const params = new URLSearchParams(searchParams.toString());
   const { initDataCrypt, isSession, user, theme } = useTelegram();
   const { t } = useTranslation("index");
   const isSessionUser = Boolean(
     telegramUserId && user?.id.toString() === telegramUserId,
   );
-  const countryCode = navigator?.countryCode ?? params.get(COUNTRY_CODE);
-  const countryName = navigator?.countryName ?? params.get(COUNTRY_NAME);
-  const city = navigator?.city ?? params.get(CITY);
 
   const [state, formAction] = useActionState(
     restoreProfileAction,
@@ -54,17 +49,6 @@ const ProfileFreezePageComponent: FC<TProfileFreezePageProps> = (props) => {
 
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
-      const query = {
-        ...(navigator?.latitude
-          ? { latitude: navigator.latitude.toString() }
-          : {}),
-        ...(navigator?.longitude
-          ? { longitude: navigator.longitude.toString() }
-          : {}),
-        ...(countryCode && { countryCode: countryCode }),
-        ...(countryName && { countryName: countryName }),
-        ...(city && { city: city }),
-      };
       const path = createPath(
         {
           route: ERoutes.ProfileDetail,
@@ -124,13 +108,16 @@ const ProfileFreezePageComponent: FC<TProfileFreezePageProps> = (props) => {
         )}
         {!isSessionUser && (
           <ButtonLink
-            href={createPath({
-              route: ERoutes.Telegram,
-              params: {
-                telegramUserId,
+            href={createPath(
+              {
+                route: ERoutes.Telegram,
+                params: {
+                  telegramUserId,
+                },
+                lng,
               },
-              lng,
-            })}
+              query,
+            )}
           >
             <Typography>OK</Typography>
           </ButtonLink>

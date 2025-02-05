@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import isNil from "lodash/isNil";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import {
   type FC,
   memo,
@@ -20,18 +20,10 @@ import { SidebarContentControls } from "@/app/shared/components/sidebarContent/s
 import { SidebarContentHeader } from "@/app/shared/components/sidebarContent/sidebarContentHeader";
 import { SidebarContentList } from "@/app/shared/components/sidebarContent/sidebarContentList";
 import { SidebarContentListItem } from "@/app/shared/components/sidebarContent/sidebarContentListItem";
-import {
-  CITY,
-  COUNTRY_CODE,
-  COUNTRY_NAME,
-  INITIAL_FORM_STATE,
-} from "@/app/shared/constants";
-import {
-  useAuthenticityTokenContext,
-  useNavigatorContext,
-} from "@/app/shared/context";
+import { INITIAL_FORM_STATE } from "@/app/shared/constants";
+import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useTelegram } from "@/app/shared/hooks";
+import { useNavigatorQuery, useTelegram } from "@/app/shared/hooks";
 
 import { createPath } from "@/app/shared/utils";
 import { CheckboxCustom } from "@/app/uikit/components/checkboxCustom";
@@ -59,16 +51,11 @@ const SettingsSidebarComponent: FC<TProps> = ({
   theme,
 }) => {
   const csrf = useAuthenticityTokenContext();
-  const navigator = useNavigatorContext();
+  const { query } = useNavigatorQuery();
   const router = useRouter();
   const sidebarRef = useRef(null);
-  const searchParams = useSearchParams();
-  const params = new URLSearchParams(searchParams.toString());
   const { initDataCrypt, isSession } = useTelegram();
   const { t } = useTranslation("index");
-  const countryCode = navigator?.countryCode ?? params.get(COUNTRY_CODE);
-  const countryName = navigator?.countryName ?? params.get(COUNTRY_NAME);
-  const city = navigator?.city ?? params.get(CITY);
 
   const [isHiddenAge, setIsHiddenAge] = useState(
     profile?.status?.isHiddenAge ?? false,
@@ -91,17 +78,7 @@ const SettingsSidebarComponent: FC<TProps> = ({
           },
           lng: lng,
         },
-        {
-          ...(navigator?.latitude
-            ? { latitude: navigator?.latitude.toString() }
-            : {}),
-          ...(navigator?.longitude
-            ? { longitude: navigator?.longitude.toString() }
-            : {}),
-          ...(countryCode && { countryCode: countryCode }),
-          ...(countryName && { countryName: countryName }),
-          ...(city && { city: city }),
-        },
+        query,
       );
       router.push(path);
       router.refresh();
@@ -174,11 +151,14 @@ const SettingsSidebarComponent: FC<TProps> = ({
                 {isShowMessage && (
                   <Link
                     className="SettingsSidebar-Message"
-                    href={createPath({
-                      route: ERoutes.BuyPremium,
-                      params: { telegramUserId: telegramUserId },
-                      lng,
-                    })}
+                    href={createPath(
+                      {
+                        route: ERoutes.BuyPremium,
+                        params: { telegramUserId },
+                        lng,
+                      },
+                      query,
+                    )}
                   >
                     <Typography>Доступно с Premium</Typography>
                   </Link>

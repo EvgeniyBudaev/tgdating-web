@@ -35,6 +35,7 @@
       "online": "Online",
       "isHiddenAge": "Ikke vis alder",
       "accountFrozen": "Konto fryst",
+      "invalidLocation": "Posisjonen din kunne ikke bestemmes. Aktiver geolokalisering på enheten din og logg inn på appen igjen.",
       "isEmptyList": "Ikke en eneste person ble funnet. Prøv å endre filterinnstillingene.",
       "appName": "Telegram dating",
       "getStarted": "Begynne",

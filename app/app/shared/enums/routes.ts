@@ -1,7 +1,6 @@
-import { BlockedListPage } from "@/app/pages/blockedListPage";
-
 export enum ERoutes {
-  Root = "/",
+  Root = "",
+  Main = "/telegram/:telegramUserId/main",
   Telegram = "/telegram/:telegramUserId/list",
   Unauthorized = "/401",
   ProfileDetail = "/telegram/:telegramUserId/profiles/:viewedTelegramUserId",

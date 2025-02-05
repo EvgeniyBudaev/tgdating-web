@@ -35,6 +35,7 @@
       "online": "En ligne",
       "isHiddenAge": "Ne montre pas l'âge",
       "accountFrozen": "Compte gelé",
+      "invalidLocation": "Votre emplacement n'a pas pu être déterminé. Veuillez activer la géolocalisation sur votre appareil et vous reconnecter à l'application.",
       "isEmptyList": "Pas une seule personne n’a été retrouvée. Essayez de modifier vos paramètres de filtre.",
       "appName": "Rencontres par télégramme",
       "getStarted": "Commencer",

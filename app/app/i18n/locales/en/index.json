@@ -35,6 +35,7 @@
       "online": "Online",
       "isHiddenAge": "Don't show age",
       "accountFrozen": "Account frozen",
+      "invalidLocation": "Your location could not be determined. Please enable geolocation on your device and log back into the app.",
       "isEmptyList": "No people found. Try changing your search settings.",
       "appName": "Telegram dating",
       "getStarted": "Get started",
