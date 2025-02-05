@@ -313,9 +313,6 @@ const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
               {/*    onChange={onChangeIsLeftHand}*/}
               {/*  />*/}
               {/*</Field>*/}
-              <div>
-                <pre>query: {JSON.stringify(query, null, 2)}</pre>
-              </div>
             </Container>
           </Section>
           <Container>
