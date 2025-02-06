@@ -23,6 +23,7 @@ import { Sidebar } from "@/app/uikit/components/sidebar";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./ProfileSidebar.scss";
+import { useNavigatorQuery } from "@/app/shared/hooks";
 
 type TProps = {
   isSessionUser: boolean;
@@ -47,7 +48,7 @@ const ProfileSidebarComponent = forwardRef(
     }: TProps,
     ref: ForwardedRef<HTMLDivElement>,
   ): JSX.Element => {
-    const navigator = useNavigatorContext();
+    const { query } = useNavigatorQuery();
     const searchParams = useSearchParams();
     const params = new URLSearchParams(searchParams.toString());
     const shortInfo = useShortInfoContext();
@@ -55,32 +56,22 @@ const ProfileSidebarComponent = forwardRef(
     const cancelButtonTitle = t("common.actions.cancel");
     const optionsTitle = t("common.titles.options");
     const router = useRouter();
-    const countryCode = navigator?.countryCode ?? params.get(COUNTRY_CODE);
-    const countryName = navigator?.countryName ?? params.get(COUNTRY_NAME);
-    const city = navigator?.city ?? params.get(CITY);
 
     const handleRedirectBuyPremium = () => {
-      const path = createPath({
-        route: ERoutes.BuyPremium,
-        params: { telegramUserId: profile?.telegramUserId ?? "" },
-        lng,
-      });
+      const path = createPath(
+        {
+          route: ERoutes.BuyPremium,
+          params: { telegramUserId: profile?.telegramUserId ?? "" },
+          lng,
+        },
+        query,
+      );
       onCloseSidebar?.();
       router.push(path);
+      router.refresh();
     };
 
     const handleRedirectEditProfile = () => {
-      const query = {
-        ...(navigator?.latitude
-          ? { latitude: navigator.latitude.toString() }
-          : {}),
-        ...(navigator?.longitude
-          ? { longitude: navigator.longitude.toString() }
-          : {}),
-        ...(countryCode && { countryCode: countryCode }),
-        ...(countryName && { countryName: countryName }),
-        ...(city && { city: city }),
-      };
       const path = createPath(
         {
           route: ERoutes.ProfileEdit,
@@ -91,6 +82,7 @@ const ProfileSidebarComponent = forwardRef(
       );
       onCloseSidebar?.();
       router.push(path);
+      router.refresh();
     };
 
     const handleRedirectHelp = () => {
@@ -99,13 +91,17 @@ const ProfileSidebarComponent = forwardRef(
     };
 
     const handleRedirectBlockedList = () => {
-      const path = createPath({
-        route: ERoutes.BlockedList,
-        params: { telegramUserId: profile?.telegramUserId ?? "" },
-        lng,
-      });
+      const path = createPath(
+        {
+          route: ERoutes.BlockedList,
+          params: { telegramUserId: profile?.telegramUserId ?? "" },
+          lng,
+        },
+        query,
+      );
       onCloseSidebar?.();
       router.push(path);
+      router.refresh();
     };
 
     return (

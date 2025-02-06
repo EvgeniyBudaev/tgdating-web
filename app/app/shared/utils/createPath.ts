@@ -7,6 +7,7 @@ type TRoutes =
   | ERoutes.Started
   | ERoutes.Agreement
   | ERoutes.Browser
+  | ERoutes.Device
   | ERoutes.Policy
   | ERoutes.Offer;
 

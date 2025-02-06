@@ -16,4 +16,5 @@ export enum ERoutes {
   Offer = "/offer",
   BlockedList = "/telegram/:telegramUserId/blockedList",
   Browser = "/browser",
+  Device = "/device",
 }

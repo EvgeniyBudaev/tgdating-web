@@ -93,6 +93,11 @@ const FooterComponent: FC<TProps> = ({
       lng,
     });
 
+    const devicePath = createPath({
+      route: ERoutes.Device,
+      lng,
+    });
+
     const rootPath = createPath({
       route: ERoutes.Root,
       lng,
@@ -125,6 +130,7 @@ const FooterComponent: FC<TProps> = ({
         fullPath !== pathProfileEdit &&
         fullPath !== profileFrozenPath &&
         fullPath !== browserPath &&
+        fullPath !== devicePath &&
         fullPath !== rootPath &&
         fullPath !== mainPath &&
         fullPath !== startedPath,
@@ -136,14 +142,11 @@ const FooterComponent: FC<TProps> = ({
   const isScrollUpShowButton =
     hasScroll &&
     pathname ===
-      createPath(
-        {
-          route: ERoutes.Telegram,
-          params: { telegramUserId },
-          lng,
-        },
-        query,
-      );
+      createPath({
+        route: ERoutes.Telegram,
+        params: { telegramUserId },
+        lng,
+      });
 
   const handleBack = () => {
     router.back();

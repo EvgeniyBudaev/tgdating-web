@@ -8,7 +8,7 @@ import { unblockAction } from "@/app/actions/block/unblockAction/unblockAction";
 import { useTranslation } from "@/app/i18n/client";
 import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
-import { useTelegram } from "@/app/shared/hooks";
+import { useNavigatorQuery, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { Button } from "@/app/uikit/components/button";
 import { Modal } from "@/app/uikit/components/modal";
@@ -34,6 +34,7 @@ const UnblockModalComponent: FC<TProps> = ({
   telegramUserId,
 }) => {
   const csrf = useAuthenticityTokenContext();
+  const { query } = useNavigatorQuery();
   const router = useRouter();
   const { initDataCrypt, isSession } = useTelegram();
   const { t } = useTranslation("index");
@@ -41,11 +42,14 @@ const UnblockModalComponent: FC<TProps> = ({
 
   useEffect(() => {
     if (!isNil(state?.data) && state.success && !state?.error) {
-      const path = createPath({
-        route: ERoutes.BlockedList,
-        params: { telegramUserId },
-        lng: lng,
-      });
+      const path = createPath(
+        {
+          route: ERoutes.BlockedList,
+          params: { telegramUserId },
+          lng: lng,
+        },
+        query,
+      );
       onCloseModal();
       router.push(path);
       router.refresh();

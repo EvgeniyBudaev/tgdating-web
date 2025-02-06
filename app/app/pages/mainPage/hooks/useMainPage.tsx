@@ -1,8 +1,7 @@
 "use client";
 
-import isEmpty from "lodash/isEmpty";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import type { TMainPageProps } from "@/app/pages/mainPage/types";
 import { ERoutes } from "@/app/shared/enums";
@@ -15,6 +14,19 @@ export const useMainPage = (props: TMainPageProps) => {
   const router = useRouter();
   const { query } = useNavigatorQuery();
   const { t } = useTranslation("index");
+  const [isLocationError, setIsLocationError] = useState(false);
+
+  const isCoords = query?.latitude && query?.longitude;
+
+  useEffect(() => {
+    if (!isCoords) {
+      const timer = setTimeout(() => {
+        setIsLocationError(true);
+      }, 10_000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isCoords]);
 
   useEffect(() => {
     if (isManyRequest) {
@@ -26,7 +38,7 @@ export const useMainPage = (props: TMainPageProps) => {
   }, [isManyRequest]);
 
   useEffect(() => {
-    if (!isEmpty(query)) {
+    if (isCoords) {
       if (!isExistUser) {
         const path = createPath(
           {
@@ -50,7 +62,7 @@ export const useMainPage = (props: TMainPageProps) => {
         router.refresh();
       }
     }
-  }, [isExistUser, lng, telegramUserId, query]);
+  }, [isCoords, isExistUser, lng, telegramUserId, query]);
 
-  return {};
+  return { isLocationError };
 };

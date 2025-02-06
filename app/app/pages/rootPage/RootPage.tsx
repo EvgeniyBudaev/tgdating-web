@@ -1,6 +1,5 @@
 "use client";
 
-import isEmpty from "lodash/isEmpty";
 import { type FC, memo } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { useRootPageAccess } from "@/app/pages/rootPage/hooks";
@@ -14,10 +13,8 @@ import {
 import "./RootPage.scss";
 
 const RootPageComponent: FC<TRootPageProps> = (props) => {
-  const { isLocationError, navigator } = useRootPageAccess(props);
+  const { isLocationError } = useRootPageAccess(props);
   const { t } = useTranslation("index");
-
-  if (isEmpty(navigator) && !isLocationError) return <Loader />;
 
   if (isLocationError) {
     return (
@@ -35,7 +32,7 @@ const RootPageComponent: FC<TRootPageProps> = (props) => {
     );
   }
 
-  return <></>;
+  return <Loader />;
 };
 
 RootPageComponent.displayName = "RootPage";

@@ -1,29 +1,20 @@
 "use client";
 
-import isEmpty from "lodash/isEmpty";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import type { TRootPageProps } from "@/app/pages/rootPage/types";
 import { ERoutes } from "@/app/shared/enums";
-import {
-  useBrowser,
-  useNavigator,
-  useStore,
-  useTelegram,
-} from "@/app/shared/hooks";
+import { useNavigator, useStore, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 
 export const useRootPageAccess = (props: TRootPageProps) => {
-  const { lng } = props;
-  const { isValidBrowser } = useBrowser();
+  const { isMobile, lng } = props;
   const navigator = useNavigator({ lng });
   const router = useRouter();
   const [isLocationError, setIsLocationError] = useState(false);
   const updateNavigator = useStore((state) => state.updateNavigator);
   const { user } = useTelegram();
   const telegramLanguageCode = user?.language_code;
-  const searchParams = useSearchParams();
-  const params = new URLSearchParams(searchParams.toString());
   const countryCode = navigator?.countryCode;
   const countryName = navigator?.countryName;
   const city = navigator?.city;
@@ -40,31 +31,28 @@ export const useRootPageAccess = (props: TRootPageProps) => {
     ...(city && { city: city }),
   };
 
+  const isCoords = navigator?.latitude && navigator?.longitude;
+
   useEffect(() => {
-    if (isEmpty(navigator)) {
+    if (!isCoords) {
       const timer = setTimeout(() => {
         setIsLocationError(true);
-      }, 30_000);
+      }, 10_000);
 
       return () => clearTimeout(timer);
     }
-  }, [navigator]);
+  }, [isCoords]);
 
   useEffect(() => {
-    if (!isValidBrowser) {
+    if (!isMobile) {
       const path = createPath({
-        route: ERoutes.Browser,
+        route: ERoutes.Device,
         lng,
       });
       router.push(path);
       router.refresh();
     }
-    if (
-      !isEmpty(query) &&
-      !isLocationError &&
-      isValidBrowser &&
-      !isEmpty(navigator)
-    ) {
+    if (isCoords && !isLocationError && isMobile && isCoords) {
       if (user?.id && telegramLanguageCode === lng) {
         updateNavigator(navigator);
         const path = createPath(
@@ -92,7 +80,7 @@ export const useRootPageAccess = (props: TRootPageProps) => {
         router.refresh();
       }
     }
-  }, [lng, user, isValidBrowser, navigator, telegramLanguageCode, query]);
+  }, [lng, user, isCoords, isMobile, navigator, telegramLanguageCode, query]);
 
-  return { isLocationError, navigator };
+  return { isLocationError };
 };

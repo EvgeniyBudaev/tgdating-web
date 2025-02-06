@@ -1,0 +1,14 @@
+.DevicePage {
+  height: 100vh;
+
+  &-Inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  &-Text {
+    text-align: center;
+  }
+}

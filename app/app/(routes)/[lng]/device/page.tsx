@@ -1,4 +1,4 @@
-import { InvalidBrowserPage } from "@/app/pages/invalidBrowserPage";
+import { DevicePage } from "@/app/pages/devicePage";
 import { ELanguage } from "@/app/shared/enums";
 
 export const dynamic = "force-dynamic";
@@ -15,5 +15,5 @@ export default async function InvalidBrowserRoute({
   const { lng } = await params;
   const language = lng as ELanguage;
 
-  return <InvalidBrowserPage lng={language} />;
+  return <DevicePage lng={language} />;
 }
