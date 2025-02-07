@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { type ForwardedRef, forwardRef, memo } from "react";
 import type { TProfileDetail } from "@/app/api/profile/getProfileDetail/types";
 import { useTranslation } from "@/app/i18n/client";
@@ -13,9 +13,9 @@ import { SidebarContentControls } from "@/app/shared/components/sidebarContent/s
 import { SidebarContentHeader } from "@/app/shared/components/sidebarContent/sidebarContentHeader";
 import { SidebarContentList } from "@/app/shared/components/sidebarContent/sidebarContentList";
 import { SidebarContentListItem } from "@/app/shared/components/sidebarContent/sidebarContentListItem";
-import { CITY, COUNTRY_CODE, COUNTRY_NAME } from "@/app/shared/constants";
-import { useNavigatorContext, useShortInfoContext } from "@/app/shared/context";
+import { useShortInfoContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
+import { useNavigatorQuery } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 import { DateTime } from "@/app/uikit/components/dateTime";
 import { Icon } from "@/app/uikit/components/icon";
@@ -23,7 +23,6 @@ import { Sidebar } from "@/app/uikit/components/sidebar";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./ProfileSidebar.scss";
-import { useNavigatorQuery } from "@/app/shared/hooks";
 
 type TProps = {
   isSessionUser: boolean;
@@ -49,8 +48,6 @@ const ProfileSidebarComponent = forwardRef(
     ref: ForwardedRef<HTMLDivElement>,
   ): JSX.Element => {
     const { query } = useNavigatorQuery();
-    const searchParams = useSearchParams();
-    const params = new URLSearchParams(searchParams.toString());
     const shortInfo = useShortInfoContext();
     const { t } = useTranslation("index");
     const cancelButtonTitle = t("common.actions.cancel");

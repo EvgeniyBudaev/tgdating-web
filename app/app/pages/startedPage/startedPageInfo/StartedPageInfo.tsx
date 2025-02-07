@@ -20,6 +20,9 @@ const StartedPageInfoComponent: FC<TProps> = ({ lng }) => {
   return (
     <div className="StartedPageInfo">
       <div className="StartedPageInfo-Block">
+        <Typography>{t("common.titles.minRequiredAge")}</Typography>
+      </div>
+      <div className="StartedPageInfo-Block">
         <Typography>{t("common.titles.remember")}</Typography>
       </div>
       <div className="StartedPageInfo-Block">
@@ -30,6 +33,18 @@ const StartedPageInfoComponent: FC<TProps> = ({ lng }) => {
       </div>
       <div className="StartedPageInfo-Block">
         <Typography>{t("common.titles.byContinuing")}&nbsp;</Typography>
+        <Link
+          className="StartedPageInfo-Link"
+          href={createPath(
+            {
+              route: ERoutes.Agreement,
+              lng,
+            },
+            query,
+          )}
+        >
+          <Typography>{t("common.titles.communityRules")},&nbsp;</Typography>
+        </Link>
         <Link
           className="StartedPageInfo-Link"
           href={createPath(
