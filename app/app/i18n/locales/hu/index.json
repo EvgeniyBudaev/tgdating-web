@@ -40,10 +40,12 @@
       "isEmptyList": "Egyetlen embert sem találtak. Próbálja meg módosítani a szűrő beállításait.",
       "appName": "Távirati társkeresés",
       "getStarted": "Kezdődik",
+      "minRequiredAge": "Az alkalmazás használatához legalább 18 évesnek kell lennie. Ha Ön 18 év alatti, kérjük, hagyja el a jelentkezést.",
       "remember": "Ne feledje, hogy az emberek úgy tesznek, mintha mások lennének az interneten.",
       "notRequestPersonal": "A bot nem kér személyes adatokat, és nem azonosítja a felhasználókat semmilyen dokumentum segítségével.",
       "doYouFindLove": "Szeretetre, új barátokra vagy egyszerűen csak könnyű kommunikációra vágysz?",
       "byContinuing": "A folytatással elfogadod",
+      "communityRules": "közösségi szabályokat",
       "and": "és",
       "privacyPolicy": "adatvédelmi szabályzat",
       "isNewLike": "Együttérzés van! Megtekintés a bot chatben"

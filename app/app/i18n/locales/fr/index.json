@@ -40,10 +40,12 @@
       "isEmptyList": "Pas une seule personne n’a été retrouvée. Essayez de modifier vos paramètres de filtre.",
       "appName": "Rencontres par télégramme",
       "getStarted": "Commencer",
+      "minRequiredAge": "Vous devez avoir au moins 18 ans pour utiliser l'application. Si vous avez moins de 18 ans, veuillez laisser la candidature.",
       "remember": "N'oubliez pas que les gens peuvent se faire passer pour d'autres sur Internet.",
       "notRequestPersonal": "Le robot ne demande pas de données personnelles et n'identifie les utilisateurs à l'aide d'aucun document.",
       "doYouFindLove": "Voulez-vous trouver l’amour, de nouveaux amis ou simplement communiquer facilement ?",
       "byContinuing": "En poursuivant vous acceptez",
+      "communityRules": "règles de la communauté",
       "and": "et",
       "privacyPolicy": "politique de confidentialité",
       "isNewLike": "Il y a de la sympathie ! Afficher dans le chat du robot"

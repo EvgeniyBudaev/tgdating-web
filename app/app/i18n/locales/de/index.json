@@ -40,10 +40,12 @@
       "isEmptyList": "Es wurde keine einzige Person gefunden. Versuchen Sie, Ihre Filtereinstellungen zu ändern.",
       "appName": "Telegram dating",
       "getStarted": "Beginnen",
+      "minRequiredAge": "Um die Anwendung nutzen zu können, müssen Sie mindestens 18 Jahre alt sein. Wenn Sie unter 18 Jahre alt sind, hinterlassen Sie bitte die Bewerbung.",
       "remember": "Denken Sie daran, dass Menschen im Internet so tun können, als wären sie andere.",
       "notRequestPersonal": "Der Bot fordert keine persönlichen Daten an und identifiziert Benutzer nicht anhand eines Dokuments.",
       "doYouFindLove": "Möchten Sie Liebe, neue Freunde oder einfach nur einfache Kommunikation finden?",
       "byContinuing": "Indem Sie fortfahren, akzeptieren Sie",
+      "communityRules": "gemeinschaftsregeln",
       "and": "und",
       "privacyPolicy": "datenschutzrichtlinie",
       "isNewLike": "Es gibt Mitgefühl! Im Bot-Chat ansehen"

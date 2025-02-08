@@ -40,10 +40,12 @@
       "isEmptyList": "没有找到一个人。尝试更改您的过滤器设置。",
       "appName": "电报约会",
       "getStarted": "开始",
+      "minRequiredAge": "您必须年满 18 岁才能使用该应用程序。如果您未满 18 岁，请留下申请。",
       "remember": "请记住，人们可以冒充互联网上的其他人。",
       "notRequestPersonal": "该机器人不会请求个人数据，也不会使用任何文档来识别用户。",
       "doYouFindLove": "您想寻找爱情、新朋友还是只是简单的沟通？",
       "byContinuing": "继续即表示您接受",
+      "communityRules": "社区规则",
       "and": "和",
       "privacyPolicy": "隐私政策",
       "isNewLike": "有同情心！在机器人聊天中查看"

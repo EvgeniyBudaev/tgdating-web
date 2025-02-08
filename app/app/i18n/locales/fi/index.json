@@ -40,10 +40,12 @@
       "isEmptyList": "Yhtään henkilöä ei löytynyt. Yritä muuttaa suodatinasetuksiasi.",
       "appName": "Telegram-treffit",
       "getStarted": "Alkaa",
+      "minRequiredAge": "Sinun tulee olla vähintään 18-vuotias voidaksesi käyttää sovellusta. Jos olet alle 18-vuotias, jätä hakemus.",
       "remember": "Muista, että ihmiset voivat teeskennellä olevansa muita Internetissä.",
       "notRequestPersonal": "Botti ei pyydä henkilötietoja eikä tunnista käyttäjiä minkään asiakirjan avulla.",
       "doYouFindLove": "Haluatko löytää rakkautta, uusia ystäviä tai vain helppoa kommunikointia?",
       "byContinuing": "Jatkamalla hyväksyt",
+      "communityRules": "yhteisön säännöt",
       "and": "ja",
       "privacyPolicy": "tietosuojakäytäntö",
       "isNewLike": "Sympatiaa on! Katso bot-chatissa"

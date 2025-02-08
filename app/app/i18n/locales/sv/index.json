@@ -40,10 +40,12 @@
       "isEmptyList": "Inte en enda person hittades. Prova att ändra dina filterinställningar.",
       "appName": "Telegramdejting",
       "getStarted": "Börja",
+      "minRequiredAge": "Du måste vara minst 18 år för att använda applikationen. Om du är under 18 år, vänligen lämna ansökan.",
       "remember": "Kom ihåg att människor kan låtsas vara andra på Internet.",
       "notRequestPersonal": "Boten begär inte personlig information och identifierar inte användare med några dokument.",
       "doYouFindLove": "Vill du hitta kärlek, nya vänner eller bara enkel kommunikation?",
       "byContinuing": "Genom att fortsätta accepterar du",
+      "communityRules": "gemenskapens regler",
       "and": "och",
       "privacyPolicy": "sekretesspolicy",
       "isNewLike": "Det finns sympati! Visa i botchatt"

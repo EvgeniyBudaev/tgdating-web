@@ -40,10 +40,12 @@
       "isEmptyList": "Ikke en eneste person ble funnet. Prøv å endre filterinnstillingene.",
       "appName": "Telegram dating",
       "getStarted": "Begynne",
+      "minRequiredAge": "Du må være minst 18 år for å bruke applikasjonen. Hvis du er under 18 år, vennligst legg igjen søknaden.",
       "remember": "Husk at folk kan late som om de er andre på Internett.",
       "notRequestPersonal": "Boten ber ikke om personlige data og identifiserer ikke brukere som bruker noen dokumenter.",
       "doYouFindLove": "Ønsker du å finne kjærlighet, nye venner eller bare enkel kommunikasjon?",
       "byContinuing": "Ved å fortsette godtar du",
+      "communityRules": "fellesskapets regler",
       "and": "og",
       "privacyPolicy": "personvernerklæring",
       "isNewLike": "Det er sympati! Se i botchat"

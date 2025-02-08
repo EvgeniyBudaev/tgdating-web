@@ -40,10 +40,12 @@
       "isEmptyList": "Tidak ada satu orang pun yang ditemukan. Coba ubah pengaturan filter Anda.",
       "appName": "Kencan Telegram",
       "getStarted": "Mulai",
+      "minRequiredAge": "Anda harus berusia minimal 18 tahun untuk menggunakan aplikasi ini. Jika Anda berusia di bawah 18 tahun, silakan tinggalkan aplikasi.",
       "remember": "Ingatlah bahwa orang bisa berpura-pura menjadi orang lain di Internet.",
       "notRequestPersonal": "Bot tidak meminta data pribadi dan tidak mengidentifikasi pengguna menggunakan dokumen apa pun.",
       "doYouFindLove": "Apakah Anda ingin mencari cinta, teman baru, atau sekadar komunikasi mudah?",
       "byContinuing": "Dengan melanjutkan Anda menerima",
+      "communityRules": "peraturan komunitas",
       "and": "dan dfgd",
       "privacyPolicy": "kebijakan privasi",
       "isNewLike": "Ada simpati! Lihat di obrolan bot"

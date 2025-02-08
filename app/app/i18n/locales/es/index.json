@@ -40,10 +40,12 @@
       "isEmptyList": "No se encontró ni una sola persona. Intente cambiar la configuración de su filtro.",
       "appName": "Citas por telegrama",
       "getStarted": "Comenzar",
+      "minRequiredAge": "Debes tener al menos 18 años para utilizar la aplicación. Si eres menor de 18 años, por favor deja la solicitud.",
       "remember": "Recuerde que las personas pueden hacerse pasar por otras en Internet.",
       "notRequestPersonal": "El bot no solicita datos personales y no identifica a los usuarios mediante ningún documento.",
       "doYouFindLove": "¿Quieres encontrar el amor, nuevos amigos o simplemente una comunicación sencilla?",
       "byContinuing": "Al continuar aceptas",
+      "communityRules": "reglas de la comunidad",
       "and": "y",
       "privacyPolicy": "política de privacidad",
       "isNewLike": "¡Hay simpatía! Ver en chat de bot"

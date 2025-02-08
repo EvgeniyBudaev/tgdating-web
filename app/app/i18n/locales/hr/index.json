@@ -40,10 +40,12 @@
       "isEmptyList": "Niti jedna osoba nije pronađena. Pokušajte promijeniti postavke filtra.",
       "appName": "Telegram upoznavanje",
       "getStarted": "Početi",
+      "minRequiredAge": "Za korištenje aplikacije morate imati najmanje 18 godina. Ako ste mlađi od 18 godina, molimo napustite prijavu.",
       "remember": "Ne zaboravite da se ljudi na internetu mogu pretvarati da su drugi.",
       "notRequestPersonal": "Bot ne traži osobne podatke i ne identificira korisnike pomoću bilo kojeg dokumenta.",
       "doYouFindLove": "Želite li pronaći ljubav, nove prijatelje ili samo laku komunikaciju?",
       "byContinuing": "Nastavkom prihvaćate",
+      "communityRules": "pravila zajednice",
       "and": "i",
       "privacyPolicy": "politika privatnosti",
       "isNewLike": "Postoji simpatija! Pogledaj u bot chatu"

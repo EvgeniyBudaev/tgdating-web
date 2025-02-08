@@ -40,10 +40,12 @@
       "isEmptyList": "Nebyl nalezen jediný člověk. Zkuste změnit nastavení filtru.",
       "appName": "Telegramová seznamka",
       "getStarted": "Začít",
+      "minRequiredAge": "Abyste mohli aplikaci používat, musíte být starší 18 let. Pokud je vám méně než 18 let, opusťte prosím aplikaci.",
       "remember": "Pamatujte, že lidé mohou na internetu předstírat, že jsou jiní.",
       "notRequestPersonal": "Robot nepožaduje osobní údaje a neidentifikuje uživatele pomocí žádného dokumentu.",
       "doYouFindLove": "Chcete najít lásku, nové přátele nebo jen snadnou komunikaci?",
       "byContinuing": "Pokračováním přijímáte",
+      "communityRules": "pravidla komunity",
       "and": "a",
       "privacyPolicy": "zásady ochrany osobních údajů",
       "isNewLike": "Jsou tam sympatie! Zobrazit v chatu robota"

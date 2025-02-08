@@ -40,10 +40,12 @@
       "isEmptyList": "Nem uma única pessoa foi encontrada. Tente alterar as configurações do filtro.",
       "appName": "Namoro por telegrama",
       "getStarted": "Começar",
+      "minRequiredAge": "Você deve ter pelo menos 18 anos para usar o aplicativo. Se você tem menos de 18 anos, deixe o aplicativo.",
       "remember": "Lembre-se de que as pessoas podem fingir ser outras na Internet.",
       "notRequestPersonal": "O bot não solicita dados pessoais e não identifica usuários por meio de nenhum documento.",
       "doYouFindLove": "Você quer encontrar o amor, novos amigos ou apenas uma comunicação fácil?",
       "byContinuing": "Ao continuar você aceita",
+      "communityRules": "regras da comunidade",
       "and": "e",
       "privacyPolicy": "política de privacidade",
       "isNewLike": "Existe simpatia! Ver no chat do bot"

@@ -40,10 +40,12 @@
       "isEmptyList": "한 사람도 발견되지 않았습니다. 필터 설정을 변경해 보세요.",
       "appName": "텔레그램 데이트",
       "getStarted": "시작하다",
+      "minRequiredAge": "애플리케이션을 사용하려면 18세 이상이어야 합니다. 18세 미만인 경우 신청서를 남겨주세요.",
       "remember": "사람들은 인터넷에서 다른 사람인 것처럼 가장할 수 있다는 점을 기억하세요.",
       "notRequestPersonal": "봇은 개인 데이터를 요청하지 않으며 문서를 사용하여 사용자를 식별하지 않습니다.",
       "doYouFindLove": "사랑, 새로운 친구, 아니면 단순한 의사소통을 원하시나요?",
       "byContinuing": "계속하면 동의하게 됩니다.",
+      "communityRules": "커뮤니티 규칙",
       "and": "그리고 dfgd",
       "privacyPolicy": "개인 정보 보호 정책",
       "isNewLike": "동정심이 있습니다! 봇 채팅에서 보기"

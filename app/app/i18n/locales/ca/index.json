@@ -40,10 +40,12 @@
       "isEmptyList": "No es va trobar ni una sola persona. Proveu de canviar la configuració del filtre.",
       "appName": "Cites de Telegram",
       "getStarted": "Comença",
+      "minRequiredAge": "Heu de tenir almenys 18 anys per utilitzar l'aplicació. Si tens menys de 18 anys, deixa la sol·licitud.",
       "remember": "Recordeu que les persones poden fingir ser altres a Internet.",
       "notRequestPersonal": "El bot no demana dades personals i no identifica els usuaris mitjançant cap document.",
       "doYouFindLove": "Vols trobar amor, nous amics o simplement una comunicació fàcil?",
       "byContinuing": "En continuar, acceptes",
+      "communityRules": "regles de la comunitat",
       "and": "i",
       "privacyPolicy": "política de privadesa",
       "isNewLike": "Hi ha simpatia! Veure al xat bot"

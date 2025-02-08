@@ -40,10 +40,12 @@
       "isEmptyList": "Er werd geen enkele persoon gevonden. Probeer uw filterinstellingen te wijzigen.",
       "appName": "Telegram-datering",
       "getStarted": "Beginnen",
+      "minRequiredAge": "Om de applicatie te gebruiken, moet u minimaal 18 jaar oud zijn. Als u jonger bent dan 18 jaar, verlaat dan de aanvraag.",
       "remember": "Houd er rekening mee dat mensen zich op internet kunnen voordoen als anderen.",
       "notRequestPersonal": "De bot vraagt geen persoonlijke gegevens op en identificeert geen gebruikers die een document gebruiken.",
       "doYouFindLove": "Wil je liefde vinden, nieuwe vrienden of gewoon gemakkelijke communicatie?",
       "byContinuing": "Door verder te gaan, accepteert u",
+      "communityRules": "gemeenschapsregels",
       "and": "en dfgd",
       "privacyPolicy": "privacybeleid",
       "isNewLike": "Er is sympathie! Bekijk in botchat"
