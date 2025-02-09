@@ -241,82 +241,58 @@ const AgreementPageComponent: FC<TProps> = ({ lng }) => {
         </div>
         <div className="AgreementPage-Block">
           <Typography>
-            or you are violating this Agreement and other @wefatebot rules.
+            <Typography>{t("page.text.63")}</Typography>
           </Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            THIRD PARTY CONTENT
+            {t("page.text.64").toUpperCase()}
           </Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>
-            If during the use of the Bot, the user profiles contain (or may
-            contain) links to sites on the Internet (third-party sites) as well
-            as articles, photographs, illustrations, graphic images, music,
-            sounds, videos, information, applications, programs, and other
-            content belonging to or originating from third parties (Third Party
-            Content). These third parties and their content are not verified by
-            the Service for compliance with any particular requirements (e.g.,
-            accuracy, completeness, legality, etc.). The Service is not
-            responsible for any information posted on third-party sites that
-            users access via links in user profiles or Third Party Content.
-            Users interact with Third Party Content at their own discretion and
-            risk.
+            {t("page.text.66")}
           </Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>
-            If any Third Party Content violates your rights or appears to be
-            unlawful, you may contact the Service for review and potential
-            action, but the final responsibility lies with the creator or owner
-            of the Third Party Content.
+            {t("page.text.67")}
           </Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            COOPERATION WITH LAW ENFORCEMENT AGENCIES
+            {t("page.text.68").toUpperCase()}
           </Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>
-            The Service cooperates with law enforcement agencies and other
-            authorized organizations strictly within the framework of applicable
-            laws and regulations. Requests for user data or other information
-            must comply with the following requirements:
+            {t("page.text.69")}
           </Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>1. Submission of Requests:</Typography>
+          <Typography>1.&nbsp;{t("page.text.70")}</Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>
-            1.1 Requests must be sent from an official email address belonging
-            to the requesting law enforcement agency to the designated email:
-            budaev.e@gmail.com
+            1.1&nbsp;{t("page.text.71")}
           </Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>
-            1.2 The request must include the name and position of the requesting
-            officer, the purpose and scope of the request, and relevant
-            documentation, such as a court order or other legal authorization.
+            1.2&nbsp;{t("page.text.72")}
           </Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>
-            1.3 The email must also provide a Telegram contact for prompt
-            communication with the requesting officer, if needed.
+            1.3&nbsp;{t("page.text.73")}
           </Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>2. Verification of Requests:</Typography>
+          <Typography>2.&nbsp;{t("page.text.74")}</Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>
-            2.1 The Service reserves the right to verify the authenticity of the
-            request by contacting the requesting agency through publicly
-            available official channels.
+            2.1&nbsp;{t("page.text.75")}
           </Typography>
         </div>
         <div className="AgreementPage-Block">

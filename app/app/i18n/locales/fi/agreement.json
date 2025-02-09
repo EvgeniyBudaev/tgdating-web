@@ -62,7 +62,19 @@
       "59": "ja/tai profiilisi käyttö on oikeustoimien, tutkimusten tai hallituksen menettelyjen kohteena;",
       "60": "ja/tai uskomme, että @wefatebotin käyttöäsi koskevien lakien tai säännösten noudattamatta jättämisen riski on lisääntynyt;",
       "61": "ja/tai palvelukumppanimme eivät voi tukea palvelun käyttöäsi;",
-      "62": "ja/tai ryhdyt toimiin, jotka oman harkintamme mukaan kierrät vahvistamiamme sääntöjä ja valvontaa, mukaan lukien, mutta ei rajoittuen, useiden profiilien avaaminen tai kampanjoiden väärinkäyttö, joita @wefatebot saattaa ajoittain tarjota;"
+      "62": "ja/tai ryhdyt toimiin, jotka oman harkintamme mukaan kierrät vahvistamiamme sääntöjä ja valvontaa, mukaan lukien, mutta ei rajoittuen, useiden profiilien avaaminen tai kampanjoiden väärinkäyttö, joita @wefatebot saattaa ajoittain tarjota;",
+      "63": "tai rikot tätä sopimusta ja muita @wefatebotin sääntöjä.",
+      "64": "Kolmannen osapuolen sisältö",
+      "66": "Jos Botin käytön aikana käyttäjäprofiilit sisältävät (tai voivat sisältää) linkkejä Internetin sivustoille (kolmannen osapuolen sivustot) sekä artikkeleita, valokuvia, piirroksia, graafisia kuvia, musiikkia, ääniä, videoita, tietoja, sovelluksia, ohjelmia ja muuta sisältöä, joka kuuluu tai on peräisin kolmansilta osapuolilta (Third PartyvContent). Palvelu ei tarkista näiden kolmansien osapuolien ja niiden sisällön noudattamista tiettyjen vaatimusten (esim. tarkkuus, täydellisyys, laillisuus jne.) osalta. Palvelu ei ole vastuussa mistään tiedoista, jotka on julkaistu kolmansien osapuolien sivustoilla, joihin käyttäjät pääsevät käyttäjäprofiilien linkkien tai kolmannen osapuolen sisällössä. Käyttäjät ovat vuorovaikutuksessa kolmannen osapuolen sisällön kanssa oman harkintansa mukaan ja omalla riskillään.",
+      "67": "Jos mikä tahansa kolmannen osapuolen sisältö loukkaa oikeuksiasi tai vaikuttaa laittomalta, voit ottaa yhteyttä Palveluun tarkastelua ja mahdollisia toimia varten, mutta lopullinen vastuu on kolmannen osapuolen sisällön luojalla tai omistajalla.",
+      "68": "Yhteistyö lainvalvontaviranomaisten kanssa",
+      "69": "Palvelu tekee yhteistyötä lainvalvontaviranomaisten ja muiden valtuutettujen organisaatioiden kanssa tiukasti sovellettavien lakien ja määräysten puitteissa. Käyttäjätietoja tai muita tietoja koskevien pyyntöjen on täytettävä seuraavat vaatimukset:",
+      "70": "Pyyntöjen lähettäminen:",
+      "71": "Pyynnöt tulee lähettää pyynnön esittäneen lainvalvontaviranomaisen virallisesta sähköpostiosoitteesta osoitettuun sähköpostiosoitteeseen: budaev.e@gmail.com",
+      "72": "Pyynnön on sisällettävä pyynnön esittäneen virkailijan nimi ja asema, pyynnön tarkoitus ja laajuus sekä asiaankuuluvat asiakirjat, kuten oikeuden määräys tai muu laillinen valtuutus.",
+      "73": "Sähköpostissa on myös oltava Telegram-yhteyshenkilö, joka mahdollistaa nopean yhteydenpidon pyynnön esittäneen virkailijan kanssa tarvittaessa.",
+      "74": "Pyyntöjen vahvistaminen",
+      "75": "Palvelu varaa oikeuden tarkistaa pyynnön aitous ottamalla yhteyttä pyynnön esittäneeseen tahoon julkisesti saatavilla olevia virallisia kanavia pitkin."
     }
   }
 }
