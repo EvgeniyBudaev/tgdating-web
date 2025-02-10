@@ -74,7 +74,21 @@
       "72": "Pyynnön on sisällettävä pyynnön esittäneen virkailijan nimi ja asema, pyynnön tarkoitus ja laajuus sekä asiaankuuluvat asiakirjat, kuten oikeuden määräys tai muu laillinen valtuutus.",
       "73": "Sähköpostissa on myös oltava Telegram-yhteyshenkilö, joka mahdollistaa nopean yhteydenpidon pyynnön esittäneen virkailijan kanssa tarvittaessa.",
       "74": "Pyyntöjen vahvistaminen",
-      "75": "Palvelu varaa oikeuden tarkistaa pyynnön aitous ottamalla yhteyttä pyynnön esittäneeseen tahoon julkisesti saatavilla olevia virallisia kanavia pitkin."
+      "75": "Palvelu varaa oikeuden tarkistaa pyynnön aitous ottamalla yhteyttä pyynnön esittäneeseen tahoon julkisesti saatavilla olevia virallisia kanavia pitkin.",
+      "76": "Pyynnöt, jotka eivät täytä näitä vaatimuksia, voidaan lykätä tai hylätä.",
+      "77": "Tietojen luovuttamisen rajoitukset:",
+      "78": "Palvelu luovuttaa vain vähimmäismäärän tietoja, jotka ovat tarpeen laillisen pyynnön täyttämiseksi.",
+      "79": "Palvelu voi lain niin salliessa ja salassapitomääräyksen puuttuessa ilmoittaa käyttäjälle, jonka tietoja pyydetään.",
+      "80": "Hätätilanteet:",
+      "81": "Kiireellisissä tapauksissa, joissa on välitöntä haittaa tai uhka yleiselle turvallisuudelle, Palvelu voi nopeuttaa pyyntöjen käsittelyä. Tällaiset pyynnöt on silti esitettävä virallisesti ja perusteltava.",
+      "82": "Loppusäännökset",
+      "83": "Tässä sopimuksessa käytettyjen termien merkitykset määräytyvät asianomaisen lainkäyttöalueen lakien mukaisesti, ellei nimenomaisesti toisin mainita. Jos jokin tämän sopimuksen ehto todetaan pätemättömäksi tai täytäntöönpanokelvottomaksi, se ei vaikuta muiden ehtojen pätevyyteen tai täytäntöönpanokelpoisuuteen.",
+      "84": "Alle 18-vuotiaiden käyttäjien on ilmoitettava laillisille edustajilleen rekisteröitymisestä ja Palvelun käytöstä. Palvelu ei ota vastuuta tällaisen ilmoituksen toimittamisesta.",
+      "85": "Vastuu Palvelua käyttävien alaikäisten toimista on täysin heidän laillisilla edustajilla. Rekisteröitymällä tai sallimalla alaikäisen käyttää Palvelua lailliset edustajat vahvistavat suostumuksensa tähän sopimukseen ja ottavat täyden vastuun sen ehtojen noudattamisesta.",
+      "86": "Palvelu varaa oikeuden luovuttaa tai siirtää tämän Sopimuksen mukaiset oikeutensa ja velvollisuutensa kolmannelle osapuolelle ilman ennakkoilmoitusta edellyttäen, että siirtäminen ei vaikuta haitallisesti Käyttäjän oikeuksiin.",
+      "87": "Hyväksymällä tämän sopimuksen hyväksyt, että kaikki viestintä, ilmoitukset ja sopimukset toimitetaan sähköisesti, jos se on lain mukaan sallittua.",
+      "88": "Tämä sopimus muodostaa osapuolten välisen koko sopimuksen Palvelun käytöstä ja syrjäyttää kaikki aiemmat kirjalliset tai suulliset sopimukset tai yhteisymmärrykset, jotka liittyvät sen aiheeseen.",
+      "89": "Jos sinulla on kysyttävää tai huolenaiheita tästä sopimuksesta, ota meihin yhteyttä @wafatehelp."
     }
   }
 }

@@ -297,94 +297,68 @@ const AgreementPageComponent: FC<TProps> = ({ lng }) => {
         </div>
         <div className="AgreementPage-Block">
           <Typography>
-            2.2 Requests that fail to meet these requirements may be delayed or
-            rejected.
+            2.2&nbsp;{t("page.text.76")}
           </Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>3. Limitations on Data Disclosure:</Typography>
+          <Typography>3.&nbsp;{t("page.text.77")}</Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>
-            3.1 The Service will disclose only the minimum amount of data
-            necessary to fulfill the legal request.
+            3.1&nbsp;{t("page.text.78")}
           </Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>
-            3.2 Where permissible by law and in the absence of a confidentiality
-            order, the Service may notify the user whose data is being
-            requested.
+            3.2&nbsp;{t("page.text.79")}
           </Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>4. Emergency Situations:</Typography>
+          <Typography>4.&nbsp;{t("page.text.80")}</Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>
-            4.1 In urgent cases involving imminent harm or threats to public
-            safety, the Service may expedite processing of requests. Such
-            requests must still be formally submitted and justified.
+            4.1&nbsp;{t("page.text.81")}
           </Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            FINAL PROVISIONS
+            {t("page.text.82").toUpperCase()}
           </Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>
-            The meanings of terms used in this Agreement are determined in
-            accordance with the laws of the relevant jurisdiction, unless
-            explicitly stated otherwise. If any provision of this Agreement is
-            found to be invalid or unenforceable, this will not affect the
-            validity or enforceability of the remaining provisions.
+            {t("page.text.83")}
           </Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>
-            Users under the age of 18 are required to inform their legal
-            representatives about their registration and use of the Service. The
-            Service does not assume responsibility for ensuring that such
-            notification is provided.
+            {t("page.text.84")}
           </Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>
-            The responsibility for the actions of minors using the Service lies
-            entirely with their legal representatives. By registering or
-            allowing a minor to use the Service, legal representatives confirm
-            their consent to this Agreement and take full responsibility for
-            ensuring compliance with its terms.
+            {t("page.text.85")}
           </Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>
-            The Service reserves the right to assign or transfer its rights and
-            obligations under this Agreement to a third party without prior
-            notice, provided that such assignment does not adversely affect the
-            rights of the User.
+            {t("page.text.86")}
           </Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>
-            By accepting this Agreement, you agree that all communications,
-            notices, and agreements will be delivered electronically where
-            legally permissible.
+            {t("page.text.87")}
           </Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>
-            This Agreement constitutes the entire understanding between the
-            parties concerning the use of the Service and supersedes all prior
-            agreements or understandings, whether written or oral, relating to
-            its subject matter.
+            {t("page.text.88")}
           </Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>
-            If you have any questions or concerns about this Agreement, please
-            contact us at @wafatehelp.
+            {t("page.text.89")}
           </Typography>
         </div>
         <div className="AgreementPage-Control">

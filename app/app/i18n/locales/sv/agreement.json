@@ -74,7 +74,21 @@
       "72": "Begäran måste innehålla den begärande tjänstemannens namn och befattning, syftet med och omfattningen av begäran samt relevant dokumentation, såsom ett domstolsbeslut eller annan juridisk auktorisation.",
       "73": "E-postmeddelandet måste också tillhandahålla en Telegram-kontakt för snabb kommunikation med den begärande tjänstemannen, om det behövs.",
       "74": "Verifiering av förfrågningar",
-      "75": "Tjänsten förbehåller sig rätten att verifiera begärans äkthet genom att kontakta den begärande byrån via offentligt tillgängliga officiella kanaler."
+      "75": "Tjänsten förbehåller sig rätten att verifiera begärans äkthet genom att kontakta den begärande byrån via offentligt tillgängliga officiella kanaler.",
+      "76": "Förfrågningar som inte uppfyller dessa krav kan försenas eller avslås.",
+      "77": "Begränsningar för informationsutlämnande:",
+      "78": "Tjänsten kommer endast att avslöja den minsta mängd data som krävs för att uppfylla den juridiska begäran.",
+      "79": "Där det är tillåtet enligt lag och i avsaknad av ett sekretessorder kan Tjänsten meddela den användare vars uppgifter begärs.",
+      "80": "Nödsituationer:",
+      "81": "I brådskande fall som involverar överhängande skada eller hot mot allmän säkerhet kan Tjänsten påskynda behandlingen av förfrågningar. Sådana ansökningar måste fortfarande lämnas in formellt och motiveras.",
+      "82": "Slutbestämmelser",
+      "83": "Innebörden av termer som används i detta avtal bestäms i enlighet med lagarna i den relevanta jurisdiktionen, om inte annat uttryckligen anges. Om någon bestämmelse i detta avtal visar sig vara ogiltig eller omöjlig att verkställa, kommer detta inte att påverka giltigheten eller verkställbarheten av de återstående bestämmelserna.",
+      "84": "Användare under 18 år måste informera sina juridiska ombud om sin registrering och användning av tjänsten. Tjänsten tar inget ansvar för att säkerställa att sådan underrättelse ges.",
+      "85": "Ansvaret för minderårigas handlingar som använder tjänsten ligger helt och hållet på deras juridiska ombud. Genom att registrera eller tillåta en minderårig att använda tjänsten bekräftar juridiska representanter sitt samtycke till detta avtal och tar fullt ansvar för att säkerställa efterlevnad av dess villkor.",
+      "86": "Tjänsten förbehåller sig rätten att överlåta eller överföra sina rättigheter och skyldigheter enligt detta avtal till en tredje part utan föregående meddelande, förutsatt att en sådan överlåtelse inte negativt påverkar Användarens rättigheter.",
+      "87": "Genom att acceptera detta avtal godkänner du att all kommunikation, meddelanden och avtal kommer att levereras elektroniskt där det är lagligt tillåtet.",
+      "88": "Detta avtal utgör hela överenskommelsen mellan parterna angående användningen av Tjänsten och ersätter alla tidigare avtal eller överenskommelser, vare sig de är skriftliga eller muntliga, relaterade till dess ämne.",
+      "89": "Om du har några frågor eller funderingar om detta avtal, vänligen kontakta oss på @wafatehelp."
     }
   }
 }

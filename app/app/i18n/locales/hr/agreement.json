@@ -74,7 +74,21 @@
       "72": "Zahtjev mora sadržavati ime i položaj službenika koji podnosi zahtjev, svrhu i opseg zahtjeva te relevantnu dokumentaciju, poput sudskog naloga ili drugog zakonskog ovlaštenja.",
       "73": "E-pošta također mora sadržavati Telegram kontakt za brzu komunikaciju sa službenikom koji podnosi zahtjev, ako je potrebno.",
       "74": "Provjera zahtjeva",
-      "75": "Služba zadržava pravo provjere vjerodostojnosti zahtjeva kontaktiranjem agencije podnositelja putem javno dostupnih službenih kanala."
+      "75": "Služba zadržava pravo provjere vjerodostojnosti zahtjeva kontaktiranjem agencije podnositelja putem javno dostupnih službenih kanala.",
+      "76": "Zahtjevi koji ne ispunjavaju ove zahtjeve mogu biti odgođeni ili odbijeni.",
+      "77": "Ograničenja otkrivanja podataka:",
+      "78": "Usluga će otkriti samo minimalnu količinu podataka potrebnu za ispunjenje pravnog zahtjeva.",
+      "79": "Gdje je to dopušteno zakonom i u nedostatku naloga o povjerljivosti, Usluga može obavijestiti korisnika čiji se podaci traže.",
+      "80": "Hitne situacije:",
+      "81": "U hitnim slučajevima koji uključuju neposrednu štetu ili prijetnje javnoj sigurnosti, Usluga može ubrzati obradu zahtjeva. Takvi zahtjevi ipak moraju biti službeno podneseni i obrazloženi.",
+      "82": "Završne odredbe",
+      "83": "Značenja pojmova korištenih u ovom Ugovoru određena su u skladu sa zakonima relevantne jurisdikcije, osim ako nije izričito navedeno drugačije. Ako se utvrdi da je bilo koja odredba ovog Ugovora nevaljana ili neprovediva, to neće utjecati na valjanost ili provedivost preostalih odredbi.",
+      "84": "Korisnici mlađi od 18 godina dužni su obavijestiti svoje zakonske zastupnike o svojoj registraciji i korištenju Usluge. Usluga ne preuzima odgovornost za osiguranje pružanja takve obavijesti.",
+      "85": "Odgovornost za postupke maloljetnika koji koriste uslugu u potpunosti snose njihovi zakonski zastupnici. Registracijom ili dopuštanjem maloljetnoj osobi da koristi uslugu, pravni zastupnici potvrđuju svoju suglasnost s ovim Ugovorom i preuzimaju punu odgovornost za osiguravanje poštivanja njegovih uvjeta.",
+      "86": "Usluga zadržava pravo ustupiti ili prenijeti svoja prava i obveze iz ovog Ugovora na treću stranu bez prethodne obavijesti, pod uvjetom da takav prijenos ne utječe negativno na prava Korisnika.",
+      "87": "Prihvaćanjem ovog Ugovora slažete se da će se sva komunikacija, obavijesti i ugovori dostavljati elektroničkim putem gdje je to zakonski dopušteno.",
+      "88": "Ovaj Ugovor predstavlja cjelovito razumijevanje između strana u vezi s korištenjem usluge i zamjenjuje sve prethodne ugovore ili dogovore, pismene ili usmene, koji se odnose na njegov predmet.",
+      "89": "Ako imate bilo kakvih pitanja ili nedoumica u vezi s ovim Ugovorom, kontaktirajte nas na @wafatehelp."
     }
   }
 }
