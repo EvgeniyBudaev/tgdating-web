@@ -90,5 +90,10 @@
       "88": "Este Acuerdo constituye el entendimiento completo entre las partes con respecto al uso del Servicio y reemplaza todos los acuerdos o entendimientos anteriores, ya sean escritos u orales, relacionados con su tema.",
       "89": "Si tiene alguna pregunta o inquietud sobre este Acuerdo, contáctenos en @wafatehelp."
     }
+  },
+  "common": {
+    "actions": {
+      "ok": "De acuerdo"
+    }
   }
 }

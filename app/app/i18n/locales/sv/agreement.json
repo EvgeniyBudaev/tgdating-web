@@ -90,5 +90,10 @@
       "88": "Detta avtal utgör hela överenskommelsen mellan parterna angående användningen av Tjänsten och ersätter alla tidigare avtal eller överenskommelser, vare sig de är skriftliga eller muntliga, relaterade till dess ämne.",
       "89": "Om du har några frågor eller funderingar om detta avtal, vänligen kontakta oss på @wafatehelp."
     }
+  },
+  "common": {
+    "actions": {
+      "ok": "Ok"
+    }
   }
 }

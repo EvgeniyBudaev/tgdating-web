@@ -1,0 +1,42 @@
+{
+  "page": {
+    "text": {
+      "1": "Zásady ochrany osobních údajů",
+      "2": "Obecná ustanovení",
+      "3": "Tyto zásady ochrany osobních údajů se vztahují na všechny informace zveřejněné v Telegram-bot @wefatebot (Společnost, „Poskytovatel služeb“, „My“), které mohou návštěvníci robota (dále „Uživatelé“, „Vy“) poskytnout/obdržet při jeho používání.",
+      "4": "Poskytovatel služeb v souladu s platnými právními požadavky zajišťuje důvěrnost údajů a provádění vhodných technických a organizačních opatření k ochraně údajů před neoprávněným přístupem, zveřejněním, náhodným zpracováním, změnou, zničením nebo jiným nezákonným zpracováním.",
+      "5": "Tyto Zásady ochrany osobních údajů stanovují naše aktuální zásady ochrany údajů a ochrany osobních údajů a povinnosti. V souladu s tím se snažíme shromažďovat a zpracovávat pouze údaje, které jsou nezbytně nutné v kontextu našich vztahů se zákazníky, partnery, uživateli/návštěvníky naší služby a online zdrojů, abychom mohli poskytovat služby a/nebo informace pro konkrétní a legitimní účely.",
+      "6": "Naše zásady ochrany osobních údajů zveřejňujeme v telegramovém botě @wefatebot v jeho nejnovější verzi. Přečtěte si jej prosím pozorně. Přístupem a používáním tohoto robota potvrzujete, že jste si přečetli tyto zásady ochrany osobních údajů, porozuměli jim a souhlasíte s nimi.",
+      "7": "Tyto zásady ochrany osobních údajů jsou nedílnou součástí uživatelské smlouvy zveřejněné v telegramovém botě @wefatebot a je nutné si je přečíst, abyste mohli službu používat.",
+      "8": "Poskytovatel služeb si vyhrazuje právo dle vlastního uvážení kdykoli změnit tyto Zásady ochrany osobních údajů zveřejněním aktualizované verze Zásad ochrany osobních údajů v Telegram-Bot @wefatebot, a pokud jsou změny významné, upozorní na to uživatele. Upravená nebo aktualizovaná verze těchto Zásad ochrany osobních údajů vstupuje v platnost okamžikem, kdy je zveřejněna v Botu. Pokračováním v používání Služby vyjadřuje Uživatel souhlas s aktualizovanými Zásadami ochrany osobních údajů.",
+      "9": "Služba je založena na algoritmech aplikace Telegram, proto si také přečtěte Podmínky použití a Zásady ochrany osobních údajů Telegramu.",
+      "10": "Informace, které o vás shromažďujeme",
+      "11": "Hlavním účelem, pro který poskytovatel služeb shromažďuje vaše údaje, je poskytovat vám služby pro používání telegramového bota @wefatebot (dále jen služby). Abychom mohli využívat a zlepšovat naše služby, potřebujeme v procesu poskytování našich služeb o vás shromažďovat osobní údaje.",
+      "12": "Poskytovatel služeb o vás bude shromažďovat a zpracovávat následující údaje:",
+      "13": "Údaje, které nám poskytujete: Při registraci k používání našich Služeb nám o sobě poskytujete následující údaje: přezdívku, pohlaví, věk, orientaci, město, ve kterém se chcete seznámit, jazyk, ve kterém bude služba provozována. Informace mohou také zahrnovat odkaz na osobní profil, ID osobního účtu v telegramovém messengeru a jazyk telegramového messengeru. Kromě toho se jedná o informace, které poskytujete dalším používáním našich Služeb, účastí v propagační akci nebo průzkumu a také hlášením problémů s našimi Službami.",
+      "14": "Informace, které o vás shromažďujeme: Poskytovatel služeb může automaticky shromažďovat následující informace:",
+      "15": "Technické informace, včetně vašich registračních údajů, operačního systému a údajů o zařízení.",
+      "16": "Podrobnosti o transakcích, které provádíte při používání našich služeb.",
+      "17": "Video materiály pro účely ověření: Pro vysoce rizikové uživatele můžeme v rámci procesu ověření shromažďovat video materiály. Tato videa slouží výhradně k potvrzení pravosti profilu uživatele, prevenci podvodů a zvýšení bezpečnosti služeb. Kritéria pro identifikaci vysoce rizikových profilů jsou interní a nepodléhají zveřejnění, což zajišťuje, že bezpečnostní opatření zůstanou účinná proti zneužití nebo manipulaci.",
+      "18": "Informace z jiných zdrojů: Poskytovatel služeb o vás může obdržet informace, pokud používáte některou z námi spravovaných webových stránek nebo jiné služby, které poskytujeme.",
+      "19": "Souhlasíte s tím, že máme právo, ale nejsme povinni uchovávat všechny shromážděné osobní údaje po celou dobu vašeho používání našich Služeb a po dobu stanovenou zákonem, ne však déle než 5 (pět) let. Doba uchovávání může být prodloužena na dobu nepřesahující 1 (jeden) rok, pokud o to příslušný orgán požádá.",
+      "20": "El Proveedor de Servicios no procesa intencionalmente los datos de menores. El Proveedor de Servicios recomienda el uso del Bot a personas mayores de 18 años. La responsabilidad de las acciones de los menores, incluida la compra de servicios por parte de ellos, recae en los representantes legales de los menores. Todos los visitantes menores de 18 años deben obtener el permiso de sus representantes legales antes de proporcionar cualquier información sobre sí mismos. Si el Proveedor de Servicios se da cuenta de que ha recibido información sobre un menor sin el consentimiento de los representantes legales, dicha información se eliminará lo antes posible.",
+      "21": "Cómo protegemos su información",
+      "22": "Poskytovatel služeb uchovává vaše osobní údaje v bezpečí pomocí zabezpečeného úložiště se šifrováním v souladu s průmyslovými standardy a zavedli jsme řadu bezpečnostních opatření, abychom zajistili, že vaše informace nebudou ztraceny, zneužity nebo pozměněny, včetně, ale nikoli omezeně na následující:",
+      "23": "Fyzická opatření:",
+      "24": "Fyzická média obsahující vaše data budou uložena v interiéru, používají se také speciální fyzické prostředky ochrany informací (okolní venkovní ploty, kamerový systém, systém kontroly přístupu pomocí odznaků a biometrický systém rozpoznávání, včetně infračervené ochrany hranic areálu).",
+      "25": "Elektronická opatření:",
+      "26": "Data budou uložena v počítačových systémech a na fyzických nosičích dat, které jsou vynuceny přísnými omezeními vstupu.",
+      "27": "Manažerská opatření:",
+      "28": "Úrovně přístupu jsou odděleny tak, aby s vašimi údaji mohli přijít do styku pouze oprávnění zaměstnanci, a tito zaměstnanci se zavázali dodržovat naše interní pravidla ochrany osobních údajů.",
+      "29": "Technická opatření:",
+      "30": "K přenosu a ukládání vašich dat lze použít šifrovací technologii. Používáme různé aktuálně dostupné bezpečnostní technologie a kontroly, abychom minimalizovali riziko, že vaše data mohou být prozrazena, poškozena, zneužita, získána bez povolení, zveřejněna bez povolení nebo změněna. Naše technické bezpečnostní týmy aktivně monitorují abnormální a škodlivé aktivity na našich serverech a službách.",
+      "31": "Další opatření:",
+      "32": "Snažíme se chránit vaše informace před neoprávněným přístupem, úpravou, zveřejněním nebo zničením údajů, které shromažďujeme a uchováváme.",
+      "33": "Přijímáme různá opatření k zajištění bezpečnosti informací, včetně:",
+      "34": "Šifrování našich zpráv s vámi;",
+      "35": "Pravidelná analýza našich metod sběru, ukládání a zpracování dat;",
+      "36": "Omezený přístup k vašim údajům na základě nezbytných znalostí pro naše zaměstnance a dodavatele, kteří podléhají přísným smluvním závazkům mlčenlivosti."
+    }
+  }
+}

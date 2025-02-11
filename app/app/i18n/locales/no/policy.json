@@ -1,0 +1,42 @@
+{
+  "page": {
+    "text": {
+      "1": "Personvernerklæring",
+      "2": "Generelle bestemmelser",
+      "3": "Denne personvernerklæringen for personopplysninger gjelder for all informasjon som er lagt ut i Telegram-bot @wefatebot (Selskapet, \"Tjenesteleverandøren\", \"Vi\"), som besøkende til boten (\"Brukerne\", \"Du\") kan gi/motta mens de bruker den.",
+      "4": "Tjenesteleverandøren, i samsvar med gjeldende lovkrav, sikrer konfidensialitet av data og implementering av passende tekniske og organisatoriske tiltak for å beskytte data mot uautorisert tilgang, avsløring, utilsiktet oss, endring, ødeleggelse eller annen ulovlig behandling.",
+      "5": "Denne personvernerklæringen angir vår gjeldende databeskyttelse og personvernerklæring og forpliktelser. Følgelig bestreber vi oss på å samle inn og behandle kun data som er strengt nødvendig i forbindelse med våre forhold til kunder, partnere, brukere/besøkende av tjenesten vår og nettressurser, for å tilby tjenester og/eller informasjon for spesifikke og legitime formål.",
+      "6": "Vi legger ut personvernreglene våre i Telegram-boten @wefatebot i sin nyeste versjon. Vennligst les den nøye. Ved å få tilgang til og bruke denne boten bekrefter du at du har lest, forstått og godtatt denne personvernerklæringen.",
+      "7": "Denne personvernerklæringen er en integrert del av brukeravtalen publisert i Telegram-boten @wefatebot og må leses for å bruke tjenesten.",
+      "8": "Tjenesteleverandøren forbeholder seg retten, etter eget skjønn, til å endre denne personvernerklæringen når som helst ved å publisere en oppdatert versjon av personvernreglene i Telegram-Bot @wefatebot og, hvis endringene er betydelige, varsle brukerne om det. En modifisert eller oppdatert versjon av denne personvernerklæringen trer i kraft fra det øyeblikket den er publisert i boten. Ved å fortsette å bruke tjenesten godtar brukeren den oppdaterte personvernerklæringen.",
+      "9": "Tjenesten er basert på algoritmene til Telegram-applikasjonen, så se også Telegrams vilkår for bruk og personvernerklæring.",
+      "10": "Informasjonen vi samler inn om deg",
+      "11": "Hovedformålet som tjenesteleverandøren samler inn dataene dine for er å gi deg tjenester for bruk av Telegram-boten @wefatebot (heretter referert til som tjenestene). I prosessen med å tilby våre tjenester til deg, for å kunne bruke og forbedre tjenestene våre, må vi samle inn personopplysninger om deg.",
+      "12": "Tjenesteleverandøren vil samle inn og behandle følgende data om deg:",
+      "13": "Informasjon som du gir oss: Du gir oss følgende informasjon om deg selv under registreringsprosessen for å bruke tjenestene våre: kallenavn, kjønn, alder, legning, byen du ønsker å bli kjent med, språket tjenesten skal drives på. Informasjonen kan også inkludere en lenke til en personlig profil, en personlig konto-ID i Telegram Messenger og språket til Telegram Messenger. I tillegg er dette informasjon du oppgir ved å fortsette å bruke tjenestene våre, delta i en kampanje eller undersøkelse, samt rapportere problemer med tjenestene våre.",
+      "14": "Informasjon vi samler inn om deg: Tjenesteleverandøren kan automatisk samle inn følgende informasjon:",
+      "15": "Teknisk informasjon, inkludert registreringsdata, operativsystem og enhetsdata.",
+      "16": "Detaljer om transaksjonene du gjør når du bruker våre tjenester.",
+      "17": "Videomateriale for verifiseringsformål: For brukere med høy risiko kan vi samle inn videomateriale som en del av bekreftelsesprosessen. Disse videoene brukes utelukkende for å bekrefte ektheten til brukerens profil, forhindre svindel og forbedre tjenestesikkerheten. Kriteriene for å identifisere høyrisikoprofiler er interne og ikke gjenstand for avsløring, noe som sikrer at sikkerhetstiltak forblir effektive mot misbruk eller manipulasjon.",
+      "18": "Informasjon fra andre kilder: Tjenesteleverandøren kan motta informasjon om deg hvis du bruker noen av nettsidene vi administrerer eller andre tjenester vi tilbyr.",
+      "19": "Du samtykker i at vi har rett til, men er ikke forpliktet til å lagre all innsamlet personlig informasjon i hele perioden for din bruk av tjenestene våre og i en periode som er foreskrevet av loven, men ikke mer enn 5 (fem) år. Lagringsperioden kan forlenges med en periode på ikke over 1 (ett) år, dersom det foreligger en begrunnet anmodning fra vedkommende myndighet.",
+      "20": "Tjenesteleverandøren behandler ikke data fra mindreårige med hensikt. Tjenesteleverandøren anbefaler å bruke boten til personer over 18 år. Ansvaret for mindreåriges handlinger, inkludert kjøp av tjenester av dem, ligger hos mindreåriges juridiske representanter. Alle besøkende under 18 år må innhente tillatelse fra sine juridiske representanter før de oppgir informasjon om seg selv. Dersom Tjenesteyter blir oppmerksom på at han har mottatt informasjon om en mindreårig uten samtykke fra juridiske representanter, vil slike opplysninger bli slettet så snart som mulig.",
+      "21": "Hvordan vi beskytter informasjonen din",
+      "22": "Tjenesteleverandøren holder din personlige informasjon sikker ved å bruke sikker lagring med kryptering i henhold til industristandarder, og vi har implementert en rekke sikkerhetstiltak for å sikre at informasjonen din ikke går tapt, misbrukes eller endres, inkludert, men ikke begrenset til følgende:",
+      "23": "Fysiske tiltak:",
+      "24": "De fysiske mediene som inneholder dataene dine vil bli lagret innendørs, også spesielle fysiske midler for beskyttelse av informasjon (omkringliggende ytre gjerder, videoovervåkingssystem, adgangskontrollsystem som bruker merker og biometrisk gjenkjenningssystem, inkludert infrarød beskyttelse av områdegrenser) brukes.",
+      "25": "Elektroniske tiltak:",
+      "26": "Dataene vil bli lagret i datasystemer og på fysiske databærere, som håndheves av strenge adgangsbegrensninger.",
+      "27": "Ledelsestiltak:",
+      "28": "Tilgangsnivåer er atskilt slik at kun autoriserte ansatte har lov til å komme i kontakt med dataene dine, og slike ansatte har forpliktet seg til å overholde våre interne regler for personvern.",
+      "29": "Tekniske tiltak:",
+      "30": "Krypteringsteknologi kan brukes til å overføre og lagre dataene dine. Vi bruker ulike sikkerhetsteknologier og kontroller som for øyeblikket er tilgjengelige for å minimere risikoen for at dataene dine kan bli avslørt, ødelagt, misbrukt, innhentet uten tillatelse, avslørt uten tillatelse eller endret. Våre tekniske sikkerhetsteam overvåker aktivt unormal og ondsinnet aktivitet på våre servere og tjenester.",
+      "31": "Andre tiltak:",
+      "32": "Vi bestreber oss på å beskytte informasjonen din mot uautorisert tilgang, modifikasjon, avsløring eller ødeleggelse av dataene vi samler inn og lagrer.",
+      "33": "Vi iverksetter ulike tiltak for å sikre informasjonssikkerhet, inkludert:",
+      "34": "Kryptering av meldingene våre med deg;",
+      "35": "Periodisk analyse av våre datainnsamlings-, lagrings- og behandlingsmetoder;",
+      "36": "Begrenset tilgang til dine data basert på nødvendig kunnskap for våre ansatte og leverandører, som er underlagt strenge kontraktsmessige konfidensialitetsforpliktelser."
+    }
+  }
+}

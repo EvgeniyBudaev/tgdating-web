@@ -1,0 +1,42 @@
+{
+  "page": {
+    "text": {
+      "1": "Adatvédelmi szabályzat",
+      "2": "Általános rendelkezések",
+      "3": "A személyes adatokra vonatkozó jelen adatvédelmi szabályzat minden olyan információra vonatkozik, amelyet a Telegram-bot @wefatebot (Vállalat, a „Szolgáltató”, „Mi”) közzé tesznek, és amelyet a bot látogatói (a „Felhasználók”, „Ön”) a használata során szolgáltathatnak/kaphatnak.",
+      "4": "A Szolgáltató a hatályos jogszabályi előírásoknak megfelelően gondoskodik az adatok bizalmas kezeléséről, valamint a megfelelő technikai és szervezési intézkedések megtételéről, hogy megvédje az adatokat a jogosulatlan hozzáféréstől, nyilvánosságra hozataltól, véletlen átadástól, megváltoztatástól, megsemmisítéstől vagy egyéb jogellenes kezeléstől.",
+      "5": "Ez az adatvédelmi szabályzat meghatározza jelenlegi adatvédelmi és adatvédelmi szabályzatunkat és kötelezettségeinket. Ennek megfelelően arra törekszünk, hogy csak olyan adatokat gyűjtsünk és dolgozzunk fel, amelyek feltétlenül szükségesek az ügyfelekkel, partnereinkkel, Szolgáltatásunk felhasználóival/látogatóival és online forrásainkkal fennálló kapcsolataink keretében, hogy meghatározott és jogszerű célból szolgáltatásokat és/vagy információkat nyújthassunk.",
+      "6": "Adatvédelmi szabályzatunkat a Telegram botban, a @wefatebot legújabb verziójában tesszük közzé. Kérjük, figyelmesen olvassa el. A Bot elérésével és használatával megerősíti, hogy elolvasta, megértette és elfogadta a jelen Adatvédelmi szabályzatot.",
+      "7": "Jelen Adatvédelmi szabályzat a Telegram bot @wefatebot oldalon közzétett Felhasználói Szerződés szerves részét képezi, és a Szolgáltatás használatához el kell olvasni.",
+      "8": "A Szolgáltató fenntartja magának a jogot, hogy saját belátása szerint bármikor módosítsa jelen Adatvédelmi Szabályzatot az Adatvédelmi Szabályzat frissített változatának közzétételével a Telegram-Bot @wefatebot oldalon, és ha a változások jelentősek, erről értesíti a Felhasználókat. Jelen Adatvédelmi Szabályzat módosított vagy frissített változata a Botban való közzététel pillanatától lép hatályba. A Szolgáltatás használatának folytatásával a Felhasználó elfogadja a frissített Adatvédelmi szabályzatot.",
+      "9": "A szolgáltatás a Telegram alkalmazás algoritmusain alapul, ezért kérjük, olvassa el a Telegram Felhasználási Feltételeit és Adatvédelmi szabályzatát is.",
+      "10": "Az Önről gyűjtött információk",
+      "11": "A Szolgáltató az Ön adatainak gyűjtésének fő célja, hogy a Telegram bot @wefatebot (a továbbiakban: Szolgáltatások) használatával kapcsolatos szolgáltatásokat nyújtson Önnek. Szolgáltatásaink Önnek való nyújtása során annak érdekében, hogy szolgáltatásainkat használhassuk és javíthassuk, személyes adatokat kell gyűjtenünk Önről.",
+      "12": "A Szolgáltató az alábbi adatokat gyűjti és kezeli Önről:",
+      "13": "Az Ön által rendelkezésünkre bocsátott adatok: Ön a Szolgáltatásaink igénybevételéhez szükséges regisztráció során a következő adatokat adja meg magáról: becenév, nem, életkor, tájékozódás, város, ahol ismeretséget kötni szeretne, a szolgáltatás működésének nyelve. Az információ tartalmazhat egy személyes profilra mutató hivatkozást, egy személyes fiókazonosítót a Telegram messengerben és a Telegram messenger nyelvét. Ezen túlmenően ezek olyan információk, amelyeket Ön a Szolgáltatásaink használatának folytatásával, promócióban vagy felmérésben való részvétellel, valamint a Szolgáltatásainkkal kapcsolatos problémák bejelentésével ad meg.",
+      "14": "Az Önről gyűjtött adatok: A Szolgáltató automatikusan gyűjtheti a következő információkat:",
+      "15": "Technikai információk, beleértve a regisztrációs adatokat, az operációs rendszer és az eszköz adatait.",
+      "16": "A szolgáltatásaink használata során végzett tranzakciók adatai.",
+      "17": "Ellenőrzési célú videoanyagok: A magas kockázatú felhasználók esetében az ellenőrzési folyamat részeként videoanyagokat gyűjthetünk. Ezeket a videókat kizárólag a felhasználói profil hitelességének megerősítésére, a csalások megelőzésére és a szolgáltatás biztonságának fokozására használjuk. A magas kockázatú profilok azonosításának kritériumai belsőek, és nem tartoznak nyilvánosságra, így biztosítva, hogy a biztonsági intézkedések hatékonyak maradjanak a visszaélés vagy manipuláció ellen.",
+      "18": "Egyéb forrásból származó információk: A Szolgáltató információkat kaphat Önről, ha Ön az általunk kezelt weboldalak vagy az általunk nyújtott egyéb szolgáltatások valamelyikét használja.",
+      "19": "Ön beleegyezik abba, hogy jogunkban áll, de nem vagyunk kötelesek az összes összegyűjtött személyes adatot a Szolgáltatásaink használatának teljes időtartama alatt és a törvényben előírt ideig, de legfeljebb 5 (öt) évig tárolni. A tárolási idő az illetékes hatóság indokolt kérésére legfeljebb 1 (egy) évre meghosszabbítható.",
+      "20": "Kiskorúak adatait a Szolgáltató szándékosan nem kezeli. A szolgáltató a Bot használatát 18 éven felüli személyeknek ajánlja. A kiskorúak cselekedeteiért, beleértve az általuk nyújtott szolgáltatások megvásárlását is, a kiskorúak törvényes képviselői a felelősek. Minden 18 év alatti látogató köteles beszerezni törvényes képviselőjének engedélyét, mielőtt bármilyen információt megadna magáról. Amennyiben a Szolgáltató tudomására jut, hogy kiskorú személyről a törvényes képviselők hozzájárulása nélkül kapott információt, azt a lehető legrövidebb időn belül törli.",
+      "21": "Hogyan védjük adatait",
+      "22": "A Szolgáltató az Ön személyes adatait az iparági szabványoknak megfelelő titkosítással biztonságos tárolással tartja biztonságban, és számos biztonsági intézkedést bevezettünk annak érdekében, hogy az Ön adatai ne vesszenek el, ne használhassanak vissza vagy módosuljanak, beleértve, de nem korlátozva az alábbiakat:",
+      "23": "Fizikai intézkedések:",
+      "24": "Az Ön adatait tartalmazó fizikai adathordozókat zárt térben tároljuk, emellett speciális fizikai információvédelmi eszközöket is alkalmazunk (külső kerítések, videó megfigyelő rendszer, jelvényes beléptető rendszer és biometrikus felismerő rendszer, beleértve a telephely határainak infravörös védelmét is).",
+      "25": "Elektronikus intézkedések:",
+      "26": "Az adatok számítógépes rendszerekben és fizikai adathordozókon kerülnek tárolásra, amelyet szigorú belépési korlátozások érvényesítenek.",
+      "27": "Menedzsment intézkedések:",
+      "28": "A hozzáférési szintek el vannak különítve, így csak az arra jogosult munkavállalók léphetnek kapcsolatba az Ön adataival, és ezek az alkalmazottak kötelezettséget vállaltak arra, hogy betartják belső adatvédelmi szabályainkat.",
+      "29": "Technikai intézkedések:",
+      "30": "Titkosító technológia használható az adatok átvitelére és tárolására. Különféle jelenleg elérhető biztonsági technológiákat és vezérlőket használunk annak érdekében, hogy minimálisra csökkentsük annak a kockázatát, hogy az Ön adatai nyilvánosságra kerüljenek, megsérüljenek, visszaéljenek, engedély nélkül megszerezzék, engedély nélkül nyilvánosságra hozzák vagy megváltoztassák. Technikai biztonsági csapataink aktívan figyelik a szokatlan és rosszindulatú tevékenységeket szervereinken és szolgáltatásainkon.",
+      "31": "Egyéb intézkedések:",
+      "32": "Arra törekszünk, hogy megvédjük adatait az általunk gyűjtött és tárolt adatok jogosulatlan hozzáférésétől, módosításától, nyilvánosságra hozatalától vagy megsemmisítésétől.",
+      "33": "Különféle intézkedéseket teszünk az információbiztonság érdekében, többek között:",
+      "34": "Üzeneteink titkosítása Önnel;",
+      "35": "Adatgyűjtési, tárolási és feldolgozási módszereink időszakos elemzése;",
+      "36": "Korlátozott hozzáférés az Ön adataihoz a szükséges ismeretek alapján alkalmazottaink és beszállítóink számára, akikre szigorú szerződéses titoktartási kötelezettségek vonatkoznak."
+    }
+  }
+}

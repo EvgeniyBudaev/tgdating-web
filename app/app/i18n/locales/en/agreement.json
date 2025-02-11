@@ -90,5 +90,10 @@
       "88": "This Agreement constitutes the entire understanding between the parties concerning the use of the Service and supersedes all prior agreements or understandings, whether written or oral, relating to its subject matter.",
       "89": "If you have any questions or concerns about this Agreement, please contact us at @wafatehelp."
     }
+  },
+  "common": {
+    "actions": {
+      "ok": "Ok"
+    }
   }
 }

@@ -90,5 +90,10 @@
       "88": "Aquest Acord constitueix l'enteniment total entre les parts pel que fa a l'ús del Servei i substitueix tots els acords o entesos anteriors, ja siguin escrits o orals, relacionats amb la seva matèria.",
       "89": "Si teniu cap pregunta o dubte sobre aquest Acord, poseu-vos en contacte amb nosaltres a @wafatehelp."
     }
+  },
+  "common": {
+    "actions": {
+      "ok": "D'acord"
+    }
   }
 }

@@ -90,5 +90,10 @@
       "88": "Le présent Contrat constitue l’intégralité de l’accord entre les parties concernant l’utilisation du Service et remplace tous les accords ou ententes antérieurs, qu’ils soient écrits ou oraux, relatifs à son objet.",
       "89": "Si vous avez des questions ou des préoccupations concernant cet accord, veuillez nous contacter à @wafatehelp."
     }
+  },
+  "common": {
+    "actions": {
+      "ok": "D'accord"
+    }
   }
 }

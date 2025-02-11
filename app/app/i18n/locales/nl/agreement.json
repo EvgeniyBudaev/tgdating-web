@@ -90,5 +90,10 @@
       "88": "Deze Overeenkomst vormt de volledige overeenkomst tussen de partijen met betrekking tot het gebruik van de Dienst en vervangt alle eerdere overeenkomsten of afspraken, schriftelijk of mondeling, met betrekking tot het onderwerp ervan.",
       "89": "Als u vragen of opmerkingen hebt over deze Overeenkomst, neem dan contact met ons op via @wafatehelp."
     }
+  },
+  "common": {
+    "actions": {
+      "ok": "Ok"
+    }
   }
 }

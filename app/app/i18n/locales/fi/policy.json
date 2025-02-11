@@ -1,0 +1,42 @@
+{
+  "page": {
+    "text": {
+      "1": "Tietosuojakäytäntö",
+      "2": "Yleiset määräykset",
+      "3": "Tämä henkilötietojen tietosuojakäytäntö koskee kaikkia Telegram-botissa @wefatebot (Yritys, \"Palveluntarjoaja\", \"Me\") julkaistuja tietoja, joita botin vierailijat (\"Käyttäjät\", \"Sinä\") voivat tarjota/saada käyttäessään sitä.",
+      "4": "Palveluntarjoaja varmistaa sovellettavien lakisääteisten vaatimusten mukaisesti tietojen luottamuksellisuuden sekä asianmukaisten teknisten ja organisatoristen toimenpiteiden toteuttamisen tietojen suojaamiseksi luvattomalta käytöltä, paljastamiselta, tahattomalta käytöltä, muuttamiselta, tuhoamiselta tai muulta laittomalta käsittelyltä.",
+      "5": "Tämä tietosuojakäytäntö määrittelee nykyisen tietosuoja- ja tietosuojakäytäntömme ja velvoitteemme. Näin ollen pyrimme keräämään ja käsittelemään vain tietoja, jotka ovat ehdottoman välttämättömiä suhteissamme asiakkaidemme, kumppaneidemme, Palvelumme käyttäjiin/vierailijoihin ja verkkoresursseihin, jotta voimme tarjota palveluja ja/tai tietoja tiettyihin ja laillisiin tarkoituksiin.",
+      "6": "Julkaisemme tietosuojakäytäntömme Telegram-botissa @wefatebot sen uusimmassa versiossa. Lue se huolellisesti. Käyttämällä tätä Bottia ja käyttämällä sitä vahvistat, että olet lukenut, ymmärtänyt ja hyväksynyt tämän tietosuojakäytännön.",
+      "7": "Tämä tietosuojakäytäntö on erottamaton osa Telegram-botissa @wefatebot julkaistua käyttösopimusta, ja se on luettava palvelun käyttämiseksi.",
+      "8": "Palveluntarjoaja varaa oikeuden oman harkintansa mukaan muuttaa tätä tietosuojakäytäntöä milloin tahansa julkaisemalla päivitetyn version Tietosuojakäytännöstä Telegram-Bot @wefatebot -palvelussa ja, jos muutokset ovat merkittäviä, ilmoittamalla siitä käyttäjille. Tämän tietosuojakäytännön muokattu tai päivitetty versio tulee voimaan heti, kun se on julkaistu Botissa. Jatkamalla Palvelun käyttöä Käyttäjä hyväksyy päivitetyn tietosuojakäytännön.",
+      "9": "Palvelu perustuu Telegram-sovelluksen algoritmeihin, joten tutustu myös Telegramin käyttöehtoihin ja tietosuojakäytäntöön.",
+      "10": "Tietoja, joita keräämme sinusta",
+      "11": "Pääasiallinen tarkoitus, jota varten Palveluntarjoaja kerää tietojasi, on tarjota sinulle palveluita Telegram-botin @wefatebot (jäljempänä Palvelut) käyttöön. Palvelujemme tarjoamisen aikana, jotta voimme käyttää ja parantaa palveluitamme, meidän on kerättävä henkilötietoja sinusta.",
+      "12": "Palveluntarjoaja kerää ja käsittelee seuraavia tietoja sinusta:",
+      "13": "Tiedot, jotka annat meille: Annat meille seuraavat tiedot itsestäsi rekisteröityessäsi Palveluidemme käyttöön: lempinimi, sukupuoli, ikä, suunta, kaupunki, johon haluat tutustua, kieli, jolla palvelua käytetään. Tiedot voivat sisältää myös linkin henkilökohtaiseen profiiliin, henkilökohtaisen tilitunnuksen Telegram Messengerissä ja Telegram Messengerin kielen. Lisäksi nämä ovat tietoja, jotka annat jatkamalla Palveluidemme käyttöä, osallistumalla promootioon tai kyselyyn sekä ilmoittamalla Palveluihimme liittyvistä ongelmista.",
+      "14": "Sinusta keräämämme tiedot: Palveluntarjoaja voi kerätä automaattisesti seuraavat tiedot:",
+      "15": "Tekniset tiedot, mukaan lukien rekisteröintitietosi, käyttöjärjestelmä- ja laitetiedot.",
+      "16": "Tiedot liiketoimista, joita teet käyttäessäsi palveluitamme.",
+      "17": "Videomateriaalia varmennustarkoituksiin: Suuren riskin käyttäjiltä saatamme kerätä videomateriaalia osana vahvistusprosessia. Näitä videoita käytetään yksinomaan varmistamaan käyttäjäprofiilin aitous, estämään petoksia ja parantamaan palvelun turvallisuutta. Riskiprofiilien tunnistamiskriteerit ovat sisäisiä, eikä niitä voida paljastaa. Näin varmistetaan, että turvatoimenpiteet pysyvät tehokkaina väärinkäyttöä tai manipulointia vastaan.",
+      "18": "Tiedot muista lähteistä: Palveluntarjoaja voi saada tietoja sinusta, jos käytät joitain hallinnoimiamme verkkosivustoja tai muita tarjoamiamme palveluita.",
+      "19": "Hyväksyt, että meillä on oikeus, mutta ei velvollisuutta, säilyttää kaikkia keräämiämme henkilötietoja koko Palveluidemme käyttöajan ja laissa säädetyn ajan, kuitenkin enintään 5 (viisi) vuotta. Varastointiaikaa voidaan pidentää enintään 1 (yksi) vuodella, jos toimivaltainen viranomainen sitä perustellusti pyytää.",
+      "20": "Palveluntarjoaja ei tarkoituksella käsittele alaikäisten henkilötietoja. Palveluntarjoaja suosittelee Botin käyttöä yli 18-vuotiaille. Vastuu alaikäisten toiminnasta, mukaan lukien heidän palvelujen ostamisestaan, on alaikäisten laillisilla edustajilla. Kaikkien alle 18-vuotiaiden vierailijoiden on hankittava laillisten edustajiensa lupa ennen tietojen antamista itsestään. Jos Palveluntarjoaja saa tietoonsa, että hän on saanut tietoa alaikäisestä ilman laillisten edustajien suostumusta, tiedot poistetaan mahdollisimman pian.",
+      "21": "Kuinka suojaamme tietojasi",
+      "22": "Palveluntarjoaja pitää henkilötietosi turvassa käyttämällä suojattua tallennustilaa ja salausta alan standardien mukaisesti, ja olemme ottaneet käyttöön useita turvatoimenpiteitä varmistaaksemme, että tietojasi ei katoa, käytetä väärin tai muuteta, mukaan lukien seuraavat, mutta ei rajoittuen:",
+      "23": "Fyysiset toimenpiteet:",
+      "24": "Tietosi sisältävät fyysiset tietovälineet säilytetään sisätiloissa, lisäksi käytetään erityisiä fyysisiä tiedonsuojakeinoja (ympäröivät ulkoaidat, videovalvontajärjestelmä, tunnuksilla toimiva kulunvalvontajärjestelmä ja biometrinen tunnistusjärjestelmä, mukaan lukien infrapunasuojaus paikan rajoissa).",
+      "25": "Sähköiset toimenpiteet:",
+      "26": "Tiedot tallennetaan tietokonejärjestelmiin ja fyysisille tietovälineille, joita valvovat tiukat pääsyrajoitukset.",
+      "27": "Hallintotoimenpiteet:",
+      "28": "Käyttöoikeustasot on erotettu siten, että vain valtuutetut työntekijät saavat olla yhteydessä tietoihisi ja he ovat sitoutuneet noudattamaan sisäisiä tietosuojasääntöjämme.",
+      "29": "Tekniset toimenpiteet:",
+      "30": "Salaustekniikkaa voidaan käyttää tietojen siirtämiseen ja tallentamiseen. Käytämme erilaisia tällä hetkellä saatavilla olevia suojaustekniikoita ja hallintakeinoja minimoimaan riskin, että tietosi saatetaan paljastaa, vioittua, väärinkäyttää, hankkia ilman lupaa, paljastaa ilman lupaa tai muuttaa. Tekniset turvallisuustiimimme seuraavat aktiivisesti epänormaalia ja haitallista toimintaa palvelimillamme ja palveluissamme.",
+      "31": "Muut toimenpiteet:",
+      "32": "Pyrimme suojaamaan tietosi keräämiemme ja tallentamiemme tietojen luvattomalta käytöltä, muuttamiselta, paljastamiselta tai tuhoamiselta.",
+      "33": "Toteutamme erilaisia toimenpiteitä tietoturvan varmistamiseksi, mm.",
+      "34": "Viestimme salaaminen kanssasi;",
+      "35": "Tiedonkeruu-, tallennus- ja käsittelymenetelmiemme säännöllinen analysointi;",
+      "36": "Rajoitettu pääsy tietoihisi perustuen työntekijöidemme ja toimittajiemme tarvitsemiin tietoihin, joita koskevat tiukat sopimusperusteiset luottamuksellisuusvelvoitteet."
+    }
+  }
+}

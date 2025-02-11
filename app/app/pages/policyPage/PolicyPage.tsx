@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { type FC, memo } from "react";
+import {useTranslation} from "@/app/i18n/client";
 import { Container } from "@/app/shared/components/container";
 import { ELanguage } from "@/app/shared/enums";
 import { Button } from "@/app/uikit/components/button";
@@ -17,6 +18,7 @@ type TProps = {
 
 const PolicyPageComponent: FC<TProps> = ({ lng }) => {
   const router = useRouter();
+  const { t } = useTranslation("policy");
 
   const handleBack = () => {
     router.back();
@@ -27,274 +29,180 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
       <Container>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB1Bold}>
-            PRIVACY POLICY
+            {t("page.text.1").toUpperCase()}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            GENERAL PROVISIONS
+            {t("page.text.2").toUpperCase()}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            This privacy policy of personal data applies to all information
-            posted in Telegram-bot @wefatebot (Company, the "Service Provider",
-            "We"), that visitors to the bot (the "Users", "You") may
-            provide/receive while using it.
+            {t("page.text.3")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            The Service Provider, in accordance with applicable legal
-            requirements, ensures the confidentiality of data and the
-            implementation of appropriate technical and organizational measures
-            to protect data from unauthorized access, disclosure, accidental
-            loss, alteration, destruction or other illegal processing.
+            {t("page.text.4")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            This Privacy Policy sets out our current data protection and privacy
-            policy and obligations. Accordingly, we strive to collect and
-            process only data strictly necessary in the context of our
-            relationships with customers, partners, users/visitors of our
-            Service and online resources, to provide services and/or information
-            for specific and legitimate purposes.
+            {t("page.text.5")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            We post our Privacy Policy in the Telegram bot @wefatebot in its
-            latest version. Please read it carefully. By accessing and using
-            this Bot, you confirm that you have read, understood and agreed to
-            this Privacy Policy.
+            {t("page.text.6")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            This Privacy Policy is an integral part of the User Agreement
-            published in the Telegram bot @wefatebot and is required to be read
-            in order to use the Service.
+            {t("page.text.7")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            The Service Provider reserves the right, at its sole discretion, to
-            change this Privacy Policy at any time by publishing an updated
-            version of the Privacy Policy in Telegram-Bot @wefatebot and, if the
-            changes are significant, notifying Users about it. A modified or
-            updated version of this Privacy Policy comes into force from the
-            moment it is published in the Bot. By continuing to use the Service,
-            the User agrees to the updated Privacy Policy.
+            {t("page.text.8")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            The service is based on the algorithms of the Telegram application,
-            so please also refer to the Telegram Terms of Use and Privacy
-            Policy.
+            {t("page.text.9")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            THE INFORMATION WE COLLECT ABOUT YOU
+            {t("page.text.10").toUpperCase()}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            The main purpose for which the Service Provider collects your data
-            is to provide you with services for using the Telegram bot
-            @wefatebot (hereinafter referred to as the Services). In the process
-            of providing our Services to you, in order to be able to use and
-            improve our services, we need to collect personal information about
-            you.
+            {t("page.text.11")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            The Service Provider will collect and process the following data
-            about you:
+            {t("page.text.12")}
+          </Typography>
+        </div>
+        <div className="PolicyPage-Block">
+          <Typography>
+            1.&nbsp;{t("page.text.13")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            1. Information that you provide us with:&nbsp;
+            2.&nbsp;{t("page.text.14")}
           </Typography>
+        </div>
+        <div className="PolicyPage-Block">
           <Typography>
-            You provide us with the following information about yourself during
-            the registration process for using our Services: nickname, gender,
-            age, orientation, the city in which you want to make acquaintances,
-            the language in which the service will be operated. The information
-            may also include a link to a personal profile, a personal account ID
-            in the Telegram messenger, and the language of the Telegram
-            messenger. In addition, this is information that you provide by
-            continuing to use our Services, participating in a promotion or
-            survey, as well as reporting problems with our Services.
+            2.1&nbsp;{t("page.text.15")}
+          </Typography>
+        </div>
+        <div className="PolicyPage-Block">
+          <Typography>
+            2.2&nbsp;{t("page.text.16")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            2. Information we collect about you:&nbsp;
-          </Typography>
-          <Typography>
-            The Service Provider may automatically collect the following
-            information:
-          </Typography>
-        </div>
-        <div className="PolicyPage-Block">
-          <Typography>
-            2.1 Technical information, including your registration data,
-            operating system and device data.
-          </Typography>
-        </div>
-        <div className="PolicyPage-Block">
-          <Typography>
-            2.2 Details of the transactions you make when using our services.
+            3.&nbsp;{t("page.text.17")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            3. Video materials for verification purposes:&nbsp;
+            4.&nbsp;{t("page.text.18")}
           </Typography>
+        </div>
+        <div className="PolicyPage-Block">
           <Typography>
-            For high-risk users, we may collect video materials as part of the
-            verification process. These videos are used exclusively to confirm
-            the authenticity of the user's profile, prevent fraud, and enhance
-            service security. The criteria for identifying high-risk profiles
-            are internal and not subject to disclosure, ensuring security
-            measures remain effective against misuse or manipulation.
+            {t("page.text.19")}
+          </Typography>
+        </div>
+        <div className="PolicyPage-Block">
+          <Typography>
+            {t("page.text.20")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            4. Information from other sources:&nbsp;
-          </Typography>
-          <Typography>
-            The Service Provider may receive information about you if you use
-            any of the websites we manage or other services we provide.
+            {t("page.text.21").toUpperCase()}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            You agree that we have the right, but are not obliged to store all
-            collected personal information for the entire period of your use of
-            our Services and for a period prescribed by law, but not more than 5
-            (five) years. The storage period may be extended for a period not
-            exceeding 1 (one) year, if there is a reasoned request from the
-            competent authority.
-          </Typography>
-        </div>
-        <div className="PolicyPage-Block">
-          <Typography>
-            The Service Provider does not intentionally process the data of
-            minors. The service provider recommends using the Bot to persons
-            over the age of 18. Responsibility for the actions of minors,
-            including the purchase of services by them, lies with the legal
-            representatives of minors. All visitors under the age of 18 are
-            required to obtain the permission of their legal representatives
-            before providing any information about themselves. If the Service
-            Provider becomes aware that he has received information about a
-            minor without the consent of legal representatives, such information
-            will be deleted as soon as possible.
+            {t("page.text.22")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            HOW WE PROTECT YOUR INFORMATION
+            1.&nbsp;{t("page.text.23")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            The Service Provider keeps your personal information secure using
-            secure storage with encryption according to industry standards, and
-            we have implemented a number of security measures to ensure that
-            your information is not lost, misused or altered, including, but not
-            limited to the following:
+            {t("page.text.24")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            1. Physical measures:
+            2.&nbsp;{t("page.text.25")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            The physical media containing your data will be stored indoors, also
-            special physical means of protection of information (surrounding
-            exterior fences, video surveillance system, access control system
-            using badges and biometric recognition system, including infrared
-            protection of site boundaries) are used.
+            {t("page.text.26")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            2. Electronic measures:
+            3.&nbsp;{t("page.text.27")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            The data will be stored in computer systems and on physical data
-            carriers, which are enforced by strict entry restrictions.
+            {t("page.text.28")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            3. Management measures:
+            4.&nbsp;{t("page.text.29")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            Access levels are separated so that only authorized employees are
-            allowed to come into contact with your data, and such employees have
-            committed to comply with our internal data privacy rules.
+            {t("page.text.30")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            4. Technical measures:
+            5.&nbsp;{t("page.text.31")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            Encryption technology can be used to transfer and store your data.
-            We use various security technologies and controls currently
-            available to minimize the risk that your data may be disclosed,
-            corrupted, misused, obtained without permission, disclosed without
-            permission, or altered. Our technical security teams actively
-            monitor abnormal and malicious activity on our servers and services.
-          </Typography>
-        </div>
-        <div className="PolicyPage-Block">
-          <Typography variant={ETypographyVariant.TextB3Bold}>
-            5. Other measures:
+            {t("page.text.32")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            We strive to protect your information from unauthorized access,
-            modification, disclosure or destruction of the data we collect and
-            store.
+            {t("page.text.33")}
+          </Typography>
+        </div>
+        <div className="PolicyPage-Block">
+          <Typography>1.&nbsp;{t("page.text.34")}</Typography>
+        </div>
+        <div className="PolicyPage-Block">
+          <Typography>
+            2.&nbsp;{t("page.text.35")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            We take various measures to ensure information security, including:
-          </Typography>
-        </div>
-        <div className="PolicyPage-Block">
-          <Typography>1. Encrypting our messages with you;</Typography>
-        </div>
-        <div className="PolicyPage-Block">
-          <Typography>
-            2. Periodic analysis of our data collection, storage and processing
-            methods;
-          </Typography>
-        </div>
-        <div className="PolicyPage-Block">
-          <Typography>
-            3. Limited access to your data based on the necessary knowledge for
-            our employees and suppliers, who are subject to strict contractual
-            confidentiality obligations.
+            3.&nbsp;{t("page.text.36")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">

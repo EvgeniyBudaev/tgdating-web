@@ -1,0 +1,42 @@
+{
+  "page": {
+    "text": {
+      "1": "Política de privacidad",
+      "2": "Disposiciones generales",
+      "3": "Esta política de privacidad de datos personales se aplica a toda la información publicada en Telegram-bot @wefatebot (Compañía, el \"Proveedor de Servicios\", \"Nosotros\"), que los visitantes del bot (los \"Usuarios\", \"Usted\") pueden proporcionar/recibir mientras lo usan.",
+      "4": "El Proveedor de Servicios, de acuerdo con los requisitos legales aplicables, garantiza la confidencialidad de los datos y la implementación de medidas técnicas y organizativas apropiadas para proteger los datos contra acceso no autorizado, divulgación, pérdida accidental, alteración, destrucción u otro procesamiento ilegal.",
+      "5": "Esta Política de Privacidad establece nuestra política y obligaciones actuales en materia de protección de datos y privacidad. En consecuencia, nos esforzamos por recopilar y procesar únicamente los datos estrictamente necesarios en el contexto de nuestras relaciones con clientes, socios, usuarios/visitantes de nuestro Servicio y recursos en línea, para proporcionar servicios y/o información para fines específicos y legítimos.",
+      "6": "Publicamos nuestra Política de Privacidad en el bot de Telegram @wefatebot en su última versión. Léala atentamente. Al acceder y utilizar este Bot, usted confirma que ha leído, comprendido y aceptado esta Política de Privacidad.",
+      "7": "Esta Política de Privacidad es parte integral del Acuerdo de Usuario publicado en el bot de Telegram @wefatebot y es necesario leerla para utilizar el Servicio.",
+      "8": "El Proveedor de Servicios se reserva el derecho, a su entera discreción, de cambiar esta Política de Privacidad en cualquier momento mediante la publicación de una versión actualizada de la Política de Privacidad en el Bot de Telegram @wefatebot y, si los cambios son significativos, notificar a los Usuarios al respecto. Una versión modificada o actualizada de esta Política de Privacidad entra en vigor desde el momento en que se publica en el Bot. Al continuar utilizando el Servicio, el Usuario acepta la Política de Privacidad actualizada.",
+      "9": "El servicio se basa en los algoritmos de la aplicación Telegram, por lo que también consulte los Términos de uso y la Política de privacidad de Telegram.",
+      "10": "La información que recopilamos sobre usted",
+      "11": "El principal propósito por el cual el Proveedor de Servicios recopila sus datos es proporcionarle servicios para utilizar el bot de Telegram @wefatebot (en adelante, los Servicios). En el proceso de proporcionarle nuestros Servicios, para poder utilizarlos y mejorarlos, necesitamos recopilar información personal sobre usted.",
+      "12": "El Proveedor de Servicios recopilará y procesará los siguientes datos sobre usted:",
+      "13": "Información que usted nos proporciona: Usted nos proporciona la siguiente información sobre usted durante el proceso de registro para utilizar nuestros Servicios: apodo, género, edad, orientación, la ciudad en la que desea conocer gente, el idioma en el que se operará el servicio. La información también puede incluir un enlace a un perfil personal, un ID de cuenta personal en el mensajero Telegram y el idioma del mensajero Telegram. Además, esta es información que usted proporciona al continuar utilizando nuestros Servicios, participar en una promoción o encuesta, así como al informar problemas con nuestros Servicios.",
+      "14": "Información que recopilamos sobre usted: El proveedor de servicios puede recopilar automáticamente la siguiente información:",
+      "15": "Información técnica, incluidos sus datos de registro, sistema operativo y datos del dispositivo.",
+      "16": "Detalles de las transacciones que realiza al utilizar nuestros servicios.",
+      "17": "Materiales de video para fines de verificación: En el caso de los usuarios de alto riesgo, podemos recopilar materiales de video como parte del proceso de verificación. Estos videos se utilizan exclusivamente para confirmar la autenticidad del perfil del usuario, evitar fraudes y mejorar la seguridad del servicio. Los criterios para identificar perfiles de alto riesgo son internos y no están sujetos a divulgación, lo que garantiza que las medidas de seguridad sigan siendo efectivas contra el uso indebido o la manipulación.",
+      "18": "Información de otras fuentes: El Proveedor de Servicios puede recibir información sobre usted si utiliza cualquiera de los sitios web que administramos u otros servicios que brindamos.",
+      "19": "Usted acepta que tenemos el derecho, pero no estamos obligados a, almacenar toda la información personal recopilada durante todo el período de uso de nuestros Servicios y durante un período prescrito por la ley, pero no más de 5 (cinco) años. El período de almacenamiento puede extenderse por un período no superior a 1 (un) año, si existe una solicitud motivada de la autoridad competente.",
+      "20": "El Proveedor de Servicios no procesa intencionalmente los datos de menores. El Proveedor de Servicios recomienda el uso del Bot a personas mayores de 18 años. La responsabilidad de las acciones de los menores, incluida la compra de servicios por parte de ellos, recae en los representantes legales de los menores. Todos los visitantes menores de 18 años deben obtener el permiso de sus representantes legales antes de proporcionar cualquier información sobre sí mismos. Si el Proveedor de Servicios se da cuenta de que ha recibido información sobre un menor sin el consentimiento de los representantes legales, dicha información se eliminará lo antes posible.",
+      "21": "Cómo protegemos su información",
+      "22": "El Proveedor de Servicios mantiene su información personal segura utilizando almacenamiento seguro con encriptación de acuerdo con los estándares de la industria, y hemos implementado una serie de medidas de seguridad para garantizar que su información no se pierda, use indebidamente o altere, incluyendo, pero no limitado a lo siguiente:",
+      "23": "Medidas físicas:",
+      "24": "Los soportes físicos que contienen sus datos serán almacenados en interior, además se utilizan medios físicos especiales de protección de la información (vallas exteriores envolventes, sistema de videovigilancia, sistema de control de acceso mediante credenciales y sistema de reconocimiento biométrico, incluida la protección por infrarrojos de los límites del recinto).",
+      "25": "Medidas electrónicas:",
+      "26": "Los datos se almacenarán en sistemas informáticos y en soportes físicos, sujetos a estrictas restricciones de entrada.",
+      "27": "Medidas de gestión:",
+      "28": "Los niveles de acceso están separados para que sólo los empleados autorizados puedan entrar en contacto con sus datos, y dichos empleados se han comprometido a cumplir con nuestras normas internas de privacidad de datos.",
+      "29": "Medidas técnicas:",
+      "30": "Se puede utilizar tecnología de cifrado para transferir y almacenar sus datos. Utilizamos diversas tecnologías y controles de seguridad disponibles actualmente para minimizar el riesgo de que sus datos puedan ser divulgados, dañados, mal utilizados, obtenidos sin permiso, divulgados sin permiso o alterados. Nuestros equipos de seguridad técnica monitorean activamente la actividad anormal y maliciosa en nuestros servidores y servicios.",
+      "31": "Otras medidas:",
+      "32": "Nos esforzamos por proteger su información contra el acceso no autorizado, la modificación, la divulgación o la destrucción de los datos que recopilamos y almacenamos.",
+      "33": "Tomamos varias medidas para garantizar la seguridad de la información, entre ellas:",
+      "34": "Cifrando nuestros mensajes con usted;",
+      "35": "Análisis periódico de nuestros métodos de recopilación, almacenamiento y procesamiento de datos;",
+      "36": "Acceso limitado a sus datos en función del conocimiento necesario para nuestros empleados y proveedores, quienes están sujetos a estrictas obligaciones contractuales de confidencialidad."
+    }
+  }
+}

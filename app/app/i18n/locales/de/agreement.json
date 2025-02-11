@@ -90,5 +90,10 @@
       "88": "Diese Vereinbarung stellt die gesamte Übereinkunft zwischen den Parteien hinsichtlich der Nutzung des Dienstes dar und ersetzt alle vorherigen schriftlichen oder mündlichen Vereinbarungen oder Übereinkünfte in Bezug auf den Vertragsgegenstand.",
       "89": "Wenn Sie Fragen oder Bedenken zu dieser Vereinbarung haben, kontaktieren Sie uns bitte unter @wafatehelp."
     }
+  },
+  "common": {
+    "actions": {
+      "ok": "OK"
+    }
   }
 }

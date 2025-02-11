@@ -90,5 +90,10 @@
       "88": "Tato smlouva představuje úplnou dohodu mezi stranami týkající se používání služby a nahrazuje všechny předchozí dohody nebo ujednání, ať už písemné nebo ústní, týkající se jejího předmětu.",
       "89": "Máte-li jakékoli dotazy nebo obavy týkající se této smlouvy, kontaktujte nás na adrese @wafatehelp."
     }
+  },
+  "common": {
+    "actions": {
+      "ok": "Dobře"
+    }
   }
 }

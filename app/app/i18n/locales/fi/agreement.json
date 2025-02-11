@@ -90,5 +90,10 @@
       "88": "Tämä sopimus muodostaa osapuolten välisen koko sopimuksen Palvelun käytöstä ja syrjäyttää kaikki aiemmat kirjalliset tai suulliset sopimukset tai yhteisymmärrykset, jotka liittyvät sen aiheeseen.",
       "89": "Jos sinulla on kysyttävää tai huolenaiheita tästä sopimuksesta, ota meihin yhteyttä @wafatehelp."
     }
+  },
+  "common": {
+    "actions": {
+      "ok": "Ok"
+    }
   }
 }

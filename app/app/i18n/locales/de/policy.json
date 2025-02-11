@@ -1,0 +1,42 @@
+{
+  "page": {
+    "text": {
+      "1": "Datenschutzrichtlinie",
+      "2": "Allgemeine Bestimmungen",
+      "3": "Diese Datenschutzrichtlinie für personenbezogene Daten gilt für alle im Telegram-Bot @wefatebot (Unternehmen, der „Dienstanbieter“, „Wir“) geposteten Informationen, die Besucher des Bots (die „Benutzer“, „Sie“) während der Nutzung bereitstellen/erhalten können.",
+      "4": "Der Dienstanbieter gewährleistet gemäß den geltenden gesetzlichen Anforderungen die Vertraulichkeit der Daten und die Umsetzung geeigneter technischer und organisatorischer Maßnahmen, um die Daten vor unbefugtem Zugriff, Offenlegung, versehentlichem Verlust, Änderung, Zerstörung oder sonstiger rechtswidriger Verarbeitung zu schützen.",
+      "5": "Diese Datenschutzrichtlinie legt unsere aktuellen Datenschutzrichtlinien und -verpflichtungen dar. Dementsprechend sind wir bestrebt, im Rahmen unserer Beziehungen zu Kunden, Partnern, Benutzern/Besuchern unseres Dienstes und unserer Online-Ressourcen nur die Daten zu sammeln und zu verarbeiten, die unbedingt erforderlich sind, um Dienste und/oder Informationen für bestimmte und legitime Zwecke bereitzustellen.",
+      "6": "Wir veröffentlichen unsere Datenschutzrichtlinie in der neuesten Version im Telegrammbot @wefatebot. Bitte lesen Sie sie sorgfältig durch. Indem Sie auf diesen Bot zugreifen und ihn verwenden, bestätigen Sie, dass Sie diese Datenschutzrichtlinie gelesen, verstanden und ihr zugestimmt haben.",
+      "7": "Diese Datenschutzrichtlinie ist ein integraler Bestandteil der im Telegrammbot @wefatebot veröffentlichten Benutzervereinbarung und muss gelesen werden, um den Dienst nutzen zu können.",
+      "8": "Der Dienstanbieter behält sich das Recht vor, diese Datenschutzrichtlinie nach eigenem Ermessen jederzeit zu ändern, indem er eine aktualisierte Version der Datenschutzrichtlinie im Telegram-Bot @wefatebot veröffentlicht und, falls die Änderungen erheblich sind, die Benutzer darüber informiert. Eine geänderte oder aktualisierte Version dieser Datenschutzrichtlinie tritt mit der Veröffentlichung im Bot in Kraft. Durch die fortgesetzte Nutzung des Dienstes stimmt der Benutzer der aktualisierten Datenschutzrichtlinie zu.",
+      "9": "Der Dienst basiert auf den Algorithmen der Telegram-Anwendung. Beachten Sie daher bitte auch die Nutzungsbedingungen und Datenschutzrichtlinie von Telegram.",
+      "10": "Die Informationen, die wir über Sie sammeln",
+      "11": "Der Hauptzweck, zu dem der Dienstanbieter Ihre Daten erhebt, besteht darin, Ihnen Dienste zur Nutzung des Telegram-Bots @wefatebot (im Folgenden als „Dienste“ bezeichnet) bereitzustellen. Im Rahmen der Bereitstellung unserer Dienste für Sie müssen wir persönliche Informationen über Sie erfassen, um unsere Dienste nutzen und verbessern zu können.",
+      "12": "Der Dienstanbieter erhebt und verarbeitet folgende Daten über Sie:",
+      "13": "Informationen, die Sie uns zur Verfügung stellen: Sie stellen uns während des Registrierungsprozesses zur Nutzung unserer Dienste die folgenden Informationen über sich selbst zur Verfügung: Spitzname, Geschlecht, Alter, Orientierung, die Stadt, in der Sie Bekanntschaften machen möchten, die Sprache, in der der Dienst betrieben wird. Die Informationen können auch einen Link zu einem persönlichen Profil, eine persönliche Konto-ID im Telegram-Messenger und die Sprache des Telegram-Messengers enthalten. Darüber hinaus handelt es sich dabei um Informationen, die Sie bereitstellen, indem Sie unsere Dienste weiterhin nutzen, an einer Werbeaktion oder Umfrage teilnehmen sowie Probleme mit unseren Diensten melden.",
+      "14": "Von uns über Sie erfasste Informationen: Der Dienstanbieter erfasst möglicherweise automatisch die folgenden Informationen:",
+      "15": "Technische Informationen, einschließlich Ihrer Registrierungsdaten, Betriebssystem- und Gerätedaten.",
+      "16": "Details zu den Transaktionen, die Sie bei der Nutzung unserer Dienste tätigen.",
+      "17": "Videomaterial zu Verifizierungszwecken: Bei Hochrisikobenutzern können wir im Rahmen des Verifizierungsprozesses Videomaterial sammeln. Diese Videos werden ausschließlich verwendet, um die Echtheit des Benutzerprofils zu bestätigen, Betrug vorzubeugen und die Servicesicherheit zu erhöhen. Die Kriterien zur Identifizierung von Hochrisikoprofilen sind intern und unterliegen keiner Offenlegung, sodass die Sicherheitsmaßnahmen gegen Missbrauch oder Manipulation wirksam bleiben.",
+      "18": "Informationen aus anderen Quellen: Der Dienstanbieter erhält möglicherweise Informationen über Sie, wenn Sie eine der von uns verwalteten Websites oder andere von uns bereitgestellte Dienste nutzen.",
+      "19": "Sie stimmen zu, dass wir das Recht haben, aber nicht verpflichtet sind, alle gesammelten personenbezogenen Daten für die gesamte Dauer Ihrer Nutzung unserer Dienste und für einen gesetzlich vorgeschriebenen Zeitraum, jedoch nicht länger als 5 (fünf) Jahre, zu speichern. Die Speicherfrist kann auf begründeten Antrag der zuständigen Behörde um höchstens 1 (ein) Jahr verlängert werden.",
+      "20": "Der Dienstanbieter verarbeitet die Daten von Minderjährigen nicht absichtlich. Der Dienstanbieter empfiehlt die Nutzung des Bots Personen über 18 Jahren. Die Verantwortung für die Handlungen von Minderjährigen, einschließlich des Erwerbs von Dienstleistungen durch sie, liegt bei den gesetzlichen Vertretern der Minderjährigen. Alle Besucher unter 18 Jahren müssen die Erlaubnis ihrer gesetzlichen Vertreter einholen, bevor sie Informationen über sich selbst bereitstellen. Wenn dem Dienstanbieter bekannt wird, dass er ohne Zustimmung der gesetzlichen Vertreter Informationen über einen Minderjährigen erhalten hat, werden diese Informationen so schnell wie möglich gelöscht.",
+      "21": "So schützen wir Ihre Daten",
+      "22": "Der Dienstanbieter schützt Ihre persönlichen Daten durch einen sicheren Speicher mit Verschlüsselung gemäß Industriestandards. Außerdem haben wir eine Reihe von Sicherheitsmaßnahmen implementiert, um sicherzustellen, dass Ihre Daten nicht verloren gehen, missbraucht oder verändert werden. Dazu gehören unter anderem die folgenden:",
+      "23": "Physikalische Maßnahmen:",
+      "24": "Die physischen Medien mit Ihren Daten werden in Innenräumen gespeichert. Außerdem werden spezielle physische Mittel zum Schutz der Informationen verwendet (umgebende Außenzäune, Videoüberwachungssystem, Zugangskontrollsystem mit Ausweisen und biometrisches Erkennungssystem, einschließlich Infrarot-Schutz der Standortgrenzen).",
+      "25": "Elektronische Maßnahmen:",
+      "26": "Die Daten werden in Computersystemen und auf physischen Datenträgern gespeichert, für die strenge Zugriffsbeschränkungen gelten.",
+      "27": "Managementmaßnahmen:",
+      "28": "Durch die Trennung der Zugriffsebenen wird sichergestellt, dass ausschließlich autorisierte Mitarbeiter mit Ihren Daten in Berührung kommen und sich zur Einhaltung unserer unternehmensinternen Datenschutzvorschriften verpflichtet haben.",
+      "29": "Technische Maßnahmen:",
+      "30": "Zur Übertragung und Speicherung Ihrer Daten kann Verschlüsselungstechnologie verwendet werden. Wir verwenden verschiedene derzeit verfügbare Sicherheitstechnologien und -kontrollen, um das Risiko zu minimieren, dass Ihre Daten offengelegt, beschädigt, missbraucht, ohne Erlaubnis erlangt, ohne Erlaubnis offengelegt oder verändert werden. Unsere technischen Sicherheitsteams überwachen aktiv abnormale und böswillige Aktivitäten auf unseren Servern und Diensten.",
+      "31": "Weitere Maßnahmen:",
+      "32": "Wir sind bestrebt, Ihre Informationen vor unbefugtem Zugriff, Änderung, Offenlegung oder Zerstörung der von uns erfassten und gespeicherten Daten zu schützen.",
+      "33": "Wir ergreifen verschiedene Maßnahmen, um die Informationssicherheit zu gewährleisten, darunter:",
+      "34": "Verschlüsselung unserer Nachrichten mit Ihnen;",
+      "35": "Regelmäßige Analyse unserer Methoden zur Datenerfassung, -speicherung und -verarbeitung;",
+      "36": "Eingeschränkter Zugriff auf Ihre Daten auf Grundlage der erforderlichen Kenntnisse für unsere Mitarbeiter und Lieferanten, die strengen vertraglichen Geheimhaltungspflichten unterliegen."
+    }
+  }
+}

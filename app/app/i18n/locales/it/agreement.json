@@ -90,5 +90,10 @@
       "88": "Il presente Contratto costituisce l'intero accordo tra le parti in merito all'utilizzo del Servizio e sostituisce tutti gli accordi o intese precedenti, scritti o orali, relativi al suo oggetto.",
       "89": "In caso di domande o dubbi in merito al presente Contratto, contattateci all'indirizzo @wafatehelp."
     }
+  },
+  "common": {
+    "actions": {
+      "ok": "Ok"
+    }
   }
 }

@@ -363,7 +363,7 @@ const AgreementPageComponent: FC<TProps> = ({ lng }) => {
         </div>
         <div className="AgreementPage-Control">
           <Button className="AgreementPage-Button" onClick={handleBack}>
-            <Typography>OK</Typography>
+            <Typography>{t("common.actions.ok")}</Typography>
           </Button>
         </div>
       </Container>

@@ -1,0 +1,42 @@
+{
+  "page": {
+    "text": {
+      "1": "Politika privatnosti",
+      "2": "Opće odredbe",
+      "3": "Ova politika privatnosti osobnih podataka primjenjuje se na sve informacije objavljene u Telegram-botu @wefatebot (Tvrtka, \"Pružatelj usluga\", \"Mi\"), koje posjetitelji bota (\"Korisnici\", \"Vi\") mogu dati/primiti dok ga koriste.",
+      "4": "Pružatelj usluge, u skladu s primjenjivim zakonskim zahtjevima, osigurava povjerljivost podataka i provedbu odgovarajućih tehničkih i organizacijskih mjera za zaštitu podataka od neovlaštenog pristupa, otkrivanja, slučajnog gubitka, izmjene, uništenja ili druge nezakonite obrade.",
+      "5": "Ova Pravila o privatnosti utvrđuju našu trenutnu politiku i obveze zaštite podataka i privatnosti. Sukladno tome, nastojimo prikupljati i obrađivati samo podatke koji su strogo nužni u kontekstu naših odnosa s kupcima, partnerima, korisnicima/posjetiteljima naše Usluge i internetskih resursa, kako bismo pružili usluge i/ili informacije za posebne i legitimne svrhe.",
+      "6": "Naša Pravila privatnosti objavljujemo u Telegram botu @wefatebot u njegovoj najnovijoj verziji. Pažljivo pročitajte. Pristupom i korištenjem ovog Bota potvrđujete da ste pročitali, razumjeli i da se slažete s ovom Politikom privatnosti.",
+      "7": "Ova Pravila privatnosti sastavni su dio korisničkog ugovora objavljenog u Telegram botu @wefatebot te su obavezna za korištenje usluge.",
+      "8": "Pružatelj usluge zadržava pravo, prema vlastitom nahođenju, promijeniti ovu Politiku privatnosti u bilo kojem trenutku objavljivanjem ažurirane verzije Politike privatnosti u Telegram-Bot @wefatebot i, ako su promjene značajne, obavještavanjem Korisnika o tome. Izmijenjena ili ažurirana verzija ovih Pravila privatnosti stupa na snagu od trenutka objave u Botu. Nastavkom korištenja usluge Korisnik se slaže s ažuriranom Politikom privatnosti.",
+      "9": "Usluga se temelji na algoritmima aplikacije Telegram, stoga molimo pogledajte i Uvjete korištenja i Politiku privatnosti Telegrama.",
+      "10": "Informacije koje prikupljamo o vama",
+      "11": "Glavna svrha za koju Pružatelj usluga prikuplja vaše podatke je pružiti vam usluge za korištenje Telegram bota @wefatebot (u daljnjem tekstu usluge). U procesu pružanja naših usluga vama, kako bismo mogli koristiti i poboljšati naše usluge, moramo prikupljati osobne podatke o vama.",
+      "12": "Pružatelj usluga će prikupiti i obraditi sljedeće podatke o vama:",
+      "13": "Podaci koje nam dajete: Dajete nam sljedeće informacije o sebi tijekom procesa registracije za korištenje naših Usluga: nadimak, spol, dob, orijentacija, grad u kojem se želite upoznati, jezik na kojem će se usluga raditi. Informacije također mogu uključivati poveznicu na osobni profil, ID osobnog računa u Telegram messengeru i jezik Telegram messengera. Osim toga, ovo su informacije koje pružate nastavkom korištenja naših Usluga, sudjelovanjem u promociji ili anketi, kao i prijavljivanjem problema s našim Uslugama.",
+      "14": "Podaci koje prikupljamo o vama: Pružatelj usluga može automatski prikupljati sljedeće podatke:",
+      "15": "Tehničke informacije, uključujući vaše registracijske podatke, podatke o operativnom sustavu i uređaju.",
+      "16": "Pojedinosti o transakcijama koje obavljate korištenjem naših usluga.",
+      "17": "Video materijali u svrhu provjere: Za korisnike visokog rizika možemo prikupljati video materijale kao dio postupka verifikacije. Ovi se videozapisi koriste isključivo za potvrdu autentičnosti korisničkog profila, sprječavanje prijevara i povećanje sigurnosti usluge. Kriteriji za identifikaciju visokorizičnih profila su interni i ne podliježu otkrivanju, čime se osigurava da sigurnosne mjere ostanu učinkovite protiv zlouporabe ili manipulacije.",
+      "18": "Informacije iz drugih izvora: Pružatelj usluga može primiti informacije o vama ako koristite bilo koju web stranicu kojom upravljamo ili druge usluge koje pružamo.",
+      "19": "Suglasni ste da imamo pravo, ali nismo obavezni pohraniti sve prikupljene osobne podatke za cijelo razdoblje vašeg korištenja naših Usluga i na razdoblje propisano zakonom, ali ne dulje od 5 (pet) godina. Razdoblje čuvanja može se produljiti za razdoblje ne duže od 1 (jedne) godine, ako postoji obrazloženi zahtjev nadležnog tijela.",
+      "20": "Davatelj usluge ne obrađuje namjerno podatke maloljetnika. Pružatelj usluga preporuča korištenje Bota osobama starijim od 18 godina. Odgovornost za postupke maloljetnika, uključujući kupnju usluga od strane istih, snose zakonski zastupnici maloljetnika. Svi posjetitelji mlađi od 18 godina dužni su dobiti dopuštenje svojih zakonskih zastupnika prije davanja bilo kakvih podataka o sebi. Ukoliko Pružatelj usluga postane svjestan da je primio podatke o maloljetnoj osobi bez suglasnosti zakonskih zastupnika, takvi će podaci biti izbrisani u najkraćem mogućem roku.",
+      "21": "Kako štitimo vaše podatke",
+      "22": "Pružatelj usluga čuva vaše osobne podatke sigurnima korištenjem sigurne pohrane s enkripcijom u skladu s industrijskim standardima, a mi smo implementirali niz sigurnosnih mjera kako bismo osigurali da se vaši podaci ne izgube, zlouporabe ili izmijene, uključujući, ali ne ograničavajući se na sljedeće:",
+      "23": "Fizičke mjere:",
+      "24": "Fizički mediji koji sadrže Vaše podatke bit će pohranjeni u zatvorenom prostoru, a koriste se i posebna fizička sredstva zaštite informacija (vanjske ograde oko objekta, sustav videonadzora, sustav kontrole pristupa pomoću bedževa i sustav biometrijskog prepoznavanja, uključujući infracrvenu zaštitu granica lokacije).",
+      "25": "Elektroničke mjere:",
+      "26": "Podaci će biti pohranjeni u računalnim sustavima i na fizičkim nositeljima podataka koji su podvrgnuti strogim zabranama unosa.",
+      "27": "Mjere upravljanja:",
+      "28": "Razine pristupa su odvojene tako da samo ovlašteni zaposlenici mogu doći u kontakt s vašim podacima, a ti zaposlenici su se obvezali poštivati \u200b\u200bnaša interna pravila o privatnosti podataka.",
+      "29": "Tehničke mjere:",
+      "30": "Tehnologija šifriranja može se koristiti za prijenos i pohranu vaših podataka. Koristimo različite sigurnosne tehnologije i kontrole koje su trenutno dostupne kako bismo smanjili rizik da vaši podaci mogu biti otkriveni, oštećeni, zloupotrijebljeni, dobiveni bez dopuštenja, otkriveni bez dopuštenja ili promijenjeni. Naši timovi za tehničku sigurnost aktivno prate nenormalne i zlonamjerne aktivnosti na našim poslužiteljima i uslugama.",
+      "31": "Ostale mjere:",
+      "32": "Nastojimo zaštititi vaše podatke od neovlaštenog pristupa, izmjene, otkrivanja ili uništavanja podataka koje prikupljamo i pohranjujemo.",
+      "33": "Poduzimamo različite mjere kako bismo osigurali sigurnost informacija, uključujući:",
+      "34": "Šifriranje naših poruka s vama;",
+      "35": "Periodična analiza naših metoda prikupljanja, pohrane i obrade podataka;",
+      "36": "Ograničen pristup vašim podacima na temelju potrebnog znanja za naše zaposlenike i dobavljače, koji podliježu strogim ugovornim obvezama povjerljivosti."
+    }
+  }
+}

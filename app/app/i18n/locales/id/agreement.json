@@ -90,5 +90,10 @@
       "88": "Perjanjian ini merupakan keseluruhan kesepahaman antara para pihak mengenai penggunaan Layanan dan menggantikan semua perjanjian atau kesepahaman sebelumnya, baik tertulis maupun lisan, yang terkait dengan pokok bahasannya.",
       "89": "Jika Anda memiliki pertanyaan atau masalah tentang Perjanjian ini, silakan hubungi kami di @wafatehelp."
     }
+  },
+  "common": {
+    "actions": {
+      "ok": "Oke"
+    }
   }
 }

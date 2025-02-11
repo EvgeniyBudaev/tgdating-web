@@ -90,5 +90,10 @@
       "88": "Ovaj Ugovor predstavlja cjelovito razumijevanje između strana u vezi s korištenjem usluge i zamjenjuje sve prethodne ugovore ili dogovore, pismene ili usmene, koji se odnose na njegov predmet.",
       "89": "Ako imate bilo kakvih pitanja ili nedoumica u vezi s ovim Ugovorom, kontaktirajte nas na @wafatehelp."
     }
+  },
+  "common": {
+    "actions": {
+      "ok": "U redu"
+    }
   }
 }

@@ -90,5 +90,10 @@
       "88": "Denne avtalen utgjør hele forståelsen mellom partene angående bruken av tjenesten og erstatter alle tidligere avtaler eller forståelser, enten skriftlige eller muntlige, knyttet til emnet.",
       "89": "Hvis du har spørsmål eller bekymringer angående denne avtalen, vennligst kontakt oss på @wafatehelp."
     }
+  },
+  "common": {
+    "actions": {
+      "ok": "Ok"
+    }
   }
 }

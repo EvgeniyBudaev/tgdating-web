@@ -90,5 +90,10 @@
       "88": "Ez a Megállapodás alkotja a felek közötti, a Szolgáltatás használatára vonatkozó teljes megállapodást, és felülír minden, a tárgyra vonatkozó írásbeli vagy szóbeli korábbi megállapodást vagy megállapodást.",
       "89": "Ha bármilyen kérdése vagy aggálya van ezzel a megállapodással kapcsolatban, kérjük, lépjen velünk kapcsolatba a @wafatehelp címen."
     }
+  },
+  "common": {
+    "actions": {
+      "ok": "Rendben"
+    }
   }
 }

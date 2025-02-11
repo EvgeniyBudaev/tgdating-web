@@ -90,5 +90,10 @@
       "88": "O presente Contrato constitui o entendimento integral entre as partes referente à utilização do Serviço e substitui todos os acordos ou entendimentos anteriores, sejam escritos ou orais, relacionados com o seu objeto.",
       "89": "Caso tenha alguma dúvida ou preocupação sobre este Contrato, por favor contacte-nos pelo e-mail @wafatehelp."
     }
+  },
+  "common": {
+    "actions": {
+      "ok": "Ok"
+    }
   }
 }
