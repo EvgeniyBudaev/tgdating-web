@@ -207,203 +207,139 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            Please note that it is impossible to guarantee 100% security of
-            information. Therefore, we ask you to take measures to protect your
-            personal information.
+            {t("page.text.37")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            You agree that the Service Provider is not responsible for any
-            information leakage and other losses not caused by our intent or
-            gross negligence, including, but not limited to hacker attack, power
-            outages or unavoidable technical failure, to the maximum extent
-            permitted by law, leakage of user data through his own fault.
+            {t("page.text.38")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            If you suspect that your personal information has been compromised,
-            please contact us immediately.
+            {t("page.text.39")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            WAYS OF USING YOUR DATA
+            {t("page.text.40").toUpperCase()}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            We use the information we collect about you for the following
-            purposes or in the following ways:
+            {t("page.text.41")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            1. To provide our services: The service Provider uses the collected
-            information to fulfill its obligations concerning you, to provide
-            you with information, products and services, to maintain and provide
-            better Services, to verify your identity.
+            1.&nbsp;{t("page.text.42")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            2. To comply with the requirements of the law: The service provider
-            will use the information in accordance with our legal obligations,
-            government requests and reasonable user requests.
+            2.&nbsp;{t("page.text.43")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>3. For research and development:</Typography>
+          <Typography>3.&nbsp;{t("page.text.44")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            3.1 The Service Provider actively measures and analyzes data for the
-            administration of our Services and for internal operations,
-            including troubleshooting, data analysis, testing, research,
-            statistical and review purposes, as well as to understand how you
-            use and interact with our Services.
+            3.1&nbsp;{t("page.text.45")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            3.2 This review is being conducted by our operations teams to
-            continuously improve our Services and fix user interface issues. In
-            addition, the Service Provider uses such information to customize,
-            measure and improve our Services, the content and layout of our
-            websites, as well as to develop new services.
+            3.2&nbsp;{t("page.text.46")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            3.3 We constantly monitor information about activities in our
-            systems and our communications with users in order to search for and
-            quickly fix problems.
+            3.3&nbsp;{t("page.text.47")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            4. To communicate with you: Without collecting and processing your
-            data to confirm each message, the Service Provider will not be able
-            to respond to the requests you send.
+            4.&nbsp;{t("page.text.48")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            5. To ensure compliance with our terms and conditions: The
-            information collected is also used to continuously and actively
-            comply with our terms and conditions, including, but not limited to,
-            reviewing, investigating and preventing any potentially prohibited
-            or illegal activities that may violate the above provisions, or
-            disclosing relevant information to a third party in accordance with
-            them.
+            5.&nbsp;{t("page.text.49")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            6. For video verification: Video materials collected as part of
-            verification are used to confirm profile authenticity and prevent
-            fraudulent activity. In addition, anonymized video data may be
-            utilized for analysis, improving security algorithms, and developing
-            new features.
+            6.&nbsp;{t("page.text.50")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            7. For marketing and advertising: The Service Provider may share
-            your personal information with our marketing partners for the
-            purposes of targeting, modeling and/or analytics, as well as
-            marketing and advertising. Advertisers do not have direct access to
-            personal user data. Instead, the Service Provider uses anonymized
-            and aggregated information to target advertisements effectively
-            without compromising user privacy.
+            7.&nbsp;{t("page.text.51")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            8. For targeted advertising: We may use your personal information,
-            such as gender, age, and geographic location, to provide
-            personalized advertisements and sponsored content in collaboration
-            with our advertising partners.
+            8.&nbsp;{t("page.text.52")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            9. For other purposes: The Service Provider may disclose your
-            personal information for any other purposes for which you give
-            additional consent, expressed by signing a written document or
-            filling out an electronic form provided by the Service Provider.
+            9.&nbsp;{t("page.text.53")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            LEGAL BASIS FOR PROCESSING
+            {t("page.text.54").toUpperCase()}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            When We process your data, we will rely on one of the following
-            legal bases for processing. We may process your data for several
-            legitimate reasons, depending on the specific purpose for which we
-            use your data.
+            {t("page.text.55")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>1. Execution of the contract:</Typography>
+          <Typography>1.&nbsp;{t("page.text.56")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            1.1 We may process data if the processing of your data is necessary
-            to fulfill our obligations under the User Agreement that We have
-            entered into with you.
+            1.1&nbsp;{t("page.text.57")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            2. Legal obligation or in the public interest:
+            2.&nbsp;{t("page.text.58")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            2.1 We are required to process your data in accordance with legal
-            obligations.
+            2.1&nbsp;{t("page.text.59")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            2.2 The purposes of processing include control over identity
-            verification, prevention of money laundering and fraud, risk control
-            measures, as well as providing information to a competent authority,
-            government agency or law enforcement agency.
+            2.2&nbsp;{t("page.text.60")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>3. Legitimate interests:</Typography>
+          <Typography>3.&nbsp;{t("page.text.61")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            3.1 If necessary, we may process data if we or the third party have
-            a legitimate interest in pursuing commercial and business interests,
-            except in cases where such interests overlap with your interests,
-            fundamental rights and freedoms.
+            3.1&nbsp;{t("page.text.62")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>4. Your consent:</Typography>
+          <Typography>4.&nbsp;{t("page.text.63")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            4.1 In certain circumstances, We may request specific permission
-            from you to process additional personal information for certain
-            purposes.
+            4.1&nbsp;{t("page.text.64")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            4.2 Your data will be processed in this way if you agree to it. If
-            the legal basis is the consent you have provided, you can withdraw
-            your consent at any time. Revocation of your consent will not affect
-            the legality of the data processed prior to revocation.
+            4.2&nbsp;{t("page.text.65")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
