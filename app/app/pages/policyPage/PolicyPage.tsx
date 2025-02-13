@@ -344,60 +344,43 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            WHO RECEIVES YOUR DATA
+            {t("page.text.66").toUpperCase()}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            The Service Provider receives your data to fulfill requests and
-            provide services, as well as to fulfill our contractual and legal
-            obligations.
+            {t("page.text.67")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            We transfer your data to third parties if it is necessary for our
-            legitimate business needs, to fulfill requests, provide services
-            and/or in accordance with the requirements or permits of the law.
-            Third parties in such circumstances:
+            {t("page.text.68")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>1. Service Providers:</Typography>
+          <Typography>1.&nbsp;{t("page.text.69")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            1.1 The service provider will disclose the data to third-party
-            partners and service providers (processors) so that they can process
-            it on our behalf, where necessary. These service providers are
-            required to provide sufficient guarantees in accordance with the
-            Data protection Act (for example, being bound by contractual
-            obligations regarding confidentiality and data protection). We will
-            only transmit the data they need to provide their services.
+            1.1&nbsp;{t("page.text.70")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>2. Auditors and consultants:</Typography>
+          <Typography>2.&nbsp;{t("page.text.71")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            2.1 We may disclose data for the purposes and in the context of
-            inspections (for example, external inspections, security checks) to
-            legal and other consultants to investigate security issues, risks,
-            complaints, etc.
+            2.1&nbsp;{t("page.text.72")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            3. Regulatory authorities, law enforcement agencies, courts:
+            3.&nbsp;{t("page.text.73")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            3.1 The Service Provider may disclose data in accordance with
-            applicable laws, regulatory obligations, to respond to requests from
-            regulatory authorities, government and law enforcement agencies,
-            courts and court orders.
+            3.1&nbsp;{t("page.text.74")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
