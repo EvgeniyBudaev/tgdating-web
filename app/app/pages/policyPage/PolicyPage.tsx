@@ -384,73 +384,64 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>4. Other persons:</Typography>
+          <Typography>4.&nbsp;{t("page.text.75")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            4.1 Other recipients may be any natural/legal persons to whom you
-            ask to transfer your data (for example, a link, etc.) or give your
-            consent to the transfer of data.
+            4.1&nbsp;{t("page.text.76")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            4.2 The Service Provider may also disclose your data in such
-            circumstances as:
+            4.2&nbsp;{t("page.text.77")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            4.2.1 In order to protect our rights, safety or property, as well as
-            the rights of our customers or third parties/the public. This
-            includes sharing information with other companies and organizations
-            for the purposes of money laundering, fraud prevention and similar
-            risks.
+            4.2.1&nbsp;{t("page.text.78")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            4.2.2 If We are required to disclose or transfer your data in
-            accordance with any legal or regulatory obligations or requests..
+            4.2.2&nbsp;{t("page.text.79")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            USER RIGHTS
+            {t("page.text.80").toUpperCase()}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>Users have the right to:</Typography>
+          <Typography>{t("page.text.81")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            1. Access and request details about the information we hold.
-          </Typography>
-        </div>
-        <div className="PolicyPage-Block">
-          <Typography>
-            2. Request corrections to inaccurate or outdated information.
+            1.&nbsp;{t("page.text.82")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            3. Request the deletion or anonymization of data no longer necessary
-            for the stated purposes.
+            2.&nbsp;{t("page.text.83")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            4. Object to processing based on legitimate interests.
+            3.&nbsp;{t("page.text.84")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            5. Withdraw consent for data processing where applicable.
+            4.&nbsp;{t("page.text.85")}
+          </Typography>
+        </div>
+        <div className="PolicyPage-Block">
+          <Typography>
+            5.&nbsp;{t("page.text.86")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            RETENTION PERIODS AND DATA PROCESSING
+            {t("page.text.87").toUpperCase()}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
