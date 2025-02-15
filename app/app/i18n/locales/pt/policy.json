@@ -87,7 +87,27 @@
       "84": "Solicitar a eliminação ou anonimização de dados que já não sejam necessários para os fins declarados.",
       "85": "Objetar o tratamento com base em interesses legítimos.",
       "86": "Retirar o consentimento para o tratamento de dados quando aplicável.",
-      "87": "Períodos de conservação e tratamento de dados"
+      "87": "Períodos de conservação e tratamento de dados",
+      "88": "Todos os dados recolhidos, incluindo, mas não se limitando a informações de perfil, fotografias, materiais de vídeo e interações do utilizador (por exemplo, gostos e correspondências), são retidos para:",
+      "89": "O tempo necessário para prestar serviços e cumprir as obrigações contratuais.",
+      "90": "Conformidade com os requisitos legais e regulamentares.",
+      "91": "Fins estatísticos ou analíticos, desde que os dados sejam anonimizados.",
+      "92": "Melhoria dos algoritmos de segurança e desenvolvimento de novas funcionalidades (apenas dados anonimizados).",
+      "93": "Os dados podem ser conservados para além destes períodos se existirem motivos legais, tais como obrigações legais em curso ou consentimento do utilizador. Após o término dos períodos de conservação, os dados serão eliminados em segurança ou tornados anónimos para utilização contínua em análises e melhorias de serviços.",
+      "94": "Direito de reclamar",
+      "95": "Se estiver insatisfeito com a forma como os seus dados pessoais foram tratados ou tiver dúvidas sobre qualquer questão relacionada com a privacidade, por favor contacte-nos através dos dados fornecidos abaixo. Investigaremos a sua reclamação e responderemos no prazo de 14 dias corridos.",
+      "96": "Antes de apresentar uma ação legal, concorda em tentar primeiro resolver a reclamação diretamente com o Prestador de Serviços utilizando os dados de contacto fornecidos.",
+      "97": "Detalhes de contacto",
+      "98": "Para quaisquer questões relacionadas com a privacidade, por favor contacte:",
+      "99": "Suporte Telegram: @wefatehelp",
+      "100": "Se as suas preocupações não forem tratadas satisfatoriamente, poderá apresentar uma queixa junto da autoridade de supervisão relevante da sua jurisdição.",
+      "101": "Alterações a esta política",
+      "102": "Esta Política de Privacidade pode ser atualizada periodicamente para refletir alterações nos requisitos legais, regulamentares ou operacionais. Atualizações significativas serão comunicadas aos utilizadores através da interface do bot do Telegram."
+    }
+  },
+  "common": {
+    "actions": {
+      "ok": "Ok"
     }
   }
 }

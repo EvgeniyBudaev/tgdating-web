@@ -87,7 +87,27 @@
       "84": "Fordern Sie die Löschung oder Anonymisierung von Daten, die für die angegebenen Zwecke nicht mehr erforderlich sind.",
       "85": "Widerspruch gegen die Verarbeitung auf Grundlage berechtigter Interessen.",
       "86": "Widerrufen Sie ggf. Ihre Einwilligung zur Datenverarbeitung.",
-      "87": "Aufbewahrungsfristen und Datenverarbeitung"
+      "87": "Aufbewahrungsfristen und Datenverarbeitung",
+      "88": "Alle gesammelten Daten, einschließlich, aber nicht beschränkt auf Profilinformationen, Fotos, Videomaterial und Benutzerinteraktionen (z. B. Likes und Matches), werden für folgende Zwecke gespeichert:",
+      "89": "Die für die Erbringung von Dienstleistungen und die Erfüllung vertraglicher Verpflichtungen erforderliche Zeit.",
+      "90": "Einhaltung gesetzlicher und regulatorischer Anforderungen.",
+      "91": "Statistische oder analytische Zwecke, sofern die Daten anonymisiert sind.",
+      "92": "Verbesserung von Sicherheitsalgorithmen und Entwicklung neuer Funktionen (nur anonymisierte Daten).",
+      "93": "Daten können über diese Zeiträume hinaus aufbewahrt werden, wenn es rechtliche Gründe gibt, wie etwa laufende rechtliche Verpflichtungen oder die Zustimmung des Benutzers. Nach Ablauf der Aufbewahrungsfristen werden die Daten sicher gelöscht oder anonymisiert, damit sie weiterhin für Analysen und Serviceverbesserungen verwendet werden können.",
+      "94": "Beschwerderecht",
+      "95": "Wenn Sie mit der Verarbeitung Ihrer personenbezogenen Daten unzufrieden sind oder Bedenken hinsichtlich eines datenschutzbezogenen Problems haben, können Sie uns unter den unten angegebenen Kontaktdaten kontaktieren. Wir werden Ihre Beschwerde prüfen und innerhalb von 14 Kalendertagen antworten.",
+      "96": "Bevor Sie rechtliche Schritte einleiten, erklären Sie sich damit einverstanden, zunächst zu versuchen, die Beschwerde direkt mit dem Dienstanbieter unter Verwendung der bereitgestellten Kontaktdaten zu klären.",
+      "97": "Kontaktdetails",
+      "98": "Bei Fragen zum Datenschutz wenden Sie sich bitte an:",
+      "99": "Telegramm-Support: @wefatehelp",
+      "100": "Wenn Ihre Anliegen nicht zu Ihrer Zufriedenheit ausgeräumt werden, können Sie bei der zuständigen Aufsichtsbehörde in Ihrem Land Beschwerde einreichen.",
+      "101": "Änderungen dieser Richtlinie",
+      "102": "Diese Datenschutzrichtlinie kann von Zeit zu Zeit aktualisiert werden, um Änderungen der gesetzlichen, behördlichen oder betrieblichen Anforderungen Rechnung zu tragen. Wichtige Aktualisierungen werden den Benutzern über die Telegram-Bot-Schnittstelle mitgeteilt."
+    }
+  },
+  "common": {
+    "actions": {
+      "ok": "Ok"
     }
   }
 }

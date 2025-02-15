@@ -87,7 +87,27 @@
       "84": "Be om sletting eller anonymisering av data som ikke lenger er nødvendig for de angitte formålene.",
       "85": "Innsigelse mot behandling basert på legitime interesser.",
       "86": "Trekk tilbake samtykke til databehandling der det er aktuelt.",
-      "87": "Oppbevaringsperioder og databehandling"
+      "87": "Oppbevaringsperioder og databehandling",
+      "88": "Alle innsamlede data, inkludert men ikke begrenset til profilinformasjon, bilder, videomateriale og brukerinteraksjoner (f.eks. likes og matches), beholdes for:",
+      "89": "Tiden som er nødvendig for å yte tjenester og oppfylle kontraktsmessige forpliktelser.",
+      "90": "Overholdelse av lov- og forskriftskrav.",
+      "91": "Statistiske eller analytiske formål, forutsatt at dataene er anonymiserte.",
+      "92": "Forbedring av sikkerhetsalgoritmer og utvikling av nye funksjoner (kun anonymiserte data).",
+      "93": "Data kan bli oppbevart utover disse periodene hvis det er lovlige grunner, for eksempel pågående juridiske forpliktelser eller brukersamtykke. Ved utløpet av oppbevaringsperioder vil data på en sikker måte bli slettet eller anonymisert for fortsatt bruk i analyser og tjenesteforbedring.",
+      "94": "Rett til å klage",
+      "95": "Hvis du er misfornøyd med måten personopplysningene dine har blitt behandlet på eller har bekymringer angående personvernrelaterte problemer, kan du kontakte oss på detaljene nedenfor. Vi vil undersøke klagen din og svare innen 14 kalenderdager.",
+      "96": "Før du forfølger rettslige skritt, godtar du først å forsøke å løse klagen direkte med tjenesteleverandøren ved å bruke de oppgitte kontaktopplysningene.",
+      "97": "Kontaktinformasjon",
+      "98": "For eventuelle personvernrelaterte bekymringer, vennligst kontakt:",
+      "99": "Telegramstøtte: @wefatehelp",
+      "100": "Hvis dine bekymringer ikke er adressert til din tilfredshet, kan du sende inn en klage til den relevante tilsynsmyndigheten i din jurisdiksjon.",
+      "101": "Endringer i denne policyen",
+      "102": "Denne personvernerklæringen kan oppdateres fra tid til annen for å gjenspeile endringer i juridiske, regulatoriske eller operasjonelle krav. Betydelige oppdateringer vil bli kommunisert til brukere gjennom Telegram-bot-grensesnittet."
+    }
+  },
+  "common": {
+    "actions": {
+      "ok": "Ok"
     }
   }
 }

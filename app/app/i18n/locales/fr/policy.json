@@ -87,7 +87,27 @@
       "84": "Demander la suppression ou l’anonymisation des données qui ne sont plus nécessaires aux finalités indiquées.",
       "85": "S’opposer au traitement fondé sur des intérêts légitimes.",
       "86": "Retirer le consentement au traitement des données, le cas échéant.",
-      "87": "Durées de conservation et traitement des données"
+      "87": "Durées de conservation et traitement des données",
+      "88": "Toutes les données collectées, y compris, mais sans s'y limiter, les informations de profil, les photos, les vidéos et les interactions des utilisateurs (par exemple, les mentions « j'aime » et les correspondances), sont conservées pour:",
+      "89": "Le temps nécessaire pour fournir des services et remplir les obligations contractuelles.",
+      "90": "Conformité aux exigences légales et réglementaires.",
+      "91": "À des fins statistiques ou analytiques, à condition que les données soient anonymisées.",
+      "92": "Amélioration des algorithmes de sécurité et développement de nouvelles fonctionnalités (données anonymisées uniquement).",
+      "93": "Les données peuvent être conservées au-delà de ces périodes s'il existe des motifs légitimes, tels que des obligations légales en cours ou le consentement de l'utilisateur. À l'expiration des périodes de conservation, les données seront supprimées de manière sécurisée ou anonymisées pour une utilisation continue à des fins d'analyse et d'amélioration des services.",
+      "94": "Droit de porter plainte",
+      "95": "Si vous n'êtes pas satisfait de la manière dont vos données personnelles ont été traitées ou si vous avez des inquiétudes concernant un problème lié à la confidentialité, vous pouvez nous contacter aux coordonnées fournies ci-dessous. Nous examinerons votre réclamation et vous répondrons dans un délai de 14 jours calendaires.",
+      "96": "Avant d’engager une action en justice, vous acceptez de tenter d’abord de résoudre la plainte directement avec le fournisseur de services en utilisant les coordonnées fournies.",
+      "97": "Coordonnées",
+      "98": "Pour toute question relative à la confidentialité, veuillez contacter:",
+      "99": "Assistance Telegram : @wefatehelp",
+      "100": "Si vos préoccupations ne sont pas traitées de manière satisfaisante, vous pouvez déposer une plainte auprès de l’autorité de contrôle compétente de votre juridiction.",
+      "101": "Modifications apportées à cette politique",
+      "102": "Cette politique de confidentialité peut être mise à jour de temps à autre pour refléter les changements dans les exigences légales, réglementaires ou opérationnelles. Les mises à jour importantes seront communiquées aux utilisateurs via l'interface du bot Telegram."
+    }
+  },
+  "common": {
+    "actions": {
+      "ok": "D'accord"
     }
   }
 }

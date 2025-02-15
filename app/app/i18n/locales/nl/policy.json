@@ -87,7 +87,27 @@
       "84": "Verzoek om verwijdering of anonimisering van gegevens die niet langer nodig zijn voor de genoemde doeleinden.",
       "85": "Bezwaar maken tegen verwerking op basis van gerechtvaardigde belangen.",
       "86": "Indien van toepassing, uw toestemming voor gegevensverwerking intrekken.",
-      "87": "Bewaartermijnen en gegevensverwerking"
+      "87": "Bewaartermijnen en gegevensverwerking",
+      "88": "Alle verzamelde gegevens, waaronder maar niet beperkt tot profielinformatie, foto's, videomateriaal en gebruikersinteracties (bijv. vind-ik-leuks en matches), worden bewaard voor:",
+      "89": "De tijd die nodig is om diensten te verlenen en contractuele verplichtingen na te komen.",
+      "90": "Voldoen aan wettelijke en regelgevende vereisten.",
+      "91": "Statistische of analytische doeleinden, mits de gegevens geanonimiseerd zijn.",
+      "92": "Verbetering van beveiligingsalgoritmen en ontwikkeling van nieuwe functies (alleen geanonimiseerde gegevens).",
+      "93": "Gegevens kunnen langer dan deze periodes worden bewaard als er wettelijke gronden zijn, zoals doorlopende wettelijke verplichtingen of toestemming van de gebruiker. Na afloop van de bewaartermijnen worden gegevens veilig verwijderd of geanonimiseerd voor voortgezet gebruik in analyses en serviceverbetering.",
+      "94": "Recht om te klagen",
+      "95": "Als u ontevreden bent over de manier waarop uw persoonsgegevens zijn verwerkt of als u zorgen hebt over een privacygerelateerd probleem, kunt u contact met ons opnemen via de onderstaande gegevens. Wij zullen uw klacht onderzoeken en binnen 14 kalenderdagen reageren.",
+      "96": "U stemt ermee in om, voordat u juridische stappen onderneemt, eerst te proberen de klacht rechtstreeks met de Dienstverlener op te lossen via de verstrekte contactgegevens.",
+      "97": "Contactgegevens",
+      "98": "Voor vragen over privacy kunt u contact opnemen met:",
+      "99": "Telegram-ondersteuning: @wefatehelp",
+      "100": "Als uw zorgen niet naar tevredenheid worden opgelost, kunt u een klacht indienen bij de bevoegde toezichthoudende autoriteit in uw rechtsgebied.",
+      "101": "Wijzigingen in dit beleid",
+      "102": "Dit privacybeleid kan van tijd tot tijd worden bijgewerkt om veranderingen in juridische, regelgevende of operationele vereisten te weerspiegelen. Belangrijke updates worden via de Telegram-botinterface aan gebruikers gecommuniceerd."
+    }
+  },
+  "common": {
+    "actions": {
+      "ok": "Ok"
     }
   }
 }

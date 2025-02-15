@@ -87,7 +87,27 @@
       "84": "Richiedere la cancellazione o la trasformazione in forma anonima dei dati non più necessari per le finalità indicate.",
       "85": "Opporsi al trattamento basato su interessi legittimi.",
       "86": "Revoca del consenso al trattamento dei dati, ove applicabile.",
-      "87": "Periodi di conservazione e trattamento dei dati"
+      "87": "Periodi di conservazione e trattamento dei dati",
+      "88": "Tutti i dati raccolti, inclusi, a titolo esemplificativo ma non esaustivo, informazioni sul profilo, foto, materiale video e interazioni dell'utente (ad esempio, Mi piace e corrispondenze), vengono conservati per:",
+      "89": "Il tempo necessario per fornire i servizi e adempiere agli obblighi contrattuali.",
+      "90": "Conformità ai requisiti legali e normativi.",
+      "91": "Finalità statistiche o analitiche, purché i dati siano resi anonimi.",
+      "92": "Miglioramento degli algoritmi di sicurezza e sviluppo di nuove funzionalità (solo dati resi anonimi).",
+      "93": "I dati possono essere conservati oltre questi periodi se sussistono motivi legittimi, come obblighi legali in corso o consenso dell'utente. Alla scadenza dei periodi di conservazione, i dati saranno eliminati in modo sicuro o resi anonimi per un uso continuato nell'analisi e nel miglioramento del servizio.",
+      "94": "Diritto di reclamo",
+      "95": "Se non sei soddisfatto del modo in cui sono stati elaborati i tuoi dati personali o hai dubbi su qualsiasi questione relativa alla privacy, puoi contattarci ai dettagli forniti di seguito. Esamineremo il tuo reclamo e risponderemo entro 14 giorni di calendario.",
+      "96": "Prima di intraprendere un'azione legale, l'utente accetta di tentare innanzitutto di risolvere il reclamo direttamente con il Fornitore del servizio, utilizzando i dettagli di contatto forniti.",
+      "97": "Dettagli di contatto",
+      "98": "Per qualsiasi problema relativo alla privacy, contattare:",
+      "99": "Supporto Telegram: @wefatehelp",
+      "100": "Se le tue preoccupazioni non vengono affrontate in modo soddisfacente, puoi presentare un reclamo all'autorità di controllo competente nella tua giurisdizione.",
+      "101": "Modifiche alla presente politica",
+      "102": "La presente Informativa sulla privacy potrebbe essere aggiornata di tanto in tanto per riflettere i cambiamenti nei requisiti legali, normativi o operativi. Gli aggiornamenti significativi saranno comunicati agli utenti tramite l'interfaccia del bot di Telegram."
+    }
+  },
+  "common": {
+    "actions": {
+      "ok": "Ok"
     }
   }
 }

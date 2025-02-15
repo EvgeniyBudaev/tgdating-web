@@ -87,7 +87,27 @@
       "84": "Pyydä sellaisten tietojen poistamista tai anonymisointia, joita ei enää tarvita mainittuihin tarkoituksiin.",
       "85": "Vastustaa oikeutettuihin etuihin perustuvaa käsittelyä.",
       "86": "Peruuta suostumus tietojen käsittelyyn tarvittaessa.",
-      "87": "Säilytysajat ja tietojen käsittely"
+      "87": "Säilytysajat ja tietojen käsittely",
+      "88": "Kaikki kerätyt tiedot, mukaan lukien mutta ei rajoittuen profiilitiedot, valokuvat, videomateriaalit ja käyttäjien vuorovaikutus (esim. tykkäykset ja osumat), säilytetään:",
+      "89": "Palvelujen tuottamiseen ja sopimusvelvoitteiden täyttämiseen tarvittava aika.",
+      "90": "Lakisääteisten vaatimusten noudattaminen.",
+      "91": "Tilastollisiin tai analyyttisiin tarkoituksiin edellyttäen, että tiedot anonymisoidaan.",
+      "92": "Suojausalgoritmien parantaminen ja uusien ominaisuuksien kehittäminen (vain anonymisoidut tiedot).",
+      "93": "Tietoja voidaan säilyttää näiden ajanjaksojen jälkeen, jos siihen on laillinen peruste, kuten jatkuva oikeudellinen velvoite tai käyttäjän suostumus. Säilytysajan päätyttyä tiedot poistetaan turvallisesti tai anonymisoidaan, jotta niitä voidaan käyttää jatkossakin analytiikkaan ja palvelun parantamiseen.",
+      "94": "Oikeus valittaa",
+      "95": "Jos olet tyytymätön tapaan, jolla henkilötietojasi on käsitelty, tai sinulla on kysyttävää yksityisyyteen liittyvistä seikoista, voit ottaa meihin yhteyttä alla olevilla tiedoilla. Tutkimme valituksesi ja vastaamme 14 kalenteripäivän kuluessa.",
+      "96": "Ennen oikeustoimiin ryhtymistä sitoudut ensin yrittämään ratkaista valituksen suoraan Palveluntarjoajan kanssa käyttämällä annettuja yhteystietoja.",
+      "97": "Yhteystiedot",
+      "98": "Yksityisyyteen liittyvissä asioissa ota yhteyttä:",
+      "99": "Telegram-tuki: @wefatehelp",
+      "100": "Jos huolenaiheitasi ei ole käsitelty sinua tyydyttävällä tavalla, voit tehdä valituksen lainkäyttöalueesi toimivaltaiselle valvontaviranomaiselle.",
+      "101": "Muutoksia tähän käytäntöön",
+      "102": "Tätä tietosuojakäytäntöä voidaan päivittää ajoittain vastaamaan muutoksia lakiin, säädöksiin tai toiminnallisiin vaatimuksiin. Merkittävät päivitykset välitetään käyttäjille Telegram-botin käyttöliittymän kautta."
+    }
+  },
+  "common": {
+    "actions": {
+      "ok": "Ok"
     }
   }
 }

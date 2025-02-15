@@ -87,7 +87,27 @@
       "84": "Solicitar la supresión o anonimización de los datos que ya no sean necesarios para los fines indicados.",
       "85": "Oponerse al tratamiento basado en intereses legítimos.",
       "86": "Retirar el consentimiento para el tratamiento de datos cuando corresponda.",
-      "87": "Plazos de conservación y tratamiento de datos"
+      "87": "Plazos de conservación y tratamiento de datos",
+      "88": "Todos los datos recopilados, incluidos, entre otros, información de perfil, fotos, materiales de video e interacciones del usuario (por ejemplo, me gusta y coincidencias), se conservan para:",
+      "89": "El tiempo necesario para prestar los servicios y cumplir las obligaciones contractuales.",
+      "90": "Cumplimiento de requisitos legales y reglamentarios.",
+      "91": "Fines estadísticos o analíticos, siempre que los datos sean anonimizados.",
+      "92": "Mejora de los algoritmos de seguridad y desarrollo de nuevas funcionalidades (sólo datos anonimizados).",
+      "93": "Los datos pueden conservarse más allá de estos períodos si existen motivos legales, como obligaciones legales vigentes o el consentimiento del usuario. Una vez vencidos los períodos de retención, los datos se eliminarán de forma segura o se anonimizarán para su uso continuo en análisis y mejora del servicio.",
+      "94": "Derecho a reclamar",
+      "95": "Si no está satisfecho con la forma en que se han procesado sus datos personales o tiene inquietudes sobre cualquier tema relacionado con la privacidad, puede comunicarse con nosotros mediante los datos que se proporcionan a continuación. Investigaremos su queja y le responderemos en un plazo de 14 días naturales.",
+      "96": "Antes de emprender acciones legales, usted acepta intentar primero resolver la queja directamente con el Proveedor de Servicios utilizando los datos de contacto proporcionados.",
+      "97": "Datos de contacto",
+      "98": "Para cualquier inquietud relacionada con la privacidad, comuníquese con:",
+      "99": "Soporte de Telegram: @wefatehelp",
+      "100": "Si sus inquietudes no se resuelven a su satisfacción, puede presentar una queja ante la autoridad supervisora pertinente en su jurisdicción.",
+      "101": "Cambios a esta política",
+      "102": "Esta Política de privacidad puede actualizarse periódicamente para reflejar cambios en los requisitos legales, reglamentarios u operativos. Las actualizaciones significativas se comunicarán a los usuarios a través de la interfaz del bot de Telegram."
+    }
+  },
+  "common": {
+    "actions": {
+      "ok": "De acuerdo"
     }
   }
 }

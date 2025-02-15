@@ -87,7 +87,27 @@
       "84": "Meminta penghapusan atau anonimisasi data yang tidak lagi diperlukan untuk tujuan yang dinyatakan.",
       "85": "Menolak pemrosesan berdasarkan kepentingan yang sah.",
       "86": "Cabut persetujuan untuk pemrosesan data jika berlaku.",
-      "87": "Periode penyimpanan dan pemrosesan data"
+      "87": "Periode penyimpanan dan pemrosesan data",
+      "88": "Semua data yang dikumpulkan, termasuk namun tidak terbatas pada informasi profil, foto, materi video, dan interaksi pengguna (misalnya, suka dan cocok), disimpan untuk:",
+      "89": "Waktu yang diperlukan untuk menyediakan layanan dan memenuhi kewajiban kontrak.",
+      "90": "Kepatuhan terhadap persyaratan hukum dan peraturan.",
+      "91": "Tujuan statistik atau analitis, asalkan datanya dianonimkan.",
+      "92": "Peningkatan algoritma keamanan dan pengembangan fitur baru (hanya data anonim).",
+      "93": "Data dapat disimpan setelah periode ini jika ada alasan hukum, seperti kewajiban hukum yang sedang berlangsung atau persetujuan pengguna. Setelah periode penyimpanan berakhir, data akan dihapus dengan aman atau dianonimkan untuk penggunaan lebih lanjut dalam analisis dan peningkatan layanan.",
+      "94": "Hak untuk mengeluh",
+      "95": "Jika Anda tidak puas dengan cara data pribadi Anda diproses atau memiliki kekhawatiran mengenai masalah terkait privasi, Anda dapat menghubungi kami melalui rincian yang diberikan di bawah ini. Kami akan menyelidiki keluhan Anda dan menanggapinya dalam waktu 14 hari kalender.",
+      "96": "Sebelum menempuh jalur hukum, Anda setuju untuk terlebih dahulu mencoba menyelesaikan keluhan secara langsung dengan Penyedia Layanan dengan menggunakan rincian kontak yang diberikan.",
+      "97": "Rincian kontak",
+      "98": "Untuk masalah apa pun yang berhubungan dengan privasi, silakan hubungi:",
+      "99": "Dukungan Telegram: @wefatehelp",
+      "100": "Jika keluhan Anda tidak ditanggapi dengan memuaskan, Anda dapat mengajukan keluhan kepada otoritas pengawas yang relevan di yurisdiksi Anda.",
+      "101": "Perubahan pada kebijakan ini",
+      "102": "Kebijakan Privasi ini dapat diperbarui dari waktu ke waktu untuk mencerminkan perubahan dalam persyaratan hukum, peraturan, atau operasional. Pembaruan penting akan dikomunikasikan kepada pengguna melalui antarmuka bot Telegram."
+    }
+  },
+  "common": {
+    "actions": {
+      "ok": "Oke"
     }
   }
 }

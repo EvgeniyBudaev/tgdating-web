@@ -87,7 +87,27 @@
       "84": "Sol·licitar la supressió o anonimització de les dades que ja no siguin necessàries per a les finalitats indicades.",
       "85": "Oposar-se al tractament basat en interessos legítims.",
       "86": "Retirar el consentiment per al tractament de dades si escau.",
-      "87": "Termini de conservació i tractament de dades"
+      "87": "Termini de conservació i tractament de dades",
+      "88": "Totes les dades recopilades, incloses, entre d'altres, la informació del perfil, les fotos, els materials de vídeo i les interaccions dels usuaris (p. ex., m'agrada i coincidències), es conserven per a:",
+      "89": "El temps necessari per a la prestació dels serveis i el compliment de les obligacions contractuals.",
+      "90": "Compliment dels requisits legals i reglamentaris.",
+      "91": "Amb finalitats estadístiques o analítiques, sempre que les dades siguin anònimes.",
+      "92": "Millora dels algorismes de seguretat i desenvolupament de noves funcionalitats (només dades anònimes).",
+      "93": "Les dades es poden conservar més enllà d'aquests períodes si hi ha motius legals, com ara obligacions legals en curs o el consentiment de l'usuari. Un cop transcorreguts els períodes de retenció, les dades s'eliminaran de forma segura o s'anònimitzaran per continuar utilitzant-les en l'anàlisi i la millora del servei.",
+      "94": "Dret a reclamar",
+      "95": "Si no està satisfet amb la forma en què s'han processat les seves dades personals o té dubtes sobre qualsevol problema relacionat amb la privadesa, pot posar-se en contacte amb nosaltres als detalls que s'indiquen a continuació. Investigarem la vostra queixa i respondrem en un termini de 14 dies naturals.",
+      "96": "Abans d'iniciar una acció legal, accepteu intentar primer resoldre la queixa directament amb el proveïdor de serveis mitjançant les dades de contacte proporcionades.",
+      "97": "Dades de contacte",
+      "98": "Per a qualsevol dubte relacionat amb la privadesa, poseu-vos en contacte amb:",
+      "99": "Suport de Telegram: @wefatehelp",
+      "100": "Si les vostres inquietuds no s'aborden a la vostra satisfacció, podeu presentar una queixa davant l'autoritat de supervisió corresponent de la vostra jurisdicció.",
+      "101": "Canvis a aquesta política",
+      "102": "Aquesta Política de privadesa es pot actualitzar de tant en tant per reflectir els canvis en els requisits legals, reglamentaris o operatius. Les actualitzacions significatives es comunicaran als usuaris a través de la interfície del bot de Telegram."
+    }
+  },
+  "common": {
+    "actions": {
+      "ok": "D'acord"
     }
   }
 }

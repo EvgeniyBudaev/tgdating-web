@@ -87,7 +87,27 @@
       "84": "Request the deletion or anonymization of data no longer necessary for the stated purposes.",
       "85": "Object to processing based on legitimate interests.",
       "86": "Withdraw consent for data processing where applicable.",
-      "87": "Retention periods and data processing"
+      "87": "Retention periods and data processing",
+      "88": "All collected data, including but not limited to profile information, photos, video materials, and user interactions (e.g., likes and matches), is retained for:",
+      "89": "The time necessary to provide services and fulfill contractual obligations.",
+      "90": "Compliance with legal and regulatory requirements.",
+      "91": "Statistical or analytical purposes, provided the data is anonymized.",
+      "92": "Improvement of security algorithms and development of new features (anonymized data only).",
+      "93": "Data may be retained beyond these periods if there are lawful grounds, such as ongoing legal obligations or user consent. Upon the expiration of retention periods, data will be securely deleted or anonymized for continued use in analytics and service improvement.",
+      "94": "Right to complain",
+      "95": "If you are dissatisfied with the way your personal data has been processed or have concerns regarding any privacy-related issue, you may contact us at the details provided below. We will investigate your complaint and respond within 14 calendar days.",
+      "96": "Before pursuing legal action, you agree to first attempt to resolve the complaint directly with the Service Provider using the provided contact details.",
+      "97": "Contact details",
+      "98": "For any privacy-related concerns, please contact:",
+      "99": "Telegram Support: @wefatehelp",
+      "100": "If your concerns are not addressed to your satisfaction, you may file a complaint with the relevant supervisory authority in your jurisdiction.",
+      "101": "Changes to this policy",
+      "102": "This Privacy Policy may be updated from time to time to reflect changes in legal, regulatory, or operational requirements. Significant updates will be communicated to users through the Telegram bot interface."
+    }
+  },
+  "common": {
+    "actions": {
+      "ok": "Ok"
     }
   }
 }

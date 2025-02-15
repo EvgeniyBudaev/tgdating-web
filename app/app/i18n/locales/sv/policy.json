@@ -87,7 +87,27 @@
       "84": "Begär radering eller anonymisering av uppgifter som inte längre är nödvändiga för de angivna ändamålen.",
       "85": "Invända mot behandling utifrån legitima intressen.",
       "86": "Återkalla samtycke för databehandling i förekommande fall.",
-      "87": "Lagringstider och databehandling"
+      "87": "Lagringstider och databehandling",
+      "88": "All insamlad data, inklusive men inte begränsat till profilinformation, foton, videomaterial och användarinteraktioner (t.ex. gilla-markeringar och matchningar), bevaras för:",
+      "89": "Den tid som krävs för att tillhandahålla tjänster och uppfylla avtalsförpliktelser.",
+      "90": "Överensstämmelse med lagar och föreskrifter.",
+      "91": "Statistiska eller analytiska ändamål, förutsatt att uppgifterna är anonymiserade.",
+      "92": "Förbättring av säkerhetsalgoritmer och utveckling av nya funktioner (endast anonymiserad data).",
+      "93": "Data kan komma att bevaras utöver dessa perioder om det finns lagliga skäl, såsom pågående juridiska skyldigheter eller användarens samtycke. När lagringsperioderna har löpt ut kommer data att tas bort på ett säkert sätt eller anonymiseras för fortsatt användning i analys och tjänsteförbättringar.",
+      "94": "Rätt att klaga",
+      "95": "Om du är missnöjd med hur dina personuppgifter har behandlats eller har funderingar angående integritetsrelaterade frågor kan du kontakta oss på uppgifterna nedan. Vi kommer att undersöka ditt klagomål och svara inom 14 kalenderdagar.",
+      "96": "Innan du vidtar rättsliga åtgärder samtycker du till att först försöka lösa klagomålet direkt med tjänsteleverantören med hjälp av de angivna kontaktuppgifterna.",
+      "97": "Kontaktuppgifter",
+      "98": "För eventuella integritetsrelaterade frågor, vänligen kontakta:",
+      "99": "Telegramsupport: @wefatehelp",
+      "100": "Om dina bekymmer inte åtgärdas på ett tillfredsställande sätt kan du lämna in ett klagomål till den relevanta tillsynsmyndigheten i din jurisdiktion.",
+      "101": "Ändringar av denna policy",
+      "102": "Denna integritetspolicy kan uppdateras då och då för att återspegla ändringar i juridiska, regulatoriska eller operativa krav. Betydande uppdateringar kommer att kommuniceras till användare via Telegram bot-gränssnittet."
+    }
+  },
+  "common": {
+    "actions": {
+      "ok": "Ok"
     }
   }
 }

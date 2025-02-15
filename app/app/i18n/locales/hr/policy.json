@@ -87,7 +87,27 @@
       "84": "Zatražiti brisanje ili anonimiziranje podataka koji više nisu potrebni za navedene svrhe.",
       "85": "Prigovor na obradu na temelju legitimnih interesa.",
       "86": "Povući privolu za obradu podataka gdje je to primjenjivo.",
-      "87": "Razdoblja čuvanja i obrada podataka"
+      "87": "Razdoblja čuvanja i obrada podataka",
+      "88": "Svi prikupljeni podaci, uključujući ali ne ograničavajući se na informacije o profilu, fotografije, video materijale i korisničke interakcije (npr. sviđanja i podudaranja), zadržavaju se za:",
+      "89": "Vrijeme potrebno za pružanje usluga i ispunjavanje ugovornih obveza.",
+      "90": "Usklađenost sa zakonskim i regulatornim zahtjevima.",
+      "91": "Statističke ili analitičke svrhe, pod uvjetom da su podaci anonimizirani.",
+      "92": "Poboljšanje sigurnosnih algoritama i razvoj novih značajki (samo anonimizirani podaci).",
+      "93": "Podaci se mogu zadržati i dulje od tih razdoblja ako postoje zakoniti razlozi, kao što su tekuće zakonske obveze ili pristanak korisnika. Nakon isteka razdoblja čuvanja, podaci će biti sigurno izbrisani ili anonimizirani za nastavak korištenja u analitici i poboljšanju usluge.",
+      "94": "Pravo na žalbu",
+      "95": "Ako niste zadovoljni načinom na koji su vaši osobni podaci obrađeni ili imate nedoumica u vezi s bilo kojim problemom koji se odnosi na privatnost, možete nas kontaktirati na dolje navedene detalje. Istražit ćemo vašu žalbu i odgovoriti u roku od 14 kalendarskih dana.",
+      "96": "Prije podizanja pravnog postupka, suglasni ste da ćete prvo pokušati riješiti pritužbu izravno s Davateljem usluga koristeći navedene podatke za kontakt.",
+      "97": "Kontakt podaci",
+      "98": "Za sva pitanja vezana uz privatnost obratite se:",
+      "99": "Telegram podrška: @wefatehelp",
+      "100": "Ako vaša zabrinutost nije riješena na vaše zadovoljstvo, možete podnijeti žalbu relevantnom nadzornom tijelu u vašoj nadležnosti.",
+      "101": "Promjene ove politike",
+      "102": "Ova Pravila o privatnosti mogu se ažurirati s vremena na vrijeme kako bi odražavala promjene u zakonskim, regulatornim ili operativnim zahtjevima. Značajna ažuriranja bit će priopćena korisnicima putem sučelja Telegram bota."
+    }
+  },
+  "common": {
+    "actions": {
+      "ok": "U redu"
     }
   }
 }

@@ -87,7 +87,27 @@
       "84": "Kérheti a megadott célokhoz már nem szükséges adatok törlését vagy anonimizálását.",
       "85": "Tiltakozik a jogos érdekeken alapuló adatkezelés ellen.",
       "86": "Adott esetben az adatkezeléshez való hozzájárulás visszavonása.",
-      "87": "Adatmegőrzési időszakok és adatfeldolgozás"
+      "87": "Adatmegőrzési időszakok és adatfeldolgozás",
+      "88": "Minden összegyűjtött adatot, beleértve, de nem kizárólagosan a profilinformációkat, fotókat, videóanyagokat és a felhasználói interakciókat (pl. tetszésnyilvánításokat és egyezéseket), a következő célokra őrizzük meg:",
+      "89": "A szolgáltatásnyújtáshoz és a szerződéses kötelezettségek teljesítéséhez szükséges idő.",
+      "90": "A törvényi és szabályozási követelményeknek való megfelelés.",
+      "91": "Statisztikai vagy elemzési célokra, amennyiben az adatok anonimizáltak.",
+      "92": "Biztonsági algoritmusok fejlesztése és új szolgáltatások fejlesztése (csak anonim adatok).",
+      "93": "Az adatokat ezen időszakon túl is meg lehet őrizni, ha törvényes indokok állnak fenn, például folyamatos jogi kötelezettségek vagy felhasználói hozzájárulás. A megőrzési időszak lejártával az adatokat biztonságosan töröljük vagy anonimizáljuk, hogy további elemzési és szolgáltatásfejlesztési célokat szolgálhassanak.",
+      "94": "Panasz joga",
+      "95": "Ha elégedetlen azzal, ahogyan személyes adatait feldolgozták, vagy aggályai vannak az adatvédelemmel kapcsolatos problémákkal kapcsolatban, felveheti velünk a kapcsolatot az alábbi elérhetőségeken. Panaszát kivizsgáljuk, és 14 naptári napon belül válaszolunk.",
+      "96": "A jogi lépések megtétele előtt Ön beleegyezik abba, hogy a panaszt először közvetlenül a Szolgáltatóval próbálja megoldani a megadott elérhetőségeken.",
+      "97": "Elérhetőségek",
+      "98": "Bármilyen adatvédelemmel kapcsolatos aggálya esetén, kérjük, forduljon:",
+      "99": "Telegram támogatás: @wefatehelp",
+      "100": "Ha aggodalmai nem kielégítőek, panaszt nyújthat be az illetékes felügyeleti hatósághoz, amely az Ön joghatósága alá tartozik.",
+      "101": "A szabályzat változásai",
+      "102": "Ez az adatvédelmi szabályzat időről időre frissítésre kerülhet, hogy tükrözze a jogi, szabályozási vagy működési követelmények változásait. A jelentős frissítésekről a Telegram bot felületén keresztül értesítjük a felhasználókat."
+    }
+  },
+  "common": {
+    "actions": {
+      "ok": "Rendben"
     }
   }
 }

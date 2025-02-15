@@ -446,98 +446,80 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            All collected data, including but not limited to profile
-            information, photos, video materials, and user interactions (e.g.,
-            likes and matches), is retained for:
+            {t("page.text.88")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            1. The time necessary to provide services and fulfill contractual
-            obligations.
+            1.&nbsp;{t("page.text.89")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            2. Compliance with legal and regulatory requirements.
+            2.&nbsp;{t("page.text.90")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            3. Statistical or analytical purposes, provided the data is
-            anonymized.
+            3.&nbsp;{t("page.text.91")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            4. Improvement of security algorithms and development of new
-            features (anonymized data only).
+            4.&nbsp;{t("page.text.92")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            Data may be retained beyond these periods if there are lawful
-            grounds, such as ongoing legal obligations or user consent. Upon the
-            expiration of retention periods, data will be securely deleted or
-            anonymized for continued use in analytics and service improvement.
+            {t("page.text.93")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            RIGHT TO COMPLAIN
+            {t("page.text.94").toUpperCase()}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            If you are dissatisfied with the way your personal data has been
-            processed or have concerns regarding any privacy-related issue, you
-            may contact us at the details provided below. We will investigate
-            your complaint and respond within 14 calendar days.
+            {t("page.text.95")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            Before pursuing legal action, you agree to first attempt to resolve
-            the complaint directly with the Service Provider using the provided
-            contact details.
+            {t("page.text.96")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            CONTACT DETAILS
+            {t("page.text.97").toUpperCase()}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            For any privacy-related concerns, please contact:
+            {t("page.text.98")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>Telegram Support: @wefatehelp</Typography>
+          <Typography>{t("page.text.99")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            If your concerns are not addressed to your satisfaction, you may
-            file a complaint with the relevant supervisory authority in your
-            jurisdiction.
+            {t("page.text.100")}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
-            CHANGES TO THIS POLICY
+            {t("page.text.101").toUpperCase()}
           </Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>
-            This Privacy Policy may be updated from time to time to reflect
-            changes in legal, regulatory, or operational requirements.
-            Significant updates will be communicated to users through the
-            Telegram bot interface.
+            {t("page.text.102")}
           </Typography>
         </div>
         <div className="PolicyPage-Control">
           <Button className="PolicyPage-Button" onClick={handleBack}>
-            <Typography>OK</Typography>
+            <Typography>{t("common.actions.ok")}</Typography>
           </Button>
         </div>
       </Container>

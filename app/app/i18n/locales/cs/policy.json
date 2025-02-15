@@ -87,7 +87,27 @@
       "84": "Požádat o vymazání nebo anonymizaci údajů, které již nejsou pro uvedené účely nutné.",
       "85": "Vznést námitku proti zpracování založenému na oprávněných zájmech.",
       "86": "Odvolat souhlas se zpracováním údajů tam, kde je to možné.",
-      "87": "Doba uchovávání a zpracování dat"
+      "87": "Doba uchovávání a zpracování dat",
+      "88": "Všechna shromážděná data, včetně, ale nejen, profilových informací, fotografií, video materiálů a uživatelských interakcí (např. hodnocení Líbí se a shody), jsou uchovávána pro:",
+      "89": "Doba potřebná k poskytování služeb a plnění smluvních závazků.",
+      "90": "Soulad s právními a regulačními požadavky.",
+      "91": "Statistické nebo analytické účely za předpokladu, že jsou data anonymizována.",
+      "92": "Vylepšení bezpečnostních algoritmů a vývoj nových funkcí (pouze anonymizovaná data).",
+      "93": "Les dades es poden conservar més enllà d'aquests períodes si hi ha motius legals, com ara obligacions legals en curs o el consentiment de l'usuari. Un cop transcorreguts els períodes de retenció, les dades s'eliminaran de forma segura o s'anònimitzaran per continuar utilitzant-les en l'anàlisi i la millora del servei.",
+      "94": "Právo si stěžovat",
+      "95": "Pokud nejste spokojeni se způsobem zpracování vašich osobních údajů nebo máte obavy týkající se jakéhokoli problému souvisejícího s ochranou osobních údajů, můžete nás kontaktovat na níže uvedených údajích. Vaši stížnost prošetříme a odpovíme do 14 kalendářních dnů.",
+      "96": "Před zahájením soudního řízení souhlasíte s tím, že se nejprve pokusíte vyřešit stížnost přímo s poskytovatelem služeb pomocí poskytnutých kontaktních údajů.",
+      "97": "Kontaktní údaje",
+      "98": "V případě jakýchkoli problémů souvisejících s ochranou osobních údajů kontaktujte:",
+      "99": "Telegramová podpora: @wefatehelp",
+      "100": "Pokud vaše obavy nejsou vyřešeny k vaší spokojenosti, můžete podat stížnost u příslušného dozorového úřadu ve vaší jurisdikci.",
+      "101": "Změny těchto zásad",
+      "102": "Tyto zásady ochrany osobních údajů mohou být čas od času aktualizovány, aby odrážely změny právních, regulačních nebo provozních požadavků. Významné aktualizace budou uživatelům sdělovány prostřednictvím rozhraní robota Telegram."
+    }
+  },
+  "common": {
+    "actions": {
+      "ok": "Dobře"
     }
   }
 }
