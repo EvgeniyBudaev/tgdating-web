@@ -34,7 +34,6 @@
       "deleteQuestion": "Выдаліць акаўнт?",
       "freezeQuestion": "Замарозіць акаўнт?",
       "doubleLike": "Паўторны лайк будзе даступны заўтра",
-      "online": "У сетцы",
       "isHiddenAge": "Не паказваць узрост",
       "accountFrozen": "Акаўнт замарожаны",
       "isEmptyList": "Не знойдзена ніводнага чалавека. Паспрабуйце змяніць наладкі фільтра.",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "Бот не запытвае асабістыя дадзеныя і не ідэнтыфікуе карыстальнікаў па якіх-небудзь дакументам.",
       "doYouFindLove": "Хочаце знайсці сваё каханне, новых сяброў ці проста лёгкія зносіны?",
       "byContinuing": "Працягваючы, вы прымаеце",
-      "communityRules": "правілы супольнасці",
       "and": "і",
       "privacyPolicy": "палітыку прыватнасці",
       "isNewLike": "Ёсць сімпатыя! Прагляд у чаце бота"
@@ -81,7 +79,9 @@
         "age": "Узрост",
         "gender": "Пол",
         "searchGender": "Цікавяць",
-        "description": "Апісанне"
+        "description": "Апісанне",
+        "isOnline": "Толькі онлайн",
+        "isLiked": "Толькі спадабалася"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "Павінна быць менш ці роўна {{max}}",
       "maxSymbols": "Павінна быць не больш за {{max}} сімвалаў",
       "smallImage": "Выява павінна быць памерам не менш за 200 x 200 пікселяў"
+    },
+    "status": {
+      "online": "Анлайн",
+      "onlineJustBeenMan": "Быў толькі што",
+      "onlineJustBeenWoman": "Была толькі што",
+      "onlineWasTodayMan": "Быў сёння",
+      "onlineWasTodayWoman": "Была сёння",
+      "onlineWasYesterdayMan": "Быў там учора",
+      "onlineWasYesterdayWoman": "Была ўчора",
+      "onlineWasWeekMan": "Быў на гэтым тыдні",
+      "onlineWasWeekWoman": "Была на гэтым тыдні",
+      "onlineWasMonthMan": "Быў у гэтым месяцы",
+      "onlineWasMonthWoman": "Была ў гэтым месяцы",
+      "onlineLongTimeMan": "Быў даўно",
+      "onlineLongTimeWoman": "Была даўно"
     }
   },
   "errorBoundary": {

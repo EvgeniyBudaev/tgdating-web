@@ -52,6 +52,14 @@ export async function updateFilterAction(prevState: any, formData: FormData) {
       formattedParams.ageFrom,
     );
     filterFormData.append(EFilterUpdateFormFields.AgeTo, formattedParams.ageTo);
+    filterFormData.append(
+      EFilterUpdateFormFields.IsLiked,
+      formattedParams.isLiked,
+    );
+    filterFormData.append(
+      EFilterUpdateFormFields.IsOnline,
+      formattedParams.isOnline,
+    );
     const responseFilter = await updateFilter(
       filterFormData as unknown as TUpdateFilterParams,
       {

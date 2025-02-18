@@ -26,9 +26,9 @@ const SearchFormComponent: FC<TProps> = ({ lng, profileShortInfo, theme }) => {
 
   const searchBarTitle = useMemo(() => {
     return getSearchBarSearchGenderByLocale(lng).find(
-      (item) => item.value === profileShortInfo?.searchGender,
+      (item) => item.value === profileShortInfo?.filter?.searchGender,
     )?.label;
-  }, [lng, profileShortInfo?.searchGender]);
+  }, [lng, profileShortInfo?.filter?.searchGender]);
 
   const handleOpenSidebar = useCallback(() => {
     setIsSidebarOpen(true);

@@ -34,7 +34,6 @@
       "deleteQuestion": "Törli a fiókot?",
       "freezeQuestion": "Lefagyasztjuk a fiókját?",
       "doubleLike": "A re-like holnap lesz elérhető",
-      "online": "Online",
       "isHiddenAge": "Ne mutasd az életkort",
       "accountFrozen": "A fiók lefagyott",
       "isEmptyList": "Egyetlen embert sem találtak. Próbálja meg módosítani a szűrő beállításait.",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "A bot nem kér személyes adatokat, és nem azonosítja a felhasználókat semmilyen dokumentum segítségével.",
       "doYouFindLove": "Szeretetre, új barátokra vagy egyszerűen csak könnyű kommunikációra vágysz?",
       "byContinuing": "A folytatással elfogadod",
-      "communityRules": "közösségi szabályokat",
       "and": "és",
       "privacyPolicy": "adatvédelmi szabályzat",
       "isNewLike": "Együttérzés van! Megtekintés a bot chatben"
@@ -81,7 +79,9 @@
         "age": "Kor",
         "gender": "Emelet",
         "searchGender": "Érdekelt",
-        "description": "Leírás"
+        "description": "Leírás",
+        "isOnline": "Csak online",
+        "isLiked": "Csak tetszett"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "Kisebbnek vagy egyenlőnek kell lennie, mint {{max}}",
       "maxSymbols": "Nem lehet több, mint {{max}} karakter",
       "smallImage": "A képnek legalább 200 x 200 pixel méretűnek kell lennie"
+    },
+    "status": {
+      "online": "Online",
+      "onlineJustBeenMan": "Csak itt volt",
+      "onlineJustBeenWoman": "Csak itt volt",
+      "onlineWasTodayMan": "Ott volt ma",
+      "onlineWasTodayWoman": "Ott volt ma",
+      "onlineWasYesterdayMan": "Tegnap ott volt",
+      "onlineWasYesterdayWoman": "Tegnap ott volt",
+      "onlineWasWeekMan": "Ott volt a héten",
+      "onlineWasWeekWoman": "Ott volt a héten",
+      "onlineWasMonthMan": "Ott volt ebben a hónapban",
+      "onlineWasMonthWoman": "Ott volt ebben a hónapban",
+      "onlineLongTimeMan": "Nagyon régen volt",
+      "onlineLongTimeWoman": "Nagyon régen volt"
     }
   },
   "errorBoundary": {

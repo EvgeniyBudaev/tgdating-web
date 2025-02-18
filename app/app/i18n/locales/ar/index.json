@@ -34,7 +34,6 @@
       "deleteQuestion": "هل تريد حذف الحساب؟",
       "freezeQuestion": "تجميد حسابك؟",
       "doubleLike": "إعادة الإعجاب ستكون متاحة غدًا",
-      "online": "متصل",
       "isHiddenAge": "لا تظهر العمر",
       "accountFrozen": "الحساب مجمد",
       "isEmptyList": "لم يتم العثور على شخص واحد. حاول تغيير إعدادات الفلتر.",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "لا يطلب الروبوت بيانات شخصية ولا يحدد هوية المستخدمين باستخدام أي مستند.",
       "doYouFindLove": "هل تريد العثور على الحب أو أصدقاء جدد أو مجرد التواصل السهل؟",
       "byContinuing": "من خلال الاستمرار فإنك تقبل",
-      "communityRules": "قواعد المجتمع",
       "and": "و",
       "privacyPolicy": "سياسة الخصوصية",
       "isNewLike": "هناك تعاطف! عرض في دردشة بوت"
@@ -81,7 +79,9 @@
         "age": "عمر",
         "gender": "أرضية",
         "searchGender": "مهتم",
-        "description": "وصف"
+        "description": "وصف",
+        "isOnline": "متاح عبر الإنترنت فقط",
+        "isLiked": "أعجبني فقط"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "يجب أن يكون أقل من أو يساوي {{max}}",
       "maxSymbols": "يجب ألا يزيد عدد الأحرف عن {{max}} من الأحرف",
       "smallImage": "يجب أن يكون حجم الصورة 100 × 100 بكسل على الأقل"
+    },
+    "status": {
+      "online": "متصل",
+      "onlineJustBeenMan": "كنت هنا للتو",
+      "onlineJustBeenWoman": "كنت هنا للتو",
+      "onlineWasTodayMan": "كنت هناك اليوم",
+      "onlineWasTodayWoman": "كنت هناك اليوم",
+      "onlineWasYesterdayMan": "كنت هناك بالأمس",
+      "onlineWasYesterdayWoman": "كنت هناك بالأمس",
+      "onlineWasWeekMan": "كنت هناك هذا الاسبوع",
+      "onlineWasWeekWoman": "كنت هناك هذا الاسبوع",
+      "onlineWasMonthMan": "كنت هناك هذا الشهر",
+      "onlineWasMonthWoman": "كنت هناك هذا الشهر",
+      "onlineLongTimeMan": "لقد كان منذ زمن طويل",
+      "onlineLongTimeWoman": "لقد كان منذ زمن طويل"
     }
   },
   "errorBoundary": {

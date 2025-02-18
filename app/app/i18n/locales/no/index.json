@@ -34,7 +34,6 @@
       "deleteQuestion": "Vil du slette kontoen?",
       "freezeQuestion": "Fryse kontoen din?",
       "doubleLike": "Re-like vil være tilgjengelig i morgen",
-      "online": "Online",
       "isHiddenAge": "Ikke vis alder",
       "accountFrozen": "Konto fryst",
       "isEmptyList": "Ikke en eneste person ble funnet. Prøv å endre filterinnstillingene.",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "Boten ber ikke om personlige data og identifiserer ikke brukere som bruker noen dokumenter.",
       "doYouFindLove": "Ønsker du å finne kjærlighet, nye venner eller bare enkel kommunikasjon?",
       "byContinuing": "Ved å fortsette godtar du",
-      "communityRules": "fellesskapets regler",
       "and": "og",
       "privacyPolicy": "personvernerklæring",
       "isNewLike": "Det er sympati! Se i botchat"
@@ -81,7 +79,9 @@
         "age": "Alder",
         "gender": "Gulv",
         "searchGender": "Interessert",
-        "description": "Beskrivelse"
+        "description": "Beskrivelse",
+        "isOnline": "Kun online",
+        "isLiked": "Bare likte"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "Må være mindre enn eller lik {{max}}",
       "maxSymbols": "Må ikke være mer enn {{max}} tegn",
       "smallImage": "Bildet må ha en størrelse på minst 200 x 200 piksler"
+    },
+    "status": {
+      "online": "Online",
+      "onlineJustBeenMan": "Var nettopp her",
+      "onlineJustBeenWoman": "Var nettopp her",
+      "onlineWasTodayMan": "Var der i dag",
+      "onlineWasTodayWoman": "Var der i dag",
+      "onlineWasYesterdayMan": "Var der i går",
+      "onlineWasYesterdayWoman": "Var der i går",
+      "onlineWasWeekMan": "Var der denne uken",
+      "onlineWasWeekWoman": "Var der denne uken",
+      "onlineWasMonthMan": "Var der denne måneden",
+      "onlineWasMonthWoman": "Var der denne måneden",
+      "onlineLongTimeMan": "Det var lenge siden",
+      "onlineLongTimeWoman": "Det var lenge siden"
     }
   },
   "errorBoundary": {

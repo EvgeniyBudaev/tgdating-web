@@ -20,14 +20,12 @@ const CheckProfileExistsComponent: FC<TProps> = ({ lng, telegramUserId }) => {
         const response = await checkProfileExists({
           telegramUserId: telegramUserId,
         });
-        console.log("response.isExists: ", response.isExists);
         if (response.isExists) {
           const path = createPath({
             route: ERoutes.Telegram,
             params: { telegramUserId },
             lng: lng,
           });
-          console.log("path: ", path);
           router.push(path);
           router.refresh();
         }

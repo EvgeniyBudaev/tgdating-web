@@ -15,7 +15,6 @@ import {
   useProfileAddOrEdit,
 } from "@/app/entities/profile/profileForm/hooks";
 import { Container } from "@/app/shared/components/container";
-import { ErrorBoundary } from "@/app/shared/components/errorBoundary";
 import { CancelButton } from "@/app/shared/components/form/cancelButton";
 import { Field } from "@/app/shared/components/form/field";
 import { FileUploader } from "@/app/shared/components/form/form/fileUploader";
@@ -264,7 +263,7 @@ const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
                   onSave={onChangeLanguage}
                   options={LANGUAGE_MAPPING[language]}
                   selectedItem={languageState}
-                  subLabel={`${t("common.titles.changeable")}`}
+                  subLabel={`${t("common.titles.required")}, ${t("common.titles.changeable")}`}
                   theme={theme}
                   title={t("common.titles.interfaceLanguage")}
                   titleButton={t("common.actions.apply")}

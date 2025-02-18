@@ -34,7 +34,6 @@
       "deleteQuestion": "Hapus akun?",
       "freezeQuestion": "Bekukan akun Anda?",
       "doubleLike": "Suka ulang akan tersedia besok",
-      "online": "On line",
       "isHiddenAge": "Jangan tunjukkan usia",
       "accountFrozen": "Akun dibekukan",
       "isEmptyList": "Tidak ada satu orang pun yang ditemukan. Coba ubah pengaturan filter Anda.",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "Bot tidak meminta data pribadi dan tidak mengidentifikasi pengguna menggunakan dokumen apa pun.",
       "doYouFindLove": "Apakah Anda ingin mencari cinta, teman baru, atau sekadar komunikasi mudah?",
       "byContinuing": "Dengan melanjutkan Anda menerima",
-      "communityRules": "peraturan komunitas",
       "and": "dan dfgd",
       "privacyPolicy": "kebijakan privasi",
       "isNewLike": "Ada simpati! Lihat di obrolan bot"
@@ -81,7 +79,9 @@
         "age": "Usia",
         "gender": "Lantai",
         "searchGender": "Tertarik",
-        "description": "Keterangan"
+        "description": "Keterangan",
+        "isOnline": "Hanya online",
+        "isLiked": "Hanya disukai"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "Harus kurang dari atau sama dengan {{max}}",
       "maxSymbols": "Tidak boleh lebih dari {{max}} karakter",
       "smallImage": "Gambar harus berukuran minimal 200 x 200 piksel"
+    },
+    "status": {
+      "online": "On line",
+      "onlineJustBeenMan": "Baru saja ada di sini",
+      "onlineJustBeenWoman": "Baru saja ada di sini",
+      "onlineWasTodayMan": "Apakah ada disana hari ini?",
+      "onlineWasTodayWoman": "Apakah ada disana hari ini?",
+      "onlineWasYesterdayMan": "Apakah ada disana kemarin?",
+      "onlineWasYesterdayWoman": "Apakah ada disana kemarin?",
+      "onlineWasWeekMan": "Apakah ada di sana minggu ini?",
+      "onlineWasWeekWoman": "Apakah ada di sana minggu ini?",
+      "onlineWasMonthMan": "Apakah ada di sana bulan ini?",
+      "onlineWasMonthWoman": "Apakah ada di sana bulan ini?",
+      "onlineLongTimeMan": "Itu sudah lama sekali",
+      "onlineLongTimeWoman": "Itu sudah lama sekali"
     }
   },
   "errorBoundary": {

@@ -34,7 +34,6 @@
       "deleteQuestion": "Есептік жазбаны жою керек пе?",
       "freezeQuestion": "Есептік жазбаңызды тоқтатасыз ба?",
       "doubleLike": "Қайта лайк ертең қол жетімді болады",
-      "online": "Онлайн",
       "isHiddenAge": "Жасыңызды көрсетпеңіз",
       "accountFrozen": "Есептік жазба жабылды",
       "isEmptyList": "Бірде-бір адам табылмады. Сүзгі параметрлерін өзгертіп көріңіз.",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "Бот жеке деректерді сұрамайды және кез келген құжатты пайдаланатын пайдаланушыларды анықтамайды.",
       "doYouFindLove": "Сіз махаббат, жаңа достар немесе жай ғана оңай қарым-қатынас тапқыңыз келе ме?",
       "byContinuing": "Жалғастыру арқылы сіз қабылдайсыз",
-      "communityRules": "қауымдастық ережелері",
       "and": "және dfgd",
       "privacyPolicy": "құпиялылық саясаты",
       "isNewLike": "Жанашырлық бар! Бот чатында көру"
@@ -81,7 +79,9 @@
         "age": "Жасы",
         "gender": "Еден",
         "searchGender": "Қызықтырады",
-        "description": "Сипаттама"
+        "description": "Сипаттама",
+        "isOnline": "Тек онлайн",
+        "isLiked": "Тек ұнады"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "{{max}} мәнінен кем немесе оған тең болуы керек",
       "maxSymbols": "{{max}} таңбадан аспауы керек",
       "smallImage": "Кескіннің өлшемі кемінде 200 x 200 пиксель болуы керек"
+    },
+    "status": {
+      "online": "Онлайн",
+      "onlineJustBeenMan": "Жаңа ғана осында болды",
+      "onlineJustBeenWoman": "Жаңа ғана осында болды",
+      "onlineWasTodayMan": "Бүгін сонда болды",
+      "onlineWasTodayWoman": "Бүгін сонда болды",
+      "onlineWasYesterdayMan": "Кеше болды",
+      "onlineWasYesterdayWoman": "Кеше болды",
+      "onlineWasWeekMan": "Осы аптада болды",
+      "onlineWasWeekWoman": "Осы аптада болды",
+      "onlineWasMonthMan": "Осы айда болды",
+      "onlineWasMonthWoman": "Осы айда болды",
+      "onlineLongTimeMan": "Бұл көп уақыт бұрын болды",
+      "onlineLongTimeWoman": "Бұл көп уақыт бұрын болды"
     }
   },
   "errorBoundary": {

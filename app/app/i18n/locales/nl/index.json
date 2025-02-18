@@ -34,7 +34,6 @@
       "deleteQuestion": "Account verwijderen?",
       "freezeQuestion": "Uw account bevriezen?",
       "doubleLike": "Re-like is morgen beschikbaar",
-      "online": "Online",
       "isHiddenAge": "Laat geen leeftijd zien",
       "accountFrozen": "Rekening bevroren",
       "isEmptyList": "Er werd geen enkele persoon gevonden. Probeer uw filterinstellingen te wijzigen.",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "De bot vraagt geen persoonlijke gegevens op en identificeert geen gebruikers die een document gebruiken.",
       "doYouFindLove": "Wil je liefde vinden, nieuwe vrienden of gewoon gemakkelijke communicatie?",
       "byContinuing": "Door verder te gaan, accepteert u",
-      "communityRules": "gemeenschapsregels",
       "and": "en dfgd",
       "privacyPolicy": "privacybeleid",
       "isNewLike": "Er is sympathie! Bekijk in botchat"
@@ -81,7 +79,9 @@
         "age": "Leeftijd",
         "gender": "Vloer",
         "searchGender": "Geïnteresseerd",
-        "description": "Beschrijving"
+        "description": "Beschrijving",
+        "isOnline": "Alleen online",
+        "isLiked": "Alleen leuk gevonden"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "Moet kleiner zijn dan of gelijk zijn aan {{max}}",
       "maxSymbols": "Mag niet langer zijn dan {{max}} tekens",
       "smallImage": "De afbeelding moet minimaal 200 x 200 pixels groot zijn"
+    },
+    "status": {
+      "online": "Online",
+      "onlineJustBeenMan": "Was net hier",
+      "onlineJustBeenWoman": "Was net hier",
+      "onlineWasTodayMan": "Was er vandaag",
+      "onlineWasTodayWoman": "Was er vandaag",
+      "onlineWasYesterdayMan": "Was er gisteren",
+      "onlineWasYesterdayWoman": "Was er gisteren",
+      "onlineWasWeekMan": "Was er deze week",
+      "onlineWasWeekWoman": "Was er deze week",
+      "onlineWasMonthMan": "Was er deze maand",
+      "onlineWasMonthWoman": "Was er deze maand",
+      "onlineLongTimeMan": "Het is lang geleden",
+      "onlineLongTimeWoman": "Het is lang geleden"
     }
   },
   "errorBoundary": {

@@ -34,7 +34,6 @@
       "deleteQuestion": "¿Eliminar cuenta?",
       "freezeQuestion": "¿Congelar tu cuenta?",
       "doubleLike": "Volver a me gusta estará disponible mañana",
-      "online": "En línea",
       "isHiddenAge": "No mostrar edad",
       "accountFrozen": "Cuenta congelada",
       "isEmptyList": "No se encontró ni una sola persona. Intente cambiar la configuración de su filtro.",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "El bot no solicita datos personales y no identifica a los usuarios mediante ningún documento.",
       "doYouFindLove": "¿Quieres encontrar el amor, nuevos amigos o simplemente una comunicación sencilla?",
       "byContinuing": "Al continuar aceptas",
-      "communityRules": "reglas de la comunidad",
       "and": "y",
       "privacyPolicy": "política de privacidad",
       "isNewLike": "¡Hay simpatía! Ver en chat de bot"
@@ -65,7 +63,7 @@
       "block": "Bloquear",
       "complaint": "Reportar y bloquear",
       "deleteProfile": "Eliminar cuenta",
-      "freezeProfile": "congelar cuenta",
+      "freezeProfile": "Congelar cuenta",
       "settings": "Ajustes",
       "restoreProfile": "Recuperar cuenta",
       "main": "Hogar",
@@ -81,7 +79,9 @@
         "age": "Edad",
         "gender": "Piso",
         "searchGender": "Interesado",
-        "description": "Descripción"
+        "description": "Descripción",
+        "isOnline": "Solo en línea",
+        "isLiked": "Solo me gusta"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "Debe ser menor o igual a {{max}}",
       "maxSymbols": "No debe tener más de {{max}} caracteres",
       "smallImage": "La imagen debe tener un tamaño mínimo de 200 x 200 píxeles."
+    },
+    "status": {
+      "online": "En línea",
+      "onlineJustBeenMan": "Estuve aquí",
+      "onlineJustBeenWoman": "Estuve aquí",
+      "onlineWasTodayMan": "Estuvo allí hoy",
+      "onlineWasTodayWoman": "Estuvo allí hoy",
+      "onlineWasYesterdayMan": "Estuvo allí ayer",
+      "onlineWasYesterdayWoman": "Estuvo allí ayer",
+      "onlineWasWeekMan": "Estuvo allí esta semana",
+      "onlineWasWeekWoman": "Estuvo allí esta semana",
+      "onlineWasMonthMan": "Estuvo allí este mes",
+      "onlineWasMonthWoman": "Estuvo allí este mes",
+      "onlineLongTimeMan": "Fue hace mucho tiempo",
+      "onlineLongTimeWoman": "Fue hace mucho tiempo"
     }
   },
   "errorBoundary": {

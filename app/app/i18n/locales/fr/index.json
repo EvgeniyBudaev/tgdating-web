@@ -34,7 +34,6 @@
       "deleteQuestion": "Supprimer le compte?",
       "freezeQuestion": "Geler votre compte?",
       "doubleLike": "Re-like sera disponible demain",
-      "online": "En ligne",
       "isHiddenAge": "Ne montre pas l'âge",
       "accountFrozen": "Compte gelé",
       "isEmptyList": "Pas une seule personne n’a été retrouvée. Essayez de modifier vos paramètres de filtre.",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "Le robot ne demande pas de données personnelles et n'identifie les utilisateurs à l'aide d'aucun document.",
       "doYouFindLove": "Voulez-vous trouver l’amour, de nouveaux amis ou simplement communiquer facilement ?",
       "byContinuing": "En poursuivant vous acceptez",
-      "communityRules": "règles de la communauté",
       "and": "et",
       "privacyPolicy": "politique de confidentialité",
       "isNewLike": "Il y a de la sympathie ! Afficher dans le chat du robot"
@@ -81,7 +79,9 @@
         "age": "Âge",
         "gender": "Sol",
         "searchGender": "Intéressé",
-        "description": "Description"
+        "description": "Description",
+        "isOnline": "En ligne uniquement",
+        "isLiked": "J'ai seulement aimé"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "Doit être inférieur ou égal à {{max}}",
       "maxSymbols": "Ne doit pas contenir plus de {{max}} caractères",
       "smallImage": "L'image doit avoir une taille d'au moins 200 x 200 pixels"
+    },
+    "status": {
+      "online": "En ligne",
+      "onlineJustBeenMan": "J'étais juste ici",
+      "onlineJustBeenWoman": "J'étais juste ici",
+      "onlineWasTodayMan": "J'étais là aujourd'hui",
+      "onlineWasTodayWoman": "J'étais là aujourd'hui",
+      "onlineWasYesterdayMan": "J'y étais hier",
+      "onlineWasYesterdayWoman": "J'y étais hier",
+      "onlineWasWeekMan": "J'y étais cette semaine",
+      "onlineWasWeekWoman": "J'y étais cette semaine",
+      "onlineWasMonthMan": "J'y étais ce mois-ci",
+      "onlineWasMonthWoman": "J'y étais ce mois-ci",
+      "onlineLongTimeMan": "C'était il y a longtemps",
+      "onlineLongTimeWoman": "C'était il y a longtemps"
     }
   },
   "errorBoundary": {

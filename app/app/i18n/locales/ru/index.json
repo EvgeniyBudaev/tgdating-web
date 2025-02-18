@@ -34,7 +34,6 @@
       "deleteQuestion": "Удалить аккаунт?",
       "freezeQuestion": "Заморозить аккаунт?",
       "doubleLike": "Повторный лайк будет доступен завтра",
-      "online": "В сети",
       "isHiddenAge": "Не показывать возраст",
       "accountFrozen": "Аккаунт заморожен",
       "isEmptyList": "Не найдено ни одного человека. Попробуйте изменить настройки фильтра.",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "Бот не запрашивает личные данные и не идентифицирует пользователей по каким-либо документам.",
       "doYouFindLove": "Хотите найти свою любовь, новых друзей или просто легкое общение?",
       "byContinuing": "Продолжая, вы принимаете",
-      "communityRules": "правила сообщества",
       "and": "и",
       "privacyPolicy": "политику конфиденциальности",
       "isNewLike": "Есть симпатия! Просмотр в чате бота"
@@ -81,7 +79,9 @@
         "age": "Возраст",
         "gender": "Пол",
         "searchGender": "Интересуют",
-        "description": "Описание"
+        "description": "Описание",
+        "isOnline": "Только онлайн",
+        "isLiked": "Только понравившиеся"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "Должно быть меньше или равно {{max}}",
       "maxSymbols": "Должно быть не более {{max}} символов",
       "smallImage": "Изображение должно быть размером не менее 200 x 200 пикселей"
+    },
+    "status": {
+      "online": "Онлайн",
+      "onlineJustBeenMan": "Был только что",
+      "onlineJustBeenWoman": "Была только что",
+      "onlineWasTodayMan": "Был сегодня",
+      "onlineWasTodayWoman": "Была сегодня",
+      "onlineWasYesterdayMan": "Был вчера",
+      "onlineWasYesterdayWoman": "Была вчера",
+      "onlineWasWeekMan": "Был на этой неделе",
+      "onlineWasWeekWoman": "Была на этой неделе",
+      "onlineWasMonthMan": "Был в этом месяце",
+      "onlineWasMonthWoman": "Была в этом месяце",
+      "onlineLongTimeMan": "Был давно",
+      "onlineLongTimeWoman": "Была давно"
     }
   },
   "errorBoundary": {

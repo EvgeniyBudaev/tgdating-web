@@ -7,7 +7,13 @@
   "common": {
     "titles": {
       "validityPeriod": "gyldighetsperiode",
-      "geoPositionExist": "Geolokalisering bestemt"
+      "geoPositionExist": "Geolokalisering bestemt",
+      "communityRules": "fellesskapets regler",
+      "online": "Online",
+      "onlineWasToday": "Добавь сюда перевод!!!",
+      "onlineWasWeek": "Добавь сюда перевод!!!",
+      "onlineWasMonth": "Добавь сюда перевод!!!",
+      "onlineLongTime": "Добавь сюда перевод!!!"
     }
   }
 }

@@ -34,7 +34,6 @@
       "deleteQuestion": "Konto löschen?",
       "freezeQuestion": "Konto einfrieren?",
       "doubleLike": "Re-like wird morgen verfügbar sein",
-      "online": "Online",
       "isHiddenAge": "Alter nicht anzeigen",
       "accountFrozen": "Konto eingefroren",
       "isEmptyList": "Es wurde keine einzige Person gefunden. Versuchen Sie, Ihre Filtereinstellungen zu ändern.",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "Der Bot fordert keine persönlichen Daten an und identifiziert Benutzer nicht anhand eines Dokuments.",
       "doYouFindLove": "Möchten Sie Liebe, neue Freunde oder einfach nur einfache Kommunikation finden?",
       "byContinuing": "Indem Sie fortfahren, akzeptieren Sie",
-      "communityRules": "gemeinschaftsregeln",
       "and": "und",
       "privacyPolicy": "datenschutzrichtlinie",
       "isNewLike": "Es gibt Mitgefühl! Im Bot-Chat ansehen"
@@ -81,7 +79,9 @@
         "age": "Alter",
         "gender": "Boden",
         "searchGender": "Interessiert",
-        "description": "Beschreibung"
+        "description": "Beschreibung",
+        "isOnline": "Nur online",
+        "isLiked": "Nur geliked"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "Muss kleiner oder gleich {{max}} sein",
       "maxSymbols": "Darf nicht mehr als {{max}} Zeichen umfassen",
       "smallImage": "Das Bild muss mindestens 200 x 200 Pixel groß sein"
+    },
+    "status": {
+      "online": "Online",
+      "onlineJustBeenMan": "War gerade hier",
+      "onlineJustBeenWoman": "War gerade hier",
+      "onlineWasTodayMan": "War heute dort",
+      "onlineWasTodayWoman": "War heute dort",
+      "onlineWasYesterdayMan": "War gestern dort",
+      "onlineWasYesterdayWoman": "War gestern dort",
+      "onlineWasWeekMan": "War diese Woche dort",
+      "onlineWasWeekWoman": "War diese Woche dort",
+      "onlineWasMonthMan": "War diesen Monat dort",
+      "onlineWasMonthWoman": "War diesen Monat dort",
+      "onlineLongTimeMan": "Es ist lange her",
+      "onlineLongTimeWoman": "Es ist lange her"
     }
   },
   "errorBoundary": {

@@ -23,6 +23,8 @@ export enum EProfileEditFormFields {
   Distance = "distance",
   Page = "page",
   Size = "size",
+  IsLiked = "isLiked",
+  IsOnline = "isOnline",
   IsLeftHand = "isLeftHand",
   Csrf = "csrf",
   IsImages = "isImages",

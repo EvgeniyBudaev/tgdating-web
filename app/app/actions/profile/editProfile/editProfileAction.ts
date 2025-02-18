@@ -150,6 +150,14 @@ export async function editProfileAction(prevState: any, formData: FormData) {
       mapperParams.profileForm.size,
     );
     profileFormData.append(
+      EProfileEditFormFields.IsLiked,
+      mapperParams.profileForm.isLiked,
+    );
+    profileFormData.append(
+      EProfileEditFormFields.IsOnline,
+      mapperParams.profileForm.isOnline,
+    );
+    profileFormData.append(
       EProfileEditFormFields.IsImages,
       mapperParams.profileForm.isImages,
     );

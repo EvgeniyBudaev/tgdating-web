@@ -151,6 +151,14 @@ export async function addProfileAction(prevState: any, formData: FormData) {
       mapperParams.profileForm.size,
     );
     profileFormData.append(
+      EProfileAddFormFields.IsLiked,
+      mapperParams.profileForm.isLiked,
+    );
+    profileFormData.append(
+      EProfileAddFormFields.IsOnline,
+      mapperParams.profileForm.isOnline,
+    );
+    profileFormData.append(
       EProfileAddFormFields.IsLeftHand,
       mapperParams.profileForm.isLeftHand,
     );

@@ -7,4 +7,6 @@ export const filterSchema = z.object({
   distance: z.number(),
   page: z.number(),
   size: z.number(),
+  isLiked: z.boolean(),
+  isOnline: z.boolean(),
 });

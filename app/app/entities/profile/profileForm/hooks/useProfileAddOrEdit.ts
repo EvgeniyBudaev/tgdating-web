@@ -395,6 +395,14 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       (measurement?.value ?? "").toString(),
     );
     formDataDto.append(EProfileAddFormFields.Csrf, csrf ?? "");
+    formDataDto.append(
+      EProfileAddFormFields.IsLiked,
+      (profile?.filter?.isLiked ?? false).toString(),
+    );
+    formDataDto.append(
+      EProfileAddFormFields.IsOnline,
+      (profile?.filter?.isOnline ?? false).toString(),
+    );
     if (isEdit) {
       if (
         !isNil(profile?.images) &&

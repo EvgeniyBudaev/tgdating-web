@@ -22,7 +22,9 @@ export const profileDetailSchema = z.object({
   telegramUserId: z.string(),
   displayName: z.string(),
   age: z.number(),
+  gender: z.string(),
   description: z.string().nullish(),
+  lastOnline: z.string(),
   navigator: z
     .object({
       countryName: z.string().nullish(),

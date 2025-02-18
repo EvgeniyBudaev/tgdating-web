@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { filterSchema } from "@/app/api/filter/schemas";
 import { EMeasurement } from "@/app/shared/enums/form";
 
 export const getProfileShortInfoParamsSchema = z.object({
@@ -16,12 +17,7 @@ export const profileShortInfoSchema = z.object({
   isFrozen: z.boolean(),
   isPremium: z.boolean(),
   availableUntil: z.string(),
-  searchGender: z.string(),
-  ageFrom: z.number(),
-  ageTo: z.number(),
-  distance: z.number(),
-  page: z.number(),
-  size: z.number(),
   languageCode: z.string(),
   measurement: z.enum([EMeasurement.Metric, EMeasurement.American]),
+  filter: filterSchema.nullish(),
 });

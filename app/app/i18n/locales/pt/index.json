@@ -34,7 +34,6 @@
       "deleteQuestion": "Excluir conta?",
       "freezeQuestion": "Congelar sua conta?",
       "doubleLike": "Re-like estará disponível amanhã",
-      "online": "On-line",
       "isHiddenAge": "Não mostre a idade",
       "accountFrozen": "Conta congelada",
       "isEmptyList": "Nem uma única pessoa foi encontrada. Tente alterar as configurações do filtro.",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "O bot não solicita dados pessoais e não identifica usuários por meio de nenhum documento.",
       "doYouFindLove": "Você quer encontrar o amor, novos amigos ou apenas uma comunicação fácil?",
       "byContinuing": "Ao continuar você aceita",
-      "communityRules": "regras da comunidade",
       "and": "e",
       "privacyPolicy": "política de privacidade",
       "isNewLike": "Existe simpatia! Ver no chat do bot"
@@ -81,7 +79,9 @@
         "age": "Idade",
         "gender": "Chão",
         "searchGender": "Interessado",
-        "description": "Descrição"
+        "description": "Descrição",
+        "isOnline": "Somente online",
+        "isLiked": "Só gostei"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "Deve ser menor ou igual a {{max}}",
       "maxSymbols": "Não deve ter mais do que {{max}} caracteres",
       "smallImage": "A imagem deve ter pelo menos 200 x 200 pixels de tamanho"
+    },
+    "status": {
+      "online": "On-line",
+      "onlineJustBeenMan": "Estava aqui há pouco",
+      "onlineJustBeenWoman": "Estava aqui há pouco",
+      "onlineWasTodayMan": "Esteve lá hoje",
+      "onlineWasTodayWoman": "Esteve lá hoje",
+      "onlineWasYesterdayMan": "Esteve lá ontem",
+      "onlineWasYesterdayWoman": "Esteve lá ontem",
+      "onlineWasWeekMan": "Esteve lá esta semana",
+      "onlineWasWeekWoman": "Esteve lá esta semana",
+      "onlineWasMonthMan": "Esteve lá este mês?",
+      "onlineWasMonthWoman": "Esteve lá este mês?",
+      "onlineLongTimeMan": "Foi há muito tempo",
+      "onlineLongTimeWoman": "Foi há muito tempo"
     }
   },
   "errorBoundary": {

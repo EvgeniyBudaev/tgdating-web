@@ -34,7 +34,6 @@
       "deleteQuestion": "Eliminare l'account?",
       "freezeQuestion": "Congelare il tuo account?",
       "doubleLike": "Re-like sarà disponibile domani",
-      "online": "In linea",
       "isHiddenAge": "Non mostrare l'età",
       "accountFrozen": "Conto congelato",
       "isEmptyList": "Non è stata trovata una sola persona. Prova a modificare le impostazioni del filtro.",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "Il bot non richiede dati personali e non identifica gli utenti utilizzando alcun documento.",
       "doYouFindLove": "Vuoi trovare l'amore, nuovi amici o semplicemente una comunicazione facile?",
       "byContinuing": "Continuando accetti",
-      "communityRules": "regole comunitarie",
       "and": "e dfgd",
       "privacyPolicy": "politica sulla riservatezza",
       "isNewLike": "C'è simpatia! Visualizza nella chat del bot"
@@ -81,7 +79,9 @@
         "age": "Età",
         "gender": "Pavimento",
         "searchGender": "Interessato",
-        "description": "Descrizione"
+        "description": "Descrizione",
+        "isOnline": "Solo online",
+        "isLiked": "Solo apprezzato"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "Deve essere inferiore o uguale a {{max}}",
       "maxSymbols": "Non deve contenere più di {{max}} caratteri",
       "smallImage": "L'immagine deve avere una dimensione minima di 200 x 200 pixel"
+    },
+    "status": {
+      "online": "In linea",
+      "onlineJustBeenMan": "Ero appena qui",
+      "onlineJustBeenWoman": "Ero appena qui",
+      "onlineWasTodayMan": "C'era oggi?",
+      "onlineWasTodayWoman": "C'era oggi?",
+      "onlineWasYesterdayMan": "C'era ieri?",
+      "onlineWasYesterdayWoman": "C'era ieri?",
+      "onlineWasWeekMan": "C'era questa settimana?",
+      "onlineWasWeekWoman": "C'era questa settimana?",
+      "onlineWasMonthMan": "C'era questo mese?",
+      "onlineWasMonthWoman": "C'era questo mese?",
+      "onlineLongTimeMan": "È stato tanto tempo fa",
+      "onlineLongTimeWoman": "È stato tanto tempo fa"
     }
   },
   "errorBoundary": {

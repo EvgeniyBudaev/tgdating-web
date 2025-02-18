@@ -26,6 +26,8 @@ export const addProfileParamsSchema = zfd.formData({
   distance: zfd.text(),
   page: zfd.text(),
   size: zfd.text(),
+  isLiked: zfd.text(),
+  isOnline: zfd.text(),
   measurement: zfd.text(),
 });
 

@@ -34,7 +34,6 @@
       "deleteQuestion": "Poistetaanko tili?",
       "freezeQuestion": "Jäädyttääkö tilisi?",
       "doubleLike": "Uudelleentykkäys on saatavilla huomenna",
-      "online": "verkossa",
       "isHiddenAge": "Älä näytä ikää",
       "accountFrozen": "Tili jäädytetty",
       "isEmptyList": "Yhtään henkilöä ei löytynyt. Yritä muuttaa suodatinasetuksiasi.",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "Botti ei pyydä henkilötietoja eikä tunnista käyttäjiä minkään asiakirjan avulla.",
       "doYouFindLove": "Haluatko löytää rakkautta, uusia ystäviä tai vain helppoa kommunikointia?",
       "byContinuing": "Jatkamalla hyväksyt",
-      "communityRules": "yhteisön säännöt",
       "and": "ja",
       "privacyPolicy": "tietosuojakäytäntö",
       "isNewLike": "Sympatiaa on! Katso bot-chatissa"
@@ -81,7 +79,9 @@
         "age": "Ikä",
         "gender": "Kerros",
         "searchGender": "Kiinnostunut",
-        "description": "Kuvaus"
+        "description": "Kuvaus",
+        "isOnline": "Vain verkossa",
+        "isLiked": "Vain tykätty"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "On oltava pienempi tai yhtä suuri kuin {{max}}",
       "maxSymbols": "Saa olla enintään {{max}} merkkiä",
       "smallImage": "Kuvan on oltava kooltaan vähintään 200 x 200 pikseliä"
+    },
+    "status": {
+      "online": "Verkossa",
+      "onlineJustBeenMan": "Oli juuri täällä",
+      "onlineJustBeenWoman": "Oli juuri täällä",
+      "onlineWasTodayMan": "Oli siellä tänään",
+      "onlineWasTodayWoman": "Oli siellä tänään",
+      "onlineWasYesterdayMan": "Oli siellä eilen",
+      "onlineWasYesterdayWoman": "Oli siellä eilen",
+      "onlineWasWeekMan": "Oli siellä tällä viikolla",
+      "onlineWasWeekWoman": "Oli siellä tällä viikolla",
+      "onlineWasMonthMan": "Oliko siellä tässä kuussa",
+      "onlineWasMonthWoman": "Oliko siellä tässä kuussa",
+      "onlineLongTimeMan": "Se oli kauan sitten",
+      "onlineLongTimeWoman": "Se oli kauan sitten"
     }
   },
   "errorBoundary": {

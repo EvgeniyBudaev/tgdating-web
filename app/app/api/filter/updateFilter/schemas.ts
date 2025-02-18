@@ -9,6 +9,8 @@ export const updateFilterParamsSchema = z.object({
   distance: zfd.text(),
   page: zfd.text(),
   size: zfd.text(),
+  isLiked: zfd.text(),
+  isOnline: zfd.text(),
   countryCode: zfd.text().nullish(),
   countryName: zfd.text().nullish(),
   city: zfd.text().nullish(),

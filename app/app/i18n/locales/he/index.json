@@ -34,7 +34,6 @@
       "deleteQuestion": "למחוק חשבון?",
       "freezeQuestion": "להקפיא את החשבון שלך?",
       "doubleLike": "לייק מחדש יהיה זמין מחר",
-      "online": "באינטרנט",
       "isHiddenAge": "אל תראה גיל",
       "accountFrozen": "החשבון הוקפא",
       "isEmptyList": "לא נמצא אדם אחד. נסה לשנות את הגדרות המסנן שלך.",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "הבוט אינו מבקש נתונים אישיים ואינו מזהה משתמשים באמצעות מסמך כלשהו.",
       "doYouFindLove": "האם אתה רוצה למצוא אהבה, חברים חדשים או סתם תקשורת קלה?",
       "byContinuing": "על ידי המשך אתה מקבל",
-      "communityRules": "חוקי הקהילה",
       "and": "ו",
       "privacyPolicy": "מדיניות הפרטיות",
       "isNewLike": "יש סימפטיה! הצג בצ'אט בוט"
@@ -81,7 +79,9 @@
         "age": "גִיל",
         "gender": "קוֹמָה",
         "searchGender": "מעוניין",
-        "description": "תֵאוּר"
+        "description": "תֵאוּר",
+        "isOnline": "באינטרנט בלבד",
+        "isLiked": "רק אהב"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "חייב להיות קטן או שווה ל-{{max}}",
       "maxSymbols": "חייב להיות לא יותר מ-{{max}} תווים",
       "smallImage": "התמונה חייבת להיות בגודל של לפחות 100 על 100 פיקסלים"
+    },
+    "status": {
+      "online": "באינטרנט",
+      "onlineJustBeenMan": "בדיוק היה כאן",
+      "onlineJustBeenWoman": "בדיוק היה כאן",
+      "onlineWasTodayMan": "היה שם היום",
+      "onlineWasTodayWoman": "היה שם היום",
+      "onlineWasYesterdayMan": "היה שם אתמול",
+      "onlineWasYesterdayWoman": "היה שם אתמול",
+      "onlineWasWeekMan": "היה שם השבוע",
+      "onlineWasWeekWoman": "היה שם השבוע",
+      "onlineWasMonthMan": "היה שם החודש",
+      "onlineWasMonthWoman": "היה שם החודש",
+      "onlineLongTimeMan": "זה היה מזמן",
+      "onlineLongTimeWoman": "זה היה מזמן"
     }
   },
   "errorBoundary": {

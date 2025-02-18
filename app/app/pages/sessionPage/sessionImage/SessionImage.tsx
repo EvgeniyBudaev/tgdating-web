@@ -23,6 +23,7 @@ type TProps = {
   distance?: string;
   image: TProfileListItem;
   isBlur?: boolean;
+  lastOnline: string;
   lng: ELanguage;
   telegramUserId: string;
   theme: ETheme;
@@ -33,6 +34,7 @@ const SessionImageComponent: FC<TProps> = ({
   distance,
   image,
   isBlur = false,
+  lastOnline,
   lng,
   telegramUserId,
   theme,
@@ -61,7 +63,8 @@ const SessionImageComponent: FC<TProps> = ({
       >
         <Online
           classes={{ root: "SessionImage-Online" }}
-          isOnline={image.isOnline}
+          isOnlyCircle={true}
+          lastOnline={lastOnline}
         />
         <Heart isLiked={image.isLiked} />
         <Distance distance={distance} theme={theme} />

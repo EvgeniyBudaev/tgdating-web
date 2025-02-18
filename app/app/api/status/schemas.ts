@@ -7,6 +7,5 @@ export const statusSchema = z.object({
   isHiddenDistance: z.boolean(),
   isInvisible: z.boolean(),
   isLeftHand: z.boolean(),
-  isOnline: z.boolean(),
   isPremium: z.boolean(),
 });

@@ -1,15 +1,8 @@
 {
-  "pages": {
-    "profile": {
-      "doubleLike": "Re-like estará disponível amanhã"
-    }
-  },
   "common": {
     "titles": {
-      "validityPeriod": "período de validade",
-      "geoPositionExist": "Geolocalização determinada",
-      "communityRules": "regras da comunidade",
-      "online": "On-line",
+      "communityRules": "सामुदायिक नियम",
+      "online": "ऑनलाइन",
       "onlineWasToday": "Добавь сюда перевод!!!",
       "onlineWasWeek": "Добавь сюда перевод!!!",
       "onlineWasMonth": "Добавь сюда перевод!!!",

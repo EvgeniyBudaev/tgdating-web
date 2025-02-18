@@ -29,8 +29,8 @@ import { INITIAL_FORM_STATE } from "@/app/shared/constants";
 import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ELanguage } from "@/app/shared/enums";
 import { useTelegram } from "@/app/shared/hooks";
+import { CheckboxCustom as Checkbox } from "@/app/uikit/components/checkboxCustom";
 import { getSearchGenderByLocale } from "@/app/shared/mapping/searchGender";
-import { Icon } from "@/app/uikit/components/icon";
 import { RangeSlider } from "@/app/uikit/components/rangeSlider";
 import { Select, TSelectOption } from "@/app/uikit/components/select";
 import { Sidebar } from "@/app/uikit/components/sidebar";
@@ -57,8 +57,9 @@ const SearchFormSidebarComponent: FC<TProps> = ({
   const { initDataCrypt } = useTelegram();
   const { t } = useTranslation("index");
 
-  const defaultAgeRangeFrom = profileShortInfo?.ageFrom ?? DEFAULT_AGE_FROM;
-  const defaultAgeRangeTo = profileShortInfo?.ageTo ?? DEFAULT_AGE_TO;
+  const defaultAgeRangeFrom =
+    profileShortInfo?.filter?.ageFrom ?? DEFAULT_AGE_FROM;
+  const defaultAgeRangeTo = profileShortInfo?.filter?.ageTo ?? DEFAULT_AGE_TO;
 
   const [isOpenSidebarSearchGender, setIsOpenSidebarSearchGender] =
     useState(false);
@@ -73,13 +74,16 @@ const SearchFormSidebarComponent: FC<TProps> = ({
 
   const searchGenderDefault = useMemo(() => {
     return getSearchGenderByLocale(lng).find(
-      (item) => item.value === profileShortInfo?.searchGender,
+      (item) => item.value === profileShortInfo?.filter?.searchGender,
     );
-  }, [lng, profileShortInfo?.searchGender]);
+  }, [lng, profileShortInfo?.filter?.searchGender]);
 
   const [searchGenderState, setSearchGenderState] = useState<
     TSelectOption | undefined
   >(searchGenderDefault);
+
+  const [isLiked, setIsLiked] = useState(profileShortInfo?.filter?.isLiked);
+  const [isOnline, setIsOnline] = useState(profileShortInfo?.filter?.isOnline);
 
   const ageRangeValueFrom = Array.isArray(ageRange)
     ? ageRange[0].toString()
@@ -105,11 +109,27 @@ const SearchFormSidebarComponent: FC<TProps> = ({
     }
   };
 
+  const handleChangeIsOnline = (value: boolean) => {
+    setIsOnline(value);
+  };
+
+  const handleChangeIsLiked = (value: boolean) => {
+    setIsLiked(value);
+  };
+
   const handleSubmit = () => {
     const formDataDto = new FormData();
     formDataDto.append(EFilterUpdateFormFields.AgeFrom, ageRangeValueFrom);
     formDataDto.append(EFilterUpdateFormFields.AgeTo, ageRangeValueTo);
     formDataDto.append(EFilterUpdateFormFields.SearchGender, searchGender);
+    formDataDto.append(
+      EFilterUpdateFormFields.IsLiked,
+      (isLiked ?? false).toString(),
+    );
+    formDataDto.append(
+      EFilterUpdateFormFields.IsOnline,
+      (isOnline ?? false).toString(),
+    );
     formDataDto.append(
       EFilterUpdateFormFields.TelegramUserId,
       profileShortInfo?.telegramUserId ?? "",
@@ -183,6 +203,28 @@ const SearchFormSidebarComponent: FC<TProps> = ({
                     titleButton={t("common.actions.apply")}
                   />
                 </Select>
+              </SidebarContentListItem>
+              <SidebarContentListItem
+                className="SearchFormSidebar-SidebarContentListItem"
+                theme={theme}
+              >
+                <Checkbox
+                  checked={isOnline}
+                  label={t("common.form.field.isOnline")}
+                  name={EFilterUpdateFormFields.IsOnline}
+                  onChange={handleChangeIsOnline}
+                />
+              </SidebarContentListItem>
+              <SidebarContentListItem
+                className="SearchFormSidebar-SidebarContentListItem"
+                theme={theme}
+              >
+                <Checkbox
+                  checked={isLiked}
+                  label={t("common.form.field.isLiked")}
+                  name={EFilterUpdateFormFields.IsLiked}
+                  onChange={handleChangeIsLiked}
+                />
               </SidebarContentListItem>
             </SidebarContentList>
             <SidebarContentControls

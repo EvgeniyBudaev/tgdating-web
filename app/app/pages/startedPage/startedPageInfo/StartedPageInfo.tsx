@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FC, memo } from "react";
+import { type FC, memo } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useNavigatorQuery } from "@/app/shared/hooks";
@@ -33,18 +33,6 @@ const StartedPageInfoComponent: FC<TProps> = ({ lng }) => {
       </div>
       <div className="StartedPageInfo-Block">
         <Typography>{t("common.titles.byContinuing")}&nbsp;</Typography>
-        <Link
-          className="StartedPageInfo-Link"
-          href={createPath(
-            {
-              route: ERoutes.Agreement,
-              lng,
-            },
-            query,
-          )}
-        >
-          <Typography>{t("common.titles.communityRules")},&nbsp;</Typography>
-        </Link>
         <Link
           className="StartedPageInfo-Link"
           href={createPath(

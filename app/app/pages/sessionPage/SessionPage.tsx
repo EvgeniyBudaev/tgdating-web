@@ -69,6 +69,7 @@ const SessionPageComponent: FC<TSessionPageProps> = (props) => {
                     image={item}
                     isBlur={isBlurImage}
                     key={item.telegramUserId}
+                    lastOnline={item.lastOnline}
                     lng={lng}
                     telegramUserId={telegramUserId}
                     theme={theme}

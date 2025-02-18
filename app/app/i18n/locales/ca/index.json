@@ -34,7 +34,6 @@
       "deleteQuestion": "Vols suprimir el compte?",
       "freezeQuestion": "Vols congelar el teu compte?",
       "doubleLike": "Demà estarà disponible Re-like",
-      "online": "En línia",
       "isHiddenAge": "No mostris l'edat",
       "accountFrozen": "Compte congelat",
       "isEmptyList": "No es va trobar ni una sola persona. Proveu de canviar la configuració del filtre.",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "El bot no demana dades personals i no identifica els usuaris mitjançant cap document.",
       "doYouFindLove": "Vols trobar amor, nous amics o simplement una comunicació fàcil?",
       "byContinuing": "En continuar, acceptes",
-      "communityRules": "regles de la comunitat",
       "and": "i",
       "privacyPolicy": "política de privadesa",
       "isNewLike": "Hi ha simpatia! Veure al xat bot"
@@ -81,7 +79,9 @@
         "age": "Edat",
         "gender": "Pis",
         "searchGender": "Interessat",
-        "description": "Descripció"
+        "description": "Descripció",
+        "isOnline": "Només en línia",
+        "isLiked": "Només agradat"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "Ha de ser inferior o igual a {{max}}",
       "maxSymbols": "No ha de tenir més de {{max}} caràcters",
       "smallImage": "La mida de la imatge ha de tenir almenys 200 x 200 píxels"
+    },
+    "status": {
+      "online": "En línia",
+      "onlineJustBeenMan": "Només estava aquí",
+      "onlineJustBeenWoman": "Només estava aquí",
+      "onlineWasTodayMan": "Hi ha estat avui",
+      "onlineWasTodayWoman": "Hi ha estat avui",
+      "onlineWasYesterdayMan": "Hi va ser ahir",
+      "onlineWasYesterdayWoman": "Hi va ser ahir",
+      "onlineWasWeekMan": "Hi ha estat aquesta setmana",
+      "onlineWasWeekWoman": "Hi ha estat aquesta setmana",
+      "onlineWasMonthMan": "Hi ha estat aquest mes",
+      "onlineWasMonthWoman": "Hi ha estat aquest mes",
+      "onlineLongTimeMan": "Va ser fa molt de temps",
+      "onlineLongTimeWoman": "Va ser fa molt de temps"
     }
   },
   "errorBoundary": {

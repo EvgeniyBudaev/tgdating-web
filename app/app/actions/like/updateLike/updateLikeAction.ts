@@ -31,6 +31,7 @@ export async function updateLikeAction(prevState: any, formData: FormData) {
     id: Number(resolver.data.id),
     isLiked: Boolean(JSON.parse(resolver.data.isLiked)),
     telegramUserId: resolver.data.telegramUserId,
+    likedTelegramUserId: resolver.data.likedTelegramUserId,
   };
 
   const accessToken = resolver.data.telegramInitDataCrypt;

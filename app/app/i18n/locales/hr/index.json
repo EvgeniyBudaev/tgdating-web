@@ -34,7 +34,6 @@
       "deleteQuestion": "Izbrisati račun?",
       "freezeQuestion": "Zamrznuti račun?",
       "doubleLike": "Ponovno lajkanje bit će dostupno sutra",
-      "online": "Online",
       "isHiddenAge": "Ne pokazuj godine",
       "accountFrozen": "Račun zamrznut",
       "isEmptyList": "Niti jedna osoba nije pronađena. Pokušajte promijeniti postavke filtra.",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "Bot ne traži osobne podatke i ne identificira korisnike pomoću bilo kojeg dokumenta.",
       "doYouFindLove": "Želite li pronaći ljubav, nove prijatelje ili samo laku komunikaciju?",
       "byContinuing": "Nastavkom prihvaćate",
-      "communityRules": "pravila zajednice",
       "and": "i",
       "privacyPolicy": "politika privatnosti",
       "isNewLike": "Postoji simpatija! Pogledaj u bot chatu"
@@ -81,7 +79,9 @@
         "age": "Dob",
         "gender": "Kat",
         "searchGender": "Zainteresirani",
-        "description": "Opis"
+        "description": "Opis",
+        "isOnline": "Samo online",
+        "isLiked": "Samo mi se svidio"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "Mora biti manje od ili jednako {{max}}",
       "maxSymbols": "Ne smije imati više od {{max}} znakova",
       "smallImage": "Slika mora biti veličine najmanje 200 x 200 piksela"
+    },
+    "status": {
+      "online": "Online",
+      "onlineJustBeenMan": "Upravo sam bio ovdje",
+      "onlineJustBeenWoman": "Upravo sam bio ovdje",
+      "onlineWasTodayMan": "Bio danas tamo",
+      "onlineWasTodayWoman": "Bio danas tamo",
+      "onlineWasYesterdayMan": "Bio jučer tamo",
+      "onlineWasYesterdayWoman": "Bio jučer tamo",
+      "onlineWasWeekMan": "Bio sam tamo ovaj tjedan",
+      "onlineWasWeekWoman": "Bio sam tamo ovaj tjedan",
+      "onlineWasMonthMan": "Bio tamo ovaj mjesec",
+      "onlineWasMonthWoman": "Bio tamo ovaj mjesec",
+      "onlineLongTimeMan": "Bilo je to davno",
+      "onlineLongTimeWoman": "Bilo je to davno"
     }
   },
   "errorBoundary": {

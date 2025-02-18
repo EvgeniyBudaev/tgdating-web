@@ -34,7 +34,6 @@
       "deleteQuestion": "删除帐户？",
       "freezeQuestion": "冻结你的账户？",
       "doubleLike": "明天即可重新点赞",
-      "online": "在线的",
       "isHiddenAge": "不暴露年龄",
       "accountFrozen": "账户被冻结",
       "isEmptyList": "没有找到一个人。尝试更改您的过滤器设置。",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "该机器人不会请求个人数据，也不会使用任何文档来识别用户。",
       "doYouFindLove": "您想寻找爱情、新朋友还是只是简单的沟通？",
       "byContinuing": "继续即表示您接受",
-      "communityRules": "社区规则",
       "and": "和",
       "privacyPolicy": "隐私政策",
       "isNewLike": "有同情心！在机器人聊天中查看"
@@ -81,7 +79,9 @@
         "age": "年龄",
         "gender": "地面",
         "searchGender": "感兴趣的",
-        "description": "描述"
+        "description": "描述",
+        "isOnline": "仅限在线",
+        "isLiked": "仅喜欢"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "必须小于或等于 {{max}}",
       "maxSymbols": "不得超过 {{max}} 个字符",
       "smallImage": "图像大小必须至少为 200 x 200 像素"
+    },
+    "status": {
+      "online": "在线的",
+      "onlineJustBeenMan": "刚刚在这里",
+      "onlineJustBeenWoman": "刚刚在这里",
+      "onlineWasTodayMan": "今天有吗",
+      "onlineWasTodayWoman": "今天有吗",
+      "onlineWasYesterdayMan": "昨天有吗",
+      "onlineWasYesterdayWoman": "昨天有吗",
+      "onlineWasWeekMan": "这周有吗",
+      "onlineWasWeekWoman": "这周有吗",
+      "onlineWasMonthMan": "这个月有吗",
+      "onlineWasMonthWoman": "这个月有吗",
+      "onlineLongTimeMan": "那是很久以前的事情了",
+      "onlineLongTimeWoman": "那是很久以前的事情了"
     }
   },
   "errorBoundary": {

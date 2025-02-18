@@ -86,6 +86,8 @@ export const addProfileFormSchema = zfd.formData({
     .string()
     .trim()
     .min(1, EMPTY_FIELD_ERROR_MESSAGE),
+  [EProfileAddFormFields.IsLiked]: z.string(),
+  [EProfileAddFormFields.IsOnline]: z.string(),
   [EProfileAddFormFields.IsLeftHand]: z.string(),
   [EProfileAddFormFields.Measurement]: z.enum([
     EMeasurement.Metric,

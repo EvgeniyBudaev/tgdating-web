@@ -34,7 +34,6 @@
       "deleteQuestion": "खाता हटा दो?",
       "freezeQuestion": "अपना खाता फ़्रीज़ करें?",
       "doubleLike": "री-लाइक कल उपलब्ध होगा",
-      "online": "ऑनलाइन",
       "isHiddenAge": "उम्र मत दिखाओ",
       "accountFrozen": "खाता फ़्रीज़ कर दिया गया",
       "isEmptyList": "एक भी व्यक्ति नहीं मिला. अपनी फ़िल्टर सेटिंग बदलने का प्रयास करें.",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "बॉट व्यक्तिगत डेटा का अनुरोध नहीं करता है और किसी दस्तावेज़ का उपयोग करने वाले उपयोगकर्ताओं की पहचान नहीं करता है।",
       "doYouFindLove": "क्या आप प्यार, नए दोस्त या बस आसान संचार पाना चाहते हैं?",
       "byContinuing": "जारी रखते हुए आप स्वीकार करें",
-      "communityRules": "सामुदायिक नियम",
       "and": "और",
       "privacyPolicy": "गोपनीयता नीति",
       "isNewLike": "सहानुभूति है! बॉट चैट में देखें"
@@ -81,7 +79,9 @@
         "age": "आयु",
         "gender": "ज़मीन",
         "searchGender": "इच्छुक",
-        "description": "विवरण"
+        "description": "विवरण",
+        "isOnline": "केवल ऑनलाइन",
+        "isLiked": "केवल पसंद किया गया"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "{{max}} से कम या उसके बराबर होना चाहिए",
       "maxSymbols": "{{max}} वर्णों से अधिक नहीं होना चाहिए",
       "smallImage": "छवि का आकार कम से कम 200 x 200 पिक्सेल होना चाहिए"
+    },
+    "status": {
+      "online": "ऑनलाइन",
+      "onlineJustBeenMan": "अभी यहीं था",
+      "onlineJustBeenWoman": "अभी यहीं था",
+      "onlineWasTodayMan": "आज वहाँ था?",
+      "onlineWasTodayWoman": "आज वहाँ था?",
+      "onlineWasYesterdayMan": "कल वहाँ था?",
+      "onlineWasYesterdayWoman": "कल वहाँ था?",
+      "onlineWasWeekMan": "इस सप्ताह वहाँ था?",
+      "onlineWasWeekWoman": "इस सप्ताह वहाँ था?",
+      "onlineWasMonthMan": "क्या इस महीने वहाँ था?",
+      "onlineWasMonthWoman": "क्या इस महीने वहाँ था?",
+      "onlineLongTimeMan": "बहुत समय पहले की बात है",
+      "onlineLongTimeWoman": "बहुत समय पहले की बात है"
     }
   },
   "errorBoundary": {

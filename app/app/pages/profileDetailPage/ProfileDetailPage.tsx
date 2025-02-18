@@ -98,23 +98,17 @@ const ProfileDetailPageComponent: FC<TProfileDetailPageProps> = (props) => {
               </Typography>
               {profile?.age && !isHiddenAge && (
                 <Typography variant={ETypographyVariant.TextH4Medium}>
-                  , {profile?.age}
+                  ,&nbsp;{profile?.age}
                 </Typography>
               )}
             </div>
             <div className="ProfileDetailPage-Field">
-              {profile?.status?.isOnline && (
-                <div className="ProfileDetailPage-Online">
-                  <Online
-                    isOnline={profile?.status?.isOnline}
-                    message={
-                      profile?.status?.isOnline
-                        ? t("common.titles.online")
-                        : undefined
-                    }
-                  />
-                </div>
-              )}
+              <div className="ProfileDetailPage-Online">
+                <Online
+                  gender={profile.gender}
+                  lastOnline={profile.lastOnline}
+                />
+              </div>
             </div>
             <div className="ProfileDetailPage-Field">
               <div className="ProfileDetailPage-Distansion">

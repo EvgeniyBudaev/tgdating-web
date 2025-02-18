@@ -13,7 +13,13 @@
     "titles": {
       "validUntil": "Добавь сюда перевод!!!",
       "validityPeriod": "rok valjanosti",
-      "geoPositionExist": "Geolokacija određena"
+      "geoPositionExist": "Geolokacija određena",
+      "communityRules": "pravila zajednice",
+      "online": "Online",
+      "onlineWasToday": "Добавь сюда перевод!!!",
+      "onlineWasWeek": "Добавь сюда перевод!!!",
+      "onlineWasMonth": "Добавь сюда перевод!!!",
+      "onlineLongTime": "Добавь сюда перевод!!!"
     }
   },
   "pages": {

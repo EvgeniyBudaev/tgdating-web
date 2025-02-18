@@ -34,7 +34,6 @@
       "deleteQuestion": "Delete account?",
       "freezeQuestion": "Freeze account?",
       "doubleLike": "Re-like will be available tomorrow",
-      "online": "Online",
       "isHiddenAge": "Don't show age",
       "accountFrozen": "Account frozen",
       "isEmptyList": "No people found. Try changing your search settings.",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "The bot does not request personal data and does not identify users using any document.",
       "doYouFindLove": "Do you want to find love, new friends or just easy communication?",
       "byContinuing": "By continuing you accept",
-      "communityRules": "community rules",
       "and": "and",
       "privacyPolicy": "privacy policy",
       "isNewLike": "There is sympathy! View in bot chat"
@@ -81,7 +79,9 @@
         "age": "Age",
         "gender": "Gender",
         "searchGender": "Interest",
-        "description": "Description"
+        "description": "Description",
+        "isOnline": "Online only",
+        "isLiked": "Only liked"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "Must be less or equal to {{max}}",
       "maxSymbols": "Must be no more than {{max}} characters",
       "smallImage": "Image must be at least 200 x 200 pixels"
+    },
+    "status": {
+      "online": "Online",
+      "onlineJustBeenMan": "Was just now",
+      "onlineJustBeenWoman": "Was just now",
+      "onlineWasTodayMan": "Was today",
+      "onlineWasTodayWoman": "Was today",
+      "onlineWasYesterdayMan": "Was yesterday",
+      "onlineWasYesterdayWoman": "Was yesterday",
+      "onlineWasWeekMan": "Was this week",
+      "onlineWasWeekWoman": "Was this week",
+      "onlineWasMonthMan": "Was this month",
+      "onlineWasMonthWoman": "Was this month",
+      "onlineLongTimeMan": "Was long ago",
+      "onlineLongTimeWoman": "Was long ago"
     }
   },
   "errorBoundary": {

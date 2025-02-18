@@ -7,7 +7,13 @@
   "common": {
     "titles": {
       "validityPeriod": "срок действия",
-      "geoPositionExist": "地理位置情報が決定されました"
+      "geoPositionExist": "地理位置情報が決定されました",
+      "communityRules": "コミュニティのルール",
+      "online": "オンライン",
+      "onlineWasToday": "Добавь сюда перевод!!!",
+      "onlineWasWeek": "Добавь сюда перевод!!!",
+      "onlineWasMonth": "Добавь сюда перевод!!!",
+      "onlineLongTime": "Добавь сюда перевод!!!"
     }
   }
 }

@@ -34,7 +34,6 @@
       "deleteQuestion": "Smazat účet?",
       "freezeQuestion": "Zmrazit váš účet?",
       "doubleLike": "Re-like bude k dispozici zítra",
-      "online": "Online",
       "isHiddenAge": "Nezobrazovat věk",
       "accountFrozen": "Účet zmrazen",
       "isEmptyList": "Nebyl nalezen jediný člověk. Zkuste změnit nastavení filtru.",
@@ -45,7 +44,6 @@
       "notRequestPersonal": "Robot nepožaduje osobní údaje a neidentifikuje uživatele pomocí žádného dokumentu.",
       "doYouFindLove": "Chcete najít lásku, nové přátele nebo jen snadnou komunikaci?",
       "byContinuing": "Pokračováním přijímáte",
-      "communityRules": "pravidla komunity",
       "and": "a",
       "privacyPolicy": "zásady ochrany osobních údajů",
       "isNewLike": "Jsou tam sympatie! Zobrazit v chatu robota"
@@ -81,7 +79,9 @@
         "age": "Stáří",
         "gender": "Patro",
         "searchGender": "Zájem",
-        "description": "Popis"
+        "description": "Popis",
+        "isOnline": "Pouze online",
+        "isLiked": "Pouze líbilo"
       }
     },
     "reductions": {
@@ -106,6 +106,21 @@
       "lessOrEqualMaxNumber": "Musí být menší nebo roven {{max}}",
       "maxSymbols": "Nesmí mít více než {{max}} znaků",
       "smallImage": "Изображение должно быть размером не менее 200 x 200 пикселей"
+    },
+    "status": {
+      "online": "Online",
+      "onlineJustBeenMan": "Právě tady byl",
+      "onlineJustBeenWoman": "Byl právě tady",
+      "onlineWasTodayMan": "Byl tam dnes",
+      "onlineWasTodayWoman": "Byl tam dnes",
+      "onlineWasYesterdayMan": "Byl tam včera",
+      "onlineWasYesterdayWoman": "Byl tam včera",
+      "onlineWasWeekMan": "Byl tam tento týden",
+      "onlineWasWeekWoman": "Byl tam tento týden",
+      "onlineWasMonthMan": "Byl tam tento měsíc",
+      "onlineWasMonthWoman": "Byl tam tento měsíc",
+      "onlineLongTimeMan": "Bylo to dávno",
+      "onlineLongTimeWoman": "Bylo to dávno"
     }
   },
   "errorBoundary": {

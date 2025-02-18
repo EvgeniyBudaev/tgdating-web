@@ -17,7 +17,13 @@
     "titles": {
       "validUntil": "قسط صالح حتى عام",
       "validityPeriod": "فترة الصلاحية",
-      "geoPositionExist": "تم تحديد الموقع الجغرافي"
+      "geoPositionExist": "تم تحديد الموقع الجغرافي",
+      "communityRules": "قواعد المجتمع",
+      "online": "متصل",
+      "onlineWasToday": "Добавь сюда перевод!!!",
+      "onlineWasWeek": "Добавь сюда перевод!!!",
+      "onlineWasMonth": "Добавь сюда перевод!!!",
+      "onlineLongTime": "Добавь сюда перевод!!!"
     }
   },
   "pages": {
