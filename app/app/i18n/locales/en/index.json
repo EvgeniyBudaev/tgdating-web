@@ -80,6 +80,9 @@
         "gender": "Gender",
         "searchGender": "Interest",
         "description": "Description",
+        "distance": "Distance",
+        "distanceKilometers": "Distance in kilometers",
+        "distanceMiles": "Distance in miles",
         "isOnline": "Online only",
         "isLiked": "Only liked"
       }

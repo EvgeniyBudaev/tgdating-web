@@ -80,6 +80,9 @@
         "gender": "ज़मीन",
         "searchGender": "इच्छुक",
         "description": "विवरण",
+        "distance": "दूरी",
+        "distanceKilometers": "किलोमीटर में दूरी",
+        "distanceMiles": "मील में दूरी",
         "isOnline": "केवल ऑनलाइन",
         "isLiked": "केवल पसंद किया गया"
       }

@@ -80,6 +80,9 @@
         "gender": "Pis",
         "searchGender": "Interessat",
         "description": "Descripció",
+        "distance": "Distància",
+        "distanceKilometers": "Distància en quilòmetres",
+        "distanceMiles": "Distància en milles",
         "isOnline": "Només en línia",
         "isLiked": "Només agradat"
       }

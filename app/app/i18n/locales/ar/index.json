@@ -80,6 +80,9 @@
         "gender": "أرضية",
         "searchGender": "مهتم",
         "description": "وصف",
+        "distance": "مسافة",
+        "distanceKilometers": "المسافة بالكيلومتر",
+        "distanceMiles": "المسافة بالأميال",
         "isOnline": "متاح عبر الإنترنت فقط",
         "isLiked": "أعجبني فقط"
       }

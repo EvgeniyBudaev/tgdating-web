@@ -80,6 +80,9 @@
         "gender": "Пол",
         "searchGender": "Цікавяць",
         "description": "Апісанне",
+        "distance": "Дыстанцыя",
+        "distanceKilometers": "Адлегласць у кіламетрах",
+        "distanceMiles": "Адлегласць у мілях",
         "isOnline": "Толькі онлайн",
         "isLiked": "Толькі спадабалася"
       }

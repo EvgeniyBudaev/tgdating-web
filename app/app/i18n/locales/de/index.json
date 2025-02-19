@@ -80,6 +80,9 @@
         "gender": "Boden",
         "searchGender": "Interessiert",
         "description": "Beschreibung",
+        "distance": "Distanz",
+        "distanceKilometers": "Entfernung in kilometern",
+        "distanceMiles": "Entfernung in meilen",
         "isOnline": "Nur online",
         "isLiked": "Nur geliked"
       }

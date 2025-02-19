@@ -80,6 +80,9 @@
         "gender": "바닥",
         "searchGender": "관심 있는",
         "description": "설명",
+        "distance": "거리",
+        "distanceKilometers": "거리(킬로미터)",
+        "distanceMiles": "거리(마일)",
         "isOnline": "온라인 전용",
         "isLiked": "좋아요만"
       }

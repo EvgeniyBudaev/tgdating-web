@@ -21,14 +21,18 @@ export const updateFilterFormSchema = zfd.formData({
     .string()
     .trim()
     .min(1, EMPTY_FIELD_ERROR_MESSAGE),
-  [EFilterUpdateFormFields.IsLiked]: z
+  [EFilterUpdateFormFields.Distance]: z
     .string()
     .trim()
     .min(1, EMPTY_FIELD_ERROR_MESSAGE),
-  [EFilterUpdateFormFields.IsOnline]: z
-    .string()
-    .trim()
-    .min(1, EMPTY_FIELD_ERROR_MESSAGE),
+  [EFilterUpdateFormFields.IsLiked]: z.preprocess(
+    (v) => (typeof v === "string" ? v === "true" : !!v),
+    z.boolean(),
+  ),
+  [EFilterUpdateFormFields.IsOnline]: z.preprocess(
+    (v) => (typeof v === "string" ? v === "true" : !!v),
+    z.boolean(),
+  ),
   [EFilterUpdateFormFields.TelegramInitDataCrypt]: z
     .string()
     .trim()

@@ -80,6 +80,9 @@
         "gender": "Patro",
         "searchGender": "Zájem",
         "description": "Popis",
+        "distance": "Vzdálenost",
+        "distanceKilometers": "Vzdálenost v kilometrech",
+        "distanceMiles": "Vzdálenost v mílích",
         "isOnline": "Pouze online",
         "isLiked": "Pouze líbilo"
       }

@@ -23,14 +23,17 @@ import { SidebarContentListItem } from "@/app/shared/components/sidebarContent/s
 import {
   DEFAULT_AGE_FROM,
   DEFAULT_AGE_TO,
+  DEFAULT_DISTANCE,
   DEFAULT_SEARCH_GENDER,
 } from "@/app/shared/constants";
 import { INITIAL_FORM_STATE } from "@/app/shared/constants";
 import { useAuthenticityTokenContext } from "@/app/shared/context";
-import { ELanguage } from "@/app/shared/enums";
+import { ELanguage } from "@/app/shared/enums/language";
+import { EMeasurement } from "@/app/shared/enums/form";
 import { useTelegram } from "@/app/shared/hooks";
-import { CheckboxCustom as Checkbox } from "@/app/uikit/components/checkboxCustom";
+import { getDistanceByLocale } from "@/app/shared/mapping/distance";
 import { getSearchGenderByLocale } from "@/app/shared/mapping/searchGender";
+import { CheckboxCustom as Checkbox } from "@/app/uikit/components/checkboxCustom";
 import { RangeSlider } from "@/app/uikit/components/rangeSlider";
 import { Select, TSelectOption } from "@/app/uikit/components/select";
 import { Sidebar } from "@/app/uikit/components/sidebar";
@@ -56,11 +59,13 @@ const SearchFormSidebarComponent: FC<TProps> = ({
   const sidebarRef = useRef(null);
   const { initDataCrypt } = useTelegram();
   const { t } = useTranslation("index");
+  const isMetric = profileShortInfo?.measurement === EMeasurement.Metric;
 
   const defaultAgeRangeFrom =
     profileShortInfo?.filter?.ageFrom ?? DEFAULT_AGE_FROM;
   const defaultAgeRangeTo = profileShortInfo?.filter?.ageTo ?? DEFAULT_AGE_TO;
 
+  const [isOpenSidebarDistance, setIsOpenSidebarDistance] = useState(false);
   const [isOpenSidebarSearchGender, setIsOpenSidebarSearchGender] =
     useState(false);
   const [ageRange, setAgeRange] = useState<any>([
@@ -70,6 +75,16 @@ const SearchFormSidebarComponent: FC<TProps> = ({
   const [_, formAction] = useActionState(
     updateFilterAction,
     INITIAL_FORM_STATE,
+  );
+
+  const distanceDefault = useMemo(() => {
+    return getDistanceByLocale(lng, isMetric).find(
+      (item) => item.value === profileShortInfo?.filter?.distance,
+    );
+  }, [lng, profileShortInfo?.filter?.distance]);
+
+  const [distanceState, setDistanceState] = useState<TSelectOption | undefined>(
+    distanceDefault,
   );
 
   const searchGenderDefault = useMemo(() => {
@@ -91,8 +106,24 @@ const SearchFormSidebarComponent: FC<TProps> = ({
   const ageRangeValueTo = Array.isArray(ageRange)
     ? ageRange[1].toString()
     : ageRange.toString();
+  const distance = distanceState?.value ? Number(distanceState.value) : DEFAULT_DISTANCE;
   const searchGender =
     (searchGenderState?.value ?? "").toString() ?? DEFAULT_SEARCH_GENDER;
+
+  const handleOpenSidebarDistance = useCallback(() => {
+    setIsOpenSidebarDistance(true);
+  }, []);
+
+  const handleCloseSidebarDistance = useCallback(() => {
+    setIsOpenSidebarDistance(false);
+  }, []);
+
+  const handleChangeDistance = (value?: TSelectOption) => {
+    if (value) {
+      value && setDistanceState(value);
+      handleCloseSidebarDistance();
+    }
+  };
 
   const handleOpenSidebarSearchGender = useCallback(() => {
     setIsOpenSidebarSearchGender(true);
@@ -117,10 +148,17 @@ const SearchFormSidebarComponent: FC<TProps> = ({
     setIsLiked(value);
   };
 
+  const getDistanceKilometersForSubmit = () => {
+    if (isMetric) return distance;
+    return distance * 1.60934;
+  };
+
   const handleSubmit = () => {
     const formDataDto = new FormData();
+    const distance = getDistanceKilometersForSubmit();
     formDataDto.append(EFilterUpdateFormFields.AgeFrom, ageRangeValueFrom);
     formDataDto.append(EFilterUpdateFormFields.AgeTo, ageRangeValueTo);
+    formDataDto.append(EFilterUpdateFormFields.Distance, distance.toString());
     formDataDto.append(EFilterUpdateFormFields.SearchGender, searchGender);
     formDataDto.append(
       EFilterUpdateFormFields.IsLiked,
@@ -200,6 +238,34 @@ const SearchFormSidebarComponent: FC<TProps> = ({
                     selectedItem={searchGenderState}
                     theme={theme}
                     title={t("common.form.field.searchGender")}
+                    titleButton={t("common.actions.apply")}
+                  />
+                </Select>
+              </SidebarContentListItem>
+              <SidebarContentListItem
+                className="SearchFormSidebar-SidebarContentListItem"
+                theme={theme}
+              >
+                <Select
+                  isSidebarOpen={isOpenSidebarDistance}
+                  label={t("common.form.field.distance")}
+                  headerTitle={
+                    !isNil(distanceState) ? distanceState?.label : "--"
+                  }
+                  onHeaderClick={handleOpenSidebarDistance}
+                  theme={theme}
+                >
+                  <SidebarContent
+                    onCloseSidebar={handleCloseSidebarDistance}
+                    onSave={handleChangeDistance}
+                    options={getDistanceByLocale(lng, isMetric)}
+                    selectedItem={distanceState}
+                    theme={theme}
+                    title={
+                      isMetric
+                        ? t("common.form.field.distanceKilometers")
+                        : t("common.form.field.distanceMiles")
+                    }
                     titleButton={t("common.actions.apply")}
                   />
                 </Select>

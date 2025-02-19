@@ -101,8 +101,14 @@ export const editProfileFormSchema = zfd
       .string()
       .trim()
       .min(1, EMPTY_FIELD_ERROR_MESSAGE),
-    [EProfileEditFormFields.IsLiked]: z.string(),
-    [EProfileEditFormFields.IsOnline]: z.string(),
+    [EProfileEditFormFields.IsLiked]: z.preprocess(
+      (v) => (typeof v === "string" ? v === "true" : !!v),
+      z.boolean(),
+    ),
+    [EProfileEditFormFields.IsOnline]: z.preprocess(
+      (v) => (typeof v === "string" ? v === "true" : !!v),
+      z.boolean(),
+    ),
     [EProfileEditFormFields.Csrf]: z
       .string()
       .trim()

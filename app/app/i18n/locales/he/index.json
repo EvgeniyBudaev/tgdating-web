@@ -80,6 +80,9 @@
         "gender": "קוֹמָה",
         "searchGender": "מעוניין",
         "description": "תֵאוּר",
+        "distance": "מֶרְחָק",
+        "distanceKilometers": "מרחק בקילומטרים",
+        "distanceMiles": "מרחק בקילומטרים",
         "isOnline": "באינטרנט בלבד",
         "isLiked": "רק אהב"
       }

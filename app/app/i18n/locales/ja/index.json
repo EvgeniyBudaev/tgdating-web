@@ -80,6 +80,9 @@
         "gender": "床",
         "searchGender": "興味がある",
         "description": "説明",
+        "distance": "距離",
+        "distanceKilometers": "距離（キロメートル）",
+        "distanceMiles": "距離（マイル）",
         "isOnline": "オンラインのみ",
         "isLiked": "いいねのみ"
       }

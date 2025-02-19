@@ -3,6 +3,7 @@ export enum EFilterUpdateFormFields {
   SearchGender = "searchGender",
   AgeFrom = "ageFrom",
   AgeTo = "ageTo",
+  Distance = "distance",
   IsLiked = "isLiked",
   IsOnline = "isOnline",
   TelegramInitDataCrypt = "telegramInitDataCrypt",

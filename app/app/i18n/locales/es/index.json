@@ -80,6 +80,9 @@
         "gender": "Piso",
         "searchGender": "Interesado",
         "description": "Descripción",
+        "distance": "Distancia",
+        "distanceKilometers": "Distancia en kilómetros",
+        "distanceMiles": "Distancia en millas",
         "isOnline": "Solo en línea",
         "isLiked": "Solo me gusta"
       }

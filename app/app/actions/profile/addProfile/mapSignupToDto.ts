@@ -25,8 +25,8 @@ type TProps = {
   [EProfileAddFormFields.Distance]: string;
   [EProfileAddFormFields.Page]: string;
   [EProfileAddFormFields.Size]: string;
-  [EProfileAddFormFields.IsLiked]: string;
-  [EProfileAddFormFields.IsOnline]: string;
+  [EProfileAddFormFields.IsLiked]: string | boolean;
+  [EProfileAddFormFields.IsOnline]: string | boolean;
   [EProfileAddFormFields.IsLeftHand]: string;
   [EProfileAddFormFields.Measurement]: string;
 };
@@ -99,8 +99,8 @@ export const mapSignupToDto: TMapSignupToDto = (props) => {
       [EProfileAddFormFields.Distance]: props.distance,
       [EProfileAddFormFields.Page]: props.page,
       [EProfileAddFormFields.Size]: props.size,
-      [EProfileAddFormFields.IsLiked]: props.isLiked,
-      [EProfileAddFormFields.IsOnline]: props.isOnline,
+      [EProfileAddFormFields.IsLiked]: props.isLiked.toString(),
+      [EProfileAddFormFields.IsOnline]: props.isOnline.toString(),
       [EProfileAddFormFields.IsLeftHand]: props.isLeftHand,
       [EProfileAddFormFields.Measurement]: props.measurement,
     },

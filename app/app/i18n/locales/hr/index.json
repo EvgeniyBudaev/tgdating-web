@@ -80,6 +80,9 @@
         "gender": "Kat",
         "searchGender": "Zainteresirani",
         "description": "Opis",
+        "distance": "Udaljenost",
+        "distanceKilometers": "Udaljenost u kilometrima",
+        "distanceMiles": "Udaljenost u miljama",
         "isOnline": "Samo online",
         "isLiked": "Samo mi se svidio"
       }

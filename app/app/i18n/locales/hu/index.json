@@ -80,6 +80,9 @@
         "gender": "Emelet",
         "searchGender": "Érdekelt",
         "description": "Leírás",
+        "distance": "Távolság",
+        "distanceKilometers": "Távolság kilométerben",
+        "distanceMiles": "Távolság mérföldben",
         "isOnline": "Csak online",
         "isLiked": "Csak tetszett"
       }

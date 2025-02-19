@@ -80,6 +80,9 @@
         "gender": "Sol",
         "searchGender": "Intéressé",
         "description": "Description",
+        "distance": "Distance",
+        "distanceKilometers": "Distance en kilomètres",
+        "distanceMiles": "Distance en miles",
         "isOnline": "En ligne uniquement",
         "isLiked": "J'ai seulement aimé"
       }

@@ -80,6 +80,9 @@
         "gender": "Golv",
         "searchGender": "Intresserad",
         "description": "Beskrivning",
+        "distance": "Avstånd",
+        "distanceKilometers": "Avstånd i kilometer",
+        "distanceMiles": "Avstånd i miles",
         "isOnline": "Endast online",
         "isLiked": "Bara gillat"
       }

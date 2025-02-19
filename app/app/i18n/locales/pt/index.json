@@ -80,6 +80,9 @@
         "gender": "Chão",
         "searchGender": "Interessado",
         "description": "Descrição",
+        "distance": "Distância",
+        "distanceKilometers": "Distância em quilómetros",
+        "distanceMiles": "Distância em milhas",
         "isOnline": "Somente online",
         "isLiked": "Só gostei"
       }

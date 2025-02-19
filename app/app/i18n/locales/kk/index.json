@@ -80,6 +80,9 @@
         "gender": "Еден",
         "searchGender": "Қызықтырады",
         "description": "Сипаттама",
+        "distance": "Қашықтық",
+        "distanceKilometers": "Қашықтық километрмен",
+        "distanceMiles": "Арақашықтық мильде",
         "isOnline": "Тек онлайн",
         "isLiked": "Тек ұнады"
       }

@@ -80,6 +80,9 @@
         "gender": "Kerros",
         "searchGender": "Kiinnostunut",
         "description": "Kuvaus",
+        "distance": "Etäisyys",
+        "distanceKilometers": "Etäisyys kilometreissä",
+        "distanceMiles": "Etäisyys maileina",
         "isOnline": "Vain verkossa",
         "isLiked": "Vain tykätty"
       }

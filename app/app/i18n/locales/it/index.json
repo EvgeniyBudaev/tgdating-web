@@ -80,6 +80,9 @@
         "gender": "Pavimento",
         "searchGender": "Interessato",
         "description": "Descrizione",
+        "distance": "Distanza",
+        "distanceKilometers": "Distanza in chilometri",
+        "distanceMiles": "Distanza in miglia",
         "isOnline": "Solo online",
         "isLiked": "Solo apprezzato"
       }

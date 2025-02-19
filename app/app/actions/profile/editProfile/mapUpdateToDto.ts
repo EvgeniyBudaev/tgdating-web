@@ -25,8 +25,8 @@ type TProps = {
   [EProfileEditFormFields.Distance]: string;
   [EProfileEditFormFields.Page]: string;
   [EProfileEditFormFields.Size]: string;
-  [EProfileEditFormFields.IsLiked]: string;
-  [EProfileEditFormFields.IsOnline]: string;
+  [EProfileEditFormFields.IsLiked]: string | boolean;
+  [EProfileEditFormFields.IsOnline]: string | boolean;
   [EProfileEditFormFields.IsImages]?: string | null | undefined;
   [EProfileEditFormFields.Measurement]: string;
 };
@@ -100,8 +100,8 @@ export const mapUpdateToDto: TMapUpdateToDto = (props) => {
       [EProfileEditFormFields.Distance]: props.distance,
       [EProfileEditFormFields.Page]: props.page,
       [EProfileEditFormFields.Size]: props.size,
-      [EProfileEditFormFields.IsLiked]: props?.isLiked ?? "false",
-      [EProfileEditFormFields.IsOnline]: props?.isOnline ?? "false",
+      [EProfileEditFormFields.IsLiked]: props.isLiked.toString(),
+      [EProfileEditFormFields.IsOnline]: props.isOnline.toString(),
       [EProfileEditFormFields.IsImages]: props?.isImages ?? "false",
       [EProfileEditFormFields.Measurement]: props.measurement,
     },

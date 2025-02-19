@@ -80,6 +80,9 @@
         "gender": "Vloer",
         "searchGender": "Geïnteresseerd",
         "description": "Beschrijving",
+        "distance": "Afstand",
+        "distanceKilometers": "Afstand in kilometers",
+        "distanceMiles": "Afstand in mijlen",
         "isOnline": "Alleen online",
         "isLiked": "Alleen leuk gevonden"
       }

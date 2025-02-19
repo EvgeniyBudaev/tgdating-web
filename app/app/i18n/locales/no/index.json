@@ -80,6 +80,9 @@
         "gender": "Gulv",
         "searchGender": "Interessert",
         "description": "Beskrivelse",
+        "distance": "Avstand",
+        "distanceKilometers": "Avstand i kilometer",
+        "distanceMiles": "Avstand i miles",
         "isOnline": "Kun online",
         "isLiked": "Bare likte"
       }

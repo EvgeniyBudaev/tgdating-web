@@ -80,6 +80,9 @@
         "gender": "Lantai",
         "searchGender": "Tertarik",
         "description": "Keterangan",
+        "distance": "Jarak",
+        "distanceKilometers": "Jarak dalam kilometer",
+        "distanceMiles": "Jarak dalam mil",
         "isOnline": "Hanya online",
         "isLiked": "Hanya disukai"
       }

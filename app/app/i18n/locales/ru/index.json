@@ -80,6 +80,9 @@
         "gender": "Пол",
         "searchGender": "Интересуют",
         "description": "Описание",
+        "distance": "Расстояние",
+        "distanceKilometers": "Расстояние в километрах",
+        "distanceMiles": "Расстояние в милях",
         "isOnline": "Только онлайн",
         "isLiked": "Только понравившиеся"
       }

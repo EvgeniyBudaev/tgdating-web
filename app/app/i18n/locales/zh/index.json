@@ -80,6 +80,9 @@
         "gender": "地面",
         "searchGender": "感兴趣的",
         "description": "描述",
+        "distance": "距离",
+        "distanceKilometers": "距离（公里）",
+        "distanceMiles": "距离（英里）",
         "isOnline": "仅限在线",
         "isLiked": "仅喜欢"
       }

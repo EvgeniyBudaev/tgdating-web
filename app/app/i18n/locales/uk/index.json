@@ -80,6 +80,9 @@
         "gender": "Підлога",
         "searchGender": "Цікавлять",
         "description": "Описание",
+        "distance": "Відстань",
+        "distanceKilometers": "Відстань у кілометрах",
+        "distanceMiles": "Відстань у милях",
         "isOnline": "Тільки онлайн",
         "isLiked": "Тільки сподобалось"
       }
