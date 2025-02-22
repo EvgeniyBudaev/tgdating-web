@@ -30,7 +30,11 @@
       "invalidLocation": "Vašu lokaciju nije bilo moguće utvrditi. Omogućite geolokaciju na svom uređaju. Ovisno o vašem uređaju, može proći neko vrijeme dok se podaci ne ažuriraju. Ponovno unesite aplikaciju putem gumba \"Izbornik\". Ako se nakon omogućavanja geolociranja ova poruka ponovno pojavi, pokušajte se prijaviti u aplikaciju nakon 5 minuta.",
       "accountDeleted": "Račun izbrisan",
       "blockQuestion": "Blokirati svoj račun?",
-      "complaintQuestion": "Blokirati svoj račun?",
+      "complaintQuestion": "Koji je razlog?",
+      "terrorism": "Terorizam",
+      "fraud": "Prijevara",
+      "spam": "Spam",
+      "other": "Ostalo",
       "deleteQuestion": "Izbrisati račun?",
       "freezeQuestion": "Zamrznuti račun?",
       "doubleLike": "Ponovno lajkanje bit će dostupno sutra",
@@ -61,7 +65,7 @@
       "filter": "Filter",
       "buyPremium": "Kupite Premium",
       "block": "Blokirati",
-      "complaint": "Prijavi i blokiraj",
+      "complaint": "Pošalji pritužbu i blokiraj",
       "deleteProfile": "Izbriši račun",
       "freezeProfile": "Zamrzni račun",
       "settings": "Postavke",
@@ -84,7 +88,10 @@
         "distanceKilometers": "Udaljenost u kilometrima",
         "distanceMiles": "Udaljenost u miljama",
         "isOnline": "Samo online",
-        "isLiked": "Samo mi se svidio"
+        "isLiked": "Samo mi se svidio",
+        "complaint": {
+          "placeholder": "Pomozite nam: recite nam što nije u redu."
+        }
       }
     },
     "reductions": {

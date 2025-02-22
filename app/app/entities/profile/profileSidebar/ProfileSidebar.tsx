@@ -6,6 +6,7 @@ import { type ForwardedRef, forwardRef, memo } from "react";
 import type { TProfileDetail } from "@/app/api/profile/getProfileDetail/types";
 import { useTranslation } from "@/app/i18n/client";
 import { Block } from "@/app/pages/profileDetailPage/block";
+import { Complaint } from "@/app/pages/profileDetailPage/complaint";
 import { Delete } from "@/app/pages/profileDetailPage/delete";
 import { Freeze } from "@/app/pages/profileDetailPage/freeze";
 import { Settings } from "@/app/pages/profileDetailPage/settings";
@@ -119,6 +120,14 @@ const ProfileSidebarComponent = forwardRef(
               {!isSessionUser && (
                 <Block
                   blockedTelegramUserId={profile?.telegramUserId ?? ""}
+                  lng={lng}
+                  telegramUserId={telegramUserId}
+                  theme={theme}
+                />
+              )}
+              {!isSessionUser && (
+                <Complaint
+                  criminalTelegramUserId={profile?.telegramUserId ?? ""}
                   lng={lng}
                   telegramUserId={telegramUserId}
                   theme={theme}

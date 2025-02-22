@@ -30,7 +30,11 @@
       "invalidLocation": "위치를 확인할 수 없습니다. 기기에서 위치정보를 활성화하세요. 귀하의 기기에 따라 데이터가 업데이트되는 데 다소 시간이 걸릴 수 있습니다. \"메뉴\" 버튼을 통해 애플리케이션을 다시 입력하세요. 위치정보를 활성화한 후 이 메시지가 다시 나타나면 5분 후에 애플리케이션에 로그인해 보세요.",
       "accountDeleted": "계정이 삭제되었습니다",
       "blockQuestion": "계정을 차단하시겠습니까?",
-      "complaintQuestion": "계정을 차단하시겠습니까?",
+      "complaintQuestion": "그 이유는 무엇일까?",
+      "terrorism": "테러리즘",
+      "fraud": "사기",
+      "spam": "스팸",
+      "other": "다른",
       "deleteQuestion": "계정을 삭제하시겠습니까?",
       "freezeQuestion": "계정을 동결하시겠습니까?",
       "doubleLike": "리라이크는 내일부터 가능합니다",
@@ -61,7 +65,7 @@
       "filter": "필터",
       "buyPremium": "프리미엄 구매",
       "block": "차단하다",
-      "complaint": "신고 및 차단",
+      "complaint": "불만을 제기하고 차단하세요",
       "deleteProfile": "계정 삭제",
       "freezeProfile": "계정 동결",
       "settings": "설정",
@@ -84,7 +88,10 @@
         "distanceKilometers": "거리(킬로미터)",
         "distanceMiles": "거리(마일)",
         "isOnline": "온라인 전용",
-        "isLiked": "좋아요만"
+        "isLiked": "좋아요만",
+        "complaint": {
+          "placeholder": "도와주세요: 문제가 무엇인지 알려주세요."
+        }
       }
     },
     "reductions": {

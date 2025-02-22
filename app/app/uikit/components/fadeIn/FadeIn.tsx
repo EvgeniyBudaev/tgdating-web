@@ -1,15 +1,11 @@
 "use client";
 
 import { memo, useEffect, useState } from "react";
-import type { FC, ReactNode } from "react";
+import type { FC } from "react";
+import type { TFadeInProps } from "@/app/uikit/components/fadeIn/types";
 import "./FadeIn.scss";
 
-type TProps = {
-  children?: ReactNode;
-  dataTestId?: string;
-};
-
-const FadeInComponent: FC<TProps> = ({
+const FadeInComponent: FC<TFadeInProps> = ({
   children,
   dataTestId = "uikit__fade-in",
 }) => {
@@ -28,5 +24,7 @@ const FadeInComponent: FC<TProps> = ({
     </span>
   );
 };
+
+FadeInComponent.displayName = "Fade";
 
 export const FadeIn = memo(FadeInComponent);

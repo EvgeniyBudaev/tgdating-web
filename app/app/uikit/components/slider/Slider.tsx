@@ -6,17 +6,13 @@ import Image from "next/image";
 import { type FC, memo } from "react";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import type { TImage } from "@/app/api/image";
 import { Icon } from "@/app/uikit/components/icon";
+import type { TSliderProps } from "@/app/uikit/components/slider/types";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./Slider.scss";
 
-type TProps = {
-  images?: TImage[] | null;
-};
-
-const SliderComponent: FC<TProps> = ({ images }) => {
+const SliderComponent: FC<TSliderProps> = ({ images }) => {
   return !isNil(images) && !isEmpty(images) ? (
     <Swiper
       className="Slider"

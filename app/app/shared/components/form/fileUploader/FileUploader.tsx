@@ -17,10 +17,10 @@ import type { TImage } from "@/app/api/image";
 import { Previews } from "@/app/shared/components/form/fileUploader/previews";
 import {
   filterDuplicatedFiles,
-  getTypes,
+  // getTypes,
 } from "@/app/shared/components/form/fileUploader/utils";
 import type { TFile } from "@/app/shared/types/file";
-import { type TDropzoneProps } from "@/app/uikit/components/dropzone/Dropzone";
+import type { TDropzoneProps } from "@/app/uikit/components/dropzone/types";
 import { ImageCropper } from "@/app/uikit/components/imageCropper";
 import { Modal, useModalWindow } from "@/app/uikit/components/modal";
 import { Typography } from "@/app/uikit/components/typography";
@@ -61,7 +61,7 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
 }) => {
   const { pending } = useFormStatus();
   const { t } = useTranslation("index");
-  const types = getTypes(accept);
+  // const types = getTypes(accept);
   const [countFiles, setCountFiles] = useState(1);
   const { closeModal, isOpenModal, openModal } = useModalWindow();
   const [errorImageCropper, setErrorImageCropper] = useState<

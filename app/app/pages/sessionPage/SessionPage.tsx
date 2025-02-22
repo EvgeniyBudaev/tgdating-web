@@ -26,13 +26,7 @@ const SessionPageComponent: FC<TSessionPageProps> = (props) => {
 
   useSessionPageAccess({ ...props, shortInfo });
 
-  if (
-    shortInfo?.isBlocked ||
-    shortInfo?.isFrozen ||
-    !isExistUser ||
-    isUnauthorized
-  )
-    return <Loader />;
+  if (shortInfo?.isFrozen || !isExistUser || isUnauthorized) return <Loader />;
 
   return (
     <div

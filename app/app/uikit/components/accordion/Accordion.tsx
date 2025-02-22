@@ -1,22 +1,14 @@
 import clsx from "clsx";
 import { memo, useEffect, useRef } from "react";
-import type { FC, PropsWithChildren } from "react";
+import type { FC } from "react";
 import { CSSTransition } from "react-transition-group";
+import type { TAccordionProps } from "@/app/uikit/components/accordion/types";
 import { Icon } from "@/app/uikit/components/icon";
 import { TRANSITION } from "@/app/uikit/constants";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./Accordion.scss";
 
-type TProps = {
-  className?: string;
-  dataTestId?: string;
-  isActive?: boolean;
-  onToggle?: () => void;
-  theme?: ETheme;
-  title?: string;
-} & PropsWithChildren;
-
-const AccordionComponent: FC<TProps> = ({
+const AccordionComponent: FC<TAccordionProps> = ({
   className,
   dataTestId = "uikit__accordion",
   isActive = false,
@@ -72,5 +64,7 @@ const AccordionComponent: FC<TProps> = ({
     </div>
   );
 };
+
+AccordionComponent.displayName = "Accordion";
 
 export const Accordion = memo(AccordionComponent);

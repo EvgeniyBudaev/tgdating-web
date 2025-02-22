@@ -30,7 +30,11 @@
       "invalidLocation": "Uw locatie kan niet worden bepaald. Schakel geolocatie in op uw apparaat. Afhankelijk van uw apparaat kan het enige tijd duren voordat de gegevens zijn bijgewerkt. Open de applicatie opnieuw via de knop \"Menu\". Als dit bericht na het inschakelen van geolocatie opnieuw verschijnt, probeer dan na 5 minuten in te loggen op de applicatie.",
       "accountDeleted": "Account verwijderd",
       "blockQuestion": "Uw account blokkeren?",
-      "complaintQuestion": "Uw account blokkeren?",
+      "complaintQuestion": "Wat is de reden?",
+      "terrorism": "Terrorisme",
+      "fraud": "Fraude",
+      "spam": "Spam",
+      "other": "Ander",
       "deleteQuestion": "Account verwijderen?",
       "freezeQuestion": "Uw account bevriezen?",
       "doubleLike": "Re-like is morgen beschikbaar",
@@ -61,7 +65,7 @@
       "filter": "Filter",
       "buyPremium": "Koop Premium",
       "block": "Blok",
-      "complaint": "Rapporteren en blokkeren",
+      "complaint": "Stuur een klacht en blokkeer",
       "deleteProfile": "Account verwijderen",
       "freezeProfile": "Account bevriezen",
       "settings": "Instellingen",
@@ -84,7 +88,10 @@
         "distanceKilometers": "Afstand in kilometers",
         "distanceMiles": "Afstand in mijlen",
         "isOnline": "Alleen online",
-        "isLiked": "Alleen leuk gevonden"
+        "isLiked": "Alleen leuk gevonden",
+        "complaint": {
+          "placeholder": "Help ons: vertel ons wat er mis is."
+        }
       }
     },
     "reductions": {

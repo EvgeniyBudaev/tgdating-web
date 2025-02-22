@@ -2,18 +2,9 @@
 
 import clsx from "clsx";
 import { type FC, memo } from "react";
-import { EToast } from "@/app/uikit/components/toast/enums";
+import type { TToastProps } from "@/app/uikit/components/toast/types";
 
-type TProps = {
-  className?: string;
-  dataTestId?: string;
-  description?: string;
-  onClose?: () => void;
-  title?: string;
-  type?: EToast;
-};
-
-const ToastComponent: FC<TProps> = ({
+const ToastComponent: FC<TToastProps> = ({
   className,
   dataTestId = "uikit__toast",
   description,

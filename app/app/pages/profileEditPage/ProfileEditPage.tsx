@@ -8,13 +8,11 @@ import { useProfileEditAccess } from "@/app/pages/profileEditPage/useProfileEdit
 import { Loader } from "@/app/shared/components/loader";
 
 const ProfileEditPageComponent: FC<TProfileEditPageProps> = (props) => {
-  const { isBlocked, isExistUser, isFrozen, isUnauthorized, lng, profile } =
-    props;
+  const { isExistUser, isFrozen, isUnauthorized, lng, profile } = props;
 
   useProfileEditAccess(props);
 
-  if (isBlocked || !isExistUser || isFrozen || isUnauthorized)
-    return <Loader />;
+  if (!isExistUser || isFrozen || isUnauthorized) return <Loader />;
 
   return (
     <ClientOnly>

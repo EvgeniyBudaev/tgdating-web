@@ -30,7 +30,11 @@
       "invalidLocation": "Não foi possível determinar sua localização. Ative a geolocalização no seu dispositivo. Pode levar algum tempo para que os dados sejam atualizados, dependendo do seu dispositivo. Entre novamente no aplicativo através do botão \"Menu\". Se após ativar a geolocalização esta mensagem aparecer novamente, tente fazer login no aplicativo após 5 minutos.",
       "accountDeleted": "Conta excluída",
       "blockQuestion": "Bloquear sua conta?",
-      "complaintQuestion": "Bloquear sua conta?",
+      "complaintQuestion": "Qual é o motivo?",
+      "terrorism": "Terrorismo",
+      "fraud": "Fraude",
+      "spam": "Spam",
+      "other": "Outro",
       "deleteQuestion": "Excluir conta?",
       "freezeQuestion": "Congelar sua conta?",
       "doubleLike": "Re-like estará disponível amanhã",
@@ -61,7 +65,7 @@
       "filter": "Filtro",
       "buyPremium": "Comprar Premium",
       "block": "Bloquear",
-      "complaint": "Denunciar e bloquear",
+      "complaint": "Envie uma reclamação e bloqueie",
       "deleteProfile": "Excluir conta",
       "freezeProfile": "Congelar conta",
       "settings": "Configurações",
@@ -84,7 +88,10 @@
         "distanceKilometers": "Distância em quilómetros",
         "distanceMiles": "Distância em milhas",
         "isOnline": "Somente online",
-        "isLiked": "Só gostei"
+        "isLiked": "Só gostei",
+        "complaint": {
+          "placeholder": "Ajude-nos: diga-nos o que está mal."
+        }
       }
     },
     "reductions": {

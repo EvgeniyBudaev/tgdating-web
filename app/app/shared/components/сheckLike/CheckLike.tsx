@@ -48,9 +48,8 @@ const CheckLikeComponent: FC<TProps> = ({csrf, initDataCrypt, isSession, lng, te
 
   useEffect(() => {
     const intervalId = setInterval(async () => {
-      // @ts-ignore
-      if ("click" in buttonSubmitRef.current) {
-        buttonSubmitRef.current && buttonSubmitRef.current.click();
+      if (buttonSubmitRef.current && "click" in buttonSubmitRef.current) {
+        buttonSubmitRef.current.click();
       }
     }, DURATION);
     return () => clearInterval(intervalId);

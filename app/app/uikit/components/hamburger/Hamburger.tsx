@@ -2,16 +2,12 @@
 
 import clsx from "clsx";
 import { type FC, memo } from "react";
+import type { THamburgerProps } from "@/app/uikit/components/hamburger/types";
 import { Icon } from "@/app/uikit/components/icon";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./Hamburger.scss";
 
-type TProps = {
-  onClick?: () => void;
-  theme?: ETheme;
-};
-
-const HamburgerComponent: FC<TProps> = ({ onClick, theme }) => {
+const HamburgerComponent: FC<THamburgerProps> = ({ onClick, theme }) => {
   return (
     <div
       className={clsx("Hamburger", {

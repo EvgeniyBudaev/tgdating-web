@@ -25,8 +25,7 @@ import { ETheme } from "@/app/uikit/enums/theme";
 import "./ProfileDetailPage.scss";
 
 const ProfileDetailPageComponent: FC<TProfileDetailPageProps> = (props) => {
-  const { isBlocked, isExistUser, isFrozen, lng, profile, telegramUserId } =
-    props;
+  const { isExistUser, isFrozen, lng, profile, telegramUserId } = props;
   const shortInfo = useShortInfoContext();
   const { user, theme } = useTelegram();
   const { t } = useTranslation("index");
@@ -61,11 +60,10 @@ const ProfileDetailPageComponent: FC<TProfileDetailPageProps> = (props) => {
     setIsAccordionOpen((prev?: boolean) => !prev);
   };
 
-  if (isBlocked || !isExistUser || isFrozen) return <Loader />;
+  if (!isExistUser || isFrozen) return <Loader />;
 
   return (
     profile &&
-    profile?.telegramUserId &&
     isExistUser && (
       <>
         {!isAccordionOpen && (

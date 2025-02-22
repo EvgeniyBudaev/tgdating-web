@@ -55,9 +55,8 @@ const CheckShortInfoComponent: FC<TProps> = ({
   }, [lng, state, telegramUserId]);
 
   useEffect(() => {
-    // @ts-ignore
-    if ("click" in buttonSubmitRef.current) {
-      buttonSubmitRef.current && buttonSubmitRef.current.click();
+    if (buttonSubmitRef.current && "click" in buttonSubmitRef.current) {
+      buttonSubmitRef.current.click();
     }
   }, [isSession, telegramUserId, pathname]);
 

@@ -2,20 +2,13 @@
 
 import clsx from "clsx";
 import { memo, useRef } from "react";
-import type { FC, MouseEvent } from "react";
+import type { FC } from "react";
 import { CSSTransition } from "react-transition-group";
+import type { TOverlayProps } from "@/app/uikit/components/overlay/types";
 import { TRANSITION } from "@/app/uikit/constants";
 import "./Overlay.scss";
 
-type TProps = {
-  className?: string;
-  dataTestId?: string;
-  isActive?: boolean;
-  onClick?: (event: MouseEvent) => void;
-  timeout?: number;
-};
-
-const OverlayComponent: FC<TProps> = ({
+const OverlayComponent: FC<TOverlayProps> = ({
   className,
   dataTestId = "uikit__overlay",
   isActive = false,
@@ -38,5 +31,7 @@ const OverlayComponent: FC<TProps> = ({
     </CSSTransition>
   );
 };
+
+OverlayComponent.displayName = "Overlay";
 
 export const Overlay = memo(OverlayComponent);

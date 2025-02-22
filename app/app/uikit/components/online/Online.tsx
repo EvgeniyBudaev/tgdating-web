@@ -5,21 +5,11 @@ import dayjs from "dayjs";
 import { type FC, memo } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { EGender } from "@/app/shared/enums";
+import type { TOnlineProps } from "@/app/uikit/components/online/types";
 import { Typography } from "@/app/uikit/components/typography";
 import "./Online.scss";
 
-type TClasses = {
-  root?: string;
-};
-
-type TProps = {
-  classes?: TClasses;
-  gender?: string;
-  isOnlyCircle?: boolean;
-  lastOnline: string;
-};
-
-const OnlineComponent: FC<TProps> = ({
+const OnlineComponent: FC<TOnlineProps> = ({
   classes,
   gender,
   isOnlyCircle,

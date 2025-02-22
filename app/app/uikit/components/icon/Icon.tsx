@@ -1,27 +1,17 @@
 "use client";
 
 import clsx from "clsx";
-import { memo, type ReactNode } from "react";
-import type { FC, MouseEventHandler } from "react";
+import { memo } from "react";
+import type { FC } from "react";
 import { EColorText, EColorType } from "@/app/uikit/components/colors";
-import { TColor } from "@/app/uikit/components/colors/types";
-import { IconType, iconTypes } from "@/app/uikit/components/icon/iconType";
+import { iconTypes } from "@/app/uikit/components/icon/iconType";
+import type { TIconProps } from "@/app/uikit/components/icon/types";
 import "./Icon.scss";
 
 const getIcon = (type: string): ((props: any) => JSX.Element) | undefined =>
   iconTypes.get(type);
 
-type TProps = {
-  className?: string;
-  color?: TColor;
-  dataTestId?: string;
-  height?: number;
-  onClick?: MouseEventHandler<HTMLDivElement>;
-  type: IconType;
-  width?: number;
-};
-
-const IconComponent: FC<TProps> = ({
+const IconComponent: FC<TIconProps> = ({
   className,
   color = EColorText.Dark,
   dataTestId = "uikit__icon",

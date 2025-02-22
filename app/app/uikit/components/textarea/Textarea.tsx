@@ -2,45 +2,12 @@
 
 import clsx from "clsx";
 import { forwardRef, memo, useState } from "react";
-import type {
-  ChangeEvent,
-  DetailedHTMLProps,
-  ForwardedRef,
-  HTMLAttributes,
-  FocusEvent,
-} from "react";
+import type { ChangeEvent, ForwardedRef, FocusEvent } from "react";
 import { Error } from "@/app/uikit/components/error";
+import type { ITextareaProps } from "@/app/uikit/components/textarea/types";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "../input/Input.scss";
-
-type TClasses = {
-  textarea?: string;
-};
-
-export interface ITextareaProps
-  extends DetailedHTMLProps<
-    HTMLAttributes<HTMLTextAreaElement>,
-    HTMLTextAreaElement
-  > {
-  autoComplete?: string;
-  classes?: TClasses;
-  className?: string;
-  dataTestId?: string;
-  defaultValue?: string;
-  errors?: string | string[] | null;
-  hidden?: boolean;
-  isFocused?: boolean;
-  isReadOnly?: boolean;
-  isResize?: boolean;
-  isRequired?: boolean;
-  label?: string;
-  name?: string;
-  maxLength?: number;
-  theme?: ETheme;
-  type?: string;
-  value?: string;
-}
 
 const TextareaComponent = forwardRef<HTMLTextAreaElement, ITextareaProps>(
   (

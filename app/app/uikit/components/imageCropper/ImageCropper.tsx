@@ -22,6 +22,7 @@ import "react-image-crop/src/ReactCrop.scss";
 import { useTranslation } from "@/app/i18n/client";
 import type { TFile } from "@/app/shared/types/file";
 import { Icon } from "@/app/uikit/components/icon";
+import type { TImageCropperProps } from "@/app/uikit/components/imageCropper/types";
 import {
   imageResize,
   setCanvasPreview,
@@ -30,18 +31,9 @@ import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./ImageCropper.scss";
 
-type TProps = {
-  error?: string;
-  file: TFile | null | undefined;
-  onCancel?: () => void;
-  onCropFile?: (file: TFile) => void;
-  onError?: (error: string) => void;
-  theme?: ETheme;
-};
-
-const ImageCropperComponent = forwardRef<HTMLDivElement, TProps>(
+const ImageCropperComponent = forwardRef<HTMLDivElement, TImageCropperProps>(
   (
-    { error, file, onCancel, onCropFile, onError, theme }: TProps,
+    { error, file, onCancel, onCropFile, onError, theme }: TImageCropperProps,
     ref: ForwardedRef<HTMLDivElement>,
   ): JSX.Element => {
     const ASPECT_RATIO = 1;

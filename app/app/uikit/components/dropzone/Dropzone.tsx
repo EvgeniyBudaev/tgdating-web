@@ -2,21 +2,11 @@
 
 import clsx from "clsx";
 import { memo } from "react";
-import type { FC, ReactNode } from "react";
+import type { FC } from "react";
 import { useDropzone } from "react-dropzone";
-import type { DropzoneOptions } from "react-dropzone";
+import type { TDropzoneProps } from "@/app/uikit/components/dropzone/types";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./Dropzone.scss";
-
-export type TDropzoneProps = {
-  children?: ReactNode;
-  className?: string;
-  dataTestId?: string;
-  errors?: string | string[] | null;
-  name: string;
-  multiple: boolean;
-  theme?: ETheme;
-} & DropzoneOptions;
 
 const DropzoneComponent: FC<TDropzoneProps> = ({
   children,

@@ -4,27 +4,10 @@ import clsx from "clsx";
 import { useState, useEffect, type FC, type ReactNode, useRef } from "react";
 import { default as ReactModal } from "react-responsive-modal";
 import { Icon } from "@/app/uikit/components/icon";
-import "react-responsive-modal/styles.css";
+import type { TModalProps } from "@/app/uikit/components/modal/types";
 import { ETheme } from "@/app/uikit/enums/theme";
+import "react-responsive-modal/styles.css";
 import "./Modal.scss";
-
-type IModalSize = "medium";
-
-type TClasses = {
-  modal?: string;
-};
-
-type TModalProps = {
-  children?: ReactNode;
-  classes?: TClasses;
-  className?: string;
-  dataTestId?: string;
-  isOpen: boolean;
-  onCloseModal: () => void;
-  showCloseIcon?: boolean;
-  size?: IModalSize;
-  theme?: ETheme;
-};
 
 export const Modal = ({
   children,

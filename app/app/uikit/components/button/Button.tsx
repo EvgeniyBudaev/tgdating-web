@@ -1,16 +1,9 @@
 "use client";
 
 import clsx from "clsx";
-import { memo, type FC, type DOMAttributes } from "react";
+import { memo, type FC } from "react";
+import type { IButtonProps } from "@/app/uikit/components/button/types";
 import "./Button.scss";
-
-export interface IButtonProps extends DOMAttributes<HTMLButtonElement> {
-  className?: string;
-  dataTestId?: string;
-  isDisabled?: boolean;
-  isLoading?: boolean;
-  type?: "submit" | "reset" | "button";
-}
 
 const ButtonComponent: FC<IButtonProps> = ({
   className,
@@ -36,5 +29,7 @@ const ButtonComponent: FC<IButtonProps> = ({
     </button>
   );
 };
+
+ButtonComponent.displayName = "Button";
 
 export const Button = memo(ButtonComponent);

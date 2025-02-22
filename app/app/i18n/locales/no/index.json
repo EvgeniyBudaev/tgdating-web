@@ -30,7 +30,11 @@
       "invalidLocation": "Posisjonen din kunne ikke bestemmes. Aktiver geolokalisering på enheten din. Det kan ta litt tid før dataene oppdateres avhengig av enheten din. Gå inn i applikasjonen på nytt via \"Meny\"-knappen. Hvis denne meldingen vises igjen etter å ha aktivert geolokalisering, prøv å logge på applikasjonen etter 5 minutter.",
       "accountDeleted": "Konto slettet",
       "blockQuestion": "Blokkere kontoen din?",
-      "complaintQuestion": "Blokkere kontoen din?",
+      "complaintQuestion": "Hva er årsaken?",
+      "terrorism": "Terrorisme",
+      "fraud": "Bedrageri",
+      "spam": "Spam",
+      "other": "Annen",
       "deleteQuestion": "Vil du slette kontoen?",
       "freezeQuestion": "Fryse kontoen din?",
       "doubleLike": "Re-like vil være tilgjengelig i morgen",
@@ -61,7 +65,7 @@
       "filter": "Filter",
       "buyPremium": "Kjøp Premium",
       "block": "Blokkere",
-      "complaint": "Rapporter og blokker",
+      "complaint": "Send en klage og blokker",
       "deleteProfile": "Slett konto",
       "freezeProfile": "Frys konto",
       "settings": "Innstillinger",
@@ -84,7 +88,10 @@
         "distanceKilometers": "Avstand i kilometer",
         "distanceMiles": "Avstand i miles",
         "isOnline": "Kun online",
-        "isLiked": "Bare likte"
+        "isLiked": "Bare likte",
+        "complaint": {
+          "placeholder": "Hjelp oss: fortell oss hva som er galt."
+        }
       }
     },
     "reductions": {

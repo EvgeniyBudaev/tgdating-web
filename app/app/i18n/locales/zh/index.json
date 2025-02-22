@@ -30,7 +30,11 @@
       "invalidLocation": "无法确定您的位置。请在您的设备上启用地理定位。数据更新可能需要一些时间，具体取决于您的设备。通过“菜单”按钮重新进入应用程序。如果启用地理定位后再次出现此消息，请在 5 分钟后尝试登录应用程序。",
       "accountDeleted": "帐户已删除",
       "blockQuestion": "封锁你的账户？",
-      "complaintQuestion": "封锁你的账户？",
+      "complaintQuestion": "原因何在？",
+      "terrorism": "恐怖主义",
+      "fraud": "欺诈",
+      "spam": "垃圾邮件",
+      "other": "其他",
       "deleteQuestion": "删除帐户？",
       "freezeQuestion": "冻结你的账户？",
       "doubleLike": "明天即可重新点赞",
@@ -61,7 +65,7 @@
       "filter": "筛选",
       "buyPremium": "购买溢价",
       "block": "堵塞",
-      "complaint": "举报并屏蔽",
+      "complaint": "发送投诉并屏蔽",
       "deleteProfile": "删除帐户",
       "freezeProfile": "冻结账户",
       "settings": "设置",
@@ -84,7 +88,10 @@
         "distanceKilometers": "距离（公里）",
         "distanceMiles": "距离（英里）",
         "isOnline": "仅限在线",
-        "isLiked": "仅喜欢"
+        "isLiked": "仅喜欢",
+        "complaint": {
+          "placeholder": "帮助我们：告诉我们出了什么问题。"
+        }
       }
     },
     "reductions": {

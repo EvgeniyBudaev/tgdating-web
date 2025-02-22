@@ -36,18 +36,6 @@ export const useSessionPageAccess = (
   }, [isManyRequest]);
 
   useEffect(() => {
-    if (shortInfo?.isBlocked) {
-      const path = createPath(
-        {
-          route: ERoutes.ProfileBlocked,
-          params: { telegramUserId },
-          lng,
-        },
-        query,
-      );
-      router.push(path);
-      router.refresh();
-    }
     if (shortInfo?.isFrozen) {
       const path = createPath(
         {

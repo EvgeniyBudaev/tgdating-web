@@ -1,10 +1,15 @@
 .Complaint {
-  &-Form {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 0;
-    width: 0;
-    opacity: 0;
+  &-Content {
+    min-width: 300px;
+    margin: 24px 0;
+  }
+
+  &-Button {
+    min-height: 57px;
+  }
+
+  &-Button-Submit {
+    max-width: 200px;
+    width: 100%;
   }
 }

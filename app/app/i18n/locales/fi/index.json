@@ -30,7 +30,11 @@
       "invalidLocation": "Sijaintiasi ei voitu määrittää. Ota maantieteellinen sijainti käyttöön laitteessasi. Tietojen päivittäminen saattaa kestää jonkin aikaa laitteestasi riippuen. Siirry sovellukseen uudelleen \"Valikko\"-painikkeen kautta. Jos tämä viesti tulee uudelleen näkyviin maantieteellisen sijainnin käyttöönoton jälkeen, yritä kirjautua sisään sovellukseen 5 minuutin kuluttua.",
       "accountDeleted": "Tili poistettu",
       "blockQuestion": "Estä tilisi?",
-      "complaintQuestion": "Estä tilisi?",
+      "complaintQuestion": "Mikä on syy?",
+      "terrorism": "Terrorismi",
+      "fraud": "Petos",
+      "spam": "Roskaposti",
+      "other": "muu",
       "deleteQuestion": "Poistetaanko tili?",
       "freezeQuestion": "Jäädyttääkö tilisi?",
       "doubleLike": "Uudelleentykkäys on saatavilla huomenna",
@@ -61,7 +65,7 @@
       "filter": "Suodattaa",
       "buyPremium": "Osta Premium",
       "block": "Lohko",
-      "complaint": "Ilmoita ja blokkaa",
+      "complaint": "Lähetä valitus ja estä",
       "deleteProfile": "Poista tili",
       "freezeProfile": "Jäädyttää tili",
       "settings": "Asetukset",
@@ -84,7 +88,10 @@
         "distanceKilometers": "Etäisyys kilometreissä",
         "distanceMiles": "Etäisyys maileina",
         "isOnline": "Vain verkossa",
-        "isLiked": "Vain tykätty"
+        "isLiked": "Vain tykätty",
+        "complaint": {
+          "placeholder": "Auta meitä: kerro mikä on vialla."
+        }
       }
     },
     "reductions": {

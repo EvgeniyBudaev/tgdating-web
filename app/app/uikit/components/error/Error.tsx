@@ -4,15 +4,12 @@ import { isArray } from "lodash";
 import { memo } from "react";
 import type { FC } from "react";
 import { useTranslation } from "@/app/i18n/client";
+import type { TErrorProps } from "@/app/uikit/components/error/types";
 import { FadeIn } from "@/app/uikit/components/fadeIn";
 import { Typography } from "@/app/uikit/components/typography";
 import "./Error.scss";
 
-type TProps = {
-  errors?: string | string[];
-};
-
-const ErrorComponent: FC<TProps> = ({ errors }) => {
+const ErrorComponent: FC<TErrorProps> = ({ errors }) => {
   const { t } = useTranslation("index");
 
   return (
@@ -33,5 +30,7 @@ const ErrorComponent: FC<TProps> = ({ errors }) => {
     </ul>
   );
 };
+
+ErrorComponent.displayName = "Error";
 
 export const Error = memo(ErrorComponent);

@@ -1,4 +1,4 @@
-import type { TDropzoneProps } from "@/app/uikit/components/dropzone/Dropzone";
+import type { TDropzoneProps } from "@/app/uikit/components/dropzone/types";
 
 export const getTypes = (accept?: Pick<TDropzoneProps, "accept">): string =>
   accept

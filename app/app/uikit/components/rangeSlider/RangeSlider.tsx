@@ -3,34 +3,17 @@
 import clsx from "clsx";
 import {
   type ChangeEvent,
-  type Dispatch,
   type FC,
   memo,
-  type SetStateAction,
   useEffect,
   useRef,
   useState,
 } from "react";
+import type { TRangeSliderProps } from "@/app/uikit/components/rangeSlider/types";
 import { Typography } from "@/app/uikit/components/typography";
 import "./RangeSlider.scss";
 
-type TClasses = {
-  root?: string;
-};
-
-type TProps = {
-  classes?: TClasses;
-  isShowRangeValue?: boolean;
-  isShowTooltip?: boolean;
-  label: string;
-  max: number;
-  min: number;
-  onChange?: Dispatch<SetStateAction<number[]>>;
-  step: number;
-  value: number[];
-};
-
-const RangeSliderComponent: FC<TProps> = ({
+const RangeSliderComponent: FC<TRangeSliderProps> = ({
   classes,
   isShowRangeValue = false,
   isShowTooltip = false,

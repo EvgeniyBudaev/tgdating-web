@@ -1,23 +1,14 @@
 "use client";
 
-import { Locale } from "date-fns";
 import { memo, type FC } from "react";
 import { Calendar } from "react-date-range";
-import type { CalendarProps } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { DEFAULT_AGE_FROM, DEFAULT_AGE_TO } from "@/app/shared/constants";
+import type { TDatePickerProps } from "@/app/uikit/components/datePicker/types";
 import { DEFAULT_AGE } from "@/app/uikit/constants";
 
-type TProps = {
-  locale?: Locale;
-  maxDate?: Date;
-  minDate?: Date;
-  onChange?: (date: Date) => void;
-  value?: Date;
-} & CalendarProps;
-
-const DatePickerComponent: FC<TProps> = (props) => {
+const DatePickerComponent: FC<TDatePickerProps> = (props) => {
   const { locale, onChange, value } = props;
   const currentDate = new Date();
   let initialDate = new Date();
@@ -40,5 +31,7 @@ const DatePickerComponent: FC<TProps> = (props) => {
     />
   );
 };
+
+DatePickerComponent.displayName = "DatePicker";
 
 export const DatePicker = memo(DatePickerComponent);

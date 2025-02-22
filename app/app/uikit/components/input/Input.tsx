@@ -1,46 +1,16 @@
 "use client";
 
 import clsx from "clsx";
-import { ChangeEvent, forwardRef, memo, useEffect, useState } from "react";
-import type {
-  DetailedHTMLProps,
-  ForwardedRef,
-  HTMLAttributes,
-  FocusEvent,
-} from "react";
+import { type ChangeEvent, forwardRef, memo, useEffect, useState } from "react";
+import type { ForwardedRef, FocusEvent } from "react";
 import { Error } from "@/app/uikit/components/error";
+import type { IInputProps } from "@/app/uikit/components/input/types";
 import {
   ETypographyVariant,
   Typography,
 } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./Input.scss";
-
-export interface IInputProps
-  extends DetailedHTMLProps<
-    HTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  > {
-  autoComplete?: string;
-  className?: string;
-  defaultValue?: string | number;
-  dataTestId?: string;
-  errors?: string | string[] | null;
-  hidden?: boolean;
-  isDisabled?: boolean;
-  isFocused?: boolean;
-  isHiddenViewing?: boolean;
-  isNumeric?: boolean;
-  isReadOnly?: boolean;
-  isRequired?: boolean;
-  label?: string;
-  maxLength?: number;
-  name?: string;
-  subLabel?: string;
-  theme?: ETheme;
-  type?: string;
-  value?: string;
-}
 
 const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
   (
@@ -61,6 +31,7 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
       onBlur,
       onChange,
       onFocus,
+      placeholder,
       subLabel,
       theme,
       type,
@@ -147,6 +118,7 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
             onBlur={onBlurCallback}
             onChange={handleChange}
             onFocus={onFocusCallback}
+            placeholder={placeholder}
             readOnly={isReadOnly}
             ref={ref}
             type={type}

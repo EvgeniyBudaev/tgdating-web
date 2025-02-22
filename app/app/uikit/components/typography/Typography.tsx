@@ -1,18 +1,11 @@
-import { createElement } from "react";
-import type { FC, ReactNode } from "react";
+import { createElement, memo } from "react";
+import type { FC } from "react";
 import { TYPOGRAPHY_THEMES } from "@/app/uikit/components/typography/constants";
 import { ETypographyVariant } from "@/app/uikit/components/typography/enums";
+import type { TTypographyProps } from "@/app/uikit/components/typography/types";
 import "./Typography.scss";
 
-type TProps = {
-  as?: string;
-  children?: ReactNode;
-  dataTestId?: string;
-  htmlFor?: string;
-  variant?: ETypographyVariant;
-};
-
-export const Typography: FC<TProps> = ({
+const TypographyComponent: FC<TTypographyProps> = ({
   as = "span",
   children,
   dataTestId = "uikit__typography",
@@ -29,3 +22,7 @@ export const Typography: FC<TProps> = ({
 
   return createElement(as, props, children);
 };
+
+TypographyComponent.displayName = "Typography";
+
+export const Typography = memo(TypographyComponent);

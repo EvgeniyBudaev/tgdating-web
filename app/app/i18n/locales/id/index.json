@@ -30,7 +30,11 @@
       "invalidLocation": "Lokasi Anda tidak dapat ditentukan. Harap aktifkan geolokasi di perangkat Anda. Mungkin perlu waktu beberapa saat hingga data diperbarui, bergantung pada perangkat Anda. Masuk kembali ke aplikasi melalui tombol \"Menu\". Jika setelah mengaktifkan geolokasi pesan ini muncul lagi, coba masuk ke aplikasi setelah 5 menit.",
       "accountDeleted": "Akun dihapus",
       "blockQuestion": "Haruskah aku memblokir akunku?",
-      "complaintQuestion": "aruskah aku memblokir akunku?",
+      "complaintQuestion": "Apa alasannya?",
+      "terrorism": "Terorisme",
+      "fraud": "Penipuan",
+      "spam": "Spam",
+      "other": "Lainnya",
       "deleteQuestion": "Hapus akun?",
       "freezeQuestion": "Bekukan akun Anda?",
       "doubleLike": "Suka ulang akan tersedia besok",
@@ -61,7 +65,7 @@
       "filter": "Menyaring",
       "buyPremium": "Beli Premium",
       "block": "Memblokir",
-      "complaint": "Laporkan dan blokir",
+      "complaint": "Kirim keluhan dan blokir",
       "deleteProfile": "Hapus akun",
       "freezeProfile": "Bekukan akun",
       "settings": "Pengaturan",
@@ -84,7 +88,10 @@
         "distanceKilometers": "Jarak dalam kilometer",
         "distanceMiles": "Jarak dalam mil",
         "isOnline": "Hanya online",
-        "isLiked": "Hanya disukai"
+        "isLiked": "Hanya disukai",
+        "complaint": {
+          "placeholder": "Bantu kami: beri tahu kami apa yang salah."
+        }
       }
     },
     "reductions": {

@@ -41,7 +41,6 @@ export default async function ProfileFrozenRoute({
 
   return (
     <ProfileFreezePage
-      isBlocked={data?.profile?.status?.isBlocked}
       isFrozen={data?.profile?.status?.isFrozen}
       lng={language}
       telegramUserId={telegramUserId}

@@ -30,7 +30,11 @@
       "invalidLocation": "Your location could not be determined. Please enable geolocation on your device. It may take some time for the data to update depending on your device. Re-enter the application via the \"Menu\" button. If after enabling geolocation this message appears again, please try logging into the application after 5 minutes.",
       "accountDeleted": "Account deleted",
       "blockQuestion": "Block account?",
-      "complaintQuestion": "Block account?",
+      "complaintQuestion": "What is the reason?",
+      "terrorism": "Terrorism",
+      "fraud": "Fraud",
+      "spam": "Spam",
+      "other": "Other",
       "deleteQuestion": "Delete account?",
       "freezeQuestion": "Freeze account?",
       "doubleLike": "Re-like will be available tomorrow",
@@ -61,7 +65,7 @@
       "filter": "Filter",
       "buyPremium": "Buy Premium",
       "block": "Block",
-      "complaint": "Complain and block",
+      "complaint": "Send a complaint and block",
       "deleteProfile": "Delete account",
       "freezeProfile": "Freeze account",
       "settings": "Settings",
@@ -84,7 +88,10 @@
         "distanceKilometers": "Distance in kilometers",
         "distanceMiles": "Distance in miles",
         "isOnline": "Online only",
-        "isLiked": "Only liked"
+        "isLiked": "Only liked",
+        "complaint": {
+          "placeholder": "Help us: tell us what's wrong."
+        }
       }
     },
     "reductions": {

@@ -24,7 +24,8 @@ export async function addComplaintAction(prevState: any, formData: FormData) {
   const formattedParams = {
     telegramUserId: resolver.data.telegramUserId,
     criminalTelegramUserId: resolver.data.criminalTelegramUserId,
-    reason: resolver.data.reason,
+    type: resolver.data.type,
+    description: resolver.data.description,
   };
   const accessToken = resolver.data.telegramInitDataCrypt;
   const csrf = resolver.data.csrf;

@@ -30,7 +30,11 @@
       "invalidLocation": "No s'ha pogut determinar la teva ubicació. Activa la geolocalització al teu dispositiu. Pot ser que les dades triguin un temps a actualitzar-se en funció del dispositiu. Torneu a entrar a l'aplicació mitjançant el botó \"Menú\". Si després d'habilitar la geolocalització aquest missatge torna a aparèixer, proveu d'iniciar sessió a l'aplicació al cap de 5 minuts.",
       "accountDeleted": "Compte suprimit",
       "blockQuestion": "Bloquejar el teu compte?",
-      "complaintQuestion": "Bloquejar el teu compte?",
+      "complaintQuestion": "Quin és el motiu?",
+      "terrorism": "Terrorisme",
+      "fraud": "Frau",
+      "spam": "Correu brossa",
+      "other": "Altres",
       "deleteQuestion": "Vols suprimir el compte?",
       "freezeQuestion": "Vols congelar el teu compte?",
       "doubleLike": "Demà estarà disponible Re-like",
@@ -61,7 +65,7 @@
       "filter": "Filtre",
       "buyPremium": "Compra Premium",
       "block": "Bloc",
-      "complaint": "Informar i bloquejar",
+      "complaint": "Envia una queixa i bloqueja",
       "deleteProfile": "Suprimeix el compte",
       "freezeProfile": "Congela el compte",
       "settings": "Configuració",
@@ -84,7 +88,10 @@
         "distanceKilometers": "Distància en quilòmetres",
         "distanceMiles": "Distància en milles",
         "isOnline": "Només en línia",
-        "isLiked": "Només agradat"
+        "isLiked": "Només agradat",
+        "complaint": {
+          "placeholder": "Ajuda'ns: digues què passa."
+        }
       }
     },
     "reductions": {

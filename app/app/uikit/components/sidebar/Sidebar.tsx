@@ -2,25 +2,14 @@
 
 import clsx from "clsx";
 import { forwardRef, memo } from "react";
-import type { MouseEvent, ForwardedRef, ReactNode } from "react";
+import type { ForwardedRef } from "react";
 import { CSSTransition } from "react-transition-group";
+import type { TSidebarProps } from "@/app/uikit/components/sidebar/types";
 import { TRANSITION } from "@/app/uikit/constants";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./Sidebar.scss";
 
-type TProps = {
-  children?: ReactNode;
-  className?: string;
-  dataTestId?: string;
-  isActive?: boolean;
-  onClose?: (event: MouseEvent) => void;
-  ref: ForwardedRef<HTMLDivElement>;
-  theme?: ETheme;
-  transition?: number;
-};
-
 const SidebarComponent = forwardRef(
-  // @ts-ignore
   (
     {
       children,
@@ -30,7 +19,7 @@ const SidebarComponent = forwardRef(
       onClose,
       theme,
       transition,
-    }: TProps,
+    }: TSidebarProps,
     ref: ForwardedRef<HTMLDivElement>,
   ): JSX.Element => {
     return (

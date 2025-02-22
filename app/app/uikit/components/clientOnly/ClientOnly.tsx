@@ -1,11 +1,10 @@
 "use client";
 
-import { type FC, type PropsWithChildren, useEffect, useState } from "react";
+import { type FC, useEffect, useState } from "react";
+import type { TClientOnlyProps } from "@/app/uikit/components/clientOnly/types";
 import "./ClientOnly.scss";
 
-type TProps = {} & PropsWithChildren;
-
-export const ClientOnly: FC<TProps> = ({ children }) => {
+export const ClientOnly: FC<TClientOnlyProps> = ({ children }) => {
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {

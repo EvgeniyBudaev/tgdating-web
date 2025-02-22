@@ -1,31 +1,13 @@
 "use client";
 
 import clsx from "clsx";
-import {
-  memo,
-  type FC,
-  type SyntheticEvent,
-  useState,
-  FocusEvent,
-} from "react";
+import { memo, type FC, useState, FocusEvent } from "react";
 import { Icon } from "@/app/uikit/components/icon";
+import type { TInputDateProps } from "@/app/uikit/components/inputDate/types";
 import { Typography } from "@/app/uikit/components/typography";
 import "./InputDate.scss";
 
-type TProps = {
-  className?: string;
-  errors?: string | string[] | null;
-  isDisabled?: boolean;
-  isInvalid?: boolean;
-  onClick?: (event: SyntheticEvent) => void;
-  onFieldClear?: (event: SyntheticEvent) => void;
-  placeholder?: string;
-  subTitle?: string;
-  title?: string;
-  value?: string | null;
-};
-
-const InputDateComponent: FC<TProps> = (props) => {
+const InputDateComponent: FC<TInputDateProps> = (props) => {
   const {
     className,
     errors,
@@ -97,5 +79,7 @@ const InputDateComponent: FC<TProps> = (props) => {
     </div>
   );
 };
+
+InputDateComponent.displayName = "InputDate";
 
 export const InputDate = memo(InputDateComponent);

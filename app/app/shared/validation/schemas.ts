@@ -91,6 +91,7 @@ const symbolsMaxSchema = (max: number, params?: TRawCreateParams) =>
 // export const numberNonNegativeWithMaxWeightOptionalSchema =
 //   numberNonNegativeWithMaxOptionalSchema(650);
 export const symbolsMaxDisplayNameSchema = symbolsMaxSchema(64);
+export const symbolsMaxComplaintSchema = symbolsMaxSchema(255);
 export const numberNonNegativeSchema = numberNotNegativeSchema();
 export const numberNonNegativeOptionalSchema =
   numberNotNegativeOptionalSchema();

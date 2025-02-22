@@ -30,7 +30,7 @@ import { ETheme } from "@/app/uikit/enums/theme";
 import "./ProfileFreezePage.scss";
 
 const ProfileFreezePageComponent: FC<TProfileFreezePageProps> = (props) => {
-  const { isBlocked, isFrozen, lng, telegramUserId } = props;
+  const { isFrozen, lng, telegramUserId } = props;
   const csrf = useAuthenticityTokenContext();
   const { query } = useNavigatorQuery();
   const router = useRouter();
@@ -82,7 +82,7 @@ const ProfileFreezePageComponent: FC<TProfileFreezePageProps> = (props) => {
     }
   };
 
-  if (isBlocked || !isFrozen) return <Loader />;
+  if (!isFrozen) return <Loader />;
 
   return (
     <div

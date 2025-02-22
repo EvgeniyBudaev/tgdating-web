@@ -104,7 +104,6 @@ export default async function ProfileDetailRoute({
 
   return (
     <ProfileDetailPage
-      isBlocked={data?.profile?.block?.isBlocked}
       isExistUser={data.isExistUser}
       isFrozen={data?.profile?.status?.isFrozen}
       isManyRequest={data.isManyRequest}

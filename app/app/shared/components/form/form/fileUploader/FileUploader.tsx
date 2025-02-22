@@ -8,7 +8,7 @@ import { FileUploader as FileUploaderUi } from "@/app/shared/components/form/fil
 import { ELanguage } from "@/app/shared/enums";
 import { useFieldError } from "@/app/shared/hooks";
 import type { TFile } from "@/app/shared/types/file";
-import type { TDropzoneProps } from "@/app/uikit/components/dropzone/Dropzone";
+import type { TDropzoneProps } from "@/app/uikit/components/dropzone/types";
 import { Error } from "@/app/uikit/components/error";
 import { ETheme } from "@/app/uikit/enums/theme";
 

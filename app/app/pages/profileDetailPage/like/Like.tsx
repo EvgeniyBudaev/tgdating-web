@@ -69,9 +69,8 @@ const LikeComponent: FC<TProps> = ({ lng, profile, telegramUserId }) => {
 
   const handleHeartClick = () => {
     if (isCanClickHeart) {
-      // @ts-ignore
-      if ("click" in buttonSubmitRef.current) {
-        buttonSubmitRef.current && buttonSubmitRef.current.click();
+      if (buttonSubmitRef?.current && "click" in buttonSubmitRef.current) {
+        buttonSubmitRef.current.click();
       }
       return;
     }

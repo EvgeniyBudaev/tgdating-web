@@ -30,7 +30,11 @@
       "invalidLocation": "Votre emplacement n'a pas pu être déterminé. Veuillez activer la géolocalisation sur votre appareil. La mise à jour des données peut prendre un certain temps en fonction de votre appareil. Entrez à nouveau dans l'application via le bouton \"Menu\". Si après avoir activé la géolocalisation ce message apparaît à nouveau, veuillez essayer de vous connecter à l'application après 5 minutes.",
       "accountDeleted": "Compte supprimé",
       "blockQuestion": "Bloquer votre compte?",
-      "complaintQuestion": "Bloquer votre compte?",
+      "complaintQuestion": "Quelle est la raison ?",
+      "terrorism": "Terrorisme",
+      "fraud": "Fraude",
+      "spam": "Spam",
+      "other": "Autre",
       "deleteQuestion": "Supprimer le compte?",
       "freezeQuestion": "Geler votre compte?",
       "doubleLike": "Re-like sera disponible demain",
@@ -61,7 +65,7 @@
       "filter": "Filtre",
       "buyPremium": "Achetez Premium",
       "block": "Bloc",
-      "complaint": "Signaler et bloquer",
+      "complaint": "Envoyer une plainte et bloquer",
       "deleteProfile": "Supprimer le compte",
       "freezeProfile": "Geler le compte",
       "settings": "Paramètres",
@@ -84,7 +88,10 @@
         "distanceKilometers": "Distance en kilomètres",
         "distanceMiles": "Distance en miles",
         "isOnline": "En ligne uniquement",
-        "isLiked": "J'ai seulement aimé"
+        "isLiked": "J'ai seulement aimé",
+        "complaint": {
+          "placeholder": "Aidez-nous : dites-nous ce qui ne va pas."
+        }
       }
     },
     "reductions": {

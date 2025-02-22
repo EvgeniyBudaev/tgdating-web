@@ -2,24 +2,19 @@
 
 import clsx from "clsx";
 import isNil from "lodash/isNil";
-import { type FC, type ReactNode, useEffect } from "react";
+import { type FC, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
-import type { TDropDownClasses } from "@/app/uikit/components/dropDown/types";
+import type {
+  TDropDownButtonProps,
+  TDropDownPanelProps,
+  TDropDownProps,
+} from "@/app/uikit/components/dropDown/types";
 import { Overlay } from "@/app/uikit/components/overlay";
 import { TRANSITION } from "@/app/uikit/constants";
 import { DropDownProvider } from "@/app/uikit/context";
 import { ETheme } from "@/app/uikit/enums/theme";
 import { useDropDown, useDropDownContext } from "@/app/uikit/hooks";
 import "./DropDown.scss";
-
-type TProps = {
-  children?: ReactNode;
-  classes?: TDropDownClasses;
-  dataTestId?: string;
-  isCanClickOutside?: boolean;
-  theme?: ETheme;
-  transition?: number;
-};
 
 export const DropDown = ({
   children,
@@ -28,7 +23,7 @@ export const DropDown = ({
   isCanClickOutside = true,
   theme,
   transition,
-}: TProps): JSX.Element => {
+}: TDropDownProps): JSX.Element => {
   const dropDownState = useDropDown({ isCanClickOutside });
 
   return (
@@ -49,13 +44,11 @@ export const DropDown = ({
   );
 };
 
-type TDropDownButton = {
-  children?: ReactNode;
-  classes?: TDropDownClasses;
-  onOpen?: () => void;
-};
-
-const DropDownButton: FC<TDropDownButton> = ({ children, classes, onOpen }) => {
+const DropDownButton: FC<TDropDownButtonProps> = ({
+  children,
+  classes,
+  onOpen,
+}) => {
   const dropDownState = useDropDownContext();
 
   const handleOpen = () => {
@@ -76,16 +69,7 @@ const DropDownButton: FC<TDropDownButton> = ({ children, classes, onOpen }) => {
 
 DropDown.Button = DropDownButton;
 
-type TDropDownPanel = {
-  children?: ReactNode;
-  classes?: TDropDownClasses;
-  dataTestId?: string;
-  isOpen?: boolean;
-  onClose?: () => void;
-  transition?: number;
-};
-
-const DropDownPanel: FC<TDropDownPanel> = ({
+const DropDownPanel: FC<TDropDownPanelProps> = ({
   children,
   classes,
   dataTestId = "uikit__dropDown",

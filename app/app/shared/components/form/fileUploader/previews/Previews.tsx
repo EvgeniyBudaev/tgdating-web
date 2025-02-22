@@ -11,7 +11,7 @@ import { ImageList } from "@/app/shared/components/form/fileUploader/previews/im
 import type { TFile } from "@/app/shared/types/file";
 import { DropDown } from "@/app/uikit/components/dropDown";
 import { Dropzone } from "@/app/uikit/components/dropzone";
-import type { TDropzoneProps } from "@/app/uikit/components/dropzone/Dropzone";
+import type { TDropzoneProps } from "@/app/uikit/components/dropzone/types";
 import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";

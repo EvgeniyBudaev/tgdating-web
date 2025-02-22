@@ -1,7 +1,8 @@
 export enum EComplaintFormFields {
   TelegramUserId = "telegramUserId",
   CriminalTelegramUserId = "criminalTelegramUserId",
-  Reason = "reason",
+  Type = "type",
+  Description = "description",
   TelegramInitDataCrypt = "telegramInitDataCrypt",
   Csrf = "csrf",
 }

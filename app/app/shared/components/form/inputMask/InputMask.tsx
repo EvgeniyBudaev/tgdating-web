@@ -10,7 +10,7 @@ import type {
   InputState,
 } from "react-input-mask";
 import { Input as InputUi } from "@/app/uikit/components/input";
-import { IInputProps as TInputPropsUi } from "@/app/uikit/components/input/Input";
+import type { IInputProps as TInputPropsUi } from "@/app/uikit/components/input/types";
 
 export type TInputMaskProps = TInputPropsUi & {
   alwaysShowMask?: boolean;

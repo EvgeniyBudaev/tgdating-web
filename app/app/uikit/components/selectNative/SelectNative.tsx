@@ -77,4 +77,6 @@ const SelectNativeUiComponent: FC<TSelectNativeProps> = ({
   ) : null;
 };
 
+SelectNativeUiComponent.displayName = "SelectNative";
+
 export const SelectNative = memo(SelectNativeUiComponent);

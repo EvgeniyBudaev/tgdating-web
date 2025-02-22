@@ -34,7 +34,6 @@ export async function checkLikeAction(prevState: any, formData: FormData) {
     } = resolver.data;
     const checkCsrf = await checkCsrfToken(csrf);
     if (checkCsrf?.error) throw checkCsrf.error;
-    // @ts-ignore
     const response = await checkLike(formattedParams, {
       headers: {
         Authorization: accessToken,

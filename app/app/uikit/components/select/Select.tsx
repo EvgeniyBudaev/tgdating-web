@@ -1,9 +1,10 @@
 "use client";
 
 import clsx from "clsx";
-import { FC, type ReactNode, useRef } from "react";
+import { FC, useRef } from "react";
 import { Error } from "@/app/uikit/components/error";
 import { Icon } from "@/app/uikit/components/icon";
+import type { TSelectProps } from "@/app/uikit/components/select/types";
 import { Sidebar } from "@/app/uikit/components/sidebar";
 import {
   ETypographyVariant,
@@ -12,25 +13,7 @@ import {
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./Select.scss";
 
-type TClasses = {
-  sidebar?: string;
-};
-
-type TProps = {
-  children?: ReactNode;
-  classes?: TClasses;
-  errors?: string | string[] | null;
-  headerTitle?: string | number;
-  isSidebarOpen?: boolean;
-  label?: string | ReactNode;
-  name?: string;
-  onHeaderClick?: () => void;
-  onSidebarClose?: () => void;
-  subLabel?: string;
-  theme?: ETheme;
-};
-
-export const Select: FC<TProps> = ({
+export const Select: FC<TSelectProps> = ({
   children,
   classes,
   errors,

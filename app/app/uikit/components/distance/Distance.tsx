@@ -3,15 +3,11 @@
 import clsx from "clsx";
 import isNil from "lodash/isNil";
 import { type FC, memo } from "react";
+import type { TDistanceProps } from "@/app/uikit/components/distance/types";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./Distance.scss";
 
-type TProps = {
-  distance?: string | number | null | undefined;
-  theme?: ETheme;
-};
-
-const DistanceComponent: FC<TProps> = ({ distance, theme }) => {
+const DistanceComponent: FC<TDistanceProps> = ({ distance, theme }) => {
   if (isNil(distance)) return null;
 
   return (
@@ -24,5 +20,7 @@ const DistanceComponent: FC<TProps> = ({ distance, theme }) => {
     </div>
   );
 };
+
+DistanceComponent.displayName = "Distance";
 
 export const Distance = memo(DistanceComponent);

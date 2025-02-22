@@ -100,7 +100,6 @@ export default async function ProfileEditRoute({
 
   return (
     <ProfileEditPage
-      isBlocked={data?.profile?.status?.isBlocked}
       isExistUser={data?.isExistUser}
       isFrozen={data?.profile?.status?.isFrozen}
       isManyRequest={data.isManyRequest}

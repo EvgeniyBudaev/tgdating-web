@@ -1,22 +1,13 @@
 import clsx from "clsx";
 import { type FC, memo } from "react";
+import { TCheckboxCustomProps } from "@/app/uikit/components/checkboxCustom/types";
 import { Error } from "@/app/uikit/components/error";
 import { Icon } from "@/app/uikit/components/icon";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
 import "./CheckboxCustom.scss";
 
-type TProps = {
-  checked?: boolean;
-  dataTestId?: string;
-  errors?: string | string[] | null;
-  label?: string;
-  name: string;
-  onChange?: (value: boolean) => void;
-  theme?: ETheme;
-};
-
-const CheckboxCustomComponent: FC<TProps> = ({
+const CheckboxCustomComponent: FC<TCheckboxCustomProps> = ({
   checked = false,
   dataTestId = "uikit__checkboxCustom",
   errors,
@@ -55,5 +46,7 @@ const CheckboxCustomComponent: FC<TProps> = ({
     </div>
   );
 };
+
+CheckboxCustomComponent.displayName = "CheckboxCustom";
 
 export const CheckboxCustom = memo(CheckboxCustomComponent);

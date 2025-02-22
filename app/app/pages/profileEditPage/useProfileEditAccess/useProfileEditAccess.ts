@@ -11,7 +11,6 @@ import { notification } from "@/app/uikit/utils";
 
 export const useProfileEditAccess = (props: TProfileEditPageProps) => {
   const {
-    isBlocked,
     isExistUser,
     isFrozen,
     isManyRequest,
@@ -31,21 +30,6 @@ export const useProfileEditAccess = (props: TProfileEditPageProps) => {
       });
     }
   }, [isManyRequest]);
-
-  useEffect(() => {
-    if (isBlocked) {
-      const path = createPath(
-        {
-          route: ERoutes.ProfileBlocked,
-          params: { telegramUserId },
-          lng,
-        },
-        query,
-      );
-      router.push(path);
-      router.refresh();
-    }
-  }, [isBlocked]);
 
   useEffect(() => {
     if (!isExistUser) {

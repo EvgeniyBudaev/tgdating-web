@@ -30,7 +30,11 @@
       "invalidLocation": "Ihr Standort konnte nicht ermittelt werden. Bitte aktivieren Sie die Geolokalisierung auf Ihrem Gerät. Abhängig von Ihrem Gerät kann es einige Zeit dauern, bis die Daten aktualisiert werden. Rufen Sie die Anwendung erneut über die Schaltfläche „Menü“ auf. Wenn diese Meldung nach der Aktivierung der Geolokalisierung erneut angezeigt wird, versuchen Sie bitte nach 5 Minuten, sich bei der Anwendung anzumelden.",
       "accountDeleted": "Konto gelöscht",
       "blockQuestion": "Konto sperren?",
-      "complaintQuestion": "Konto sperren?",
+      "complaintQuestion": "Was ist der Grund?",
+      "terrorism": "Terrorismus",
+      "fraud": "Betrug",
+      "spam": "Spam",
+      "other": "Andere",
       "deleteQuestion": "Konto löschen?",
       "freezeQuestion": "Konto einfrieren?",
       "doubleLike": "Re-like wird morgen verfügbar sein",
@@ -61,7 +65,7 @@
       "filter": "Filter",
       "buyPremium": "Kaufen Sie Premium",
       "block": "Block",
-      "complaint": "Melden und blockieren",
+      "complaint": "Beschwerde einreichen und blockieren",
       "deleteProfile": "Konto löschen",
       "freezeProfile": "Konto einfrieren",
       "settings": "Einstellungen",
@@ -84,7 +88,10 @@
         "distanceKilometers": "Entfernung in kilometern",
         "distanceMiles": "Entfernung in meilen",
         "isOnline": "Nur online",
-        "isLiked": "Nur geliked"
+        "isLiked": "Nur geliked",
+        "complaint": {
+          "placeholder": "Helfen Sie uns: Sagen Sie uns, was los ist."
+        }
       }
     },
     "reductions": {

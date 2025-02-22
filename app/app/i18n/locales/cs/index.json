@@ -30,7 +30,11 @@
       "invalidLocation": "Vaši polohu se nepodařilo určit. Povolte na svém zařízení geolokaci. V závislosti na vašem zařízení může nějakou dobu trvat, než se data aktualizují. Znovu zadejte aplikaci pomocí tlačítka \"Menu\". Pokud se po povolení geolokace tato zpráva objeví znovu, zkuste se po 5 minutách přihlásit do aplikace.",
       "accountDeleted": "Účet smazán",
       "blockQuestion": "Zablokovat svůj účet?",
-      "complaintQuestion": "Zablokovat svůj účet?",
+      "complaintQuestion": "jaký je důvod?",
+      "terrorism": "Terorismus",
+      "fraud": "Podvod",
+      "spam": "Spam",
+      "other": "Ostatní",
       "deleteQuestion": "Smazat účet?",
       "freezeQuestion": "Zmrazit váš účet?",
       "doubleLike": "Re-like bude k dispozici zítra",
@@ -61,7 +65,7 @@
       "filter": "Filtr",
       "buyPremium": "Koupit Premium",
       "block": "Blok",
-      "complaint": "Nahlásit a zablokovat",
+      "complaint": "Pošlete reklamaci a zablokujte",
       "deleteProfile": "Smazat účet",
       "freezeProfile": "Zmrazit účet",
       "settings": "Nastavení",
@@ -84,7 +88,10 @@
         "distanceKilometers": "Vzdálenost v kilometrech",
         "distanceMiles": "Vzdálenost v mílích",
         "isOnline": "Pouze online",
-        "isLiked": "Pouze líbilo"
+        "isLiked": "Pouze líbilo",
+        "complaint": {
+          "placeholder": "Pomozte nám: řekněte nám, co je špatně."
+        }
       }
     },
     "reductions": {

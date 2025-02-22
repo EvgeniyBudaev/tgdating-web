@@ -30,7 +30,11 @@
       "invalidLocation": "あなたの場所を特定できませんでした。デバイスで地理位置情報を有効にしてください。お使いの端末によっては、データの更新に時間がかかる場合があります。 「メニュー」ボタンからアプリケーションを再入力します。地理位置情報を有効にした後、このメッセージが再び表示される場合は、5 分後にアプリケーションにログインしてみてください。",
       "accountDeleted": "アカウントが削除されました",
       "blockQuestion": "アカウントをブロックしますか?",
-      "complaintQuestion": "アカウントをブロックしますか?",
+      "complaintQuestion": "理由は何ですか？",
+      "terrorism": "テロリズム",
+      "fraud": "詐欺",
+      "spam": "スパム",
+      "other": "他の",
       "deleteQuestion": "アカウントを削除しますか?",
       "freezeQuestion": "アカウントを凍結しますか?",
       "doubleLike": "明日から再いいねが可能になります",
@@ -61,7 +65,7 @@
       "filter": "フィルター",
       "buyPremium": "プレミアムを購入する",
       "block": "ブロック",
-      "complaint": "報告してブロックする",
+      "complaint": "苦情を送信してブロックする",
       "deleteProfile": "アカウントを削除する",
       "freezeProfile": "アカウントを凍結する",
       "settings": "設定",
@@ -84,7 +88,10 @@
         "distanceKilometers": "距離（キロメートル）",
         "distanceMiles": "距離（マイル）",
         "isOnline": "オンラインのみ",
-        "isLiked": "いいねのみ"
+        "isLiked": "いいねのみ",
+        "complaint": {
+          "placeholder": "助けてください: 何が問題なのか教えてください。"
+        }
       }
     },
     "reductions": {

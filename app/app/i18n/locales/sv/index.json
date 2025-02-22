@@ -30,7 +30,11 @@
       "invalidLocation": "Det gick inte att fastställa din plats. Aktivera geolokalisering på din enhet. Det kan ta lite tid för data att uppdateras beroende på din enhet. Gå in i applikationen igen via knappen \"Meny\". Om efter att ha aktiverat geolokalisering detta meddelande visas igen, försök att logga in i programmet efter 5 minuter.",
       "accountDeleted": "Kontot raderat",
       "blockQuestion": "Blockera ditt konto?",
-      "complaintQuestion": "Blockera ditt konto?",
+      "complaintQuestion": "Vad är anledningen?",
+      "terrorism": "Terrorism",
+      "fraud": "Bedrägeri",
+      "spam": "Spam",
+      "other": "Andra",
       "deleteQuestion": "Ta bort konto?",
       "freezeQuestion": "Frysa ditt konto?",
       "doubleLike": "Re-like kommer att finnas tillgänglig imorgon",
@@ -61,7 +65,7 @@
       "filter": "Filtrera",
       "buyPremium": "Köp Premium",
       "block": "Blockera",
-      "complaint": "Rapportera och blockera",
+      "complaint": "Skicka ett klagomål och blockera",
       "deleteProfile": "Ta bort konto",
       "freezeProfile": "Frys konto",
       "settings": "Inställningar",
@@ -84,7 +88,10 @@
         "distanceKilometers": "Avstånd i kilometer",
         "distanceMiles": "Avstånd i miles",
         "isOnline": "Endast online",
-        "isLiked": "Bara gillat"
+        "isLiked": "Bara gillat",
+        "complaint": {
+          "placeholder": "Hjälp oss: berätta vad som är fel."
+        }
       }
     },
     "reductions": {

@@ -7,20 +7,11 @@ import {
   TIME_FORMAT,
 } from "@/app/uikit/components/dateTime/constants";
 import { useDayjs } from "@/app/uikit/components/dateTime/hooks";
+import type { TDateTimeProps } from "@/app/uikit/components/dateTime/types";
 import { Typography } from "@/app/uikit/components/typography";
 import "./DateTime.scss";
 
-type TProps = {
-  className?: string;
-  classes?: { date?: string; time?: string };
-  dateFormat?: string;
-  dataTestId?: string;
-  isTime?: boolean;
-  isUtc?: boolean;
-  value?: Date | string | number | null;
-};
-
-const DateTimeComponent: FC<TProps> = ({
+const DateTimeComponent: FC<TDateTimeProps> = ({
   className,
   classes,
   dateFormat,
@@ -54,5 +45,7 @@ const DateTimeComponent: FC<TProps> = ({
     </div>
   );
 };
+
+DateTimeComponent.displayName = "DateTime";
 
 export const DateTime = memo(DateTimeComponent);

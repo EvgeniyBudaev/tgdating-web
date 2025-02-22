@@ -16,10 +16,6 @@ export enum ESearchGender {
   All = "all",
 }
 
-export enum EComplaint {
-  Other = "other",
-}
-
 export enum EMeasurement {
   Metric = "metric",
   American = "american",

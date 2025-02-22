@@ -30,7 +30,11 @@
       "invalidLocation": "A tartózkodási helyét nem sikerült meghatározni. Kérjük, engedélyezze a földrajzi helymeghatározást eszközén. Az eszköztől függően eltarthat egy ideig, amíg az adatok frissülnek. Lépjen be újra az alkalmazásba a \"Menü\" gombbal. Ha a földrajzi helymeghatározás engedélyezése után ez az üzenet ismét megjelenik, próbáljon meg 5 perc elteltével bejelentkezni az alkalmazásba.",
       "accountDeleted": "Fiók törölve",
       "blockQuestion": "Letiltja fiókját?",
-      "complaintQuestion": "Letiltja fiókját?",
+      "complaintQuestion": "Mi az oka?",
+      "terrorism": "Terrorizmus",
+      "fraud": "Csalás",
+      "spam": "Spam",
+      "other": "Más",
       "deleteQuestion": "Törli a fiókot?",
       "freezeQuestion": "Lefagyasztjuk a fiókját?",
       "doubleLike": "A re-like holnap lesz elérhető",
@@ -61,7 +65,7 @@
       "filter": "Szűrő",
       "buyPremium": "Prémium vásárlás",
       "block": "Tömb",
-      "complaint": "Jelentés és blokkolás",
+      "complaint": "Panasz küldése és letiltása",
       "deleteProfile": "Fiók törlése",
       "freezeProfile": "Fiók lefagyasztása",
       "settings": "Beállítások elemre",
@@ -84,7 +88,10 @@
         "distanceKilometers": "Távolság kilométerben",
         "distanceMiles": "Távolság mérföldben",
         "isOnline": "Csak online",
-        "isLiked": "Csak tetszett"
+        "isLiked": "Csak tetszett",
+        "complaint": {
+          "placeholder": "Segítsen nekünk: mondja el, mi a baj."
+        }
       }
     },
     "reductions": {

@@ -2,7 +2,7 @@
 
 import { Popover as UiPopover, Transition } from "@headlessui/react";
 import clsx from "clsx";
-import { format, Locale } from "date-fns";
+import { format } from "date-fns";
 import isNil from "lodash/isNil";
 import { createRef, Fragment, memo } from "react";
 import type { FC, SyntheticEvent } from "react";
@@ -11,33 +11,13 @@ import { FORMAT_DATE } from "@/app/uikit/constants";
 import { DatePicker } from "@/app/uikit/components/datePicker";
 import { Error } from "@/app/uikit/components/error";
 import { InputDate } from "@/app/uikit/components/inputDate";
+import type { TInputDateFieldProps } from "@/app/uikit/components/inputDateField/types";
 import { POPOVER_POSITION_STYLES } from "@/app/uikit/components/popover";
 import { usePopover } from "@/app/uikit/hooks";
 import "./InputDateField.scss";
 import "../popover/Popover.scss";
 
-type TClasses = {
-  inputDateField?: string;
-};
-
-type TProps = {
-  classes?: TClasses;
-  errors?: string | string[] | null;
-  isDisabled?: boolean;
-  isInvalid?: boolean;
-  locale?: Locale;
-  name?: string;
-  maxDate?: Date | null;
-  minDate?: Date | null;
-  onChange: (value: Date | null) => void;
-  onFieldClear?: (event: SyntheticEvent) => void;
-  placeholder?: string;
-  subTitle?: string;
-  title?: string;
-  value: Date | null;
-};
-
-const InputDateFieldComponent: FC<TProps> = (props) => {
+const InputDateFieldComponent: FC<TInputDateFieldProps> = (props) => {
   const {
     classes,
     errors,
@@ -140,5 +120,7 @@ const InputDateFieldComponent: FC<TProps> = (props) => {
     </div>
   );
 };
+
+InputDateFieldComponent.displayName = "InputDateField";
 
 export const InputDateField = memo(InputDateFieldComponent);
