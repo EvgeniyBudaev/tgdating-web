@@ -16,7 +16,6 @@ export default async function RootRoute({ params }: { params: TParams }) {
   const headersList = await headers();
   const userAgent = headersList.get("user-agent");
   const { device } = userAgentFromString(userAgent || undefined);
-  console.log("device: ", device);
   const isMobile = device.type === "mobile";
 
   return (

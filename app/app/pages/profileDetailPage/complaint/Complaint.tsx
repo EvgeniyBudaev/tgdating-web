@@ -63,10 +63,8 @@ const ComplaintComponent: FC<TProps> = ({
   const handleChangeComplaint = (event: ChangeEvent<HTMLInputElement>) => {
     const selectedComplaint = event.target.value as EComplaint;
     setComplaint(selectedComplaint);
-    if (selectedComplaint === EComplaint.Other) {
-      if (inputRef?.current && "focus" in inputRef.current) {
-        inputRef.current.focus();
-      }
+    if (selectedComplaint === EComplaint.Other && inputRef?.current && "focus" in inputRef.current) {
+      inputRef.current.focus();
     }
   };
 

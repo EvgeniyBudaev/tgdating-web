@@ -8,7 +8,7 @@ import { useNavigator, useStore, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
 
 export const useRootPageAccess = (props: TRootPageProps) => {
-  const { isMobile, lng } = props;
+  const { lng } = props;
   const navigator = useNavigator({ lng });
   const router = useRouter();
   const [isLocationError, setIsLocationError] = useState(false);
@@ -44,15 +44,7 @@ export const useRootPageAccess = (props: TRootPageProps) => {
   }, [isCoords]);
 
   useEffect(() => {
-    if (!isMobile) {
-      const path = createPath({
-        route: ERoutes.Device,
-        lng,
-      });
-      router.push(path);
-      router.refresh();
-    }
-    if (isCoords && !isLocationError && isMobile && isCoords) {
+    if (isCoords && !isLocationError && isCoords) {
       if (user?.id && telegramLanguageCode === lng) {
         updateNavigator(navigator);
         const path = createPath(
@@ -80,7 +72,7 @@ export const useRootPageAccess = (props: TRootPageProps) => {
         router.refresh();
       }
     }
-  }, [lng, user, isCoords, isMobile, navigator, telegramLanguageCode, query]);
+  }, [lng, user, isCoords, navigator, telegramLanguageCode, query]);
 
   return { isLocationError };
 };
