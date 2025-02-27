@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import {useSearchParams} from "next/navigation";
 import {
   CITY,
   COUNTRY_CODE,
@@ -23,13 +23,13 @@ type TUseNavigatorQuery = () => TUseNavigatorQueryResponse;
 
 export const useNavigatorQuery: TUseNavigatorQuery = () => {
   const searchParams = useSearchParams();
-  const params = new URLSearchParams(searchParams.toString());
+  const queryParams = new URLSearchParams(searchParams.toString());
 
-  const latitude = params.get(LATITUDE);
-  const longitude = params.get(LONGITUDE);
-  const countryCode = params.get(COUNTRY_CODE);
-  const countryName = params.get(COUNTRY_NAME);
-  const city = params.get(CITY);
+  const latitude = queryParams.get(LATITUDE);
+  const longitude = queryParams.get(LONGITUDE);
+  const countryCode = queryParams.get(COUNTRY_CODE);
+  const countryName = queryParams.get(COUNTRY_NAME);
+  const city = queryParams.get(CITY);
 
   const query = {
     ...(latitude ? { latitude: latitude.toString() } : {}),
