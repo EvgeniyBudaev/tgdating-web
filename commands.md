@@ -127,6 +127,9 @@ docker network create web-network
 ssh root@91.236.199.58
 ```
 
+Kafka
+https://telegram-dating.com:8181/
+
 Telegram
 https://github.com/telegram-mini-apps/init-data-golang
 

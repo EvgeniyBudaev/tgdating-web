@@ -1,5 +1,6 @@
 "use client";
 
+import { resize } from "canvas-image-resize";
 import clsx from "clsx";
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
@@ -24,7 +25,6 @@ import type { TFile } from "@/app/shared/types/file";
 import { Icon } from "@/app/uikit/components/icon";
 import type { TImageCropperProps } from "@/app/uikit/components/imageCropper/types";
 import {
-  imageResize,
   setCanvasPreview,
 } from "@/app/uikit/components/imageCropper/utils";
 import { Typography } from "@/app/uikit/components/typography";
@@ -109,15 +109,10 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TImageCropperProps>(
         const canvas = previewCanvasRef.current;
         if (canvas) {
           setIsLoading(true);
-          const canvasResized = imageResize(canvas, { width: 640 });
+          const cir = resize({canvas, options: {width: 640}});
+          const canvasResized = cir?.resizedCanvas;
           if (!canvasResized) return setIsLoading(false);
-          canvas.width = canvasResized.width;
-          canvas.height = canvasResized.height;
-          const ctx = canvas.getContext("2d");
-          if (!ctx) return setIsLoading(false);
-          ctx.drawImage(canvasResized, 0, 0);
           setIsLoading(false);
-          // const cropImageSrc = previewCanvasRef.current?.toDataURL();
           const fileType = "image/jpeg";
           const blob = await toBlob(
             previewCanvasRef.current as HTMLCanvasElement,

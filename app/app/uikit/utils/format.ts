@@ -1,5 +1,5 @@
 export const formatToStringWithPx = (value: string | number): string => {
-  if (typeof value === "string") return value;
+  if (typeof value === "string") return `${value}px`;
   return value.toString() + "px";
 };
 

@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "generate:translations": "i18next",
-    "pretty-quick": "pretty-quick"
+    "pretty-quick": "pretty-quick",
+    "test": "vitest"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
@@ -20,6 +21,7 @@
     "@tx666/masonry": "^0.1.0",
     "accept-language": "^3.0.20",
     "bowser": "^2.11.0",
+    "canvas-image-resize": "^1.0.2",
     "clsx": "^2.1.1",
     "crypto-js": "^4.2.0",
     "date-fns": "^4.1.0",
@@ -39,7 +41,7 @@
     "react-date-range": "^2.0.0-alpha.4",
     "react-date-range-dayjs": "^1.1.5",
     "react-dom": "18.3.1",
-    "react-dropzone": "^14.2.10",
+    "react-dropzone": "^14.3.8",
     "react-hook-form": "^7.54.2",
     "react-i18next": "^15.1.0",
     "react-image-crop": "^11.0.7",
@@ -58,6 +60,8 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.3.0",
     "@types/crypto-js": "^4.2.2",
     "@types/lodash": "^4.17.12",
     "@types/node": "^22.8.1",
@@ -66,13 +70,18 @@
     "@types/react-dom": "^18.3.1",
     "@types/react-input-mask": "^3.0.5",
     "@types/react-transition-group": "^4.4.10",
+    "@vitejs/plugin-react": "^4.3.4",
+    "canvas": "^3.1.0",
     "eslint": "^8",
     "eslint-config-next": "^15.1.7",
+    "jsdom": "^26.0.0",
     "prettier": "^3.3.3",
     "pretty-quick": "^4.0.0",
     "sass": "^1.83.1",
     "sass-loader": "^16.0.4",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.1.1"
   },
   "browserslist": [
     "last 2 version",
