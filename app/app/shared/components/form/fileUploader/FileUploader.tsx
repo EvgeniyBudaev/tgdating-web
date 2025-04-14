@@ -71,7 +71,7 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
   >();
   const [acceptedFiles, setAcceptedFiles] = useState<TFile[]>([]);
   const [cropFile, setCropFile] = useState<TFile | undefined>();
-  const [isConvertImage, setIsConvertImage] = useState<boolean>(false);
+  const [isConvertImage, setIsConvertImage] = useState(false);
 
   useEffect(() => {
     if (cropFile && acceptedFiles.length) {
@@ -92,33 +92,14 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cropFile, acceptedFiles, files]);
 
-  const handleImagePreview = async (file: any): Promise<TFile> => {
-    // Extract extension from file name or path
-    const ext = (file.name ? file.name.split(".").pop() : file.path.split(".").pop()).toLowerCase();
-    // If heic or heif, convert to jpeg
-    if (ext === "heic" || ext === "heif") {
-      console.log("Heic or heif", file);
-      // Convert HEIC/HEIF file to JPEG Blob
-      const jpeg = await heicTo({
-        blob: file,
-        type: "image/jpeg",
-        quality: 1,
-      })
-      console.log("jpeg or heif", jpeg);
-      const fileName = file.name;
-      const newFileName = fileName.replace(/\.[^/.]+$/, ".jpeg");
-      const newFile: TFile = new File([jpeg], newFileName, {
-        type: "image/jpeg",
-      });
-      const imageUrl = URL.createObjectURL(jpeg);
-      newFile.path = newFileName;
-      newFile.preview = imageUrl;
-      return newFile;
-    } else {
-      // If not a HEIC/HEIF file, proceed as normal
-      return file;
-    }
-  };
+  function toBlob(
+    canvas: HTMLCanvasElement,
+    fileType: string,
+  ): Promise<Blob | null> {
+    return new Promise((resolve) => {
+      canvas.toBlob(resolve, fileType, 0.8);
+    });
+  }
 
   const handleConvertToJPEG = (file: any, blob: Blob, fileType: string): TFile => {
     const fileName = file.name;
@@ -132,6 +113,22 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
     return newFile;
   };
 
+  const handleImagePreview = async (file: any): Promise<TFile> => {
+    const ext = (file.name ? file.name.split(".").pop() : file.path.split(".").pop()).toLowerCase();
+    if (ext === "heic" || ext === "heif") {
+      const fileType = "image/jpeg";
+      const blob = await heicTo({
+        blob: file,
+        type: fileType,
+        quality: 0.5,
+      })
+      return handleConvertToJPEG(file, blob, fileType);
+    } else {
+      // If not a HEIC/HEIF file, proceed as normal
+      return file;
+    }
+  };
+
   const onDrop = useCallback(
     async (addedFiles: File[], fileRejections: FileRejection[], event: DropEvent) => {
       if (maxFiles && countFiles > maxFiles) return;
@@ -140,11 +137,9 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
       const previews = await Promise.all(
         acceptedFiles.map(file => handleImagePreview(file)),
       );
-      console.log('acceptedFiles: ', acceptedFiles);
-      console.log('previews: ', previews);
       setAcceptedFiles(previews);
-      setIsConvertImage(false);
       openModal();
+      setIsConvertImage(false);
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [countFiles, files, maxFiles, onAddFiles],
@@ -180,6 +175,8 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
     closeModal();
   };
 
+  if (isLoading ?? isConvertImage ?? pending) return <Icon className="FileUploader-Spinner" type="Spinner"/>;
+
   return (
     <div className="FileUploader" data-name={rest.name}>
       <Previews
@@ -188,7 +185,7 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
         defaultImages={defaultImages}
         errors={errors}
         files={files}
-        isLoading={isLoading ?? isConvertImage}
+        isLoading={isLoading ?? isConvertImage ?? pending}
         lng={lng}
         maxFiles={maxFiles}
         multiple={multiple}
@@ -205,7 +202,7 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
         showCloseIcon={false}
         theme={theme}
       >
-        {isLoading ?? isConvertImage && <Icon type="Spinner" />}
+        {(isLoading ?? isConvertImage) && <Icon type="Spinner"/>}
         {acceptedFiles?.[0] && (
           <ImageCropper
             error={errorImageCropper}
