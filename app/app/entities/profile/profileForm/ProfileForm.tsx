@@ -158,6 +158,8 @@ const ProfileFormComponent: FC<TProps> = ({ isEdit, lng, profile }) => {
                     "image/jpg": [".jpg"],
                     "image/png": [".png"],
                     "image/webp": [".webp"],
+                    "image/heif": [".heif"],
+                    "image/heic": [".heic"],
                   }}
                   defaultImages={
                     isEdit ? (profile?.images ?? undefined) : undefined

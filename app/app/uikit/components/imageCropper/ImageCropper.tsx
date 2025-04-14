@@ -90,6 +90,18 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TImageCropperProps>(
       setCrop(centeredCrop);
     };
 
+    const handleConvertToJPEG = (file: any, blob: Blob, fileType: string): TFile => {
+      const fileName = file.name;
+      const newFileName = fileName.replace(/\.[^/.]+$/, ".jpeg");
+      const newFile: TFile = new File([blob], newFileName, {
+        type: fileType,
+      });
+      const imageUrl = URL.createObjectURL(blob);
+      newFile.path = newFileName;
+      newFile.preview = imageUrl;
+      return newFile;
+    };
+
     const handleCanvasPreview = async () => {
       if (
         !isNil(imageRef?.current?.width) &&
@@ -119,16 +131,9 @@ const ImageCropperComponent = forwardRef<HTMLDivElement, TImageCropperProps>(
             fileType,
           );
           if (!isNil(blob) && !isNil(file)) {
-            const fileName = file.name;
-            const newFileName = fileName.replace(/\.[^/.]+$/, ".jpeg");
-            const newFile: TFile = new File([blob], newFileName, {
-              type: fileType,
-            });
-            const imageUrl = URL.createObjectURL(blob);
-            newFile.path = newFileName;
-            newFile.preview = imageUrl;
+            const newFileConverted = handleConvertToJPEG(file, blob, fileType);
             // console.log("File after Мб:", newFile.size / 1024 / 1024);
-            onCropFile?.(newFile);
+            onCropFile?.(newFileConverted);
           }
         }
       }

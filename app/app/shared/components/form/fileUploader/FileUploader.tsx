@@ -1,5 +1,6 @@
 "use client";
 
+import { heicTo } from "heic-to/csp";
 import isNil from "lodash/isNil";
 import {
   useCallback,
@@ -21,6 +22,7 @@ import {
 } from "@/app/shared/components/form/fileUploader/utils";
 import type { TFile } from "@/app/shared/types/file";
 import type { TDropzoneProps } from "@/app/uikit/components/dropzone/types";
+import {Icon} from "@/app/uikit/components/icon";
 import { ImageCropper } from "@/app/uikit/components/imageCropper";
 import { Modal, useModalWindow } from "@/app/uikit/components/modal";
 import { Typography } from "@/app/uikit/components/typography";
@@ -69,6 +71,7 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
   >();
   const [acceptedFiles, setAcceptedFiles] = useState<TFile[]>([]);
   const [cropFile, setCropFile] = useState<TFile | undefined>();
+  const [isConvertImage, setIsConvertImage] = useState<boolean>(false);
 
   useEffect(() => {
     if (cropFile && acceptedFiles.length) {
@@ -89,11 +92,58 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cropFile, acceptedFiles, files]);
 
+  const handleImagePreview = async (file: any): Promise<TFile> => {
+    // Extract extension from file name or path
+    const ext = (file.name ? file.name.split(".").pop() : file.path.split(".").pop()).toLowerCase();
+    // If heic or heif, convert to jpeg
+    if (ext === "heic" || ext === "heif") {
+      console.log("Heic or heif", file);
+      // Convert HEIC/HEIF file to JPEG Blob
+      const jpeg = await heicTo({
+        blob: file,
+        type: "image/jpeg",
+        quality: 1,
+      })
+      console.log("jpeg or heif", jpeg);
+      const fileName = file.name;
+      const newFileName = fileName.replace(/\.[^/.]+$/, ".jpeg");
+      const newFile: TFile = new File([jpeg], newFileName, {
+        type: "image/jpeg",
+      });
+      const imageUrl = URL.createObjectURL(jpeg);
+      newFile.path = newFileName;
+      newFile.preview = imageUrl;
+      return newFile;
+    } else {
+      // If not a HEIC/HEIF file, proceed as normal
+      return file;
+    }
+  };
+
+  const handleConvertToJPEG = (file: any, blob: Blob, fileType: string): TFile => {
+    const fileName = file.name;
+    const newFileName = fileName.replace(/\.[^/.]+$/, ".jpeg");
+    const newFile: TFile = new File([blob], newFileName, {
+      type: fileType,
+    });
+    const imageUrl = URL.createObjectURL(blob);
+    newFile.path = newFileName;
+    newFile.preview = imageUrl;
+    return newFile;
+  };
+
   const onDrop = useCallback(
-    (addedFiles: File[], fileRejections: FileRejection[], event: DropEvent) => {
+    async (addedFiles: File[], fileRejections: FileRejection[], event: DropEvent) => {
       if (maxFiles && countFiles > maxFiles) return;
       const { acceptedFiles } = filterDuplicatedFiles(addedFiles, files);
-      setAcceptedFiles(acceptedFiles);
+      setIsConvertImage(true);
+      const previews = await Promise.all(
+        acceptedFiles.map(file => handleImagePreview(file)),
+      );
+      console.log('acceptedFiles: ', acceptedFiles);
+      console.log('previews: ', previews);
+      setAcceptedFiles(previews);
+      setIsConvertImage(false);
       openModal();
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -138,7 +188,7 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
         defaultImages={defaultImages}
         errors={errors}
         files={files}
-        isLoading={isLoading ?? pending}
+        isLoading={isLoading ?? isConvertImage}
         lng={lng}
         maxFiles={maxFiles}
         multiple={multiple}
@@ -155,6 +205,7 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
         showCloseIcon={false}
         theme={theme}
       >
+        {isLoading ?? isConvertImage && <Icon type="Spinner" />}
         {acceptedFiles?.[0] && (
           <ImageCropper
             error={errorImageCropper}
