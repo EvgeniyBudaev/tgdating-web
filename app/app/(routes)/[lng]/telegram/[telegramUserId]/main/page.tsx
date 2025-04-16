@@ -18,21 +18,21 @@ type TLoader = {
 };
 
 async function loaderMain(params: TLoader) {
-  const { telegramUserId, searchParams } = params;
+  const { telegramUserId } = params;
   try {
     if (telegramUserId) {
-      const query = {
-        telegramUserId: telegramUserId,
-        ...(searchParams?.latitude && { latitude: searchParams?.latitude }),
-        ...(searchParams?.longitude && { longitude: searchParams?.longitude }),
-        ...(searchParams?.countryCode && {
-          countryCode: searchParams?.countryCode,
-        }),
-        ...(searchParams?.countryName && {
-          countryName: searchParams?.countryName,
-        }),
-        ...(searchParams?.city && { city: searchParams?.city }),
-      };
+      // const query = {
+      //   telegramUserId: telegramUserId,
+      //   ...(searchParams?.latitude && { latitude: searchParams?.latitude }),
+      //   ...(searchParams?.longitude && { longitude: searchParams?.longitude }),
+      //   ...(searchParams?.countryCode && {
+      //     countryCode: searchParams?.countryCode,
+      //   }),
+      //   ...(searchParams?.countryName && {
+      //     countryName: searchParams?.countryName,
+      //   }),
+      //   ...(searchParams?.city && { city: searchParams?.city }),
+      // };
       const isProfileExistsResponse = await checkProfileExists({
         telegramUserId: telegramUserId,
       });

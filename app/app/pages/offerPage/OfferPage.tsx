@@ -15,7 +15,7 @@ type TProps = {
   lng: ELanguage;
 };
 
-const OfferPageComponent: FC<TProps> = ({ lng }) => {
+const OfferPageComponent: FC<TProps> = () => {
   const router = useRouter();
 
   const handleBack = () => {

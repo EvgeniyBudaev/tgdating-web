@@ -11,8 +11,6 @@ import {
   memo,
 } from "react";
 import { useFormStatus } from "react-dom";
-import { useTranslation } from "react-i18next";
-import type { DropEvent, FileRejection } from "react-dropzone";
 
 import type { TImage } from "@/app/api/image";
 import { Previews } from "@/app/shared/components/form/fileUploader/previews";
@@ -22,7 +20,7 @@ import {
 } from "@/app/shared/components/form/fileUploader/utils";
 import type { TFile } from "@/app/shared/types/file";
 import type { TDropzoneProps } from "@/app/uikit/components/dropzone/types";
-import {Icon} from "@/app/uikit/components/icon";
+import { Icon } from "@/app/uikit/components/icon";
 import { ImageCropper } from "@/app/uikit/components/imageCropper";
 import { Modal, useModalWindow } from "@/app/uikit/components/modal";
 import { Typography } from "@/app/uikit/components/typography";
@@ -50,7 +48,6 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
   defaultImages,
   errors,
   files = [],
-  Input,
   isLoading,
   lng,
   maxFiles,
@@ -62,7 +59,6 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
   ...rest
 }) => {
   const { pending } = useFormStatus();
-  const { t } = useTranslation("index");
   // const types = getTypes(accept);
   const [countFiles, setCountFiles] = useState(1);
   const { closeModal, isOpenModal, openModal } = useModalWindow();
@@ -92,16 +88,11 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cropFile, acceptedFiles, files]);
 
-  function toBlob(
-    canvas: HTMLCanvasElement,
+  const handleConvertToJPEG = (
+    file: any,
+    blob: Blob,
     fileType: string,
-  ): Promise<Blob | null> {
-    return new Promise((resolve) => {
-      canvas.toBlob(resolve, fileType, 0.8);
-    });
-  }
-
-  const handleConvertToJPEG = (file: any, blob: Blob, fileType: string): TFile => {
+  ): TFile => {
     const fileName = file.name;
     const newFileName = fileName.replace(/\.[^/.]+$/, ".jpeg");
     const newFile: TFile = new File([blob], newFileName, {
@@ -114,14 +105,16 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
   };
 
   const handleImagePreview = async (file: any): Promise<TFile> => {
-    const ext = (file.name ? file.name.split(".").pop() : file.path.split(".").pop()).toLowerCase();
+    const ext = (
+      file.name ? file.name.split(".").pop() : file.path.split(".").pop()
+    ).toLowerCase();
     if (ext === "heic" || ext === "heif") {
       const fileType = "image/jpeg";
       const blob = await heicTo({
         blob: file,
         type: fileType,
         quality: 0.5,
-      })
+      });
       return handleConvertToJPEG(file, blob, fileType);
     } else {
       // If not a HEIC/HEIF file, proceed as normal
@@ -130,12 +123,12 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
   };
 
   const onDrop = useCallback(
-    async (addedFiles: File[], fileRejections: FileRejection[], event: DropEvent) => {
+    async (addedFiles: File[]) => {
       if (maxFiles && countFiles > maxFiles) return;
       const { acceptedFiles } = filterDuplicatedFiles(addedFiles, files);
       setIsConvertImage(true);
       const previews = await Promise.all(
-        acceptedFiles.map(file => handleImagePreview(file)),
+        acceptedFiles.map((file) => handleImagePreview(file)),
       );
       setAcceptedFiles(previews);
       openModal();
@@ -175,7 +168,8 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
     closeModal();
   };
 
-  if (isLoading ?? isConvertImage ?? pending) return <Icon className="FileUploader-Spinner" type="Spinner"/>;
+  if (isLoading ?? isConvertImage ?? pending)
+    return <Icon className="FileUploader-Spinner" type="Spinner" />;
 
   return (
     <div className="FileUploader" data-name={rest.name}>
@@ -202,7 +196,7 @@ const FileUploaderComponent: FC<TFileUploaderProps> = ({
         showCloseIcon={false}
         theme={theme}
       >
-        {(isLoading ?? isConvertImage) && <Icon type="Spinner"/>}
+        {(isLoading ?? isConvertImage) && <Icon type="Spinner" />}
         {acceptedFiles?.[0] && (
           <ImageCropper
             error={errorImageCropper}

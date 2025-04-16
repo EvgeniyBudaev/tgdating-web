@@ -33,7 +33,7 @@ export const useSessionPageAccess = (
         type: "error",
       });
     }
-  }, [isManyRequest]);
+  }, [isManyRequest, t]);
 
   useEffect(() => {
     if (shortInfo?.isFrozen) {
@@ -48,7 +48,7 @@ export const useSessionPageAccess = (
       router.push(path);
       router.refresh();
     }
-  }, [lng, shortInfo, telegramUserId, query]);
+  }, [lng, shortInfo, telegramUserId, query, router]);
 
   useEffect(() => {
     if (!isExistUser) {
@@ -62,7 +62,7 @@ export const useSessionPageAccess = (
       router.push(path);
       router.refresh();
     }
-  }, [isExistUser, lng, query]);
+  }, [isExistUser, lng, query, router]);
 
   useEffect(() => {
     if (isUnauthorized) {
@@ -73,7 +73,7 @@ export const useSessionPageAccess = (
       router.push(path);
       router.refresh();
     }
-  }, [isUnauthorized]);
+  }, [isUnauthorized, router, lng]);
 
   useEffect(() => {
     if (shortInfo && shortInfo?.languageCode !== lng) {
@@ -88,5 +88,5 @@ export const useSessionPageAccess = (
       router.push(path);
       router.refresh();
     }
-  }, [lng, shortInfo, user, query]);
+  }, [lng, shortInfo, user, query, router]);
 };

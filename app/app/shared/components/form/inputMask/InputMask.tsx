@@ -38,7 +38,6 @@ const InputMaskComponent: FC<TInputMaskProps> = (props) => {
     mask,
     maskPlaceholder,
     onChange,
-    title,
     ...rest
   } = props;
   const [showChild, setShowChild] = useState(false);

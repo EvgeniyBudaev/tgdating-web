@@ -9,6 +9,7 @@ export function parseTranslationParams(
     const parsedData = TranslationParamsSchema.parse(data);
     return parsedData as Parameters<TFunction>;
   } catch (error) {
+    console.error(error);
     return null;
   }
 }

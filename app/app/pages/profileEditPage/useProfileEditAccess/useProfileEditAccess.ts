@@ -29,7 +29,7 @@ export const useProfileEditAccess = (props: TProfileEditPageProps) => {
         type: "error",
       });
     }
-  }, [isManyRequest]);
+  }, [isManyRequest, t]);
 
   useEffect(() => {
     if (!isExistUser) {
@@ -43,7 +43,7 @@ export const useProfileEditAccess = (props: TProfileEditPageProps) => {
       router.push(path);
       router.refresh();
     }
-  }, [isExistUser]);
+  }, [isExistUser, lng, query, router]);
 
   useEffect(() => {
     if (isFrozen) {
@@ -58,7 +58,7 @@ export const useProfileEditAccess = (props: TProfileEditPageProps) => {
       router.push(path);
       router.refresh();
     }
-  }, [isFrozen]);
+  }, [isFrozen, lng, query, telegramUserId, router]);
 
   useEffect(() => {
     if (isUnauthorized) {
@@ -69,5 +69,5 @@ export const useProfileEditAccess = (props: TProfileEditPageProps) => {
       router.push(path);
       router.refresh();
     }
-  }, [isUnauthorized]);
+  }, [isUnauthorized, lng, router]);
 };

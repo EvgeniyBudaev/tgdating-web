@@ -15,7 +15,7 @@ type TProps = {
   lng: ELanguage;
 };
 
-const RulesPageComponent: FC<TProps> = ({ lng }) => {
+const RulesPageComponent: FC<TProps> = () => {
   const router = useRouter();
 
   const handleBack = () => {

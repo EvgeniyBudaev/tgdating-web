@@ -59,7 +59,7 @@ type TResponse = {
 
 type TUseQueryURL = (props: TProps) => TResponse;
 
-export const useQueryURL: TUseQueryURL = ({ lng }) => {
+export const useQueryURL: TUseQueryURL = () => {
   const navigator = useNavigatorContext();
   const { replace } = useRouter();
   const pathname = usePathname();

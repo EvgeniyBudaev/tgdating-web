@@ -42,7 +42,7 @@ const CheckProfileExistsComponent: FC<TProps> = ({ lng, telegramUserId }) => {
       }
     };
     telegramUserId && checkExists();
-  }, [lng, telegramUserId]);
+  }, [lng, telegramUserId, router]);
 
   return <></>;
 };

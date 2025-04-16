@@ -16,7 +16,7 @@ type TProps = {
   lng: ELanguage;
 };
 
-const AgreementPageComponent: FC<TProps> = ({ lng }) => {
+const AgreementPageComponent: FC<TProps> = () => {
   const router = useRouter();
   const { t } = useTranslation("agreement");
 
@@ -250,14 +250,10 @@ const AgreementPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>
-            {t("page.text.66")}
-          </Typography>
+          <Typography>{t("page.text.66")}</Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>
-            {t("page.text.67")}
-          </Typography>
+          <Typography>{t("page.text.67")}</Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
@@ -265,61 +261,43 @@ const AgreementPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>
-            {t("page.text.69")}
-          </Typography>
+          <Typography>{t("page.text.69")}</Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>1.&nbsp;{t("page.text.70")}</Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>
-            1.1&nbsp;{t("page.text.71")}
-          </Typography>
+          <Typography>1.1&nbsp;{t("page.text.71")}</Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>
-            1.2&nbsp;{t("page.text.72")}
-          </Typography>
+          <Typography>1.2&nbsp;{t("page.text.72")}</Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>
-            1.3&nbsp;{t("page.text.73")}
-          </Typography>
+          <Typography>1.3&nbsp;{t("page.text.73")}</Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>2.&nbsp;{t("page.text.74")}</Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>
-            2.1&nbsp;{t("page.text.75")}
-          </Typography>
+          <Typography>2.1&nbsp;{t("page.text.75")}</Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>
-            2.2&nbsp;{t("page.text.76")}
-          </Typography>
+          <Typography>2.2&nbsp;{t("page.text.76")}</Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>3.&nbsp;{t("page.text.77")}</Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>
-            3.1&nbsp;{t("page.text.78")}
-          </Typography>
+          <Typography>3.1&nbsp;{t("page.text.78")}</Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>
-            3.2&nbsp;{t("page.text.79")}
-          </Typography>
+          <Typography>3.2&nbsp;{t("page.text.79")}</Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography>4.&nbsp;{t("page.text.80")}</Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>
-            4.1&nbsp;{t("page.text.81")}
-          </Typography>
+          <Typography>4.1&nbsp;{t("page.text.81")}</Typography>
         </div>
         <div className="AgreementPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
@@ -327,39 +305,25 @@ const AgreementPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>
-            {t("page.text.83")}
-          </Typography>
+          <Typography>{t("page.text.83")}</Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>
-            {t("page.text.84")}
-          </Typography>
+          <Typography>{t("page.text.84")}</Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>
-            {t("page.text.85")}
-          </Typography>
+          <Typography>{t("page.text.85")}</Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>
-            {t("page.text.86")}
-          </Typography>
+          <Typography>{t("page.text.86")}</Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>
-            {t("page.text.87")}
-          </Typography>
+          <Typography>{t("page.text.87")}</Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>
-            {t("page.text.88")}
-          </Typography>
+          <Typography>{t("page.text.88")}</Typography>
         </div>
         <div className="AgreementPage-Block">
-          <Typography>
-            {t("page.text.89")}
-          </Typography>
+          <Typography>{t("page.text.89")}</Typography>
         </div>
         <div className="AgreementPage-Control">
           <Button className="AgreementPage-Button" onClick={handleBack}>

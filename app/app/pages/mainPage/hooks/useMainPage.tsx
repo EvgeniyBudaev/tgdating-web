@@ -35,7 +35,7 @@ export const useMainPage = (props: TMainPageProps) => {
         type: "error",
       });
     }
-  }, [isManyRequest]);
+  }, [isManyRequest, t]);
 
   useEffect(() => {
     if (isCoords) {
@@ -62,7 +62,7 @@ export const useMainPage = (props: TMainPageProps) => {
         router.refresh();
       }
     }
-  }, [isCoords, isExistUser, lng, telegramUserId, query]);
+  }, [isCoords, isExistUser, lng, telegramUserId, query, router]);
 
   return { isLocationError };
 };

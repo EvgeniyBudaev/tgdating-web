@@ -57,9 +57,9 @@ const FreezeComponent: FC<TProps> = ({ lng, telegramUserId, theme }) => {
         type: "error",
       });
     }
-  }, [lng, state, telegramUserId]);
+  }, [lng, state, telegramUserId, query, router]);
 
-  const handleSubmit = (formData: FormData) => {
+  const handleSubmit = () => {
     if (isSession) {
       const formDataDto = new FormData();
       formDataDto.append(

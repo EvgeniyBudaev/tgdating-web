@@ -1,6 +1,6 @@
 import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
-import { RefinementCtx, z } from "zod";
+import { z } from "zod";
 // import { zfd } from "zod-form-data";
 import { t } from "@/app/shared/i18next";
 import {
@@ -10,7 +10,7 @@ import {
 import type { TRawCreateParams } from "@/app/shared/validation/types";
 import { parseFloatNumber } from "@/app/shared/utils";
 
-const stringPreprocess = (arg: unknown, ctx: RefinementCtx): unknown => {
+const stringPreprocess = (arg: unknown): unknown => {
   if (!arg || isEmpty(arg) || isNil(arg)) return null;
   return arg;
 };
@@ -30,7 +30,7 @@ const textOptionalSchema = (params?: TRawCreateParams) =>
 //     .optional(),
 // );
 
-const numberPreprocess = (arg: unknown, ctx: RefinementCtx): unknown => {
+const numberPreprocess = (arg: unknown): unknown => {
   if (
     !arg ||
     (typeof arg === "string" && (arg === "undefined" || arg === "null"))

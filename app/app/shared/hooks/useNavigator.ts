@@ -102,7 +102,7 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
           getLocationFromCoords({
             longitude,
             latitude,
-          }).then((r) => null);
+          }).then(() => null);
         }
       },
       (error: GeolocationPositionError) => {
@@ -134,6 +134,7 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
       isCoords: position.isCoords,
       latitude: position?.latitude,
       longitude: position?.longitude,
+      lng,
     };
   }, [lng, position]);
 };

@@ -61,6 +61,7 @@ const LikeComponent: FC<TProps> = ({ lng, profile, telegramUserId }) => {
     return canCancelLike || lastClickDate !== today;
   }, [canCancelLike, dayjs, profile?.like?.updatedAt]);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, formAction] = useActionState(
     // @ts-ignore
     canAddLike ? addLikeAction : updateLikeAction,

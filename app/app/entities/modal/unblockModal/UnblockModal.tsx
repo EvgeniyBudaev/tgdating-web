@@ -54,9 +54,9 @@ const UnblockModalComponent: FC<TProps> = ({
       router.push(path);
       router.refresh();
     }
-  }, [state]);
+  }, [state, lng, onCloseModal, query, router, telegramUserId]);
 
-  const handleSubmit = (formData: FormData) => {
+  const handleSubmit = () => {
     if (isSession && blockedTelegramUserId) {
       const formDataDto = new FormData();
       formDataDto.append(EUnblockFormFields.TelegramUserId, telegramUserId);

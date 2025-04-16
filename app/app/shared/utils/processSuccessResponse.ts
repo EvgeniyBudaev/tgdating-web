@@ -30,6 +30,7 @@ export const processSuccessResponse = async <T>(
     }
     return result;
   } catch (error) {
+    console.error(error);
     return undefined as T;
   }
 };

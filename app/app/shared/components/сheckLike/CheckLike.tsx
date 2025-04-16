@@ -23,6 +23,7 @@ type TProps = {
 const CheckLikeComponent: FC<TProps> = ({csrf, initDataCrypt, isSession, lng, telegramUserId}) => {
   const [state, formAction] = useActionState(checkLikeAction, INITIAL_FORM_STATE);
   const buttonSubmitRef = useRef<HTMLInputElement | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setLastLike] = useState<TLike | null>(null);
   const [isNewLike, setIsNewLike] = useState(false);
   const DURATION = 10000;
@@ -44,7 +45,7 @@ const CheckLikeComponent: FC<TProps> = ({csrf, initDataCrypt, isSession, lng, te
       });
       setIsNewLike(false);
     }
-  }, [lng, state, telegramUserId]);
+  }, [lng, state, telegramUserId, dayjs]);
 
   useEffect(() => {
     const intervalId = setInterval(async () => {
@@ -62,9 +63,9 @@ const CheckLikeComponent: FC<TProps> = ({csrf, initDataCrypt, isSession, lng, te
         type: "success",
       });
     }
-  }, [isNewLike]);
+  }, [isNewLike, t]);
 
-  const handleSubmit = (formData: FormData) => {
+  const handleSubmit = () => {
     if (isSession) {
       const formDataDto = new FormData();
       formDataDto.append(ECheckLikeFormFields.TelegramUserId, telegramUserId);

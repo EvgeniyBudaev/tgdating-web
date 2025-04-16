@@ -26,7 +26,7 @@ const CheckPremiumComponent: FC<TProps> = ({
     if (isSession) {
       getPremium();
     }
-  }, [isSession, telegramUserId, pathname]);
+  }, [isSession, telegramUserId, pathname, onLoad]);
 
   return <></>;
 };

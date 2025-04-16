@@ -42,7 +42,7 @@ const TextareaComponent: FC<TProps> = ({
 
   const handleChange: ChangeEventHandler<HTMLTextAreaElement> = useCallback(
     (event) => {
-      let resultValue = event.target.value;
+      const resultValue = event.target.value;
       field.onChange(resultValue);
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps

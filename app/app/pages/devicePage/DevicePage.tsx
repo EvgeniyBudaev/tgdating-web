@@ -17,7 +17,7 @@ type TProps = {
   lng: ELanguage;
 };
 
-const DevicePageComponent: FC<TProps> = (props) => {
+const DevicePageComponent: FC<TProps> = () => {
   const { theme } = useTelegram();
   const { t } = useTranslation("index");
 

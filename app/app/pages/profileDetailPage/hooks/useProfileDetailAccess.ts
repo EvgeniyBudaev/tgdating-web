@@ -33,7 +33,7 @@ export const useProfileDetailAccess = (props: TProfileDetailPageProps) => {
         type: "error",
       });
     }
-  }, [isManyRequest]);
+  }, [isManyRequest, t]);
 
   useEffect(() => {
     if (isFrozen) {
@@ -51,7 +51,7 @@ export const useProfileDetailAccess = (props: TProfileDetailPageProps) => {
       router.push(path);
       router.refresh();
     }
-  }, [isFrozen]);
+  }, [isFrozen, lng, query, router, telegramUserId, viewedTelegramUserId]);
 
   useEffect(() => {
     if (isSession && !isExistUser) {
@@ -65,7 +65,7 @@ export const useProfileDetailAccess = (props: TProfileDetailPageProps) => {
       router.push(path);
       router.refresh();
     }
-  }, [isSession, isExistUser]);
+  }, [isSession, isExistUser, lng, query, router]);
 
   useEffect(() => {
     if (isUnauthorized) {
@@ -76,7 +76,7 @@ export const useProfileDetailAccess = (props: TProfileDetailPageProps) => {
       router.push(path);
       router.refresh();
     }
-  }, [isUnauthorized]);
+  }, [isUnauthorized, lng, router]);
 
   useEffect(() => {
     if (shortInfo && shortInfo?.languageCode !== lng) {
@@ -91,5 +91,5 @@ export const useProfileDetailAccess = (props: TProfileDetailPageProps) => {
       router.push(path);
       router.refresh();
     }
-  }, [lng, shortInfo, user]);
+  }, [lng, shortInfo, user, query, router]);
 };

@@ -235,7 +235,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       router.push(path);
       router.refresh();
     }
-  }, [isEdit, lng, languageState, navigator, user, profile, state]);
+  }, [isEdit, lng, languageState, user, profile, state, query, router]);
 
   // Profile Add
   useEffect(() => {
@@ -252,7 +252,7 @@ export const useProfileAddOrEdit: TUseProfileAddOrEdit = ({
       router.push(path);
       router.refresh();
     }
-  }, [isEdit, lng, state]);
+  }, [isEdit, lng, state, languageState?.value, query, router, user?.id]);
 
   useEffect(() => {
     if (formErrors) {

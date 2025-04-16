@@ -27,6 +27,7 @@ export const useTranslatedData = <Data>(data?: string | Data): Data | null => {
     try {
       return JSON.parse(stringifiedData, reviver);
     } catch (error) {
+      console.error(error);
       return null;
     }
   }, [data, reviver]);

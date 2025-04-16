@@ -18,7 +18,6 @@ export const CheckboxComponent: FC<TCheckboxProps> = ({
   name,
   nameGroup,
   onChange,
-  theme,
 }) => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     onChange?.(event, id, nameGroup);

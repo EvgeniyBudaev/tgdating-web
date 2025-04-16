@@ -61,9 +61,9 @@ const BlockComponent: FC<TProps> = ({
         type: "error",
       });
     }
-  }, [lng, state, telegramUserId]);
+  }, [lng, state, telegramUserId, query, router]);
 
-  const handleSubmit = (formData: FormData) => {
+  const handleSubmit = () => {
     if (isSession && blockedTelegramUserId) {
       const formDataDto = new FormData();
       formDataDto.append(EBlockFormFields.TelegramUserId, telegramUserId);

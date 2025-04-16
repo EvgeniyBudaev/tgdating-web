@@ -3,14 +3,14 @@ import { useEffect, useMemo } from "react";
 import type { FieldPathValue, FieldValues } from "react-hook-form";
 import type { TUseInitFormReturn } from "@/app/shared/components/form/form/hooks/useInitForm";
 
-type TParams<T> = Record<string, FieldPathValue<FieldValues, string>>;
+type TParams = Record<string, FieldPathValue<FieldValues, string>>;
 
-type TProps<T> = {
-  defaultValues?: TParams<T>;
+type TProps = {
+  defaultValues?: TParams;
   form: TUseInitFormReturn<Record<string, FieldPathValue<FieldValues, string>>>;
 };
 
-type TUseForm = <T>(props: TProps<T>) => void;
+type TUseForm = (props: TProps) => void;
 
 export const useForm: TUseForm = (props) => {
   const { defaultValues = {}, form } = props;
@@ -22,5 +22,5 @@ export const useForm: TUseForm = (props) => {
         form.methods.setValue(name, value, { shouldDirty: true });
       });
     }
-  }, [filter]);
+  }, [filter, defaultValues, form.methods]);
 };

@@ -29,7 +29,6 @@ type TProps = {
 const CheckShortInfoComponent: FC<TProps> = ({
   isSession,
   lng,
-  navigator,
   onLoad,
   telegramUserId,
 }) => {
@@ -52,7 +51,7 @@ const CheckShortInfoComponent: FC<TProps> = ({
     if (!isNil(state?.data) && state.success && !state?.error) {
       onLoad?.(state.data);
     }
-  }, [lng, state, telegramUserId]);
+  }, [lng, state, telegramUserId, onLoad]);
 
   useEffect(() => {
     if (buttonSubmitRef.current && "click" in buttonSubmitRef.current) {
@@ -60,7 +59,7 @@ const CheckShortInfoComponent: FC<TProps> = ({
     }
   }, [isSession, telegramUserId, pathname]);
 
-  const handleSubmit = (formData: FormData) => {
+  const handleSubmit = () => {
     if (isSession) {
       const formDataDto = new FormData();
       formDataDto.append(

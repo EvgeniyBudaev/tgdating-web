@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { format } from "date-fns";
 import isNil from "lodash/isNil";
 import { createRef, Fragment, memo } from "react";
-import type { FC, SyntheticEvent } from "react";
+import type { FC } from "react";
 
 import { FORMAT_DATE } from "@/app/uikit/constants";
 import { DatePicker } from "@/app/uikit/components/datePicker";

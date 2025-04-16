@@ -40,9 +40,9 @@ export const useScrollPosition = () => {
     }
   };
 
-  const getScrollPosition = () => {
-    return sessionStorage.getItem("tg_scrollPosition");
-  };
+  // const getScrollPosition = () => {
+  //   return sessionStorage.getItem("tg_scrollPosition");
+  // };
 
   const scrollUp = () => document.body.scrollTo(0, 0);
 

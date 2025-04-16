@@ -89,7 +89,7 @@ const SettingsSidebarComponent: FC<TProps> = ({
         type: "error",
       });
     }
-  }, [lng, state, telegramUserId]);
+  }, [lng, state, telegramUserId, query, router]);
 
   const handleChangeHiddenAge = (value: boolean) => {
     if (profile?.status?.isPremium) {

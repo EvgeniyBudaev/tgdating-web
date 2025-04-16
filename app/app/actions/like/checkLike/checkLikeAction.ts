@@ -5,7 +5,6 @@ import { checkLike } from "@/app/api/like/checkLike/domain";
 import type { TCommonResponseError } from "@/app/shared/types/error";
 import { getErrorsResolver, getResponseError } from "@/app/shared/utils";
 import { checkCsrfToken } from "@/app/shared/utils/security/csrf";
-import { addBlock } from "@/app/api/block/addBlock/domain";
 
 export async function checkLikeAction(prevState: any, formData: FormData) {
   const resolver = checkLikeFormSchema.safeParse(

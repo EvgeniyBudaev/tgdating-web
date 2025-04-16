@@ -77,6 +77,7 @@ $transition: 0.3s;
     cursor: pointer;
     border-bottom: 1px solid colors.$bg_light_color;
     border-radius: constants.$border-radius-xl;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
     transition: all $transition;
 
     &:last-child {
@@ -104,7 +105,7 @@ $transition: 0.3s;
 
   &.theme-dark {
     #{$this}-MenuItem {
-      color: colors.$text_color;
+      color: colors.$bg_color;
       background: linear-gradient(
         to right,
         colors.$link_color,
@@ -116,9 +117,10 @@ $transition: 0.3s;
       &:active {
         background: linear-gradient(
           to right,
-          colors.$link_color_hover,
-          colors.$link_active_color_hover
+          colors.$secondary_bg_color,
+          colors.$bg_color
         );
+        color: colors.$link_color;
       }
     }
   }

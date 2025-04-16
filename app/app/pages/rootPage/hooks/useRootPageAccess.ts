@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { TRootPageProps } from "@/app/pages/rootPage/types";
 import { ERoutes } from "@/app/shared/enums";
 import { useNavigator, useStore, useTelegram } from "@/app/shared/hooks";
@@ -19,17 +19,19 @@ export const useRootPageAccess = (props: TRootPageProps) => {
   const countryName = navigator?.countryName;
   const city = navigator?.city;
 
-  const query = {
-    ...(navigator?.latitude
-      ? { latitude: navigator?.latitude.toString() }
-      : {}),
-    ...(navigator?.longitude
-      ? { longitude: navigator?.longitude.toString() }
-      : {}),
-    ...(countryCode && { countryCode: countryCode }),
-    ...(countryName && { countryName: countryName }),
-    ...(city && { city: city }),
-  };
+  const query = useMemo(() => {
+    return {
+      ...(navigator?.latitude
+        ? { latitude: navigator?.latitude.toString() }
+        : {}),
+      ...(navigator?.longitude
+        ? { longitude: navigator?.longitude.toString() }
+        : {}),
+      ...(countryCode && { countryCode: countryCode }),
+      ...(countryName && { countryName: countryName }),
+      ...(city && { city: city }),
+    };
+  }, [navigator, city, countryCode, countryName]);
 
   const isCoords = navigator?.latitude && navigator?.longitude;
 
@@ -72,7 +74,17 @@ export const useRootPageAccess = (props: TRootPageProps) => {
         router.refresh();
       }
     }
-  }, [lng, user, isCoords, navigator, telegramLanguageCode, query]);
+  }, [
+    lng,
+    user,
+    isCoords,
+    navigator,
+    telegramLanguageCode,
+    query,
+    isLocationError,
+    router,
+    updateNavigator,
+  ]);
 
   return { isLocationError };
 };

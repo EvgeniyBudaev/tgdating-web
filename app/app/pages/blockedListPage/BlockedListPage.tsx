@@ -8,7 +8,6 @@ import { useTranslation } from "@/app/i18n/client";
 import { BlockedListImage } from "@/app/pages/blockedListPage/blockedListImage";
 import { Container } from "@/app/shared/components/container";
 import { SidebarContentHeader } from "@/app/shared/components/sidebarContent/sidebarContentHeader";
-import { useShortInfoContext } from "@/app/shared/context";
 import { ELanguage } from "@/app/shared/enums";
 import { useTelegram } from "@/app/shared/hooks";
 import { Typography } from "@/app/uikit/components/typography";
@@ -26,7 +25,6 @@ const BlockedListPageComponent: FC<TProps> = ({
   lng,
   telegramUserId,
 }) => {
-  const shortInfo = useShortInfoContext();
   const { theme } = useTelegram();
   const { t } = useTranslation("index");
 
@@ -52,7 +50,7 @@ const BlockedListPageComponent: FC<TProps> = ({
         {!isEmpty(blockedList?.content) && (
           <>
             <div className="BlockedListPage-List">
-              {(blockedList?.content ?? []).map((item, index) => {
+              {(blockedList?.content ?? []).map((item) => {
                 // const isBlur = !shortInfo?.isPremium;
                 const isBlur = false;
                 return (

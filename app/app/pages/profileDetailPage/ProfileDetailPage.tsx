@@ -46,7 +46,7 @@ const ProfileDetailPageComponent: FC<TProfileDetailPageProps> = (props) => {
       t,
       measurement: shortInfo?.measurement,
     });
-  }, [profile?.navigator, t]);
+  }, [profile?.navigator, t, shortInfo?.measurement]);
 
   const handleOpenSidebar = () => {
     setIsSidebarOpen(true);

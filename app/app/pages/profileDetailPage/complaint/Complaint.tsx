@@ -63,7 +63,11 @@ const ComplaintComponent: FC<TProps> = ({
   const handleChangeComplaint = (event: ChangeEvent<HTMLInputElement>) => {
     const selectedComplaint = event.target.value as EComplaint;
     setComplaint(selectedComplaint);
-    if (selectedComplaint === EComplaint.Other && inputRef?.current && "focus" in inputRef.current) {
+    if (
+      selectedComplaint === EComplaint.Other &&
+      inputRef?.current &&
+      "focus" in inputRef.current
+    ) {
       inputRef.current.focus();
     }
   };
@@ -95,9 +99,9 @@ const ComplaintComponent: FC<TProps> = ({
         type: "error",
       });
     }
-  }, [lng, state, telegramUserId]);
+  }, [lng, state, telegramUserId, query, router]);
 
-  const handleSubmit = (formData: FormData) => {
+  const handleSubmit = () => {
     if (isSession && criminalTelegramUserId && complaint) {
       const formDataDto = new FormData();
       formDataDto.append(EComplaintFormFields.TelegramUserId, telegramUserId);

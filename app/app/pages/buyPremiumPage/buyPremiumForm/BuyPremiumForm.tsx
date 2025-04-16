@@ -32,7 +32,7 @@ const BuyPremiumFormComponent: FC<TProps> = ({
 }) => {
   const csrf = useAuthenticityTokenContext();
   const router = useRouter();
-  const { initDataCrypt, isSession, theme } = useTelegram();
+  const { initDataCrypt, isSession } = useTelegram();
   const { t } = useTranslation("index");
 
   const [state, formAction] = useActionState(
@@ -50,7 +50,7 @@ const BuyPremiumFormComponent: FC<TProps> = ({
       router.push(path);
       router.refresh();
     }
-  }, [lng, state?.data, state?.error, state.success, telegramUserId]);
+  }, [lng, state?.data, state?.error, state.success, telegramUserId, router]);
 
   const handleSubmit = () => {
     if (isSession && tariff) {

@@ -23,7 +23,6 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(
       hidden,
       isDisabled = false,
       isFocused: isInputFocused,
-      isNumeric = false,
       isReadOnly,
       label,
       maxLength,

@@ -73,20 +73,16 @@ const TooltipV2Component: FC<TTooltipProps> = ({
     };
     document.addEventListener("scroll", listener);
     return () => document.removeEventListener("scroll", listener);
-  }, []);
+  }, [onClose]);
 
   if (modifiers) {
     popperModifiers = popperModifiers.concat(modifiers);
   }
 
-  const { styles, attributes, state } = usePopper(
-    referenceElement,
-    popperElement,
-    {
-      modifiers: popperModifiers,
-      placement,
-    },
-  );
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+    modifiers: popperModifiers,
+    placement,
+  });
 
   useEffect(() => {
     if (!visible)
@@ -109,7 +105,7 @@ const TooltipV2Component: FC<TTooltipProps> = ({
   const handleMouseLeave = () => {
     const newTimer = setTimeout(() => {
       clearTimeout(showTimer);
-      setShowTimer((prev) => undefined);
+      setShowTimer(() => undefined);
       setVisible(false);
       onClose?.();
     }, timerDelay);

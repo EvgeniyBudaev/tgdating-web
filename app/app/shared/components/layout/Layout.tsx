@@ -12,7 +12,7 @@ import {
 } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import type { TProfileShortInfo } from "@/app/api/profile/getProfileShortInfo/types";
-import { CheckLike } from "@/app/shared/components/сheckLike";
+// import { CheckLike } from "@/app/shared/components/сheckLike";
 import { CheckShortInfo } from "@/app/shared/components/checkShortInfo";
 import { Footer } from "@/app/shared/components/footer";
 import {
@@ -37,7 +37,12 @@ const LayoutComponent: FC<TProps> = ({ children, lng, csrfToken }) => {
   const { isValidBrowser } = useBrowser();
   const pathname = usePathname();
   const navigator = useStore((state) => state.navigator);
-  const { initDataCrypt, isSession, user, theme } = useTelegram();
+  const {
+    // initDataCrypt,
+    isSession,
+    user,
+    theme,
+  } = useTelegram();
   const [shortInfo, setShortInfo] = useState<TProfileShortInfo | null>(null);
 
   useEffect(() => {

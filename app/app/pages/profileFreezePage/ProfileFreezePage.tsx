@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import isNil from "lodash/isNil";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { type FC, memo, useActionState, useEffect } from "react";
 import { EProfileRestoreFormFields } from "@/app/actions/profile/restoreProfile/enums";
 import { restoreProfileAction } from "@/app/actions/profile/restoreProfile/restoreProfileAction";
@@ -10,16 +10,8 @@ import { useTranslation } from "@/app/i18n/client";
 import { useProfileFreezeAccess } from "@/app/pages/profileFreezePage/hooks";
 import type { TProfileFreezePageProps } from "@/app/pages/profileFreezePage/types";
 import { Loader } from "@/app/shared/components/loader";
-import {
-  CITY,
-  COUNTRY_CODE,
-  COUNTRY_NAME,
-  INITIAL_FORM_STATE,
-} from "@/app/shared/constants";
-import {
-  useAuthenticityTokenContext,
-  useNavigatorContext,
-} from "@/app/shared/context";
+import { INITIAL_FORM_STATE } from "@/app/shared/constants";
+import { useAuthenticityTokenContext } from "@/app/shared/context";
 import { ERoutes } from "@/app/shared/enums";
 import { useNavigatorQuery, useTelegram } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
@@ -63,9 +55,9 @@ const ProfileFreezePageComponent: FC<TProfileFreezePageProps> = (props) => {
       router.push(path);
       router.refresh();
     }
-  }, [lng, state]);
+  }, [lng, state, query, router, telegramUserId]);
 
-  const handleSubmit = (formData: FormData) => {
+  const handleSubmit = () => {
     if (isSession) {
       const formDataDto = new FormData();
       formDataDto.append(

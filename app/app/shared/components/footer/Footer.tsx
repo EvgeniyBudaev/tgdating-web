@@ -33,10 +33,13 @@ const FooterComponent: FC<TProps> = ({
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const params = new URLSearchParams(searchParams.toString());
   const { hasScroll, saveScrollPosition, scrollUp } = useScrollPosition();
   const { t } = useTranslation("index");
   const telegramUserId = (user?.id ?? "").toString();
+
+  const params = useMemo(() => {
+    return new URLSearchParams(searchParams.toString());
+  }, [searchParams]);
 
   const pathOptions = useMemo(() => {
     const pathProfileAdd = createPath(
@@ -137,7 +140,7 @@ const FooterComponent: FC<TProps> = ({
       telegramUserIdListPath,
       profileDetailPath,
     };
-  }, [lng, params, pathname, telegramUserId, user]);
+  }, [lng, params, pathname, telegramUserId, query]);
 
   const isScrollUpShowButton =
     hasScroll &&

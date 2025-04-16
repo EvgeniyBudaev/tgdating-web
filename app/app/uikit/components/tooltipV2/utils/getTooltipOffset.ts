@@ -5,10 +5,7 @@ type TGetTooltipOffsetParams = {
   referenceElement?: HTMLDivElement | null;
 };
 
-export const getTooltipOffset = ({
-  placement,
-  referenceElement,
-}: TGetTooltipOffsetParams) => {
+export const getTooltipOffset = ({ placement }: TGetTooltipOffsetParams) => {
   if (placement === "bottom" || placement === "top") {
     return [0, 0];
   } else {

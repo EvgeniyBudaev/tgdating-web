@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { memo, type FC, useState, FocusEvent } from "react";
+import { memo, type FC, useState } from "react";
 import { Icon } from "@/app/uikit/components/icon";
 import type { TInputDateProps } from "@/app/uikit/components/inputDate/types";
 import { Typography } from "@/app/uikit/components/typography";
@@ -22,11 +22,11 @@ const InputDateComponent: FC<TInputDateProps> = (props) => {
   } = props;
   const [isFocused, setIsFocused] = useState<boolean | undefined>(false);
 
-  const onBlurCallback = (event: FocusEvent<HTMLInputElement>) => {
+  const onBlurCallback = () => {
     setIsFocused(false);
   };
 
-  const onFocusCallback = (event: FocusEvent<HTMLInputElement>) => {
+  const onFocusCallback = () => {
     if (!isFocused) {
       setIsFocused(true);
     }

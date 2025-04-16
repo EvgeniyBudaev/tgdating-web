@@ -14,11 +14,11 @@ export const useDropDownContext = (): TDropDownState | null => {
 
 type TProps = {
   isCanClickOutside?: boolean;
-}
+};
 
 type TUseDropDown = (props: TProps) => TDropDownState;
 
-export const useDropDown: TUseDropDown = ({isCanClickOutside}) => {
+export const useDropDown: TUseDropDown = ({ isCanClickOutside }) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const refButtonDropDown = useRef<HTMLDivElement>(null);
   const refPanelDropDown = useRef<HTMLDivElement>(null);
@@ -54,7 +54,7 @@ export const useDropDown: TUseDropDown = ({isCanClickOutside}) => {
         }
       }
     },
-    [isDropDownOpen],
+    [isCanClickOutside, isDropDownOpen],
   );
 
   const handleScroll = useCallback(() => {

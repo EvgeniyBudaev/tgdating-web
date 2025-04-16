@@ -17,7 +17,7 @@ type TProps = {
   lng: ELanguage;
 };
 
-const InvalidBrowserPageComponent: FC<TProps> = (props) => {
+const InvalidBrowserPageComponent: FC<TProps> = () => {
   const { theme } = useTelegram();
   const { t } = useTranslation("index");
 

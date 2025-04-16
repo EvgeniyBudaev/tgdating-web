@@ -32,7 +32,7 @@ const ProfileBlockedPageComponent: FC<TProps> = ({ isBlocked, lng }) => {
       router.push(path);
       router.refresh();
     }
-  }, [isBlocked]);
+  }, [isBlocked, lng, query, router, user?.id]);
 
   return (
     <div className="ProfileBlockedPage">

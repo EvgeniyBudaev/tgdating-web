@@ -91,7 +91,7 @@ const DropDownPanel: FC<TDropDownPanelProps> = ({
     if (!isNil(isOpen) && !isOpen) {
       dropDownState?.onClose?.();
     }
-  }, [isOpen]);
+  }, [dropDownState, isOpen]);
 
   return (
     <CSSTransition

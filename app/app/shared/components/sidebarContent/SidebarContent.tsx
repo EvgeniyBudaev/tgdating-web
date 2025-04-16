@@ -30,7 +30,6 @@ type TProps = {
 };
 
 const SidebarContentComponent: FC<TProps> = ({
-  children,
   classes,
   onSave,
   options,

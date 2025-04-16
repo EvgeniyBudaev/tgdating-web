@@ -18,7 +18,6 @@ const FormComponent = <T extends FieldValues>({
   form,
   handleSubmit,
   id,
-  method = "GET",
   noValidate,
   onChange,
   style,
@@ -43,7 +42,7 @@ const FormComponent = <T extends FieldValues>({
   }, [form.methods, onChange, csrf]);
 
   const onSubmit = useCallback(() => {
-    let preparedData: TSubmitData<T> = {
+    const preparedData: TSubmitData<T> = {
       csrf,
       ...(omitEmptyFields(form.methods.getValues()) as T),
     };

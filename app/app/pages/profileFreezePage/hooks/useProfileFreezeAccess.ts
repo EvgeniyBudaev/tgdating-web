@@ -20,5 +20,5 @@ export const useProfileFreezeAccess = (props: TProfileFreezePageProps) => {
       router.push(path);
       router.refresh();
     }
-  }, [isFrozen]);
+  }, [isFrozen, lng, telegramUserId, router]);
 };

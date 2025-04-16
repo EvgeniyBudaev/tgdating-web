@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { type FC, memo } from "react";
-import {useTranslation} from "@/app/i18n/client";
+import { useTranslation } from "@/app/i18n/client";
 import { Container } from "@/app/shared/components/container";
 import { ELanguage } from "@/app/shared/enums";
 import { Button } from "@/app/uikit/components/button";
@@ -16,7 +16,7 @@ type TProps = {
   lng: ELanguage;
 };
 
-const PolicyPageComponent: FC<TProps> = ({ lng }) => {
+const PolicyPageComponent: FC<TProps> = () => {
   const router = useRouter();
   const { t } = useTranslation("policy");
 
@@ -38,39 +38,25 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.3")}
-          </Typography>
+          <Typography>{t("page.text.3")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.4")}
-          </Typography>
+          <Typography>{t("page.text.4")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.5")}
-          </Typography>
+          <Typography>{t("page.text.5")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.6")}
-          </Typography>
+          <Typography>{t("page.text.6")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.7")}
-          </Typography>
+          <Typography>{t("page.text.7")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.8")}
-          </Typography>
+          <Typography>{t("page.text.8")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.9")}
-          </Typography>
+          <Typography>{t("page.text.9")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
@@ -78,19 +64,13 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.11")}
-          </Typography>
+          <Typography>{t("page.text.11")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.12")}
-          </Typography>
+          <Typography>{t("page.text.12")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            1.&nbsp;{t("page.text.13")}
-          </Typography>
+          <Typography>1.&nbsp;{t("page.text.13")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
@@ -98,14 +78,10 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            2.1&nbsp;{t("page.text.15")}
-          </Typography>
+          <Typography>2.1&nbsp;{t("page.text.15")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            2.2&nbsp;{t("page.text.16")}
-          </Typography>
+          <Typography>2.2&nbsp;{t("page.text.16")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
@@ -118,14 +94,10 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.19")}
-          </Typography>
+          <Typography>{t("page.text.19")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.20")}
-          </Typography>
+          <Typography>{t("page.text.20")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
@@ -133,9 +105,7 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.22")}
-          </Typography>
+          <Typography>{t("page.text.22")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
@@ -143,9 +113,7 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.24")}
-          </Typography>
+          <Typography>{t("page.text.24")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
@@ -153,9 +121,7 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.26")}
-          </Typography>
+          <Typography>{t("page.text.26")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
@@ -163,9 +129,7 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.28")}
-          </Typography>
+          <Typography>{t("page.text.28")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
@@ -173,9 +137,7 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.30")}
-          </Typography>
+          <Typography>{t("page.text.30")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
@@ -183,42 +145,28 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.32")}
-          </Typography>
+          <Typography>{t("page.text.32")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.33")}
-          </Typography>
+          <Typography>{t("page.text.33")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>1.&nbsp;{t("page.text.34")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            2.&nbsp;{t("page.text.35")}
-          </Typography>
+          <Typography>2.&nbsp;{t("page.text.35")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            3.&nbsp;{t("page.text.36")}
-          </Typography>
+          <Typography>3.&nbsp;{t("page.text.36")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.37")}
-          </Typography>
+          <Typography>{t("page.text.37")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.38")}
-          </Typography>
+          <Typography>{t("page.text.38")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.39")}
-          </Typography>
+          <Typography>{t("page.text.39")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
@@ -226,67 +174,43 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.41")}
-          </Typography>
+          <Typography>{t("page.text.41")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            1.&nbsp;{t("page.text.42")}
-          </Typography>
+          <Typography>1.&nbsp;{t("page.text.42")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            2.&nbsp;{t("page.text.43")}
-          </Typography>
+          <Typography>2.&nbsp;{t("page.text.43")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>3.&nbsp;{t("page.text.44")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            3.1&nbsp;{t("page.text.45")}
-          </Typography>
+          <Typography>3.1&nbsp;{t("page.text.45")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            3.2&nbsp;{t("page.text.46")}
-          </Typography>
+          <Typography>3.2&nbsp;{t("page.text.46")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            3.3&nbsp;{t("page.text.47")}
-          </Typography>
+          <Typography>3.3&nbsp;{t("page.text.47")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            4.&nbsp;{t("page.text.48")}
-          </Typography>
+          <Typography>4.&nbsp;{t("page.text.48")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            5.&nbsp;{t("page.text.49")}
-          </Typography>
+          <Typography>5.&nbsp;{t("page.text.49")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            6.&nbsp;{t("page.text.50")}
-          </Typography>
+          <Typography>6.&nbsp;{t("page.text.50")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            7.&nbsp;{t("page.text.51")}
-          </Typography>
+          <Typography>7.&nbsp;{t("page.text.51")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            8.&nbsp;{t("page.text.52")}
-          </Typography>
+          <Typography>8.&nbsp;{t("page.text.52")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            9.&nbsp;{t("page.text.53")}
-          </Typography>
+          <Typography>9.&nbsp;{t("page.text.53")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
@@ -294,53 +218,37 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.55")}
-          </Typography>
+          <Typography>{t("page.text.55")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>1.&nbsp;{t("page.text.56")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            1.1&nbsp;{t("page.text.57")}
-          </Typography>
+          <Typography>1.1&nbsp;{t("page.text.57")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            2.&nbsp;{t("page.text.58")}
-          </Typography>
+          <Typography>2.&nbsp;{t("page.text.58")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            2.1&nbsp;{t("page.text.59")}
-          </Typography>
+          <Typography>2.1&nbsp;{t("page.text.59")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            2.2&nbsp;{t("page.text.60")}
-          </Typography>
+          <Typography>2.2&nbsp;{t("page.text.60")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>3.&nbsp;{t("page.text.61")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            3.1&nbsp;{t("page.text.62")}
-          </Typography>
+          <Typography>3.1&nbsp;{t("page.text.62")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>4.&nbsp;{t("page.text.63")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            4.1&nbsp;{t("page.text.64")}
-          </Typography>
+          <Typography>4.1&nbsp;{t("page.text.64")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            4.2&nbsp;{t("page.text.65")}
-          </Typography>
+          <Typography>4.2&nbsp;{t("page.text.65")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
@@ -348,63 +256,43 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.67")}
-          </Typography>
+          <Typography>{t("page.text.67")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.68")}
-          </Typography>
+          <Typography>{t("page.text.68")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>1.&nbsp;{t("page.text.69")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            1.1&nbsp;{t("page.text.70")}
-          </Typography>
+          <Typography>1.1&nbsp;{t("page.text.70")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>2.&nbsp;{t("page.text.71")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            2.1&nbsp;{t("page.text.72")}
-          </Typography>
+          <Typography>2.1&nbsp;{t("page.text.72")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            3.&nbsp;{t("page.text.73")}
-          </Typography>
+          <Typography>3.&nbsp;{t("page.text.73")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            3.1&nbsp;{t("page.text.74")}
-          </Typography>
+          <Typography>3.1&nbsp;{t("page.text.74")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>4.&nbsp;{t("page.text.75")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            4.1&nbsp;{t("page.text.76")}
-          </Typography>
+          <Typography>4.1&nbsp;{t("page.text.76")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            4.2&nbsp;{t("page.text.77")}
-          </Typography>
+          <Typography>4.2&nbsp;{t("page.text.77")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            4.2.1&nbsp;{t("page.text.78")}
-          </Typography>
+          <Typography>4.2.1&nbsp;{t("page.text.78")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            4.2.2&nbsp;{t("page.text.79")}
-          </Typography>
+          <Typography>4.2.2&nbsp;{t("page.text.79")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
@@ -415,29 +303,19 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
           <Typography>{t("page.text.81")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            1.&nbsp;{t("page.text.82")}
-          </Typography>
+          <Typography>1.&nbsp;{t("page.text.82")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            2.&nbsp;{t("page.text.83")}
-          </Typography>
+          <Typography>2.&nbsp;{t("page.text.83")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            3.&nbsp;{t("page.text.84")}
-          </Typography>
+          <Typography>3.&nbsp;{t("page.text.84")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            4.&nbsp;{t("page.text.85")}
-          </Typography>
+          <Typography>4.&nbsp;{t("page.text.85")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            5.&nbsp;{t("page.text.86")}
-          </Typography>
+          <Typography>5.&nbsp;{t("page.text.86")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
@@ -445,34 +323,22 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.88")}
-          </Typography>
+          <Typography>{t("page.text.88")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            1.&nbsp;{t("page.text.89")}
-          </Typography>
+          <Typography>1.&nbsp;{t("page.text.89")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            2.&nbsp;{t("page.text.90")}
-          </Typography>
+          <Typography>2.&nbsp;{t("page.text.90")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            3.&nbsp;{t("page.text.91")}
-          </Typography>
+          <Typography>3.&nbsp;{t("page.text.91")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            4.&nbsp;{t("page.text.92")}
-          </Typography>
+          <Typography>4.&nbsp;{t("page.text.92")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.93")}
-          </Typography>
+          <Typography>{t("page.text.93")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
@@ -480,14 +346,10 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.95")}
-          </Typography>
+          <Typography>{t("page.text.95")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.96")}
-          </Typography>
+          <Typography>{t("page.text.96")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
@@ -495,17 +357,13 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.98")}
-          </Typography>
+          <Typography>{t("page.text.98")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography>{t("page.text.99")}</Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.100")}
-          </Typography>
+          <Typography>{t("page.text.100")}</Typography>
         </div>
         <div className="PolicyPage-Block">
           <Typography variant={ETypographyVariant.TextB3Bold}>
@@ -513,9 +371,7 @@ const PolicyPageComponent: FC<TProps> = ({ lng }) => {
           </Typography>
         </div>
         <div className="PolicyPage-Block">
-          <Typography>
-            {t("page.text.102")}
-          </Typography>
+          <Typography>{t("page.text.102")}</Typography>
         </div>
         <div className="PolicyPage-Control">
           <Button className="PolicyPage-Button" onClick={handleBack}>

@@ -11,13 +11,13 @@ import { DEFAULT_AGE } from "@/app/uikit/constants";
 const DatePickerComponent: FC<TDatePickerProps> = (props) => {
   const { locale, onChange, value } = props;
   const currentDate = new Date();
-  let initialDate = new Date();
+  const initialDate = new Date();
   initialDate.setFullYear(currentDate.getFullYear() - DEFAULT_AGE);
 
-  let initialMaxDate = new Date();
+  const initialMaxDate = new Date();
   initialMaxDate.setFullYear(currentDate.getFullYear() - DEFAULT_AGE_FROM);
 
-  let initialMinDate = new Date();
+  const initialMinDate = new Date();
   initialMinDate.setFullYear(currentDate.getFullYear() - DEFAULT_AGE_TO);
 
   return (

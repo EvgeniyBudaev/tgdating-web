@@ -16,7 +16,6 @@ const SidebarComponent = forwardRef(
       className,
       dataTestId = "uikit__sidebar",
       isActive = false,
-      onClose,
       theme,
       transition,
     }: TSidebarProps,

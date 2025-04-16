@@ -26,6 +26,7 @@ export function getResponseError(
     }
     return responseError;
   } catch (error) {
+    console.error(error);
     return { message: defaultMessage };
   }
 }

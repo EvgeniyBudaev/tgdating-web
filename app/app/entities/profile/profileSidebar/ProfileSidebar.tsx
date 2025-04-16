@@ -9,17 +9,13 @@ import { Block } from "@/app/pages/profileDetailPage/block";
 import { Complaint } from "@/app/pages/profileDetailPage/complaint";
 import { Delete } from "@/app/pages/profileDetailPage/delete";
 import { Freeze } from "@/app/pages/profileDetailPage/freeze";
-import { Settings } from "@/app/pages/profileDetailPage/settings";
 import { SidebarContentControls } from "@/app/shared/components/sidebarContent/sidebarContentControls";
 import { SidebarContentHeader } from "@/app/shared/components/sidebarContent/sidebarContentHeader";
 import { SidebarContentList } from "@/app/shared/components/sidebarContent/sidebarContentList";
 import { SidebarContentListItem } from "@/app/shared/components/sidebarContent/sidebarContentListItem";
-import { useShortInfoContext } from "@/app/shared/context";
 import { ELanguage, ERoutes } from "@/app/shared/enums";
 import { useNavigatorQuery } from "@/app/shared/hooks";
 import { createPath } from "@/app/shared/utils";
-import { DateTime } from "@/app/uikit/components/dateTime";
-import { Icon } from "@/app/uikit/components/icon";
 import { Sidebar } from "@/app/uikit/components/sidebar";
 import { Typography } from "@/app/uikit/components/typography";
 import { ETheme } from "@/app/uikit/enums/theme";
@@ -49,25 +45,25 @@ const ProfileSidebarComponent = forwardRef(
     ref: ForwardedRef<HTMLDivElement>,
   ): JSX.Element => {
     const { query } = useNavigatorQuery();
-    const shortInfo = useShortInfoContext();
+    // const shortInfo = useShortInfoContext();
     const { t } = useTranslation("index");
     const cancelButtonTitle = t("common.actions.cancel");
     const optionsTitle = t("common.titles.options");
     const router = useRouter();
 
-    const handleRedirectBuyPremium = () => {
-      const path = createPath(
-        {
-          route: ERoutes.BuyPremium,
-          params: { telegramUserId: profile?.telegramUserId ?? "" },
-          lng,
-        },
-        query,
-      );
-      onCloseSidebar?.();
-      router.push(path);
-      router.refresh();
-    };
+    // const handleRedirectBuyPremium = () => {
+    //   const path = createPath(
+    //     {
+    //       route: ERoutes.BuyPremium,
+    //       params: { telegramUserId: profile?.telegramUserId ?? "" },
+    //       lng,
+    //     },
+    //     query,
+    //   );
+    //   onCloseSidebar?.();
+    //   router.push(path);
+    //   router.refresh();
+    // };
 
     const handleRedirectEditProfile = () => {
       const path = createPath(

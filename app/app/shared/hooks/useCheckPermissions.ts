@@ -57,5 +57,5 @@ export const useCheckPermissions: TUseCheckPermissions = (props) => {
       }
     };
     telegramUserId && checkExists();
-  }, [lng, telegramUserId]);
+  }, [lng, telegramUserId, pathname, query, router]);
 };

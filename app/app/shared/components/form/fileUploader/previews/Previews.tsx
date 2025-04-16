@@ -48,10 +48,8 @@ const PreviewsComponent: FC<TProps> = ({
   lng,
   maxFiles,
   multiple,
-  onAddFile,
   onDeleteFile,
   onDrop,
-  onLoad,
   theme,
   ...rest
 }) => {

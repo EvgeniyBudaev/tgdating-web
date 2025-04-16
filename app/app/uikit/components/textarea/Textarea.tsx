@@ -27,7 +27,6 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, ITextareaProps>(
       name,
       maxLength,
       theme,
-      type,
       onBlur,
       onChange,
       onFocus,

@@ -19,7 +19,7 @@ type TProps = {
   theme?: ETheme;
 };
 
-const ImageListComponent: FC<TProps> = ({ defaultImages, lng, theme }) => {
+const ImageListComponent: FC<TProps> = ({ defaultImages, theme }) => {
   const csrf = useAuthenticityTokenContext();
   const { t } = useTranslation("index");
   const { initDataCrypt } = useTelegram();

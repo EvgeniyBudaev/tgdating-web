@@ -72,6 +72,7 @@ const SearchFormSidebarComponent: FC<TProps> = ({
     defaultAgeRangeFrom,
     defaultAgeRangeTo,
   ]);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, formAction] = useActionState(
     updateFilterAction,
     INITIAL_FORM_STATE,
@@ -81,7 +82,7 @@ const SearchFormSidebarComponent: FC<TProps> = ({
     return getDistanceByLocale(lng, isMetric).find(
       (item) => item.value === profileShortInfo?.filter?.distance,
     );
-  }, [lng, profileShortInfo?.filter?.distance]);
+  }, [lng, profileShortInfo?.filter?.distance, isMetric]);
 
   const [distanceState, setDistanceState] = useState<TSelectOption | undefined>(
     distanceDefault,
@@ -106,7 +107,9 @@ const SearchFormSidebarComponent: FC<TProps> = ({
   const ageRangeValueTo = Array.isArray(ageRange)
     ? ageRange[1].toString()
     : ageRange.toString();
-  const distance = distanceState?.value ? Number(distanceState.value) : DEFAULT_DISTANCE;
+  const distance = distanceState?.value
+    ? Number(distanceState.value)
+    : DEFAULT_DISTANCE;
   const searchGender =
     (searchGenderState?.value ?? "").toString() ?? DEFAULT_SEARCH_GENDER;
 
