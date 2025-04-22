@@ -12,6 +12,7 @@ type TPosition = {
   isCoords: boolean;
   latitude?: number;
   longitude?: number;
+  getFromNavigator?: () => void;
 };
 
 export type TUseNavigatorResponse = TPosition;
@@ -35,9 +36,9 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
   });
 
   const getLocationFromCoords = async ({
-    longitude,
-    latitude,
-  }: {
+                                         longitude,
+                                         latitude,
+                                       }: {
     longitude?: number;
     latitude?: number;
   }) => {
@@ -135,6 +136,7 @@ export const useNavigator: TUseNavigator = ({ lng }) => {
       latitude: position?.latitude,
       longitude: position?.longitude,
       lng,
+      getFromNavigator,
     };
   }, [lng, position]);
 };
