@@ -16,6 +16,7 @@
     "@hookform/resolvers": "^3.9.1",
     "@mona-health/react-input-mask": "^3.0.3",
     "@popperjs/core": "^2.11.8",
+    "@telegram-apps/sdk": "^3.8.0",
     "@twa-dev/sdk": "^8.0.2",
     "@twa-dev/types": "^8.0.2",
     "@tx666/masonry": "^0.1.0",

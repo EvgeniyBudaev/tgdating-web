@@ -1,22 +1,26 @@
-"use client";
+import { headers } from "next/headers";
+import { userAgentFromString } from "next/server";
+import { RootPage } from "@/app/pages/rootPage";
+import { ELanguage } from "@/app/shared/enums";
 
-import { type FC, memo } from "react";
-import type { TRootPageProps } from "@/app/pages/rootPage/types";
-import "./RootPage.scss";
-import {useNavigator} from "@/app/shared/hooks";
+export const dynamic = "force-dynamic";
 
-const RootPageComponent: FC<TRootPageProps> = (props) => {
-  const navigator = useNavigator({ lng: props.lng });
+type TParams = Promise<{
+  lng: string;
+}>;
+
+export default async function RootRoute({ params }: { params: TParams }) {
+  const { lng } = await params;
+  const language = lng as ELanguage;
+
+  const headersList = await headers();
+  const userAgent = headersList.get("user-agent");
+  const { device } = userAgentFromString(userAgent || undefined);
+  const isMobile = device.type === "mobile";
+
   return (
-    <div>
-      <div>navigator: {JSON.stringify(navigator, null, 2)}</div>
-      <div>
-        <button onClick={navigator.getFromNavigator}>request location from navigator</button>
-      </div>
-    </div>
-  )
-};
-
-RootPageComponent.displayName = "RootPage";
-
-export const RootPage = memo(RootPageComponent);
+    <main>
+      <RootPage isMobile={isMobile} lng={language} />
+    </main>
+  );
+}
